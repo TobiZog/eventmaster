@@ -1,7 +1,9 @@
 import express from 'express'
 import cors from 'cors'
 import bodyParser from 'body-parser'
-import { routes } from './routes/routes'
+import { api } from './routes/api.routes'
+import { categories } from './routes/categories.routes'
+import { startDatabase } from './database'
 
 const app = express()
 const port = 3000
@@ -12,8 +14,12 @@ app.use(cors())
 // Process JSON parameter
 app.use(bodyParser.json())
 
-// Use the app routes
-routes(app)
+// Create database and tables
+startDatabase()
+
+// Routes
+app.use("/api", api)
+app.use("/categories", categories)
 
 // Start server
 app.listen(port, () => {

@@ -6,6 +6,8 @@
     "isolatedModules": false,
     "outDir": "build/dist",
     "esModuleInterop": true,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
     "paths": {
       "@/*": ["./src/*"]
     }

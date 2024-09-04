@@ -31,3 +31,4 @@ coverage
 
 # Build and package files/folders
 build
+*.sqlite

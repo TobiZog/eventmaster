@@ -22,6 +22,10 @@
     "concurrently": "^8.2.2",
     "cors": "^2.8.5",
     "express": "^4.19.2",
+    "reflect-metadata": "^0.2.2",
+    "sequelize": "^6.37.3",
+    "sequelize-typescript": "^2.1.6",
+    "sqlite3": "^5.1.7",
     "vue": "^3.4.29",
     "vuetify": "^3.7.1",
     "wait-on": "^8.0.0"
