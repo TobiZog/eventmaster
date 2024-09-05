@@ -48,7 +48,13 @@ requestAllCategories()
 
     <v-main>
       <!-- Here changes the router the content -->
-      <router-view></router-view>
+      <v-container>
+        <v-row>
+          <v-col>
+            <router-view></router-view>
+          </v-col>
+        </v-row>
+      </v-container>
     </v-main>
   </v-app>
 </template>

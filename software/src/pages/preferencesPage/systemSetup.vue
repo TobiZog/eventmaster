@@ -20,7 +20,7 @@ function resetSettings() {
 </script>
 
 <template>
-  <v-card title="System Setup" prepend-icon="mdi-engine">
+  <v-card title="System Setup" prepend-icon="mdi-engine" elevation="8">
     <v-container>
       <v-row>
         <v-col class="d-flex justify-center align-center">
