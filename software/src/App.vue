@@ -1,10 +1,14 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 import axios from 'axios';
+import { useTheme } from 'vuetify/lib/framework.mjs';
+import { useUserStore } from './data/stores/userStore';
 
-const showDrawer = ref(true)
+const userStore = useUserStore()
 const categories = ref([])
-const newCategory = ref("")
+const theme = useTheme()
+
+theme.global.name.value = userStore.theme
 
 function requestAllCategories() {
   axios.get('http://127.0.0.1:3000/categories')
@@ -12,18 +16,6 @@ function requestAllCategories() {
       console.log(response)
       categories.value = response.data
     })
-}
-
-function addCategory() {
-  axios.post("http://127.0.0.1:3000/categories", {
-    name: newCategory.value
-  })
-  .then(requestAllCategories)
-}
-
-function resetDb() {
-  axios.post("http://127.0.0.1:3000/api/resetdatabase")
-  requestAllCategories()
 }
 
 requestAllCategories()
@@ -37,35 +29,26 @@ requestAllCategories()
       <v-app-bar-title>HackMyCart</v-app-bar-title>
     </v-app-bar>
 
-    <v-navigation-drawer>
+    <v-navigation-drawer permanent>
       <v-list>
         <v-list-subheader>Shop Kategorien</v-list-subheader>
-        <v-list-item v-for="category in categories" link :prepend-icon="category.icon">
+        <v-list-item v-for="category in categories" link :prepend-icon="category.icon" to="/">
           {{ category.name }}
         </v-list-item>
 
-        <v-list-subheader>Account & Hilfe</v-list-subheader>
-        <v-list-item title="Account" link prepend-icon="mdi-account" />
-        <v-list-item title="Bestellungen" link prepend-icon="mdi-cart-check" />
-        <v-list-item title="Einstellungen" link prepend-icon="mdi-cog" />
+        <v-list-subheader>Account</v-list-subheader>
+        <v-list-item title="Login" prepend-icon="mdi-login" to="/login" link />
+        <v-list-item title="Account" prepend-icon="mdi-account" to="/account" link />
+        <v-list-item title="Bestellungen" prepend-icon="mdi-cart-check" to="/orders" link />
+
+        <v-list-subheader>System & Hilfe</v-list-subheader>
+        <v-list-item title="Einstellungen" prepend-icon="mdi-cog" to="/preferences" link />
       </v-list>
     </v-navigation-drawer>
 
     <v-main>
-      <v-container>
-        <v-row>
-          <v-col>
-            <v-text-field label="Category name" v-model="newCategory" />
-          </v-col>
-          <v-col cols="2">
-            <v-btn @click="addCategory" >Hinzufügen</v-btn>
-          </v-col>
-          <v-col cols="2">
-            <v-btn @click="resetDb">Datenbank zurücksetzen</v-btn>
-          </v-col>
-        </v-row>
-      </v-container>
-      <!-- todo -->
+      <!-- Here changes the router the content -->
+      <router-view></router-view>
     </v-main>
   </v-app>
 </template>

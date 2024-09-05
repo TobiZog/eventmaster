@@ -11,7 +11,7 @@ api.get("/", (req: Request, res: Response, next: NextFunction) => {
   res.send("Hello World!")
 })
 
-api.post("/resetdatabase", (req: Request, res: Response, next: NextFunction) => {
+api.get("/resetdatabase", (req: Request, res: Response, next: NextFunction) => {
   // Step 1: Delete all data tables
   Category.destroy({ truncate: true })
   OrderedItem.destroy({ truncate: true })
@@ -76,5 +76,5 @@ api.post("/resetdatabase", (req: Request, res: Response, next: NextFunction) => 
     ]
   )
 
-  res.send("Success")
+  res.status(200).send()
 })
