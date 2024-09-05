@@ -1,11 +1,11 @@
 import { Sequelize } from "sequelize-typescript"
 
 // Models
-import { Categories } from "./models/categories.model"
+import { Category } from "./models/category.model"
 import { OrderedItem } from "./models/orderedItem.model"
-import { Orders } from "./models/orders.model"
-import { Products } from "./models/products.model"
-import { Users } from "./models/users.model"
+import { Order } from "./models/order.model"
+import { Product } from "./models/product.model"
+import { Account } from "./models/account.model"
 
 const dbName = "database"
 const dbUser = "root"
@@ -18,12 +18,12 @@ export const sequelize = new Sequelize({
   username: dbUser,
   password: dbPassword,
   storage: "database.sqlite",
-  models: [ Categories, OrderedItem, Orders, Products, Users ]
+  models: [ Category, Product, Account, Order, OrderedItem ]
 })
 
 export function startDatabase() {
   // Create database and tables
-  sequelize.sync({ force: false })
+  sequelize.sync({ force: true })
     .then(() => {
       console.log(`Database & tables created!`)
     })

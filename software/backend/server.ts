@@ -2,8 +2,12 @@ import express from 'express'
 import cors from 'cors'
 import bodyParser from 'body-parser'
 import { api } from './routes/api.routes'
-import { categories } from './routes/categories.routes'
 import { startDatabase } from './database'
+import { category } from './routes/category.routes'
+import { product } from './routes/product.routes'
+import { order } from './routes/order.routes'
+import { orderedItem } from './routes/orderedItem.routes'
+import { account } from './routes/account.routes'
 
 const app = express()
 const port = 3000
@@ -19,7 +23,11 @@ startDatabase()
 
 // Routes
 app.use("/api", api)
-app.use("/categories", categories)
+app.use("/categories", category)
+app.use("/products", product)
+app.use("/orders", order)
+app.use("/ordereditems", orderedItem)
+app.use("/accounts", account)
 
 // Start server
 app.listen(port, () => {

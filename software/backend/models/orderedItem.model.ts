@@ -1,15 +1,15 @@
 import { Table, Column, Model, BelongsTo, ForeignKey, HasMany } from 'sequelize-typescript';
-import { Orders } from './orders.model';
-import { Products } from './products.model';
+import { Order } from './order.model';
+import { Product } from './product.model';
 
 @Table
 export class OrderedItem extends Model {
   @Column
-  @ForeignKey(() => Orders)
+  @ForeignKey(() => Order)
   orderId: number
 
   @Column
-  @ForeignKey(() => Products)
+  @ForeignKey(() => Product)
   productId: number
 
   @Column
@@ -17,11 +17,4 @@ export class OrderedItem extends Model {
 
   @Column
   totalPrice: number
-
-  // Relations
-  @BelongsTo(() => Orders)
-  order: Orders
-
-  @HasMany(() => Products)
-  products: Products[]
 }

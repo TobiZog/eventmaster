@@ -6,13 +6,14 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "dev-server": "concurrently \"nodemon\" \"wait-on http://localhost:3000/api/ && vite\""
+    "server": "nodemon",
+    "serve": "concurrently \"nodemon\" \"wait-on http://localhost:3000/api/ && vite\""
   },
   "nodemonConfig": {
     "watch": [
       "backend"
     ],
-    "exec": "tsc && node ./build/dist/server.js",
+    "exec": "ts-node --project ./tsconfig.server.json --files ./backend/server.ts && node ./build/dist/server.js",
     "ext": "ts, js, json"
   },
   "dependencies": {

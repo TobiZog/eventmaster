@@ -1,8 +1,8 @@
 import { Table, Column, Model, HasMany } from 'sequelize-typescript';
-import { Orders } from './orders.model';
+import { Order } from './order.model';
 
 @Table
-export class Users extends Model {
+export class Account extends Model {
   @Column
   username: string
 
@@ -19,6 +19,6 @@ export class Users extends Model {
   lastName: string
 
   // Relations
-  @HasMany(() => Orders)
-  orders: Orders[]
+  @HasMany(() => Order)
+  orders: Order[]
 }
