@@ -31,17 +31,22 @@ defineProps({
     </v-img>
     
     <v-card-text>
-      <v-rating
-        size="medium"
-        :model-value="product.rating"
-        active-color="yellow-darken-1"
-        color="grey-darken-1"
-        half-increments
-      />
+      <div class="d-flex justify-left flex-row pb-2">
+        <v-rating
+          size="medium"
+          :model-value="product.rating"
+          active-color="yellow-darken-1"
+          color="grey-darken-1"
+          half-increments
+          readonly
+        />
+
+        {{ product.rating }}/5
+      </div>
 
 
       <div v-if="product.discount == 0" class="font-weight-bold text-body-1">{{ product.price }} €</div>
-      <div v-else class="">
+      <div v-else>
         <div class="d-flex justify-left flex-row">
           <strong class="font-weight-bold text-body-1 text-red-lighten-1">
             {{ (product.price * ( 100 - product.discount) / 100).toFixed(2) }} €

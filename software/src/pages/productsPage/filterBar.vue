@@ -1,37 +1,27 @@
 <script setup lang="ts">
 import { CategoryModel } from '@/data/models/categoryModel';
 import { FilterModel } from '@/data/models/filterModel';
-import axios from 'axios';
-import { Ref, ref } from 'vue';
 
 // Parameters
 defineProps({
   numberOfItems: {
     type: Number,
     default: 0
+  },
+  categories: {
+    type: Array<CategoryModel>,
+    required: true
+  },
+  sortBy: {
+    type: Array<FilterModel>,
+    required: true
   }
 })
 
 // Constants
-const categories: Ref<Array<CategoryModel>> = ref([new CategoryModel()])
-const selectedCategory: Ref<CategoryModel> = ref(new CategoryModel())
-
-const sortBy: Array<FilterModel> = [
-  { icon: "mdi-sort-ascending", name: "Price: Low to high" }, 
-  { icon: "mdi-sort-descending", name: "Price: High to low" },
-  { icon: "mdi-sort-alphabetical-ascending", name: "Name: A to Z" }, 
-  { icon: "mdi-sort-alphabetical-descending", name: "Name: Z to A" },
-]
-const sortedBy = ref(sortBy[0])
-
-
-// Request from the database
-axios.get("http://127.0.0.1:3000/categories")
-  .then(function (response) { 
-    for (let categoryItem of response.data) {
-      categories.value.push(categoryItem)
-    }
-})
+const selectedCategory = defineModel("selectedCategory", { required: true, type: CategoryModel, default: new CategoryModel() })
+const sortedBy = defineModel("sortedBy", { required: true, type: FilterModel })
+const onlyDiscounts = defineModel("onlyDiscounts", { required: true, type: Boolean })
 </script>
 
 <template>
@@ -49,7 +39,7 @@ axios.get("http://127.0.0.1:3000/categories")
 
         <v-spacer />
         <v-col class="d-flex justify-center align-center">
-          <v-checkbox label="Angebote" />
+          <v-checkbox label="Angebote" v-model="onlyDiscounts" />
         </v-col>
 
         <v-col>
