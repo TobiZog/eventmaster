@@ -31,13 +31,14 @@ api.get("/resetdatabase", (req: Request, res: Response, next: NextFunction) => {
 
   Product.bulkCreate(
     [
-      { id: 0, brand: "Tuxedo", name: "Hypherion Ultra Max", price: 999.99, categoryId: 0, discount: 10, rating: 4.6 },
-      { id: 1, brand: "Puma", name: "Men's Shirt", price: 14.99, categoryId: 2, discount: 0, rating: 3.8 },
-      { id: 2, brand: "Puma", name: "Woman's Shirt", price: 14.99, categoryId: 2, discount: 0, rating: 4.0 },
-      { id: 3, brand: "George Orwell", name: "1984", price: 9.99, categoryId: 3, discount: 0, rating: 4.9 },
-      { id: 4, brand: "Johann W. Goethe", name: "Faust", price: 4.99, categoryId: 3, discount: 0, rating: 4.2 },
-      { id: 5, brand: "Theodor Sturm", name: "Der Schimmelreiter", price: 4.99, categoryId: 3, discount: 0, rating: 3.5 },
-      { id: 6, brand: "Aldous Huxley", name: "Brave New World", price: 7.99, categoryId: 3, discount: 0, rating: 4.4 },
+      { id: 0, brand: "Lenovo", name: "Thinkpad T14", price: 799.99, categoryId: 0, discount: 10, rating: 4.6, imageUrl: "https://f.media-amazon.com/images/I/51OHlMuJ5pL._AC_SL1280_.jpg" },
+      { id: 1, brand: "Puma", name: "Men's Shirt", price: 14.99, categoryId: 2, discount: 0, rating: 3.8, imageUrl: "https://images.unsplash.com/photo-1496346236646-50e985b31ea4?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8dCUyMHNoaXJ0JTIwbWVufGVufDB8fDB8fHww" },
+      { id: 2, brand: "Puma", name: "Woman's Shirt", price: 14.99, categoryId: 2, discount: 0, rating: 4.0, imageUrl: "https://images.unsplash.com/photo-1485218126466-34e6392ec754?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8dCUyMHNoaXJ0JTIwd29tYW58ZW58MHx8MHx8fDA%3D" },
+      { id: 3, brand: "George Orwell", name: "1984", price: 9.99, categoryId: 3, discount: 0, rating: 4.9, imageUrl: "https://f.media-amazon.com/images/I/81BExVLr8sL._SL1500_.jpg" },
+      { id: 4, brand: "Johann W. Goethe", name: "Faust", price: 4.99, categoryId: 3, discount: 0, rating: 4.2, imageUrl: "https://f.media-amazon.com/images/I/71p1k4JwDqL._SL1500_.jpg" },
+      { id: 5, brand: "Theodor Sturm", name: "Der Schimmelreiter", price: 4.99, categoryId: 3, discount: 0, rating: 3.5, imageUrl: "https://f.media-amazon.com/images/I/81uUWtGmKtL._SL1500_.jpg" },
+      { id: 6, brand: "Aldous Huxley", name: "Brave New World", price: 7.99, categoryId: 3, discount: 0, rating: 4.4, imageUrl: "https://f.media-amazon.com/images/I/917t3Joq2WL._SL1500_.jpg" },
+      { id: 7, brand: "Ankermann", name: "Gaming Work V3", price: 1299.99, categoryId: 0, discount: 0, rating: 4.7, imageUrl: "https://f.media-amazon.com/images/I/81gpDyNWhzL._AC_SL1500_.jpg" }
     ]
   )
 

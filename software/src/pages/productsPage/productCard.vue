@@ -16,7 +16,7 @@ defineProps({
 <template>
   <v-card link>
     <v-img
-      src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?q=80&w=799&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+      :src="product.imageUrl"
       cover
       max-height="200"
       class="align-end text-white"

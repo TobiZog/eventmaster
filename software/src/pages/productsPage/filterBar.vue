@@ -25,24 +25,23 @@ const onlyDiscounts = defineModel("onlyDiscounts", { required: true, type: Boole
 </script>
 
 <template>
-  <v-card title="Filter" prepend-icon="mdi-filter">
-    <v-container>
-      <v-row>
-        <v-col class="d-flex justify-left align-center">
-          <div v-if="numberOfItems == 1">
+  <v-card>
+    <v-card-title>
+      <div v-if="numberOfItems == 1">
             {{ numberOfItems }} Produkt
           </div>
           <div v-else>
             {{ numberOfItems }} Produkte
           </div>
-        </v-col>
-
+    </v-card-title>
+    <v-container class="pb-0">
+      <v-row>
         <v-spacer />
         <v-col class="d-flex justify-center align-center">
           <v-checkbox label="Angebote" v-model="onlyDiscounts" />
         </v-col>
 
-        <v-col>
+        <v-col class="d-flex justify-left align-center">
           <v-select :items="categories" label="Categories" v-model="selectedCategory" >
             <template v-slot:item="{ props, item }">
               <v-list-item v-bind="props" :prepend-icon="item.raw.icon" :title="item.raw.name" />
@@ -54,7 +53,7 @@ const onlyDiscounts = defineModel("onlyDiscounts", { required: true, type: Boole
           </v-select>
         </v-col>
 
-        <v-col>
+        <v-col class="d-flex justify-left align-center">
           <v-select label="Sortieren nach" :items="sortBy" v-model="sortedBy" >
             <template v-slot:item="{ props, item }">
               <v-list-item v-bind="props" :prepend-icon="item.raw.icon" :title="item.raw.name" />

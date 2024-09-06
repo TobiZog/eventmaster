@@ -23,6 +23,9 @@ export class Product extends Model {
 
   @Column
   rating: number
+
+  @Column
+  imageUrl: string
   
   // Relations
   @BelongsTo(() => Category)
