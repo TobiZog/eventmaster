@@ -31,13 +31,13 @@ api.get("/resetdatabase", (req: Request, res: Response, next: NextFunction) => {
 
   Product.bulkCreate(
     [
-      { id: 0, brand: "Tuxedo", name: "Hypherion Ultra Max", price: 999.99, categoryId: 0, discount: 0 },
-      { id: 1, brand: "Puma", name: "Men's Shirt", price: 14.99, categoryId: 2, discount: 0 },
-      { id: 2, brand: "Puma", name: "Woman's Shirt", price: 14.99, categoryId: 2, discount: 0 },
-      { id: 3, brand: "George Orwell", name: "1984", price: 9.99, categoryId: 3, discount: 0 },
-      { id: 4, brand: "Johann W. Goethe", name: "Faust", price: 4.99, categoryId: 3, discount: 0 },
-      { id: 5, brand: "Theodor Sturm", name: "Der Schimmelreiter", price: 4.99, categoryId: 3, discount: 0 },
-      { id: 6, brand: "Aldous Huxley", name: "Brave New World", price: 7.99, categoryId: 3, discount: 0 },
+      { id: 0, brand: "Tuxedo", name: "Hypherion Ultra Max", price: 999.99, categoryId: 0, discount: 10, rating: 4.6 },
+      { id: 1, brand: "Puma", name: "Men's Shirt", price: 14.99, categoryId: 2, discount: 0, rating: 3.8 },
+      { id: 2, brand: "Puma", name: "Woman's Shirt", price: 14.99, categoryId: 2, discount: 0, rating: 4.0 },
+      { id: 3, brand: "George Orwell", name: "1984", price: 9.99, categoryId: 3, discount: 0, rating: 4.9 },
+      { id: 4, brand: "Johann W. Goethe", name: "Faust", price: 4.99, categoryId: 3, discount: 0, rating: 4.2 },
+      { id: 5, brand: "Theodor Sturm", name: "Der Schimmelreiter", price: 4.99, categoryId: 3, discount: 0, rating: 3.5 },
+      { id: 6, brand: "Aldous Huxley", name: "Brave New World", price: 7.99, categoryId: 3, discount: 0, rating: 4.4 },
     ]
   )
 

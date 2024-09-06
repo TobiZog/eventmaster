@@ -20,6 +20,9 @@ export class Product extends Model {
 
   @Column
   discount: number
+
+  @Column
+  rating: number
   
   // Relations
   @BelongsTo(() => Category)
