@@ -93,15 +93,11 @@ function filterProducts() {
     )
   }
   
-  console.log("1", filteredProducts.value)
-
   if (onlyDiscounts.value) {
     filteredProducts.value = filteredProducts.value.filter(product => 
       product.discount > 0
     )
   }
-
-  console.log("2", filteredProducts.value)
 }
 
 watch(() => selectedCategory.value, () => { filterProducts() })
@@ -123,10 +119,17 @@ watch(() => onlyDiscounts.value, () => { filterProducts() })
     </v-col>
   </v-row>
   <v-row dense>
-    <v-col v-for="product in filteredProducts" cols="6" lg="4" xl="3">
+    <v-col v-if="filteredProducts.length > 0" v-for="product in filteredProducts" cols="6" lg="4" xl="3">
       <product-card
         :product="product"
         :category="getCategoryById(product.categoryId)"
+      />
+    </v-col>
+    
+    <v-col v-else>
+      <v-empty-state
+        icon="mdi-magnify"
+        headline="Keine Artikel gefunden"
       />
     </v-col>
   </v-row>
