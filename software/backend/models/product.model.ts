@@ -26,6 +26,9 @@ export class Product extends Model {
 
   @Column
   imageUrl: string
+
+  @Column
+  description: string
   
   // Relations
   @BelongsTo(() => Category)

@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import productCard from "./productCard.vue"
+import productDetails from "./productDetails.vue"
 import filterBar from "./filterBar.vue"
 import axios from "axios";
 import { Ref, ref, watch } from "vue";
@@ -13,6 +14,8 @@ const categories: Ref<Array<CategoryModel>> = ref<Array<CategoryModel>>([new Cat
 const selectedCategory: Ref<CategoryModel> = ref<CategoryModel>(new CategoryModel())
 const sortedBy: Ref<FilterModel> = ref<FilterModel>()
 const onlyDiscounts: Ref<boolean> = ref(false)
+const showProductDetails = ref(false)
+const dialogProduct = ref(new ProductModel())
 
 const sortBy: Array<FilterModel> = [
   { icon: "mdi-sort-ascending", name: "Price: Low to high" }, 
@@ -100,6 +103,11 @@ function filterProducts() {
   }
 }
 
+function showProductDialog(product: ProductModel) {
+  dialogProduct.value = product
+  showProductDetails.value = true
+}
+
 watch(() => selectedCategory.value, () => { filterProducts() })
 watch(() => sortedBy.value, () => { sortProducts() })
 watch(() => onlyDiscounts.value, () => { filterProducts() })
@@ -123,6 +131,7 @@ watch(() => onlyDiscounts.value, () => { filterProducts() })
       <product-card
         :product="product"
         :category="getCategoryById(product.categoryId)"
+        @click="showProductDialog(product)"
       />
     </v-col>
     
@@ -133,4 +142,6 @@ watch(() => onlyDiscounts.value, () => { filterProducts() })
       />
     </v-col>
   </v-row>
+
+  <product-details v-model="showProductDetails" :product="dialogProduct" :productCategory="getCategoryById(dialogProduct.categoryId)" />
 </template>
