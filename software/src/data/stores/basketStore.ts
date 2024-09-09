@@ -1,30 +1,39 @@
 import { defineStore } from "pinia";
 import { useLocalStorage } from "@vueuse/core";
-import { ProductModel } from "../models/productModel";
 import { calcProductPrice } from "@/scripts/productScripts";
+import { BasketItemModel } from "../models/basketItemModel";
 
 export const useBasketStore = defineStore('basket', {
   state: () => ({
-    productsInBasket: useLocalStorage<Array<ProductModel>>("hackmycart/basketStore/productsInBasket", [])
+    itemsInBasket: useLocalStorage<Array<BasketItemModel>>("hackmycart/basketStore/productsInBasket", [])
   }),
 
   getters: {
     getTotalPrice() {
       let result = 0
 
-      for (let product of this.productsInBasket) {
-        result += calcProductPrice(product)
+      for (let item of this.itemsInBasket) {
+        result += calcProductPrice(item, item.quantity)
       }
 
-      return result
+      return Math.round(result * 100) / 100
     }
   },
 
   actions: {
-    removeProductFromBasket(product: ProductModel) {
-      this.productsInBasket = this.productsInBasket.filter((p: ProductModel) => 
-        p.id != product.id
+    removeItemFromBasket(item: BasketItemModel) {
+      this.itemsInBasket = this.itemsInBasket.filter((basketItemModel: BasketItemModel) => 
+        basketItemModel.productId != item.productId
       )
+    },
+
+    addItemToBasket(item: BasketItemModel) {
+      // Product is already in the basket, increase number of items
+      if (this.itemsInBasket.find((basketItem) => basketItem.productId == item.productId)) {
+        this.itemsInBasket.find((basketItem) => basketItem.productId == item.productId).quantity += item.quantity
+      } else {
+        this.itemsInBasket.push(item)
+      }
     }
   }
 })

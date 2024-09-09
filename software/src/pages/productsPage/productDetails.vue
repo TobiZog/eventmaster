@@ -2,10 +2,11 @@
 import { VNumberInput } from 'vuetify/labs/VNumberInput'
 import { ProductModel } from '@/data/models/productModel';
 import { CategoryModel } from '@/data/models/categoryModel';
-import { ref } from 'vue';
+import { ModelRef, ref } from 'vue';
 import { useBasketStore } from '@/data/stores/basketStore';
+import { calcProductPrice, productToBasketItem } from '@/scripts/productScripts';
 
-const showDialog = defineModel("showDialog", { type: Boolean })
+const showDialog: ModelRef<boolean> = defineModel()
 const nrOfArticles = ref(1)
 const basketStore = useBasketStore()
 
@@ -15,7 +16,8 @@ const props = defineProps({
 })
 
 function addProductToBasket() {
-  basketStore.productsInBasket.push(props.product)
+  basketStore.addItemToBasket(productToBasketItem(props.product, props.productCategory, nrOfArticles.value))
+  nrOfArticles.value = 1
   showDialog.value = false
 }
 </script>
@@ -46,11 +48,16 @@ function addProductToBasket() {
               :hideInput="false"
               :inset="false"
               v-model="nrOfArticles"
+              :min="1"
+              :max="10"
+              density="comfortable"
             />
           </v-col>
 
-          <v-col>
-            {{ nrOfArticles * product.price }} €
+          <v-spacer />
+
+          <v-col cols="2" class="justify-center d-flex">
+            {{ calcProductPrice(product, nrOfArticles) }} €
           </v-col>
         </v-row>
       </v-card-text>

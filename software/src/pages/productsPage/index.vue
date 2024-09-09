@@ -145,5 +145,9 @@ watch(() => onlyDiscounts.value, () => { filterProducts() })
     </v-row>
   </v-container>
 
-  <product-details v-model="showProductDetails" :product="dialogProduct" :productCategory="getCategoryById(dialogProduct.categoryId)" />
+  <product-details
+    v-model="showProductDetails"
+    :product="dialogProduct" 
+    :productCategory="getCategoryById(dialogProduct.categoryId)"
+  />
 </template>

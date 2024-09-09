@@ -41,7 +41,7 @@ requestAllCategories()
         <v-list-item title="Produkte" prepend-icon="mdi-store" to="/products" link />
         <v-list-item to="/basket" link title="Warenkorb">
           <template v-slot:prepend>
-            <v-badge color="primary" :content="basketStore.productsInBasket.length">
+            <v-badge color="primary" :content="basketStore.itemsInBasket.length">
               <v-icon icon="mdi-cart" />
             </v-badge>
           </template>
