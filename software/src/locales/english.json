@@ -1,0 +1,40 @@
+{
+  "menu":
+  {
+    "shopping": "Shopping",
+    "products": "Products",
+    "basket": "Basket",
+    "login": "Login",
+    "account": "Account",
+    "orders": "Orders",
+    "systemAndHelp": "System & Help",
+    "helpInstructions": "Help instructions",
+    "preferences": "Preferences"
+  },
+  "preferences": {
+    "pageSetup": "Page setup",
+    "selectedTheme": "Selected theme",
+    "language": "Language",
+    "systemSetup": "System setup",
+    "resetDatabase": "Reset database",
+    "resetPreferences": "Reset preferences"
+  },
+  "products": "Products",
+  "product": "Product",
+  "offers": "Offers",
+  "categories": "Categories",
+  "sortBy": "Sort by",
+  "quantity": "Quantity",
+  "addToBasket": "Add to basket",
+  "emptyBasketTitle": "The basket is empty...",
+  "emptyBasketText": "Go to our products and add some of them to the basket",
+  "totalPrice": "Total price",
+  "orderNow": "Order now",
+  "category": "Category",
+  "brand": "Brand",
+  "productPrice": "Unit price",
+  "username": "Username",
+  "password": "Password",
+  "login": "Login",
+  "noAccountRegister": "No Account? Register now!"
+}

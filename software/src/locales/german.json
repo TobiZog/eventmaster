@@ -1,0 +1,40 @@
+{
+  "menu":
+  {
+    "shopping": "Einkaufen",
+    "products": "Produkte",
+    "basket": "Warenkorb",
+    "login": "Login",
+    "account": "Account",
+    "orders": "Bestellungen",
+    "systemAndHelp": "System & Hilfe",
+    "helpInstructions": "Hilfestellung",
+    "preferences": "Einstellungen"
+  },
+  "preferences": {
+    "pageSetup": "Seiteneinstellungen",
+    "selectedTheme": "Ausgewähltes Theme",
+    "language": "Sprache",
+    "systemSetup": "Systemeinstellungen",
+    "resetDatabase": "Datenbank zurücksetzen",
+    "resetPreferences": "Einstellungen zurücksetzen"
+  },
+  "products": "Produkte",
+  "product": "Produkt",
+  "offers": "Angebote",
+  "categories": "Kategorien",
+  "sortBy": "Sortieren nach",
+  "quantity": "Anzahl",
+  "addToBasket": "Zum Warenkorb hinzufügen",
+  "emptyBasketTitle": "Keine Artikel im Warenkorb",
+  "emptyBasketText": "Gehe zu unseren Produkten und lege Artikel in den Warenkorb",
+  "totalPrice": "Gesamtpreis",
+  "orderNow": "Jetzt bestellen",
+  "category": "Kategorie",
+  "brand": "Marke",
+  "productPrice": "Einzelpreis",
+  "username": "Username",
+  "password": "Passwort",
+  "login": "Login",
+  "noAccountRegister": "Noch keinen Account? Jetzt anmelden!"
+}

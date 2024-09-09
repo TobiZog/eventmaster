@@ -20,14 +20,18 @@ function resetSettings() {
 </script>
 
 <template>
-  <v-card title="System Setup" prepend-icon="mdi-engine" elevation="8">
+  <v-card :title="$t('preferences.systemSetup')" prepend-icon="mdi-engine" elevation="8">
     <v-container>
       <v-row>
         <v-col class="d-flex justify-center align-center">
-          <v-btn @click="resetDb" color="primary" prepend-icon="mdi-database-refresh">Datenbank zurücksetzen</v-btn>
+          <v-btn @click="resetDb" color="primary" prepend-icon="mdi-database-refresh">
+            {{ $t('preferences.resetDatabase') }}
+          </v-btn>
         </v-col>
         <v-col class="d-flex justify-center align-center">
-          <v-btn @click="resetDb" color="primary" prepend-icon="mdi-cog-counterclockwise">Einstellungen zurücksetzen</v-btn>
+          <v-btn @click="resetDb" color="primary" prepend-icon="mdi-cog-counterclockwise">
+            {{ $t('preferences.resetPreferences') }}
+          </v-btn>
         </v-col>
       </v-row>
     </v-container>

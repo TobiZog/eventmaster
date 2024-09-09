@@ -28,21 +28,21 @@ const onlyDiscounts = defineModel("onlyDiscounts", { required: true, type: Boole
   <v-card>
     <v-card-title>
       <div v-if="numberOfItems == 1">
-            {{ numberOfItems }} Produkt
-          </div>
-          <div v-else>
-            {{ numberOfItems }} Produkte
-          </div>
+        {{ numberOfItems }} {{ $t('product') }}
+      </div>
+      <div v-else>
+        {{ numberOfItems }} {{ $t('products') }}
+      </div>
     </v-card-title>
     <v-container class="pb-0">
       <v-row>
         <v-spacer />
         <v-col class="d-flex justify-center align-center">
-          <v-checkbox label="Angebote" v-model="onlyDiscounts" />
+          <v-checkbox :label="$t('offers')" v-model="onlyDiscounts" />
         </v-col>
 
         <v-col class="d-flex justify-left align-center">
-          <v-select :items="categories" label="Categories" v-model="selectedCategory" >
+          <v-select :items="categories" :label="$t('categories')" v-model="selectedCategory" >
             <template v-slot:item="{ props, item }">
               <v-list-item v-bind="props" :prepend-icon="item.raw.icon" :title="item.raw.name" />
             </template>
@@ -54,7 +54,7 @@ const onlyDiscounts = defineModel("onlyDiscounts", { required: true, type: Boole
         </v-col>
 
         <v-col class="d-flex justify-left align-center">
-          <v-select label="Sortieren nach" :items="sortBy" v-model="sortedBy" >
+          <v-select :label="$t('sortBy')" :items="sortBy" v-model="sortedBy" >
             <template v-slot:item="{ props, item }">
               <v-list-item v-bind="props" :prepend-icon="item.raw.icon" :title="item.raw.name" />
             </template>

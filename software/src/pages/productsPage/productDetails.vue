@@ -44,7 +44,7 @@ function addProductToBasket() {
             <v-number-input
               :reverse="false"
               controlVariant="default"
-              label="Anzahl"
+              :label="$t('quantity')"
               :hideInput="false"
               :inset="false"
               v-model="nrOfArticles"
@@ -67,7 +67,7 @@ function addProductToBasket() {
           prepend-icon="mdi-cart-plus"
           @click="addProductToBasket"
         >
-          Zum Einkaufswagen hinzufügen
+          {{ $t('addToBasket') }}
         </v-btn>
       </v-card-actions>
     </v-card>
