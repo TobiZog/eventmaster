@@ -1,0 +1,16 @@
+{
+  "data": [
+      { "id": 0, "accountId": 0, "totalPrice": 0 },
+      { "id": 1, "accountId": 1, "totalPrice": 0 },
+      { "id": 2, "accountId": 1, "totalPrice": 0 },
+      { "id": 3, "accountId": 2, "totalPrice": 0 },
+      { "id": 4, "accountId": 2, "totalPrice": 0 },
+      { "id": 5, "accountId": 3, "totalPrice": 0 },
+      { "id": 6, "accountId": 3, "totalPrice": 0 },
+      { "id": 7, "accountId": 3, "totalPrice": 0 },
+      { "id": 8, "accountId": 4, "totalPrice": 0 },
+      { "id": 9, "accountId": 5, "totalPrice": 0 },
+      { "id": 10, "accountId": 6, "totalPrice": 0 },
+      { "id": 11, "accountId": 6, "totalPrice": 0 }
+    ]
+}

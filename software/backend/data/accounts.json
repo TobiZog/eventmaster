@@ -1,0 +1,60 @@
+{
+  "data": [
+    {
+      "id": 0,
+      "username": "hagemeister93",
+      "password": "Xjt3qb5t",
+      "address": "Laportestraße 22, 30449 Hannover",
+      "firstName": "Laurin",
+      "lastName": "Hagemeister"
+    },
+    {
+      "id": 1,
+      "username": "katjaStoiber",
+      "password": "target123",
+      "address": "Gustav-Adolf-Straße 30, 30167 Hannover",
+      "firstName": "Katja",
+      "lastName": "Stoiber"
+    },
+    {
+      "id": 2,
+      "username": "oetkerohnek",
+      "password": "iloveyou",
+      "address": "Eckermannstraße 1, 30625 Hannover",
+      "firstName": "Luna",
+      "lastName": "Oeter"
+    },
+    {
+      "id": 3,
+      "username": "duranduran",
+      "password": "H4nn0ver",
+      "address": "Schlägerstraße 36, 30171 Hannover",
+      "firstName": "Jürgen",
+      "lastName": "Durand"
+    },
+    {
+      "id": 4,
+      "username": "guitarhero",
+      "password": "gwerty123",
+      "address": "Steinmetzstraße 12, 30163 Hannover",
+      "firstName": "Frederik",
+      "lastName": "Furtwängler"
+    },
+    {
+      "id": 5,
+      "username": "herbstMareike",
+      "password": "qhsrbpgrs",
+      "address": "Allerweg 33, 30851 Langenhagen",
+      "firstName": "Mareike",
+      "lastName": "Herbst"
+    },
+    {
+      "id": 6,
+      "username": "seibertmitb",
+      "password": "{jkz+WvQe",
+      "address": "Marktstraße 26, 30880 Laatzen",
+      "firstName": "Janna",
+      "lastName": "Seibert"
+    }
+  ]
+}

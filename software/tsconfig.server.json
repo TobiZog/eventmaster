@@ -8,10 +8,12 @@
     "esModuleInterop": true,
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
-    "baseUrl": "."
+    "baseUrl": ".",
+    "resolveJsonModule": true
   },
   "exclude": ["node_modules", "dist"],
   "include": [
-    "backend/**/*.ts"
+    "backend/**/*.ts",
+    "backend/**/*.json"
   ]
 }
