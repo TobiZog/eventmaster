@@ -4,8 +4,10 @@ import axios from 'axios';
 import { useTheme } from 'vuetify/lib/framework.mjs';
 import { useUserStore } from './data/stores/userStore';
 import vuetify from './plugins/vuetify';
+import { useBasketStore } from './data/stores/basketStore';
 
 const userStore = useUserStore()
+const basketStore = useBasketStore()
 const categories = ref([])
 const theme = useTheme()
 const navRail = ref(vuetify.display.mobile)
@@ -37,7 +39,13 @@ requestAllCategories()
           <div v-else></div>
         </v-list-subheader>
         <v-list-item title="Produkte" prepend-icon="mdi-store" to="/products" link />
-        <v-list-item title="Warenkorb" prepend-icon="mdi-cart" to="/basket" link />
+        <v-list-item to="/basket" link title="Warenkorb">
+          <template v-slot:prepend>
+            <v-badge color="primary" :content="basketStore.productsInBasket.length">
+              <v-icon icon="mdi-cart" />
+            </v-badge>
+          </template>
+        </v-list-item>
 
         <v-divider />
 
@@ -61,14 +69,8 @@ requestAllCategories()
     </v-navigation-drawer>
 
     <v-main>
-      <v-container>
-        <v-row>
-          <v-col>
-            <!-- Here changes the router the content -->
-            <router-view></router-view>
-          </v-col>
-        </v-row>
-      </v-container>
+      <!-- Here changes the router the content -->
+      <router-view></router-view>
     </v-main>
   </v-app>
 </template>

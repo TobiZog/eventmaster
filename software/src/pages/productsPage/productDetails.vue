@@ -3,14 +3,21 @@ import { VNumberInput } from 'vuetify/labs/VNumberInput'
 import { ProductModel } from '@/data/models/productModel';
 import { CategoryModel } from '@/data/models/categoryModel';
 import { ref } from 'vue';
+import { useBasketStore } from '@/data/stores/basketStore';
 
 const showDialog = defineModel("showDialog", { type: Boolean })
 const nrOfArticles = ref(1)
+const basketStore = useBasketStore()
 
-defineProps({
+const props = defineProps({
   product: ProductModel,
   productCategory: CategoryModel
 })
+
+function addProductToBasket() {
+  basketStore.productsInBasket.push(props.product)
+  showDialog.value = false
+}
 </script>
 
 <template>
@@ -49,7 +56,12 @@ defineProps({
       </v-card-text>
 
       <v-card-actions>
-        <v-btn prepend-icon="mdi-cart-plus" >Zum Einkaufswagen hinzufügen</v-btn>
+        <v-btn
+          prepend-icon="mdi-cart-plus"
+          @click="addProductToBasket"
+        >
+          Zum Einkaufswagen hinzufügen
+        </v-btn>
       </v-card-actions>
     </v-card>
     

@@ -114,34 +114,36 @@ watch(() => onlyDiscounts.value, () => { filterProducts() })
 </script>
 
 <template>
-  <v-row>
-    <v-col>
-      <filter-bar
-        :number-of-items="filteredProducts.length"
-        :categories="categories"
-        :sort-by="sortBy"
-        v-model:selected-category="selectedCategory"
-        v-model:sorted-by="sortedBy"
-        v-model:only-discounts="onlyDiscounts"
-      />
-    </v-col>
-  </v-row>
-  <v-row dense>
-    <v-col v-if="filteredProducts.length > 0" v-for="product in filteredProducts" cols="6" lg="4" xl="3">
-      <product-card
-        :product="product"
-        :category="getCategoryById(product.categoryId)"
-        @click="showProductDialog(product)"
-      />
-    </v-col>
-    
-    <v-col v-else>
-      <v-empty-state
-        icon="mdi-magnify"
-        headline="Keine Artikel gefunden"
-      />
-    </v-col>
-  </v-row>
+  <v-container>
+    <v-row>
+      <v-col>
+        <filter-bar
+          :number-of-items="filteredProducts.length"
+          :categories="categories"
+          :sort-by="sortBy"
+          v-model:selected-category="selectedCategory"
+          v-model:sorted-by="sortedBy"
+          v-model:only-discounts="onlyDiscounts"
+        />
+      </v-col>
+    </v-row>
+    <v-row dense>
+      <v-col v-if="filteredProducts.length > 0" v-for="product in filteredProducts" cols="12" sm="6" lg="4" xl="3">
+        <product-card
+          :product="product"
+          :category="getCategoryById(product.categoryId)"
+          @click="showProductDialog(product)"
+        />
+      </v-col>
+      
+      <v-col v-else>
+        <v-empty-state
+          icon="mdi-magnify"
+          headline="Keine Artikel gefunden"
+        />
+      </v-col>
+    </v-row>
+  </v-container>
 
   <product-details v-model="showProductDetails" :product="dialogProduct" :productCategory="getCategoryById(dialogProduct.categoryId)" />
 </template>
