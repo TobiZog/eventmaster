@@ -36,7 +36,7 @@
   "username": "Username",
   "password": "Passwort",
   "login": "Login",
-  "noAccountRegister": "Noch keinen Account? Jetzt anmelden!",
+  "noAccountRegister": "Neuen Account erstellen!",
   "register": "Account erstellen",
   "userInfo": {
     "firstName": "Vorname",
@@ -45,5 +45,6 @@
     "houseNumber": "Hausnummer",
     "postalCode": "Postleitzahl",
     "city": "Stadt"
-  }
+  },
+  "backToLogin": "Zurück zum Login"
 }

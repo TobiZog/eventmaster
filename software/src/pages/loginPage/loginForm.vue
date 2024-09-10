@@ -1,5 +1,5 @@
 <script setup lang="ts">
-const showRegisterDialog = defineModel("showRegisterDialog", { type: Boolean, default: false })
+const showRegisterCard = defineModel("showRegisterCard", { type: Boolean, default: false })
 </script>
 
 <template>
@@ -16,19 +16,15 @@ const showRegisterDialog = defineModel("showRegisterDialog", { type: Boolean, de
           <v-text-field :label="$t('password')" prepend-icon="mdi-key" type="password" clearable />
         </v-col>
       </v-row>
-
-      <v-row>
-        <v-col>
-          <!-- todo -->
-          <v-btn prepend-icon="mdi-send" color="primary" block>{{ $t('login') }}</v-btn>
-        </v-col>
-      </v-row>
     </v-container>
 
-    <v-card-text class="text-center">
-      <v-btn flat append-icon="mdi-chevron-right" @click="showRegisterDialog = true">
+    <v-card-actions>
+      <v-btn variant="outlined" @click="showRegisterCard = true" color="primary" prepend-icon="mdi-plus">
         {{ $t('noAccountRegister') }}
       </v-btn>
-    </v-card-text>
+      <v-spacer />
+      <v-btn variant="outlined" append-icon="mdi-arrow-right" color="primary">{{ $t('login') }}</v-btn>
+    </v-card-actions>
+
   </v-card>
 </template>

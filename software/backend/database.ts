@@ -23,7 +23,7 @@ export const sequelize = new Sequelize({
 
 export function startDatabase() {
   // Create database and tables
-  sequelize.sync({ force: false })
+  sequelize.sync({ force: true })
     .then(() => {
       console.log(`Database & tables created!`)
     })

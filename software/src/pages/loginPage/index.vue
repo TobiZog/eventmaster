@@ -2,18 +2,35 @@
 import { ref } from 'vue';
 import loginForm from './loginForm.vue';
 import registerForm from './registerForm.vue';
+import BannerModel from '@/data/models/bannerModel';
+import alertBanner from '@/components/alertBanner.vue';
 
-const showRegisterDialog = ref(false)
+const showRegisterCard = ref(false)
+const banner = ref(new BannerModel())
 </script>
 
 <template>
-  <v-container max-width="600">
+  <v-container max-width="800">
     <v-row>
       <v-col>
-        <login-form v-model:show-register-dialog="showRegisterDialog" />
+        <alert-banner v-model:alert-banner="banner" />
       </v-col>
     </v-row>
-  </v-container>
 
-  <register-form v-model:show-register-dialog="showRegisterDialog" />
+    <v-expand-transition>
+      <v-row v-if="!showRegisterCard">
+        <v-col>
+          <login-form v-model:show-register-card="showRegisterCard" />
+        </v-col>
+      </v-row>
+    </v-expand-transition>
+
+    <v-expand-transition>
+      <v-row v-if="showRegisterCard">
+        <v-col>
+          <register-form v-model:banner="banner" v-model:show-register-card="showRegisterCard" />
+        </v-col>
+      </v-row>
+    </v-expand-transition>
+  </v-container>
 </template>

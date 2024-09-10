@@ -13,7 +13,6 @@ category.get("/", (req: Request, res: Response, next: NextFunction) => {
 
 category.post("/", (req: Request, res: Response, next: NextFunction) => {
   try {
-    console.log(req.body)
     const category = Category.create(req.body)
     res.status(201).json(category)
   } catch (e) {

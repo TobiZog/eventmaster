@@ -1,8 +1,9 @@
-import { Table, Column, Model, HasMany } from 'sequelize-typescript';
+import { Table, Column, Model, HasMany, Unique } from 'sequelize-typescript';
 import { Order } from './order.model';
 
 @Table
 export class Account extends Model {
+  @Unique
   @Column
   username: string
 
@@ -10,13 +11,22 @@ export class Account extends Model {
   password: string
 
   @Column
-  address: string
-
-  @Column
   firstName: string
 
   @Column
   lastName: string
+
+  @Column
+  street: string
+
+  @Column
+  houseNumber: number
+
+  @Column
+  postalCode: number
+
+  @Column
+  city: string
 
   // Relations
   @HasMany(() => Order)
