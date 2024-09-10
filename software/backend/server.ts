@@ -29,6 +29,10 @@ app.use("/orders", order)
 app.use("/ordereditems", orderedItem)
 app.use("/accounts", account)
 
+// Static files
+const path = require('path')
+app.use('/static', express.static(path.join(__dirname, 'images')))
+
 // Start server
 app.listen(port, () => {
   console.log(`Server is running and listening to port ${port}`)

@@ -16,7 +16,7 @@ defineProps({
 <template>
   <v-card link>
     <v-img
-      :src="product.imageUrl"
+      :src="'http://127.0.0.1:3000/static/' + product.imageUrl"
       cover
       max-height="200"
       class="align-end text-white"

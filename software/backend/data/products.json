@@ -9,7 +9,7 @@
       "discount": 10,
       "rating": 4.6,
       "description": "Die stabile Arbeitsmaschine. Mit AMD Ryzen 7 89029U, 128 GB RAM und 8 TB M.2 SSD!",
-      "imageUrl": "https://f.media-amazon.com/images/I/51OHlMuJ5pL._AC_SL1280_.jpg"
+      "imageUrl": "thinkpad-t14s.jpg"
     },
     {
       "id": 1,
@@ -19,8 +19,8 @@
       "categoryId": 2,
       "discount": 0,
       "rating": 3.8,
-      "description": "",
-      "imageUrl": "https://images.unsplash.com/photo-1496346236646-50e985b31ea4?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8dCUyMHNoaXJ0JTIwbWVufGVufDB8fDB8fHww"
+      "description": "Normale Passform, ideal für den sportlichen Alltag.",
+      "imageUrl": "puma-t-shirt-men.avif"
     },
     {
       "id": 2,
@@ -30,8 +30,8 @@
       "categoryId": 2,
       "discount": 0,
       "rating": 4.0,
-      "description": "",
-      "imageUrl": "https://images.unsplash.com/photo-1485218126466-34e6392ec754?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8dCUyMHNoaXJ0JTIwd29tYW58ZW58MHx8MHx8fDA%3D"
+      "description": "Normale Passform, ideal für den sportlichen Alltag.",
+      "imageUrl": "puma-t-shirt-woman.avif"
     },
     {
       "id": 3,
@@ -41,7 +41,7 @@
       "categoryId": 3,
       "discount": 0,
       "rating": 4.9,
-      "imageUrl": "https://f.media-amazon.com/images/I/81BExVLr8sL._SL1500_.jpg",
+      "imageUrl": "1984.jpg",
       "description": "BIG BROTHER IS WATCHING YOU! George Orwells 1984 ist längst zu einer scheinbar nicht mehr erklärungsbedürftigen Metapher für totalitäre Verhältnisse geworden. Mit atemberaubender Unerbittlichkeit zeichnet der Autor das erschreckende Bild einer durch und..."
     },
     {
@@ -53,7 +53,7 @@
       "discount": 0,
       "rating": 4.2,
       "description": "Goethe schrieb über 60 Jahre an seinem »Faust« und nannte »diese sehr ernsten Scherze« am Ende sein »Hauptgeschäft«: Dabei entstand eines der großartigsten und gleichzeitig komplexesten Werke der Weltliteratur. Den »Faust« gibt es bei Reclam in vielen Ausgaben, preisniedrig für Schüler, mit Kommentar für Studenten, bibliophil für Liebhaber – jetzt endlich auch eine Doppelausgabe der beiden klassischen Theatertexte in der Universal-Bibliothek: »Faust I« und »II« in einem Band.",
-      "imageUrl": "https://f.media-amazon.com/images/I/71p1k4JwDqL._SL1500_.jpg"
+      "imageUrl": "goethe-faust.jpg"
     },
     {
       "id": 5,
@@ -63,8 +63,8 @@
       "categoryId": 3,
       "discount": 0,
       "rating": 3.5,
-      "description": " Hauke Haien ist ein genialer Außenseiter, der sich als junger Deichgraf einen Jugendtraum erfüllt: den Bau eines neuartigen Deiches, der den Wellen besser standhalten soll. Die Dorfbewohner sind skeptisch und sehen in ihm die Verkörperung einer uralten Sage: Wenn er auf seinem Schimmel über den Deich reitet, wird Hauke Haien zum dämonischen Reiter, der ihr Leben und ihre Gesetze aus dem Gleichgewicht bringt. Theodor Storms bekannteste Novelle ist ein Meisterwerk realistischer Erzählkunst, in dem es um den Widerstreit von Rationalität und Aberglaube, Fortschritt und Tradition geht.",
-      "imageUrl": "https://f.media-amazon.com/images/I/81uUWtGmKtL._SL1500_.jpg"
+      "description": "Hauke Haien ist ein genialer Außenseiter, der sich als junger Deichgraf einen Jugendtraum erfüllt: den Bau eines neuartigen Deiches, der den Wellen besser standhalten soll. Die Dorfbewohner sind skeptisch und sehen in ihm die Verkörperung einer uralten Sage: Wenn er auf seinem Schimmel über den Deich reitet, wird Hauke Haien zum dämonischen Reiter, der ihr Leben und ihre Gesetze aus dem Gleichgewicht bringt. Theodor Storms bekannteste Novelle ist ein Meisterwerk realistischer Erzählkunst, in dem es um den Widerstreit von Rationalität und Aberglaube, Fortschritt und Tradition geht.",
+      "imageUrl": "der-schimmelreiter.jpg"
     },
     {
       "id": 6,
@@ -74,7 +74,7 @@
       "categoryId": 3,
       "discount": 0,
       "rating": 4.4,
-      "imageUrl": "https://f.media-amazon.com/images/I/917t3Joq2WL._SL1500_.jpg",
+      "imageUrl": "brave-new-world.jpg",
       "description": "Brave New World beschreibt eine genormte Gesellschaft, in der Föten genetisch manipuliert und Menschen konditioniert werden. Ziel des Staates ist Zufriedenheit und Stabilität, und dies wird durch Gleichheit, Drogen und Propaganda erreicht. Gott und Religion..."
     },
     {
@@ -85,8 +85,19 @@
       "categoryId": 0,
       "discount": 0,
       "rating": 4.7,
-      "description": "",
-      "imageUrl": "https://f.media-amazon.com/images/I/81gpDyNWhzL._AC_SL1500_.jpg"
+      "description": "Der schnellste Desktop-PC auf dem Markt! Intel Core i9 19650, 128 GB RAM, Nvidia Geforce RTX 6090. Gepaart mit 8 TB SSD Speicher in einem schicken RGB Gehäuse.",
+      "imageUrl": "ankerman-gaming-work-v3.jpg"
+    },
+    {
+      "id": 8,
+      "brand": "Adidas",
+      "name": "UCL Pro 23/24",
+      "price": 99.99,
+      "categoryId": 1,
+      "discount": 0,
+      "rating": 3.9,
+      "description": "Der Adidas UCL Pro ist beim Kicken für Hobbyspieler, Amateure und Profis unsere Nummer Eins. Denn der offizielle Spielball der Champions League hat eine wunderbar weiche, aber dennoch sehr robuste und abriebfeste Oberfläche. Mehr Ballgefühl als mit dem UCL Pro kann man kaum haben. Seine Außenhaut gefällt uns noch einen Tick besser als die der Mitbewerber. Die einzelnen Panels aus Polyurethan sind thermisch verklebt. Dadurch ist der Ball nahtlos und hat eine perfekte Kugelform.",
+      "imageUrl": "fussball-champions-league.jpg"
     }
   ]
 }

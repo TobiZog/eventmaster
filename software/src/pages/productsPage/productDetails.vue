@@ -25,7 +25,7 @@ function addProductToBasket() {
 <template>
   <v-dialog max-width="800" v-model="showDialog">
     <v-card :title="product.name" :subtitle="product.brand" >
-      <v-img :src="product.imageUrl" max-height="300" />
+      <v-img :src="'http://127.0.0.1:3000/static/' + product.imageUrl" max-height="300" />
 
       <v-card-text>
         <v-row>
