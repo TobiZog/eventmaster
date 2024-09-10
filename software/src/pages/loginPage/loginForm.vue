@@ -1,4 +1,5 @@
 <script setup lang="ts">
+const showRegisterDialog = defineModel("showRegisterDialog", { type: Boolean, default: false })
 </script>
 
 <template>
@@ -25,14 +26,9 @@
     </v-container>
 
     <v-card-text class="text-center">
-      <a
-        class="text-secondary text-decoration-none"
-        href="#"
-        rel="noopener noreferrer"
-        target="_blank"
-      >
-        {{ $t('noAccountRegister') }} <v-icon icon="mdi-chevron-right"/>
-      </a>
+      <v-btn flat append-icon="mdi-chevron-right" @click="showRegisterDialog = true">
+        {{ $t('noAccountRegister') }}
+      </v-btn>
     </v-card-text>
   </v-card>
 </template>

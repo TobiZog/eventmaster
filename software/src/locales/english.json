@@ -36,5 +36,14 @@
   "username": "Username",
   "password": "Password",
   "login": "Login",
-  "noAccountRegister": "No Account? Register now!"
+  "noAccountRegister": "No Account? Register now!",
+  "register": "Create Account",
+  "userInfo": {
+    "firstName": "First Name",
+    "lastName": "Family Name",
+    "street": "Street",
+    "houseNumber": "House Number",
+    "postalCode": "Postal Code",
+    "city": "City"
+  }
 }

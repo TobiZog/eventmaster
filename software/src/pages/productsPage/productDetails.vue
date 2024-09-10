@@ -5,6 +5,7 @@ import { CategoryModel } from '@/data/models/categoryModel';
 import { ModelRef, ref } from 'vue';
 import { useBasketStore } from '@/data/stores/basketStore';
 import { calcProductPrice, productToBasketItem } from '@/scripts/productScripts';
+import ActionDialog from '@/components/actionDialog.vue'
 
 const showDialog: ModelRef<boolean> = defineModel()
 const nrOfArticles = ref(1)
@@ -23,54 +24,51 @@ function addProductToBasket() {
 </script>
 
 <template>
-  <v-dialog max-width="800" v-model="showDialog">
-    <v-card :title="product.name" :subtitle="product.brand" >
-      <v-img :src="'http://127.0.0.1:3000/static/' + product.imageUrl" max-height="300" />
+  <action-dialog
+    :title="product.name"
+    :subtitle="product.brand"
+    :image-url="'http://127.0.0.1:3000/static/' + product.imageUrl"
+    v-model="showDialog"
+  >
+    <template #content>
+      <v-row>
+        <v-col>
+          <v-icon :icon="productCategory.icon" />
+          {{ productCategory.name }}
+        </v-col>
+      </v-row>
+      <v-row>
+        <v-col>
+          {{ product.description }}
+        </v-col>
+      </v-row>
+      <v-row>
+        <v-col>
+          <v-number-input
+            :reverse="false"
+            controlVariant="default"
+            :label="$t('quantity')"
+            :hideInput="false"
+            :inset="false"
+            v-model="nrOfArticles"
+            :min="1"
+            :max="10"
+            density="comfortable"
+          />
+        </v-col>
 
-      <v-card-text>
-        <v-row>
-          <v-col>
-            <v-icon :icon="productCategory.icon" />
-            {{ productCategory.name }}
-          </v-col>
-        </v-row>
-        <v-row>
-          <v-col>
-            {{ product.description }}
-          </v-col>
-        </v-row>
-        <v-row>
-          <v-col>
-            <v-number-input
-              :reverse="false"
-              controlVariant="default"
-              :label="$t('quantity')"
-              :hideInput="false"
-              :inset="false"
-              v-model="nrOfArticles"
-              :min="1"
-              :max="10"
-              density="comfortable"
-            />
-          </v-col>
+        <v-spacer />
 
-          <v-spacer />
+        <v-col cols="2" class="justify-center d-flex">
+          {{ calcProductPrice(product, nrOfArticles) }} €
+        </v-col>
+      </v-row>
+    </template>
 
-          <v-col cols="2" class="justify-center d-flex">
-            {{ calcProductPrice(product, nrOfArticles) }} €
-          </v-col>
-        </v-row>
-      </v-card-text>
-
-      <v-card-actions>
-        <v-btn
-          prepend-icon="mdi-cart-plus"
-          @click="addProductToBasket"
-        >
-          {{ $t('addToBasket') }}
-        </v-btn>
-      </v-card-actions>
-    </v-card>
-    
-  </v-dialog>
+    <template #actions>
+      <v-btn prepend-icon="mdi-cart-plus" @click="addProductToBasket" color="primary" variant="outlined">
+        {{ $t('addToBasket') }}
+      </v-btn>
+    </template>
+  </action-dialog>
 </template>
