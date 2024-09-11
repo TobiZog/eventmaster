@@ -20,7 +20,7 @@ const banner = ref(new BannerModel())
     <v-expand-transition>
       <v-row v-if="!showRegisterCard">
         <v-col>
-          <login-form v-model:show-register-card="showRegisterCard" />
+          <login-form v-model:show-register-card="showRegisterCard" v-model:banner="banner" />
         </v-col>
       </v-row>
     </v-expand-transition>

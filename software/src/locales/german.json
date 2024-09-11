@@ -46,5 +46,6 @@
     "postalCode": "Postleitzahl",
     "city": "Stadt"
   },
-  "backToLogin": "Zurück zum Login"
+  "backToLogin": "Zurück zum Login",
+  "logout": "Ausloggen"
 }

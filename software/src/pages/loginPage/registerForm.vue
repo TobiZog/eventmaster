@@ -9,9 +9,9 @@ const banner = defineModel("banner", { required: true, type: BannerModel })
 const showRegisterCard = defineModel("showRegisterCard", { type: Boolean, default: false })
 
 function registerUser() {
-  axios.post('http://127.0.0.1:3000/accounts/', newUser.value)
+  axios.post('http://127.0.0.1:3000/accounts/register', newUser.value)
     .then(res => {
-      console.log(res.status)
+      console.log(res)
       if (res.status == 200) {
         banner.value.message = "Created!"
         banner.value.color = "green"
@@ -20,6 +20,7 @@ function registerUser() {
       }
     })
     .catch((error) => {
+      console.log(error)
       if (error.status == 400) {
         banner.value.color = "red"
         banner.value.icon = "mdi-alert-circle"
