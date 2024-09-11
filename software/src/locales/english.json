@@ -1,6 +1,5 @@
 {
-  "menu":
-  {
+  "menu": {
     "shopping": "Shopping",
     "products": "Products",
     "basket": "Basket",
@@ -9,7 +8,8 @@
     "orders": "Orders",
     "systemAndHelp": "System & Help",
     "helpInstructions": "Help instructions",
-    "preferences": "Preferences"
+    "preferences": "Preferences",
+    "logout": "Logout"
   },
   "preferences": {
     "pageSetup": "Page setup",
@@ -19,8 +19,14 @@
     "resetDatabase": "Reset database",
     "resetPreferences": "Reset preferences"
   },
-  "products": "Products",
-  "product": "Product",
+  "product": {
+    "product": "Product",
+    "products": "Products",
+    "productName": "Product name",
+    "brand": "Brand",
+    "productPrice": "Unit price",
+    "category": "Category"
+  },
   "offers": "Offers",
   "categories": "Categories",
   "sortBy": "Sort by",
@@ -30,14 +36,7 @@
   "emptyBasketText": "Go to our products and add some of them to the basket",
   "totalPrice": "Total price",
   "orderNow": "Order now",
-  "category": "Category",
-  "brand": "Brand",
-  "productPrice": "Unit price",
-  "username": "Username",
-  "password": "Password",
-  "login": "Login",
-  "noAccountRegister": "Create new Account!",
-  "register": "Create Account",
+  
   "userInfo": {
     "firstName": "First Name",
     "lastName": "Family Name",
@@ -46,6 +45,19 @@
     "postalCode": "Postal Code",
     "city": "City"
   },
-  "backToLogin": "Back to Login",
-  "logout": "Logout"
+
+  "account": {
+    "backToLogin": "Back to Login",
+    "username": "Username",
+    "password": "Password",
+    "noAccountRegister": "Create new Account!",
+    "register": "Create Account"
+  },
+  
+  "bannerMessages": {
+    "loginSuccessful": "Login erfolgreich!",
+    "wrongLogin": "Falscher Username oder falsches Passwort!",
+    "error": "Some error occurred...",
+    "databaseResetSuccessful": "Database reset successful!"
+  }
 }

@@ -9,7 +9,8 @@
     "orders": "Bestellungen",
     "systemAndHelp": "System & Hilfe",
     "helpInstructions": "Hilfestellung",
-    "preferences": "Einstellungen"
+    "preferences": "Einstellungen",
+    "logout": "Ausloggen"
   },
   "preferences": {
     "pageSetup": "Seiteneinstellungen",
@@ -19,8 +20,14 @@
     "resetDatabase": "Datenbank zurücksetzen",
     "resetPreferences": "Einstellungen zurücksetzen"
   },
-  "products": "Produkte",
-  "product": "Produkt",
+  "product": {
+    "product": "Produkt",
+    "products": "Produkte",
+    "productName": "Product Name",
+    "brand": "Marke",
+    "productPrice": "Einzelpreis",
+    "category": "Kategorie"
+  },
   "offers": "Angebote",
   "categories": "Kategorien",
   "sortBy": "Sortieren nach",
@@ -29,15 +36,8 @@
   "emptyBasketTitle": "Keine Artikel im Warenkorb",
   "emptyBasketText": "Gehe zu unseren Produkten und lege Artikel in den Warenkorb",
   "totalPrice": "Gesamtpreis",
-  "orderNow": "Jetzt bestellen",
-  "category": "Kategorie",
-  "brand": "Marke",
-  "productPrice": "Einzelpreis",
-  "username": "Username",
-  "password": "Passwort",
-  "login": "Login",
-  "noAccountRegister": "Neuen Account erstellen!",
-  "register": "Account erstellen",
+  "orderNow": "Jetzt bestellen",  
+  
   "userInfo": {
     "firstName": "Vorname",
     "lastName": "Nachname",
@@ -46,6 +46,19 @@
     "postalCode": "Postleitzahl",
     "city": "Stadt"
   },
-  "backToLogin": "Zurück zum Login",
-  "logout": "Ausloggen"
+
+  "account": {
+    "username": "Username",
+    "password": "Passwort",
+    "noAccountRegister": "Neuen Account erstellen!",
+    "register": "Account erstellen",
+    "backToLogin": "Zurück zum Login"
+  },
+  
+  "bannerMessages": {
+    "loginSuccessful": "Login erfolgreich!",
+    "wrongLogin": "Falscher Username oder falsches Passwort!",
+    "error": "Es ist ein Fehler aufgetreten...",
+    "databaseResetSuccessful": "Datenbank erfolgreich zurück gesetzt!"
+  }
 }

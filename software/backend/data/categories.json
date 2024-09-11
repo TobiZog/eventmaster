@@ -1,8 +1,24 @@
 {
   "data": [
-    { "id": 0, "icon": "mdi-chip", "name": "Electronic" },
-    { "id": 1, "icon": "mdi-soccer", "name": "Sports" },
-    { "id": 2, "icon": "mdi-tshirt-crew", "name": "Clothes" },
-    { "id": 3, "icon": "mdi-bookshelf", "name": "Books" }
+    {
+      "id": 0,
+      "icon": "mdi-chip",
+      "name": "Electronic"
+    },
+    {
+      "id": 1,
+      "icon": "mdi-soccer",
+      "name": "Sports"
+    },
+    {
+      "id": 2,
+      "icon": "mdi-tshirt-crew",
+      "name": "Clothes"
+    },
+    {
+      "id": 3,
+      "icon": "mdi-bookshelf",
+      "name": "Books"
+    }
   ]
 }

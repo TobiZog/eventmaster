@@ -15,11 +15,11 @@ function removeFromBasket(basketItem: BasketItemModel) {
     <thead>
       <tr>
         <th></th>
-        <th>{{ $t('category') }}</th>
-        <th>{{ $t('brand') }}</th>
-        <th>{{ $t('products') }}</th>
+        <th>{{ $t('product.category') }}</th>
+        <th>{{ $t('product.brand') }}</th>
+        <th>{{ $t('product.products') }}</th>
         <th class="text-center">{{ $t('quantity') }}</th>
-        <th class="text-right">{{ $t('productPrice') }}</th>
+        <th class="text-right">{{ $t('product.productPrice') }}</th>
         <th class="text-right">{{ $t('totalPrice') }}</th>
       </tr>
     </thead>

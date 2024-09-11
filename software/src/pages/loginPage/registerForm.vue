@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { BannerStateEnum } from '@/data/enums/bannerStateEnum';
 import { AccountModel } from '@/data/models/accountModel';
 import BannerModel from '@/data/models/bannerModel';
 import axios from 'axios';
@@ -13,18 +14,14 @@ function registerUser() {
     .then(res => {
       console.log(res)
       if (res.status == 200) {
-        banner.value.message = "Created!"
-        banner.value.color = "green"
-        banner.value.icon = "mdi-check"
+        banner.value.bannerState = BannerStateEnum.LOGINSUCCESSFUL
         banner.value.show = true
       }
     })
     .catch((error) => {
       console.log(error)
       if (error.status == 400) {
-        banner.value.color = "red"
-        banner.value.icon = "mdi-alert-circle"
-        banner.value.message = error.response.data.error
+        banner.value.bannerState = BannerStateEnum.WRONGLOGIN
         banner.value.show = true
       }
     })
@@ -32,12 +29,12 @@ function registerUser() {
 </script>
 
 <template>
-  <v-card :title="$t('register')">
+  <v-card :title="$t('account.register')">
     <v-container>
       <v-row>
         <v-col>
           <v-text-field
-            :label="$t('username')"
+            :label="$t('account.username')"
             prepend-icon="mdi-account"
             v-model="newUser.username"
             clearable
@@ -46,7 +43,7 @@ function registerUser() {
 
         <v-col>
           <v-text-field
-            :label="$t('password')"
+            :label="$t('account.password')"
             prepend-icon="mdi-key"
             type="password"
             v-model="newUser.password"
@@ -100,9 +97,15 @@ function registerUser() {
     </v-container>
 
     <template #actions>
-      <v-btn prepend-icon="mdi-arrow-left" color="primary" variant="outlined" @click="showRegisterCard = false">{{ $t('backToLogin') }}</v-btn>
+      <v-btn prepend-icon="mdi-arrow-left" color="primary" variant="outlined" 
+        @click="showRegisterCard = false">
+          {{ $t('backToLogin') }}
+        </v-btn>
       <v-spacer />
-      <v-btn prepend-icon="mdi-account-plus" color="primary" variant="outlined" @click="registerUser">{{ $t('register') }}</v-btn>
+      <v-btn prepend-icon="mdi-account-plus" color="primary" variant="outlined" 
+        @click="registerUser">
+          {{ $t('register') }}
+        </v-btn>
     </template>
   </v-card>
 </template>

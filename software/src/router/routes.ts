@@ -1,5 +1,5 @@
 import AccountPage from "@/pages/AccountPage.vue";
-import OrdersPage from "@/pages/OrdersPage.vue";
+import OrdersPage from "@/pages/ordersPage/index.vue";
 import PreferencesPage from "@/pages/preferencesPage/index.vue";
 import ProductsPage from "@/pages/productsPage/index.vue";
 import LoginPage from "@/pages/loginPage/index.vue"

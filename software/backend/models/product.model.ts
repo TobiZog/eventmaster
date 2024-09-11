@@ -1,7 +1,6 @@
-import { Table, Column, Model, ForeignKey, BelongsTo, BelongsToMany } from 'sequelize-typescript';
+import { Table, Column, Model, ForeignKey, BelongsTo, BelongsToMany, HasMany } from 'sequelize-typescript';
 import { Category } from './category.model';
-import { OrderedItem } from './orderedItem.model';
-import { Order } from './order.model';
+import { OrderItem } from './orderItem.model';
 
 @Table
 export class Product extends Model {
@@ -34,6 +33,6 @@ export class Product extends Model {
   @BelongsTo(() => Category)
   category: Category
 
-  @BelongsToMany(() => Order,() => OrderedItem)
-  orderedItem: OrderedItem
+  @HasMany(() => OrderItem)
+  order: OrderItem
 }

@@ -4,7 +4,7 @@ import { useUserStore } from './data/stores/userStore';
 import { i18n } from './plugins/i18n';
 import { ref } from 'vue';
 import vuetify from './plugins/vuetify';
-import navigationDrawer from './components/navigationDrawer.vue';
+import navigationItems from './components/navigationItems.vue';
 
 const userStore = useUserStore()
 const theme = useTheme()
@@ -23,7 +23,7 @@ i18n.global.locale = userStore.language
     </v-app-bar>
 
     <v-navigation-drawer :rail="navRail" permanent>
-      <navigation-drawer v-model:nav-rail="navRail" />
+      <navigation-items v-model:nav-rail="navRail" />
     </v-navigation-drawer>
 
     <v-main>

@@ -1,0 +1,6 @@
+export enum BannerStateEnum {
+  DATABASERESETSUCCESSFUL,
+  ERROR,
+  WRONGLOGIN,
+  LOGINSUCCESSFUL
+}

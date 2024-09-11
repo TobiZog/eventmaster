@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { BannerStateEnum } from '@/data/enums/bannerStateEnum';
 import BannerModel from '@/data/models/bannerModel';
 import axios from 'axios';
 
@@ -8,6 +9,7 @@ function resetDb() {
   axios.get("http://127.0.0.1:3000/api/resetdatabase")
     .then(res => {
       if (res.status == 200) {
+        alertBanner.value.bannerState = BannerStateEnum.DATABASERESETSUCCESSFUL
         alertBanner.value.show = true
       }
     })

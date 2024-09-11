@@ -33,3 +33,4 @@ coverage
 build
 *.sqlite
 out/
+database.svg

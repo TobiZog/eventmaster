@@ -28,10 +28,10 @@ const onlyDiscounts = defineModel("onlyDiscounts", { required: true, type: Boole
   <v-card>
     <v-card-title>
       <div v-if="numberOfItems == 1">
-        {{ numberOfItems }} {{ $t('product') }}
+        {{ numberOfItems }} {{ $t('product.product') }}
       </div>
       <div v-else>
-        {{ numberOfItems }} {{ $t('products') }}
+        {{ numberOfItems }} {{ $t('product.products') }}
       </div>
     </v-card-title>
     <v-container class="pb-0">

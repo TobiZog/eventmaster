@@ -2,8 +2,8 @@ import { Sequelize } from "sequelize-typescript"
 
 // Models
 import { Category } from "./models/category.model"
-import { OrderedItem } from "./models/orderedItem.model"
 import { Order } from "./models/order.model"
+import { OrderItem } from "./models/orderItem.model"
 import { Product } from "./models/product.model"
 import { Account } from "./models/account.model"
 
@@ -18,7 +18,7 @@ export const sequelize = new Sequelize({
   username: dbUser,
   password: dbPassword,
   storage: "database.sqlite",
-  models: [ Category, Product, Account, Order, OrderedItem ]
+  models: [ Category, Product, Account, Order, OrderItem ]
 })
 
 export function startDatabase() {

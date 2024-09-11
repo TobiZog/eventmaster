@@ -1,7 +1,6 @@
 import { Table, Column, Model, BelongsTo, ForeignKey, HasMany, BelongsToMany } from 'sequelize-typescript';
 import { Account } from './account.model';
-import { OrderedItem } from './orderedItem.model';
-import { Product } from './product.model';
+import { OrderItem } from './orderItem.model';
 
 @Table
 export class Order extends Model {
@@ -12,10 +11,11 @@ export class Order extends Model {
   @Column
   totalPrice: number
 
+
   // Relations
   @BelongsTo(() => Account)
-  user: Account
+  account: Account
 
-  @BelongsToMany(() => Product, () => OrderedItem)
-  orderedItems: OrderedItem
+  @HasMany(() => OrderItem)
+  orderItem: OrderItem[]
 }

@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { useUserStore } from '@/data/stores/userStore';
 import { useBasketStore } from '@/data/stores/basketStore';
-import vuetify from '@/plugins/vuetify';
 
 const userStore = useUserStore()
 const basketStore = useBasketStore()
@@ -10,6 +9,8 @@ const navRail = defineModel("navRail", { type: Boolean })
 
 <template>
   <v-list>
+    <!-- Shopping Section -->
+
     <v-list-subheader>
       <div v-if="!navRail">{{ $t('menu.shopping') }}</div>
       <div v-else></div>
@@ -25,17 +26,32 @@ const navRail = defineModel("navRail", { type: Boolean })
 
     <v-divider />
 
+
+    <!-- Account Section -->
+
     <v-list-subheader>
       <div v-if="!navRail">{{ $t('menu.account') }}</div>
       <div v-else></div>
     </v-list-subheader>
-    <v-list-item v-if="userStore.userAccountId == -1" :title="$t('menu.login')" prepend-icon="mdi-login" to="/login" link />
-    <v-list-item v-else :title="$t('logout')" prepend-icon="mdi-logout" @click="userStore.userAccountId = -1" link />
 
-    <v-list-item v-if="userStore.userAccountId != -1" :title="$t('menu.account')" prepend-icon="mdi-account" to="/account" link />
-    <v-list-item v-if="userStore.userAccountId != -1" :title="$t('menu.orders')" prepend-icon="mdi-cart-check" to="/orders" link />
+    <v-expand-transition>
+      <div v-if="userStore.userAccountId == -1">
+        <v-list-item v-if="userStore.userAccountId == -1" :title="$t('menu.login')" prepend-icon="mdi-login" to="/login" link />
+      </div>
+    </v-expand-transition>
+
+    <v-expand-transition>
+      <div v-if="userStore.userAccountId != -1">
+        <v-list-item :title="$t('menu.logout')" prepend-icon="mdi-logout" @click="userStore.userAccountId = -1" link />
+        <v-list-item :title="$t('menu.account')" prepend-icon="mdi-account" to="/account" link />
+        <v-list-item :title="$t('menu.orders')" prepend-icon="mdi-cart-check" to="/orders" link />
+      </div>
+    </v-expand-transition>
 
     <v-divider />
+
+
+    <!-- System and help section -->
     
     <v-list-subheader>
       <div v-if="!navRail">{{ $t('menu.systemAndHelp') }}</div>

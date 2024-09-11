@@ -1,6 +1,6 @@
+import { BannerStateEnum } from "../enums/bannerStateEnum"
+
 export default class BannerModel {
-  message: string = "Success!"
   show: boolean = false
-  color: string = "green"
-  icon: string = "mdi-check"
+  bannerState: BannerStateEnum = BannerStateEnum.ERROR
 }

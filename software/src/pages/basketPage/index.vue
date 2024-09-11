@@ -12,10 +12,10 @@ const basketStore = useBasketStore()
         <v-card :title="$t('menu.basket')" prepend-icon="mdi-cart">
           <v-card-subtitle v-if="basketStore.itemsInBasket.length > 0">
             <div v-if="basketStore.itemsInBasket.length == 1">
-              {{ basketStore.itemsInBasket.length }} {{ $t('product') }}
+              {{ basketStore.itemsInBasket.length }} {{ $t('product.product') }}
             </div>
             <div v-else>
-              {{ basketStore.itemsInBasket.length }} {{ $t('products') }}
+              {{ basketStore.itemsInBasket.length }} {{ $t('product.products') }}
             </div>
           </v-card-subtitle>
 
