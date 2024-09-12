@@ -3,17 +3,22 @@
     {
       "id": 0,
       "accountId": 0,
-      "totalPrice": 0
+      "totalPrice": 0,
+      "shippingProgress": 4
     },
     {
       "id": 1,
       "accountId": 3,
-      "totalPrice": 0
+      "totalPrice": 7.99,
+      "shippingProgress": 5,
+      "createdAt": "2024-09-09 12:24:24.225 +00:00"
     },
     {
       "id": 2,
       "accountId": 3,
-      "totalPrice": 0
+      "totalPrice": 44.96,
+      "shippingProgress": 2,
+      "createdAt": "2024-09-12 09:57:24.225 +00:00"
     }
   ]
 }

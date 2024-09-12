@@ -1,0 +1,15 @@
+{
+  "i18n-ally.localesPaths": "software/src/locales",
+  "i18n-ally.regex.key": ".*?",
+  "i18n-ally.sourceLanguage": "en",
+  "i18n-ally.keysInUse": [
+    "date.long.*",
+    "yeah"
+  ],
+  "i18n-ally.includeSubfolders": true,
+  "i18n-ally.dirStructure": "auto",
+  "i18n-ally.enabledFrameworks": [
+    "vue"
+  ],
+  "i18n-ally.keystyle": "nested"
+}

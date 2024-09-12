@@ -2,5 +2,5 @@
 </script>
 
 <template>
-  Account
+  Account Page
 </template>

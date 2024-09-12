@@ -36,7 +36,13 @@
   "emptyBasketText": "Go to our products and add some of them to the basket",
   "totalPrice": "Total price",
   "orderNow": "Order now",
-  
+  "orders": {
+    "orderFrom": "Order from",
+    "ordered": "Ordered",
+    "preparingForShipping": "Preparing for shipping",
+    "shipped": "Shipped",
+    "delivered": "Delivered"
+  },
   "userInfo": {
     "firstName": "First Name",
     "lastName": "Family Name",
@@ -45,7 +51,6 @@
     "postalCode": "Postal Code",
     "city": "City"
   },
-
   "account": {
     "backToLogin": "Back to Login",
     "username": "Username",
@@ -53,11 +58,11 @@
     "noAccountRegister": "Create new Account!",
     "register": "Create Account"
   },
-  
   "bannerMessages": {
     "loginSuccessful": "Login erfolgreich!",
     "wrongLogin": "Falscher Username oder falsches Passwort!",
     "error": "Some error occurred...",
     "databaseResetSuccessful": "Database reset successful!"
-  }
+  },
+  "oclock": "o'clock"
 }

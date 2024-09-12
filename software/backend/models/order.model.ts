@@ -11,6 +11,9 @@ export class Order extends Model {
   @Column
   totalPrice: number
 
+  @Column
+  shippingProgress: number = 1
+
 
   // Relations
   @BelongsTo(() => Account)

@@ -14,6 +14,26 @@ axios.get("http://127.0.0.1:3000/orders", {
   .then(res => {
     orders.value = res.data
   })
+
+function getDotColor(order, step: number) {
+  if (order.shippingProgress == step)
+  {
+    return "orange"
+  } else if (order.shippingProgress >= step) 
+  {
+    return "green"
+  } else 
+  {
+    return "grey"
+  }
+}
+
+function formatDateTimeString(string: string) {
+  let date = new Date(string)
+
+  return date.getDate() + '.' + (date.getMonth() + 1) + '.' + date.getFullYear() + ', ' + 
+    date.getHours() + ':' + date.getMinutes()
+}
 </script>
 
 <template>
@@ -21,10 +41,28 @@ axios.get("http://127.0.0.1:3000/orders", {
     <v-row v-for="order in orders">
       <v-col>
         <v-card
-          :title="'Bestellung vom ' + order.createdAt"
+          :title="$t('orders.orderFrom') + ' ' + formatDateTimeString(order.createdAt) + ' ' + $t('oclock')"
           :subtitle="$t('totalPrice') + ': ' + order.totalPrice + ' €'"
         >
-          <v-table>
+          <v-timeline direction="horizontal" side="start">
+            <v-timeline-item :dot-color="getDotColor(order, 1)" icon="mdi-basket-check">
+              {{ $t('orders.ordered') }}
+            </v-timeline-item>
+
+            <v-timeline-item :dot-color="getDotColor(order, 2)" icon="mdi-package-variant">
+              {{ $t('orders.preparingForShipping') }}
+            </v-timeline-item>
+
+            <v-timeline-item :dot-color="getDotColor(order, 3)" icon="mdi-truck-fast">
+              {{ $t('orders.shipped') }}
+            </v-timeline-item>
+
+            <v-timeline-item :dot-color="getDotColor(order, 4)" icon="mdi-package-check">
+              {{ $t('orders.delivered') }}
+            </v-timeline-item>
+          </v-timeline>
+
+          <v-table class="bg-surface-light">
             <thead>
               <tr>
                 <th>{{ $t('quantity') }}</th>

@@ -1,6 +1,5 @@
 {
-  "menu":
-  {
+  "menu": {
     "shopping": "Einkaufen",
     "products": "Produkte",
     "basket": "Warenkorb",
@@ -36,8 +35,14 @@
   "emptyBasketTitle": "Keine Artikel im Warenkorb",
   "emptyBasketText": "Gehe zu unseren Produkten und lege Artikel in den Warenkorb",
   "totalPrice": "Gesamtpreis",
-  "orderNow": "Jetzt bestellen",  
-  
+  "orderNow": "Jetzt bestellen",
+  "orders": {
+    "orderFrom": "Bestellung vom",
+    "ordered": "Bestellt",
+    "preparingForShipping": "Versandvorbereitung",
+    "shipped": "Versendet",
+    "delivered": "Geliefert"
+  },
   "userInfo": {
     "firstName": "Vorname",
     "lastName": "Nachname",
@@ -46,7 +51,6 @@
     "postalCode": "Postleitzahl",
     "city": "Stadt"
   },
-
   "account": {
     "username": "Username",
     "password": "Passwort",
@@ -54,11 +58,11 @@
     "register": "Account erstellen",
     "backToLogin": "Zurück zum Login"
   },
-  
   "bannerMessages": {
     "loginSuccessful": "Login erfolgreich!",
     "wrongLogin": "Falscher Username oder falsches Passwort!",
     "error": "Es ist ein Fehler aufgetreten...",
     "databaseResetSuccessful": "Datenbank erfolgreich zurück gesetzt!"
-  }
+  },
+  "oclock": "Uhr"
 }

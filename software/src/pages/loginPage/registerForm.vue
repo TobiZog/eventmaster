@@ -99,12 +99,12 @@ function registerUser() {
     <template #actions>
       <v-btn prepend-icon="mdi-arrow-left" color="primary" variant="outlined" 
         @click="showRegisterCard = false">
-          {{ $t('backToLogin') }}
+          {{ $t('account.backToLogin') }}
         </v-btn>
       <v-spacer />
       <v-btn prepend-icon="mdi-account-plus" color="primary" variant="outlined" 
         @click="registerUser">
-          {{ $t('register') }}
+          {{ $t('account.register') }}
         </v-btn>
     </template>
   </v-card>
