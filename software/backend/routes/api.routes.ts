@@ -4,7 +4,7 @@ import { deleteAllTables, prepopulateDatabase } from '../scripts/databaseHelper'
 export const api = Router()
 
 api.get("/", (req: Request, res: Response, next: NextFunction) => {
-  res.send("Hello World!")
+  res.status(200).send()
 })
 
 api.get("/resetdatabase", (req: Request, res: Response, next: NextFunction) => {

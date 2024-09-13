@@ -11,19 +11,19 @@ export class Account extends Model {
   password: string
 
   @Column
-  firstName: string
+  firstName: string = ""
 
   @Column
-  lastName: string
+  lastName: string = ""
 
   @Column
-  street: string
+  street: string = ""
 
   @Column
-  houseNumber: number
+  houseNumber: number = 0
 
   @Column
-  postalCode: number
+  postalCode: number = 0
 
   @Column
   city: string

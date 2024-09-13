@@ -1,7 +1,7 @@
 export class CategoryModel {
   id: number = -1
-  name: string = "All"
-  icon: string = "mdi-all-inclusive"
+  name: string
+  icon: string
   createdAt: string = ""
   updatedAt: string = ""
 }

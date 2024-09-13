@@ -3,19 +3,41 @@ import { Category } from "../models/category.model";
 
 export const category = Router()
 
+// Get all categories
 category.get("/", (req: Request, res: Response, next: NextFunction) => {
   Category.findAll()
     .then(categories => {
-      res.json(categories)
+      res.status(200).json(categories).send()
     })
-    .catch(next)
+    .catch(error => {
+      res.status(400).json({ message: error }).send()
+    })
 })
 
+// Add new category
 category.post("/", (req: Request, res: Response, next: NextFunction) => {
-  try {
-    const category = Category.create(req.body)
-    res.status(201).json(category)
-  } catch (e) {
-    next(e)
-  }
+  Category.create(req.body)
+    .then(category => {
+      res.status(201).send()
+    })
+    .catch(error => {
+      res.status(400).json({ 
+        message: error
+      }).send()
+    })
+})
+
+// Delete category
+category.delete("/:id", (req: Request, res: Response, next: NextFunction) => {
+  Category.destroy({
+    where: { id: req.params.id }
+  })
+    .then(category => {
+      res.status(200).send()
+    })
+    .catch(error => {
+      res.status(406).json({
+        message: error
+      }).send()
+    })
 })
