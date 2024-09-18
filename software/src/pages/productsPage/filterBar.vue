@@ -1,10 +1,10 @@
 <script setup lang="ts">
 import { SortOrder } from '@/data/enums/sortOrderEnum';
-import { CategoryModel } from '@/data/models/categoryModel';
-import { FilterModel } from '@/data/models/filterModel';
+import { useCategoryStore } from '@/data/stores/categoryStore';
 import { useProductStore } from '@/data/stores/productStore';
 
 const productStore = useProductStore()
+const categoryStore = useCategoryStore()
 const sortOrderItems = Object.values(SortOrder)
 </script>
 
@@ -26,7 +26,11 @@ const sortOrderItems = Object.values(SortOrder)
         </v-col>
 
         <v-col class="d-flex justify-left align-center">
-          <!-- todo <v-select :items="categories" :label="$t('categories')" v-model="selectedCategory" >
+          <v-select
+            :items="categoryStore.categories"
+            :label="$t('categories')"
+            v-model="productStore.filteredCategory"
+          >
             <template v-slot:item="{ props, item }">
               <v-list-item v-bind="props" :prepend-icon="item.raw.icon" :title="item.raw.name" />
             </template>
@@ -34,7 +38,7 @@ const sortOrderItems = Object.values(SortOrder)
             <template v-slot:selection="{ item }">
               <v-list-item :prepend-icon="item.raw.icon" :title="item.raw.name" />
             </template>
-          </v-select> -->
+          </v-select>
         </v-col>
 
         <v-col class="d-flex justify-left align-center">

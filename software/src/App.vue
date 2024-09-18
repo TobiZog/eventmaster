@@ -6,9 +6,11 @@ import { ref } from 'vue';
 import vuetify from './plugins/vuetify';
 import navigationItems from './components/navigationItems.vue';
 import { useProductStore } from './data/stores/productStore';
+import { useCategoryStore } from './data/stores/categoryStore';
 
 const userStore = useUserStore()
 const productStore = useProductStore()
+const categoryStore = useCategoryStore()
 const theme = useTheme()
 const navRail = ref(vuetify.display.mobile)
 
@@ -16,6 +18,7 @@ theme.global.name.value = userStore.theme
 i18n.global.locale = userStore.language
 
 productStore.fetchAllProducts()
+categoryStore.fetchAllCategories()
 </script>
 
 <template>

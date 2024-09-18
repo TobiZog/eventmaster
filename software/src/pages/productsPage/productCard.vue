@@ -1,15 +1,11 @@
 <script setup lang="ts">
-import { CategoryModel } from '@/data/models/categoryModel';
-import { ProductModel } from '@/data/models/productModel';
+import { ProductWithCategoryModel } from '@/data/models/productWithCategoryModel';
 
 defineProps({
   product: {
     required: true,
-    type: ProductModel
-  },
-  // category: {
-  //   type: CategoryModel
-  // },
+    type: ProductWithCategoryModel
+  }
 })
 </script>
 
@@ -25,9 +21,12 @@ defineProps({
         {{ product.name }}
       </v-card-title>
 
-      <!-- todo <v-card-subtitle class="mb-2">
-        <div><v-icon :icon="category.icon" /> {{ category.name }}</div>
-      </v-card-subtitle> -->
+      <v-card-subtitle class="mb-2">
+        <div>
+          <v-icon :icon="product.category.icon" />
+          {{ product.category.name }}
+        </div>
+      </v-card-subtitle>
     </v-img>
     
     <v-card-text>

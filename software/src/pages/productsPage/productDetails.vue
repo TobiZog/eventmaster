@@ -6,14 +6,14 @@ import { ModelRef, ref } from 'vue';
 import { useBasketStore } from '@/data/stores/basketStore';
 import { calcProductPrice, productToBasketItem } from '@/scripts/productScripts';
 import ActionDialog from '@/components/actionDialog.vue'
+import { ProductWithCategoryModel } from '@/data/models/productWithCategoryModel';
 
 const showDialog: ModelRef<boolean> = defineModel()
 const nrOfArticles = ref(1)
 const basketStore = useBasketStore()
 
 const props = defineProps({
-  product: ProductModel,
-  // todo productCategory: CategoryModel
+  product: ProductWithCategoryModel
 })
 
 function addProductToBasket() {

@@ -1,8 +1,9 @@
 import { BasketItemModel } from "@/data/models/basketItemModel";
 import { CategoryModel } from "@/data/models/categoryModel";
 import { ProductModel } from "@/data/models/productModel";
+import { ProductWithCategoryModel } from "@/data/models/productWithCategoryModel";
 
-export function calcProductPrice(product: ProductModel, quantity: number = 1): number {
+export function calcProductPrice(product: ProductWithCategoryModel, quantity: number = 1): number {
   return calcPrice(product.price, product.discount, quantity)
 }
 
