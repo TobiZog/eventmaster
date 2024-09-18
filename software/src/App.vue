@@ -5,13 +5,17 @@ import { i18n } from './plugins/i18n';
 import { ref } from 'vue';
 import vuetify from './plugins/vuetify';
 import navigationItems from './components/navigationItems.vue';
+import { useProductStore } from './data/stores/productStore';
 
 const userStore = useUserStore()
+const productStore = useProductStore()
 const theme = useTheme()
 const navRail = ref(vuetify.display.mobile)
 
 theme.global.name.value = userStore.theme
 i18n.global.locale = userStore.language
+
+productStore.fetchAllProducts()
 </script>
 
 <template>

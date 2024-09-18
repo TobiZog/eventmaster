@@ -13,11 +13,11 @@ const basketStore = useBasketStore()
 
 const props = defineProps({
   product: ProductModel,
-  productCategory: CategoryModel
+  // todo productCategory: CategoryModel
 })
 
 function addProductToBasket() {
-  basketStore.addItemToBasket(productToBasketItem(props.product, props.productCategory, nrOfArticles.value))
+  // todo basketStore.addItemToBasket(productToBasketItem(props.product, props.productCategory, nrOfArticles.value))
   nrOfArticles.value = 1
   showDialog.value = false
 }
@@ -32,10 +32,10 @@ function addProductToBasket() {
   >
     <template #content>
       <v-row>
-        <v-col>
+        <!-- todo <v-col>
           <v-icon :icon="productCategory.icon" />
           {{ productCategory.name }}
-        </v-col>
+        </v-col> -->
       </v-row>
       <v-row>
         <v-col>

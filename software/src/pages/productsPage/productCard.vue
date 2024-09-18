@@ -7,9 +7,9 @@ defineProps({
     required: true,
     type: ProductModel
   },
-  category: {
-    type: CategoryModel
-  },
+  // category: {
+  //   type: CategoryModel
+  // },
 })
 </script>
 
@@ -25,9 +25,9 @@ defineProps({
         {{ product.name }}
       </v-card-title>
 
-      <v-card-subtitle class="mb-2">
+      <!-- todo <v-card-subtitle class="mb-2">
         <div><v-icon :icon="category.icon" /> {{ category.name }}</div>
-      </v-card-subtitle>
+      </v-card-subtitle> -->
     </v-img>
     
     <v-card-text>

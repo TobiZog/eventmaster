@@ -1,48 +1,32 @@
 <script setup lang="ts">
+import { SortOrder } from '@/data/enums/sortOrderEnum';
 import { CategoryModel } from '@/data/models/categoryModel';
 import { FilterModel } from '@/data/models/filterModel';
+import { useProductStore } from '@/data/stores/productStore';
 
-// Parameters
-defineProps({
-  numberOfItems: {
-    type: Number,
-    default: 0
-  },
-  categories: {
-    type: Array<CategoryModel>,
-    required: true
-  },
-  sortBy: {
-    type: Array<FilterModel>,
-    required: true
-  }
-})
-
-// Constants
-const selectedCategory = defineModel("selectedCategory", { required: true, type: CategoryModel, default: new CategoryModel() })
-const sortedBy = defineModel("sortedBy", { required: true, type: FilterModel })
-const onlyDiscounts = defineModel("onlyDiscounts", { required: true, type: Boolean })
+const productStore = useProductStore()
+const sortOrderItems = Object.values(SortOrder)
 </script>
 
 <template>
   <v-card>
     <v-card-title>
-      <div v-if="numberOfItems == 1">
-        {{ numberOfItems }} {{ $t('product.product') }}
+      <div v-if="productStore.filteredProducts.length == 1">
+        {{ productStore.filteredProducts.length }} {{ $t('product.product') }}
       </div>
       <div v-else>
-        {{ numberOfItems }} {{ $t('product.products') }}
+        {{ productStore.filteredProducts.length }} {{ $t('product.products') }}
       </div>
     </v-card-title>
     <v-container class="pb-0">
       <v-row>
         <v-spacer />
         <v-col class="d-flex justify-center align-center">
-          <v-checkbox :label="$t('offers')" v-model="onlyDiscounts" />
+          <v-checkbox :label="$t('offers')" v-model="productStore.onlyDiscounts" />
         </v-col>
 
         <v-col class="d-flex justify-left align-center">
-          <v-select :items="categories" :label="$t('categories')" v-model="selectedCategory" >
+          <!-- todo <v-select :items="categories" :label="$t('categories')" v-model="selectedCategory" >
             <template v-slot:item="{ props, item }">
               <v-list-item v-bind="props" :prepend-icon="item.raw.icon" :title="item.raw.name" />
             </template>
@@ -50,17 +34,17 @@ const onlyDiscounts = defineModel("onlyDiscounts", { required: true, type: Boole
             <template v-slot:selection="{ item }">
               <v-list-item :prepend-icon="item.raw.icon" :title="item.raw.name" />
             </template>
-          </v-select>
+          </v-select> -->
         </v-col>
 
         <v-col class="d-flex justify-left align-center">
-          <v-select :label="$t('sortBy')" :items="sortBy" v-model="sortedBy" >
+          <v-select :label="$t('sortBy')" :items="sortOrderItems" v-model="productStore.sortOrder" >
             <template v-slot:item="{ props, item }">
-              <v-list-item v-bind="props" :prepend-icon="item.raw.icon" :title="item.raw.name" />
+              <v-list-item v-bind="props" :title="item.title" />
             </template>
 
             <template v-slot:selection="{ item }">
-              <v-list-item :prepend-icon="item.raw.icon" :title="item.raw.name" />
+              <v-list-item :title="item.title" />
             </template>
           </v-select>
         </v-col>
