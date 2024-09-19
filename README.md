@@ -2,19 +2,53 @@
 
 The most hackable Web Shop!
 
-## Compile for production
+## How to use
+
+### Prepare development environment
+
+1. Install node.js
+
+```bash
+sudo apt install npm
+
+# If outdated version:
+sudo npm install -g n
+sudo n stable
+```
+
+2. Download + extract the project
+3. Open the root folder with VS Code (recommended)
+4. Open the bash inside VS Code, navigate to the `software/` folder and install all necessary packages:
+
+```bash
+npm i
+```
+
+### Test/development
+
+There are multiple commands to test parts or the whole project:
+
+- `npm run dev`: Starts the Vue frontend only
+- `npm run server`: Starts the ExpressJs backend only
+- `npm run serve`: Starts front- and backend
+
+The frontend runs on `http://localhost:5173/` and the backend on `http://localhost:3000/`
+
+### Compile for production
 
 TODO
 
-## Database
+## Structure
+
+### Database
 ![database-erm](misc/images//database.png)
 
 
-## Backend API endpoints
+### Backend API endpoints
 
 The application host it's data in a SQLite database. The access is managed by an [ExpressJs](https://expressjs.com/) server which offers many REST-API endpoints for the frontend. The REST-API server runs on port 3000.
 
-### `/api`
+#### `/api`
 
 <details style="border: solid; border-radius: 10px; border-color: #70AFFD; margin-bottom: 20px">
 <summary style="background-color: #70AFFD; color: #FFFFFF; border: none; padding: 10px 20px; border-radius: 6px 6px 0px 0px; font-weight: bold">Server check</summary>
@@ -75,10 +109,11 @@ Delete and refill the database with example values
 </div>
 </details>
 
-### `/categories`
+#### `/categories`
 
 <details style="border: solid; border-radius: 10px; border-color: #70AFFD; margin-bottom: 20px">
 <summary style="background-color: #70AFFD; color: #FFFFFF; border: none; padding: 10px 20px; border-radius: 6px 6px 0px 0px; font-weight: bold">All categories</summary>
+
 <div style="padding: 0px 20px 10px">
 
 <h4>Description</h4>
@@ -192,7 +227,7 @@ Delete a category by it's id
 </div>
 </details>
 
-### `/products`
+#### `/products`
 
 <details style="border: solid; border-radius: 10px; border-color: #70AFFD; margin-bottom: 20px">
 <summary style="background-color: #70AFFD; color: #FFFFFF; border: none; padding: 10px 20px; border-radius: 6px 6px 0px 0px; font-weight: bold">All products</summary>
@@ -400,7 +435,7 @@ Delete a product by it's id
 </details>
 
 
-### `/orders`
+#### `/orders`
 
 <details style="border: solid; border-radius: 10px; border-color: #70AFFD; margin-bottom: 20px">
 <summary style="background-color: #70AFFD; color: #FFFFFF; border: none; padding: 10px 20px; border-radius: 6px 6px 0px 0px; font-weight: bold">Request orders of user</summary>
@@ -508,7 +543,7 @@ Place a new order to the database
 </div>
 </details>
 
-### `/accounts`
+#### `/accounts`
 
 <details style="border: solid; border-radius: 10px; border-color: #70AFFD; margin-bottom: 20px">
 <summary style="background-color: #70AFFD; color: #FFFFFF; border: none; padding: 10px 20px; border-radius: 6px 6px 0px 0px; font-weight: bold">Login user</summary>
