@@ -2,15 +2,12 @@
 import { Ref, ref } from 'vue';
 import pageSetup from './pageSetup.vue';
 import systemSetup from './systemSetup.vue';
-import BannerModel from '@/data/models/bannerModel';
 import alertBanner from '@/components/alertBanner.vue';
-
-const banner: Ref<BannerModel> = ref(new BannerModel())
 </script>
 
 <template>
   <v-container max-width="800">
-    <alert-banner v-model:alert-banner="banner" />
+    <alert-banner />
 
     <v-row>
       <v-col>
@@ -20,7 +17,7 @@ const banner: Ref<BannerModel> = ref(new BannerModel())
 
     <v-row>
       <v-col>
-        <system-setup v-model:alert-banner="banner" />
+        <system-setup />
       </v-col>
     </v-row>
   </v-container>

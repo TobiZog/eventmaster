@@ -1,16 +1,15 @@
 <script setup lang="ts">
 import { BannerStateEnum } from '@/data/enums/bannerStateEnum';
-import BannerModel from '@/data/models/bannerModel';
+import { useFeedbackStore } from '@/data/stores/feedbackStore';
 import axios from 'axios';
 
-const alertBanner = defineModel("alertBanner", { required: true, type: BannerModel })
+const feedbackStore = useFeedbackStore()
 
 function resetDb() {
   axios.get("http://127.0.0.1:3000/api/resetdatabase")
     .then(res => {
       if (res.status == 200) {
-        alertBanner.value.bannerState = BannerStateEnum.DATABASERESETSUCCESSFUL
-        alertBanner.value.show = true
+        feedbackStore.changeBanner(BannerStateEnum.DATABASERESETSUCCESSFUL)
       }
     })
   // todo: Request all data

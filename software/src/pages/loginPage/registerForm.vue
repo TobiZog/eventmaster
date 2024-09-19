@@ -1,31 +1,13 @@
 <script setup lang="ts">
 import { BannerStateEnum } from '@/data/enums/bannerStateEnum';
 import { AccountModel } from '@/data/models/accountModel';
-import BannerModel from '@/data/models/bannerModel';
+import { useUserStore } from '@/data/stores/userStore';
 import axios from 'axios';
 import { ref } from 'vue';
 
 const newUser = ref(new AccountModel())
-const banner = defineModel("banner", { required: true, type: BannerModel })
 const showRegisterCard = defineModel("showRegisterCard", { type: Boolean, default: false })
-
-function registerUser() {
-  axios.post('http://127.0.0.1:3000/accounts/register', newUser.value)
-    .then(res => {
-      console.log(res)
-      if (res.status == 200) {
-        banner.value.bannerState = BannerStateEnum.LOGINSUCCESSFUL
-        banner.value.show = true
-      }
-    })
-    .catch((error) => {
-      console.log(error)
-      if (error.status == 400) {
-        banner.value.bannerState = BannerStateEnum.WRONGLOGIN
-        banner.value.show = true
-      }
-    })
-}
+const userStore = useUserStore()
 </script>
 
 <template>
@@ -103,7 +85,7 @@ function registerUser() {
         </v-btn>
       <v-spacer />
       <v-btn prepend-icon="mdi-account-plus" color="primary" variant="outlined" 
-        @click="registerUser">
+        @click="userStore.registerAccount(newUser)">
           {{ $t('account.register') }}
         </v-btn>
     </template>

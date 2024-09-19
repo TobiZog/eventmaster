@@ -5,7 +5,7 @@ import { validateString } from "../scripts/validateHelper";
 export const account = Router()
 
 // Login user
-account.get("/", (req: Request, res: Response) => {
+account.post("/login", (req: Request, res: Response) => {
   Account.findOne({ 
     raw: true, 
     where: { username: req.body.username }
@@ -13,17 +13,17 @@ account.get("/", (req: Request, res: Response) => {
     .then(account => {
       if (account != null) {
         if (account.password == req.body.password) {
-          // Status: 200 Created
-          res.status(201).json({ 
+          // Status: 200 OK
+          res.status(200).json({ 
             loginSuccessful: true,
-            userId: account.id,
+            account: account,
             message: ""
           }).send()
         } else {
           // Status: 401 Unauthorized
           res.status(401).json({
             loginSuccessful: false,
-            userId: -1,
+            account: null,
             message: "Wrong password"
           }).send()
         }
@@ -40,7 +40,7 @@ account.get("/", (req: Request, res: Response) => {
 })
 
 // Creating a new user
-account.post("/", (req: Request, res: Response) => {
+account.post("/register", (req: Request, res: Response) => {
   if (!validateString(req.body.username, 4))
   {
     // Status: 400 Bad request

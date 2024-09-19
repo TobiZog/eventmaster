@@ -41,7 +41,7 @@ TODO
 ## Structure
 
 ### Database
-![database-erm](misc/images//database.png)
+![database-erm](misc/images/database.png)
 
 
 ### Backend API endpoints

@@ -62,7 +62,9 @@
     "loginSuccessful": "Login erfolgreich!",
     "wrongLogin": "Falscher Username oder falsches Passwort!",
     "error": "Some error occurred...",
-    "databaseResetSuccessful": "Database reset successful!"
+    "databaseResetSuccessful": "Database reset successful!",
+    "usernameInUse": "Username always in use!",
+    "registerSuccessful": "Account successfully created!"
   },
   "oclock": "o'clock"
 }
