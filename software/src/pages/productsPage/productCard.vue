@@ -12,7 +12,7 @@ defineProps({
 <template>
   <v-card link>
     <v-img
-      :src="'http://127.0.0.1:3000/static/' + product.imageUrl"
+      :src="'http://127.0.0.1:3000/static/' + product.images[0]"
       cover
       max-height="200"
       class="align-end text-white"
@@ -55,7 +55,6 @@ defineProps({
           <div class="ml-4 mb-1 bg-red">-{{ product.discount }} %</div>
         </div>
       </div>
-      
     </v-card-text>
   </v-card>
 </template>

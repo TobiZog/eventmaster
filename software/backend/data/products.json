@@ -5,99 +5,116 @@
       "brand": "Lenovo",
       "name": "Thinkpad T14",
       "price": 799.99,
-      "categoryId": 0,
+      "categoryId": 1,
       "discount": 10,
       "rating": 4.6,
       "description": "Die stabile Arbeitsmaschine. Mit AMD Ryzen 7 89029U, 128 GB RAM und 8 TB M.2 SSD!",
-      "imageUrl": "thinkpad-t14s.jpg"
+      "images": ["thinkpad-t14s.jpg"]
     },
     {
       "id": 1,
       "brand": "Puma",
       "name": "Men's Shirt",
       "price": 14.99,
-      "categoryId": 2,
+      "categoryId": 3,
       "discount": 0,
       "rating": 3.8,
       "description": "Normale Passform, ideal für den sportlichen Alltag.",
-      "imageUrl": "puma-t-shirt-men.avif"
+      "images": ["puma-t-shirt-men.avif"]
     },
     {
       "id": 2,
       "brand": "Puma",
       "name": "Woman's Shirt",
       "price": 14.99,
-      "categoryId": 2,
+      "categoryId": 3,
       "discount": 0,
       "rating": 4.0,
       "description": "Normale Passform, ideal für den sportlichen Alltag.",
-      "imageUrl": "puma-t-shirt-woman.avif"
+      "images": ["puma-t-shirt-woman.avif"]
     },
     {
       "id": 3,
       "brand": "George Orwell",
       "name": "1984",
       "price": 9.99,
-      "categoryId": 3,
+      "categoryId": 4,
       "discount": 0,
       "rating": 4.9,
-      "imageUrl": "1984.jpg",
-      "description": "BIG BROTHER IS WATCHING YOU! George Orwells 1984 ist längst zu einer scheinbar nicht mehr erklärungsbedürftigen Metapher für totalitäre Verhältnisse geworden. Mit atemberaubender Unerbittlichkeit zeichnet der Autor das erschreckende Bild einer durch und..."
+      "description": "BIG BROTHER IS WATCHING YOU! George Orwells 1984 ist längst zu einer scheinbar nicht mehr erklärungsbedürftigen Metapher für totalitäre Verhältnisse geworden. Mit atemberaubender Unerbittlichkeit zeichnet der Autor das erschreckende Bild einer durch und...",
+      "images": ["1984.jpg"]
     },
     {
       "id": 4,
       "brand": "Johann W. Goethe",
       "name": "Faust",
       "price": 4.99,
-      "categoryId": 3,
+      "categoryId": 4,
       "discount": 0,
       "rating": 4.2,
       "description": "Goethe schrieb über 60 Jahre an seinem »Faust« und nannte »diese sehr ernsten Scherze« am Ende sein »Hauptgeschäft«: Dabei entstand eines der großartigsten und gleichzeitig komplexesten Werke der Weltliteratur. Den »Faust« gibt es bei Reclam in vielen Ausgaben, preisniedrig für Schüler, mit Kommentar für Studenten, bibliophil für Liebhaber – jetzt endlich auch eine Doppelausgabe der beiden klassischen Theatertexte in der Universal-Bibliothek: »Faust I« und »II« in einem Band.",
-      "imageUrl": "goethe-faust.jpg"
+      "images": ["goethe-faust.jpg"]
     },
     {
       "id": 5,
       "brand": "Theodor Sturm",
       "name": "Der Schimmelreiter",
       "price": 4.99,
-      "categoryId": 3,
+      "categoryId": 4,
       "discount": 0,
       "rating": 3.5,
       "description": "Hauke Haien ist ein genialer Außenseiter, der sich als junger Deichgraf einen Jugendtraum erfüllt: den Bau eines neuartigen Deiches, der den Wellen besser standhalten soll. Die Dorfbewohner sind skeptisch und sehen in ihm die Verkörperung einer uralten Sage: Wenn er auf seinem Schimmel über den Deich reitet, wird Hauke Haien zum dämonischen Reiter, der ihr Leben und ihre Gesetze aus dem Gleichgewicht bringt. Theodor Storms bekannteste Novelle ist ein Meisterwerk realistischer Erzählkunst, in dem es um den Widerstreit von Rationalität und Aberglaube, Fortschritt und Tradition geht.",
-      "imageUrl": "der-schimmelreiter.jpg"
+      "images": ["der-schimmelreiter.jpg"]
     },
     {
       "id": 6,
       "brand": "Aldous Huxley",
       "name": "Brave New World",
       "price": 7.99,
-      "categoryId": 3,
+      "categoryId": 4,
       "discount": 0,
       "rating": 4.4,
-      "imageUrl": "brave-new-world.jpg",
-      "description": "Brave New World beschreibt eine genormte Gesellschaft, in der Föten genetisch manipuliert und Menschen konditioniert werden. Ziel des Staates ist Zufriedenheit und Stabilität, und dies wird durch Gleichheit, Drogen und Propaganda erreicht. Gott und Religion..."
+      "description": "Brave New World beschreibt eine genormte Gesellschaft, in der Föten genetisch manipuliert und Menschen konditioniert werden. Ziel des Staates ist Zufriedenheit und Stabilität, und dies wird durch Gleichheit, Drogen und Propaganda erreicht. Gott und Religion...",
+      "images": ["brave-new-world.jpg"]
     },
     {
       "id": 7,
       "brand": "Ankermann",
       "name": "Gaming Work V3",
       "price": 1299.99,
-      "categoryId": 0,
+      "categoryId": 1,
       "discount": 0,
       "rating": 4.7,
       "description": "Der schnellste Desktop-PC auf dem Markt! Intel Core i9 19650, 128 GB RAM, Nvidia Geforce RTX 6090. Gepaart mit 8 TB SSD Speicher in einem schicken RGB Gehäuse.",
-      "imageUrl": "ankerman-gaming-work-v3.jpg"
+      "images": ["ankerman-gaming-work-v3.jpg"]
     },
     {
       "id": 8,
       "brand": "Adidas",
       "name": "UCL Pro 23/24",
       "price": 99.99,
-      "categoryId": 1,
+      "categoryId": 2,
       "discount": 0,
       "rating": 3.9,
       "description": "Der Adidas UCL Pro ist beim Kicken für Hobbyspieler, Amateure und Profis unsere Nummer Eins. Denn der offizielle Spielball der Champions League hat eine wunderbar weiche, aber dennoch sehr robuste und abriebfeste Oberfläche. Mehr Ballgefühl als mit dem UCL Pro kann man kaum haben. Seine Außenhaut gefällt uns noch einen Tick besser als die der Mitbewerber. Die einzelnen Panels aus Polyurethan sind thermisch verklebt. Dadurch ist der Ball nahtlos und hat eine perfekte Kugelform.",
-      "imageUrl": "fussball-champions-league.jpg"
+      "images": ["fussball-champions-league.jpg"]
+    },
+    {
+      "id": 9,
+      "brand": "Fender",
+      "name": "Player II Jazz Bass RW 3TS",
+      "price": 899.99,
+      "categoryId": 5,
+      "discount": 5,
+      "rating": 4.8,
+      "description": "The Fender Player II JazzBass RW 3TS 3-Color Sunburst relies on great features that stand out in terms of comfort, playability and look, as well as providing all the advantages for a wide variety of genres. Whether dynamic bass lines or lush rock riffs: the Fender Player II Jazz Bass is a versatile E-Bass that is not only perfect for practice or studio sessions, but also functions as an assertive bass carpet in band contexts and live mixes. The robust alder body has a classic 3-color Sunburst-Finish finish and shines with easy handling and a comfortable grip - whether sitting or standing. The maple neck with a modern 'C' neck profile is fitted with a rosewood fingerboard, which is equipped with 20 medium jumbo frets and a fingerboard radius of 9.5', making it easy to use a wide variety of bass techniques and enabling quick fretting and precise riffs to be tackled cleanly.",
+      "images": [
+        "fender-player-ii-jazz-bass-rw-3ts-1.jpg",
+        "fender-player-ii-jazz-bass-rw-3ts-2.jpg",
+        "fender-player-ii-jazz-bass-rw-3ts-3.jpg",
+        "fender-player-ii-jazz-bass-rw-3ts-4.jpg",
+        "fender-player-ii-jazz-bass-rw-3ts-5.jpg"
+      ]
     }
   ]
 }

@@ -15,6 +15,7 @@ const navRail = defineModel("navRail", { type: Boolean })
       <div v-if="!navRail">{{ $t('menu.shopping') }}</div>
       <div v-else></div>
     </v-list-subheader>
+    
     <v-list-item :title="$t('menu.products')" prepend-icon="mdi-store" to="/" link />
     <v-list-item :title="$t('menu.basket')" to="/basket" link >
       <template v-slot:prepend>

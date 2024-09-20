@@ -1,4 +1,4 @@
-import { Table, Column, Model, ForeignKey, BelongsTo, BelongsToMany, HasMany } from 'sequelize-typescript';
+import { Table, Column, Model, ForeignKey, BelongsTo, BelongsToMany, HasMany, DataType } from 'sequelize-typescript';
 import { Category } from './category.model';
 import { OrderItem } from './orderItem.model';
 
@@ -23,8 +23,17 @@ export class Product extends Model {
   @Column
   rating: number
 
-  @Column
-  imageUrl: string
+  @Column({
+    type: DataType.STRING,
+    get(): Array<string> {
+      return this.getDataValue('images').split(';')
+    },
+    set(value: Array<string>) {
+      console.log(value)
+      this.setDataValue('images', value.join(';'))
+    }
+  })
+  images: Array<string>
 
   @Column
   description: string

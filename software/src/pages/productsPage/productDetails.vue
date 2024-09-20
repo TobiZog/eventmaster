@@ -1,19 +1,23 @@
 <script setup lang="ts">
 import { VNumberInput } from 'vuetify/labs/VNumberInput'
-import { ModelRef, ref } from 'vue';
+import { ModelRef, ref, watch } from 'vue';
 import { useBasketStore } from '@/data/stores/basketStore';
 import { calcProductPrice, productToBasketItem } from '@/scripts/productScripts';
 import ActionDialog from '@/components/actionDialog.vue'
 import { ProductWithCategoryModel } from '@/data/models/productWithCategoryModel';
 import { BasketItemModel } from '@/data/models/basketItemModel';
 
+const props = defineProps({
+  product: {
+    type: ProductWithCategoryModel,
+    default: new ProductWithCategoryModel()
+  }
+})
+
 const showDialog: ModelRef<boolean> = defineModel()
 const nrOfArticles = ref(1)
 const basketStore = useBasketStore()
-
-const props = defineProps({
-  product: ProductWithCategoryModel
-})
+const selectedImage = ref("")
 
 function addProductToBasket() {
   basketStore.addItemToBasket(
@@ -23,69 +27,101 @@ function addProductToBasket() {
   nrOfArticles.value = 1
   showDialog.value = false
 }
+
+watch(() => props.product.images, () => {
+  selectedImage.value = 'http://localhost:3000/static/' + props.product.images[0]
+})
 </script>
 
 <template>
   <action-dialog
-    :title="product.name"
-    :subtitle="product.brand"
-    :image-url="'http://127.0.0.1:3000/static/' + product.imageUrl"
+    :title="product.brand + ': ' + product.name"
+    :icon="product.category.icon"
+    :subtitle="product.category.name"
     v-model="showDialog"
   >
     <template #content>
-      <v-row>
-        <v-col>
-          <v-icon :icon="product.category.icon" />
-          {{ product.category.name }}
-        </v-col>
-      </v-row>
+      <v-container>
+        <v-row>
+          <!-- Image col -->
+          <v-col>
+            <v-row>
+              <v-col>
+                <v-img :src="selectedImage" max-height="600" />
+              </v-col>
+            </v-row>
 
-      <v-row>
-        <v-col class="text-h6">
-          {{ $t("product.description") }}
-        </v-col>
-      </v-row>
+            <v-row>
+              <v-col v-for="image in product.images">
+                <v-card width="60" @click="selectedImage = 'http://localhost:3000/static/' + image" >
+                  <v-img :src="'http://localhost:3000/static/' + image" max-height="60" />
+                </v-card>
+              </v-col>
+            </v-row>
+            
+          </v-col>
 
-      <v-row>
-        <v-col class="text-body-1">
-          {{ product.description }}
-        </v-col>
-      </v-row>
 
-      <v-divider class="my-4" />
+          <!-- Product description col -->
+          <v-col>
+            <v-row>
+              <v-col class="text-h6">
+                {{ $t("product.description") }}
+              </v-col>
+            </v-row>
 
-      <v-row>
-        <v-col>
-          <div class="d-flex align-center flex-column my-auto">
-            <div class="text-h3"> {{ product.rating }} <span class="text-h6 ml-n3">/5</span> </div>
-            <v-rating :model-value="product.rating" color="yellow-darken-3" half-increments disabled />
-          </div>
-        </v-col>
-      </v-row>
+            <v-row>
+              <v-col class="text-body-1">
+                {{ product.description }}
+              </v-col>
+            </v-row>
 
-      <v-divider class="my-4" />
+            <v-divider class="my-4" />
 
-      <v-row>
-        <v-col>
-          <v-number-input
-            :reverse="false"
-            controlVariant="default"
-            :label="$t('quantity')"
-            :hideInput="false"
-            :inset="false"
-            v-model="nrOfArticles"
-            :min="1"
-            :max="10"
-            density="comfortable"
-          />
-        </v-col>
-      </v-row>
+            <v-row>
+              <v-col>
+                <div class="d-flex align-center flex-column my-auto">
+                  <div class="text-h3"> {{ product.rating }} <span class="text-h6 ml-n3">/5</span> </div>
+                  <v-rating :model-value="product.rating" color="yellow-darken-3" half-increments disabled />
+                </div>
+              </v-col>
+            </v-row>
 
-      <v-row>
-        <v-col class="d-flex align-center flex-column my-auto text-h3">
-          {{ calcProductPrice(product, nrOfArticles) }} €
-        </v-col>
-      </v-row>
+            <v-divider class="my-4" />
+
+            <v-row>
+              <v-col>
+                <v-number-input
+                  :reverse="false"
+                  controlVariant="default"
+                  :label="$t('quantity')"
+                  :hideInput="false"
+                  :inset="false"
+                  v-model="nrOfArticles"
+                  variant="outlined"
+                  :min="1"
+                  :max="10"
+                  density="comfortable"
+                />
+              </v-col>
+            </v-row>
+
+            <v-row>
+              <v-col class="d-flex align-end flex-column my-auto">
+                <div v-if="product.discount == 0" class="text-h3">{{ product.price }} €</div>
+                <div v-else class="d-flex align-center flex-column my-auto">
+                  <div class="text-h3"> 
+                    <span class="text-red-lighten-1"> {{ calcProductPrice(product, nrOfArticles) }} €</span>
+                    <span class="text-h6 ml-2 text-decoration-line-through">{{ product.price }} € </span>
+                    <span class="text-h6 ml-4 mb-1 bg-red">-{{ product.discount }} %</span>
+                  </div>
+                </div>
+              </v-col>
+            </v-row>
+          </v-col>
+        </v-row>
+      </v-container>
+      
     </template>
 
     <template #actions>

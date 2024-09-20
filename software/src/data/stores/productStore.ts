@@ -25,7 +25,7 @@ export const useProductStore = defineStore("productStore", {
     },
 
     async filterProducts() {
-      if (this.filteredCategory.id == -1) {
+      if (this.filteredCategory.id == -1 || this.filteredCategory.id == 0) {
         this.filteredProducts = this.products
       } else {
         this.filteredProducts = this.products.filter((product: ProductWithCategoryModel) => 

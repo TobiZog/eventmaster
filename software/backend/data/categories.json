@@ -2,23 +2,38 @@
   "data": [
     {
       "id": 0,
+      "icon": "",
+      "name": "All"
+    },
+    {
+      "id": 1,
       "icon": "mdi-chip",
       "name": "Electronic"
     },
     {
-      "id": 1,
+      "id": 2,
       "icon": "mdi-soccer",
       "name": "Sports"
     },
     {
-      "id": 2,
+      "id": 3,
       "icon": "mdi-tshirt-crew",
       "name": "Clothes"
     },
     {
-      "id": 3,
+      "id": 4,
       "icon": "mdi-bookshelf",
       "name": "Books"
+    },
+    {
+      "id": 5,
+      "icon": "mdi-guitar-electric",
+      "name": "Instruments"
+    },
+    {
+      "id": 6,
+      "icon": "mdi-teddy-bear",
+      "name": "Toys"
     }
   ]
 }
