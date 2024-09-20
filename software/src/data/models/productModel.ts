@@ -3,6 +3,7 @@ export class ProductModel {
   brand: string
   name: string
   description: string = ""
+  specs: Array<string> = []
   categoryId: number
   price: number = 0
   discount: number = 0

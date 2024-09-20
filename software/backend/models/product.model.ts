@@ -29,7 +29,6 @@ export class Product extends Model {
       return this.getDataValue('images').split(';')
     },
     set(value: Array<string>) {
-      console.log(value)
       this.setDataValue('images', value.join(';'))
     }
   })
@@ -37,6 +36,17 @@ export class Product extends Model {
 
   @Column
   description: string
+
+  @Column({
+    type: DataType.STRING,
+    get(): Array<string> {
+      return this.getDataValue('specs').split(';')
+    },
+    set(value: Array<string>) {
+      this.setDataValue('specs', value.join(';'))
+    }
+  })
+  specs: Array<string>
   
   // Relations
   @BelongsTo(() => Category)

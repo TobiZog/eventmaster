@@ -22,7 +22,7 @@ defineProps({
 
 <template>
   <v-dialog max-width="1200" v-model="showDialog">
-    <v-card :title="title" :subtitle="subtitle" :prepend-icon="icon" >
+    <v-card :title="title" :subtitle="subtitle" :prepend-icon="icon" density="compact">
       <slot name="content"></slot>
       
       <v-card-actions>

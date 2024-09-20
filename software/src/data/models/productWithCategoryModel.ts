@@ -5,6 +5,7 @@ export class ProductWithCategoryModel {
   brand: string
   name: string
   description: string = ""
+  specs: Array<string> = []
   category: CategoryModel = new CategoryModel()
   price: number = 0
   discount: number = 0

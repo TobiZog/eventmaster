@@ -3,24 +3,54 @@
     {
       "id": 0,
       "brand": "Lenovo",
-      "name": "Thinkpad T14",
-      "price": 799.99,
+      "name": "Thinkpad T14s Gen 4",
+      "price": 1769.99,
       "categoryId": 1,
       "discount": 10,
       "rating": 4.6,
-      "description": "Die stabile Arbeitsmaschine. Mit AMD Ryzen 7 89029U, 128 GB RAM und 8 TB M.2 SSD!",
-      "images": ["thinkpad-t14s.jpg"]
+      "description": "Mehr Leistung und deutlich längere Akkulaufzeiten: Mit dem AMD Ryzen-Prozessor und dem matten IPS-Display ist das Lenovo ThinkPad T14s G4 noch besser und gehört zu den besten Business-Laptops auf dem Markt. - Notebookcheck.com",
+      "specs": [
+        "Prozessor: AMD Ryzen 7 Pro 7840U",
+        "Betriebssystem: Windows 11 Pro (64 Bit)",
+        "Grafik: Integrierte Grafik",
+        "Hauptspeicher: 32 GB LPDDR5X-6400MHz (1 x 32 GB verlötet)",
+        "Massenspeicher: 512 GB SSD, M.2 2280, PCIe 4.0, TLC, Opal",
+        "Displaytyp: 14 WUXGA (1920 x 1200), IPS, matt, Non-Touch, 100% sRGB, 400 cd/m², 60 Hz, low power-ausführung",
+        "Gewicht: Ab 1,25 kg"
+      ],
+      "images": [
+        "thinkpad-t14s-1.avif",
+        "thinkpad-t14s-2.avif",
+        "thinkpad-t14s-3.avif",
+        "thinkpad-t14s-4.avif",
+        "thinkpad-t14s-5.avif",
+        "thinkpad-t14s-6.avif",
+        "thinkpad-t14s-7.avif"
+      ]
     },
     {
       "id": 1,
       "brand": "Puma",
-      "name": "Men's Shirt",
+      "name": "Men's T-Shirt Black",
       "price": 14.99,
       "categoryId": 3,
       "discount": 0,
       "rating": 3.8,
-      "description": "Normale Passform, ideal für den sportlichen Alltag.",
-      "images": ["puma-t-shirt-men.avif"]
+      "description": "On the court at home. With individual football clothing from Puma. - Forever Faster doesn't just mean speed. It means strength, stamina, means to want to get better every day... And this means: It's about you. Our mission is to make you fit exactly as you want to be so you can achieve every goal – as fast as possible.",
+      "specs": [
+        "Material composition: 100% Cotton",
+        "Care instructions: Machine Wash",
+        "Closure type: Pull On",
+        "Neck style: Round Neck",
+        "Country of origin: China"
+      ],
+      "images": [
+        "puma-t-shirt-men-1.jpg",
+        "puma-t-shirt-men-2.jpg",
+        "puma-t-shirt-men-3.jpg",
+        "puma-t-shirt-men-4.jpg",
+        "puma-t-shirt-men-5.jpg"
+      ]
     },
     {
       "id": 2,
@@ -29,9 +59,23 @@
       "price": 14.99,
       "categoryId": 3,
       "discount": 0,
-      "rating": 4.0,
-      "description": "Normale Passform, ideal für den sportlichen Alltag.",
-      "images": ["puma-t-shirt-woman.avif"]
+      "rating": 3.9,
+      "description": "",
+      "specs": [
+        "Women’s T-shirt for leisure and sport",
+        "Black sportswear by Puma",
+        "T-Shirt ESS Logo Tee Puma Black",
+        "Puma sports products are designed so that you can enjoy your favourite sport without having to worry about anything other than achieving your best",
+        "Sportswear made from high-quality materials for any sporting activity"
+      ],
+      "images": [
+        "puma-t-shirt-woman-1.jpg",
+        "puma-t-shirt-woman-2.jpg",
+        "puma-t-shirt-woman-3.jpg",
+        "puma-t-shirt-woman-4.jpg",
+        "puma-t-shirt-woman-5.jpg",
+        "puma-t-shirt-woman-6.jpg"
+      ]
     },
     {
       "id": 3,
@@ -41,66 +85,55 @@
       "categoryId": 4,
       "discount": 0,
       "rating": 4.9,
-      "description": "BIG BROTHER IS WATCHING YOU! George Orwells 1984 ist längst zu einer scheinbar nicht mehr erklärungsbedürftigen Metapher für totalitäre Verhältnisse geworden. Mit atemberaubender Unerbittlichkeit zeichnet der Autor das erschreckende Bild einer durch und...",
-      "images": ["1984.jpg"]
+      "description": "London, 1984: Winston Smith, Geschichtsfälscher im Staatsdienst, verliebt sich in die schöne und geheimnisvolle Julia. Gemeinsam beginnen sie, die totalitäre Welt infrage zu stellen, als Teil derer sie bisher funktioniert haben. Doch bereits ihre Gedanken sind Verbrechen, und der Große Bruder richtet seinen stets wachsamen Blick auf jeden potenziellen Dissidenten. George Orwells Vision eines totalitären Staats, in dem Cyberüberwachung, Geschichtsrevisionismus und Gedankenpolizei den Alltag gläserner Bürger bestimmen, hat wie keine andere Dystopie bis heute nur an Brisanz gewonnen.",
+      "specs": [],
+      "images": [
+        "1984-1.webp",
+        "1984-2.webp",
+        "1984-3.webp"
+      ]
     },
     {
       "id": 4,
-      "brand": "Johann W. Goethe",
-      "name": "Faust",
-      "price": 4.99,
-      "categoryId": 4,
-      "discount": 0,
-      "rating": 4.2,
-      "description": "Goethe schrieb über 60 Jahre an seinem »Faust« und nannte »diese sehr ernsten Scherze« am Ende sein »Hauptgeschäft«: Dabei entstand eines der großartigsten und gleichzeitig komplexesten Werke der Weltliteratur. Den »Faust« gibt es bei Reclam in vielen Ausgaben, preisniedrig für Schüler, mit Kommentar für Studenten, bibliophil für Liebhaber – jetzt endlich auch eine Doppelausgabe der beiden klassischen Theatertexte in der Universal-Bibliothek: »Faust I« und »II« in einem Band.",
-      "images": ["goethe-faust.jpg"]
-    },
-    {
-      "id": 5,
-      "brand": "Theodor Sturm",
-      "name": "Der Schimmelreiter",
-      "price": 4.99,
-      "categoryId": 4,
-      "discount": 0,
-      "rating": 3.5,
-      "description": "Hauke Haien ist ein genialer Außenseiter, der sich als junger Deichgraf einen Jugendtraum erfüllt: den Bau eines neuartigen Deiches, der den Wellen besser standhalten soll. Die Dorfbewohner sind skeptisch und sehen in ihm die Verkörperung einer uralten Sage: Wenn er auf seinem Schimmel über den Deich reitet, wird Hauke Haien zum dämonischen Reiter, der ihr Leben und ihre Gesetze aus dem Gleichgewicht bringt. Theodor Storms bekannteste Novelle ist ein Meisterwerk realistischer Erzählkunst, in dem es um den Widerstreit von Rationalität und Aberglaube, Fortschritt und Tradition geht.",
-      "images": ["der-schimmelreiter.jpg"]
-    },
-    {
-      "id": 6,
       "brand": "Aldous Huxley",
       "name": "Brave New World",
-      "price": 7.99,
+      "price": 10.49,
       "categoryId": 4,
       "discount": 0,
       "rating": 4.4,
       "description": "Brave New World beschreibt eine genormte Gesellschaft, in der Föten genetisch manipuliert und Menschen konditioniert werden. Ziel des Staates ist Zufriedenheit und Stabilität, und dies wird durch Gleichheit, Drogen und Propaganda erreicht. Gott und Religion...",
-      "images": ["brave-new-world.jpg"]
+      "specs": [],
+      "images": [
+        "brave-new-world-1.jpg",
+        "brave-new-world-2.jpg"
+      ]
     },
     {
-      "id": 7,
-      "brand": "Ankermann",
-      "name": "Gaming Work V3",
-      "price": 1299.99,
+      "id": 5,
+      "brand": "Dell",
+      "name": "XPS 8960 Desktop",
+      "price": 1640.26,
       "categoryId": 1,
       "discount": 0,
-      "rating": 4.7,
-      "description": "Der schnellste Desktop-PC auf dem Markt! Intel Core i9 19650, 128 GB RAM, Nvidia Geforce RTX 6090. Gepaart mit 8 TB SSD Speicher in einem schicken RGB Gehäuse.",
-      "images": ["ankerman-gaming-work-v3.jpg"]
+      "rating": 4.1,
+      "description": "Mit dem XPS-Desktop-PC profitieren Sie von herausragender Performance und Erweiterbarkeit.",
+      "specs": [
+        "Intel Core i7-13700-Prozessor der 13. Generation (16 Kerne, 24 MB Cache, 2,1 GHz 5,1 GHz)",
+        "NVIDIA GeForce RTX 4060, 8 GB GDDR6 Grafikkarte",
+        "1-TB-M.2-PCIe-NVMe-SSD",
+        "16 GB, 2 x 8 GB, DDR5, 4800 MHz; 64 GB (zusätzlicher Speicher separat erhältlich)"
+      ],
+      "images": [
+        "dell-xps-desktop-1.jpg",
+        "dell-xps-desktop-2.jpg",
+        "dell-xps-desktop-3.jpg",
+        "dell-xps-desktop-4.jpg",
+        "dell-xps-desktop-5.jpg",
+        "dell-xps-desktop-6.jpg"
+      ]
     },
     {
-      "id": 8,
-      "brand": "Adidas",
-      "name": "UCL Pro 23/24",
-      "price": 99.99,
-      "categoryId": 2,
-      "discount": 0,
-      "rating": 3.9,
-      "description": "Der Adidas UCL Pro ist beim Kicken für Hobbyspieler, Amateure und Profis unsere Nummer Eins. Denn der offizielle Spielball der Champions League hat eine wunderbar weiche, aber dennoch sehr robuste und abriebfeste Oberfläche. Mehr Ballgefühl als mit dem UCL Pro kann man kaum haben. Seine Außenhaut gefällt uns noch einen Tick besser als die der Mitbewerber. Die einzelnen Panels aus Polyurethan sind thermisch verklebt. Dadurch ist der Ball nahtlos und hat eine perfekte Kugelform.",
-      "images": ["fussball-champions-league.jpg"]
-    },
-    {
-      "id": 9,
+      "id": 6,
       "brand": "Fender",
       "name": "Player II Jazz Bass RW 3TS",
       "price": 899.99,
@@ -108,12 +141,76 @@
       "discount": 5,
       "rating": 4.8,
       "description": "The Fender Player II JazzBass RW 3TS 3-Color Sunburst relies on great features that stand out in terms of comfort, playability and look, as well as providing all the advantages for a wide variety of genres. Whether dynamic bass lines or lush rock riffs: the Fender Player II Jazz Bass is a versatile E-Bass that is not only perfect for practice or studio sessions, but also functions as an assertive bass carpet in band contexts and live mixes. The robust alder body has a classic 3-color Sunburst-Finish finish and shines with easy handling and a comfortable grip - whether sitting or standing. The maple neck with a modern 'C' neck profile is fitted with a rosewood fingerboard, which is equipped with 20 medium jumbo frets and a fingerboard radius of 9.5', making it easy to use a wide variety of bass techniques and enabling quick fretting and precise riffs to be tackled cleanly.",
+      "specs": [],
       "images": [
         "fender-player-ii-jazz-bass-rw-3ts-1.jpg",
         "fender-player-ii-jazz-bass-rw-3ts-2.jpg",
         "fender-player-ii-jazz-bass-rw-3ts-3.jpg",
         "fender-player-ii-jazz-bass-rw-3ts-4.jpg",
         "fender-player-ii-jazz-bass-rw-3ts-5.jpg"
+      ]
+    },
+    {
+      "id": 7,
+      "brand": "ESP",
+      "name": "LTD Iron Cross SW",
+      "price": 2999.00,
+      "categoryId": 5,
+      "discount": 0,
+      "rating": 4.6,
+      "description": "The LTD Iron Cross is a Signature Series model of James Hetfield, the frontman of Metallica and one of the world's most highly respected rhythm guitar players in any genre. The Iron Cross is based on James' personal custom instrument design, and features set-neck construction of a mahogany body with maple cap, and a three-piece mahogany neck with ebony fingerboard and 22 extra-jumbo frets with an Iron Cross inlay at the 12th fret. The LTD Iron Cross is powered by James' own EMG JH SET active pickups, and includes a TonePros locking TOM bridge and tailpiece. Available in Snow White finish with black stripe graphic and iron cross fixture.",
+      "specs": [],
+      "images": [
+        "esp-lts-iron-cross-sw-1.jpg",
+        "esp-lts-iron-cross-sw-2.jpg",
+        "esp-lts-iron-cross-sw-3.jpg",
+        "esp-lts-iron-cross-sw-4.jpg",
+        "esp-lts-iron-cross-sw-5.jpg",
+        "esp-lts-iron-cross-sw-6.jpg"
+      ]
+    },
+    {
+      "id": 8,
+      "brand": "Pearl",
+      "name": "Decade Maple Standard D. Black",
+      "price": 1444.00,
+      "categoryId": 5,
+      "discount": 0,
+      "rating": 4.7,
+      "description": "Pearl präsentiert das erste Drumset mit 6-lagigen Ahorn Kesseln, die mit der speziellen Pearl Superior Shell Technology hergestellt sind und preislich in der unteren Mittelklasse liegen. 10 Jahre Entwicklung machen es möglich, ein professionelles und absolut bühnentaugliches Drumset mit genialer Stickdefinition, definierten Höhen und voluminösem Bass zu einem unschlagbaren Preis anzubieten. Die Decade Sets sind mit einem 5-teiligen Hardwareset aus der Pearl 800er Serie ausgestattet.",
+      "specs": [],
+      "images": [
+        "pearl-decade-maple-standard-black-1.jpg",
+        "pearl-decade-maple-standard-black-2.jpg",
+        "pearl-decade-maple-standard-black-3.jpg",
+        "pearl-decade-maple-standard-black-4.jpg",
+        "pearl-decade-maple-standard-black-5.jpg",
+        "pearl-decade-maple-standard-black-6.jpg"
+      ]
+    },
+    {
+      "id": 9,
+      "brand": "Apple",
+      "name": "MacBook Air 13.6 Zoll M3",
+      "price": 1759.00,
+      "categoryId": 1,
+      "discount": 15,
+      "rating": 4.3,
+      "description": "",
+      "specs": [
+        "SUPERLEICHT. M3GAPOWER. – Das ultraschnelle MacBook Air mit dem M3 Chip ist ein supermobiler Laptop, mit dem du so schnell arbeitest, wie du spielst.",
+        "MOBILES DESIGN – Superleicht und 11,5 mm dünn, sodass du dein MacBook Air überallhin mitnehmen kannst.",
+        "MEHR SCHNELLER ERLEDIGEN – Mit der leistungsstarken 8-Core CPU und der bis zu 10-Core GPU des Apple M3 Chip läuft alles flüssig.",
+        "BIS ZU 18 STUNDEN BATTERIELAUFZEIT (1) – Fantastische Batterielaufzeit für den ganzen Tag. Da kannst du dein Netzteil zu Hause lassen.",
+        "EIN BRILLANTES DISPLAY – Das 13,6 Liquid Retina Display (2) unterstützt eine Milliarde Farben.",
+        "GUT AUSSEHEN, GROSSARTIG KLINGEN – Mit einer 1080p HD Kamera, drei Mikrofonen und vier Lautsprechern mit 3D Audio sieht alles großartig aus und klingt auch so."
+      ],
+      "images": [
+        "macbook-air-1.avif",
+        "macbook-air-2.avif",
+        "macbook-air-3.avif",
+        "macbook-air-4.avif",
+        "macbook-air-5.avif"
       ]
     }
   ]

@@ -41,22 +41,26 @@ watch(() => props.product.images, () => {
     v-model="showDialog"
   >
     <template #content>
-      <v-container>
+      <v-container class="pt-n3">
         <v-row>
           <!-- Image col -->
           <v-col>
             <v-row>
-              <v-col>
-                <v-img :src="selectedImage" max-height="600" />
+              <v-col class="py-0">
+                <v-img :src="selectedImage" height="600" />
               </v-col>
             </v-row>
 
             <v-row>
+              <v-spacer />
+
               <v-col v-for="image in product.images">
                 <v-card width="60" @click="selectedImage = 'http://localhost:3000/static/' + image" >
-                  <v-img :src="'http://localhost:3000/static/' + image" max-height="60" />
+                  <v-img :src="'http://localhost:3000/static/' + image" height="60" />
                 </v-card>
               </v-col>
+
+              <v-spacer />
             </v-row>
             
           </v-col>
@@ -65,22 +69,30 @@ watch(() => props.product.images, () => {
           <!-- Product description col -->
           <v-col>
             <v-row>
-              <v-col class="text-h6">
+              <v-col class="text-h6 pt-0">
                 {{ $t("product.description") }}
               </v-col>
             </v-row>
 
-            <v-row>
+            <v-row v-if="product.description.length != 0">
               <v-col class="text-body-1">
                 {{ product.description }}
               </v-col>
             </v-row>
 
+            <v-row class="text-body-1 mt-0" v-if="product.specs.length > 1">
+              <v-list>
+                <v-list-item v-for="spec in product.specs">
+                  - {{ spec }}
+                </v-list-item>
+              </v-list>
+            </v-row>
+
             <v-divider class="my-4" />
 
             <v-row>
-              <v-col>
-                <div class="d-flex align-center flex-column my-auto">
+              <v-col class="pb-0">
+                <div class="d-flex align-center flex-column">
                   <div class="text-h3"> {{ product.rating }} <span class="text-h6 ml-n3">/5</span> </div>
                   <v-rating :model-value="product.rating" color="yellow-darken-3" half-increments disabled />
                 </div>
@@ -88,23 +100,6 @@ watch(() => props.product.images, () => {
             </v-row>
 
             <v-divider class="my-4" />
-
-            <v-row>
-              <v-col>
-                <v-number-input
-                  :reverse="false"
-                  controlVariant="default"
-                  :label="$t('quantity')"
-                  :hideInput="false"
-                  :inset="false"
-                  v-model="nrOfArticles"
-                  variant="outlined"
-                  :min="1"
-                  :max="10"
-                  density="comfortable"
-                />
-              </v-col>
-            </v-row>
 
             <v-row>
               <v-col class="d-flex align-end flex-column my-auto">
@@ -121,11 +116,31 @@ watch(() => props.product.images, () => {
           </v-col>
         </v-row>
       </v-container>
-      
     </template>
 
     <template #actions>
-      <v-btn prepend-icon="mdi-cart-plus" @click="addProductToBasket" color="primary" variant="outlined">
+      <v-number-input
+        max-width="200"
+        :reverse="false"
+        controlVariant="default"
+        :label="$t('quantity')"
+        :hideInput="false"
+        :inset="true"
+        v-model="nrOfArticles"
+        variant="outlined"
+        :min="1"
+        :max="10"
+        density="comfortable"
+        :hide-details="true"
+      />
+
+      <v-btn
+        prepend-icon="mdi-cart-plus"
+        @click="addProductToBasket"
+        color="primary"
+        variant="outlined"
+        height="50"
+      >
         {{ $t('addToBasket') }}
       </v-btn>
     </template>
