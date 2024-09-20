@@ -1,12 +1,18 @@
 <script setup lang="ts">
 import { useBasketStore } from '@/data/stores/basketStore';
 import productsTable from './productsTable.vue';
+import alertBanner from '@/components/alertBanner.vue';
 
 const basketStore = useBasketStore()
 </script>
 
 <template>
   <v-container max-width="1000">
+    <v-row>
+      <v-col>
+        <alert-banner />
+      </v-col>
+    </v-row>
     <v-row>
       <v-col>
         <v-card :title="$t('menu.basket')" prepend-icon="mdi-cart">

@@ -3,13 +3,17 @@ import { AccountModel } from "../models/accountModel"
 
 const BASE_URL = "http://localhost:3000/accounts"
 
-export async function login(username: string, password: string) {
+export async function loginAccount(username: string, password: string) {
   return await axios.post(BASE_URL + "/login", { 
       username: username,
       password: password
   })
 }
 
-export async function register(account: AccountModel) {
-  return await axios.post(BASE_URL + "/register", account)
+export async function registerAccount(account: AccountModel) {
+  return await axios.post(BASE_URL, account)
+}
+
+export async function updateAccount(account: AccountModel) {
+  return await axios.patch(BASE_URL, account)
 }

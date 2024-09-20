@@ -25,7 +25,8 @@
     "productName": "Product name",
     "brand": "Brand",
     "productPrice": "Unit price",
-    "category": "Category"
+    "category": "Category",
+    "description": "Description"
   },
   "offers": "Offers",
   "categories": "Categories",
@@ -64,7 +65,20 @@
     "error": "Some error occurred...",
     "databaseResetSuccessful": "Database reset successful!",
     "usernameInUse": "Username always in use!",
-    "registerSuccessful": "Account successfully created!"
+    "registerSuccessful": "Account successfully created!",
+    "accountUpdated": "Account successfully updated",
+    "logoutSuccessful": "Logout successful",
+    "categoryCreateSuccessful": "Category created",
+    "categoryDeleteSuccessful": "Category deleted",
+    "categoryCreateError": "Error on creating category",
+    "categoryDeleteError": "Error on deleting category",
+    "orderPlaceSuccessfull": "Order successfully placed",
+    "productCreateSuccessful": "Product created",
+    "productCreateError": "Error on product creation",
+    "productDeleteSuccessful": "Product successfully deleted",
+    "productDeleteError": "Error on product delete",
+    "basketProductAdded": "Add product to basket",
+    "basketProductRemoved": "Product removed from basket"
   },
   "oclock": "o'clock"
 }

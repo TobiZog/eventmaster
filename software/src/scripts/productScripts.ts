@@ -29,7 +29,7 @@ export function calcPrice(price: number, discount: number = 0, quantity: number 
  * 
  * @returns BasketItemModel
  */
-export function productToBasketItem(product: ProductModel, productCategory: CategoryModel, quantity: number): BasketItemModel {
+export function productToBasketItem(product: ProductWithCategoryModel, quantity: number): BasketItemModel {
   let result = new BasketItemModel()
 
   result.productId = product.id
@@ -38,8 +38,8 @@ export function productToBasketItem(product: ProductModel, productCategory: Cate
   result.brand = product.brand
   result.discount = product.discount
   result.name = product.name
-  result.categoryName = productCategory.name
-  result.categoryIcon = productCategory.icon
+  result.categoryName = product.category.name
+  result.categoryIcon = product.category.icon
 
   return result
 }

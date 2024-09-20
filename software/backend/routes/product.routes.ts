@@ -18,7 +18,7 @@ product.get("/", (req: Request, res: Response) => {
 product.get("/:productId", (req: Request, res: Response) => {
   Product.findByPk(req.params.productId)
     .then(product => {
-      res.status(200).json(product)
+      res.status(200).json(product).send()
     })
 })
 
@@ -26,7 +26,7 @@ product.get("/:productId", (req: Request, res: Response) => {
 product.post("/", (req: Request, res: Response) => {
   Product.create(req.body)
     .then(product => {
-      res.status(200).send()
+      res.status(201).json(product).send()
     })
     .catch(error => {
       res.status(400).json({
@@ -41,10 +41,10 @@ product.delete("/:id", (req: Request, res: Response) => {
     where: { id: req.params.id }
   })
     .then(product => {
-      res.status(200).send()
+      res.status(200).json(product).send()
     })
     .catch(error => {
-      res.status(406).json({
+      res.status(400).json({
         message: error
       }).send()
     })

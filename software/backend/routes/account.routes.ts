@@ -14,33 +14,22 @@ account.post("/login", (req: Request, res: Response) => {
       if (account != null) {
         if (account.password == req.body.password) {
           // Status: 200 OK
-          res.status(200).json({ 
-            loginSuccessful: true,
-            account: account,
-            message: ""
-          }).send()
+          res.status(200).json(account).send()
         } else {
           // Status: 401 Unauthorized
-          res.status(401).json({
-            loginSuccessful: false,
-            account: null,
-            message: "Wrong password"
-          }).send()
+          res.status(401).send()
         }
       } else {
-        // Status: 401 Unauthorized
-        res.status(401).json({
-          loginSuccessful: false,
-          userId: -1,
-          message: "Username doesn't exists"
-        }).send()
+        // Status: 400 Bad request
+        res.status(400).send()
       }
     }
   )
 })
 
 // Creating a new user
-account.post("/register", (req: Request, res: Response) => {
+account.post("/", (req: Request, res: Response) => {
+  // Check if username is valid
   if (!validateString(req.body.username, 4))
   {
     // Status: 400 Bad request
@@ -48,25 +37,25 @@ account.post("/register", (req: Request, res: Response) => {
       message: "Username too short!"
     }).send()
   }
-  else if (!validateString(req.body.password, 8))
+
+  // Check if password is valid
+  if (!validateString(req.body.password, 8))
   {
     // Status: 400 Bad request
     res.status(400).json({ 
       message: "Password too short!"
     }).send()
   }
-  else
-  {
-    Account.create(req.body)
-    .then(account => {
-      res.status(200).json(account).send()
-    }).catch(reason => {
-      // Status: 400 Bad request
-      res.status(400).json({ 
-        message: reason
-      }).send()
-    })
-  }
+
+  // Create account
+  Account.create(req.body)
+  .then(account => {
+    // Status: 201 Created
+    res.status(201).json(account).send()
+  }).catch(reason => {
+    // Status: 409 Conflict
+    res.status(409).send()
+  })
 })
 
 account.patch("/", (req: Request, res: Response) => {
@@ -75,9 +64,11 @@ account.patch("/", (req: Request, res: Response) => {
     where: { id: req.body.id }
   })
     .then(account => {
-      res.status(200).send()
+      // Status: 200 OK
+      res.status(200).json(account).send()
     })
     .catch(error => {
+      // Status: 400 Bad request
       res.status(400).json({
       message: error
     }).send()

@@ -14,14 +14,22 @@ defineProps({
 </script>
 
 <template>
-  <v-dialog max-width="800" v-model="showDialog">
-    <v-card :title="title" >
-      <v-img v-if="imageUrl != ''" :src="imageUrl" max-height="300" />
+  <v-dialog max-width="1000" v-model="showDialog">
+    <v-card :title="title" :subtitle="subtitle" >
+      <v-container>
+        <v-row>
+          <v-col>
+            <v-img v-if="imageUrl != ''" :src="imageUrl" max-height="600" />
+          </v-col>
 
-      <v-card-text>
-        <slot name="content"></slot>
-      </v-card-text>
-
+          <v-col>
+            <v-card-text>
+              <slot name="content"></slot>
+            </v-card-text>
+          </v-col>
+        </v-row>
+      </v-container>
+      
       <v-card-actions>
         <slot name="actions"></slot>
       </v-card-actions>

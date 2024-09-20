@@ -83,12 +83,12 @@
         </mxCell>
         <mxCell id="xvubMpEdOjOFzFZ-NZdf-25" value="0..n" style="resizable=0;align=left;verticalAlign=top;labelBackgroundColor=#ffffff;fontSize=10;strokeColor=#003366;shadow=1;fillColor=#D4E1F5;fontColor=#003366" parent="xvubMpEdOjOFzFZ-NZdf-24" connectable="0" vertex="1">
           <mxGeometry x="-1" relative="1" as="geometry">
-            <mxPoint x="10" y="-25" as="offset" />
+            <mxPoint y="-25" as="offset" />
           </mxGeometry>
         </mxCell>
         <mxCell id="xvubMpEdOjOFzFZ-NZdf-26" value="1" style="resizable=0;align=right;verticalAlign=top;labelBackgroundColor=#ffffff;fontSize=10;strokeColor=#003366;shadow=1;fillColor=#D4E1F5;fontColor=#003366" parent="xvubMpEdOjOFzFZ-NZdf-24" connectable="0" vertex="1">
           <mxGeometry x="1" relative="1" as="geometry">
-            <mxPoint x="-9" y="-25" as="offset" />
+            <mxPoint x="-9" y="-35" as="offset" />
           </mxGeometry>
         </mxCell>
         <mxCell id="xvubMpEdOjOFzFZ-NZdf-27" value="" style="endArrow=open;endSize=12;startArrow=diamondThin;startSize=14;startFill=0;edgeStyle=orthogonalEdgeStyle;entryX=1;entryY=0.5;entryDx=0;entryDy=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;" parent="1" source="xvubMpEdOjOFzFZ-NZdf-23" target="-XxvrMC6G6SQ8Xm1xsTM-4" edge="1">

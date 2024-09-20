@@ -10,7 +10,7 @@ category.get("/", (req: Request, res: Response, next: NextFunction) => {
       res.status(200).json(categories).send()
     })
     .catch(error => {
-      res.status(400)//.json({ message: error }).send()
+      res.status(400)
     })
 })
 
@@ -36,7 +36,7 @@ category.delete("/:id", (req: Request, res: Response, next: NextFunction) => {
       res.status(200).send()
     })
     .catch(error => {
-      res.status(406).json({
+      res.status(400).json({
         message: error
       }).send()
     })

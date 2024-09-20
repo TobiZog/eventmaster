@@ -25,7 +25,8 @@
     "productName": "Produkt Name",
     "brand": "Marke",
     "productPrice": "Einzelpreis",
-    "category": "Kategorie"
+    "category": "Kategorie",
+    "description": "Beschreibung"
   },
   "offers": "Angebote",
   "categories": "Kategorien",
@@ -64,7 +65,20 @@
     "error": "Es ist ein Fehler aufgetreten...",
     "databaseResetSuccessful": "Datenbank erfolgreich zurück gesetzt!",
     "registerSuccessful": "Account erfolgreich erstellt!",
-    "usernameInUse": "Der Accountname ist bereits vergeben!"
+    "usernameInUse": "Der Accountname ist bereits vergeben!",
+    "accountUpdated": "Account erfolgreich aktualisiert",
+    "logoutSuccessful": "Logout erfolgreich",
+    "categoryCreateSuccessful": "Kategorie hinzugefügt",
+    "categoryDeleteSuccessful": "Kategorie gelöscht",
+    "categoryCreateError": "Fehler beim Erstellen der Kategorie",
+    "categoryDeleteError": "Fehler beim Löschen der Kategorie",
+    "orderPlaceSuccessfull": "Bestellung erfolgreich aufgegeben",
+    "productCreateSuccessful": "Produkt hinzugefügt",
+    "productCreateError": "Fehler beim Erstellen des Produktes",
+    "productDeleteSuccessful": "Produkt erfolgreich entfernt",
+    "productDeleteError": "Fehler beim Entfernen des Produktes",
+    "basketProductAdded": "Artikel zum Warenkorb hinzugefügt",
+    "basketProductRemoved": "Artikel aus Warenkorb entfernt"
   },
   "oclock": "Uhr"
 }

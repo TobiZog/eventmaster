@@ -14,7 +14,7 @@ order.get("/:id", (req: Request, res: Response) => {
     ]
   })
     .then(orders => {
-      res.status(200).send(orders)
+      res.status(200).json(orders).send()
     })
 })
 

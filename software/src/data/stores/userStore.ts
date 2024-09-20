@@ -3,7 +3,7 @@ import { useLocalStorage } from "@vueuse/core";
 import { ThemeEnum } from "../enums/themeEnums";
 import { LanguageEnum } from "../enums/languageEnum";
 import { AccountModel } from "../models/accountModel";
-import { login, register } from "../api/accountApi";
+import { loginAccount, registerAccount, updateAccount } from "../api/accountApi";
 import { useFeedbackStore } from "./feedbackStore";
 import { BannerStateEnum } from "../enums/bannerStateEnum";
 
@@ -19,44 +19,60 @@ export const useUserStore = defineStore('userStore', {
     async login(username: string, password: string) {
       const feedbackStore = useFeedbackStore()
 
-      await login(username, password)
+      await loginAccount(username, password)
         .then(result => {
-          if (result.data.loginSuccessful) {
-            this.userAccount = result.data.account
-            this.loggedIn = true
+          this.userAccount = result.data.account
+          this.loggedIn = true
 
-            feedbackStore.changeBanner(BannerStateEnum.LOGINSUCCESSFUL)
-          }
+          feedbackStore.changeBanner(BannerStateEnum.ACCOUNTLOGINSUCCESSFUL)
         })
         .catch(error => {
-          this.userAccount = new AccountModel()
           this.loggedIn = false
 
-          feedbackStore.changeBanner(BannerStateEnum.WRONGLOGIN)
+          if (error.status == 400) {
+            feedbackStore.changeBanner(BannerStateEnum.ACCOUNTLOGINERROR)
+          } else if (error.status == 401) {
+            feedbackStore.changeBanner(BannerStateEnum.ACCOUNTLOGINWRONGLOGIN)
+          }
         })
     },
 
-    async registerAccount(account: AccountModel) {
+    async registerAccount(userAccount: AccountModel) {
       const feedbackStore = useFeedbackStore()
 
-      await register(account)
+      await registerAccount(userAccount)
         .then(res => {
-          console.log(res)
-          if (res.status == 200) {
-            feedbackStore.changeBanner(BannerStateEnum.REGISTERSUCCESSFUL)
+          if (res.status == 201) {
+            feedbackStore.changeBanner(BannerStateEnum.ACCOUNTREGISTERSUCCESSFUL)
           }
         })
         .catch((error) => {
-          console.log(error)
           if (error.status == 400) {
-            feedbackStore.changeBanner(BannerStateEnum.USERNAMEINUSE)
+            feedbackStore.changeBanner(BannerStateEnum.ACCOUNTREGISTERERROR)
+          } else if (error.status == 409) {
+            feedbackStore.changeBanner(BannerStateEnum.ACCOUNTREGISTERUSERNAMEINUSE)
+          }
+        })
+    },
+
+    async updateAccount() {
+      const feedbackStore = useFeedbackStore()
+
+      await updateAccount(this.userAccount)
+        .then(res => {
+          if (res.status == 200) {
+            feedbackStore.changeBanner(BannerStateEnum.ACCOUNTUPDATESUCCESSFUL)
           }
         })
     },
 
     logout() {
+      const feedbackStore = useFeedbackStore()
+
       this.userAccount = new AccountModel()
       this.loggedIn = false
+      
+      feedbackStore.changeBanner(BannerStateEnum.ACCOUNTLOGOUTSUCCESSFUL)
     }
   }
 })

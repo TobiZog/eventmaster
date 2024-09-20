@@ -2,6 +2,8 @@ import { defineStore } from "pinia";
 import { useLocalStorage } from "@vueuse/core";
 import { calcProductPrice } from "@/scripts/productScripts";
 import { BasketItemModel } from "../models/basketItemModel";
+import { useFeedbackStore } from "./feedbackStore";
+import { BannerStateEnum } from "../enums/bannerStateEnum";
 
 export const useBasketStore = defineStore('basket', {
   state: () => ({
@@ -22,12 +24,18 @@ export const useBasketStore = defineStore('basket', {
 
   actions: {
     removeItemFromBasket(item: BasketItemModel) {
+      const feedbackStore = useFeedbackStore()
+      feedbackStore.changeBanner(BannerStateEnum.BASKETPRODUCTREMOVED)
+
       this.itemsInBasket = this.itemsInBasket.filter((basketItemModel: BasketItemModel) => 
         basketItemModel.productId != item.productId
       )
     },
 
     addItemToBasket(item: BasketItemModel) {
+      const feedbackStore = useFeedbackStore()
+      feedbackStore.changeBanner(BannerStateEnum.BASKETPRODUCTADDED)
+
       // Product is already in the basket, increase number of items
       if (this.itemsInBasket.find((basketItem) => basketItem.productId == item.productId)) {
         this.itemsInBasket.find((basketItem) => basketItem.productId == item.productId).quantity += item.quantity

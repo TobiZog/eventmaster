@@ -21,7 +21,7 @@
     "@vueuse/core": "^11.0.3",
     "axios": "^1.7.7",
     "body-parser": "^1.20.2",
-    "concurrently": "^8.2.2",
+    "concurrently": "^9.0.1",
     "cors": "^2.8.5",
     "express": "^4.19.2",
     "pinia": "^2.2.2",
@@ -33,7 +33,7 @@
     "vue": "^3.4.29",
     "vue-i18n": "^10.0.0",
     "vue-router": "^4.4.3",
-    "vuetify": "^3.7.1",
+    "vuetify": "^3.7.2",
     "wait-on": "^8.0.0"
   },
   "devDependencies": {

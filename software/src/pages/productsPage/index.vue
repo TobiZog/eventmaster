@@ -2,15 +2,13 @@
 import productCard from "./productCard.vue"
 import productDetails from "./productDetails.vue"
 import filterBar from "./filterBar.vue"
-import { Ref, ref, watch } from "vue";
-import { CategoryModel } from "@/data/models/categoryModel";
+import { ref, watch } from "vue";
 import { FilterModel } from "@/data/models/filterModel";
 import { useProductStore } from "@/data/stores/productStore";
-import { useCategoryStore } from "@/data/stores/categoryStore";
 import { ProductWithCategoryModel } from "@/data/models/productWithCategoryModel";
+import alertBanner from "@/components/alertBanner.vue";
 
 const productStore = useProductStore()
-const categoryStore = useCategoryStore()
 
 const showProductDetails = ref(false)
 const dialogProduct = ref(new ProductWithCategoryModel())
@@ -34,6 +32,11 @@ watch(() => productStore.onlyDiscounts, async () => { productStore.filterProduct
 
 <template>
   <v-container>
+    <v-row>
+      <v-col>
+        <alert-banner />
+      </v-col>
+    </v-row>
     <v-row>
       <v-col>
         <filter-bar />
