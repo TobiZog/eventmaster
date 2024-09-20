@@ -5,8 +5,8 @@ import { ref } from 'vue';
 
 const userStore = useUserStore()
 const showRegisterCard = defineModel("showRegisterCard", { type: Boolean, default: false })
-const username = ref("")
-const password = ref("")
+const username = ref("duranduran")
+const password = ref("H4nn0ver")
 
 function startLogin() {
   userStore.login(username.value, password.value)

@@ -6,13 +6,16 @@ import { AccountModel } from "../models/accountModel";
 import { loginAccount, registerAccount, updateAccount } from "../api/accountApi";
 import { useFeedbackStore } from "./feedbackStore";
 import { BannerStateEnum } from "../enums/bannerStateEnum";
+import { OrderModel } from "../models/orderModel";
+import { getUserOrders } from "../api/orderApi";
 
 export const useUserStore = defineStore('userStore', {
   state: () => ({
     theme: useLocalStorage<ThemeEnum>("hackmycart/userStore/theme", ThemeEnum.DARKRED),
     language: useLocalStorage<LanguageEnum>("hackmycart/userStore/language", LanguageEnum.GERMAN),
     userAccount: useLocalStorage<AccountModel>("hackmycart/userStore/userAccount", new AccountModel()),
-    loggedIn: useLocalStorage<Boolean>("hackmycart/userStore/loggedIn", false)
+    loggedIn: useLocalStorage<Boolean>("hackmycart/userStore/loggedIn", false),
+    orders: useLocalStorage<Array<OrderModel>>("hackmycart/userStore/orders", [])
   }),
 
   actions: {
@@ -20,11 +23,16 @@ export const useUserStore = defineStore('userStore', {
       const feedbackStore = useFeedbackStore()
 
       await loginAccount(username, password)
-        .then(result => {
-          this.userAccount = result.data.account
+        .then(async result => {
+          this.userAccount = result.data
           this.loggedIn = true
 
           feedbackStore.changeBanner(BannerStateEnum.ACCOUNTLOGINSUCCESSFUL)
+
+          await getUserOrders(result.data.id)
+            .then(result => {
+              this.orders = result.data
+            })
         })
         .catch(error => {
           this.loggedIn = false
