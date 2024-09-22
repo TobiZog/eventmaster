@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import productCard from "./productCard.vue"
-import productDetails from "./productDetails.vue"
+import productDetails from "./productDetailsDialog.vue"
 import { ref, watch } from "vue";
 import { useProductStore } from "@/data/stores/productStore";
 import { ProductWithCategoryModel } from "@/data/models/productWithCategoryModel";

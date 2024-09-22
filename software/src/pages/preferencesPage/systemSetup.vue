@@ -2,8 +2,12 @@
 import { BannerStateEnum } from '@/data/enums/bannerStateEnum';
 import { useFeedbackStore } from '@/data/stores/feedbackStore';
 import axios from 'axios';
+import cardView from '@/components/cardView.vue';
+import actionDialog from '@/components/actionDialog.vue';
+import { ref } from 'vue';
 
 const feedbackStore = useFeedbackStore()
+const confirmDialog = ref(false)
 
 function resetDb() {
   axios.get("http://127.0.0.1:3000/api/resetdatabase")
@@ -12,20 +16,22 @@ function resetDb() {
         feedbackStore.changeBanner(BannerStateEnum.DATABASERESETSUCCESSFUL)
       }
     })
+
+  confirmDialog.value = false
   // todo: Request all data
 }
 
 function resetSettings() {
-
+  // todo
 }
 </script>
 
 <template>
-  <v-card :title="$t('preferences.systemSetup')" prepend-icon="mdi-engine" elevation="8">
+  <card-view :title="$t('preferences.systemSetup')" prepend-icon="mdi-engine" elevation="8">
     <v-container>
       <v-row>
         <v-col class="d-flex justify-center align-center">
-          <v-btn @click="resetDb" color="primary" prepend-icon="mdi-database-refresh">
+          <v-btn @click="confirmDialog = true" color="primary" prepend-icon="mdi-database-refresh">
             {{ $t('preferences.resetDatabase') }}
           </v-btn>
         </v-col>
@@ -36,5 +42,14 @@ function resetSettings() {
         </v-col>
       </v-row>
     </v-container>
-  </v-card>
+  </card-view>
+
+  <action-dialog :title="$t('preferences.resetConfirm')" v-model="confirmDialog" width="600">
+    <template #actions>
+      <v-btn variant="outlined" @click="resetDb" color="red">
+        {{ $t('preferences.resetDatabase') }}
+      </v-btn>
+    </template>
+
+  </action-dialog>
 </template>

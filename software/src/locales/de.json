@@ -17,7 +17,8 @@
     "language": "Sprache",
     "systemSetup": "Systemeinstellungen",
     "resetDatabase": "Datenbank zurücksetzen",
-    "resetPreferences": "Einstellungen zurücksetzen"
+    "resetPreferences": "Einstellungen zurücksetzen",
+    "resetConfirm": "Soll die Datenbank wirklich zurückgesetzt werden?"
   },
   "product": {
     "product": "Produkt",
@@ -82,5 +83,8 @@
     "basketProductAdded": "Artikel zum Warenkorb hinzugefügt",
     "basketProductRemoved": "Artikel aus Warenkorb entfernt"
   },
-  "oclock": "Uhr"
+  "oclock": "Uhr",
+  "ordering": {
+    "ordering": "Bestellabschluss"
+  }
 }

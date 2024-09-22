@@ -40,7 +40,6 @@ watch(() => props.product.images, () => {
     :subtitle="product.category.name"
     v-model="showDialog"
   >
-    <template #content>
       <v-container class="pt-n3">
         <v-row>
           <!-- Image col -->
@@ -137,7 +136,6 @@ watch(() => props.product.images, () => {
           </v-col>
         </v-row>
       </v-container>
-    </template>
 
     <template #actions>
       <v-number-input

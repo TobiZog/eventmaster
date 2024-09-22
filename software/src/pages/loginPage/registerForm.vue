@@ -1,9 +1,8 @@
 <script setup lang="ts">
-import { BannerStateEnum } from '@/data/enums/bannerStateEnum';
 import { AccountModel } from '@/data/models/accountModel';
 import { useUserStore } from '@/data/stores/userStore';
-import axios from 'axios';
 import { ref } from 'vue';
+import cardView from '@/components/cardView.vue';
 
 const newUser = ref(new AccountModel())
 const showRegisterCard = defineModel("showRegisterCard", { type: Boolean, default: false })
@@ -11,7 +10,7 @@ const userStore = useUserStore()
 </script>
 
 <template>
-  <v-card :title="$t('account.register')">
+  <card-view :title="$t('account.register')">
     <v-container>
       <v-row>
         <v-col>
@@ -89,5 +88,5 @@ const userStore = useUserStore()
           {{ $t('account.register') }}
         </v-btn>
     </template>
-  </v-card>
+  </card-view>
 </template>

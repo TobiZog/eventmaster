@@ -3,6 +3,7 @@ import { ThemeEnum } from '@/data/enums/themeEnums';
 import { useTheme } from 'vuetify/lib/framework.mjs';
 import { useUserStore } from '@/data/stores/userStore';
 import { i18n } from '@/plugins/i18n';
+import cardView from '@/components/cardView.vue';
 
 const userStore = useUserStore()
 const theme = useTheme()
@@ -18,7 +19,7 @@ function changeLanguage() {
 </script>
 
 <template>
-  <v-card :title="$t('preferences.pageSetup')" prepend-icon="mdi-view-dashboard" elevation="8">
+  <card-view :title="$t('preferences.pageSetup')" prepend-icon="mdi-view-dashboard" elevation="8">
     <v-container>
       <v-row>
         <v-col>
@@ -39,5 +40,5 @@ function changeLanguage() {
         </v-col>
       </v-row>
     </v-container>
-  </v-card>
+  </card-view>
 </template>

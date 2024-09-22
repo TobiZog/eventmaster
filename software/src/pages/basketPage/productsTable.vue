@@ -8,29 +8,50 @@ const basketStore = useBasketStore()
 function removeFromBasket(basketItem: BasketItemModel) {
   basketStore.removeItemFromBasket(basketItem)
 }
+
+function editQuantity(basketItem: BasketItemModel) {
+  // todo
+}
 </script>
 
 <template>
   <v-table>
     <thead>
       <tr>
-        <th></th>
         <th>{{ $t('product.category') }}</th>
         <th>{{ $t('product.brand') }}</th>
         <th>{{ $t('product.products') }}</th>
         <th class="text-center">{{ $t('quantity') }}</th>
         <th class="text-right">{{ $t('product.productPrice') }}</th>
         <th class="text-right">{{ $t('totalPrice') }}</th>
+        <th></th>
       </tr>
     </thead>
 
     <tbody>
       <tr v-for="basketItem in basketStore.itemsInBasket">
-        <td><v-btn icon="mdi-delete" flat @click="removeFromBasket(basketItem)"/></td>
-        <td><v-icon :icon="basketItem.categoryIcon" /> {{ basketItem.categoryName }} </td>
-        <td>{{ basketItem.brand }}</td>
-        <td>{{ basketItem.name }}</td>
-        <td class="text-center">{{ basketItem.quantity }}x</td>
+        <td><v-icon :icon="basketItem.categoryIcon" />
+          {{ basketItem.categoryName }}
+        </td>
+
+        <td>
+          {{ basketItem.brand }}
+        </td>
+
+        <td>
+          {{ basketItem.name }}
+        </td>
+
+        <td class="text-center">
+          {{ basketItem.quantity }}x
+          <v-btn
+            icon="mdi-pencil" 
+            @click="editQuantity(basketItem)" 
+            color="orange" 
+            variant="text"
+            flat 
+          />
+        </td>
 
         <td class="text-right">
           <div v-if="basketItem.discount > 0">
@@ -46,7 +67,6 @@ function removeFromBasket(basketItem: BasketItemModel) {
           </div>
         </td>
 
-
         <td class="text-right">
           <div v-if="basketItem.discount > 0">
             <strong class="font-weight-bold text-body-1 text-red-lighten-1">
@@ -61,7 +81,11 @@ function removeFromBasket(basketItem: BasketItemModel) {
           <div v-else>
             {{ calcPrice(basketItem.price, 0, basketItem.quantity) }} €
           </div>
-          </td>
+        </td>
+
+        <td>
+          <v-btn icon="mdi-delete" flat @click="removeFromBasket(basketItem)" color="red" variant="text"/>
+        </td>
       </tr>
     </tbody>
   </v-table>

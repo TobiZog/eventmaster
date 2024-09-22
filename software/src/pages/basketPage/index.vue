@@ -2,6 +2,7 @@
 import { useBasketStore } from '@/data/stores/basketStore';
 import productsTable from './productsTable.vue';
 import alertBanner from '@/components/alertBanner.vue';
+import cardView from '@/components/cardView.vue';
 
 const basketStore = useBasketStore()
 </script>
@@ -15,7 +16,7 @@ const basketStore = useBasketStore()
     </v-row>
     <v-row>
       <v-col>
-        <v-card :title="$t('menu.basket')" prepend-icon="mdi-cart">
+        <card-view :title="$t('menu.basket')" prepend-icon="mdi-cart">
           <v-card-subtitle v-if="basketStore.itemsInBasket.length > 0">
             <div v-if="basketStore.itemsInBasket.length == 1">
               {{ basketStore.itemsInBasket.length }} {{ $t('product.product') }}
@@ -33,19 +34,21 @@ const basketStore = useBasketStore()
             :text="$t('emptyBasketText')"
           />
 
-          <v-card-text class="text-right" v-if="basketStore.itemsInBasket.length > 0">
+          <v-card-text class="text-right text-h5" v-if="basketStore.itemsInBasket.length > 0">
             {{ $t('totalPrice') }}: {{ basketStore.getTotalPrice }} €
           </v-card-text>
 
-          <v-card-actions>
+          <template #actions>
             <v-btn
               prepend-icon="mdi-basket-check"
               :disabled="basketStore.itemsInBasket.length == 0"
+              variant="outlined"
+              color="green"
             >
               {{ $t('orderNow') }}
             </v-btn>
-          </v-card-actions>
-        </v-card>
+          </template>
+        </card-view>
       </v-col>
     </v-row>
   </v-container>

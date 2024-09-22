@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { ProductWithCategoryModel } from '@/data/models/productWithCategoryModel';
+import cardView from '@/components/cardView.vue';
 
 defineProps({
   product: {
@@ -10,7 +11,7 @@ defineProps({
 </script>
 
 <template>
-  <v-card link>
+  <card-view link>
     <v-row>
       <v-col cols="3">
         <v-sheet color="white">
@@ -76,7 +77,7 @@ defineProps({
         </div>
       </v-col>
     </v-row>
-  </v-card>
+  </card-view>
 </template>
 
 <style scoped>

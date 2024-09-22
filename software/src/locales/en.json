@@ -17,7 +17,8 @@
     "language": "Language",
     "systemSetup": "System setup",
     "resetDatabase": "Reset database",
-    "resetPreferences": "Reset preferences"
+    "resetPreferences": "Reset preferences",
+    "resetConfirm": "Really reset the database?"
   },
   "product": {
     "product": "Product",
@@ -82,5 +83,8 @@
     "basketProductAdded": "Add product to basket",
     "basketProductRemoved": "Product removed from basket"
   },
-  "oclock": "o'clock"
+  "oclock": "o'clock",
+  "ordering": {
+    "ordering": "Finish order"
+  }
 }

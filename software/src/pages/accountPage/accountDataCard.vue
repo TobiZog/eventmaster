@@ -1,11 +1,12 @@
 <script setup lang="ts">
 import { useUserStore } from '@/data/stores/userStore';
+import cardView from '@/components/cardView.vue';
 
 const userStore = useUserStore()
 </script>
 
 <template>
-  <v-card title="Account">
+  <card-view title="Account">
     <v-container>
       <v-row>
         <v-col>
@@ -70,8 +71,15 @@ const userStore = useUserStore()
       </v-row>
     </v-container>
 
-    <v-card-actions>
-      <v-btn @click="userStore.updateAccount()" >Save</v-btn>
-    </v-card-actions>
-  </v-card>
+    <template #actions>
+      <v-btn
+        @click="userStore.updateAccount()"
+        variant="outlined"
+        prepend-icon="mdi-content-save"
+        color="green"
+      >
+        Save
+      </v-btn>
+    </template>
+  </card-view>
 </template>

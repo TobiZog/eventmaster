@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { BannerStateEnum } from '@/data/enums/bannerStateEnum';
 import { useUserStore } from '@/data/stores/userStore';
 import { ref } from 'vue';
+import cardView from '@/components/cardView.vue';
 
 const userStore = useUserStore()
 const showRegisterCard = defineModel("showRegisterCard", { type: Boolean, default: false })
@@ -14,7 +14,7 @@ function startLogin() {
 </script>
 
 <template>
-  <v-card :title="$t('menu.login')" prepend-icon="mdi-login" elevation="8">
+  <card-view :title="$t('menu.login')" prepend-icon="mdi-login" elevation="8">
     <v-container>
       <v-row>
         <v-col>
@@ -30,14 +30,14 @@ function startLogin() {
       </v-row>
     </v-container>
 
-    <v-card-actions>
+    <template #actions>
       <v-btn variant="outlined" @click="showRegisterCard = true" color="primary" prepend-icon="mdi-plus">
         {{ $t('account.noAccountRegister') }}
       </v-btn>
       <v-spacer />
       <v-btn variant="outlined" append-icon="mdi-arrow-right" color="primary"
         @click="startLogin">{{ $t('menu.login') }}</v-btn>
-    </v-card-actions>
+    </template>
 
-  </v-card>
+  </card-view>
 </template>
