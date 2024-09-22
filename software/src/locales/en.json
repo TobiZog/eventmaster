@@ -26,7 +26,9 @@
     "brand": "Brand",
     "productPrice": "Unit price",
     "category": "Category",
-    "description": "Description"
+    "description": "Description",
+    "storedItemsAvailable": "{0} items available",
+    "soldOut": "Sold Out"
   },
   "offers": "Offers",
   "categories": "Categories",

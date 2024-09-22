@@ -47,7 +47,9 @@ watch(() => props.product.images, () => {
           <v-col>
             <v-row>
               <v-col class="py-0">
-                <v-img :src="selectedImage" height="600" />
+                <v-sheet color="white">
+                  <v-img :src="selectedImage" height="600" />
+                </v-sheet>
               </v-col>
             </v-row>
 
@@ -55,7 +57,11 @@ watch(() => props.product.images, () => {
               <v-spacer />
 
               <v-col v-for="image in product.images">
-                <v-card width="60" @click="selectedImage = 'http://localhost:3000/static/' + image" >
+                <v-card
+                  width="60"
+                  @click="selectedImage = 'http://localhost:3000/static/' + image"
+                  color="white"
+                >
                   <v-img :src="'http://localhost:3000/static/' + image" height="60" />
                 </v-card>
               </v-col>
@@ -74,18 +80,20 @@ watch(() => props.product.images, () => {
               </v-col>
             </v-row>
 
-            <v-row v-if="product.description.length != 0">
-              <v-col class="text-body-1">
+            <v-row class="text-body-1 mt-0"  style="height: 450px; overflow-y: auto;">
+              <div v-if="product.description.length != 0">
+                <v-col class="text-body-1">
                 {{ product.description }}
               </v-col>
-            </v-row>
+              </div>
 
-            <v-row class="text-body-1 mt-0" v-if="product.specs.length > 1">
-              <v-list>
-                <v-list-item v-for="spec in product.specs">
-                  - {{ spec }}
-                </v-list-item>
-              </v-list>
+              <div v-if="product.specs.length > 1">
+                <v-list>
+                  <v-list-item v-for="spec in product.specs">
+                    <v-icon icon="mdi-circle-small" /> {{ spec }}
+                  </v-list-item>
+                </v-list>
+              </div>
             </v-row>
 
             <v-divider class="my-4" />
@@ -102,6 +110,19 @@ watch(() => props.product.images, () => {
             <v-divider class="my-4" />
 
             <v-row>
+              <v-col cols="3">
+                <div class="pt-3">
+                  <div v-if="product.storedItems > 5" class="text-green-lighten-1">
+                    {{ $t("product.storedItemsAvailable", [product.storedItems]) }}
+                  </div>
+                  <div v-else-if="product.storedItems > 0" class="text-orange-lighten-1">
+                    {{ $t("product.storedItemsAvailable", [product.storedItems]) }}
+                  </div>
+                  <div v-else class="text-red">
+                    {{ $t("product.soldOut") }}
+                  </div>
+                </div>
+              </v-col>
               <v-col class="d-flex align-end flex-column my-auto">
                 <div v-if="product.discount == 0" class="text-h3">{{ product.price }} €</div>
                 <div v-else class="d-flex align-center flex-column my-auto">
@@ -132,6 +153,7 @@ watch(() => props.product.images, () => {
         :max="10"
         density="comfortable"
         :hide-details="true"
+        :disabled="product.storedItems == 0"
       />
 
       <v-btn
@@ -140,6 +162,7 @@ watch(() => props.product.images, () => {
         color="primary"
         variant="outlined"
         height="50"
+        :disabled="product.storedItems == 0"
       >
         {{ $t('addToBasket') }}
       </v-btn>

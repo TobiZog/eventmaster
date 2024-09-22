@@ -47,6 +47,9 @@ export class Product extends Model {
     }
   })
   specs: Array<string>
+
+  @Column
+  storedItems: number
   
   // Relations
   @BelongsTo(() => Category)

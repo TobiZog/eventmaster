@@ -25,7 +25,7 @@ function formatDateTimeString(string: string) {
 </script>
 
 <template>
-  <v-container>
+  <v-container max-width="1000">
     <v-row v-for="order in userStore.orders">
       <v-col>
         <v-card

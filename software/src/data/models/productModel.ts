@@ -9,4 +9,5 @@ export class ProductModel {
   discount: number = 0
   rating: number = 1
   images: Array<string> = [""]
+  storedItems: number
 }

@@ -23,7 +23,7 @@ watch(() => productStore.onlyDiscounts, async () => { productStore.filterProduct
 </script>
 
 <template>
-  <v-container>
+  <v-container max-width="1000">
     <v-row>
       <v-col>
         <alert-banner />
@@ -34,7 +34,7 @@ watch(() => productStore.onlyDiscounts, async () => { productStore.filterProduct
       <v-col
         v-if="productStore.filteredProducts.length > 0"
         v-for="product in productStore.filteredProducts"
-        cols="12" sm="6" lg="4" xl="3"
+        cols="12"
       >
         <product-card
           :product="product"

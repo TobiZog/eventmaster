@@ -26,7 +26,8 @@
         "thinkpad-t14s-5.avif",
         "thinkpad-t14s-6.avif",
         "thinkpad-t14s-7.avif"
-      ]
+      ],
+      "storedItems": 5
     },
     {
       "id": 1,
@@ -50,7 +51,8 @@
         "puma-t-shirt-men-3.jpg",
         "puma-t-shirt-men-4.jpg",
         "puma-t-shirt-men-5.jpg"
-      ]
+      ],
+      "storedItems": 30
     },
     {
       "id": 2,
@@ -75,7 +77,8 @@
         "puma-t-shirt-woman-4.jpg",
         "puma-t-shirt-woman-5.jpg",
         "puma-t-shirt-woman-6.jpg"
-      ]
+      ],
+      "storedItems": 30
     },
     {
       "id": 3,
@@ -86,12 +89,26 @@
       "discount": 0,
       "rating": 4.9,
       "description": "London, 1984: Winston Smith, Geschichtsfälscher im Staatsdienst, verliebt sich in die schöne und geheimnisvolle Julia. Gemeinsam beginnen sie, die totalitäre Welt infrage zu stellen, als Teil derer sie bisher funktioniert haben. Doch bereits ihre Gedanken sind Verbrechen, und der Große Bruder richtet seinen stets wachsamen Blick auf jeden potenziellen Dissidenten. George Orwells Vision eines totalitären Staats, in dem Cyberüberwachung, Geschichtsrevisionismus und Gedankenpolizei den Alltag gläserner Bürger bestimmen, hat wie keine andere Dystopie bis heute nur an Brisanz gewonnen.",
-      "specs": [],
+      "specs": [
+        "Erscheinungsdatum: 18. Januar 2021",
+        "Sprache: deutsch",
+        "Seitenanzahl: 399",
+        "Autor/Autorin: George Orwell",
+        "Übersetzung: Jan Strümpel",
+        "Verlag/Hersteller: Anaconda Verlag",
+        "Originaltitel: 1984",
+        "Originalsprache: englisch",
+        "Produktart: gebunden",
+        "Gewicht: 412 g",
+        "Größe (L/B/H): 192/131/38 mm",
+        "ISBN: 9783730609767"
+      ],
       "images": [
         "1984-1.webp",
         "1984-2.webp",
         "1984-3.webp"
-      ]
+      ],
+      "storedItems": 30
     },
     {
       "id": 4,
@@ -102,11 +119,23 @@
       "discount": 0,
       "rating": 4.4,
       "description": "Brave New World beschreibt eine genormte Gesellschaft, in der Föten genetisch manipuliert und Menschen konditioniert werden. Ziel des Staates ist Zufriedenheit und Stabilität, und dies wird durch Gleichheit, Drogen und Propaganda erreicht. Gott und Religion...",
-      "specs": [],
+      "specs": [
+        "Erscheinungsdatum: 07. Juni 2011",
+        "Sprache: englisch",
+        "Reihe: Vintage Classics",
+        "Autor/Autorin: Aldous Huxley",
+        "Verlag/Hersteller: Random House UK Ltd",
+        "Produktart: kartoniert",
+        "Gewicht: 208 g",
+        "Größe (L/B/H): 198/131/22 mm",
+        "Sonstiges: B-format paperback",
+        "ISBN: 9780099518471"
+      ],
       "images": [
         "brave-new-world-1.jpg",
         "brave-new-world-2.jpg"
-      ]
+      ],
+      "storedItems": 30
     },
     {
       "id": 5,
@@ -130,7 +159,8 @@
         "dell-xps-desktop-4.jpg",
         "dell-xps-desktop-5.jpg",
         "dell-xps-desktop-6.jpg"
-      ]
+      ],
+      "storedItems": 10
     },
     {
       "id": 6,
@@ -141,14 +171,34 @@
       "discount": 5,
       "rating": 4.8,
       "description": "The Fender Player II JazzBass RW 3TS 3-Color Sunburst relies on great features that stand out in terms of comfort, playability and look, as well as providing all the advantages for a wide variety of genres. Whether dynamic bass lines or lush rock riffs: the Fender Player II Jazz Bass is a versatile E-Bass that is not only perfect for practice or studio sessions, but also functions as an assertive bass carpet in band contexts and live mixes. The robust alder body has a classic 3-color Sunburst-Finish finish and shines with easy handling and a comfortable grip - whether sitting or standing. The maple neck with a modern 'C' neck profile is fitted with a rosewood fingerboard, which is equipped with 20 medium jumbo frets and a fingerboard radius of 9.5', making it easy to use a wide variety of bass techniques and enabling quick fretting and precise riffs to be tackled cleanly.",
-      "specs": [],
+      "specs": [
+        "Body: Alder",
+        "Bolt-on neck: Maple",
+        "Fingerboard: Rosewood",
+        "Fingerboard inlays: white dots",
+        "Nut: Synthetic bone",
+        "Neck profile: Modern 'C'",
+        "Nut width: 38.1 mm (1.5')",
+        "Fingerboard radius: 241 mm (9.5')",
+        "Scale: 864 mm (34')",
+        "20 Medium jumbo frets",
+        "Pickups: 2 Player Series Jazz Bass Alnico 5 single coils",
+        "Controls: 2 volume and 1 tone",
+        "Pickguard: 3-ply parchement",
+        "Standard bridge with 4 saddles",
+        "Open standard machine heads",
+        "Nickel/chrome hardware",
+        "Strings: Fender USA 7250M Nickel-plated steel .045 - .105",
+        "Colour: 3-Colour Sunburst"
+      ],
       "images": [
         "fender-player-ii-jazz-bass-rw-3ts-1.jpg",
         "fender-player-ii-jazz-bass-rw-3ts-2.jpg",
         "fender-player-ii-jazz-bass-rw-3ts-3.jpg",
         "fender-player-ii-jazz-bass-rw-3ts-4.jpg",
         "fender-player-ii-jazz-bass-rw-3ts-5.jpg"
-      ]
+      ],
+      "storedItems": 15
     },
     {
       "id": 7,
@@ -159,7 +209,28 @@
       "discount": 0,
       "rating": 4.6,
       "description": "The LTD Iron Cross is a Signature Series model of James Hetfield, the frontman of Metallica and one of the world's most highly respected rhythm guitar players in any genre. The Iron Cross is based on James' personal custom instrument design, and features set-neck construction of a mahogany body with maple cap, and a three-piece mahogany neck with ebony fingerboard and 22 extra-jumbo frets with an Iron Cross inlay at the 12th fret. The LTD Iron Cross is powered by James' own EMG JH SET active pickups, and includes a TonePros locking TOM bridge and tailpiece. Available in Snow White finish with black stripe graphic and iron cross fixture.",
-      "specs": [],
+      "specs": [
+        "James Hetfield Signature Model",
+        "Mahogany body",
+        "Maple top",
+        "Set-in mahogany neck",
+        "Neck profile: Thin U",
+        "Makassar ebony fretboard",
+        "Fretboard radius: 350 mm",
+        "22 Extra jumbo frets",
+        "Nut width: 42 mm",
+        "Scale: 629 mm",
+        "Black pickguard",
+        "Pickups: Active EMG JH SET (bridge) and Active EMG JH SET (neck)",
+        "2 x Volume and 1 x tone control",
+        "3-Way switch",
+        "Tonepros Locking TOM bridge and tailpiece",
+        "Black hardware",
+        "LTD locking machine heads",
+        "Original strings: D'Addario XL110 (.010-.046)",
+        "Colour: Snow White With Black Stripes",
+        "Includes case"
+      ],
       "images": [
         "esp-lts-iron-cross-sw-1.jpg",
         "esp-lts-iron-cross-sw-2.jpg",
@@ -167,7 +238,8 @@
         "esp-lts-iron-cross-sw-4.jpg",
         "esp-lts-iron-cross-sw-5.jpg",
         "esp-lts-iron-cross-sw-6.jpg"
-      ]
+      ],
+      "storedItems": 0
     },
     {
       "id": 8,
@@ -178,7 +250,21 @@
       "discount": 0,
       "rating": 4.7,
       "description": "Pearl präsentiert das erste Drumset mit 6-lagigen Ahorn Kesseln, die mit der speziellen Pearl Superior Shell Technology hergestellt sind und preislich in der unteren Mittelklasse liegen. 10 Jahre Entwicklung machen es möglich, ein professionelles und absolut bühnentaugliches Drumset mit genialer Stickdefinition, definierten Höhen und voluminösem Bass zu einem unschlagbaren Preis anzubieten. Die Decade Sets sind mit einem 5-teiligen Hardwareset aus der Pearl 800er Serie ausgestattet.",
-      "specs": [],
+      "specs": [
+        "Decade Maple Series",
+        "Standard version",
+        "DMP925S/C-227",
+        "Matte lacquer finish shells",
+        "Chrome shell hardware",
+        "Shells made of thin 6-ply maple with 5.4 mm wall thickness",
+        "1.6 mm triple-flanged hoops",
+        "OptiLoc tom mounting system",
+        "Remo Ambassador UT and Remo Powerstroke 3 (kick drum) heads",
+        "Kick drum resonant head with sound hole",
+        "Highly responsive set with great tonal and dynamic range",
+        "Colour: Satin Black Slate (-227)",
+        "Kick drum damping cushion included"
+      ],
       "images": [
         "pearl-decade-maple-standard-black-1.jpg",
         "pearl-decade-maple-standard-black-2.jpg",
@@ -186,7 +272,8 @@
         "pearl-decade-maple-standard-black-4.jpg",
         "pearl-decade-maple-standard-black-5.jpg",
         "pearl-decade-maple-standard-black-6.jpg"
-      ]
+      ],
+      "storedItems": 4
     },
     {
       "id": 9,
@@ -211,7 +298,8 @@
         "macbook-air-3.avif",
         "macbook-air-4.avif",
         "macbook-air-5.avif"
-      ]
+      ],
+      "storedItems": 18
     }
   ]
 }
