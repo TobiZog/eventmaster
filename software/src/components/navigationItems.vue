@@ -59,6 +59,7 @@ const navRail = defineModel("navRail", { type: Boolean })
       <div v-else></div>
     </v-list-subheader>
     <v-list-item :title="$t('menu.helpInstructions')" prepend-icon="mdi-chat-question" to="/help" link />
+    <v-list-item :title="$t('menu.scoreBoard')" prepend-icon="mdi-podium-gold" to="/scoreBoard" link />
     <v-list-item :title="$t('menu.preferences')" prepend-icon="mdi-cog" to="/preferences" link />
   </v-list>
 </template>

@@ -9,7 +9,8 @@
     "systemAndHelp": "System & Hilfe",
     "helpInstructions": "Hilfestellung",
     "preferences": "Einstellungen",
-    "logout": "Ausloggen"
+    "logout": "Ausloggen",
+    "scoreBoard": "Score Board"
   },
   "preferences": {
     "pageSetup": "Seiteneinstellungen",
@@ -102,5 +103,12 @@
       "title": "Datenbank zurücksetzen?",
       "description": "Soll die Datenbank des Servers wirklich zurückgesetzt werden? Dies kann nicht rückgänig gemacht werden!"
     }
+  },
+  "scoreBoard": {
+    "exerciseGroup0": "Aufgabengruppe 0: Den Shop kennenlernen",
+    "exerciseGroup1": "Aufgabengruppe 1: SQL Injections",
+    "exerciseGroup2": "Aufgabengruppe 2: Broken Access Control",
+    "exerciseGroup3": "Aufgabengruppe 3: Cross-Site Scripting (XSS)",
+    "exercise": "Aufgabe {0}"
   }
 }

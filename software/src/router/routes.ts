@@ -5,6 +5,7 @@ import ProductsPage from "@/pages/productsPage/index.vue";
 import LoginPage from "@/pages/loginPage/index.vue"
 import BasketPage from "@/pages/basketPage/index.vue"
 import HelpPage from "@/pages/helpPage/index.vue"
+import ScoreBoardPage from "@/pages/scoreBoardPage/index.vue"
 
 const routes = [
   { path: '/', component: ProductsPage },
@@ -13,6 +14,7 @@ const routes = [
   { path: '/preferences', component: PreferencesPage },
   { path: '/login', component: LoginPage },
   { path: '/basket', component: BasketPage },
+  { path: '/scoreboard', component: ScoreBoardPage },
   { path: '/help', component: HelpPage }
 ]
 

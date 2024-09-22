@@ -9,7 +9,8 @@
     "systemAndHelp": "System & Help",
     "helpInstructions": "Help instructions",
     "preferences": "Preferences",
-    "logout": "Logout"
+    "logout": "Logout",
+    "scoreBoard": "Score Board"
   },
   "preferences": {
     "pageSetup": "Page setup",
@@ -102,5 +103,12 @@
       "title": "Reset database?",
       "description": "Do you really want to reset the server database? This can't be undone!"
     }
+  },
+  "scoreBoard": {
+    "exerciseGroup0": "Exercise Group 0: Getting Started",
+    "exerciseGroup1": "Exercise Group 1: SQL Injections",
+    "exerciseGroup2": "Exercise Group 2: Broken Access Control",
+    "exerciseGroup3": "Exercise Group 3: Cross-Site Scripting (XSS)",
+    "exercise": "Exercise {0}"
   }
 }
