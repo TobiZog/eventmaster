@@ -10,4 +10,6 @@ export class AccountModel {
   lastName: string = ""
   createdAt: string = ""
   updatedAt: string = ""
+  bankName: string = ""
+  iban: string = ""
 }

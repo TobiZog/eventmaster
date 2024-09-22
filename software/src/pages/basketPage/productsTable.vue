@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { BasketItemModel } from '@/data/models/basketItemModel';
 import { useBasketStore } from '@/data/stores/basketStore';
-import { calcPrice, calcProductPrice } from '@/scripts/productScripts';
+import { calcPrice } from '@/scripts/productScripts';
 
 const basketStore = useBasketStore()
 
@@ -84,7 +84,13 @@ function editQuantity(basketItem: BasketItemModel) {
         </td>
 
         <td>
-          <v-btn icon="mdi-delete" flat @click="removeFromBasket(basketItem)" color="red" variant="text"/>
+          <v-btn
+            icon="mdi-delete"
+            @click="removeFromBasket(basketItem)"
+            color="red"
+            variant="text"
+            flat
+          />
         </td>
       </tr>
     </tbody>

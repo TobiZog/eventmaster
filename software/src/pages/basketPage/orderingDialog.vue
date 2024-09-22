@@ -1,8 +1,9 @@
 <script setup lang="ts">
+import actionDialog from '@/components/actionDialog.vue';
 </script>
 
 <template>
-  <v-dialog :title="$t('ordering.ordering')">
-
-  </v-dialog>
+  <action-dialog
+    :title="$t('ordering.ordering')"
+  />
 </template>

@@ -53,14 +53,18 @@
     "street": "Straße",
     "houseNumber": "Hausnummer",
     "postalCode": "Postleitzahl",
-    "city": "Stadt"
+    "city": "Stadt",
+    "bankName": "Name der Bank",
+    "iban": "IBAN"
   },
   "account": {
     "username": "Username",
     "password": "Passwort",
     "noAccountRegister": "Neuen Account erstellen!",
     "register": "Account erstellen",
-    "backToLogin": "Zurück zum Login"
+    "backToLogin": "Zurück zum Login",
+    "delete": "Account löschen",
+    "managingAccount": "Account verwalten"
   },
   "bannerMessages": {
     "loginSuccessful": "Login erfolgreich!",
@@ -86,5 +90,17 @@
   "oclock": "Uhr",
   "ordering": {
     "ordering": "Bestellabschluss"
+  },
+  "dialog": {
+    "cancel": "Abbrechen",
+    "confirm": "Bestätigen",
+    "deleteAccount": {
+      "title": "Account löschen?",
+      "description": "Soll der Account wirklich gelöscht werden? Dieser kann nicht mehr wiederhergestellt werden!"
+    },
+    "resetConfirm": {
+      "title": "Datenbank zurücksetzen?",
+      "description": "Soll die Datenbank des Servers wirklich zurückgesetzt werden? Dies kann nicht rückgänig gemacht werden!"
+    }
   }
 }

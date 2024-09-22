@@ -2,7 +2,7 @@
 import { useTheme } from 'vuetify/lib/framework.mjs';
 import { useUserStore } from './data/stores/userStore';
 import { i18n } from './plugins/i18n';
-import { ref } from 'vue';
+import { ref, watch } from 'vue';
 import vuetify from './plugins/vuetify';
 import navigationItems from './components/navigationItems.vue';
 import { useProductStore } from './data/stores/productStore';
@@ -15,10 +15,14 @@ const theme = useTheme()
 const navRail = ref(vuetify.display.mobile)
 
 theme.global.name.value = userStore.theme
-i18n.global.locale = userStore.language
 
 productStore.fetchAllProducts()
 categoryStore.fetchAllCategories()
+
+// Global watcher
+watch(() => userStore.language, () => {
+  i18n.global.locale = userStore.language
+}, { immediate: true })
 </script>
 
 <template>

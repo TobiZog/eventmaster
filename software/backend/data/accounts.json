@@ -9,7 +9,9 @@
       "postalCode": 30449,
       "city": "Hannover",
       "firstName": "Laurin",
-      "lastName": "Hagemeister"
+      "lastName": "Hagemeister",
+      "bankName": "Deutsche Bank",
+      "iban": "DE92500105175721645777"
     },
     {
       "id": 1,
@@ -20,7 +22,9 @@
       "postalCode": 30167,
       "city": "Hannover",
       "firstName": "Katja",
-      "lastName": "Stoiber"
+      "lastName": "Stoiber",
+      "bankName": "DZ Bank",
+      "iban": "DE12500105179557939114"
     },
     {
       "id": 2,
@@ -31,7 +35,9 @@
       "postalCode": 30625,
       "city": "Hannover",
       "firstName": "Luna",
-      "lastName": "Oeter"
+      "lastName": "Oeter",
+      "bankName": "Commerzbank",
+      "iban": "DE31500105175417833272"
     },
     {
       "id": 3,
@@ -42,7 +48,9 @@
       "postalCode": 30171,
       "city": "Hannover",
       "firstName": "Jürgen",
-      "lastName": "Durand"
+      "lastName": "Durand",
+      "bankName": "ING",
+      "iban": "DE41500105172184936679"
     },
     {
       "id": 4,
@@ -53,7 +61,9 @@
       "postalCode": 30163,
       "city": "Hannover",
       "firstName": "Frederik",
-      "lastName": "Furtwängler"
+      "lastName": "Furtwängler",
+      "bankName": "Sparkasse Hannover",
+      "iban": "DE85500105172283979774"
     },
     {
       "id": 5,
@@ -64,7 +74,9 @@
       "postalCode": 30851,
       "city": "Langenhagen",
       "firstName": "Mareike",
-      "lastName": "Herbst"
+      "lastName": "Herbst",
+      "bankName": "Postbank",
+      "iban": "DE45500105178862417577"
     },
     {
       "id": 6,
@@ -75,7 +87,9 @@
       "postalCode": 30880,
       "city": "Laatzen",
       "firstName": "Janna",
-      "lastName": "Seibert"
+      "lastName": "Seibert",
+      "bankName": "Sparkasse Hannover",
+      "iban": "DE51500105177526222196"
     }
   ]
 }

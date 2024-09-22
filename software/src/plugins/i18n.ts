@@ -5,7 +5,7 @@ import english from './../locales/en.json'
 type MessageSchema = typeof german
 
 export const i18n = createI18n<[MessageSchema], 'de' | 'en'>({
-  legacy: false,
+  legacy: true,
   locale: 'de',
   messages: {
     'de': german,

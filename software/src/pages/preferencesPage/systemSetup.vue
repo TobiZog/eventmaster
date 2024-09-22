@@ -5,9 +5,10 @@ import axios from 'axios';
 import cardView from '@/components/cardView.vue';
 import actionDialog from '@/components/actionDialog.vue';
 import { ref } from 'vue';
+import confirmDialog from '@/components/confirmDialog.vue';
 
 const feedbackStore = useFeedbackStore()
-const confirmDialog = ref(false)
+const showConfirmDialog = ref(false)
 
 function resetDb() {
   axios.get("http://127.0.0.1:3000/api/resetdatabase")
@@ -31,12 +32,22 @@ function resetSettings() {
     <v-container>
       <v-row>
         <v-col class="d-flex justify-center align-center">
-          <v-btn @click="confirmDialog = true" color="primary" prepend-icon="mdi-database-refresh">
+          <v-btn
+            @click="showConfirmDialog = true"
+            prepend-icon="mdi-database-refresh"
+            color="red"
+            variant="outlined"
+          >
             {{ $t('preferences.resetDatabase') }}
           </v-btn>
         </v-col>
         <v-col class="d-flex justify-center align-center">
-          <v-btn @click="resetDb" color="primary" prepend-icon="mdi-cog-counterclockwise">
+          <v-btn
+            @click="resetDb"
+            prepend-icon="mdi-cog-counterclockwise"
+            color="primary"
+            variant="outlined"
+          >
             {{ $t('preferences.resetPreferences') }}
           </v-btn>
         </v-col>
@@ -44,12 +55,9 @@ function resetSettings() {
     </v-container>
   </card-view>
 
-  <action-dialog :title="$t('preferences.resetConfirm')" v-model="confirmDialog" width="600">
-    <template #actions>
-      <v-btn variant="outlined" @click="resetDb" color="red">
-        {{ $t('preferences.resetDatabase') }}
-      </v-btn>
-    </template>
-
-  </action-dialog>
+  <confirm-dialog
+    :title="$t('dialog.resetConfirm.title')"
+    :description="$t('dialog.resetConfirm.description')"
+    v-model="showConfirmDialog"
+  />
 </template>

@@ -3,8 +3,13 @@ import { useBasketStore } from '@/data/stores/basketStore';
 import productsTable from './productsTable.vue';
 import alertBanner from '@/components/alertBanner.vue';
 import cardView from '@/components/cardView.vue';
+import { useUserStore } from '@/data/stores/userStore';
+import orderingDialog from './orderingDialog.vue';
+import { ref } from 'vue';
 
 const basketStore = useBasketStore()
+const userStore = useUserStore()
+const showOrderingDialog = ref()
 </script>
 
 <template>
@@ -41,9 +46,10 @@ const basketStore = useBasketStore()
           <template #actions>
             <v-btn
               prepend-icon="mdi-basket-check"
-              :disabled="basketStore.itemsInBasket.length == 0"
+              :disabled="basketStore.itemsInBasket.length == 0 || userStore.userAccount.id == null"
               variant="outlined"
               color="green"
+              @click="showOrderingDialog = true"
             >
               {{ $t('orderNow') }}
             </v-btn>
@@ -52,4 +58,6 @@ const basketStore = useBasketStore()
       </v-col>
     </v-row>
   </v-container>
+
+  <ordering-dialog v-model="showOrderingDialog" />
 </template>

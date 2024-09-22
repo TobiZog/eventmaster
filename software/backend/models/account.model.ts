@@ -28,6 +28,12 @@ export class Account extends Model {
   @Column
   city: string
 
+  @Column
+  bankName: string
+
+  @Column
+  iban: string
+
   // Relations
   @HasMany(() => Order)
   orders: Order[]

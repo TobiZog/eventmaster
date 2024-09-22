@@ -69,6 +69,21 @@ const userStore = useUserStore()
           />
         </v-col>
       </v-row>
+
+      <v-row>
+        <v-col>
+          <v-text-field
+            :label="$t('userInfo.bankName')"
+            v-model="userStore.userAccount.bankName"
+          />
+        </v-col>
+        <v-col>
+          <v-text-field
+            :label="$t('userInfo.iban')"
+            v-model="userStore.userAccount.iban"
+          />
+        </v-col>
+      </v-row>
     </v-container>
 
     <template #actions>

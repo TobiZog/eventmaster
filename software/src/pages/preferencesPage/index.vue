@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { Ref, ref } from 'vue';
 import pageSetup from './pageSetup.vue';
 import systemSetup from './systemSetup.vue';
 import alertBanner from '@/components/alertBanner.vue';

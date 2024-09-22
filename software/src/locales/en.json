@@ -53,14 +53,18 @@
     "street": "Street",
     "houseNumber": "House Number",
     "postalCode": "Postal Code",
-    "city": "City"
+    "city": "City",
+    "bankName": "Bank name",
+    "iban": "IBAN"
   },
   "account": {
     "backToLogin": "Back to Login",
     "username": "Username",
     "password": "Password",
     "noAccountRegister": "Create new Account!",
-    "register": "Create Account"
+    "register": "Create Account",
+    "delete": "Delete Account",
+    "managingAccount": "Managing Account"
   },
   "bannerMessages": {
     "loginSuccessful": "Login erfolgreich!",
@@ -86,5 +90,17 @@
   "oclock": "o'clock",
   "ordering": {
     "ordering": "Finish order"
+  },
+  "dialog": {
+    "cancel": "Cancel",
+    "confirm": "Bestätigen",
+    "deleteAccount": {
+      "title": "Delete account?",
+      "description": "Do you really want to delete the account? This can't be undone!"
+    },
+    "resetConfirm": {
+      "title": "Reset database?",
+      "description": "Do you really want to reset the server database? This can't be undone!"
+    }
   }
 }
