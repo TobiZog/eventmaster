@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { ModelRef } from 'vue';
 import actionDialog from './actionDialog.vue';
+import outlinedButton from './outlinedButton.vue';
 
 const showDialog: ModelRef<boolean> = defineModel()
 
@@ -31,21 +32,19 @@ function confirmPressed() {
     </v-container>
 
     <template #actions>
-      <v-btn
+      <outlined-button
         @click="showDialog = false" 
         color="green"
-        variant="outlined"
       >
         {{ $t("dialog.cancel") }}
-      </v-btn>
+      </outlined-button>
 
-      <v-btn
+      <outlined-button
         @click="confirmPressed"
         color="red"
-        variant="outlined"
       >
         {{ $t("dialog.confirm") }}
-      </v-btn>
+      </outlined-button>
     </template>
   </action-dialog>
 </template>

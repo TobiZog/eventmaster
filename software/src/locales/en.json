@@ -46,7 +46,8 @@
     "ordered": "Ordered",
     "preparingForShipping": "Preparing for shipping",
     "shipped": "Shipped",
-    "delivered": "Delivered"
+    "delivered": "Delivered",
+    "inDelivery": "In Delivery"
   },
   "userInfo": {
     "firstName": "First Name",
@@ -90,7 +91,8 @@
   },
   "oclock": "o'clock",
   "ordering": {
-    "ordering": "Finish order"
+    "ordering": "Finish order",
+    "takeOrder": "Do order now"
   },
   "dialog": {
     "cancel": "Cancel",

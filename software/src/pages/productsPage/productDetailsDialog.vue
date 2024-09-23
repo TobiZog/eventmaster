@@ -5,7 +5,7 @@ import { useBasketStore } from '@/data/stores/basketStore';
 import { calcProductPrice, productToBasketItem } from '@/scripts/productScripts';
 import ActionDialog from '@/components/actionDialog.vue'
 import { ProductWithCategoryModel } from '@/data/models/productWithCategoryModel';
-import { BasketItemModel } from '@/data/models/basketItemModel';
+import outlinedButton from '@/components/outlinedButton.vue';
 
 const props = defineProps({
   product: {
@@ -20,9 +20,6 @@ const basketStore = useBasketStore()
 const selectedImage = ref("")
 
 function addProductToBasket() {
-  basketStore.addItemToBasket(
-    new BasketItemModel()
-  )
   basketStore.addItemToBasket(productToBasketItem(props.product, nrOfArticles.value))
   nrOfArticles.value = 1
   showDialog.value = false
@@ -67,7 +64,6 @@ watch(() => props.product.images, () => {
 
               <v-spacer />
             </v-row>
-            
           </v-col>
 
 
@@ -154,16 +150,14 @@ watch(() => props.product.images, () => {
         :disabled="product.storedItems == 0"
       />
 
-      <v-btn
+      <outlined-button
         prepend-icon="mdi-cart-plus"
         @click="addProductToBasket"
-        color="primary"
-        variant="outlined"
         height="50"
         :disabled="product.storedItems == 0"
       >
         {{ $t('addToBasket') }}
-      </v-btn>
+      </outlined-button>
     </template>
   </action-dialog>
 </template>

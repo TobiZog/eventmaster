@@ -23,31 +23,25 @@ order.post("/", (req: Request, res: Response) => {
   let totalPrice = 0
 
   Order.create(req.body)
-    .then(order => {
-
-      for (let orderItem of req.body.orderItem) {
+    .then(async order => {
+      for (let orderItem of req.body.orderItems) {
         OrderItem.create({
           "orderId": order.id,
           "quantity": orderItem.quantity,
+          "orderPrice": orderItem.orderPrice,
           "productId": orderItem.productId
         })
 
-        Product.findOne({
-          raw: true,
-          where: { id: orderItem.productId }
+        totalPrice += orderItem.quantity * orderItem.orderPrice
+
+        Order.update({
+          totalPrice: totalPrice
+        }, {
+          where: { id: order.id }
         })
-          .then(product => {
-            totalPrice += product.price * orderItem.quantity
-
-            Order.update({
-              totalPrice: totalPrice
-            }, {
-              where: { id: order.id },
-            })
-          })
       }
-    })
 
-  // Created
-  res.status(201).send()
+      // Created
+      res.status(201).json(order).send()
+    })
 })

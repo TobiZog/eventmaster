@@ -1,18 +1,23 @@
 import { Table, Column, Model, ForeignKey, BelongsTo, BelongsToMany, HasMany, DataType } from 'sequelize-typescript';
 import { Category } from './category.model';
 import { OrderItem } from './orderItem.model';
+import { Brand } from './brand.model';
 
-@Table
+@Table({ timestamps: false })
 export class Product extends Model {
   @Column
-  brand: string
+  @ForeignKey(() => Category)
+  categoryId: number
+
+  @ForeignKey(() => Brand)
+  @Column
+  brandId: number
   
   @Column
   name: string
 
   @Column
-  @ForeignKey(() => Category)
-  categoryId: number
+  description: string
 
   @Column
   price: number
@@ -23,19 +28,8 @@ export class Product extends Model {
   @Column
   rating: number
 
-  @Column({
-    type: DataType.STRING,
-    get(): Array<string> {
-      return this.getDataValue('images').split(';')
-    },
-    set(value: Array<string>) {
-      this.setDataValue('images', value.join(';'))
-    }
-  })
-  images: Array<string>
-
   @Column
-  description: string
+  inStock: number
 
   @Column({
     type: DataType.STRING,
@@ -48,13 +42,26 @@ export class Product extends Model {
   })
   specs: Array<string>
 
-  @Column
-  storedItems: number
-  
+  @Column({
+    type: DataType.STRING,
+    get(): Array<string> {
+      return this.getDataValue('images').split(';')
+    },
+    set(value: Array<string>) {
+      this.setDataValue('images', value.join(';'))
+    }
+  })
+  images: Array<string>
+
+
   // Relations
+
   @BelongsTo(() => Category)
   category: Category
 
+  @BelongsTo(() => Brand)
+  brand: Brand
+
   @HasMany(() => OrderItem)
-  order: OrderItem
+  orders: OrderItem[]
 }

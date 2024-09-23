@@ -3,6 +3,7 @@ import { AccountModel } from '@/data/models/accountModel';
 import { useUserStore } from '@/data/stores/userStore';
 import { ref } from 'vue';
 import cardView from '@/components/cardView.vue';
+import outlinedButton from '@/components/outlinedButton.vue';
 
 const newUser = ref(new AccountModel())
 const showRegisterCard = defineModel("showRegisterCard", { type: Boolean, default: false })
@@ -78,15 +79,19 @@ const userStore = useUserStore()
     </v-container>
 
     <template #actions>
-      <v-btn prepend-icon="mdi-arrow-left" color="primary" variant="outlined" 
-        @click="showRegisterCard = false">
-          {{ $t('account.backToLogin') }}
-        </v-btn>
-      <v-spacer />
-      <v-btn prepend-icon="mdi-account-plus" color="primary" variant="outlined" 
-        @click="userStore.registerAccount(newUser)">
-          {{ $t('account.register') }}
-        </v-btn>
+      <outlined-button
+        prepend-icon="mdi-arrow-left" 
+        @click="showRegisterCard = false"
+      >
+        {{ $t('account.backToLogin') }}
+      </outlined-button>
+
+      <outlined-button
+        prepend-icon="mdi-account-plus"
+        @click="userStore.registerAccount(newUser)"
+      >
+        {{ $t('account.register') }}
+      </outlined-button>
     </template>
   </card-view>
 </template>

@@ -46,7 +46,8 @@
     "ordered": "Bestellt",
     "preparingForShipping": "Versandvorbereitung",
     "shipped": "Versendet",
-    "delivered": "Geliefert"
+    "delivered": "Geliefert",
+    "inDelivery": "In Zustellung"
   },
   "userInfo": {
     "firstName": "Vorname",
@@ -90,7 +91,8 @@
   },
   "oclock": "Uhr",
   "ordering": {
-    "ordering": "Bestellabschluss"
+    "ordering": "Bestellabschluss",
+    "takeOrder": "Bestellung ausführen"
   },
   "dialog": {
     "cancel": "Abbrechen",

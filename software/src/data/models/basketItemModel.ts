@@ -1,5 +1,5 @@
 export class BasketItemModel {
-  productId: number = -1
+  id: number = -1
   brand: string = ""
   name: string = ""
   categoryName: string = ""

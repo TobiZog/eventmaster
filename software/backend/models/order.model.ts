@@ -1,18 +1,22 @@
-import { Table, Column, Model, BelongsTo, ForeignKey, HasMany, BelongsToMany } from 'sequelize-typescript';
+import { Table, Column, Model, BelongsTo, ForeignKey, HasMany, BelongsToMany, Default } from 'sequelize-typescript';
 import { Account } from './account.model';
 import { OrderItem } from './orderItem.model';
 
-@Table
+@Table({
+  updatedAt: false,
+  createdAt: 'orderedAt'
+})
 export class Order extends Model {
   @Column
   @ForeignKey(() => Account)
   accountId: number
 
   @Column
-  totalPrice: number
+  orderedAt: Date
 
+  @Default(1)
   @Column
-  shippingProgress: number = 1
+  shippingProgress: number
 
 
   // Relations
@@ -20,5 +24,5 @@ export class Order extends Model {
   account: Account
 
   @HasMany(() => OrderItem)
-  orderItem: OrderItem[]
+  orderItems: OrderItem[]
 }

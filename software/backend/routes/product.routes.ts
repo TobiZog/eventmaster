@@ -1,13 +1,20 @@
 import { Router, Request, Response, NextFunction } from "express";
 import { Product } from "../models/product.model";
 import { Category } from "../models/category.model";
+import { Brand } from "../models/brand.model";
 
 export const product = Router()
 
 // Get all products
 product.get("/", (req: Request, res: Response) => {
   Product.findAll({
-    include: [ Category ]
+    include: [ Category, Brand ],
+    attributes: {
+      exclude: [
+        "categoryId",
+        "brandId"
+      ]
+    }
   })
     .then(products => {
       res.status(200).json(products)
@@ -16,7 +23,18 @@ product.get("/", (req: Request, res: Response) => {
 
 // Get a product by id
 product.get("/:productId", (req: Request, res: Response) => {
-  Product.findByPk(req.params.productId)
+  Product.findByPk(
+    req.params.productId,
+    {
+      include: [ Category, Brand ],
+      attributes: {
+        exclude: [
+          "categoryId",
+          "brandId"
+        ]
+      }
+    }
+  )
     .then(product => {
       res.status(200).json(product).send()
     })
@@ -30,6 +48,7 @@ product.post("/", (req: Request, res: Response) => {
     })
     .catch(error => {
       res.status(400).json({
+        code: 400,
         message: error
       }).send()
     })
@@ -45,6 +64,7 @@ product.delete("/:id", (req: Request, res: Response) => {
     })
     .catch(error => {
       res.status(400).json({
+        code: 400,
         message: error
       }).send()
     })

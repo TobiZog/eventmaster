@@ -5,6 +5,7 @@ import alertBanner from '@/components/alertBanner.vue';
 import cardView from '@/components/cardView.vue';
 import { useUserStore } from '@/data/stores/userStore';
 import orderingDialog from './orderingDialog.vue';
+import outlinedButton from '@/components/outlinedButton.vue';
 import { ref } from 'vue';
 
 const basketStore = useBasketStore()
@@ -44,7 +45,7 @@ const showOrderingDialog = ref()
           </v-card-text>
 
           <template #actions>
-            <v-btn
+            <outlined-button
               prepend-icon="mdi-basket-check"
               :disabled="basketStore.itemsInBasket.length == 0 || userStore.userAccount.id == null"
               variant="outlined"
@@ -52,7 +53,7 @@ const showOrderingDialog = ref()
               @click="showOrderingDialog = true"
             >
               {{ $t('orderNow') }}
-            </v-btn>
+            </outlined-button>
           </template>
         </card-view>
       </v-col>

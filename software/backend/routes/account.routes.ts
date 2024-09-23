@@ -1,27 +1,41 @@
-import { Router, Request, Response, NextFunction } from "express";
+import { Router, Request, Response } from "express";
 import { Account } from "../models/account.model";
 import { validateString } from "../scripts/validateHelper";
+import { Address } from "../models/address.model";
+import { Payment } from "../models/payment.model";
+import { AccountRole } from "../models/accountRole.model";
 
 export const account = Router()
 
 // Login user
 account.post("/login", (req: Request, res: Response) => {
   Account.findOne({ 
-    raw: true, 
-    where: { username: req.body.username }
+    where: { username: req.body.username },
+    include: [ Address, Payment, AccountRole ],
+    attributes: {
+      exclude: [
+        "accountRoleId"
+      ]
+    }
   })
     .then(account => {
       if (account != null) {
-        if (account.password == req.body.password) {
+        if (account.dataValues.password == req.body.password) {
           // Status: 200 OK
           res.status(200).json(account).send()
         } else {
           // Status: 401 Unauthorized
-          res.status(401).send()
+          res.status(401).json({
+            code: 401, 
+            message: "Unauthorized"
+          }).send()
         }
       } else {
         // Status: 400 Bad request
-        res.status(400).send()
+        res.status(400).json({
+          code: 400, 
+          message: "Bad Request"
+        }).send()
       }
     }
   )
@@ -34,6 +48,7 @@ account.post("/", (req: Request, res: Response) => {
   {
     // Status: 400 Bad request
     res.status(400).json({
+      code: 400, 
       message: "Username too short!"
     }).send()
   }
@@ -43,6 +58,7 @@ account.post("/", (req: Request, res: Response) => {
   {
     // Status: 400 Bad request
     res.status(400).json({ 
+      code: 400, 
       message: "Password too short!"
     }).send()
   }
@@ -54,7 +70,10 @@ account.post("/", (req: Request, res: Response) => {
     res.status(201).json(account).send()
   }).catch(reason => {
     // Status: 409 Conflict
-    res.status(409).send()
+    res.status(409).json({
+      code: 409,
+      message: "Username already in use"
+    }).send()
   })
 })
 
@@ -70,7 +89,8 @@ account.patch("/", (req: Request, res: Response) => {
     .catch(error => {
       // Status: 400 Bad request
       res.status(400).json({
-      message: error
+        code: 400,
+        message: error
     }).send()
   })
 })

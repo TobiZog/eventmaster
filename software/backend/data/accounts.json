@@ -4,92 +4,183 @@
       "id": 0,
       "username": "hagemeister93",
       "password": "Xjt3qb5t",
-      "street": "Laportestraße",
-      "houseNumber": 22,
-      "postalCode": 30449,
-      "city": "Hannover",
       "firstName": "Laurin",
       "lastName": "Hagemeister",
-      "bankName": "Deutsche Bank",
-      "iban": "DE92500105175721645777"
+      "addresses": [
+        {
+          "accountId": 0,
+          "street": "Laportestraße",
+          "houseNumber": 22,
+          "postalCode": 30449,
+          "city": "Hannover"
+        }
+      ],
+      "payments": [
+        {
+          "accountId": 0,
+          "bankName": "Deutsche Bank",
+          "iban": "DE92500105175721645777"
+        }
+      ],
+      "accountRoleId": 1
     },
     {
       "id": 1,
       "username": "katjaStoiber",
       "password": "target123",
-      "street": "Gustav-Adolf-Straße",
-      "houseNumber": 30,
-      "postalCode": 30167,
-      "city": "Hannover",
       "firstName": "Katja",
       "lastName": "Stoiber",
-      "bankName": "DZ Bank",
-      "iban": "DE12500105179557939114"
+      "addresses": [
+        {
+          "accountId": 1,
+          "street": "Gustav-Adolf-Straße",
+          "houseNumber": 30,
+          "postalCode": 30167,
+          "city": "Hannover"
+        }
+      ],
+      "payments": [
+        {
+          "accountId": 1,
+          "bankName": "DZ Bank",
+          "iban": "DE12500105179557939114"
+        }
+      ],
+      "accountRoleId": 0
     },
     {
       "id": 2,
       "username": "oetkerohnek",
       "password": "iloveyou",
-      "street": "Eckermannstraße",
-      "houseNumber": 1,
-      "postalCode": 30625,
-      "city": "Hannover",
       "firstName": "Luna",
       "lastName": "Oeter",
-      "bankName": "Commerzbank",
-      "iban": "DE31500105175417833272"
+      "addresses": [
+        {
+          "accountId": 2,
+          "street": "Eckermannstraße",
+          "houseNumber": 1,
+          "postalCode": 30625,
+          "city": "Hannover"
+        },
+        {
+          "accountId": 2,
+          "street": "Gehrdener Straße",
+          "houseNumber": 14,
+          "postalCode": 30459,
+          "city": "Hannover"
+        }
+      ],
+      "payments": [
+        {
+          "accountId": 2,
+          "bankName": "Commerzbank",
+          "iban": "DE31500105175417833272"
+        }
+      ],
+      "accountRoleId": 0
     },
     {
       "id": 3,
       "username": "duranduran",
       "password": "H4nn0ver",
-      "street": "Schlägerstraße",
-      "houseNumber": 36,
-      "postalCode": 30171,
-      "city": "Hannover",
       "firstName": "Jürgen",
       "lastName": "Durand",
-      "bankName": "ING",
-      "iban": "DE41500105172184936679"
+      "addresses": [
+        {
+          "accountId": 3,
+          "street": "Schlägerstraße",
+          "houseNumber": 36,
+          "postalCode": 30171,
+          "city": "Hannover"
+        }
+      ],
+      "payments": [
+        {
+          "accountId": 3,
+          "bankName": "ING",
+          "iban": "DE41500105172184936679"
+        }
+      ],
+      "accountRoleId": 0
     },
     {
       "id": 4,
       "username": "guitarhero",
       "password": "gwerty123",
-      "street": "Steinmetzstraße",
-      "houseNumber": 12,
-      "postalCode": 30163,
-      "city": "Hannover",
       "firstName": "Frederik",
       "lastName": "Furtwängler",
-      "bankName": "Sparkasse Hannover",
-      "iban": "DE85500105172283979774"
+      "addresses": [
+        {
+          "accountId": 4,
+          "street": "Steinmetzstraße",
+          "houseNumber": 12,
+          "postalCode": 30163,
+          "city": "Hannover"
+        }
+      ],
+      "payments": [
+        {
+          "accountId": 4,
+          "bankName": "Sparkasse Hannover",
+          "iban": "DE85500105172283979774"
+        }
+      ],
+      "accountRoleId": 0
     },
     {
       "id": 5,
       "username": "herbstMareike",
       "password": "qhsrbpgrs",
-      "street": "Allerweg",
-      "houseNumber": 33,
-      "postalCode": 30851,
-      "city": "Langenhagen",
       "firstName": "Mareike",
       "lastName": "Herbst",
-      "bankName": "Postbank",
-      "iban": "DE45500105178862417577"
+      "addresses": [
+        {
+          "accountId": 5,
+          "street": "Allerweg",
+          "houseNumber": 33,
+          "postalCode": 30851,
+          "city": "Langenhagen"
+        }
+      ],
+      "payments": [
+        {
+          "accountId": 5,
+          "bankName": "Postbank",
+          "iban": "DE45500105178862417577"
+        }
+      ],
+      "accountRoleId": 0
     },
     {
       "id": 6,
       "username": "seibertmitb",
       "password": "{jkz+WvQe",
-      "street": "Marktstraße",
-      "houseNumber": 26,
-      "postalCode": 30880,
-      "city": "Laatzen",
       "firstName": "Janna",
       "lastName": "Seibert",
-      "bankName": "Sparkasse Hannover",
-      "iban": "DE51500105177526222196"
+      "addresses": [
+        {
+          "accountId": 6,
+          "street": "Marktstraße",
+          "houseNumber": 26,
+          "postalCode": 30880,
+          "city": "Laatzen"
+        },
+        {
+          "accountId": 6,
+          "street": "Kleiner Hillen",
+          "houseNumber": 24,
+          "postalCode": 30559,
+          "city": "Hannover"
+        }
+      ],
+      "payments": [
+        {
+          "accountId": 6,
+          "bankName": "Sparkasse Hannover",
+          "iban": "DE51500105177526222196"
+        }
+      ],
+      "accountRoleId": 0
     }
   ]
 }

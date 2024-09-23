@@ -3,7 +3,7 @@ import { BannerStateEnum } from '@/data/enums/bannerStateEnum';
 import { useFeedbackStore } from '@/data/stores/feedbackStore';
 import axios from 'axios';
 import cardView from '@/components/cardView.vue';
-import actionDialog from '@/components/actionDialog.vue';
+import outlinedButton from '@/components/outlinedButton.vue';
 import { ref } from 'vue';
 import confirmDialog from '@/components/confirmDialog.vue';
 
@@ -18,7 +18,7 @@ function resetDb() {
       }
     })
 
-  confirmDialog.value = false
+  showConfirmDialog.value = false
   // todo: Request all data
 }
 
@@ -32,24 +32,21 @@ function resetSettings() {
     <v-container>
       <v-row>
         <v-col class="d-flex justify-center align-center">
-          <v-btn
+          <outlined-button
             @click="showConfirmDialog = true"
             prepend-icon="mdi-database-refresh"
             color="red"
-            variant="outlined"
           >
             {{ $t('preferences.resetDatabase') }}
-          </v-btn>
+          </outlined-button>
         </v-col>
         <v-col class="d-flex justify-center align-center">
-          <v-btn
-            @click="resetDb"
+          <outlined-button
+            @click="resetSettings"
             prepend-icon="mdi-cog-counterclockwise"
-            color="primary"
-            variant="outlined"
           >
             {{ $t('preferences.resetPreferences') }}
-          </v-btn>
+          </outlined-button>
         </v-col>
       </v-row>
     </v-container>
@@ -59,5 +56,6 @@ function resetSettings() {
     :title="$t('dialog.resetConfirm.title')"
     :description="$t('dialog.resetConfirm.description')"
     v-model="showConfirmDialog"
+    :onConfirm="resetDb"
   />
 </template>

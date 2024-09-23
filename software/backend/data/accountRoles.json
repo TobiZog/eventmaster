@@ -1,0 +1,16 @@
+{
+  "data": [
+    {
+      "id": 0,
+      "name": "User",
+      "privilegeBuy": true,
+      "privilegeAdminPanel": false
+    },
+    {
+      "id": 1,
+      "name": "Admin",
+      "privilegeBuy": true,
+      "privilegeAdminPanel": true
+    }
+  ]
+}

@@ -6,6 +6,11 @@ import { Order } from "./models/order.model"
 import { OrderItem } from "./models/orderItem.model"
 import { Product } from "./models/product.model"
 import { Account } from "./models/account.model"
+import { prepopulateDatabase } from "./scripts/databaseHelper"
+import { Address } from "./models/address.model"
+import { Payment } from "./models/payment.model"
+import { AccountRole } from "./models/accountRole.model"
+import { Brand } from "./models/brand.model"
 
 const dbName = "database"
 const dbUser = "root"
@@ -18,13 +23,16 @@ export const sequelize = new Sequelize({
   username: dbUser,
   password: dbPassword,
   storage: "database.sqlite",
-  models: [ Category, Product, Account, Order, OrderItem ]
+  models: [ Address, Payment, AccountRole, Account, Category, Brand, Product, Order, OrderItem ]
 })
 
 export function startDatabase() {
   // Create database and tables
   sequelize.sync({ force: false })
     .then(() => {
-      console.log(`Database & tables created!`)
+      console.log("Database & tables created!")
+
+      //prepopulateDatabase()
+      console.log("Database prepopulated!")
     })
 }

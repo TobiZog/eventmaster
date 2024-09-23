@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import cardView from '@/components/cardView.vue';
 import confirmDialog from '@/components/confirmDialog.vue';
+import outlinedButton from '@/components/outlinedButton.vue';
 import { ref } from 'vue';
 
 const showConfirmDialog = ref(false)
@@ -15,14 +16,13 @@ function deleteAccount() {
     <v-container>
       <v-row>
         <v-col class="d-flex justify-center align-center">
-          <v-btn
+          <outlined-button
             prepend-icon="mdi-delete"
-            variant="outlined"
             color="red"
             @click="showConfirmDialog = true"
           >
             {{ $t("account.delete") }}
-          </v-btn>
+          </outlined-button>
         </v-col>
       </v-row>
     </v-container>

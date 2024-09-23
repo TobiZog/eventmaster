@@ -2,7 +2,7 @@ import { Model, BelongsTo, Column, ForeignKey, HasMany, HasOne, Table } from "se
 import { Product } from "./product.model";
 import { Order } from "./order.model";
 
-@Table
+@Table({ timestamps: false })
 export class OrderItem extends Model {
   @Column
   @ForeignKey(() => Order)
@@ -10,6 +10,9 @@ export class OrderItem extends Model {
 
   @Column
   quantity: number
+  
+  @Column
+  orderPrice: number
 
   @Column
   @ForeignKey(() => Product)

@@ -2,7 +2,7 @@
   "data": [
     {
       "id": 0,
-      "brand": "Lenovo",
+      "brandId": 0,
       "name": "Thinkpad T14s Gen 4",
       "price": 1769.99,
       "categoryId": 1,
@@ -27,11 +27,11 @@
         "thinkpad-t14s-6.avif",
         "thinkpad-t14s-7.avif"
       ],
-      "storedItems": 5
+      "inStock": 5
     },
     {
       "id": 1,
-      "brand": "Puma",
+      "brandId": 1,
       "name": "Men's T-Shirt Black",
       "price": 14.99,
       "categoryId": 3,
@@ -52,11 +52,11 @@
         "puma-t-shirt-men-4.jpg",
         "puma-t-shirt-men-5.jpg"
       ],
-      "storedItems": 30
+      "inStock": 30
     },
     {
       "id": 2,
-      "brand": "Puma",
+      "brandId": 1,
       "name": "Woman's Shirt",
       "price": 14.99,
       "categoryId": 3,
@@ -78,11 +78,11 @@
         "puma-t-shirt-woman-5.jpg",
         "puma-t-shirt-woman-6.jpg"
       ],
-      "storedItems": 30
+      "inStock": 30
     },
     {
       "id": 3,
-      "brand": "George Orwell",
+      "brandId": 2,
       "name": "1984",
       "price": 9.99,
       "categoryId": 4,
@@ -108,11 +108,11 @@
         "1984-2.webp",
         "1984-3.webp"
       ],
-      "storedItems": 30
+      "inStock": 30
     },
     {
       "id": 4,
-      "brand": "Aldous Huxley",
+      "brandId": 3,
       "name": "Brave New World",
       "price": 10.49,
       "categoryId": 4,
@@ -135,11 +135,11 @@
         "brave-new-world-1.jpg",
         "brave-new-world-2.jpg"
       ],
-      "storedItems": 30
+      "inStock": 30
     },
     {
       "id": 5,
-      "brand": "Dell",
+      "brandId": 4,
       "name": "XPS 8960 Desktop",
       "price": 1640.26,
       "categoryId": 1,
@@ -160,11 +160,11 @@
         "dell-xps-desktop-5.jpg",
         "dell-xps-desktop-6.jpg"
       ],
-      "storedItems": 10
+      "inStock": 10
     },
     {
       "id": 6,
-      "brand": "Fender",
+      "brandId": 5,
       "name": "Player II Jazz Bass RW 3TS",
       "price": 899.99,
       "categoryId": 5,
@@ -198,11 +198,11 @@
         "fender-player-ii-jazz-bass-rw-3ts-4.jpg",
         "fender-player-ii-jazz-bass-rw-3ts-5.jpg"
       ],
-      "storedItems": 15
+      "inStock": 15
     },
     {
       "id": 7,
-      "brand": "ESP",
+      "brandId": 6,
       "name": "LTD Iron Cross SW",
       "price": 2999.00,
       "categoryId": 5,
@@ -239,11 +239,11 @@
         "esp-lts-iron-cross-sw-5.jpg",
         "esp-lts-iron-cross-sw-6.jpg"
       ],
-      "storedItems": 0
+      "inStock": 0
     },
     {
       "id": 8,
-      "brand": "Pearl",
+      "brandId": 7,
       "name": "Decade Maple Standard D. Black",
       "price": 1444.00,
       "categoryId": 5,
@@ -273,11 +273,11 @@
         "pearl-decade-maple-standard-black-5.jpg",
         "pearl-decade-maple-standard-black-6.jpg"
       ],
-      "storedItems": 4
+      "inStock": 4
     },
     {
       "id": 9,
-      "brand": "Apple",
+      "brandId": 8,
       "name": "MacBook Air 13.6 Zoll M3",
       "price": 1759.00,
       "categoryId": 1,
@@ -299,7 +299,7 @@
         "macbook-air-4.avif",
         "macbook-air-5.avif"
       ],
-      "storedItems": 18
+      "inStock": 18
     }
   ]
 }

@@ -6,13 +6,13 @@ defineProps({
   order: OrderModel
 })
 
-function getDotColor(order, step: number) {
-  if (order.shippingProgress == step)
-  {
-    return "orange"
-  } else if (order.shippingProgress >= step) 
+function getDotColor(order: OrderModel, step: number) {
+  if (order.shippingProgress >= step)
   {
     return "green"
+  } else if (order.shippingProgress + 1 == step) 
+  {
+    return "blue"
   } else 
   {
     return "grey"
@@ -32,7 +32,7 @@ function formatDateTimeString(string: string) {
     :title="$t('orders.orderFrom') + ' ' + formatDateTimeString(order.createdAt) + ' ' + $t('oclock')"
     :subtitle="$t('totalPrice') + ': ' + order.totalPrice + ' €'"
   >
-    <v-timeline direction="horizontal" side="start">
+    <v-timeline direction="horizontal" side="start" size="x-large">
       <v-timeline-item :dot-color="getDotColor(order, 1)" icon="mdi-basket-check">
         {{ $t('orders.ordered') }}
       </v-timeline-item>
@@ -41,11 +41,15 @@ function formatDateTimeString(string: string) {
         {{ $t('orders.preparingForShipping') }}
       </v-timeline-item>
 
-      <v-timeline-item :dot-color="getDotColor(order, 3)" icon="mdi-truck-fast">
+      <v-timeline-item :dot-color="getDotColor(order, 3)" icon="mdi-send">
         {{ $t('orders.shipped') }}
       </v-timeline-item>
 
-      <v-timeline-item :dot-color="getDotColor(order, 4)" icon="mdi-package-check">
+      <v-timeline-item :dot-color="getDotColor(order, 4)" icon="mdi-truck-fast">
+        {{ $t('orders.inDelivery') }}
+      </v-timeline-item>
+
+      <v-timeline-item :dot-color="getDotColor(order, 5)" icon="mdi-package-check">
         {{ $t('orders.delivered') }}
       </v-timeline-item>
     </v-timeline>

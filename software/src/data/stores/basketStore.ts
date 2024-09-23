@@ -4,6 +4,9 @@ import { calcProductPrice } from "@/scripts/productScripts";
 import { BasketItemModel } from "../models/basketItemModel";
 import { useFeedbackStore } from "./feedbackStore";
 import { BannerStateEnum } from "../enums/bannerStateEnum";
+import { OrderModel } from "../models/orderModel";
+import { useUserStore } from "./userStore";
+import { addOrder } from "../api/orderApi";
 
 export const useBasketStore = defineStore('basket', {
   state: () => ({
@@ -42,6 +45,18 @@ export const useBasketStore = defineStore('basket', {
       } else {
         this.itemsInBasket.push(item)
       }
+    },
+
+    takeOrder() {
+      const userStore = useUserStore()
+// 
+      // const order = new OrderModel()
+      // order.accountId = userStore.userAccount.id
+      // order.orderItem = this.itemsInBasket
+// 
+      // console.log(order)
+
+      addOrder(userStore.userAccount.id, this.itemsInBasket)
     }
   }
 })

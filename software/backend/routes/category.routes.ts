@@ -9,19 +9,17 @@ category.get("/", (req: Request, res: Response, next: NextFunction) => {
     .then(categories => {
       res.status(200).json(categories).send()
     })
-    .catch(error => {
-      res.status(400)
-    })
 })
 
 // Add new category
 category.post("/", (req: Request, res: Response, next: NextFunction) => {
   Category.create(req.body)
     .then(category => {
-      res.status(201).send()
+      res.status(201).json(category).send()
     })
     .catch(error => {
       res.status(400).json({ 
+        code: 400,
         message: error
       }).send()
     })
@@ -33,10 +31,11 @@ category.delete("/:id", (req: Request, res: Response, next: NextFunction) => {
     where: { id: req.params.id }
   })
     .then(category => {
-      res.status(200).send()
+      res.status(200).json(category).send()
     })
     .catch(error => {
       res.status(400).json({
+        code: 400,
         message: error
       }).send()
     })

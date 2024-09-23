@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { useUserStore } from '@/data/stores/userStore';
 import cardView from '@/components/cardView.vue';
+import outlinedButton from '@/components/outlinedButton.vue';
 
 const userStore = useUserStore()
 </script>
@@ -87,14 +88,13 @@ const userStore = useUserStore()
     </v-container>
 
     <template #actions>
-      <v-btn
+      <outlined-button
         @click="userStore.updateAccount()"
-        variant="outlined"
         prepend-icon="mdi-content-save"
         color="green"
       >
         Save
-      </v-btn>
+      </outlined-button>
     </template>
   </card-view>
 </template>
