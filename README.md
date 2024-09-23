@@ -53,7 +53,7 @@ The application host it's data in a SQLite database. The access is managed by an
 #### Validate
 
 <details>
-<summary><code style="background-color:#69CA92"><b>POST</b></code> <code><b>/accounts/login</b></code> <code> (Login for user)</code></summary>
+<summary><code><span style="color:#69CA92"><b>POST</b></span></code> <code><b>/accounts/login</b></code> <code> (Login for user)</code></summary>
 
 ##### Parameters
 > | name | type | data type | description |
@@ -74,7 +74,7 @@ The application host it's data in a SQLite database. The access is managed by an
 #### Listing existing
 
 <details>
-<summary><code style="background-color:#70AFFD"><b>GET</b></code> <code><b>/products/</b></code> <code> (Get all products)</code>
+<summary><code><span style="color:#70AFFD"><b>GET</b></span></code> <code><b>/products/</b></code> <code> (Get all products)</code>
 </summary>
 
 ##### Parameters
@@ -87,7 +87,7 @@ The application host it's data in a SQLite database. The access is managed by an
 </details>
 
 <details>
-<summary><code style="background-color:#70AFFD"><b>GET</b></code> <code><b>/products/:id</b></code> <code> (Get a product by it's id)</code>
+<summary><code><span style="color:#70AFFD"><b>GET</b></span></code> <code><b>/products/:id</b></code> <code> (Get a product by it's id)</code>
 </summary>
 
 ##### Parameters
@@ -102,7 +102,7 @@ The application host it's data in a SQLite database. The access is managed by an
 </details>
 
 <details>
-<summary><code style="background-color:#70AFFD"><b>GET</b></code> <code><b>/orders/:id</b></code> <code> (Get all orders of an user)</code>
+<summary><code><span style="color:#70AFFD"><b>GET</b></span></code> <code><b>/orders/:id</b></code> <code> (Get all orders of an user)</code>
 </summary>
 
 ##### Parameters
@@ -117,7 +117,7 @@ The application host it's data in a SQLite database. The access is managed by an
 </details>
 
 <details>
-<summary><code style="background-color:#70AFFD"><b>GET</b></code> <code><b>/categories/</b></code> <code> (Get all Categories)</code>
+<summary><code><span style="color:#70AFFD"><b>GET</b></span></code> <code><b>/categories/</b></code> <code> (Get all Categories)</code>
 </summary>
 
 ##### Parameters
@@ -134,7 +134,7 @@ The application host it's data in a SQLite database. The access is managed by an
 #### Creating new
 
 <details>
-<summary><code style="background-color:#69CA92"><b>POST</b></code> <code><b>/accounts/</b></code> <code> (Create a new account)</code>
+<summary><code><span style="color:#69CA92"><b>POST</b></span></code> <code><b>/accounts/</b></code> <code> (Create a new account)</code>
 </summary>
 
 ##### Parameters
@@ -153,7 +153,7 @@ The application host it's data in a SQLite database. The access is managed by an
 
 
 <details>
-<summary><code style="background-color:#69CA92"><b>POST</b></code> <code><b>/products/</b></code> <code> (Create a new product)</code>
+<summary><code><span style="color:#69CA92"><b>POST</b></span></code> <code><b>/products/</b></code> <code> (Create a new product)</code>
 </summary>
 
 ##### Parameters
@@ -170,7 +170,7 @@ The application host it's data in a SQLite database. The access is managed by an
 
 
 <details>
-<summary><code style="background-color:#69CA92"><b>POST</b></code> <code><b>/orders/</b></code> <code> (Create a new order)</code>
+<summary><code><span style="color:#69CA92"><b>POST</b></span></code> <code><b>/orders/</b></code> <code> (Create a new order)</code>
 </summary>
 
 ##### Parameters
@@ -186,7 +186,7 @@ The application host it's data in a SQLite database. The access is managed by an
 
 
 <details>
-<summary><code style="background-color:#69CA92"><b>POST</b></code> <code><b>/categories/</b></code> <code> (Create a new category)</code>
+<summary><code><span style="color:#69CA92"><b>POST</b></span></code> <code><b>/categories/</b></code> <code> (Create a new category)</code>
 </summary>
 
 ##### Parameters
@@ -206,7 +206,7 @@ The application host it's data in a SQLite database. The access is managed by an
 #### Updating existing
 
 <details>
-<summary><code style="background-color:#F3A63D"><b>PATCH</b></code> <code><b>/accounts/</b></code> <code> (Update data of an existing account)</code>
+<summary><code><span style="color:#F3A63D"><b>PATCH</b></span></code> <code><b>/accounts/</b></code> <code> (Update data of an existing account)</code>
 </summary>
 
 ##### Parameters
@@ -226,7 +226,7 @@ The application host it's data in a SQLite database. The access is managed by an
 #### Delete existing
 
 <details>
-<summary><code style="background-color:#EB5246"><b>DELETE</b></code> <code><b>/product/:id</b></code> <code> (Delete a product)</code>
+<summary><code><span style="color:#EB5246"><b>DELETE</b></span></code> <code><b>/product/:id</b></code> <code> (Delete a product)</code>
 </summary>
 
 ##### Parameters
@@ -242,7 +242,7 @@ The application host it's data in a SQLite database. The access is managed by an
 </details>
 
 <details>
-<summary><code style="background-color:#EB5246"><b>DELETE</b></code> <code><b>/categories/:id</b></code> <code> (Delete a category)</code>
+<summary><code><span style="color:#EB5246"><b>DELETE</b></span></code> <code><b>/categories/:id</b></code> <code> (Delete a category)</code>
 </summary>
 
 ##### Parameters
@@ -262,7 +262,7 @@ The application host it's data in a SQLite database. The access is managed by an
 #### Miscs
 
 <details>
-<summary><code style="background-color:#70AFFD"><b>GET</b></code> <code><b>/api/</b></code> <code> (Check if server runs)</code>
+<summary><code><span style="color:#70AFFD"><b>GET</b></span></code> <code><b>/api/</b></code> <code> (Check if server runs)</code>
 </summary>
 
 ##### Parameters
@@ -275,7 +275,7 @@ The application host it's data in a SQLite database. The access is managed by an
 </details>
 
 <details>
-<summary><code style="background-color:#70AFFD"><b>GET</b></code> <code><b>/resetDatabase/</b></code> <code> (Reset the database to it's default values)</code>
+<summary><code><span style="color:#70AFFD"><b>GET</b></span></code> <code><b>/resetDatabase/</b></code> <code> (Reset the database to it's default values)</code>
 </summary>
 
 ##### Parameters
