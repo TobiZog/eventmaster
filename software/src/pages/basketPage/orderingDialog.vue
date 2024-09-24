@@ -9,12 +9,28 @@ const basketStore = useBasketStore()
 const accountStore = useAccountStore()
 const showDialog: ModelRef<boolean> = defineModel()
 const orderingInProgress = ref(false)
+const addressError = ref(false)
+const paymentError = ref(false)
 
 async function doOrder() {
   orderingInProgress.value = true
-  await basketStore.takeOrder()
+  addressError.value = false
+  paymentError.value = false
+
+  if (basketStore.usedAddress == null) {
+    addressError.value = true
+  }
+
+  if (basketStore.usedPayment == null){
+    paymentError.value = true
+  }
+
+  if (basketStore.usedAddress != null && basketStore.usedPayment != null) {
+    
+    await basketStore.takeOrder()
+    showDialog.value = false
+  }
   
-  showDialog.value = false
   orderingInProgress.value = false
 }
 </script>
@@ -25,29 +41,65 @@ async function doOrder() {
     icon="mdi-basket-check"
     v-model="showDialog"
     max-width="800"
+    persistent
   >
     <v-row>
       <v-col>
-        Address
+        {{ $t('account.address', accountStore.userAccount.addresses.length) }}
       </v-col>
     </v-row>
     
     <v-row>
       <v-col>
-        <v-radio-group>
+        <v-radio-group
+          v-model="basketStore.usedAddress"
+          :error="addressError"
+        >
           <v-radio
             v-for="address in accountStore.userAccount.addresses"
             :value="address"
             :label="address.street + ' ' + address.houseNumber + ', ' + address.postalCode + ' ' + address.city"
+            
+          />
+        </v-radio-group>
+      </v-col>
+    </v-row>
+
+    <v-row>
+      <v-col>
+        {{ $t('account.payment', accountStore.userAccount.payments.length) }}
+      </v-col>
+    </v-row>
+    
+    <v-row>
+      <v-col>
+        <v-radio-group
+          v-model="basketStore.usedPayment"
+        >
+          <v-radio
+            v-for="payment in accountStore.userAccount.payments"
+            :value="payment"
+            :label="payment.bankName + ': ' + payment.iban"
+            :error="paymentError"
           />
         </v-radio-group>
       </v-col>
     </v-row>
 
     <template #actions>
+      <outlined-button 
+        @click="showDialog = false"
+        prepend-icon="mdi-close"
+        color="orange"
+      >
+        {{ $t('dialog.cancel') }}
+      </outlined-button>
+
       <outlined-button
         @click="doOrder"
         :loading="orderingInProgress"
+        prepend-icon="mdi-send"
+        color="green"
       >
         {{ $t('ordering.takeOrder') }}
       </outlined-button>

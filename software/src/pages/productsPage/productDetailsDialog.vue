@@ -142,7 +142,7 @@ watch(() => props.product.images, () => {
         v-model="nrOfArticles"
         variant="outlined"
         :min="1"
-        :max="10"
+        :max="product.inStock"
         density="comfortable"
         :hide-details="true"
         :disabled="product.inStock == 0"

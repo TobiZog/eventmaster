@@ -9,7 +9,12 @@ export async function getUserOrders(userId: number) {
   return axios.get(BASE_URL + "/" + userId)
 }
 
-export async function addOrder(accountId: number, basketItems: Array<BasketItemModel>) {
+export async function addOrder(
+  accountId: number, 
+  basketItems: Array<BasketItemModel>,
+  paymentId: number,
+  addressId: number
+) {
   let orderItems = []
 
   for (let basketItem of basketItems) {
@@ -22,6 +27,8 @@ export async function addOrder(accountId: number, basketItems: Array<BasketItemM
 
   return axios.post(BASE_URL, {
     accountId: accountId,
-    orderItems: orderItems
+    orderItems: orderItems,
+    paymentId: paymentId,
+    addressId: addressId
   })
 }

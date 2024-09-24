@@ -20,6 +20,7 @@ export const useFeedbackStore = defineStore("feedbackStore", {
 
   actions: {
     changeBanner(bannerState: BannerStateEnum) {
+      // Banner message
       switch (bannerState) {
         ////////// System feedback //////////
 
@@ -107,6 +108,8 @@ export const useFeedbackStore = defineStore("feedbackStore", {
         }
       }
 
+      // Banner color
+
       switch (bannerState) {
         case BannerStateEnum.ERROR:
         case BannerStateEnum.ACCOUNTLOGINERROR:
@@ -118,9 +121,9 @@ export const useFeedbackStore = defineStore("feedbackStore", {
         case BannerStateEnum.PRODUCTDELETESUCCESSFUL:
         case BannerStateEnum.PRODUCTDELETEERROR:
           this.color = "red"
-          this.icon = "mdi-alert-circle"
           break;
         
+        case BannerStateEnum.BASKETPRODUCTADDED:
         case BannerStateEnum.DATABASERESETSUCCESSFUL:
         case BannerStateEnum.ACCOUNTLOGINSUCCESSFUL:
         case BannerStateEnum.ACCOUNTREGISTERSUCCESSFUL:
@@ -132,9 +135,73 @@ export const useFeedbackStore = defineStore("feedbackStore", {
         case BannerStateEnum.PRODUCTCREATESUCCESSFUL:
         case BannerStateEnum.PRODUCTCREATEERROR:
           this.color = "green"
-          this.icon = "mdi-check-circle"
-          break
+          break;
+
+        case BannerStateEnum.BASKETPRODUCTREMOVED:
+          this.color = "blue"
       }
+
+
+      // Banner icon
+
+      switch (bannerState) {
+        case BannerStateEnum.ERROR:
+          this.icon = "mdi-alert-circle"
+          break;
+
+        case BannerStateEnum.ACCOUNTLOGINERROR:
+        case BannerStateEnum.ACCOUNTLOGINWRONGLOGIN:
+        case BannerStateEnum.ACCOUNTREGISTERERROR:
+        case BannerStateEnum.ACCOUNTREGISTERUSERNAMEINUSE:
+          this.icon = "mdi-account"
+          break;
+
+        case BannerStateEnum.CATEGORYCREATEERROR:
+        case BannerStateEnum.CATEGORYDELETEERROR:
+        case BannerStateEnum.CATEGORYCREATESUCCESSFUL:
+        case BannerStateEnum.CATEGORYDELETESUCESSFUL:
+          this.icon = "mdi-label"
+          break;
+
+        case BannerStateEnum.PRODUCTDELETESUCCESSFUL:
+        case BannerStateEnum.PRODUCTDELETEERROR:
+        case BannerStateEnum.PRODUCTCREATESUCCESSFUL:
+        case BannerStateEnum.PRODUCTCREATEERROR:
+          this.icon = "mdi-store"
+          break;
+        
+        case BannerStateEnum.DATABASERESETSUCCESSFUL:
+          this.icon = "mdi-database-refresh"
+          break;
+        
+        case BannerStateEnum.BASKETPRODUCTADDED:
+        case BannerStateEnum.BASKETPRODUCTREMOVED:
+          this.icon = "mdi-basket"
+          break;
+
+        case BannerStateEnum.ORDERPLACESUCCESSFUL:
+          this.icon = "mdi-basket-check"
+          break;
+
+        case BannerStateEnum.ACCOUNTLOGOUTSUCCESSFUL:
+          this.icon = "mdi-logout"
+          break;
+
+        case BannerStateEnum.ACCOUNTLOGINSUCCESSFUL:
+          this.icon = "mdi-login"
+          break;
+
+        case BannerStateEnum.ACCOUNTREGISTERSUCCESSFUL:
+          this.icon = "mdi-account-plus"
+          break;
+        
+        case BannerStateEnum.ACCOUNTUPDATESUCCESSFUL:
+          this.icon = "mdi-account-reactivate"
+          break;
+      }
+
+      
+      
 
       this.showBanner = true
     }

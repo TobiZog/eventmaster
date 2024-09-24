@@ -8,10 +8,14 @@ import { addOrder } from "../api/orderApi";
 import { useAccountStore } from "./accountStore";
 import { ProductModel } from "../models/productModel";
 import { useProductStore } from "./productStore";
+import { AddressModel } from "../models/addressModel";
+import { PaymentModel } from "../models/paymentModel";
 
 export const useBasketStore = defineStore('basketStore', {
   state: () => ({
-    itemsInBasket: useLocalStorage<Array<BasketItemModel>>("hackmycart/basketStore/productsInBasket", [])
+    itemsInBasket: useLocalStorage<Array<BasketItemModel>>("hackmycart/basketStore/productsInBasket", []),
+    usedAddress: useLocalStorage("hackmycart/basketStore/usedAddress", new AddressModel()),
+    usedPayment: useLocalStorage("hackmycart/basketStore/usedPayment", new PaymentModel())
   }),
 
   getters: {
@@ -73,12 +77,20 @@ export const useBasketStore = defineStore('basketStore', {
     async takeOrder() {
       const accountStore = useAccountStore()
       const productStore = useProductStore()
+      const feedbackStore = useFeedbackStore()
 
-      await addOrder(accountStore.userAccount.id, this.itemsInBasket)
-      this.itemsInBasket = []
+      await addOrder(accountStore.userAccount.id, this.itemsInBasket, this.usedPayment.id, this.usedAddress.id)
+        .then(async result => {
+          if (result.status == 201) {
+            await accountStore.refreshOrders()
+            await productStore.fetchAllProducts()
 
-      await accountStore.refreshOrders()
-      await productStore.fetchAllProducts()
+            this.itemsInBasket = []
+            feedbackStore.changeBanner(BannerStateEnum.ORDERPLACESUCCESSFUL)
+          } else {
+            feedbackStore.changeBanner(BannerStateEnum.ERROR)
+          }
+        })
     }
   }
 })

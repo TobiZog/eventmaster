@@ -33,3 +33,4 @@ build
 *.sqlite
 out/
 database.svg
+*.bkp

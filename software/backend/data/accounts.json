@@ -9,6 +9,7 @@
       "lastName": "Hagemeister",
       "addresses": [
         {
+          "id": 0,
           "accountId": 0,
           "street": "Laportestraße",
           "houseNumber": 22,
@@ -18,6 +19,7 @@
       ],
       "payments": [
         {
+          "id": 0,
           "accountId": 0,
           "bankName": "Deutsche Bank",
           "iban": "DE92500105175721645777"
@@ -34,6 +36,7 @@
       "lastName": "Stoiber",
       "addresses": [
         {
+          "id": 1,
           "accountId": 1,
           "street": "Gustav-Adolf-Straße",
           "houseNumber": 30,
@@ -43,6 +46,7 @@
       ],
       "payments": [
         {
+          "id": 1,
           "accountId": 1,
           "bankName": "DZ Bank",
           "iban": "DE12500105179557939114"
@@ -59,6 +63,7 @@
       "lastName": "Oeter",
       "addresses": [
         {
+          "id": 2,
           "accountId": 2,
           "street": "Eckermannstraße",
           "houseNumber": 1,
@@ -66,6 +71,7 @@
           "city": "Hannover"
         },
         {
+          "id": 3,
           "accountId": 2,
           "street": "Gehrdener Straße",
           "houseNumber": 14,
@@ -75,6 +81,7 @@
       ],
       "payments": [
         {
+          "id": 2,
           "accountId": 2,
           "bankName": "Commerzbank",
           "iban": "DE31500105175417833272"
@@ -91,6 +98,7 @@
       "lastName": "Durand",
       "addresses": [
         {
+          "id": 4,
           "accountId": 3,
           "street": "Schlägerstraße",
           "houseNumber": 36,
@@ -98,6 +106,7 @@
           "city": "Hannover"
         },
         {
+          "id": 5,
           "accountId": 3,
           "street": "Else-Ury-Weg",
           "houseNumber": 20,
@@ -107,6 +116,7 @@
       ],
       "payments": [
         {
+          "id": 3,
           "accountId": 3,
           "bankName": "ING",
           "iban": "DE41500105172184936679"
@@ -123,6 +133,7 @@
       "lastName": "Furtwängler",
       "addresses": [
         {
+          "id": 6,
           "accountId": 4,
           "street": "Steinmetzstraße",
           "houseNumber": 12,
@@ -132,6 +143,7 @@
       ],
       "payments": [
         {
+          "id": 4,
           "accountId": 4,
           "bankName": "Sparkasse Hannover",
           "iban": "DE85500105172283979774"
@@ -148,6 +160,7 @@
       "lastName": "Herbst",
       "addresses": [
         {
+          "id": 7,
           "accountId": 5,
           "street": "Allerweg",
           "houseNumber": 33,
@@ -157,6 +170,7 @@
       ],
       "payments": [
         {
+          "id": 5,
           "accountId": 5,
           "bankName": "Postbank",
           "iban": "DE45500105178862417577"
@@ -173,6 +187,7 @@
       "lastName": "Seibert",
       "addresses": [
         {
+          "id": 8,
           "accountId": 6,
           "street": "Marktstraße",
           "houseNumber": 26,
@@ -180,6 +195,7 @@
           "city": "Laatzen"
         },
         {
+          "id": 9,
           "accountId": 6,
           "street": "Kleiner Hillen",
           "houseNumber": 24,
@@ -189,6 +205,7 @@
       ],
       "payments": [
         {
+          "id": 6,
           "accountId": 6,
           "bankName": "Sparkasse Hannover",
           "iban": "DE51500105177526222196"

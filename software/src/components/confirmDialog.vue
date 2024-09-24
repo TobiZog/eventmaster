@@ -32,13 +32,15 @@ function confirmPressed() {
     <template #actions>
       <outlined-button
         @click="showDialog = false" 
-        color="green"
+        prepend-icon="mdi-close"
+        color="orange"
       >
         {{ $t("dialog.cancel") }}
       </outlined-button>
 
       <outlined-button
         @click="confirmPressed"
+        prepend-icon="mdi-check"
         color="red"
       >
         {{ $t("dialog.confirm") }}

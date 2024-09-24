@@ -4,7 +4,8 @@ import { Product } from "../models/product.model";
 import { OrderItem } from "../models/orderItem.model";
 import { Brand } from "../models/brand.model";
 import { Category } from "../models/category.model";
-import { Sequelize } from "sequelize-typescript";
+import { Payment } from "../models/payment.model";
+import { Address } from "../models/address.model";
 
 export const order = Router()
 
@@ -27,7 +28,9 @@ order.get("/:id", (req: Request, res: Response) => {
             }
           },
         ]
-      }
+      },
+      Payment,
+      Address
     ]
   })
     .then(orders => {
@@ -49,7 +52,10 @@ order.post("/", (req: Request, res: Response) => {
 
         Product.decrement(
           "inStock", 
-          { where: { id: orderItem.productId } }
+          {
+            by: orderItem.quantity,
+            where: { id: orderItem.productId } 
+          }
         )
       }
 
