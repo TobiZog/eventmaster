@@ -2,6 +2,7 @@
 import cardView from '@/components/cardView.vue';
 import outlinedButton from '@/components/outlinedButton.vue';
 import { useAccountStore } from '@/data/stores/accountStore';
+import { ref } from 'vue';
 
 const accountStore = useAccountStore()
 </script>
@@ -42,15 +43,5 @@ const accountStore = useAccountStore()
         />
       </v-col>
     </v-row>
-
-    <template #actions>
-      <outlined-button
-        @click="accountStore.updateAccount()"
-        prepend-icon="mdi-content-save"
-        color="green"
-      >
-        Save
-      </outlined-button>
-    </template>
   </card-view>
 </template>

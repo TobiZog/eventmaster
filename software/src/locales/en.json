@@ -68,7 +68,10 @@
     "managingAccount": "Managing Account",
     "addresses": "Addresses",
     "payments": "Payments",
-    "masterData": "Master data"
+    "masterData": "Master data",
+    "noAddresses": "No Addresses found",
+    "noPayments": "No payments found",
+    "newPayment": "New Payment"
   },
   "bannerMessages": {
     "loginSuccessful": "Login erfolgreich!",
@@ -122,5 +125,7 @@
   "passwordToShort": "Password too short",
   "onlyDigitsAllowed": "Only digits are allowed",
   "noOrders": "No orders found",
-  "noOrdersText": "There are no orders with this account until now. Go to the basket page and order something!"
+  "noOrdersText": "There are no orders with this account until now. Go to the basket page and order something!",
+  "add": "Add",
+  "remove": "Remove"
 }

@@ -7,6 +7,8 @@ import { loginAccount, registerAccount, updateAccount } from "../api/accountApi"
 import { getUserOrders } from "../api/orderApi";
 import { BannerStateEnum } from "../enums/bannerStateEnum";
 import { calcPrice } from "@/scripts/productScripts";
+import { AddressModel } from "../models/addressModel";
+import { PaymentModel } from "../models/paymentModel";
 
 export const useAccountStore = defineStore("accountStore", {
   state: () => ({
@@ -89,6 +91,18 @@ export const useAccountStore = defineStore("accountStore", {
       }
 
       return Math.round(totalPrice * 100) / 100
+    },
+
+    removeAddress(address: AddressModel) {
+      this.userAccount.addresses = this.userAccount.addresses.filter((addr: AddressModel) => 
+        addr != address
+      )
+    },
+
+    removePayment(payment: PaymentModel) {
+      this.userAccount.payments = this.userAccount.payments.filter((paym: PaymentModel) =>
+        paym != payment
+      )
     }
   }
 })

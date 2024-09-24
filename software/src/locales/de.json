@@ -68,7 +68,10 @@
     "managingAccount": "Account verwalten",
     "addresses": "Adressen",
     "payments": "Bezahlarten",
-    "masterData": "Stammdaten"
+    "masterData": "Stammdaten",
+    "noAddresses": "Keine Adressen gefunden",
+    "noPayments": "Keine Bezahlarten gefunden",
+    "newPayment": "New Payment"
   },
   "bannerMessages": {
     "loginSuccessful": "Login erfolgreich!",
@@ -122,5 +125,7 @@
   "passwordToShort": "Passwort zu kurz",
   "onlyDigitsAllowed": "Nur Zahlen erlaubt",
   "noOrders": "Keine Bestellungen gefunden",
-  "noOrdersText": "Bisher wurden keine Bestellungen von diesem Account getätigt. Gehe zum Warenkorb und bestelle!"
+  "noOrdersText": "Bisher wurden keine Bestellungen von diesem Account getätigt. Gehe zum Warenkorb und bestelle!",
+  "add": "Hinzufügen",
+  "remove": "Entfernen"
 }
