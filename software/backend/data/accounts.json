@@ -4,6 +4,7 @@
       "id": 0,
       "username": "hagemeister93",
       "password": "Xjt3qb5t",
+      "email": "hagemeister93@gmail.com",
       "firstName": "Laurin",
       "lastName": "Hagemeister",
       "addresses": [
@@ -28,6 +29,7 @@
       "id": 1,
       "username": "katjaStoiber",
       "password": "target123",
+      "email": "k.stoiber@uni-hannover.de",
       "firstName": "Katja",
       "lastName": "Stoiber",
       "addresses": [
@@ -52,6 +54,7 @@
       "id": 2,
       "username": "oetkerohnek",
       "password": "iloveyou",
+      "email": "oetker30625@gmx.com",
       "firstName": "Luna",
       "lastName": "Oeter",
       "addresses": [
@@ -83,6 +86,7 @@
       "id": 3,
       "username": "duranduran",
       "password": "H4nn0ver",
+      "email": "dduran@hannover.de",
       "firstName": "Jürgen",
       "lastName": "Durand",
       "addresses": [
@@ -114,6 +118,7 @@
       "id": 4,
       "username": "guitarhero",
       "password": "gwerty123",
+      "email": "guitarheroFurti@gmail.com",
       "firstName": "Frederik",
       "lastName": "Furtwängler",
       "addresses": [
@@ -138,6 +143,7 @@
       "id": 5,
       "username": "herbstMareike",
       "password": "qhsrbpgrs",
+      "email": "m.herbst@uni-hannover.de",
       "firstName": "Mareike",
       "lastName": "Herbst",
       "addresses": [
@@ -162,6 +168,7 @@
       "id": 6,
       "username": "seibertmitb",
       "password": "{jkz+WvQe",
+      "email": "janna-seibert@yahoo.com",
       "firstName": "Janna",
       "lastName": "Seibert",
       "addresses": [

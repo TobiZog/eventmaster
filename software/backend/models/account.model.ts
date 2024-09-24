@@ -13,6 +13,10 @@ export class Account extends Model {
   @Column
   password: string
 
+  @Unique
+  @Column
+  email: string
+
   @Column
   firstName: string = ""
 

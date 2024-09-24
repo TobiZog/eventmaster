@@ -25,10 +25,13 @@ getServerState()
   })
 
 async function resetDb() {
+  serverOnline.value = ServerStateEnum.PENDING
+
   await resetDatabase()
     .then(result => {
       if (result.status == 200) {
         feedbackStore.changeBanner(BannerStateEnum.DATABASERESETSUCCESSFUL)
+        serverOnline.value = ServerStateEnum.ONLINE
       }
     })
 

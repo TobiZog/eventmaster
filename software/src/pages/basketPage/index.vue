@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { useBasketStore } from '@/data/stores/basketStore';
 import productsTable from './productsTable.vue';
-import alertBanner from '@/components/alertBanner.vue';
 import cardView from '@/components/cardView.vue';
 import orderingDialog from './orderingDialog.vue';
 import outlinedButton from '@/components/outlinedButton.vue';
@@ -15,11 +14,6 @@ const showOrderingDialog = ref()
 
 <template>
   <v-container max-width="1000">
-    <v-row>
-      <v-col>
-        <alert-banner />
-      </v-col>
-    </v-row>
     <v-row>
       <v-col>
         <card-view

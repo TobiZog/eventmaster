@@ -1,13 +1,10 @@
 <script setup lang="ts">
 import pageSetup from './pageSetup.vue';
 import systemSetup from './systemSetup.vue';
-import alertBanner from '@/components/alertBanner.vue';
 </script>
 
 <template>
   <v-container max-width="800">
-    <alert-banner />
-
     <v-row>
       <v-col>
         <page-setup />

@@ -78,11 +78,29 @@ account.post("/", (req: Request, res: Response) => {
 })
 
 account.patch("/", (req: Request, res: Response) => {
+  console.log(req.body)
+  
   Account.update(req.body,
   {
     where: { id: req.body.id }
   })
-    .then(account => {
+    .then(async account => {
+      for (let payment of req.body.payments) {
+        await Payment.update(payment,
+          {
+            where: { id: payment.id }
+          }
+        )
+      }
+
+      for (let address of req.body.addresses) {
+        await Address.update(address,
+          {
+            where: { id: address.id }
+          }
+        )
+      }
+
       // Status: 200 OK
       res.status(200).json(account)
     })

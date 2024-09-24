@@ -71,7 +71,8 @@
     "masterData": "Stammdaten",
     "noAddresses": "Keine Adressen gefunden",
     "noPayments": "Keine Bezahlarten gefunden",
-    "newPayment": "New Payment"
+    "newPayment": "New Payment",
+    "email": "E-Mail-Adresse"
   },
   "bannerMessages": {
     "loginSuccessful": "Login erfolgreich!",
@@ -127,5 +128,10 @@
   "noOrders": "Keine Bestellungen gefunden",
   "noOrdersText": "Bisher wurden keine Bestellungen von diesem Account getätigt. Gehe zum Warenkorb und bestelle!",
   "add": "Hinzufügen",
-  "remove": "Entfernen"
+  "remove": "Entfernen",
+  "emailIsNotValid": "Ungültige E-Mail Addresse",
+  "emailRequired": "E-Mail-Adresse benötigt",
+  "tooMuchChars": "Zu lang",
+  "digitsAtStartNeeded": "Muss mit einer Zahl beginnen",
+  "wrongIban": "Falsches IBAN Format, nur deutsche IBAN-Nummern erlaubt!"
 }

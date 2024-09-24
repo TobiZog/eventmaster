@@ -3,6 +3,8 @@ import cardView from '@/components/cardView.vue';
 import { useAccountStore } from '@/data/stores/accountStore';
 import outlinedButton from '@/components/outlinedButton.vue';
 import { AddressModel } from '@/data/models/addressModel';
+import { useFeedbackStore } from '@/data/stores/feedbackStore';
+import { getNumberStartRules, getPostalRules, getStringRules } from '@/scripts/validationRules';
 
 const accountStore = useAccountStore()
 </script>
@@ -27,12 +29,16 @@ const accountStore = useAccountStore()
               <v-text-field
                 :label="$t('userInfo.street')"
                 v-model="address.street"
+                :rules="getStringRules()"
+                clearable
               />
             </v-col>
             <v-col>
               <v-text-field
                 :label="$t('userInfo.houseNumber')"
                 v-model="address.houseNumber"
+                :rules="getNumberStartRules()"
+                clearable
               />
             </v-col>
           </v-row>
@@ -42,12 +48,16 @@ const accountStore = useAccountStore()
               <v-text-field
                 :label="$t('userInfo.postalCode')"
                 v-model="address.postalCode"
+                :rules="getPostalRules()"
+                clearable
               />
             </v-col>
             <v-col>
               <v-text-field
                 :label="$t('userInfo.city')"
                 v-model="address.city"
+                :rules="getStringRules()"
+                clearable
               />
             </v-col>
           </v-row>

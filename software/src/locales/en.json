@@ -71,7 +71,8 @@
     "masterData": "Master data",
     "noAddresses": "No Addresses found",
     "noPayments": "No payments found",
-    "newPayment": "New Payment"
+    "newPayment": "New Payment",
+    "email": "E-Mail address"
   },
   "bannerMessages": {
     "loginSuccessful": "Login erfolgreich!",
@@ -127,5 +128,10 @@
   "noOrders": "No orders found",
   "noOrdersText": "There are no orders with this account until now. Go to the basket page and order something!",
   "add": "Add",
-  "remove": "Remove"
+  "remove": "Remove",
+  "emailIsNotValid": "E-mail must be valid",
+  "emailRequired": "E-Mail is required",
+  "tooMuchChars": "Too long",
+  "digitsAtStartNeeded": "Has to beginn with a number",
+  "wrongIban": "Wrong IBAN format, only German IBANs are allowed!"
 }

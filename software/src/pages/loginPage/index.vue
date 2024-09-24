@@ -2,19 +2,12 @@
 import { ref } from 'vue';
 import loginForm from './loginForm.vue';
 import registerForm from './registerForm.vue';
-import alertBanner from '@/components/alertBanner.vue';
 
 const showRegisterCard = ref(false)
 </script>
 
 <template>
-  <v-container max-width="800">
-    <v-row>
-      <v-col>
-        <alert-banner />
-      </v-col>
-    </v-row>
-
+  <v-container max-width="500">
     <v-expand-transition>
       <v-row v-if="!showRegisterCard">
         <v-col>

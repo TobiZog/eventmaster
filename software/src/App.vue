@@ -7,10 +7,12 @@ import navigationItems from './components/navigationItems.vue';
 import { useProductStore } from './data/stores/productStore';
 import { useCategoryStore } from './data/stores/categoryStore';
 import { usePreferencesStore } from './data/stores/preferencesStore';
+import { useFeedbackStore } from './data/stores/feedbackStore';
 
 const preferencesStore = usePreferencesStore()
 const productStore = useProductStore()
 const categoryStore = useCategoryStore()
+const feedbackStore = useFeedbackStore()
 const theme = useTheme()
 const navRail = ref(vuetify.display.mobile)
 
@@ -38,6 +40,26 @@ watch(() => preferencesStore.language, () => {
     </v-navigation-drawer>
 
     <v-main>
+      <!-- Snackbar in the top right corner for user feedback -->
+      <v-snackbar
+        v-model="feedbackStore.showBanner"
+        timeout="3000"
+        location="top right"
+        :color="feedbackStore.color"
+        close
+      >
+        <v-icon :icon="feedbackStore.icon" />
+        {{ feedbackStore.title }}
+
+        <template v-slot:actions>
+          <v-btn
+            variant="text"
+            @click="feedbackStore.showBanner = false"
+            icon="mdi-close"
+          />
+        </template>
+      </v-snackbar>
+
       <!-- Here changes the router the content -->
       <router-view></router-view>
     </v-main>

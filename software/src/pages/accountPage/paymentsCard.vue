@@ -3,6 +3,7 @@ import cardView from '@/components/cardView.vue';
 import { useAccountStore } from '@/data/stores/accountStore';
 import outlinedButton from '@/components/outlinedButton.vue';
 import { PaymentModel } from '@/data/models/paymentModel';
+import { getIbanRules, getStringRules } from '@/scripts/validationRules';
 
 const accountStore = useAccountStore()
 
@@ -29,12 +30,14 @@ const accountStore = useAccountStore()
               <v-text-field
                 :label="$t('userInfo.bankName')"
                 v-model="payment.bankName"
+                :rules="getStringRules()"
               />
             </v-col>
             <v-col>
               <v-text-field
                 :label="$t('userInfo.iban')"
                 v-model="payment.iban"
+                :rules="getIbanRules()"
               />
             </v-col>
           </v-row>

@@ -3,7 +3,6 @@ import productCard from "./productCard.vue"
 import productDetails from "./productDetailsDialog.vue"
 import { ref, watch } from "vue";
 import { useProductStore } from "@/data/stores/productStore";
-import alertBanner from "@/components/alertBanner.vue";
 import filterNavDrawer from "./filterNavDrawer.vue";
 import { ProductModel } from '@/data/models/productModel';
 
@@ -24,12 +23,6 @@ watch(() => productStore.onlyDiscounts, async () => { productStore.filterProduct
 
 <template>
   <v-container max-width="1000">
-    <v-row>
-      <v-col>
-        <alert-banner />
-      </v-col>
-    </v-row>
-    
     <v-row dense>
       <v-col
         v-if="productStore.filteredProducts.length > 0"
