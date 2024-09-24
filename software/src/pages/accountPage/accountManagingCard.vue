@@ -12,20 +12,21 @@ function deleteAccount() {
 </script>
 
 <template>
-  <card-view :title="$t('account.managingAccount')">
-    <v-container>
-      <v-row>
-        <v-col class="d-flex justify-center align-center">
-          <outlined-button
-            prepend-icon="mdi-delete"
-            color="red"
-            @click="showConfirmDialog = true"
-          >
-            {{ $t("account.delete") }}
-          </outlined-button>
-        </v-col>
-      </v-row>
-    </v-container>
+  <card-view
+    :title="$t('account.managingAccount')"
+    icon="mdi-account-edit"
+  >
+    <v-row>
+      <v-col class="d-flex justify-center align-center">
+        <outlined-button
+          prepend-icon="mdi-delete"
+          color="red"
+          @click="showConfirmDialog = true"
+        >
+          {{ $t("account.delete") }}
+        </outlined-button>
+      </v-col>
+    </v-row>
   </card-view>
 
   <confirm-dialog

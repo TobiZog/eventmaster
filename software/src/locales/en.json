@@ -66,7 +66,10 @@
     "noAccountRegister": "Create new Account!",
     "register": "Create Account",
     "delete": "Delete Account",
-    "managingAccount": "Managing Account"
+    "managingAccount": "Managing Account",
+    "addresses": "Addresses",
+    "payments": "Payments",
+    "masterData": "Master data"
   },
   "bannerMessages": {
     "loginSuccessful": "Login erfolgreich!",

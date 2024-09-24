@@ -2,6 +2,8 @@
 import alertBanner from '@/components/alertBanner.vue';
 import accountDataCard from './accountDataCard.vue';
 import accountManagingCard from './accountManagingCard.vue';
+import addressesCard from './addressesCard.vue';
+import paymentsCard from './paymentsCard.vue';
 </script>
 
 <template>
@@ -15,6 +17,18 @@ import accountManagingCard from './accountManagingCard.vue';
     <v-row>
       <v-col>
         <account-data-card />
+      </v-col>
+    </v-row>
+
+    <v-row>
+      <v-col>
+        <addresses-card />
+      </v-col>
+    </v-row>
+
+    <v-row>
+      <v-col>
+        <payments-card />
       </v-col>
     </v-row>
 

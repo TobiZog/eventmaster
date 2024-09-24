@@ -29,27 +29,25 @@ function resetSettings() {
 
 <template>
   <card-view :title="$t('preferences.systemSetup')" prepend-icon="mdi-engine" elevation="8">
-    <v-container>
-      <v-row>
-        <v-col class="d-flex justify-center align-center">
-          <outlined-button
-            @click="showConfirmDialog = true"
-            prepend-icon="mdi-database-refresh"
-            color="red"
-          >
-            {{ $t('preferences.resetDatabase') }}
-          </outlined-button>
-        </v-col>
-        <v-col class="d-flex justify-center align-center">
-          <outlined-button
-            @click="resetSettings"
-            prepend-icon="mdi-cog-counterclockwise"
-          >
-            {{ $t('preferences.resetPreferences') }}
-          </outlined-button>
-        </v-col>
-      </v-row>
-    </v-container>
+    <v-row>
+      <v-col class="d-flex justify-center align-center">
+        <outlined-button
+          @click="showConfirmDialog = true"
+          prepend-icon="mdi-database-refresh"
+          color="red"
+        >
+          {{ $t('preferences.resetDatabase') }}
+        </outlined-button>
+      </v-col>
+      <v-col class="d-flex justify-center align-center">
+        <outlined-button
+          @click="resetSettings"
+          prepend-icon="mdi-cog-counterclockwise"
+        >
+          {{ $t('preferences.resetPreferences') }}
+        </outlined-button>
+      </v-col>
+    </v-row>
   </card-view>
 
   <confirm-dialog

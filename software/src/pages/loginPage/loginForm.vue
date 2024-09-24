@@ -16,20 +16,18 @@ function startLogin() {
 
 <template>
   <card-view :title="$t('menu.login')" prepend-icon="mdi-login" elevation="8">
-    <v-container>
-      <v-row>
-        <v-col>
-          <v-text-field :label="$t('account.username')" prepend-icon="mdi-account" clearable v-model="username"/>
-        </v-col>
-      </v-row>
+    <v-row>
+      <v-col>
+        <v-text-field :label="$t('account.username')" prepend-icon="mdi-account" clearable v-model="username"/>
+      </v-col>
+    </v-row>
 
-      <v-row>
-        <v-col>
-          <v-text-field :label="$t('account.password')" prepend-icon="mdi-key" type="password" 
-            clearable v-model="password" />
-        </v-col>
-      </v-row>
-    </v-container>
+    <v-row>
+      <v-col>
+        <v-text-field :label="$t('account.password')" prepend-icon="mdi-key" type="password" 
+          clearable v-model="password" />
+      </v-col>
+    </v-row>
 
     <template #actions>
       <outlined-button 

@@ -92,6 +92,13 @@
           "houseNumber": 36,
           "postalCode": 30171,
           "city": "Hannover"
+        },
+        {
+          "accountId": 3,
+          "street": "Else-Ury-Weg",
+          "houseNumber": 20,
+          "postalCode": 30629,
+          "city": "Hannover"
         }
       ],
       "payments": [

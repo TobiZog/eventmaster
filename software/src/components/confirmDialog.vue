@@ -23,13 +23,11 @@ function confirmPressed() {
     max-width="400"
     v-model="showDialog"
   >
-    <v-container>
-      <v-row>
-        <v-col>
-          {{ description }}
-        </v-col>
-      </v-row>
-    </v-container>
+    <v-row>
+      <v-col>
+        {{ description }}
+      </v-col>
+    </v-row>
 
     <template #actions>
       <outlined-button
