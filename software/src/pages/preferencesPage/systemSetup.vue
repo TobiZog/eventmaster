@@ -6,21 +6,22 @@ import outlinedButton from '@/components/outlinedButton.vue';
 import { ref } from 'vue';
 import confirmDialog from '@/components/confirmDialog.vue';
 import { getServerState, resetDatabase } from '@/data/api/mainApi';
+import { ServerStateEnum } from '@/data/enums/serverStateEnum';
 
 const feedbackStore = useFeedbackStore()
 const showConfirmDialog = ref(false)
-const serverOnline = ref(false)
+const serverOnline = ref(ServerStateEnum.PENDING)
 
 getServerState()
   .then(result => {
     if (result.status == 200) {
-      serverOnline.value = true
+      serverOnline.value = ServerStateEnum.ONLINE
     } else {
-      serverOnline.value = false
+      serverOnline.value = ServerStateEnum.OFFLINE
     }
   })
   .catch(error => {
-    serverOnline.value = false
+    serverOnline.value = ServerStateEnum.OFFLINE
   })
 
 async function resetDb() {
@@ -48,14 +49,19 @@ function resetSettings() {
     <v-row>
       <v-col>
         {{ $t('serverState') }}:
-        <span v-if="serverOnline" class="text-green">
+        <span v-if="serverOnline == ServerStateEnum.ONLINE" class="text-green">
           <v-icon icon="mdi-check" />
           Online
         </span>
 
-        <span v-else class="text-red">
+        <span v-else-if="serverOnline == ServerStateEnum.OFFLINE" class="text-red">
           <v-icon icon="mdi-alert-circle" />
           Offline
+        </span>
+
+        <span v-else-if="serverOnline == ServerStateEnum.PENDING" class="text-orange">
+          <v-icon icon="mdi-clock" />
+          Pending...
         </span>
       </v-col>
     </v-row>
@@ -65,7 +71,7 @@ function resetSettings() {
           @click="showConfirmDialog = true"
           prepend-icon="mdi-database-refresh"
           color="red"
-          :disabled="!serverOnline"
+          :disabled="serverOnline != ServerStateEnum.ONLINE"
         >
           {{ $t('preferences.resetDatabase') }}
         </outlined-button>

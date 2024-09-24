@@ -115,5 +115,12 @@
     "exerciseGroup3": "Aufgabengruppe 3: Cross-Site Scripting (XSS)",
     "exercise": "Aufgabe {0}"
   },
-  "serverState": "Server Status"
+  "serverState": "Server Status",
+  "required": "Darf nicht leer bleiben",
+  "noDigitsAllowed": "Zahlen sind nicht erlaubt",
+  "notEnoughChars": "Nicht lang genug",
+  "passwordToShort": "Passwort zu kurz",
+  "onlyDigitsAllowed": "Nur Zahlen erlaubt",
+  "noOrders": "Keine Bestellungen gefunden",
+  "noOrdersText": "Bisher wurden keine Bestellungen von diesem Account getätigt. Gehe zum Warenkorb und bestelle!"
 }

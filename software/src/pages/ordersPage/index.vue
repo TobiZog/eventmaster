@@ -27,9 +27,22 @@ function formatDateTimeString(string: string) {
 
 <template>
   <v-container max-width="1000">
-    <v-row v-for="order in accountStore.orders">
+    <v-row
+      v-if="accountStore.orders.length > 0"
+      v-for="order in accountStore.orders"
+    >
       <v-col>
         <orders-card :order="order" />
+      </v-col>
+    </v-row>
+
+    <v-row v-else>
+      <v-col>
+        <v-empty-state
+          icon="mdi-basket-off"
+          :title="$t('noOrders')"
+          :text="$t('noOrdersText')"
+        />
       </v-col>
     </v-row>
   </v-container>

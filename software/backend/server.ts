@@ -20,9 +20,12 @@ app.use(bodyParser.json())
 // Create database and tables
 startDatabase()
 
+// Static files
+const path = require('path')
+app.use('/static', express.static(path.join(__dirname, 'images')))
+
 // Add delay for more realistic response times
 app.use((req, res, next) => {
-  console.log(123)
   setTimeout(next, Math.floor((Math.random () * 4000) + 100))
 })
 
@@ -33,9 +36,6 @@ app.use("/products", product)
 app.use("/orders", order)
 app.use("/accounts", account)
 
-// Static files
-const path = require('path')
-app.use('/static', express.static(path.join(__dirname, 'images')))
 
 // Start server
 app.listen(port, () => {

@@ -6,11 +6,14 @@ import { useAccountStore } from '@/data/stores/accountStore';
 
 const accountStore = useAccountStore()
 const showRegisterCard = defineModel("showRegisterCard", { type: Boolean, default: false })
+const loginInProgress = ref(false)
 const username = ref("duranduran")
 const password = ref("H4nn0ver")
 
-function startLogin() {
-  accountStore.login(username.value, password.value)
+async function startLogin() {
+  loginInProgress.value = true
+  await accountStore.login(username.value, password.value)
+  loginInProgress.value = false
 }
 </script>
 
@@ -33,6 +36,7 @@ function startLogin() {
       <outlined-button 
         @click="showRegisterCard = true"
         prepend-icon="mdi-plus"
+        :disabled="loginInProgress"
       >
         {{ $t('account.noAccountRegister') }}
       </outlined-button>
@@ -40,6 +44,7 @@ function startLogin() {
       <outlined-button
         append-icon="mdi-arrow-right"
         @click="startLogin"
+        :loading="loginInProgress"
       >
         {{ $t('menu.login') }}
       </outlined-button>
