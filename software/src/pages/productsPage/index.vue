@@ -3,16 +3,16 @@ import productCard from "./productCard.vue"
 import productDetails from "./productDetailsDialog.vue"
 import { ref, watch } from "vue";
 import { useProductStore } from "@/data/stores/productStore";
-import { ProductWithCategoryModel } from "@/data/models/productWithCategoryModel";
 import alertBanner from "@/components/alertBanner.vue";
 import filterNavDrawer from "./filterNavDrawer.vue";
+import { ProductModel } from '@/data/models/productModel';
 
 const productStore = useProductStore()
 
 const showProductDetails = ref(false)
-const dialogProduct = ref(new ProductWithCategoryModel())
+const dialogProduct = ref(new ProductModel())
 
-function showProductDialog(product: ProductWithCategoryModel) {
+function showProductDialog(product: ProductModel) {
   dialogProduct.value = product
   showProductDetails.value = true
 }

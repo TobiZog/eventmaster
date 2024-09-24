@@ -1,11 +1,11 @@
 <script setup lang="ts">
-import { ProductWithCategoryModel } from '@/data/models/productWithCategoryModel';
+import { ProductModel } from '@/data/models/productModel';
 import cardView from '@/components/cardView.vue';
 
 defineProps({
   product: {
     required: true,
-    type: ProductWithCategoryModel
+    type: ProductModel
   }
 })
 </script>
@@ -65,11 +65,11 @@ defineProps({
         </div>
 
         <div style="position: absolute; bottom: 0; right: 0;" class="pr-2 pb-2">
-          <div v-if="product.storedItems > 5" class="text-green-lighten-1">
-            {{ $t("product.storedItemsAvailable", [product.storedItems]) }}
+          <div v-if="product.inStock > 5" class="text-green-lighten-1">
+            {{ $t("product.storedItemsAvailable", [product.inStock]) }}
           </div>
-          <div v-else-if="product.storedItems > 0" class="text-orange-lighten-1">
-            {{ $t("product.storedItemsAvailable", [product.storedItems]) }}
+          <div v-else-if="product.inStock > 0" class="text-orange-lighten-1">
+            {{ $t("product.storedItemsAvailable", [product.inStock]) }}
           </div>
           <div v-else class="text-red">
             {{ $t("product.soldOut") }}

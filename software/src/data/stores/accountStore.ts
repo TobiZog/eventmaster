@@ -1,21 +1,16 @@
-import { defineStore } from "pinia";
 import { useLocalStorage } from "@vueuse/core";
-import { ThemeEnum } from "../enums/themeEnums";
-import { LanguageEnum } from "../enums/languageEnum";
+import { defineStore } from "pinia";
 import { AccountModel } from "../models/accountModel";
-import { loginAccount, registerAccount, updateAccount } from "../api/accountApi";
-import { useFeedbackStore } from "./feedbackStore";
-import { BannerStateEnum } from "../enums/bannerStateEnum";
 import { OrderModel } from "../models/orderModel";
+import { useFeedbackStore } from "./feedbackStore";
+import { loginAccount, registerAccount, updateAccount } from "../api/accountApi";
 import { getUserOrders } from "../api/orderApi";
+import { BannerStateEnum } from "../enums/bannerStateEnum";
 
-export const useUserStore = defineStore('userStore', {
+export const useAccountStore = defineStore("accountStore", {
   state: () => ({
-    theme: useLocalStorage<ThemeEnum>("hackmycart/userStore/theme", ThemeEnum.DARKRED),
-    language: useLocalStorage<LanguageEnum>("hackmycart/userStore/language", LanguageEnum.GERMAN),
-    userAccount: useLocalStorage<AccountModel>("hackmycart/userStore/userAccount", new AccountModel()),
-    loggedIn: useLocalStorage<Boolean>("hackmycart/userStore/loggedIn", false),
-    orders: useLocalStorage<Array<OrderModel>>("hackmycart/userStore/orders", [])
+    userAccount: useLocalStorage("hackmycart/accountStore/userAccount", new AccountModel()),
+    orders: useLocalStorage<Array<OrderModel>>("hackmycart/accountStore/orders", [ new OrderModel() ])
   }),
 
   actions: {

@@ -4,13 +4,13 @@ import { ModelRef, ref, watch } from 'vue';
 import { useBasketStore } from '@/data/stores/basketStore';
 import { calcProductPrice, productToBasketItem } from '@/scripts/productScripts';
 import ActionDialog from '@/components/actionDialog.vue'
-import { ProductWithCategoryModel } from '@/data/models/productWithCategoryModel';
+import { ProductModel } from '@/data/models/productModel';
 import outlinedButton from '@/components/outlinedButton.vue';
 
 const props = defineProps({
   product: {
-    type: ProductWithCategoryModel,
-    default: new ProductWithCategoryModel()
+    type: ProductModel,
+    default: new ProductModel()
   }
 })
 
@@ -32,7 +32,7 @@ watch(() => props.product.images, () => {
 
 <template>
   <action-dialog
-    :title="product.brand + ': ' + product.name"
+    :title="product.brand.name + ': ' + product.name"
     :icon="product.category.icon"
     :subtitle="product.category.name"
     v-model="showDialog"
@@ -107,11 +107,11 @@ watch(() => props.product.images, () => {
             <v-row>
               <v-col cols="3">
                 <div class="pt-3">
-                  <div v-if="product.storedItems > 5" class="text-green-lighten-1">
-                    {{ $t("product.storedItemsAvailable", [product.storedItems]) }}
+                  <div v-if="product.inStock > 5" class="text-green-lighten-1">
+                    {{ $t("product.storedItemsAvailable", [product.inStock]) }}
                   </div>
-                  <div v-else-if="product.storedItems > 0" class="text-orange-lighten-1">
-                    {{ $t("product.storedItemsAvailable", [product.storedItems]) }}
+                  <div v-else-if="product.inStock > 0" class="text-orange-lighten-1">
+                    {{ $t("product.storedItemsAvailable", [product.inStock]) }}
                   </div>
                   <div v-else class="text-red">
                     {{ $t("product.soldOut") }}
@@ -147,14 +147,14 @@ watch(() => props.product.images, () => {
         :max="10"
         density="comfortable"
         :hide-details="true"
-        :disabled="product.storedItems == 0"
+        :disabled="product.inStock == 0"
       />
 
       <outlined-button
         prepend-icon="mdi-cart-plus"
         @click="addProductToBasket"
         height="50"
-        :disabled="product.storedItems == 0"
+        :disabled="product.inStock == 0"
       >
         {{ $t('addToBasket') }}
       </outlined-button>

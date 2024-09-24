@@ -1,27 +1,27 @@
 <script setup lang="ts">
 import { useTheme } from 'vuetify/lib/framework.mjs';
-import { useUserStore } from './data/stores/userStore';
 import { i18n } from './plugins/i18n';
 import { ref, watch } from 'vue';
 import vuetify from './plugins/vuetify';
 import navigationItems from './components/navigationItems.vue';
 import { useProductStore } from './data/stores/productStore';
 import { useCategoryStore } from './data/stores/categoryStore';
+import { usePreferencesStore } from './data/stores/preferencesStore';
 
-const userStore = useUserStore()
+const preferencesStore = usePreferencesStore()
 const productStore = useProductStore()
 const categoryStore = useCategoryStore()
 const theme = useTheme()
 const navRail = ref(vuetify.display.mobile)
 
-theme.global.name.value = userStore.theme
+theme.global.name.value = preferencesStore.theme
 
 productStore.fetchAllProducts()
 categoryStore.fetchAllCategories()
 
 // Global watcher
-watch(() => userStore.language, () => {
-  i18n.global.locale = userStore.language
+watch(() => preferencesStore.language, () => {
+  i18n.global.locale = preferencesStore.language
 }, { immediate: true })
 </script>
 

@@ -2,12 +2,18 @@
   "data": [
     {
       "id": 0,
+      "name": "Unregistered",
+      "privilegeBuy": false,
+      "privilegeAdminPanel": false
+    },
+    {
+      "id": 1,
       "name": "User",
       "privilegeBuy": true,
       "privilegeAdminPanel": false
     },
     {
-      "id": 1,
+      "id": 2,
       "name": "Admin",
       "privilegeBuy": true,
       "privilegeAdminPanel": true

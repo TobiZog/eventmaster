@@ -29,8 +29,8 @@ function formatDateTimeString(string: string) {
 
 <template>
   <card-view
-    :title="$t('orders.orderFrom') + ' ' + formatDateTimeString(order.createdAt) + ' ' + $t('oclock')"
-    :subtitle="$t('totalPrice') + ': ' + order.totalPrice + ' €'"
+    :title="$t('orders.orderFrom') + ' ' + formatDateTimeString(order.orderedAt) + ' ' + $t('oclock')"
+    :subtitle="$t('totalPrice') + ': ' + 0 + ' €'"
   >
     <v-timeline direction="horizontal" side="start" size="x-large">
       <v-timeline-item :dot-color="getDotColor(order, 1)" icon="mdi-basket-check">
@@ -64,9 +64,9 @@ function formatDateTimeString(string: string) {
         </tr>
       </thead>
       <tbody>
-        <tr v-for="orderItem in order.orderItem">
+        <tr v-for="orderItem in order.orderItems">
           <td>{{ orderItem.quantity }}x</td>
-          <td>{{ orderItem.product.brand }}</td>
+          <td>{{ orderItem.product.brand.name }}</td>
           <td>{{ orderItem.product.name }}</td>
           <td>{{ orderItem.product.price }} €</td>
         </tr>

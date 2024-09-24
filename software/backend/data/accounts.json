@@ -22,7 +22,7 @@
           "iban": "DE92500105175721645777"
         }
       ],
-      "accountRoleId": 1
+      "accountRoleId": 2
     },
     {
       "id": 1,
@@ -46,7 +46,7 @@
           "iban": "DE12500105179557939114"
         }
       ],
-      "accountRoleId": 0
+      "accountRoleId": 1
     },
     {
       "id": 2,
@@ -77,7 +77,7 @@
           "iban": "DE31500105175417833272"
         }
       ],
-      "accountRoleId": 0
+      "accountRoleId": 1
     },
     {
       "id": 3,
@@ -101,7 +101,7 @@
           "iban": "DE41500105172184936679"
         }
       ],
-      "accountRoleId": 0
+      "accountRoleId": 1
     },
     {
       "id": 4,
@@ -125,7 +125,7 @@
           "iban": "DE85500105172283979774"
         }
       ],
-      "accountRoleId": 0
+      "accountRoleId": 1
     },
     {
       "id": 5,
@@ -149,7 +149,7 @@
           "iban": "DE45500105178862417577"
         }
       ],
-      "accountRoleId": 0
+      "accountRoleId": 1
     },
     {
       "id": 6,
@@ -180,7 +180,7 @@
           "iban": "DE51500105177526222196"
         }
       ],
-      "accountRoleId": 0
+      "accountRoleId": 1
     }
   ]
 }

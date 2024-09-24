@@ -7,7 +7,7 @@ export const category = Router()
 category.get("/", (req: Request, res: Response, next: NextFunction) => {
   Category.findAll()
     .then(categories => {
-      res.status(200).json(categories).send()
+      res.status(200).json(categories)
     })
 })
 
@@ -15,13 +15,13 @@ category.get("/", (req: Request, res: Response, next: NextFunction) => {
 category.post("/", (req: Request, res: Response, next: NextFunction) => {
   Category.create(req.body)
     .then(category => {
-      res.status(201).json(category).send()
+      res.status(201).json(category)
     })
     .catch(error => {
       res.status(400).json({ 
         code: 400,
         message: error
-      }).send()
+      })
     })
 })
 
@@ -31,12 +31,12 @@ category.delete("/:id", (req: Request, res: Response, next: NextFunction) => {
     where: { id: req.params.id }
   })
     .then(category => {
-      res.status(200).json(category).send()
+      res.status(200).json(category)
     })
     .catch(error => {
       res.status(400).json({
         code: 400,
         message: error
-      }).send()
+      })
     })
 })

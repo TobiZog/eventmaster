@@ -3,13 +3,13 @@ import { useBasketStore } from '@/data/stores/basketStore';
 import productsTable from './productsTable.vue';
 import alertBanner from '@/components/alertBanner.vue';
 import cardView from '@/components/cardView.vue';
-import { useUserStore } from '@/data/stores/userStore';
 import orderingDialog from './orderingDialog.vue';
 import outlinedButton from '@/components/outlinedButton.vue';
 import { ref } from 'vue';
+import { useAccountStore } from '@/data/stores/accountStore';
 
 const basketStore = useBasketStore()
-const userStore = useUserStore()
+const accountStore = useAccountStore()
 const showOrderingDialog = ref()
 </script>
 
@@ -47,7 +47,7 @@ const showOrderingDialog = ref()
           <template #actions>
             <outlined-button
               prepend-icon="mdi-basket-check"
-              :disabled="basketStore.itemsInBasket.length == 0 || userStore.userAccount.id == null"
+              :disabled="basketStore.itemsInBasket.length == 0 || accountStore.userAccount.id == null"
               variant="outlined"
               color="green"
               @click="showOrderingDialog = true"

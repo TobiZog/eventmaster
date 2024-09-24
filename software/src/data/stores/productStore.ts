@@ -3,13 +3,13 @@ import { defineStore } from "pinia";
 import { getAllProducts } from "../api/productApi";
 import { SortOrder } from "../enums/sortOrderEnum";
 import { CategoryModel } from "../models/categoryModel";
-import { ProductWithCategoryModel } from "../models/productWithCategoryModel";
+import { ProductModel } from "../models/productModel";
 
 
 export const useProductStore = defineStore("productStore", {
   state: () => ({
-    products: useLocalStorage<Array<ProductWithCategoryModel>>("hackmycart/productStore/products", []),
-    filteredProducts: useLocalStorage<Array<ProductWithCategoryModel>>("hackmycart/productStore/filteredProducts", []),
+    products: useLocalStorage<Array<ProductModel>>("hackmycart/productStore/products", []),
+    filteredProducts: useLocalStorage<Array<ProductModel>>("hackmycart/productStore/filteredProducts", []),
     sortOrder: useLocalStorage<SortOrder>("hackmycart/productStore/sortOrder", SortOrder.NAMEATOZ),
     filteredCategory: useLocalStorage<CategoryModel>("hackmycart/productStore/filteredCategory", new CategoryModel()),
     onlyDiscounts: useLocalStorage<Boolean>("hackmycart/productStore/onlyDiscounts", false)
@@ -28,20 +28,20 @@ export const useProductStore = defineStore("productStore", {
       if (this.filteredCategory.id == -1 || this.filteredCategory.id == 0) {
         this.filteredProducts = this.products
       } else {
-        this.filteredProducts = this.products.filter((product: ProductWithCategoryModel) => 
+        this.filteredProducts = this.products.filter((product: ProductModel) => 
           product.category.id == this.filteredCategory.id
         )
       }
 
       if (this.onlyDiscounts) {
-        this.filteredProducts = this.filteredProducts.filter((product: ProductWithCategoryModel) => 
+        this.filteredProducts = this.filteredProducts.filter((product: ProductModel) => 
           product.discount > 0
         )
       }
     },
 
     sortProducts() {
-      this.filteredProducts.sort((a: ProductWithCategoryModel, b: ProductWithCategoryModel) => {
+      this.filteredProducts.sort((a: ProductModel, b: ProductModel) => {
         switch (this.sortOrder)
         {
           case SortOrder.PRICELOWTOHIGH: {

@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import { useUserStore } from '@/data/stores/userStore';
+import { useAccountStore } from '@/data/stores/accountStore';
 import ordersCard from './ordersCard.vue';
 
-const userStore = useUserStore()
+const accountStore = useAccountStore()
 
 function getDotColor(order, step: number) {
   if (order.shippingProgress == step)
@@ -27,7 +27,7 @@ function formatDateTimeString(string: string) {
 
 <template>
   <v-container max-width="1000">
-    <v-row v-for="order in userStore.orders">
+    <v-row v-for="order in accountStore.orders">
       <v-col>
         <orders-card :order="order" />
       </v-col>

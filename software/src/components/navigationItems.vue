@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import { useUserStore } from '@/data/stores/userStore';
 import { useBasketStore } from '@/data/stores/basketStore';
+import { useAccountStore } from '@/data/stores/accountStore';
 
-const userStore = useUserStore()
+const accountStore = useAccountStore()
 const basketStore = useBasketStore()
 const navRail = defineModel("navRail", { type: Boolean })
 </script>
@@ -36,16 +36,16 @@ const navRail = defineModel("navRail", { type: Boolean })
     </v-list-subheader>
 
     <v-expand-transition>
-      <div v-if="!userStore.loggedIn">
-        <v-list-item v-if="!userStore.loggedIn" :title="$t('menu.login')" prepend-icon="mdi-login" to="/login" link />
+      <div v-if="accountStore.userAccount.id == null">
+        <v-list-item v-if="accountStore.userAccount.id == null" :title="$t('menu.login')" prepend-icon="mdi-login" to="/login" link />
       </div>
     </v-expand-transition>
 
     <v-expand-transition>
-      <div v-if="userStore.loggedIn">
+      <div v-if="accountStore.userAccount.id != null">
         <v-list-item :title="$t('menu.account')" prepend-icon="mdi-account" to="/account" link />
         <v-list-item :title="$t('menu.orders')" prepend-icon="mdi-cart-check" to="/orders" link />
-        <v-list-item :title="$t('menu.logout')" prepend-icon="mdi-logout" @click="userStore.logout" link />
+        <v-list-item :title="$t('menu.logout')" prepend-icon="mdi-logout" @click="accountStore.logout" link />
       </div>
     </v-expand-transition>
 

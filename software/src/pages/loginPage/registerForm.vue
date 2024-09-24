@@ -1,13 +1,13 @@
 <script setup lang="ts">
 import { AccountModel } from '@/data/models/accountModel';
-import { useUserStore } from '@/data/stores/userStore';
 import { ref } from 'vue';
 import cardView from '@/components/cardView.vue';
 import outlinedButton from '@/components/outlinedButton.vue';
+import { useAccountStore } from '@/data/stores/accountStore';
 
 const newUser = ref(new AccountModel())
 const showRegisterCard = defineModel("showRegisterCard", { type: Boolean, default: false })
-const userStore = useUserStore()
+const accountStore = useAccountStore()
 </script>
 
 <template>
@@ -54,12 +54,12 @@ const userStore = useUserStore()
           <v-text-field
             :label="$t('userInfo.street')"
             prepend-icon="mdi-numeric"
-            v-model="newUser.street"
+            v-model="newUser.addresses[0].street"
             clearable
           />
         </v-col>
         <v-col cols="4">
-          <v-text-field :label="$t('userInfo.houseNumber')" v-model="newUser.houseNumber" clearable />
+          <v-text-field :label="$t('userInfo.houseNumber')" v-model="newUser.addresses[0].houseNumber" clearable />
         </v-col>
       </v-row>
 
@@ -68,12 +68,12 @@ const userStore = useUserStore()
           <v-text-field
             :label="$t('userInfo.postalCode')"
             prepend-icon="mdi-city"
-            v-model="newUser.postalCode"
+            v-model="newUser.addresses[0].postalCode"
             clearable
           />
         </v-col>
         <v-col>
-          <v-text-field :label="$t('userInfo.city')" v-model="newUser.city" clearable />
+          <v-text-field :label="$t('userInfo.city')" v-model="newUser.addresses[0].city" clearable />
         </v-col>
       </v-row>
     </v-container>
@@ -88,7 +88,7 @@ const userStore = useUserStore()
 
       <outlined-button
         prepend-icon="mdi-account-plus"
-        @click="userStore.registerAccount(newUser)"
+        @click="accountStore.registerAccount(newUser)"
       >
         {{ $t('account.register') }}
       </outlined-button>

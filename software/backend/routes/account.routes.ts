@@ -22,20 +22,20 @@ account.post("/login", (req: Request, res: Response) => {
       if (account != null) {
         if (account.dataValues.password == req.body.password) {
           // Status: 200 OK
-          res.status(200).json(account).send()
+          res.status(200).json(account)
         } else {
           // Status: 401 Unauthorized
           res.status(401).json({
             code: 401, 
             message: "Unauthorized"
-          }).send()
+          })
         }
       } else {
         // Status: 400 Bad request
         res.status(400).json({
           code: 400, 
           message: "Bad Request"
-        }).send()
+        })
       }
     }
   )
@@ -50,7 +50,7 @@ account.post("/", (req: Request, res: Response) => {
     res.status(400).json({
       code: 400, 
       message: "Username too short!"
-    }).send()
+    })
   }
 
   // Check if password is valid
@@ -60,20 +60,20 @@ account.post("/", (req: Request, res: Response) => {
     res.status(400).json({ 
       code: 400, 
       message: "Password too short!"
-    }).send()
+    })
   }
 
   // Create account
   Account.create(req.body)
   .then(account => {
     // Status: 201 Created
-    res.status(201).json(account).send()
+    res.status(201).json(account)
   }).catch(reason => {
     // Status: 409 Conflict
     res.status(409).json({
       code: 409,
       message: "Username already in use"
-    }).send()
+    })
   })
 })
 
@@ -84,13 +84,13 @@ account.patch("/", (req: Request, res: Response) => {
   })
     .then(account => {
       // Status: 200 OK
-      res.status(200).json(account).send()
+      res.status(200).json(account)
     })
     .catch(error => {
       // Status: 400 Bad request
       res.status(400).json({
         code: 400,
         message: error
-    }).send()
+    })
   })
 })

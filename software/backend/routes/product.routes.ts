@@ -36,7 +36,7 @@ product.get("/:productId", (req: Request, res: Response) => {
     }
   )
     .then(product => {
-      res.status(200).json(product).send()
+      res.status(200).json(product)
     })
 })
 
@@ -44,13 +44,13 @@ product.get("/:productId", (req: Request, res: Response) => {
 product.post("/", (req: Request, res: Response) => {
   Product.create(req.body)
     .then(product => {
-      res.status(201).json(product).send()
+      res.status(201).json(product)
     })
     .catch(error => {
       res.status(400).json({
         code: 400,
         message: error
-      }).send()
+      })
     })
 })
 
@@ -60,12 +60,12 @@ product.delete("/:id", (req: Request, res: Response) => {
     where: { id: req.params.id }
   })
     .then(product => {
-      res.status(200).json(product).send()
+      res.status(200).json(product)
     })
     .catch(error => {
       res.status(400).json({
         code: 400,
         message: error
-      }).send()
+      })
     })
 })

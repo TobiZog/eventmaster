@@ -1,15 +1,14 @@
+import { AccountRole } from "./accountRole"
+import { AddressModel } from "./addressModel"
+import { PaymentModel } from "./paymentModel"
+
 export class AccountModel {
   id: number
   username: string = ""
   password: string = ""
-  street: string = ""
-  houseNumber: number = 0
-  postalCode: number = 0
-  city: string = ""
   firstName: string = ""
   lastName: string = ""
-  createdAt: string = ""
-  updatedAt: string = ""
-  bankName: string = ""
-  iban: string = ""
+  addresses: Array<AddressModel> = [ new AddressModel() ]
+  payments: Array<PaymentModel> = [ new PaymentModel() ]
+  accountRole: AccountRole = new AccountRole()
 }

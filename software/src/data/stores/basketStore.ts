@@ -4,11 +4,10 @@ import { calcProductPrice } from "@/scripts/productScripts";
 import { BasketItemModel } from "../models/basketItemModel";
 import { useFeedbackStore } from "./feedbackStore";
 import { BannerStateEnum } from "../enums/bannerStateEnum";
-import { OrderModel } from "../models/orderModel";
-import { useUserStore } from "./userStore";
 import { addOrder } from "../api/orderApi";
+import { useAccountStore } from "./accountStore";
 
-export const useBasketStore = defineStore('basket', {
+export const useBasketStore = defineStore('basketStore', {
   state: () => ({
     itemsInBasket: useLocalStorage<Array<BasketItemModel>>("hackmycart/basketStore/productsInBasket", [])
   }),
@@ -31,7 +30,7 @@ export const useBasketStore = defineStore('basket', {
       feedbackStore.changeBanner(BannerStateEnum.BASKETPRODUCTREMOVED)
 
       this.itemsInBasket = this.itemsInBasket.filter((basketItemModel: BasketItemModel) => 
-        basketItemModel.productId != item.productId
+        basketItemModel.product.id != item.product.id
       )
     },
 
@@ -40,15 +39,16 @@ export const useBasketStore = defineStore('basket', {
       feedbackStore.changeBanner(BannerStateEnum.BASKETPRODUCTADDED)
 
       // Product is already in the basket, increase number of items
-      if (this.itemsInBasket.find((basketItem) => basketItem.productId == item.productId)) {
-        this.itemsInBasket.find((basketItem) => basketItem.productId == item.productId).quantity += item.quantity
+      if (this.itemsInBasket.find((basketItem) => basketItem.productId == item.product.id)) {
+        this.itemsInBasket.find((basketItem) => 
+          basketItem.productId == item.product.id).quantity += item.quantity
       } else {
         this.itemsInBasket.push(item)
       }
     },
 
     takeOrder() {
-      const userStore = useUserStore()
+      const accountStore = useAccountStore()
 // 
       // const order = new OrderModel()
       // order.accountId = userStore.userAccount.id
@@ -56,7 +56,7 @@ export const useBasketStore = defineStore('basket', {
 // 
       // console.log(order)
 
-      addOrder(userStore.userAccount.id, this.itemsInBasket)
+      addOrder(accountStore.userAccount.id, this.itemsInBasket)
     }
   }
 })

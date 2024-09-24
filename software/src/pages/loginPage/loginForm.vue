@@ -1,16 +1,16 @@
 <script setup lang="ts">
-import { useUserStore } from '@/data/stores/userStore';
 import { ref } from 'vue';
 import cardView from '@/components/cardView.vue';
 import outlinedButton from '@/components/outlinedButton.vue';
+import { useAccountStore } from '@/data/stores/accountStore';
 
-const userStore = useUserStore()
+const accountStore = useAccountStore()
 const showRegisterCard = defineModel("showRegisterCard", { type: Boolean, default: false })
 const username = ref("duranduran")
 const password = ref("H4nn0ver")
 
 function startLogin() {
-  userStore.login(username.value, password.value)
+  accountStore.login(username.value, password.value)
 }
 </script>
 

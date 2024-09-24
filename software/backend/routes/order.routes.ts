@@ -2,6 +2,8 @@ import { Router, Request, Response } from "express";
 import { Order } from "../models/order.model";
 import { Product } from "../models/product.model";
 import { OrderItem } from "../models/orderItem.model";
+import { Brand } from "../models/brand.model";
+import { Category } from "../models/category.model";
 
 export const order = Router()
 
@@ -10,7 +12,21 @@ order.get("/:id", (req: Request, res: Response) => {
   Order.findAll({
     where: { accountId: req.params.id },
     include: [
-      { model: OrderItem, include: [ Product ] }
+      { 
+        model: OrderItem, 
+        include: [ 
+          { 
+            model: Product,
+            include: [ Brand, Category ],
+            attributes: {
+              exclude: [
+                "categoryId",
+                "brandId"
+              ]
+            }
+          },
+        ]
+      }
     ]
   })
     .then(orders => {
@@ -42,6 +58,6 @@ order.post("/", (req: Request, res: Response) => {
       }
 
       // Created
-      res.status(201).json(order).send()
+      res.status(201).json(order)
     })
 })
