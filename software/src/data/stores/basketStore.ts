@@ -1,11 +1,13 @@
 import { defineStore } from "pinia";
 import { useLocalStorage } from "@vueuse/core";
-import { calcProductPrice } from "@/scripts/productScripts";
+import { calcPrice } from "@/scripts/productScripts";
 import { BasketItemModel } from "../models/basketItemModel";
 import { useFeedbackStore } from "./feedbackStore";
 import { BannerStateEnum } from "../enums/bannerStateEnum";
 import { addOrder } from "../api/orderApi";
 import { useAccountStore } from "./accountStore";
+import { ProductModel } from "../models/productModel";
+import { useProductStore } from "./productStore";
 
 export const useBasketStore = defineStore('basketStore', {
   state: () => ({
@@ -13,11 +15,16 @@ export const useBasketStore = defineStore('basketStore', {
   }),
 
   getters: {
+    /**
+     * Calculate price of all items in the basket with discount
+     * 
+     * @returns Total price of basket
+     */
     getTotalPrice() {
       let result = 0
 
       for (let item of this.itemsInBasket) {
-        result += calcProductPrice(item, item.quantity)
+        result += calcPrice(item.product.price, item.product.discount, item.quantity)
       }
 
       return Math.round(result * 100) / 100
@@ -25,6 +32,11 @@ export const useBasketStore = defineStore('basketStore', {
   },
 
   actions: {
+    /**
+     * Remove an item from the basket
+     * 
+     * @param item Item to remove
+     */
     removeItemFromBasket(item: BasketItemModel) {
       const feedbackStore = useFeedbackStore()
       feedbackStore.changeBanner(BannerStateEnum.BASKETPRODUCTREMOVED)
@@ -34,29 +46,39 @@ export const useBasketStore = defineStore('basketStore', {
       )
     },
 
-    addItemToBasket(item: BasketItemModel) {
+    /**
+     * Add an item to the basket. If the product is already in the basket, the quantity will increase
+     * 
+     * @param product Product to add
+     * @param quantity Quantity of the product
+     */
+    addItemToBasket(product: ProductModel, quantity: number) {
       const feedbackStore = useFeedbackStore()
       feedbackStore.changeBanner(BannerStateEnum.BASKETPRODUCTADDED)
 
       // Product is already in the basket, increase number of items
-      if (this.itemsInBasket.find((basketItem) => basketItem.productId == item.product.id)) {
-        this.itemsInBasket.find((basketItem) => 
-          basketItem.productId == item.product.id).quantity += item.quantity
+      if (this.itemsInBasket.find((basketItem: BasketItemModel) => 
+        basketItem.product.id == product.id))
+      {
+        this.itemsInBasket.find((basketItem: BasketItemModel) => 
+          basketItem.product.id == product.id).quantity += quantity
       } else {
-        this.itemsInBasket.push(item)
+        this.itemsInBasket.push(new BasketItemModel(quantity, product))
       }
     },
 
-    takeOrder() {
+    /**
+     * Take an order to the server. Sends all articles in the basket and creates an order entry in the backend database
+     */
+    async takeOrder() {
       const accountStore = useAccountStore()
-// 
-      // const order = new OrderModel()
-      // order.accountId = userStore.userAccount.id
-      // order.orderItem = this.itemsInBasket
-// 
-      // console.log(order)
+      const productStore = useProductStore()
 
-      addOrder(accountStore.userAccount.id, this.itemsInBasket)
+      await addOrder(accountStore.userAccount.id, this.itemsInBasket)
+      this.itemsInBasket = []
+
+      await accountStore.refreshOrders()
+      await productStore.fetchAllProducts()
     }
   }
 })

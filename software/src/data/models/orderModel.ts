@@ -1,8 +1,9 @@
-import { OrderedItemModel } from "./orderedItemModel"
+import { OrderItemModel } from "./orderItemModel"
 
 export class OrderModel {
+  id: number
   accountId: number
   shippingProgress: number
-  orderItems: Array<OrderedItemModel>
+  orderItems: Array<OrderItemModel>
   orderedAt: string
 }

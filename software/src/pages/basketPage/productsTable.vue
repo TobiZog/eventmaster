@@ -30,18 +30,22 @@ function editQuantity(basketItem: BasketItemModel) {
 
     <tbody>
       <tr v-for="basketItem in basketStore.itemsInBasket">
-        <td><v-icon :icon="basketItem.categoryIcon" />
-          {{ basketItem.categoryName }}
+        <!-- Category icon and name -->
+        <td><v-icon :icon="basketItem.product.category.icon" />
+          {{ basketItem.product.category.name }}
         </td>
 
+        <!-- Product brand -->
         <td>
-          {{ basketItem.brand }}
+          {{ basketItem.product.brand.name }}
         </td>
 
+        <!-- Name of product -->
         <td>
-          {{ basketItem.name }}
+          {{ basketItem.product.name }}
         </td>
 
+        <!-- Quantity -->
         <td class="text-center">
           {{ basketItem.quantity }}x
           <v-btn
@@ -53,33 +57,35 @@ function editQuantity(basketItem: BasketItemModel) {
           />
         </td>
 
+        <!-- Price per unit -->
         <td class="text-right">
-          <div v-if="basketItem.discount > 0">
+          <div v-if="basketItem.product.discount > 0">
             <strong class="font-weight-bold text-body-1 text-red-lighten-1">
-              {{ calcPrice(basketItem.price, basketItem.discount) }} €
+              {{ calcPrice(basketItem.product.price, basketItem.product.discount) }} €
             </strong>
 
-            <div class="text-decoration-line-through ml-3 mt-1 text-caption">{{ basketItem.price }} €</div>
+            <div class="text-decoration-line-through ml-3 mt-1 text-caption">{{ basketItem.product.price }} €</div>
           </div>
 
           <div v-else>
-            {{ basketItem.price }} €
+            {{ basketItem.product.price }} €
           </div>
         </td>
 
+        <!-- Total price -->
         <td class="text-right">
-          <div v-if="basketItem.discount > 0">
+          <div v-if="basketItem.product.discount > 0">
             <strong class="font-weight-bold text-body-1 text-red-lighten-1">
-              {{ calcPrice(basketItem.price, basketItem.discount, basketItem.quantity) }} €
+              {{ calcPrice(basketItem.product.price, basketItem.product.discount, basketItem.quantity) }} €
             </strong>
 
             <div class="text-decoration-line-through ml-3 mt-1 text-caption">
-              {{ calcPrice(basketItem.price, 0, basketItem.quantity) }} €
+              {{ calcPrice(basketItem.product.price, 0, basketItem.quantity) }} €
             </div>
           </div>
 
           <div v-else>
-            {{ calcPrice(basketItem.price, 0, basketItem.quantity) }} €
+            {{ calcPrice(basketItem.product.price, 0, basketItem.quantity) }} €
           </div>
         </td>
 

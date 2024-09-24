@@ -6,6 +6,7 @@ import { useFeedbackStore } from "./feedbackStore";
 import { loginAccount, registerAccount, updateAccount } from "../api/accountApi";
 import { getUserOrders } from "../api/orderApi";
 import { BannerStateEnum } from "../enums/bannerStateEnum";
+import { calcPrice } from "@/scripts/productScripts";
 
 export const useAccountStore = defineStore("accountStore", {
   state: () => ({
@@ -20,18 +21,12 @@ export const useAccountStore = defineStore("accountStore", {
       await loginAccount(username, password)
         .then(async result => {
           this.userAccount = result.data
-          this.loggedIn = true
 
           feedbackStore.changeBanner(BannerStateEnum.ACCOUNTLOGINSUCCESSFUL)
 
-          await getUserOrders(result.data.id)
-            .then(result => {
-              this.orders = result.data
-            })
+          this.refreshOrders()
         })
         .catch(error => {
-          this.loggedIn = false
-
           if (error.status == 400) {
             feedbackStore.changeBanner(BannerStateEnum.ACCOUNTLOGINERROR)
           } else if (error.status == 401) {
@@ -76,6 +71,24 @@ export const useAccountStore = defineStore("accountStore", {
       this.loggedIn = false
       
       feedbackStore.changeBanner(BannerStateEnum.ACCOUNTLOGOUTSUCCESSFUL)
+    },
+
+    async refreshOrders() {
+      await getUserOrders(this.userAccount.id)
+        .then(result => {
+          this.orders = result.data
+        })
+    },
+
+    getOrderTotalPrice(orderId: number) {
+      let totalPrice = 0
+      let order: OrderModel = this.orders.find((order: OrderModel) => order.id == orderId)
+      
+      for (let item of order.orderItems) {
+        totalPrice += calcPrice(item.orderPrice, 0, item.quantity)
+      }
+
+      return Math.round(totalPrice * 100) / 100
     }
   }
 })

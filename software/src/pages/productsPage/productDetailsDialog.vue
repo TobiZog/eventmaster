@@ -2,7 +2,7 @@
 import { VNumberInput } from 'vuetify/labs/VNumberInput'
 import { ModelRef, ref, watch } from 'vue';
 import { useBasketStore } from '@/data/stores/basketStore';
-import { calcProductPrice, productToBasketItem } from '@/scripts/productScripts';
+import { calcPrice } from '@/scripts/productScripts';
 import ActionDialog from '@/components/actionDialog.vue'
 import { ProductModel } from '@/data/models/productModel';
 import outlinedButton from '@/components/outlinedButton.vue';
@@ -20,7 +20,7 @@ const basketStore = useBasketStore()
 const selectedImage = ref("")
 
 function addProductToBasket() {
-  basketStore.addItemToBasket(productToBasketItem(props.product, nrOfArticles.value))
+  basketStore.addItemToBasket(props.product, nrOfArticles.value)
   nrOfArticles.value = 1
   showDialog.value = false
 }
@@ -121,7 +121,7 @@ watch(() => props.product.images, () => {
             <div v-if="product.discount == 0" class="text-h3">{{ product.price }} €</div>
             <div v-else class="d-flex align-center flex-column my-auto">
               <div class="text-h3"> 
-                <span class="text-red-lighten-1"> {{ calcProductPrice(product, nrOfArticles) }} €</span>
+                <span class="text-red-lighten-1"> {{ calcPrice(product.price, product.discount) }} €</span>
                 <span class="text-h6 ml-2 text-decoration-line-through">{{ product.price }} € </span>
                 <span class="text-h6 ml-4 mb-1 bg-red">-{{ product.discount }} %</span>
               </div>

@@ -22,27 +22,28 @@ const showOrderingDialog = ref()
     </v-row>
     <v-row>
       <v-col>
-        <card-view :title="$t('menu.basket')" prepend-icon="mdi-cart">
-          <v-card-subtitle v-if="basketStore.itemsInBasket.length > 0">
-            <div v-if="basketStore.itemsInBasket.length == 1">
-              {{ basketStore.itemsInBasket.length }} {{ $t('product.product') }}
-            </div>
-            <div v-else>
-              {{ basketStore.itemsInBasket.length }} {{ $t('product.products') }}
-            </div>
-          </v-card-subtitle>
+        <card-view
+          :title="$t('menu.basket')"
+          :subtitle="basketStore.itemsInBasket.length + ' ' + 
+            $tc('product.product', basketStore.itemsInBasket.length)"
+          v-model="showOrderingDialog"
+          icon="mdi-cart"
+        >
+          <template #withoutContainer>
+            <!-- Display items if card is not empty -->
+            <products-table v-if="basketStore.itemsInBasket.length > 0" />
 
-          <products-table v-if="basketStore.itemsInBasket.length > 0" />
+            <!-- Display empty state if card is empty -->
+            <v-empty-state v-else
+              icon="mdi-basket-off"
+              :title="$t('emptyBasketTitle')"
+              :text="$t('emptyBasketText')"
+            />
 
-          <v-empty-state v-else
-            icon="mdi-basket-off"
-            :title="$t('emptyBasketTitle')"
-            :text="$t('emptyBasketText')"
-          />
-
-          <v-card-text class="text-right text-h5" v-if="basketStore.itemsInBasket.length > 0">
-            {{ $t('totalPrice') }}: {{ basketStore.getTotalPrice }} €
-          </v-card-text>
+            <v-card-text class="text-right text-h5" v-if="basketStore.itemsInBasket.length > 0">
+              {{ $t('totalPrice') }}: {{ basketStore.getTotalPrice }} €
+            </v-card-text>
+          </template>
 
           <template #actions>
             <outlined-button

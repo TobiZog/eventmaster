@@ -20,6 +20,12 @@ app.use(bodyParser.json())
 // Create database and tables
 startDatabase()
 
+// Add delay for more realistic response times
+app.use((req, res, next) => {
+  console.log(123)
+  setTimeout(next, Math.floor((Math.random () * 4000) + 100))
+})
+
 // Routes
 app.use("/api", api)
 app.use("/categories", category)

@@ -1,8 +1,8 @@
 import { ProductModel } from "./productModel"
 
-export class OrderedItemModel {
+export class OrderItemModel {
   orderId: number = -1
-  product: ProductModel
   quantity: number = 1
-  totalPrice: number = 0
+  orderPrice: number = 0
+  product: ProductModel
 }

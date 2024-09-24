@@ -22,8 +22,7 @@
     "resetConfirm": "Soll die Datenbank wirklich zurückgesetzt werden?"
   },
   "product": {
-    "product": "Produkt",
-    "products": "Produkte",
+    "product": "Produkt | Produkte",
     "productName": "Produkt Name",
     "brand": "Marke",
     "productPrice": "Einzelpreis",
@@ -115,5 +114,6 @@
     "exerciseGroup2": "Aufgabengruppe 2: Broken Access Control",
     "exerciseGroup3": "Aufgabengruppe 3: Cross-Site Scripting (XSS)",
     "exercise": "Aufgabe {0}"
-  }
+  },
+  "serverState": "Server Status"
 }

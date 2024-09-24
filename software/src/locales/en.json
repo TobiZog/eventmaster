@@ -22,8 +22,7 @@
     "resetConfirm": "Really reset the database?"
   },
   "product": {
-    "product": "Product",
-    "products": "Products",
+    "product": "Product | Products",
     "productName": "Product name",
     "brand": "Brand",
     "productPrice": "Unit price",
@@ -115,5 +114,6 @@
     "exerciseGroup2": "Exercise Group 2: Broken Access Control",
     "exerciseGroup3": "Exercise Group 3: Cross-Site Scripting (XSS)",
     "exercise": "Exercise {0}"
-  }
+  },
+  "serverState": "Server State:"
 }

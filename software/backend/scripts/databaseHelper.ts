@@ -20,11 +20,17 @@ import brands from "./../data/brands.json"
  * Delete all datasets in every database table
  */
 export function deleteAllTables() {
-  Category.destroy({ truncate: true })
-  Order.destroy({ truncate: true })
   OrderItem.destroy({truncate: true })
+  Order.destroy({ truncate: true })
+
   Product.destroy({ truncate: true })
+  Brand.destroy({ truncate: true })
+  Category.destroy({ truncate: true })
+  
+  Address.destroy({ truncate: true })
+  Payment.destroy({ truncate: true })
   Account.destroy({ truncate: true })
+  AccountRole.destroy({ truncate: true})
 }
 
 /**
