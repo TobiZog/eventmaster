@@ -10,7 +10,14 @@
     "helpInstructions": "Help instructions",
     "preferences": "Preferences",
     "logout": "Logout",
-    "scoreBoard": "Score Board"
+    "scoreBoard": "Score Board",
+    "admin": {
+      "admin": "Administration",
+      "dashboard": "Dashboard",
+      "categories": "Categories",
+      "products": "Products",
+      "accounts": "Accounts"
+    }
   },
   "preferences": {
     "pageSetup": "Page setup",
@@ -29,10 +36,12 @@
     "category": "Category",
     "description": "Description",
     "storedItemsAvailable": "{0} items available",
-    "soldOut": "Sold Out"
+    "soldOut": "Sold Out",
+    "discount": "Discount",
+    "inStock": "In Stock"
   },
   "offers": "Offers",
-  "categories": "Categories",
+  "category": "Category | Categories",
   "sortBy": "Sort by",
   "quantity": "Quantity",
   "addToBasket": "Add to basket",
@@ -133,5 +142,8 @@
   "emailRequired": "E-Mail is required",
   "tooMuchChars": "Too long",
   "digitsAtStartNeeded": "Has to beginn with a number",
-  "wrongIban": "Wrong IBAN format, only German IBANs are allowed!"
+  "wrongIban": "Wrong IBAN format, only German IBANs are allowed!",
+  "save": "Save",
+  "editProduct": "Edit product",
+  "brand": "Brand | Brands"
 }

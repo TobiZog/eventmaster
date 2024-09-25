@@ -7,6 +7,7 @@ import { category } from './routes/category.routes'
 import { product } from './routes/product.routes'
 import { order } from './routes/order.routes'
 import { account } from './routes/account.routes'
+import { brand } from './routes/brand.routes'
 
 const app = express()
 const port = 3000
@@ -35,6 +36,7 @@ app.use("/categories", category)
 app.use("/products", product)
 app.use("/orders", order)
 app.use("/accounts", account)
+app.use("/brands", brand)
 
 
 // Start server

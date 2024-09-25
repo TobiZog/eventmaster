@@ -27,7 +27,8 @@
         "thinkpad-t14s-6.avif",
         "thinkpad-t14s-7.avif"
       ],
-      "inStock": 5
+      "inStock": 5,
+      "offered": true
     },
     {
       "id": 1,
@@ -52,7 +53,8 @@
         "puma-t-shirt-men-4.jpg",
         "puma-t-shirt-men-5.jpg"
       ],
-      "inStock": 30
+      "inStock": 30,
+      "offered": true
     },
     {
       "id": 2,
@@ -78,7 +80,8 @@
         "puma-t-shirt-woman-5.jpg",
         "puma-t-shirt-woman-6.jpg"
       ],
-      "inStock": 30
+      "inStock": 30,
+      "offered": true
     },
     {
       "id": 3,
@@ -108,7 +111,8 @@
         "1984-2.webp",
         "1984-3.webp"
       ],
-      "inStock": 30
+      "inStock": 30,
+      "offered": true
     },
     {
       "id": 4,
@@ -135,7 +139,8 @@
         "brave-new-world-1.jpg",
         "brave-new-world-2.jpg"
       ],
-      "inStock": 30
+      "inStock": 30,
+      "offered": true
     },
     {
       "id": 5,
@@ -160,7 +165,8 @@
         "dell-xps-desktop-5.jpg",
         "dell-xps-desktop-6.jpg"
       ],
-      "inStock": 10
+      "inStock": 10,
+      "offered": true
     },
     {
       "id": 6,
@@ -198,7 +204,8 @@
         "fender-player-ii-jazz-bass-rw-3ts-4.jpg",
         "fender-player-ii-jazz-bass-rw-3ts-5.jpg"
       ],
-      "inStock": 15
+      "inStock": 15,
+      "offered": true
     },
     {
       "id": 7,
@@ -239,7 +246,8 @@
         "esp-lts-iron-cross-sw-5.jpg",
         "esp-lts-iron-cross-sw-6.jpg"
       ],
-      "inStock": 0
+      "inStock": 0,
+      "offered": true
     },
     {
       "id": 8,
@@ -273,7 +281,8 @@
         "pearl-decade-maple-standard-black-5.jpg",
         "pearl-decade-maple-standard-black-6.jpg"
       ],
-      "inStock": 4
+      "inStock": 4,
+      "offered": true
     },
     {
       "id": 9,
@@ -299,7 +308,8 @@
         "macbook-air-4.avif",
         "macbook-air-5.avif"
       ],
-      "inStock": 18
+      "inStock": 18,
+      "offered": false
     }
   ]
 }

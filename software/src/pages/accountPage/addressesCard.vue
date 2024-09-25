@@ -12,7 +12,7 @@ const accountStore = useAccountStore()
 <template>
   <card-view 
     icon="mdi-home"
-    :title="$t('account.addresses')"
+    :title="$t('account.address')"
   >
     <v-expansion-panels v-if="accountStore.userAccount.addresses.length > 0">
       <v-expansion-panel

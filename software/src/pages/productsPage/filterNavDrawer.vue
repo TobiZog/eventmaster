@@ -1,10 +1,8 @@
 <script setup lang="ts">
 import { SortOrder } from '@/data/enums/sortOrderEnum';
-import { useCategoryStore } from '@/data/stores/categoryStore';
 import { useProductStore } from '@/data/stores/productStore';
 
 const productStore = useProductStore()
-const categoryStore = useCategoryStore()
 const sortOrderItems = Object.values(SortOrder)
 </script>
 
@@ -19,8 +17,8 @@ const sortOrderItems = Object.values(SortOrder)
 
       <v-list-item>
         <v-select
-          :items="categoryStore.categories"
-          :label="$t('categories')"
+          :items="productStore.categories"
+          :label="$t('category', 2)"
           v-model="productStore.filteredCategory"
         >
           <template v-slot:item="{ props, item }">

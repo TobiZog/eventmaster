@@ -31,6 +31,9 @@ export class Product extends Model {
   @Column
   inStock: number
 
+  @Column
+  offered: boolean
+
   @Column({
     type: DataType.STRING,
     get(): Array<string> {

@@ -5,13 +5,11 @@ import { ref, watch } from 'vue';
 import vuetify from './plugins/vuetify';
 import navigationItems from './components/navigationItems.vue';
 import { useProductStore } from './data/stores/productStore';
-import { useCategoryStore } from './data/stores/categoryStore';
 import { usePreferencesStore } from './data/stores/preferencesStore';
 import { useFeedbackStore } from './data/stores/feedbackStore';
 
 const preferencesStore = usePreferencesStore()
 const productStore = useProductStore()
-const categoryStore = useCategoryStore()
 const feedbackStore = useFeedbackStore()
 const theme = useTheme()
 const navRail = ref(vuetify.display.mobile)
@@ -19,7 +17,8 @@ const navRail = ref(vuetify.display.mobile)
 theme.global.name.value = preferencesStore.theme
 
 productStore.fetchAllProducts()
-categoryStore.fetchAllCategories()
+productStore.fetchAllCategories()
+productStore.fetchAllBrands()
 
 // Global watcher
 watch(() => preferencesStore.language, () => {

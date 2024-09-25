@@ -4,6 +4,9 @@ import { getAllProducts } from "../api/productApi";
 import { SortOrder } from "../enums/sortOrderEnum";
 import { CategoryModel } from "../models/categoryModel";
 import { ProductModel } from "../models/productModel";
+import { BrandModel } from "../models/brandModel";
+import { getAllCategories } from "../api/categoryApi";
+import { getAllBrands } from "../api/brandApi";
 
 
 export const useProductStore = defineStore("productStore", {
@@ -12,7 +15,9 @@ export const useProductStore = defineStore("productStore", {
     filteredProducts: useLocalStorage<Array<ProductModel>>("hackmycart/productStore/filteredProducts", []),
     sortOrder: useLocalStorage<SortOrder>("hackmycart/productStore/sortOrder", SortOrder.NAMEATOZ),
     filteredCategory: useLocalStorage<CategoryModel>("hackmycart/productStore/filteredCategory", new CategoryModel()),
-    onlyDiscounts: useLocalStorage<Boolean>("hackmycart/productStore/onlyDiscounts", false)
+    onlyDiscounts: useLocalStorage<Boolean>("hackmycart/productStore/onlyDiscounts", false),
+    brands: useLocalStorage<Array<BrandModel>>("hackmycart/productStore/brands", []),
+    categories: useLocalStorage<Array<CategoryModel>>("hackmycart/productStore/categories", [])
   }),
 
   actions: {
@@ -21,6 +26,20 @@ export const useProductStore = defineStore("productStore", {
         .then(products => {
           this.products = products.data
           this.filteredProducts = products.data
+        })
+    },
+
+    async fetchAllCategories() {
+      await getAllCategories()
+        .then(categories => {
+          this.categories = categories.data
+        })
+    },
+
+    async fetchAllBrands() {
+      await getAllBrands()
+        .then(brands => {
+          this.brands = brands.data
         })
     },
 

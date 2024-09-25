@@ -129,6 +129,20 @@ The application host it's data in a SQLite database. The access is managed by an
 > | `200` | `application/json` | `Array<Categories>` |
 </details>
 
+
+<details>
+<summary><code><span style="color:#70AFFD"><b>GET</b></span></code> <code><b>/brands</b></code> <code> (Get all Brands)</code>
+</summary>
+
+##### Parameters
+> None
+
+##### Responses
+> | http code | content-type | response |
+> | :---: | --- | --- |
+> | `200` | `application/json` | `Array<Brand>` |
+</details>
+
 ---
 
 #### Creating new

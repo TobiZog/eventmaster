@@ -61,5 +61,21 @@ const navRail = defineModel("navRail", { type: Boolean })
     <v-list-item :title="$t('menu.helpInstructions')" prepend-icon="mdi-chat-question" to="/help" link />
     <v-list-item :title="$t('menu.scoreBoard')" prepend-icon="mdi-podium-gold" to="/scoreBoard" link />
     <v-list-item :title="$t('menu.preferences')" prepend-icon="mdi-cog" to="/preferences" link />
+
+
+    <div v-if="accountStore.userAccount.accountRole.privilegeAdminPanel">
+      <v-divider />
+
+      <v-list-subheader>
+        <div v-if="!navRail">{{ $t('menu.admin.admin') }}</div>
+        <div v-else></div>
+      </v-list-subheader>
+
+      <v-list-item :title="$t('menu.admin.dashboard')" prepend-icon="mdi-view-dashboard" to="/admin/dashboard" link />
+      <v-list-item :title="$t('menu.admin.categories')" prepend-icon="mdi-label" to="/admin/categories" link />
+      <v-list-item :title="$t('menu.admin.products')" prepend-icon="mdi-store-cog" to="/admin/products" link />
+      <v-list-item :title="$t('menu.admin.accounts')" prepend-icon="mdi-account-multiple" to="/admin/accounts" link />
+    </div>
+    
   </v-list>
 </template>

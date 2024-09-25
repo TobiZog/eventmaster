@@ -12,7 +12,7 @@ const accountStore = useAccountStore()
 <template>
   <card-view 
     icon="mdi-currency-usd"
-    :title="$t('account.payments')"
+    :title="$t('account.payment')"
   >
     <v-expansion-panels
       v-if="accountStore.userAccount.payments.length > 0"

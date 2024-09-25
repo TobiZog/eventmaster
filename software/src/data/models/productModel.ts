@@ -10,7 +10,8 @@ export class ProductModel {
   price: number = 0
   discount: number = 0
   rating: number = 1
-  inStock: number
+  inStock: number = 0
+  offered: boolean = true
   specs: Array<string> = []
   images: Array<string> = [""]
 }

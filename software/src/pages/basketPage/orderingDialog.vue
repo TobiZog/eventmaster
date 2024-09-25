@@ -91,6 +91,7 @@ async function doOrder() {
         @click="showDialog = false"
         prepend-icon="mdi-close"
         color="orange"
+        :disabled="orderingInProgress"
       >
         {{ $t('dialog.cancel') }}
       </outlined-button>

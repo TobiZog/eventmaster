@@ -10,7 +10,14 @@
     "helpInstructions": "Hilfestellung",
     "preferences": "Einstellungen",
     "logout": "Ausloggen",
-    "scoreBoard": "Score Board"
+    "scoreBoard": "Score Board",
+    "admin": {
+      "admin": "Administration",
+      "dashboard": "Dashboard",
+      "categories": "Kategorien",
+      "products": "Produkte",
+      "accounts": "Accounts"
+    }
   },
   "preferences": {
     "pageSetup": "Seiteneinstellungen",
@@ -29,10 +36,12 @@
     "category": "Kategorie",
     "description": "Beschreibung",
     "storedItemsAvailable": "{0} verfügbar",
-    "soldOut": "Ausverkauft"
+    "soldOut": "Ausverkauft",
+    "discount": "Rabatt",
+    "inStock": "Warenbestand"
   },
   "offers": "Angebote",
-  "categories": "Kategorien",
+  "category": "Kategorie | Kategorien",
   "sortBy": "Sortieren nach",
   "quantity": "Anzahl",
   "addToBasket": "Zum Warenkorb hinzufügen",
@@ -133,5 +142,8 @@
   "emailRequired": "E-Mail-Adresse benötigt",
   "tooMuchChars": "Zu lang",
   "digitsAtStartNeeded": "Muss mit einer Zahl beginnen",
-  "wrongIban": "Falsches IBAN Format, nur deutsche IBAN-Nummern erlaubt!"
+  "wrongIban": "Falsches IBAN Format, nur deutsche IBAN-Nummern erlaubt!",
+  "save": "Speichern",
+  "editProduct": "Produkt bearbeiten",
+  "brand": "Marke | Marken"
 }
