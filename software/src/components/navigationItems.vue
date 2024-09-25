@@ -73,6 +73,7 @@ const navRail = defineModel("navRail", { type: Boolean })
 
       <v-list-item :title="$t('menu.admin.dashboard')" prepend-icon="mdi-view-dashboard" to="/admin/dashboard" link />
       <v-list-item :title="$t('menu.admin.categories')" prepend-icon="mdi-label" to="/admin/categories" link />
+      <v-list-item :title="$t('brand', 2)" prepend-icon="mdi-factory" to="/admin/brands" link />
       <v-list-item :title="$t('menu.admin.products')" prepend-icon="mdi-store-cog" to="/admin/products" link />
       <v-list-item :title="$t('menu.admin.accounts')" prepend-icon="mdi-account-multiple" to="/admin/accounts" link />
     </div>

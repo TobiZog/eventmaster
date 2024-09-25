@@ -6,7 +6,6 @@ const productStore = useProductStore()
 
 const headers = [
   { title: "Name", value: "name" },
-  { title: "Icon", value: "icon" },
   { title: "Edit", value: "edit" },
 ]
 </script>
@@ -16,18 +15,16 @@ const headers = [
     <v-row>
       <v-col>
         <card-view
-          :title="$t('category', 2)"
+          :title="$t('brand', 2)"
           icon="mdi-label"
-          :subtitle="productStore.categories.length + ' ' + $t('category', productStore.categories.length)"
+          :subtitle="productStore.brands.length + ' ' + $t('brand', productStore.brands.length)"
         >
           <v-data-table
-            :items="productStore.categories"
+            :items="productStore.brands"
             :headers="headers"
           >
-            <template v-slot:item.icon="{ item }">
-              <v-icon :icon="item.icon" />
-            </template>
           </v-data-table>
+            <!-- todo: Edit/Delete -->
         </card-view>
       </v-col>
     </v-row>
