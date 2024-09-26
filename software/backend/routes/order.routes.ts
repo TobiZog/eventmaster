@@ -1,11 +1,11 @@
 import { Router, Request, Response } from "express";
-import { Order } from "../models/order.model";
-import { Show } from "../models/show.model";
-import { OrderItem } from "../models/orderItem.model";
-import { Payment } from "../models/payment.model";
-import { Address } from "../models/address.model";
-import { Band } from "../models/band.model";
-import { Location } from "../models/location.model";
+import { Order } from "../models/ordering/order.model";
+import { Show } from "../models/acts/show.model";
+import { OrderItem } from "../models/ordering/orderItem.model";
+import { Payment } from "../models/user/payment.model";
+import { Address } from "../models/user/address.model";
+import { Band } from "../models/acts/band.model";
+import { Location } from "../models/acts/location.model";
 
 export const order = Router()
 

@@ -9,6 +9,7 @@ import { show } from './routes/show.routes'
 import { band } from './routes/band.routes'
 import { genre } from './routes/genre.routes'
 import { location } from './routes/location.routes'
+import { tour } from './routes/tour.routes'
 
 const app = express()
 const port = 3000
@@ -27,9 +28,9 @@ const path = require('path')
 app.use('/static', express.static(path.join(__dirname, 'images')))
 
 // Add delay for more realistic response times
-app.use((req, res, next) => {
-  setTimeout(next, Math.floor((Math.random () * 4000) + 100))
-})
+// app.use((req, res, next) => {
+//   setTimeout(next, Math.floor((Math.random () * 4000) + 100))
+// })
 
 // Routes
 app.use("/api", api)
@@ -39,6 +40,7 @@ app.use("/genres", genre)
 app.use("/locations", location)
 app.use("/orders", order)
 app.use("/accounts", account)
+app.use("/tours", tour)
 
 
 // Start server

@@ -3,7 +3,8 @@
     {
       "id": 0,
       "name": "Swiss Life Hall",
-      "address": "Ferdinand-Wilhlem-Fricke-Weg 8, 30169 Hannover",
+      "address": "Ferdinand-Wilhlem-Fricke-Weg 8",
+      "cityId": 0,
       "image": "swiss-life-hall.jpg"
     }
   ]

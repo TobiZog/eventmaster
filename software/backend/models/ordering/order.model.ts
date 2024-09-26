@@ -1,8 +1,8 @@
 import { Table, Column, Model, BelongsTo, ForeignKey, HasMany, BelongsToMany, Default } from 'sequelize-typescript';
-import { Account } from './account.model';
+import { Account } from '../user/account.model';
 import { OrderItem } from './orderItem.model';
-import { Address } from './address.model';
-import { Payment } from './payment.model';
+import { Address } from '../user/address.model';
+import { Payment } from '../user/payment.model';
 
 @Table({
   updatedAt: false,

@@ -74,7 +74,7 @@ The application host it's data in a SQLite database. The access is managed by an
 #### Listing existing
 
 <details>
-<summary><code><span style="color:#70AFFD"><b>GET</b></span></code> <code><b>/products/</b></code> <code> (Get all products)</code>
+<summary><code><span style="color:#70AFFD"><b>GET</b></span></code> <code><b>/bands</b></code> <code> (Get all bands)</code>
 </summary>
 
 ##### Parameters
@@ -83,11 +83,13 @@ The application host it's data in a SQLite database. The access is managed by an
 ##### Responses
 > | http code | content-type | response |
 > | :---: | --- | --- |
-> | `200` | `application/json` | `Array<ProductModel>` + `Category`, `Brand`  |
+> | `200` | `application/json` | `Array<Band>`  |
 </details>
 
+
+
 <details>
-<summary><code><span style="color:#70AFFD"><b>GET</b></span></code> <code><b>/products/:id</b></code> <code> (Get a product by it's id)</code>
+<summary><code><span style="color:#70AFFD"><b>GET</b></span></code> <code><b>/bands/:id</b></code> <code> (Get all information about one band)</code>
 </summary>
 
 ##### Parameters
@@ -98,8 +100,71 @@ The application host it's data in a SQLite database. The access is managed by an
 ##### Responses
 > | http code | content-type | response |
 > | :---: | --- | --- |
-> | `200` | `application/json` | `ProductModel` + `Category`, `Brand`  |
+> | `200` | `application/json` | `Band` + `Array<Rating>` + `Array<Member>`  |
 </details>
+
+
+
+<details open>
+<summary><code><span style="color:#70AFFD"><b>GET</b></span></code> <code><b>/shows/:id</b></code> <code> (Get all information about one show)</code>
+</summary>
+
+##### Parameters
+> | name | type | data type | description |
+> | :---: | --- | --- | --- |
+> | `id` |  required | string   | ID of product in the database  |
+
+##### Responses
+> | http code | content-type | response |
+> | :---: | --- | --- |
+> | `200` | `application/json` | `Show` + `Tour` + `Location` + `City`  |
+</details>
+
+
+
+<details open>
+<summary><code><span style="color:#70AFFD"><b>GET</b></span></code> <code><b>/tours</b></code> <code> (Get all tours)</code>
+</summary>
+
+##### Parameters
+> None
+
+##### Responses
+> | http code | content-type | response |
+> | :---: | --- | --- |
+> | `200` | `application/json` | `Array<Tours>` + `Band` + `Show` + `Location` + `City`  |
+</details>
+
+
+<details open>
+<summary><code><span style="color:#70AFFD"><b>GET</b></span></code> <code><b>/genres</b></code> <code> (Get all genres)</code>
+</summary>
+
+##### Parameters
+> None
+
+##### Responses
+> | http code | content-type | response |
+> | :---: | --- | --- |
+> | `200` | `application/json` | `Array<Genre>`  |
+</details>
+
+
+
+<details open>
+<summary><code><span style="color:#70AFFD"><b>GET</b></span></code> <code><b>/locations</b></code> <code> (Get all locations)</code>
+</summary>
+
+##### Parameters
+> None
+
+##### Responses
+> | http code | content-type | response |
+> | :---: | --- | --- |
+> | `200` | `application/json` | `Array<Location>` + `City`  |
+</details>
+
+
 
 <details>
 <summary><code><span style="color:#70AFFD"><b>GET</b></span></code> <code><b>/orders/:id</b></code> <code> (Get all orders of an user)</code>
@@ -116,6 +181,8 @@ The application host it's data in a SQLite database. The access is managed by an
 > | `200` | `application/json` | `ProductModel` + `Order`, `OrderItem`, `Product`  |
 </details>
 
+
+
 <details>
 <summary><code><span style="color:#70AFFD"><b>GET</b></span></code> <code><b>/categories/</b></code> <code> (Get all Categories)</code>
 </summary>
@@ -128,6 +195,7 @@ The application host it's data in a SQLite database. The access is managed by an
 > | :---: | --- | --- |
 > | `200` | `application/json` | `Array<Categories>` |
 </details>
+
 
 
 <details>
@@ -143,7 +211,9 @@ The application host it's data in a SQLite database. The access is managed by an
 > | `200` | `application/json` | `Array<Brand>` |
 </details>
 
+
 ---
+
 
 #### Creating new
 

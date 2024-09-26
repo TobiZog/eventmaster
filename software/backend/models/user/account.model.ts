@@ -1,9 +1,9 @@
 import { Table, Column, Model, HasMany, Unique, BelongsTo, ForeignKey } from 'sequelize-typescript';
-import { Order } from './order.model';
+import { Order } from '../ordering/order.model';
 import { Address } from './address.model';
 import { Payment } from './payment.model';
 import { AccountRole } from './accountRole.model';
-import { Rating } from './rating.model';
+import { Rating } from '../acts/rating.model';
 
 @Table({ timestamps: false })
 export class Account extends Model {

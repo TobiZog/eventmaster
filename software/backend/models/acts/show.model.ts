@@ -1,15 +1,10 @@
-import { BelongsTo, Column, ForeignKey, Model, Table } from "sequelize-typescript";
-import { Band } from "./band.model";
+import { BelongsTo, Column, ForeignKey, HasMany, Model, Table } from "sequelize-typescript";
 import { Location } from "./location.model";
+import { Tour } from "./tour.model";
+import { OrderItem } from "../ordering/orderItem.model";
 
 @Table({ timestamps: false })
 export class Show extends Model {
-  @Column
-  name: String
-  
-  @ForeignKey(() => Band)
-  bandId: Number
-
   @Column
   date: String
 
@@ -19,19 +14,22 @@ export class Show extends Model {
   @Column
   inStock: Number
 
-  @Column
-  offered: Boolean
-
   @ForeignKey(() => Location)
   @Column
   locationId: Number
+
+  @ForeignKey(() => Tour)
+  tourId: Number
   
 
   // Relations
 
-  @BelongsTo(() => Band)
-  band: Band
+  @BelongsTo(() => Tour)
+  tour: Tour
 
   @BelongsTo(() => Location)
   location: Location
+
+  @HasMany(() => OrderItem)
+  orderItems: OrderItem[]
 }

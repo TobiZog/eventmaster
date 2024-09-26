@@ -1,9 +1,9 @@
 import { Router, Request, Response } from "express";
-import { Account } from "../models/account.model";
+import { Account } from "../models/user/account.model";
 import { validateString } from "../scripts/validateHelper";
-import { Address } from "../models/address.model";
-import { Payment } from "../models/payment.model";
-import { AccountRole } from "../models/accountRole.model";
+import { Address } from "../models/user/address.model";
+import { Payment } from "../models/user/payment.model";
+import { AccountRole } from "../models/user/accountRole.model";
 
 export const account = Router()
 

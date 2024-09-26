@@ -1,15 +1,17 @@
-import { Order } from '../models/order.model'
-import { OrderItem } from '../models/orderItem.model'
-import { Account } from '../models/account.model'
-import { Address } from '../models/address.model'
-import { Payment } from '../models/payment.model'
-import { AccountRole } from '../models/accountRole.model'
-import { Rating } from '../models/rating.model'
-import { Member } from '../models/member.model'
-import { Genre } from '../models/genre.model'
-import { Band } from '../models/band.model'
-import { Location } from '../models/location.model'
-import { Show } from '../models/show.model'
+import { Order } from '../models/ordering/order.model'
+import { OrderItem } from '../models/ordering/orderItem.model'
+import { Account } from '../models/user/account.model'
+import { Address } from '../models/user/address.model'
+import { Payment } from '../models/user/payment.model'
+import { AccountRole } from '../models/user/accountRole.model'
+import { Rating } from '../models/acts/rating.model'
+import { Member } from '../models/acts/member.model'
+import { Genre } from '../models/acts/genre.model'
+import { Band } from '../models/acts/band.model'
+import { Location } from '../models/acts/location.model'
+import { Show } from '../models/acts/show.model'
+import { Tour } from '../models/acts/tour.model'
+import { City } from '../models/acts/city.model'
 
 import accounts from "./../data/accounts.json"
 import orders from "./../data/orders.json"
@@ -18,7 +20,8 @@ import accountRoles from "./../data/accountRoles.json"
 import bands from "./../data/bands.json"
 import genres from "./../data/genres.json"
 import locations from "./../data/locations.json"
-import shows from "./../data/shows.json"
+import tours from "./../data/tours.json"
+import cities from "./../data/cities.json"
 
 
 /**
@@ -47,6 +50,7 @@ export function deleteAllTables() {
 export async function prepopulateDatabase() {
   AccountRole.bulkCreate(accountRoles.data)
   Genre.bulkCreate(genres.data)
+  City.bulkCreate(cities.data)
   Location.bulkCreate(locations.data)
 
   // Account & Sub tables
@@ -68,7 +72,15 @@ export async function prepopulateDatabase() {
   }
 
 
-  Show.bulkCreate(shows.data)
+  for (let tour of tours.data) {
+    await Tour.create(tour)
+      .then(async dataset => {
+        for (let show of tour.shows) {
+          await Show.create(show)
+        }
+      })
+  }
+
   Order.bulkCreate(orders.data)
   OrderItem.bulkCreate(orderItems.data)
 }

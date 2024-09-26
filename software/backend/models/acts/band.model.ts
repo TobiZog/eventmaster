@@ -2,6 +2,7 @@ import { BelongsTo, Column, DataType, ForeignKey, HasMany, Model, Table } from "
 import { Member } from "./member.model";
 import { Genre } from "./genre.model";
 import { Rating } from "./rating.model";
+import { Tour } from "./tour.model";
 
 @Table({ timestamps: false })
 export class Band extends Model {
@@ -43,6 +44,9 @@ export class Band extends Model {
 
   @HasMany(() => Rating)
   ratings: Rating[]
+
+  @HasMany(() => Tour)
+  tours: Tour[]
 
   @BelongsTo(() => Genre)
   genre: Genre

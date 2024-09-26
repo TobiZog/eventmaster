@@ -1,4 +1,4 @@
-import { Genre } from "../models/genre.model";
+import { Genre } from "../models/acts/genre.model";
 import { Request, Response, Router } from "express";
 
 export const genre = Router()
