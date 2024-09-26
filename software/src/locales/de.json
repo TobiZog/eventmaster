@@ -1,24 +1,32 @@
 {
   "menu": {
-    "shopping": "Einkaufen",
-    "products": "Produkte",
-    "basket": "Warenkorb",
-    "login": "Login",
-    "account": "Account",
-    "orders": "Bestellungen",
-    "systemAndHelp": "System & Hilfe",
-    "helpInstructions": "Hilfestellung",
-    "preferences": "Einstellungen",
-    "logout": "Ausloggen",
-    "scoreBoard": "Score Board",
+    "shopping": {
+      "shopping": "Einkaufen",
+      "ticket": "Ticket | Tickets",
+      "basket": "Warenkorb"
+    },
+    "account": {
+      "accountManagement": "Kontoverwaltung",
+      "account": "Account",
+      "login": "Login",
+      "order": "Bestellung | Bestellungen",
+      "logout": "Ausloggen"
+    },
+    "systemAndHelp": {
+      "systemAndHelp": "System & Hilfe",
+      "helpInstructions": "Hilfestellung",
+      "preferences": "Einstellungen",
+      "scoreBoard": "Score Board"
+    },
     "admin": {
       "admin": "Administration",
-      "dashboard": "Dashboard",
-      "categories": "Kategorien",
-      "products": "Produkte",
-      "accounts": "Accounts"
+      "dashboard": "Dashboard"
     }
   },
+  "tours": {
+    "concert": "Konzert | Konzerte"
+  },
+
   "preferences": {
     "pageSetup": "Seiteneinstellungen",
     "selectedTheme": "Ausgewähltes Theme",

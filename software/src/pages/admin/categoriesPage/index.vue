@@ -1,8 +1,5 @@
 <script setup lang="ts">
 import cardView from '@/components/cardView.vue';
-import { useProductStore } from '@/data/stores/productStore';
-
-const productStore = useProductStore()
 
 const headers = [
   { title: "Name", value: "name" },
@@ -12,24 +9,5 @@ const headers = [
 </script>
 
 <template>
-  <v-container max-width="800">
-    <v-row>
-      <v-col>
-        <card-view
-          :title="$t('category', 2)"
-          icon="mdi-label"
-          :subtitle="productStore.categories.length + ' ' + $t('category', productStore.categories.length)"
-        >
-          <v-data-table
-            :items="productStore.categories"
-            :headers="headers"
-          >
-            <template v-slot:item.icon="{ item }">
-              <v-icon :icon="item.icon" />
-            </template>
-          </v-data-table>
-        </card-view>
-      </v-col>
-    </v-row>
-  </v-container>
+  
 </template>

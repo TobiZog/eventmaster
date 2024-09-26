@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import { SortOrder } from '@/data/enums/sortOrderEnum';
-import { useProductStore } from '@/data/stores/productStore';
+import { useTourStore } from '@/data/stores/tourStore';
 
-const productStore = useProductStore()
+const tourStore = useTourStore()
 const sortOrderItems = Object.values(SortOrder)
 </script>
 
@@ -11,15 +11,10 @@ const sortOrderItems = Object.values(SortOrder)
     <v-list>
       <v-list-subheader>Filter</v-list-subheader>
 
-      <v-list-item>
-        <v-checkbox :label="$t('offers')" v-model="productStore.onlyDiscounts" />
-      </v-list-item>
-
-      <v-list-item>
+      <!-- <v-list-item>
         <v-select
-          :items="productStore.categories"
+          :items="tourStore.genres"
           :label="$t('category', 2)"
-          v-model="productStore.filteredCategory"
         >
           <template v-slot:item="{ props, item }">
             <v-list-item v-bind="props" :prepend-icon="item.raw.icon" :title="item.raw.name" />
@@ -29,12 +24,12 @@ const sortOrderItems = Object.values(SortOrder)
             <v-list-item :prepend-icon="item.raw.icon" :title="item.raw.name" />
           </template>
         </v-select>
-      </v-list-item>
+      </v-list-item> -->
 
       <v-divider />
       <v-list-subheader>Sort</v-list-subheader>
 
-      <v-list-item>
+      <!-- <v-list-item>
         <v-select :label="$t('sortBy')" :items="sortOrderItems" v-model="productStore.sortOrder" >
           <template v-slot:item="{ props, item }">
             <v-list-item v-bind="props" :title="item.title" />
@@ -44,7 +39,7 @@ const sortOrderItems = Object.values(SortOrder)
             <v-list-item :title="item.title" />
           </template>
         </v-select>
-      </v-list-item>
+      </v-list-item> -->
     </v-list>
   </v-navigation-drawer>
 </template>

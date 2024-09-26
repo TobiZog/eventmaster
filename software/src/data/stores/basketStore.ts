@@ -6,8 +6,7 @@ import { useFeedbackStore } from "./feedbackStore";
 import { BannerStateEnum } from "../enums/bannerStateEnum";
 import { addOrder } from "../api/orderApi";
 import { useAccountStore } from "./accountStore";
-import { ProductModel } from "../models/productModel";
-import { useProductStore } from "./productStore";
+import { ShowModel } from "../models/showModel";
 import { AddressModel } from "../models/addressModel";
 import { PaymentModel } from "../models/paymentModel";
 
@@ -53,21 +52,21 @@ export const useBasketStore = defineStore('basketStore', {
     /**
      * Add an item to the basket. If the product is already in the basket, the quantity will increase
      * 
-     * @param product Product to add
+     * @param show Show to add
      * @param quantity Quantity of the product
      */
-    addItemToBasket(product: ProductModel, quantity: number) {
+    addItemToBasket(show: ShowModel, quantity: number) {
       const feedbackStore = useFeedbackStore()
       feedbackStore.changeBanner(BannerStateEnum.BASKETPRODUCTADDED)
 
       // Product is already in the basket, increase number of items
       if (this.itemsInBasket.find((basketItem: BasketItemModel) => 
-        basketItem.product.id == product.id))
+        basketItem.product.id == show.id))
       {
         this.itemsInBasket.find((basketItem: BasketItemModel) => 
-          basketItem.product.id == product.id).quantity += quantity
+          basketItem.product.id == show.id).quantity += quantity
       } else {
-        this.itemsInBasket.push(new BasketItemModel(quantity, product))
+        this.itemsInBasket.push(new BasketItemModel(quantity, show))
       }
     },
 
@@ -75,22 +74,23 @@ export const useBasketStore = defineStore('basketStore', {
      * Take an order to the server. Sends all articles in the basket and creates an order entry in the backend database
      */
     async takeOrder() {
-      const accountStore = useAccountStore()
-      const productStore = useProductStore()
-      const feedbackStore = useFeedbackStore()
+      // todo
+      // const accountStore = useAccountStore()
+      // const productStore = useProductStore()
+      // const feedbackStore = useFeedbackStore()
 
-      await addOrder(accountStore.userAccount.id, this.itemsInBasket, this.usedPayment.id, this.usedAddress.id)
-        .then(async result => {
-          if (result.status == 201) {
-            await accountStore.refreshOrders()
-            await productStore.fetchAllProducts()
+      // await addOrder(accountStore.userAccount.id, this.itemsInBasket, this.usedPayment.id, this.usedAddress.id)
+      //   .then(async result => {
+      //     if (result.status == 201) {
+      //       await accountStore.refreshOrders()
+      //       await productStore.fetchAllProducts()
 
-            this.itemsInBasket = []
-            feedbackStore.changeBanner(BannerStateEnum.ORDERPLACESUCCESSFUL)
-          } else {
-            feedbackStore.changeBanner(BannerStateEnum.ERROR)
-          }
-        })
+      //       this.itemsInBasket = []
+      //       feedbackStore.changeBanner(BannerStateEnum.ORDERPLACESUCCESSFUL)
+      //     } else {
+      //       feedbackStore.changeBanner(BannerStateEnum.ERROR)
+      //     }
+      //   })
     }
   }
 })

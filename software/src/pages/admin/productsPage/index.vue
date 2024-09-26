@@ -1,12 +1,10 @@
 <script setup lang="ts">
 import cardView from '@/components/cardView.vue';
-import { ProductModel } from '@/data/models/productModel';
-import { useProductStore } from '@/data/stores/productStore';
 import productEditDialog from './productEditDialog.vue';
 import { ref } from 'vue';
 
-const productStore = useProductStore()
-const editProduct = ref(new ProductModel())
+// const productStore = useProductStore()
+// const editProduct = ref(new ProductModel())
 const showEditProductDialog = ref(false)
 
 const headers = [
@@ -20,16 +18,16 @@ const headers = [
   { title: "Edit", value: "edit" },
 ]
 
-function openEditProductDialog(product: ProductModel) {
-  editProduct.value = product
-  showEditProductDialog.value = true
-}
+// function openEditProductDialog(product: ProductModel) {
+//   editProduct.value = product
+//   showEditProductDialog.value = true
+// }
 </script>
 
 <template>
   <v-container>
     <v-row>
-      <v-col>
+      <!-- <v-col>
         <card-view 
           :title="$t('product.product', 2)"
           :subtitle="productStore.products.length + ' ' + $t('product.product', productStore.products.length)"
@@ -88,11 +86,11 @@ function openEditProductDialog(product: ProductModel) {
             </template>
           </v-data-table>
         </card-view>
-      </v-col>
+      </v-col> -->
     </v-row>
   </v-container>
 
-  <product-edit-dialog
+  <!-- <product-edit-dialog
     v-model="showEditProductDialog"
-    :edit-product="editProduct" />
+    :edit-product="editProduct" /> -->
 </template>

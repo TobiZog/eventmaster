@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import cardView from '@/components/cardView.vue';
-import { useProductStore } from '@/data/stores/productStore';
+// import { useProductStore } from '@/data/stores/productStore';
 
-const productStore = useProductStore()
+// const productStore = useProductStore()
 
 const headers = [
   { title: "Name", value: "name" },
@@ -11,7 +11,7 @@ const headers = [
 </script>
 
 <template>
-  <v-container max-width="800">
+  <!-- <v-container max-width="800">
     <v-row>
       <v-col>
         <card-view
@@ -24,9 +24,8 @@ const headers = [
             :headers="headers"
           >
           </v-data-table>
-            <!-- todo: Edit/Delete -->
         </card-view>
       </v-col>
     </v-row>
-  </v-container>
+  </v-container> -->
 </template>

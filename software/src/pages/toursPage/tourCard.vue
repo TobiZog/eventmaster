@@ -1,35 +1,33 @@
 <script setup lang="ts">
-import { ProductModel } from '@/data/models/productModel';
+import { TourModel } from '@/data/models/tourModel';
 import cardView from '@/components/cardView.vue';
+import OutlinedButton from '@/components/outlinedButton.vue';
 
 defineProps({
-  product: {
+  tour: {
     required: true,
-    type: ProductModel
+    type: TourModel
   }
 })
 </script>
 
 <template>
-  <card-view link>
-    <template #withoutContainer>
-      <v-row>
-        <v-col cols="3">
-          <v-sheet color="white">
-            <v-img
-              :src="'http://127.0.0.1:3000/static/' + product.images[0]"
-              height="200"
-            >
-              <template #placeholder>
-                <v-skeleton-loader type="image" />
-              </template>
-            </v-img>
-          </v-sheet>
-        </v-col>
+  <card-view
+    :title="tour.band.name"
+    :subtitle="tour.name"
+    :prepend-image="'http://127.0.0.1:3000/static/bands/' + tour.band.images[0]"
+    link
+  >
+    {{ tour.band.descriptionDe }}
 
-        <v-col cols="7" class="pl-0 pt-5">
-          <div class="text-h6">{{ product.name }}</div>
-          <div>
+    <template #actions>
+      <OutlinedButton>
+        {{ tour.shows.length }} {{ $t('tours.concert', tour.shows.length) }}
+      </OutlinedButton>
+    </template>
+    
+    <!-- <template> -->
+          <!-- <div>
             <v-rating
               size="medium"
               :model-value="product.rating"
@@ -40,19 +38,19 @@ defineProps({
             />
 
             {{ product.rating }}/5
-          </div>
+          </div> -->
 
-          <div>
+          <!-- <div>
             <v-list class="pa-0">
               <v-list-item v-for="i in 2" class="pa-0 ma-0">
                 <v-icon icon="mdi-circle-small" /> {{ product.specs[i - 1] }}
               </v-list-item>
             </v-list>
-          </div>
-        </v-col>
+          </div> -->
+        <!-- </v-col> -->
 
-        <v-col cols="2" class="pt-5 pr-7">
-          <div v-if="product.discount == 0" class="font-weight-bold text-h5 text-right">
+        <!-- <v-col cols="2" class="pt-5 pr-7"> -->
+          <!-- <div v-if="product.discount == 0" class="font-weight-bold text-h5 text-right">
             {{ product.price }} €
           </div>
 
@@ -63,9 +61,9 @@ defineProps({
             <div>
               <div class="text-decoration-line-through text-right">{{ product.price }} €</div>
             </div>
-          </div>
+          </div> -->
 
-          <div style="position: absolute; bottom: 0; right: 0;" class="pr-2 pb-2">
+          <!-- <div style="position: absolute; bottom: 0; right: 0;" class="pr-2 pb-2">
             <div v-if="product.inStock > 5" class="text-green-lighten-1">
               {{ $t("product.storedItemsAvailable", [product.inStock]) }}
             </div>
@@ -75,10 +73,8 @@ defineProps({
             <div v-else class="text-red">
               {{ $t("product.soldOut") }}
             </div>
-          </div>
-        </v-col>
-      </v-row>
-    </template>
+          </div> -->
+    <!-- </template> -->
   </card-view>
 </template>
 

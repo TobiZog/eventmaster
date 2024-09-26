@@ -38,6 +38,50 @@
           "bandId": 0
         }
       ]
+    },
+    {
+      "id": 1,
+      "name": "Radiohead",
+      "foundingYear": 1985,
+      "descriptionEn": "Radiohead are an English rock band formed in Abingdon, Oxfordshire, in 1985. They comprise Thom Yorke (vocals, guitar, piano, keyboards); brothers Jonny Greenwood (guitar, keyboards, other instruments) and Colin Greenwood (bass); Ed O'Brien (guitar, backing vocals); and Philip Selway (drums, percussion). They have worked with the producer Nigel Godrich and the cover artist Stanley Donwood since 1994. Radiohead's experimental approach is credited with advancing the sound of alternative rock.",
+      "descriptionDe": "Radiohead ist eine britische Rockband, die 1985 in Oxford, England gegründet wurde. Die Band besteht aus Thom Yorke (Gesang, Rhythmusgitarre, Piano), Jonny Greenwood (Lead-Gitarre, Keyboard, Ondes Martenot), Colin Greenwood (E-Bass, Keyboard), Ed O’Brien (Gitarre, Backgroundvocals) und Phil Selway (Schlagzeug, Backgroundvocals). Radioheads experimenteller Ansatz gilt als Wegbereiter für den Sound des Alternative Rocks.",
+      "images": [ "radiohead.jpg" ],
+      "logo": "radiohead-logo.png",
+      "genreId": 1,
+      "members": [
+        {
+          "name": "Thom Yorke",
+          "bandId": 1,
+          "image": "thom-yorke.jpg"
+        },
+        {
+          "name": "Jonny Greenwood",
+          "bandId": 1,
+          "image": "jonny-greenwood.jpg"
+        },
+        {
+          "name": "Colin Greenwood",
+          "bandId": 1,
+          "image": "colin-greenwood.jpg"
+        },
+        {
+          "name": "Ed O'Brien",
+          "bandId": 1,
+          "image": "ed-o-brien.jpg"
+        },
+        {
+          "name": "Philip Selway",
+          "bandId": 1,
+          "image": "philip-selway.jpg"
+        }
+      ],
+      "ratings": [
+        {
+          "accountId": 0,
+          "rating": 5,
+          "bandId": 1
+        }
+      ]
     }
   ]
 }

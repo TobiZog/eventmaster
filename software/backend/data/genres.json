@@ -3,6 +3,10 @@
     {
       "id": 0,
       "name": "Funk rock"
+    },
+    {
+      "id": 1,
+      "name": "Art rock"
     }
   ]
 }

@@ -4,21 +4,19 @@ import { i18n } from './plugins/i18n';
 import { ref, watch } from 'vue';
 import vuetify from './plugins/vuetify';
 import navigationItems from './components/navigationItems.vue';
-import { useProductStore } from './data/stores/productStore';
 import { usePreferencesStore } from './data/stores/preferencesStore';
 import { useFeedbackStore } from './data/stores/feedbackStore';
+import { useTourStore } from './data/stores/tourStore';
 
 const preferencesStore = usePreferencesStore()
-const productStore = useProductStore()
+const tourStore = useTourStore()
 const feedbackStore = useFeedbackStore()
 const theme = useTheme()
 const navRail = ref(vuetify.display.mobile)
 
 theme.global.name.value = preferencesStore.theme
 
-productStore.fetchAllProducts()
-productStore.fetchAllCategories()
-productStore.fetchAllBrands()
+tourStore.fetchAllTours()
 
 // Global watcher
 watch(() => preferencesStore.language, () => {
