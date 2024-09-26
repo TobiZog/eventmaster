@@ -1,20 +1,25 @@
-import { Category } from '../models/category.model'
 import { Order } from '../models/order.model'
 import { OrderItem } from '../models/orderItem.model'
-import { Product } from '../models/product.model'
 import { Account } from '../models/account.model'
 import { Address } from '../models/address.model'
 import { Payment } from '../models/payment.model'
 import { AccountRole } from '../models/accountRole.model'
-import { Brand } from '../models/brand.model'
+import { Rating } from '../models/rating.model'
+import { Member } from '../models/member.model'
+import { Genre } from '../models/genre.model'
+import { Band } from '../models/band.model'
+import { Location } from '../models/location.model'
+import { Show } from '../models/show.model'
 
-import categories from "./../data/categories.json"
-import products from "./../data/products.json"
 import accounts from "./../data/accounts.json"
 import orders from "./../data/orders.json"
 import orderItems from "./../data/orderItems.json"
 import accountRoles from "./../data/accountRoles.json"
-import brands from "./../data/brands.json"
+import bands from "./../data/bands.json"
+import genres from "./../data/genres.json"
+import locations from "./../data/locations.json"
+import shows from "./../data/shows.json"
+
 
 /**
  * Delete all datasets in every database table
@@ -23,9 +28,12 @@ export function deleteAllTables() {
   OrderItem.destroy({truncate: true })
   Order.destroy({ truncate: true })
 
-  Product.destroy({ truncate: true })
-  Brand.destroy({ truncate: true })
-  Category.destroy({ truncate: true })
+  Rating.destroy({ truncate: true })
+  Member.destroy({ truncate: true })
+  Genre.destroy({ truncate: true })
+  Band.destroy({ truncate: true })
+  Location.destroy({ truncate: true })
+  Show.destroy({ truncate: true })
   
   Address.destroy({ truncate: true })
   Payment.destroy({ truncate: true })
@@ -38,6 +46,8 @@ export function deleteAllTables() {
  */
 export async function prepopulateDatabase() {
   AccountRole.bulkCreate(accountRoles.data)
+  Genre.bulkCreate(genres.data)
+  Location.bulkCreate(locations.data)
 
   // Account & Sub tables
   for (let account of accounts.data) {
@@ -48,10 +58,17 @@ export async function prepopulateDatabase() {
       })
   }
 
-  Category.bulkCreate(categories.data)
-  Brand.bulkCreate(brands.data)
-  Product.bulkCreate(products.data)
 
+  for(let band of bands.data) {
+    await Band.create(band)
+      .then(dataset => {
+        Rating.bulkCreate(band.ratings)
+        Member.bulkCreate(band.members)
+      })
+  }
+
+
+  Show.bulkCreate(shows.data)
   Order.bulkCreate(orders.data)
   OrderItem.bulkCreate(orderItems.data)
 }

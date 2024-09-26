@@ -3,11 +3,12 @@ import cors from 'cors'
 import bodyParser from 'body-parser'
 import { api } from './routes/api.routes'
 import { startDatabase } from './database'
-import { category } from './routes/category.routes'
-import { product } from './routes/product.routes'
 import { order } from './routes/order.routes'
 import { account } from './routes/account.routes'
-import { brand } from './routes/brand.routes'
+import { show } from './routes/show.routes'
+import { band } from './routes/band.routes'
+import { genre } from './routes/genre.routes'
+import { location } from './routes/location.routes'
 
 const app = express()
 const port = 3000
@@ -32,11 +33,12 @@ app.use((req, res, next) => {
 
 // Routes
 app.use("/api", api)
-app.use("/categories", category)
-app.use("/products", product)
+app.use("/shows", show)
+app.use("/bands", band)
+app.use("/genres", genre)
+app.use("/locations", location)
 app.use("/orders", order)
 app.use("/accounts", account)
-app.use("/brands", brand)
 
 
 // Start server

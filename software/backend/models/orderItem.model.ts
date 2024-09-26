@@ -1,5 +1,5 @@
 import { Model, BelongsTo, Column, ForeignKey, HasMany, HasOne, Table } from "sequelize-typescript";
-import { Product } from "./product.model";
+import { Show } from "./show.model";
 import { Order } from "./order.model";
 
 @Table({ timestamps: false })
@@ -15,7 +15,7 @@ export class OrderItem extends Model {
   orderPrice: number
 
   @Column
-  @ForeignKey(() => Product)
+  @ForeignKey(() => Show)
   productId: number
 
 
@@ -23,6 +23,6 @@ export class OrderItem extends Model {
   @BelongsTo(() => Order)
   order: Order
 
-  @BelongsTo(() => Product)
-  product: Product
+  @BelongsTo(() => Show)
+  product: Show
 }

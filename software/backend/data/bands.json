@@ -1,0 +1,43 @@
+{
+  "data": [
+    {
+      "id": 0,
+      "name": "Red Hot Chili Peppers",
+      "foundingYear": 1983,
+      "descriptionEn": "The Red Hot Chili Peppers are an American rock band formed in Los Angeles in 1983, comprising vocalist Anthony Kiedis, bassist Flea, drummer Chad Smith, and guitarist John Frusciante. Their music incorporates elements of alternative rock, funk, punk rock, hard rock, hip hop, and psychedelic rock. Their eclectic range has influenced genres such as funk metal, rap metal, rap rock, and nu metal. With over 120 million records sold worldwide, the Red Hot Chili Peppers are one of the top-selling bands of all time.",
+      "descriptionDe": "Red Hot Chili Peppers (Abkürzung: RHCP) ist eine 1983 gegründete US-amerikanische Funk- und Alternative-Rockband. Sie zählt zu den kommerziell erfolgreichsten Vertretern des Crossover. Ihr Album Blood Sugar Sex Magik gilt als eines der bedeutendsten dieses Genres.",
+      "images": [ "red-hot-chili-peppers.jpg" ],
+      "logo": "red-hot-chili-peppers-logo.png",
+      "genreId": 0,
+      "members": [
+        {
+          "name": "Anthony Kiedis",
+          "bandId": 0,
+          "image": "anthony-kiedis.jpg"
+        },
+        {
+          "name": "Flea",
+          "bandId": 0,
+          "image": "flea.jpg"
+        },
+        {
+          "name": "Chad Smith",
+          "bandId": 0,
+          "image": "chad-smith.jpg"
+        },
+        {
+          "name": "John Frusciante",
+          "bandId": 0,
+          "image": "john-frusciante.jpg"
+        }
+      ],
+      "ratings": [
+        {
+          "accountId": 0,
+          "rating": 5,
+          "bandId": 0
+        }
+      ]
+    }
+  ]
+}

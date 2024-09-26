@@ -1,11 +1,11 @@
 import { Router, Request, Response } from "express";
 import { Order } from "../models/order.model";
-import { Product } from "../models/product.model";
+import { Show } from "../models/show.model";
 import { OrderItem } from "../models/orderItem.model";
-import { Brand } from "../models/brand.model";
-import { Category } from "../models/category.model";
 import { Payment } from "../models/payment.model";
 import { Address } from "../models/address.model";
+import { Band } from "../models/band.model";
+import { Location } from "../models/location.model";
 
 export const order = Router()
 
@@ -18,8 +18,8 @@ order.get("/:id", (req: Request, res: Response) => {
         model: OrderItem, 
         include: [ 
           { 
-            model: Product,
-            include: [ Brand, Category ],
+            model: Show,
+            include: [ Band, Location ],
             attributes: {
               exclude: [
                 "categoryId",
@@ -50,7 +50,7 @@ order.post("/", (req: Request, res: Response) => {
           productId: orderItem.productId
         })
 
-        Product.decrement(
+        Show.decrement(
           "inStock", 
           {
             by: orderItem.quantity,

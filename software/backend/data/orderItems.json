@@ -5,28 +5,7 @@
       "orderId": 0,
       "productId": 0,
       "quantity": 2,
-      "orderPrice": 1769.99
-    },
-    {
-      "id": 1,
-      "orderId": 1,
-      "productId": 6,
-      "quantity": 1,
-      "orderPrice": 899.99
-    },
-    {
-      "id": 2,
-      "orderId": 2,
-      "productId": 3,
-      "quantity": 3,
-      "orderPrice": 9.99
-    },
-    {
-      "id": 3,
-      "orderId": 2,
-      "productId": 2,
-      "quantity": 1,
-      "orderPrice": 14.99
+      "orderPrice": 184
     }
   ]
 }

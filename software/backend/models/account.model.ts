@@ -3,6 +3,7 @@ import { Order } from './order.model';
 import { Address } from './address.model';
 import { Payment } from './payment.model';
 import { AccountRole } from './accountRole.model';
+import { Rating } from './rating.model';
 
 @Table({ timestamps: false })
 export class Account extends Model {
@@ -37,6 +38,9 @@ export class Account extends Model {
 
   @HasMany(() => Order)
   orders: Order[]
+
+  @HasMany(() => Rating)
+  ratings: Rating[]
 
   @BelongsTo(() => AccountRole)
   accountRole: AccountRole

@@ -1,0 +1,14 @@
+{
+  "data": [
+    {
+      "id": 0,
+      "name": "Unlimited Love Tour",
+      "bandId": 0,
+      "date": "2024-12-03",
+      "price": 92,
+      "inStock": 230,
+      "offered": true,
+      "locationId": 0
+    }
+  ]
+}

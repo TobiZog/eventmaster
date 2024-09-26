@@ -1,16 +1,19 @@
 import { Sequelize } from "sequelize-typescript"
 
 // Models
-import { Category } from "./models/category.model"
 import { Order } from "./models/order.model"
 import { OrderItem } from "./models/orderItem.model"
-import { Product } from "./models/product.model"
 import { Account } from "./models/account.model"
 import { prepopulateDatabase } from "./scripts/databaseHelper"
 import { Address } from "./models/address.model"
 import { Payment } from "./models/payment.model"
 import { AccountRole } from "./models/accountRole.model"
-import { Brand } from "./models/brand.model"
+import { Genre } from "./models/genre.model"
+import { Location } from "./models/location.model"
+import { Band } from "./models/band.model"
+import { Show } from "./models/show.model"
+import { Member } from "./models/member.model"
+import { Rating } from "./models/rating.model"
 
 const dbName = "database"
 const dbUser = "root"
@@ -23,7 +26,7 @@ export const sequelize = new Sequelize({
   username: dbUser,
   password: dbPassword,
   storage: "database.sqlite",
-  models: [ Address, Payment, AccountRole, Account, Category, Brand, Product, Order, OrderItem ]
+  models: [ Genre, Location, AccountRole, Account, Payment, Address, Order, Band, Show, Member, Rating, OrderItem ]
 })
 
 export function startDatabase() {
@@ -32,7 +35,7 @@ export function startDatabase() {
     .then(() => {
       console.log("Database & tables created!")
 
-      //prepopulateDatabase()
+      prepopulateDatabase()
       console.log("Database prepopulated!")
     })
 }
