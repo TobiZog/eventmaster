@@ -10,6 +10,7 @@ import { band } from './routes/band.routes'
 import { genre } from './routes/genre.routes'
 import { location } from './routes/location.routes'
 import { tour } from './routes/tour.routes'
+import { city } from './routes/city.routes'
 
 const app = express()
 const port = 3000
@@ -41,6 +42,7 @@ app.use("/locations", location)
 app.use("/orders", order)
 app.use("/accounts", account)
 app.use("/tours", tour)
+app.use("/cities", city)
 
 
 // Start server

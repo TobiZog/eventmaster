@@ -7,12 +7,17 @@ import { getAllBands } from "../api/bandApi";
 import { BandModel } from "../models/bandModel";
 import { LocationModel } from "../models/locationModel";
 import { getAllLocations } from "../api/locationApi";
+import { getAllGenres } from "../api/genreApi";
+import { CityModel } from "../models/cityModel";
+import { getAllCities } from "../api/cityApi";
 
 export const useShowStore = defineStore("showStore", {
   state: () => ({
     tours: useLocalStorage<Array<TourModel>>("hackmycart/showStore/tours", []),
     bands: useLocalStorage<Array<BandModel>>("hackmycart/showStore/bands", []),
-    locations: useLocalStorage<Array<LocationModel>>("hackmycart/showStore/locations", [])
+    locations: useLocalStorage<Array<LocationModel>>("hackmycart/showStore/locations", []),
+    cities: useLocalStorage<Array<CityModel>>("hackmycart/showStore/cities", []),
+    genres: useLocalStorage<Array<GenreModel>>("hackmycart/showStore/genres", [])
   }),
   
   actions: {
@@ -30,6 +35,16 @@ export const useShowStore = defineStore("showStore", {
       await getAllLocations() 
         .then(result => {
           this.locations = result.data
+        })
+
+      await getAllGenres()
+        .then(result => {
+          this.genres = result.data
+        })
+
+      await getAllCities()
+        .then(result => {
+          this.cities = result.data
         })
     }
   }

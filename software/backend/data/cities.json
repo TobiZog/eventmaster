@@ -3,7 +3,153 @@
     {
       "id": 0,
       "name": "Hannover",
-      "country": "Germany"
+      "country": "Germany",
+      "image": "hannover.jpg",
+      "locations": [
+        {
+          "id": 0,
+          "name": "Swiss Life Hall",
+          "address": "Ferdinand-Wilhelm-Fricke-Weg 8",
+          "cityId": 0,
+          "image": "swiss-life-hall.jpg"
+        },
+        {
+          "id": 1,
+          "name": "Capitol",
+          "address": "Schwarzer Bär 2",
+          "cityId": 0,
+          "image": "capitol.jpg"
+        },
+        {
+          "id": 2,
+          "name": "ZAG Arena",
+          "address": "EXPO-Plaza 7",
+          "cityId": 0,
+          "image": "zag-arena.jpg"
+        },
+        {
+          "id": 3,
+          "name": "Kulturzentrum Faust",
+          "address": "Zur Bettfedernfabrik 3",
+          "cityId": 0,
+          "image": "faust-hannover.jpg"
+        }
+      ]
+    },
+    {
+      "id": 1,
+      "name": "München",
+      "country": "Germany",
+      "image": "munich.jpg",
+      "locations": [
+        {
+          "id": 4,
+          "name": "Olympiahalle München",
+          "address": "Spiridon-Louis-Ring 21",
+          "cityId": 1,
+          "image": "olympiahalle-munich.jpg"
+        },
+        {
+          "id": 5,
+          "name": "Schlachthof München",
+          "address": "Zenettistraße 9",
+          "cityId": 1,
+          "image": "schlachthof-munich.jpg"
+        },
+        {
+          "id": 6,
+          "name": "Muffatwerk",
+          "address": "Zellstraße 4",
+          "cityId": 1,
+          "image": "muffatwerk.jpg"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Hamburg",
+      "country": "Germany",
+      "image": "hamburg.jpg",
+      "locations": [
+        {
+          "id": 7,
+          "name": "Elbphilharmonie Hamburg",
+          "address": "Platz der deutschen Einheit",
+          "cityId": 2,
+          "image": "elbphilharmonie-hamburg.jpg"
+        },
+        {
+          "id": 8,
+          "name": "Volksparkstadion",
+          "address": "Sylvesterallee 7",
+          "cityId": 2,
+          "image": "volksparkstadion-hamburg.jpg"
+        },
+        {
+          "id": 9,
+          "name": "Barclays Arena",
+          "address": "Sylvesterallee 10",
+          "cityId": 2,
+          "image": "barclays-arena.jpg"
+        },
+        {
+          "id": 10,
+          "name": "Stage Theater im Hafen Hamburg",
+          "address": "Norderelbestraße 6",
+          "cityId": 2,
+          "image": "stage-theater-hamburg.jpg"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "name": "Berlin",
+      "country": "Germany",
+      "image": "berlin.jpg",
+      "locations": [
+        {
+          "id": 11,
+          "name": "Waldbühne Berlin",
+          "address": "Am Glockenturm",
+          "cityId": 3,
+          "image": "waldbuehne-berlin.jpg"
+        },
+        {
+          "id": 12,
+          "name": "Olympiastadion Berlin",
+          "address": "Olympischer Platz 3",
+          "cityId": 3,
+          "image": "olympiastadion-berlin.jpg"
+        },
+        {
+          "id": 13,
+          "name": "Uber Arena Berlin",
+          "address": "Uber-Platz 1",
+          "cityId": 3,
+          "image": "uber-arena-berlin.jpg"
+        },
+        {
+          "id": 14,
+          "name": "Columbiahalle",
+          "address": "Columbiadamm 13-21",
+          "cityId": 3,
+          "image": "columbiahalle.jpg"
+        },
+        {
+          "id": 15,
+          "name": "Astra Kulturhaus",
+          "address": "Revaler Straße 99",
+          "cityId": 3,
+          "image": "astra-kulturhaus.jpg"
+        },
+        {
+          "id": 16,
+          "name": "Deutsche Oper Berlin",
+          "address": "Bismarckstraße 35",
+          "cityId": 3,
+          "image": "deutsche-oper-berlin.jpg"
+        }
+      ]
     }
   ]
 }

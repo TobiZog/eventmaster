@@ -9,6 +9,9 @@ export class City extends Model {
   @Column
   country: String
 
+  @Column
+  image: String
+
 
   // Relations
 

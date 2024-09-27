@@ -19,7 +19,6 @@ import orderItems from "./../data/orderItems.json"
 import accountRoles from "./../data/accountRoles.json"
 import bands from "./../data/bands.json"
 import genres from "./../data/genres.json"
-import locations from "./../data/locations.json"
 import tours from "./../data/tours.json"
 import cities from "./../data/cities.json"
 
@@ -50,8 +49,14 @@ export function deleteAllTables() {
 export async function prepopulateDatabase() {
   AccountRole.bulkCreate(accountRoles.data)
   Genre.bulkCreate(genres.data)
-  City.bulkCreate(cities.data)
-  Location.bulkCreate(locations.data)
+
+  for (let city of cities.data) {
+    await City.create(city)
+      .then(dataset => {
+        Location.bulkCreate(city.locations)
+      })
+  }
+
 
   // Account & Sub tables
   for (let account of accounts.data) {

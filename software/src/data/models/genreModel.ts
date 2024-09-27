@@ -1,4 +1,4 @@
 export class GenreModel {
-  id: Number
-  name: String
+  id: number
+  name: string
 }

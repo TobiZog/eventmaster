@@ -6,7 +6,10 @@ defineProps({
 </script>
 
 <template>
-  <v-card>
+  <v-card
+    variant="outlined"
+    link
+  >
     <v-img
       :src="'http://localhost:3000/static/' + image"
       aspect-ratio="1"
