@@ -7,6 +7,10 @@
     {
       "id": 1,
       "name": "Art rock"
+    },
+    {
+      "id": 2,
+      "name": "Alternatve Rock"
     }
   ]
 }

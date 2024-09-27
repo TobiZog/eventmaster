@@ -2,7 +2,7 @@ import { AccountModel } from "./accountModel"
 import { BandModel } from "./bandModel"
 
 export class RatingModel {
-  id: Number
-  rating: Number
+  id: number
+  rating: number
   band: BandModel
 }

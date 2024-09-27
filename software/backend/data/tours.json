@@ -27,7 +27,7 @@
           "date": "2024-11-30",
           "price": 104,
           "inStock": 120,
-          "locationId": 0,
+          "locationId": 2,
           "tourId": 1
         },
         {
@@ -37,6 +37,54 @@
           "inStock": 180,
           "locationId": 0,
           "tourId": 1
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "European Tour",
+      "bandId": 2,
+      "offered": true,
+      "shows": [
+        {
+          "id": 3,
+          "date": "2024-10-15",
+          "price": 80,
+          "inStock": 99,
+          "locationId": 3,
+          "tourId": 2
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "name": "Moon Music Tour",
+      "bandId": 3,
+      "offered": true,
+      "shows": [
+        {
+          "id": 4,
+          "date": "2024-10-15",
+          "price": 80,
+          "inStock": 99,
+          "locationId": 1,
+          "tourId": 3
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "name": "But Here We Are Tour",
+      "bandId": 4,
+      "offered": true,
+      "shows": [
+        {
+          "id": 5,
+          "date": "2024-10-15",
+          "price": 80,
+          "inStock": 99,
+          "locationId": 2,
+          "tourId": 4
         }
       ]
     }

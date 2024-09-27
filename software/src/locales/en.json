@@ -3,27 +3,19 @@
     "shopping": {
       "allEvents": "All Events",
       "allLocations": "All Locations",
-      "allGenres": "All Genres",
-      "basket": "Basket"
-    },
-    "account": {
-      "account": "Account Management",
-      "login": "Login",
-      "order": "Order | Orders",
-      "logout": "Logout",
-      "accountManagement": "Account Management"
-    },
-    "systemAndHelp": {
-      "systemAndHelp": "System & Help",
-      "helpInstructions": "Help Instructions",
-      "preferences": "Preferences",
-      "scoreBoard": "Score Board"
-    },
-    "admin": {
-      "admin": "Administration",
-      "dashboard": "Dashboard"
+      "allGenres": "All Genres"
     }
   },
+  "shows": {
+    "tickets": "Ticket | Tickets"
+  },
+
+
+
+
+
+
+
   "tours": {
     "concert": "Concert | Concerts"
   },

@@ -8,7 +8,9 @@ export const band = Router()
 
 // Get all bands
 band.get("/", (req: Request, res: Response) => {
-  Band.findAll()
+  Band.findAll({
+    include: [ Genre, Rating ]
+  })
     .then(bands => {
       res.status(200).json(bands)
     })

@@ -6,17 +6,17 @@ import navigationAppendItems from './components/navigation/navigationAppendItems
 import navigationPrependItems from './components/navigation/navigationPrependItems.vue';
 import { usePreferencesStore } from './data/stores/preferencesStore';
 import { useFeedbackStore } from './data/stores/feedbackStore';
-import { useTourStore } from './data/stores/tourStore';
+import { useShowStore } from './data/stores/showStore';
 
 const preferencesStore = usePreferencesStore()
-const tourStore = useTourStore()
+const showStore = useShowStore()
 const feedbackStore = useFeedbackStore()
 
 const theme = useTheme()
 
 theme.global.name.value = preferencesStore.theme
 
-tourStore.fetchAllTours()
+showStore.fetchAllTours()
 
 // Global watcher
 watch(() => preferencesStore.language, () => {
@@ -30,6 +30,7 @@ watch(() => preferencesStore.language, () => {
       height="80"
       color="primary" 
       class="px-5"
+      elevation="0"
     >
       <template #prepend>
         <navigation-prepend-items />
@@ -63,9 +64,17 @@ watch(() => preferencesStore.language, () => {
       </v-snackbar>
 
       <!-- Here changes the router the content -->
-      <v-container max-width="1200">
-        <router-view></router-view>
+      <v-container max-width="1200" class="pt-0 pb-5">
+        <v-sheet>
+          <router-view></router-view>
+        </v-sheet>
       </v-container>
     </v-main>
   </v-app>
 </template>
+
+<style scoped>
+.v-sheet {
+  background-color: #333333;
+}
+</style>

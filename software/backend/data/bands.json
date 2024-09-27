@@ -6,7 +6,7 @@
       "foundingYear": 1983,
       "descriptionEn": "The Red Hot Chili Peppers are an American rock band formed in Los Angeles in 1983, comprising vocalist Anthony Kiedis, bassist Flea, drummer Chad Smith, and guitarist John Frusciante. Their music incorporates elements of alternative rock, funk, punk rock, hard rock, hip hop, and psychedelic rock. Their eclectic range has influenced genres such as funk metal, rap metal, rap rock, and nu metal. With over 120 million records sold worldwide, the Red Hot Chili Peppers are one of the top-selling bands of all time.",
       "descriptionDe": "Red Hot Chili Peppers (Abkürzung: RHCP) ist eine 1983 gegründete US-amerikanische Funk- und Alternative-Rockband. Sie zählt zu den kommerziell erfolgreichsten Vertretern des Crossover. Ihr Album Blood Sugar Sex Magik gilt als eines der bedeutendsten dieses Genres.",
-      "images": [ "red-hot-chili-peppers.jpg" ],
+      "images": [ "red-hot-chili-peppers-1.jpg" ],
       "logo": "red-hot-chili-peppers-logo.png",
       "genreId": 0,
       "members": [
@@ -45,8 +45,8 @@
       "foundingYear": 1985,
       "descriptionEn": "Radiohead are an English rock band formed in Abingdon, Oxfordshire, in 1985. They comprise Thom Yorke (vocals, guitar, piano, keyboards); brothers Jonny Greenwood (guitar, keyboards, other instruments) and Colin Greenwood (bass); Ed O'Brien (guitar, backing vocals); and Philip Selway (drums, percussion). They have worked with the producer Nigel Godrich and the cover artist Stanley Donwood since 1994. Radiohead's experimental approach is credited with advancing the sound of alternative rock.",
       "descriptionDe": "Radiohead ist eine britische Rockband, die 1985 in Oxford, England gegründet wurde. Die Band besteht aus Thom Yorke (Gesang, Rhythmusgitarre, Piano), Jonny Greenwood (Lead-Gitarre, Keyboard, Ondes Martenot), Colin Greenwood (E-Bass, Keyboard), Ed O’Brien (Gitarre, Backgroundvocals) und Phil Selway (Schlagzeug, Backgroundvocals). Radioheads experimenteller Ansatz gilt als Wegbereiter für den Sound des Alternative Rocks.",
-      "images": [ "radiohead.jpg" ],
-      "logo": "radiohead-logo.png",
+      "images": [ "radiohead-1.jpg" ],
+      "logo": "radiohead-logo.jpg",
       "genreId": 1,
       "members": [
         {
@@ -80,6 +80,163 @@
           "accountId": 0,
           "rating": 5,
           "bandId": 1
+        },
+        {
+          "accountId": 1,
+          "rating": 4,
+          "bandId": 1
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Arctic Monkeys",
+      "foundingYear": 2002,
+      "descriptionEn": "Arctic Monkeys are an English rock band formed in Sheffield in 2002. The group consists of lead singer Alex Turner, drummer Matt Helders, guitarist Jamie Cook and bassist Nick O'Malley. Former bassist Andy Nicholson left the band in 2006 shortly after their debut album, Whatever People Say I Am, That's What I'm Not, was released.",
+      "descriptionDe": "Die Arctic Monkeys sind eine vierköpfige britische Alternative-Rock-Band mit Einflüssen aus Post-Punk und Garage Rock. Sie wurde 2002 im englischen Sheffield gegründet und veröffentlichte 2006 ihr Debütalbum, das Platz eins der britischen Charts erreichte. 2007, 2009, 2011, 2013 und 2018 erschienen jeweils weitere Alben der Musikgruppe, die alle ebenfalls die Spitzenposition in Großbritannien erreichten. Aktuelles Album der Band ist das am 21. Oktober 2022 erschienene The Car.",
+      "images": [ "arctic-monkeys-1.jpg", "arctic-monkeys-2.jpg" ],
+      "logo": "arctic-monkeys-logo.png",
+      "genreId": 2,
+      "members": [
+        {
+          "name": "Glyn Jones",
+          "bandId": 2,
+          "image": "glyn-jones.jpg"
+        },
+        {
+          "name": "Alex Turner",
+          "bandId": 2,
+          "image": "alex-turner.jpg"
+        },
+        {
+          "name": "Jamie Cook",
+          "bandId": 2,
+          "image": "jamie-cook.jpg"
+        },
+        {
+          "name": "Matt Helders",
+          "bandId": 2,
+          "image": "matt-helders.jpg"
+        },
+        {
+          "name": "Andy Nicholson",
+          "bandId": 2,
+          "image": "andy-nicholson.jpg"
+        }
+      ],
+      "ratings": [
+        {
+          "accountId": 0,
+          "rating": 5,
+          "bandId": 2
+        },
+        {
+          "accountId": 1,
+          "rating": 3,
+          "bandId": 2
+        },
+        {
+          "accountId": 2,
+          "rating": 4,
+          "bandId": 2
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "name": "Coldplay",
+      "foundingYear": 1997,
+      "descriptionEn": "Coldplay are a British rock band formed in London in 1997. They consist of vocalist and pianist Chris Martin, guitarist Jonny Buckland, bassist Guy Berryman, drummer and percussionist Will Champion, and manager Phil Harvey. They are best known for their live performances, and for impacting popular culture through their artistry, advocacy and achievements.",
+      "descriptionDe": "Coldplay ist eine britische Pop-Rock-Band, bestehend aus Chris Martin, Jonny Buckland, Will Champion und Guy Berryman. Sie ist eine der weltweit erfolgreichsten Bands der 2000er-Jahre und hat knapp 80 Millionen Tonträger weltweit verkauft, davon 50 Millionen Alben.",
+      "images": [ "coldplay-1.jpg" ],
+      "logo": "coldplay-logo.jpg",
+      "genreId": 2,
+      "members": [
+        {
+          "name": "Chris Martin",
+          "bandId": 3,
+          "image": "chris-martin.jpg"
+        },
+        {
+          "name": "Jonny Buckland",
+          "bandId": 3,
+          "image": "jonny-buckland.jpg"
+        },
+        {
+          "name": "Guy Berryman",
+          "bandId": 3,
+          "image": "guy-berryman.jpg"
+        },
+        {
+          "name": "Will Champion",
+          "bandId": 3,
+          "image": "will-champion.jpg"
+        },
+        {
+          "name": "Phil Harvey",
+          "bandId": 2,
+          "image": "phil-harvey.jpg"
+        }
+      ],
+      "ratings": [
+        {
+          "accountId": 0,
+          "rating": 5,
+          "bandId": 3
+        },
+        {
+          "accountId": 1,
+          "rating": 4,
+          "bandId": 3
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "name": "Foo Fighters",
+      "foundingYear": 1994,
+      "descriptionEn": "Foo Fighters is an American rock band formed in Seattle in 1994. Founded as a one-man project by former Nirvana drummer Dave Grohl, the lineup now consists of Grohl (lead vocals, guitar), Nate Mendel (bass), Chris Shiflett and Pat Smear (guitars), Rami Jaffee (keyboards), and Josh Freese (drums). Drummers William Goldsmith and Taylor Hawkins, along with guitarist Franz Stahl, are former members of the band.",
+      "descriptionDe": "Foo Fighters ist eine US-amerikanische Rockband. Prominentestes Mitglied und Band-Gründer ist der ehemalige Nirvana-Schlagzeuger Dave Grohl. ",
+      "images": [ "foo-fighters-1.jpg" ],
+      "logo": "foo-fighters-logo.png",
+      "genreId": 2,
+      "members": [
+        {
+          "name": "Dave Grohl",
+          "bandId": 4,
+          "image": "dave-grohl.jpg"
+        },
+        {
+          "name": "Pat Smear",
+          "bandId": 4,
+          "image": "pat-smear.jpg"
+        },
+        {
+          "name": "Nate Mendel",
+          "bandId": 4,
+          "image": "nate-mendel.jpg"
+        },
+        {
+          "name": "Chris Shiflett",
+          "bandId": 4,
+          "image": "chris-shiflett.jpg"
+        },
+        {
+          "name": "Rami Jaffee",
+          "bandId": 4,
+          "image": "rami-jaffee.jpg"
+        },
+        {
+          "name": "Josh Freese",
+          "bandId": 4,
+          "image": "josh-freese.jpg"
+        }
+      ],
+      "ratings": [
+        {
+          "accountId": 0,
+          "rating": 5,
+          "bandId": 4
         }
       ]
     }

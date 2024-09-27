@@ -1,9 +1,9 @@
 import { CityModel } from "./cityModel"
 
 export class LocationModel {
-  id: Number
-  name: String
-  address: String
+  id: number
+  name: string
+  address: string
   city: CityModel
-  image: String
+  image: string
 }
