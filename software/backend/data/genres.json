@@ -2,15 +2,47 @@
   "data": [
     {
       "id": 0,
-      "name": "Funk rock"
+      "name": "Funk Rock"
     },
     {
       "id": 1,
-      "name": "Art rock"
+      "name": "Art Rock"
     },
     {
       "id": 2,
       "name": "Alternative Rock"
+    },
+    {
+      "id": 3,
+      "name": "Crossover"
+    },
+    {
+      "id": 4,
+      "name": "Electronica"
+    },
+    {
+      "id": 5,
+      "name": "Post-Rock"
+    },
+    {
+      "id": 6,
+      "name": "Britpop"
+    },
+    {
+      "id": 7,
+      "name": "Post-Punk"
+    },
+    {
+      "id": 8,
+      "name": "Garage Rock"
+    },
+    {
+      "id": 9,
+      "name": "Pop-Rock"
+    },
+    {
+      "id": 10,
+      "name": "Post-Grunge"
     }
   ]
 }

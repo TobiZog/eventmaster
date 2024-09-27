@@ -1,8 +1,9 @@
-import { BelongsTo, Column, DataType, ForeignKey, HasMany, Model, Table } from "sequelize-typescript";
+import { BelongsTo, BelongsToMany, Column, DataType, ForeignKey, HasMany, Model, Table } from "sequelize-typescript";
 import { Member } from "./member.model";
 import { Genre } from "./genre.model";
 import { Rating } from "./rating.model";
 import { Tour } from "./tour.model";
+import { BandGenre } from "./bandGenre.model";
 
 @Table({ timestamps: false })
 export class Band extends Model {
@@ -32,10 +33,6 @@ export class Band extends Model {
   @Column
   logo: String
 
-  @ForeignKey(() => Genre)
-  @Column
-  genreId: Number
-
 
   // Relations
 
@@ -48,6 +45,6 @@ export class Band extends Model {
   @HasMany(() => Tour)
   tours: Tour[]
 
-  @BelongsTo(() => Genre)
-  genre: Genre
+  @BelongsToMany(() => Genre, () => BandGenre)
+  genres: Genre[]
 }

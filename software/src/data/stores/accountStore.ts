@@ -6,7 +6,6 @@ import { useFeedbackStore } from "./feedbackStore";
 import { loginAccount, registerAccount, updateAccount } from "../api/accountApi";
 import { getUserOrders } from "../api/orderApi";
 import { BannerStateEnum } from "../enums/bannerStateEnum";
-import { calcPrice } from "@/scripts/productScripts";
 import { AddressModel } from "../models/addressModel";
 import { PaymentModel } from "../models/paymentModel";
 
@@ -86,9 +85,9 @@ export const useAccountStore = defineStore("accountStore", {
       let totalPrice = 0
       let order: OrderModel = this.orders.find((order: OrderModel) => order.id == orderId)
       
-      for (let item of order.orderItems) {
-        totalPrice += calcPrice(item.orderPrice, 0, item.quantity)
-      }
+      // for (let item of order.orderItems) {
+      //   totalPrice += calcPrice(item.orderPrice, 0, item.quantity)
+      // }
 
       return Math.round(totalPrice * 100) / 100
     },

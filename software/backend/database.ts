@@ -16,6 +16,7 @@ import { Member } from "./models/acts/member.model"
 import { Rating } from "./models/acts/rating.model"
 import { Tour } from "./models/acts/tour.model"
 import { City } from "./models/acts/city.model"
+import { BandGenre } from "./models/acts/bandGenre.model"
 
 const dbName = "database"
 const dbUser = "root"
@@ -30,7 +31,7 @@ export const sequelize = new Sequelize({
   storage: "database.sqlite",
   models: [
     AccountRole, Account, Payment, Address,
-    City, Location, Genre, Band, Rating, Member, Tour, Show,
+    City, Location, Genre, Band, BandGenre, Rating, Member, Tour, Show,
     Order, OrderItem
   ]
 })

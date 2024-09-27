@@ -65,16 +65,10 @@ watch(() => preferencesStore.language, () => {
 
       <!-- Here changes the router the content -->
       <v-container max-width="1200" class="pt-0 pb-5">
-        <v-sheet>
+        <v-sheet color="sheet">
           <router-view></router-view>
         </v-sheet>
       </v-container>
     </v-main>
   </v-app>
 </template>
-
-<style scoped>
-.v-sheet {
-  background-color: #333333;
-}
-</style>

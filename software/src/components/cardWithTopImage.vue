@@ -7,7 +7,7 @@ defineProps({
 
 <template>
   <v-card
-    variant="outlined"
+    variant="tonal"
     link
   >
     <v-img

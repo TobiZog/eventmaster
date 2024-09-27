@@ -1,6 +1,5 @@
 import { defineStore } from "pinia";
 import { useLocalStorage } from "@vueuse/core";
-import { calcPrice } from "@/scripts/productScripts";
 import { BasketItemModel } from "../models/basketItemModel";
 import { useFeedbackStore } from "./feedbackStore";
 import { BannerStateEnum } from "../enums/bannerStateEnum";
@@ -26,9 +25,9 @@ export const useBasketStore = defineStore('basketStore', {
     getTotalPrice() {
       let result = 0
 
-      for (let item of this.itemsInBasket) {
-        result += calcPrice(item.product.price, item.product.discount, item.quantity)
-      }
+      // for (let item of this.itemsInBasket) {
+      //   result += calcPrice(item.product.price, item.product.discount, item.quantity)
+      // }
 
       return Math.round(result * 100) / 100
     }

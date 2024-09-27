@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { BasketItemModel } from '@/data/models/basketItemModel';
 import { useBasketStore } from '@/data/stores/basketStore';
-import { calcPrice } from '@/scripts/productScripts';
 
 const basketStore = useBasketStore()
 
@@ -58,7 +57,7 @@ function editQuantity(basketItem: BasketItemModel) {
         </td>
 
         <!-- Price per unit -->
-        <td class="text-right">
+        <!-- <td class="text-right">
           <div v-if="basketItem.product.discount > 0">
             <strong class="font-weight-bold text-body-1 text-red-lighten-1">
               {{ calcPrice(basketItem.product.price, basketItem.product.discount) }} €
@@ -70,7 +69,7 @@ function editQuantity(basketItem: BasketItemModel) {
           <div v-else>
             {{ basketItem.product.price }} €
           </div>
-        </td>
+        </td> -->
 
         <!-- Total price -->
         <td class="text-right">

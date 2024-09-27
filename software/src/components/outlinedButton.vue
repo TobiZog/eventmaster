@@ -3,7 +3,7 @@ defineProps({
   prependIcon: String,
   color: {
     type: String,
-    default: "primary"
+    default: "secondary"
   }
 })
 </script>

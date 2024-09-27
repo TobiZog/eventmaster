@@ -8,7 +8,7 @@
       "descriptionDe": "Red Hot Chili Peppers (Abkürzung: RHCP) ist eine 1983 gegründete US-amerikanische Funk- und Alternative-Rockband. Sie zählt zu den kommerziell erfolgreichsten Vertretern des Crossover. Ihr Album Blood Sugar Sex Magik gilt als eines der bedeutendsten dieses Genres.",
       "images": [ "red-hot-chili-peppers-1.jpg" ],
       "logo": "red-hot-chili-peppers-logo.png",
-      "genreId": 0,
+      "genreId": [ 0, 2, 3 ],
       "members": [
         {
           "name": "Anthony Kiedis",
@@ -47,7 +47,7 @@
       "descriptionDe": "Radiohead ist eine britische Rockband, die 1985 in Oxford, England gegründet wurde. Die Band besteht aus Thom Yorke (Gesang, Rhythmusgitarre, Piano), Jonny Greenwood (Lead-Gitarre, Keyboard, Ondes Martenot), Colin Greenwood (E-Bass, Keyboard), Ed O’Brien (Gitarre, Backgroundvocals) und Phil Selway (Schlagzeug, Backgroundvocals). Radioheads experimenteller Ansatz gilt als Wegbereiter für den Sound des Alternative Rocks.",
       "images": [ "radiohead-1.jpg" ],
       "logo": "radiohead-logo.jpg",
-      "genreId": 1,
+      "genreId": [ 1, 2, 4, 5, 6 ],
       "members": [
         {
           "name": "Thom Yorke",
@@ -96,7 +96,7 @@
       "descriptionDe": "Die Arctic Monkeys sind eine vierköpfige britische Alternative-Rock-Band mit Einflüssen aus Post-Punk und Garage Rock. Sie wurde 2002 im englischen Sheffield gegründet und veröffentlichte 2006 ihr Debütalbum, das Platz eins der britischen Charts erreichte. 2007, 2009, 2011, 2013 und 2018 erschienen jeweils weitere Alben der Musikgruppe, die alle ebenfalls die Spitzenposition in Großbritannien erreichten. Aktuelles Album der Band ist das am 21. Oktober 2022 erschienene The Car.",
       "images": [ "arctic-monkeys-1.jpg", "arctic-monkeys-2.jpg" ],
       "logo": "arctic-monkeys-logo.png",
-      "genreId": 2,
+      "genreId": [ 2, 7, 8 ],
       "members": [
         {
           "name": "Glyn Jones",
@@ -150,7 +150,7 @@
       "descriptionDe": "Coldplay ist eine britische Pop-Rock-Band, bestehend aus Chris Martin, Jonny Buckland, Will Champion und Guy Berryman. Sie ist eine der weltweit erfolgreichsten Bands der 2000er-Jahre und hat knapp 80 Millionen Tonträger weltweit verkauft, davon 50 Millionen Alben.",
       "images": [ "coldplay-1.jpg" ],
       "logo": "coldplay-logo.jpg",
-      "genreId": 2,
+      "genreId": [ 2, 9 ],
       "members": [
         {
           "name": "Chris Martin",
@@ -174,7 +174,7 @@
         },
         {
           "name": "Phil Harvey",
-          "bandId": 2,
+          "bandId": 3,
           "image": "phil-harvey.jpg"
         }
       ],
@@ -199,7 +199,7 @@
       "descriptionDe": "Foo Fighters ist eine US-amerikanische Rockband. Prominentestes Mitglied und Band-Gründer ist der ehemalige Nirvana-Schlagzeuger Dave Grohl. ",
       "images": [ "foo-fighters-1.jpg" ],
       "logo": "foo-fighters-logo.png",
-      "genreId": 2,
+      "genreId": [ 2, 10 ],
       "members": [
         {
           "name": "Dave Grohl",

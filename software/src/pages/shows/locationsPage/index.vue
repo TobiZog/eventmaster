@@ -13,7 +13,6 @@ const showStore = useShowStore()
         <v-col>
           <section-divider 
             :title="city.name"
-            :image="'cities/' + city.image"
           />
         </v-col>
       </v-row>

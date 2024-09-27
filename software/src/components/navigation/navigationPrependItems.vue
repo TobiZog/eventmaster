@@ -15,7 +15,20 @@
     height="100%"
     :rounded="false"
   >
-    {{ $t('menu.shopping.allEvents', 2) }}
+    {{ $t('menu.allEvents', 2) }}
+  </v-btn>
+
+  <v-divider vertical />
+
+
+  <v-btn
+    variant="text"
+    to="/shows/bands"
+    prepend-icon="mdi-music-clef-treble"
+    height="100%"
+    :rounded="false"
+  >
+    {{ $t('menu.allBands') }}
   </v-btn>
 
   <v-divider vertical />
@@ -28,20 +41,7 @@
     height="100%"
     :rounded="false"
   >
-    {{ $t('menu.shopping.allLocations', 2) }}
-  </v-btn>
-
-  <v-divider vertical />
-
-
-  <v-btn
-    variant="text"
-    to="/shows/genres"
-    prepend-icon="mdi-music-clef-treble"
-    height="100%"
-    :rounded="false"
-  >
-    {{ $t('menu.shopping.allGenres', 2) }}
+    {{ $t('menu.allLocations', 2) }}
   </v-btn>
 
   <v-divider vertical />

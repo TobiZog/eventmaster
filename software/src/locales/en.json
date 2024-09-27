@@ -1,13 +1,14 @@
 {
   "menu": {
-    "shopping": {
-      "allEvents": "All Events",
-      "allLocations": "All Locations",
-      "allGenres": "All Genres"
-    }
+    "allEvents": "All Events",
+    "allLocations": "All Locations",
+    "allBands": "All Bands"
   },
   "shows": {
-    "tickets": "Ticket | Tickets"
+    "tickets": "Ticket | Tickets",
+    "topEvents": "Top Events",
+    "topBands": "Top Bands",
+    "topLocations": "Top Locations"
   },
 
 

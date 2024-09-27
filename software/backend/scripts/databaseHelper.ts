@@ -12,6 +12,7 @@ import { Location } from '../models/acts/location.model'
 import { Show } from '../models/acts/show.model'
 import { Tour } from '../models/acts/tour.model'
 import { City } from '../models/acts/city.model'
+import { BandGenre } from '../models/acts/bandGenre.model'
 
 import accounts from "./../data/accounts.json"
 import orders from "./../data/orders.json"
@@ -69,8 +70,17 @@ export async function prepopulateDatabase() {
 
 
   for(let band of bands.data) {
+    // Create a band dataset
     await Band.create(band)
-      .then(dataset => {
+      .then(async dataset => {
+        // Create the m:n associations for the genres
+        for (let genreId of band.genreId) {
+          await BandGenre.create({
+            genreId: Number(genreId),
+            bandId: dataset.dataValues.id
+          })
+        }
+
         Rating.bulkCreate(band.ratings)
         Member.bulkCreate(band.members)
       })

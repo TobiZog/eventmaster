@@ -10,7 +10,9 @@ export class BandModel {
   descriptionDe: string
   images: Array<string>
   logo: string
-  genre: GenreModel
   ratings: Array<RatingModel>
   members: Array<MemberModel>
+  genre: {
+    name: string
+  }
 }

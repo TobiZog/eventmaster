@@ -13,48 +13,22 @@ const vuetify = createVuetify({
   theme: {
     defaultTheme: 'dark',
     themes: {
-      darkRed: {
-        dark: true,
-        colors: {
-          primary: colors.red.darken1,
-          secondary: colors.red.lighten2
-        }
-      },
-      lightRed: {
-        dark: false,
-        colors: {
-          primary: colors.red.darken1,
-          secondary: colors.red.darken4
-        }
-      },
-      darkBlue: {
+      dark: {
         dark: true,
         colors: {
           primary: colors.blue.darken4,
-          secondary: colors.blue.lighten2
+          secondary: colors.blue.lighten2,
+          sheet: colors.grey.darken4
         }
       },
-      lightBlue: {
+      light: {
         dark: false,
         colors: {
-          primary: colors.blue.darken1,
-          secondary: colors.blue.darken4
+          primary: colors.blue.darken4,
+          secondary: colors.blue.darken2,
+          sheet: colors.grey.lighten3
         }
       },
-      darkGreen: {
-        dark: true,
-        colors: {
-          primary: colors.green.darken1,
-          secondary: colors.green.lighten2
-        }
-      },
-      lightGreen: {
-        dark: false,
-        colors: {
-          primary: colors.green.darken1,
-          secondary: colors.green.darken4
-        }
-      }
     }
   }
 })

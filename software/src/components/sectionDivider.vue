@@ -3,13 +3,6 @@ defineProps({
   title: String,
   image: String
 })
-
-function backgroundStyle(image: string) {
-  return {
-    "background-image": 'http://localhost:3000/static/cities/hannover.jpg',
-    height: `100px`
-  }
-}
 </script>
 
 <template>
@@ -29,7 +22,7 @@ function backgroundStyle(image: string) {
           <v-spacer />
 
           <v-col class="v-col-auto">
-            <span class="text-h3" style="color: white;">{{ title }}</span>
+            <span class="text-h4" style="color: white;">{{ title }}</span>
           </v-col>
 
           <v-spacer />
@@ -44,7 +37,7 @@ function backgroundStyle(image: string) {
     </v-col>
     
     <v-col class="v-col-auto">
-      <span class="text-h6">{{ title }}</span>
+      <span class="text-h4">{{ title }}</span>
     </v-col>
 
     <v-col class="d-flex justify-center align-center">
