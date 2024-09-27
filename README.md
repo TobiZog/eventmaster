@@ -105,7 +105,7 @@ The application host it's data in a SQLite database. The access is managed by an
 
 
 
-<details open>
+<details>
 <summary><code><span style="color:#70AFFD"><b>GET</b></span></code> <code><b>/shows/:id</b></code> <code> (Get all information about one show)</code>
 </summary>
 
@@ -122,7 +122,7 @@ The application host it's data in a SQLite database. The access is managed by an
 
 
 
-<details open>
+<details>
 <summary><code><span style="color:#70AFFD"><b>GET</b></span></code> <code><b>/tours</b></code> <code> (Get all tours)</code>
 </summary>
 
@@ -136,7 +136,7 @@ The application host it's data in a SQLite database. The access is managed by an
 </details>
 
 
-<details open>
+<details>
 <summary><code><span style="color:#70AFFD"><b>GET</b></span></code> <code><b>/genres</b></code> <code> (Get all genres)</code>
 </summary>
 
@@ -151,7 +151,7 @@ The application host it's data in a SQLite database. The access is managed by an
 
 
 
-<details open>
+<details>
 <summary><code><span style="color:#70AFFD"><b>GET</b></span></code> <code><b>/locations</b></code> <code> (Get all locations)</code>
 </summary>
 
@@ -237,23 +237,6 @@ The application host it's data in a SQLite database. The access is managed by an
 
 
 <details>
-<summary><code><span style="color:#69CA92"><b>POST</b></span></code> <code><b>/products/</b></code> <code> (Create a new product)</code>
-</summary>
-
-##### Parameters
-> | name | type | data type | description |
-> | :---: | --- | --- | --- |
-> | None |  required | object (JSON) | Model of a Product |
-
-##### Responses
-> | http code | content-type | response |
-> | :---: | --- | --- |
-> | `201` | `application/json` | `ProductModel`  |
-> | `400` | `application/json` | `{code: 400, message: "..."}` |
-</details>
-
-
-<details>
 <summary><code><span style="color:#69CA92"><b>POST</b></span></code> <code><b>/orders/</b></code> <code> (Create a new order)</code>
 </summary>
 
@@ -266,23 +249,6 @@ The application host it's data in a SQLite database. The access is managed by an
 > | http code | content-type | response |
 > | :---: | --- | --- |
 > | `201` | `application/json` | `OrderModel`  |
-</details>
-
-
-<details>
-<summary><code><span style="color:#69CA92"><b>POST</b></span></code> <code><b>/categories/</b></code> <code> (Create a new category)</code>
-</summary>
-
-##### Parameters
-> | name | type | data type | description |
-> | :---: | --- | --- | --- |
-> | None |  required | object (JSON) | Model of a Category |
-
-##### Responses
-> | http code | content-type | response |
-> | :---: | --- | --- |
-> | `201` | `application/json` | `OrderModel`  |
-> | `400` | `application/json` | `{code: 400, message: "..."}` |
 </details>
 
 ---
@@ -309,7 +275,7 @@ The application host it's data in a SQLite database. The access is managed by an
 
 #### Delete existing
 
-<details>
+<!-- <details>
 <summary><code><span style="color:#EB5246"><b>DELETE</b></span></code> <code><b>/product/:id</b></code> <code> (Delete a product)</code>
 </summary>
 
@@ -323,23 +289,7 @@ The application host it's data in a SQLite database. The access is managed by an
 > | :---: | --- | --- |
 > | `200` | `application/json` | `ProductModel`  |
 > | `400` | `application/json` | `{code: 400, message: "..."}` |
-</details>
-
-<details>
-<summary><code><span style="color:#EB5246"><b>DELETE</b></span></code> <code><b>/categories/:id</b></code> <code> (Delete a category)</code>
-</summary>
-
-##### Parameters
-> | name | type | data type | description |
-> | :---: | --- | --- | --- |
-> | `id` |  required | string | ID of category in the database |
-
-##### Responses
-> | http code | content-type | response |
-> | :---: | --- | --- |
-> | `200` | `application/json` | `CategoryModel`  |
-> | `400` | `application/json` | `{code: 400, message: "..."}` |
-</details>
+</details> -->
 
 ---
 

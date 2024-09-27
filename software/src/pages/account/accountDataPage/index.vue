@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import alertBanner from '@/components/alertBanner.vue';
 import accountDataCard from './accountDataCard.vue';
 import accountManagingCard from './accountManagingCard.vue';
 import addressesCard from './addressesCard.vue';

@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import { useTheme } from 'vuetify/lib/framework.mjs';
 import { i18n } from './plugins/i18n';
-import { ref, watch } from 'vue';
-import vuetify from './plugins/vuetify';
-import navigationItems from './components/navigationItems.vue';
+import { watch } from 'vue';
+import navigationAppendItems from './components/navigation/navigationAppendItems.vue';
+import navigationPrependItems from './components/navigation/navigationPrependItems.vue';
 import { usePreferencesStore } from './data/stores/preferencesStore';
 import { useFeedbackStore } from './data/stores/feedbackStore';
 import { useTourStore } from './data/stores/tourStore';
@@ -11,8 +11,8 @@ import { useTourStore } from './data/stores/tourStore';
 const preferencesStore = usePreferencesStore()
 const tourStore = useTourStore()
 const feedbackStore = useFeedbackStore()
+
 const theme = useTheme()
-const navRail = ref(vuetify.display.mobile)
 
 theme.global.name.value = preferencesStore.theme
 
@@ -26,15 +26,20 @@ watch(() => preferencesStore.language, () => {
 
 <template>
   <v-app>
-    <v-app-bar>
-      <v-app-bar-nav-icon @click="navRail = !navRail" />
+    <v-app-bar
+      height="80"
+      color="primary" 
+      class="px-5"
+    >
+      <template #prepend>
+        <navigation-prepend-items />
+      </template>
 
-      <v-app-bar-title>HackMyCart</v-app-bar-title>
+      <template #append>
+        <navigation-append-items />
+      </template>
     </v-app-bar>
 
-    <v-navigation-drawer :rail="navRail" permanent>
-      <navigation-items v-model:nav-rail="navRail" />
-    </v-navigation-drawer>
 
     <v-main>
       <!-- Snackbar in the top right corner for user feedback -->
@@ -58,7 +63,9 @@ watch(() => preferencesStore.language, () => {
       </v-snackbar>
 
       <!-- Here changes the router the content -->
-      <router-view></router-view>
+      <v-container max-width="1200">
+        <router-view></router-view>
+      </v-container>
     </v-main>
   </v-app>
 </template>

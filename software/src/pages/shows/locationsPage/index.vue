@@ -2,5 +2,5 @@
 </script>
 
 <template>
-  Help
+  Locations
 </template>

@@ -20,7 +20,7 @@ const vuetify = createVuetify({
           secondary: colors.red.lighten2
         }
       },
-            lightRed: {
+      lightRed: {
         dark: false,
         colors: {
           primary: colors.red.darken1,
@@ -30,7 +30,7 @@ const vuetify = createVuetify({
       darkBlue: {
         dark: true,
         colors: {
-          primary: colors.blue.darken1,
+          primary: colors.blue.darken4,
           secondary: colors.blue.lighten2
         }
       },

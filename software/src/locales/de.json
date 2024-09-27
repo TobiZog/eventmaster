@@ -1,8 +1,9 @@
 {
   "menu": {
     "shopping": {
-      "shopping": "Einkaufen",
-      "ticket": "Ticket | Tickets",
+      "allEvents": "Alle Events",
+      "allLocations": "Alle Orte",
+      "allGenres": "Alle Genres",
       "basket": "Warenkorb"
     },
     "account": {

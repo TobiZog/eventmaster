@@ -1,23 +1,17 @@
-import AccountPage from "@/pages/accountPage/index.vue";
-import OrdersPage from "@/pages/ordersPage/index.vue";
-import PreferencesPage from "@/pages/preferencesPage/index.vue";
-import TourPage from "@/pages/toursPage/index.vue";
-import LoginPage from "@/pages/loginPage/index.vue"
 import BasketPage from "@/pages/basketPage/index.vue"
-import HelpPage from "@/pages/helpPage/index.vue"
-import ScoreBoardPage from "@/pages/scoreBoardPage/index.vue"
-import adminRoutes from "./admin.routes";
+import HomePage from "@/pages/homePage/index.vue"
+import { adminRoutes } from "./admin.routes";
+import { accountRoutes } from "./account.routes";
+import { showRoutes } from "./show.routes";
+import { systemRoutes } from "./system.routes";
 
 const routes = [
-  { path: '/', component: TourPage },
-  { path: '/account', component: AccountPage },
-  { path: '/orders', component: OrdersPage },
-  { path: '/preferences', component: PreferencesPage },
-  { path: '/login', component: LoginPage },
+  { path: "/", component: HomePage },
   { path: '/basket', component: BasketPage },
-  { path: '/scoreboard', component: ScoreBoardPage },
-  { path: '/help', component: HelpPage },
-  ...adminRoutes
+  ...showRoutes,
+  ...accountRoutes,
+  ...adminRoutes,
+  ...systemRoutes
 ]
 
 export default routes

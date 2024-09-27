@@ -4,7 +4,7 @@ import AccountsPage from "@/pages/admin/accountsPage/index.vue"
 import ProductsPage from "@/pages/admin/productsPage/index.vue"
 import BrandsPage from "@/pages/admin/brandsPage/index.vue"
 
-export default [
+export const adminRoutes = [
   {
     path: '/admin/dashboard',
     component: DashboardPage
