@@ -1,4 +1,4 @@
-import { Show } from "../models/acts/show.model";
+import { Concert } from "../models/acts/concert.model";
 import { Band } from "../models/acts/band.model";
 import { Tour } from "../models/acts/tour.model";
 import { Request, Response, Router } from "express";
@@ -19,7 +19,7 @@ tour.get("/", (req: Request, res: Response) => {
         }
       },
       { 
-        model: Show, 
+        model: Concert, 
         include: [ 
           {
             model: Location,

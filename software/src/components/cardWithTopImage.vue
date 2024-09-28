@@ -1,7 +1,11 @@
 <script setup lang="ts">
 defineProps({
   image: String,
-  title: String
+  title: String,
+  smallerTitle: {
+    type: Boolean,
+    default: false
+  }
 })
 </script>
 
@@ -17,9 +21,16 @@ defineProps({
       cover
     />
 
-    <v-card-title v-if="title">
-      {{ title }}
-    </v-card-title>
+    <div v-if="title">
+      <v-card-title v-if="!smallerTitle">
+        {{ title }}
+      </v-card-title>
+
+      <v-card-title v-else style="font-size: medium">
+        {{ title }}
+      </v-card-title>
+    </div>
+
 
     <div class="px-4 pb-4" v-if="$slots.default">
       <slot></slot>

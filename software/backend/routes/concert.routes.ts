@@ -1,13 +1,13 @@
 import { Location } from "../models/acts/location.model";
-import { Show } from "../models/acts/show.model";
+import { Concert } from "../models/acts/concert.model";
 import { Request, Response, Router } from "express";
 import { Tour } from "../models/acts/tour.model";
 import { City } from "../models/acts/city.model";
 
-export const show = Router()
+export const concert = Router()
 
-show.get("/:id", (req: Request, res: Response) => {
-  Show.findByPk(req.params.id, {
+concert.get("/:id", (req: Request, res: Response) => {
+  Concert.findByPk(req.params.id, {
     include: [ 
       Tour,
       {

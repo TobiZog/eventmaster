@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import OutlinedButton from '@/components/outlinedButton.vue';
-import { useShowStore } from '@/data/stores/showStore';
+import { useConcertStore } from '@/data/stores/concertStore';
 
-const tourStore = useShowStore()
+const concertStore = useConcertStore()
 </script>
 
 <template>
@@ -29,7 +29,7 @@ const tourStore = useShowStore()
     </template>
 
     <v-carousel-item
-      v-for="tour in tourStore.tours"
+      v-for="tour in concertStore.tours"
       :src="'http://localhost:3000/static/bands/' + tour.band.images[0]" 
       cover
     >

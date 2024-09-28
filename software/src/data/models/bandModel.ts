@@ -12,7 +12,7 @@ export class BandModel {
   logo: string
   ratings: Array<RatingModel>
   members: Array<MemberModel>
-  genre: {
+  genres: {
     name: string
   }
 }

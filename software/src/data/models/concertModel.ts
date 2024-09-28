@@ -1,6 +1,6 @@
 import { LocationModel } from "./locationModel"
 
-export class ShowModel {
+export class ConcertModel {
   id: number
   inStock: number
   date: string

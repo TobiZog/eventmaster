@@ -1,6 +1,6 @@
 import { BelongsTo, Column, ForeignKey, HasMany, Model, Table } from "sequelize-typescript";
 import { Band } from "./band.model";
-import { Show } from "./show.model";
+import { Concert } from "./concert.model";
 
 @Table({ timestamps: false })
 export class Tour extends Model {
@@ -13,12 +13,15 @@ export class Tour extends Model {
   @Column
   offered: Boolean
 
+  @Column
+  image: String
+
 
   // Relations
 
   @BelongsTo(() => Band)
   band: Band
 
-  @HasMany(() => Show)
-  shows: Show[]
+  @HasMany(() => Concert)
+  shows: Concert[]
 }

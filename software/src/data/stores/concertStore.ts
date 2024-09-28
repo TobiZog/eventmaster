@@ -11,13 +11,13 @@ import { getAllGenres } from "../api/genreApi";
 import { CityModel } from "../models/cityModel";
 import { getAllCities } from "../api/cityApi";
 
-export const useShowStore = defineStore("showStore", {
+export const useConcertStore = defineStore("concertStore", {
   state: () => ({
-    tours: useLocalStorage<Array<TourModel>>("hackmycart/showStore/tours", []),
-    bands: useLocalStorage<Array<BandModel>>("hackmycart/showStore/bands", []),
-    locations: useLocalStorage<Array<LocationModel>>("hackmycart/showStore/locations", []),
-    cities: useLocalStorage<Array<CityModel>>("hackmycart/showStore/cities", []),
-    genres: useLocalStorage<Array<GenreModel>>("hackmycart/showStore/genres", [])
+    tours: useLocalStorage<Array<TourModel>>("hackmycart/concertStore/tours", []),
+    bands: useLocalStorage<Array<BandModel>>("hackmycart/concertStore/bands", []),
+    locations: useLocalStorage<Array<LocationModel>>("hackmycart/concertStore/locations", []),
+    cities: useLocalStorage<Array<CityModel>>("hackmycart/concertStore/cities", []),
+    genres: useLocalStorage<Array<GenreModel>>("hackmycart/concertStore/genres", [])
   }),
   
   actions: {
@@ -25,6 +25,10 @@ export const useShowStore = defineStore("showStore", {
       await getAllTours()
         .then(result => {
           this.tours = result.data
+
+          this.tours.sort((a, b) => {
+            return new Date(a.shows[0].date) < new Date(b.shows[0].date) ? -1 : 1
+          })
         })
 
       await getAllBands()

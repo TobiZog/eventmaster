@@ -1,4 +1,3 @@
-import { AccountModel } from "./accountModel"
 import { BandModel } from "./bandModel"
 
 export class RatingModel {

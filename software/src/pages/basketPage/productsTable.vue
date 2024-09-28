@@ -30,18 +30,18 @@ function editQuantity(basketItem: BasketItemModel) {
     <tbody>
       <tr v-for="basketItem in basketStore.itemsInBasket">
         <!-- Category icon and name -->
-        <td><v-icon :icon="basketItem.product.category.icon" />
-          {{ basketItem.product.category.name }}
+        <td><v-icon :icon="basketItem.concert.category.icon" />
+          {{ basketItem.concert.category.name }}
         </td>
 
         <!-- Product brand -->
         <td>
-          {{ basketItem.product.brand.name }}
+          {{ basketItem.concert.brand.name }}
         </td>
 
         <!-- Name of product -->
         <td>
-          {{ basketItem.product.name }}
+          {{ basketItem.concert.name }}
         </td>
 
         <!-- Quantity -->
@@ -73,18 +73,18 @@ function editQuantity(basketItem: BasketItemModel) {
 
         <!-- Total price -->
         <td class="text-right">
-          <div v-if="basketItem.product.discount > 0">
+          <div v-if="basketItem.concert.discount > 0">
             <strong class="font-weight-bold text-body-1 text-red-lighten-1">
-              {{ calcPrice(basketItem.product.price, basketItem.product.discount, basketItem.quantity) }} €
+              {{ calcPrice(basketItem.concert.price, basketItem.concert.discount, basketItem.quantity) }} €
             </strong>
 
             <div class="text-decoration-line-through ml-3 mt-1 text-caption">
-              {{ calcPrice(basketItem.product.price, 0, basketItem.quantity) }} €
+              {{ calcPrice(basketItem.concert.price, 0, basketItem.quantity) }} €
             </div>
           </div>
 
           <div v-else>
-            {{ calcPrice(basketItem.product.price, 0, basketItem.quantity) }} €
+            {{ calcPrice(basketItem.concert.price, 0, basketItem.quantity) }} €
           </div>
         </td>
 

@@ -5,7 +5,7 @@ import { useFeedbackStore } from "./feedbackStore";
 import { BannerStateEnum } from "../enums/bannerStateEnum";
 import { addOrder } from "../api/orderApi";
 import { useAccountStore } from "./accountStore";
-import { ShowModel } from "../models/showModel";
+import { ConcertModel } from "../models/concertModel";
 import { AddressModel } from "../models/addressModel";
 import { PaymentModel } from "../models/paymentModel";
 
@@ -44,28 +44,28 @@ export const useBasketStore = defineStore('basketStore', {
       feedbackStore.changeBanner(BannerStateEnum.BASKETPRODUCTREMOVED)
 
       this.itemsInBasket = this.itemsInBasket.filter((basketItemModel: BasketItemModel) => 
-        basketItemModel.product.id != item.product.id
+        basketItemModel.concert.id != item.concert.id
       )
     },
 
     /**
      * Add an item to the basket. If the product is already in the basket, the quantity will increase
      * 
-     * @param show Show to add
+     * @param concert Concert to add
      * @param quantity Quantity of the product
      */
-    addItemToBasket(show: ShowModel, quantity: number) {
+    addItemToBasket(concert: ConcertModel, quantity: number) {
       const feedbackStore = useFeedbackStore()
       feedbackStore.changeBanner(BannerStateEnum.BASKETPRODUCTADDED)
 
       // Product is already in the basket, increase number of items
       if (this.itemsInBasket.find((basketItem: BasketItemModel) => 
-        basketItem.product.id == show.id))
+        basketItem.concert.id == concert.id))
       {
         this.itemsInBasket.find((basketItem: BasketItemModel) => 
-          basketItem.product.id == show.id).quantity += quantity
+          basketItem.concert.id == concert.id).quantity += quantity
       } else {
-        this.itemsInBasket.push(new BasketItemModel(quantity, show))
+        this.itemsInBasket.push(new BasketItemModel(quantity, concert))
       }
     },
 

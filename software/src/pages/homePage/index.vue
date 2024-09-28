@@ -1,13 +1,13 @@
 <script setup lang="ts">
-import { useShowStore } from '@/data/stores/showStore';
+import { useConcertStore } from '@/data/stores/concertStore';
 import highlightCarousel from './highlightCarousel.vue';
 import sectionDivider from '@/components/sectionDivider.vue';
 import cardWithTopImage from '@/components/cardWithTopImage.vue';
-import { calcRating } from '@/scripts/showsScripts';
+import { calcRating, lowestTicketPrice } from '@/scripts/concertScripts';
 import OutlinedButton from '@/components/outlinedButton.vue';
 import router from '@/plugins/router';
 
-const showStore = useShowStore()
+const concertStore = useConcertStore()
 </script>
 
 <template>
@@ -16,17 +16,18 @@ const showStore = useShowStore()
   <v-container>
     <v-row>
       <v-col>
-        <section-divider :title="$t('shows.topEvents')" />
+        <section-divider :title="$t('shows.highlights')" />
       </v-col>
     </v-row>
 
     <v-row>
-      <v-col v-for="i in 4" cols="3">
+      <v-col v-for="i in 6" cols="2">
         <card-with-top-image
-          :image="'bands/' + showStore.tours[i].band.images[0]"
-          :title="showStore.tours[i].name"
+          :image="'tours/' + concertStore.tours[i - 1].image"
+          :title="concertStore.tours[i - 1].band.name"
+          smaller-title
         >
-          {{ showStore.bands[i].name }} 
+          Tickets ab {{ lowestTicketPrice(concertStore.tours[i - 1]) }} €
         </card-with-top-image>
       </v-col>
     </v-row>
@@ -35,10 +36,10 @@ const showStore = useShowStore()
       <v-col>
         <outlined-button
           append-icon="mdi-chevron-right"
-          @click="router.push('/shows/events')"
+          @click="router.push('/shows/concerts')"
           block
         >
-          {{ $t('menu.allEvents') }}
+          {{ $t('menu.allConcerts') }}
         </outlined-button>
       </v-col>
     </v-row>
@@ -53,10 +54,10 @@ const showStore = useShowStore()
     <v-row>
       <v-col v-for="i in 4" cols="3">
         <card-with-top-image
-          :image="'bands/' + showStore.bands[i - 1].logo"
-          :title="showStore.bands[i - 1].name"
+          :image="'bands/' + concertStore.bands[i - 1].logo"
+          :title="concertStore.bands[i - 1].name"
         >
-          {{ showStore.bands[i - 1].genre.name }}
+          {{ concertStore.bands[i - 1].genres.name }}
 
           <div class="d-flex justify-center pt-3">
             <v-rating
@@ -65,7 +66,7 @@ const showStore = useShowStore()
               size="large"
               half-increments
               active-color="orange"
-              :model-value="calcRating(showStore.bands[i - 1].ratings)"
+              :model-value="calcRating(concertStore.bands[i - 1].ratings)"
             />
           </div>
         </card-with-top-image>
@@ -92,13 +93,13 @@ const showStore = useShowStore()
     </v-row>
 
     <v-row>
-      <v-col v-for="i in 4" cols="3">
+      <v-col v-for="i in 6" cols="2">
         <card-with-top-image
-          :image="'locations/' + showStore.locations[i + 2].image"
-          :title="showStore.locations[i + 2].name"
+          :image="'locations/' + concertStore.locations[i + 2].image"
+          :title="concertStore.locations[i + 2].name"
+          smaller-title
         >
-          <div>{{ showStore.locations[i + 2].address }}</div>
-          {{ showStore.locations[i + 2].city.name }}, {{ showStore.locations[i + 2].city.country }}
+          {{ concertStore.locations[i + 2].city.name }}, {{ concertStore.locations[i + 2].city.country }}
         </card-with-top-image>
       </v-col>
     </v-row>
@@ -116,5 +117,3 @@ const showStore = useShowStore()
     </v-row>
   </v-container>
 </template>
-
-

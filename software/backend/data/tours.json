@@ -2,40 +2,74 @@
   "data": [
     {
       "id": 0,
-      "name": "Unlimited Love Tour",
+      "name": "Unlimited Love",
       "bandId": 0,
       "offered": true,
-      "shows": [
+      "image": "unlimited-love-tour.jpg",
+      "concerts": [
         {
           "id": 0,
-          "date": "2024-12-03",
+          "date": "2024-10-18",
           "price": 92,
-          "inStock": 230,
+          "inStock": 930,
           "locationId": 0,
+          "tourId": 0
+        },
+        {
+          "id": 1,
+          "date": "2024-10-23",
+          "price": 119.90,
+          "inStock": 8736,
+          "locationId": 4,
+          "tourId": 0
+        },
+        {
+          "id": 2,
+          "date": "2024-10-26",
+          "price": 114.90,
+          "inStock": 2793,
+          "locationId": 8,
+          "tourId": 0
+        },
+        {
+          "id": 3,
+          "date": "2024-11-02",
+          "price": 124.90,
+          "inStock": 3079,
+          "locationId": 12,
           "tourId": 0
         }
       ]
     },
     {
       "id": 1,
-      "name": "The Bends Tour",
+      "name": "The Bends",
       "bandId": 1,
       "offered": true,
-      "shows": [
+      "image": "the-bends-tour.jpg",
+      "concerts": [
         {
-          "id": 1,
+          "id": 4,
           "date": "2024-11-30",
-          "price": 104,
-          "inStock": 120,
-          "locationId": 2,
+          "price": 108,
+          "inStock": 1200,
+          "locationId": 1,
           "tourId": 1
         },
         {
-          "id": 2,
+          "id": 5,
           "date": "2024-12-01",
           "price": 104,
-          "inStock": 180,
-          "locationId": 0,
+          "inStock": 1800,
+          "locationId": 5,
+          "tourId": 1
+        },
+        {
+          "id": 6,
+          "date": "2024-12-07",
+          "price": 99.90,
+          "inStock": 2438,
+          "locationId": 9,
           "tourId": 1
         }
       ]
@@ -45,29 +79,55 @@
       "name": "European Tour",
       "bandId": 2,
       "offered": true,
-      "shows": [
+      "image": "european-tour-arctic-monkeys.jpg",
+      "concerts": [
         {
-          "id": 3,
-          "date": "2024-10-15",
-          "price": 80,
-          "inStock": 99,
+          "id": 7,
+          "date": "2025-01-21",
+          "price": 67.90,
+          "inStock": 994,
           "locationId": 3,
+          "tourId": 2
+        },
+        {
+          "id": 8,
+          "date": "2024-11-15",
+          "price": 79.90,
+          "inStock": 1073,
+          "locationId": 14,
           "tourId": 2
         }
       ]
     },
     {
       "id": 3,
-      "name": "Moon Music Tour",
+      "name": "Music of the Spheres",
       "bandId": 3,
       "offered": true,
-      "shows": [
+      "image": "music-of-the-spheres.png",
+      "concerts": [
         {
-          "id": 4,
-          "date": "2024-10-15",
-          "price": 80,
-          "inStock": 99,
-          "locationId": 1,
+          "id": 9,
+          "date": "2024-12-07",
+          "price": 124.90,
+          "inStock": 765,
+          "locationId": 13,
+          "tourId": 3
+        },
+        {
+          "id": 10,
+          "date": "2025-01-17",
+          "price": 129.90,
+          "inStock": 989,
+          "locationId": 9,
+          "tourId": 3
+        },
+        {
+          "id": 11,
+          "date": "2025-02-01",
+          "price": 134.90,
+          "inStock": 827,
+          "locationId": 4,
           "tourId": 3
         }
       ]
@@ -77,14 +137,40 @@
       "name": "But Here We Are Tour",
       "bandId": 4,
       "offered": true,
-      "shows": [
+      "image": "but-here-we-are.jpg",
+      "concerts": [
         {
-          "id": 5,
-          "date": "2024-10-15",
+          "id": 12,
+          "date": "2024-12-05",
           "price": 80,
           "inStock": 99,
           "locationId": 2,
           "tourId": 4
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "name": "Crisis of Faith",
+      "bandId": 5,
+      "offered": true,
+      "image": "crisis-of-faith-tour.jpg",
+      "concerts": [
+        {
+          "id": 13,
+          "date": "2025-01-12",
+          "price": 81.90,
+          "inStock": 173,
+          "locationId": 2,
+          "tourId": 5
+        },
+        {
+          "id": 14,
+          "date": "2025-02-01",
+          "price": 84.90,
+          "inStock": 192,
+          "locationId": 6,
+          "tourId": 5
         }
       ]
     }

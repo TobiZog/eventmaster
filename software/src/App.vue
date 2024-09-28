@@ -6,17 +6,17 @@ import navigationAppendItems from './components/navigation/navigationAppendItems
 import navigationPrependItems from './components/navigation/navigationPrependItems.vue';
 import { usePreferencesStore } from './data/stores/preferencesStore';
 import { useFeedbackStore } from './data/stores/feedbackStore';
-import { useShowStore } from './data/stores/showStore';
+import { useConcertStore } from './data/stores/concertStore';
 
 const preferencesStore = usePreferencesStore()
-const showStore = useShowStore()
+const concertStore = useConcertStore()
 const feedbackStore = useFeedbackStore()
 
 const theme = useTheme()
 
 theme.global.name.value = preferencesStore.theme
 
-showStore.fetchAllTours()
+concertStore.fetchAllTours()
 
 // Global watcher
 watch(() => preferencesStore.language, () => {
@@ -64,7 +64,7 @@ watch(() => preferencesStore.language, () => {
       </v-snackbar>
 
       <!-- Here changes the router the content -->
-      <v-container max-width="1200" class="pt-0 pb-5">
+      <v-container max-width="1400" class="pt-0 pb-5">
         <v-sheet color="sheet">
           <router-view></router-view>
         </v-sheet>

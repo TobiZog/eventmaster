@@ -239,6 +239,60 @@
           "bandId": 4
         }
       ]
+    },
+    {
+      "id": 5,
+      "name": "Billy Talent",
+      "foundingYear": 1993,
+      "descriptionEn": "Billy Talent is a Canadian rock band from Mississauga, Ontario. They formed in 1993 with lead vocalist Benjamin Kowalewicz, guitarist Ian D'Sa, bassist Jonathan Gallant, and drummer Aaron Solowoniuk. There have been no lineup changes, although Solowoniuk has been on hiatus from the band since 2016 due to a relapse of multiple sclerosis. In the three decades since their inception, Billy Talent has sold well over a million physical albums in Canada alone and nearly 3 million albums internationally. During their most successful period, they were ranked as one of the top 10 best-selling native bands in Canada.",
+      "descriptionDe": "Billy Talent ist eine kanadische Rockband aus Mississauga, Ontario. Die Band spielte anfangs Punk, ordnet sich auf den späteren Alben jedoch eher im Alternative Rock ein. ",
+      "images": [ "billy-talent-1.jpg" ],
+      "logo": "billy-talent-logo.png",
+      "genreId": [ 2, 11, 12, 13 ],
+      "members": [
+        {
+          "name": "Benjamin Kowalewicz",
+          "bandId": 5,
+          "image": "benjamin-kowalewicz.jpg"
+        },
+        {
+          "name": "Ian D'Sa ",
+          "bandId": 5,
+          "image": "ian-d-sa.jpg"
+        },
+        {
+          "name": "Jonathan Gallant",
+          "bandId": 5,
+          "image": "jonathan-gallant.jpg"
+        },
+        {
+          "name": "Jordan Hastings",
+          "bandId": 5,
+          "image": "jordan-hastings.jpg"
+        },
+        {
+          "name": "Josh Freese",
+          "bandId": 5,
+          "image": "josh-freese.jpg"
+        }
+      ],
+      "ratings": [
+        {
+          "accountId": 0,
+          "rating": 5,
+          "bandId": 5
+        },
+        {
+          "accountId": 1,
+          "rating": 3,
+          "bandId": 5
+        },
+        {
+          "accountId": 2,
+          "rating": 4,
+          "bandId": 5
+        }
+      ]
     }
   ]
 }

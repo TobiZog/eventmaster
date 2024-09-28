@@ -1,15 +1,15 @@
 <script setup lang="ts">
 import sectionDivider from '@/components/sectionDivider.vue';
-import { useShowStore } from '@/data/stores/showStore';
+import { useConcertStore } from '@/data/stores/concertStore';
 import cardWithTopImage from '@/components/cardWithTopImage.vue';
-import { calcRating } from '@/scripts/showsScripts';
+import { calcRating } from '@/scripts/concertScripts';
 
-const showStore = useShowStore()
+const concertStore = useConcertStore()
 </script>
 
 <template>
   <v-container>
-    <div v-for="genre in showStore.genres">
+    <div v-for="genre in concertStore.genres">
       <v-row>
         <v-col>
           <section-divider 

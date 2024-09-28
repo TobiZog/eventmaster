@@ -43,6 +43,18 @@
     {
       "id": 10,
       "name": "Post-Grunge"
+    },
+    {
+      "id": 11,
+      "name": "Punk-Rock"
+    },
+    {
+      "id": 12,
+      "name": "Post-Hardcore"
+    },
+    {
+      "id": 13,
+      "name": "Pop-Punk"
     }
   ]
 }

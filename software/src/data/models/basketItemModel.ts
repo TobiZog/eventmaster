@@ -1,12 +1,12 @@
-import { ShowModel } from "./showModel"
+import { ConcertModel } from "./concertModel"
 
 export class BasketItemModel {
   id: number = -1
   quantity: number = 1
-  product: ShowModel = new ShowModel()
+  concert: ConcertModel = new ConcertModel()
 
-  constructor(quantity: number, product: ShowModel) {
+  constructor(quantity: number, concert: ConcertModel) {
     this.quantity = quantity
-    this.product = product
+    this.concert = concert
   }
 }

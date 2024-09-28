@@ -1,5 +1,5 @@
 import { BelongsTo, Column, ForeignKey, HasMany, Model, Table } from "sequelize-typescript";
-import { Show } from "./show.model";
+import { Concert } from "./concert.model";
 import { City } from "./city.model";
 
 @Table({ timestamps: false })
@@ -20,8 +20,8 @@ export class Location extends Model {
 
   // Relations
 
-  @HasMany(() => Show)
-  shows: Show[]
+  @HasMany(() => Concert)
+  shows: Concert[]
 
   @BelongsTo(() => City)
   city: City

@@ -9,7 +9,7 @@ import { Member } from '../models/acts/member.model'
 import { Genre } from '../models/acts/genre.model'
 import { Band } from '../models/acts/band.model'
 import { Location } from '../models/acts/location.model'
-import { Show } from '../models/acts/show.model'
+import { Concert } from '../models/acts/concert.model'
 import { Tour } from '../models/acts/tour.model'
 import { City } from '../models/acts/city.model'
 import { BandGenre } from '../models/acts/bandGenre.model'
@@ -36,7 +36,7 @@ export function deleteAllTables() {
   Genre.destroy({ truncate: true })
   Band.destroy({ truncate: true })
   Location.destroy({ truncate: true })
-  Show.destroy({ truncate: true })
+  Concert.destroy({ truncate: true })
   
   Address.destroy({ truncate: true })
   Payment.destroy({ truncate: true })
@@ -90,8 +90,8 @@ export async function prepopulateDatabase() {
   for (let tour of tours.data) {
     await Tour.create(tour)
       .then(async dataset => {
-        for (let show of tour.shows) {
-          await Show.create(show)
+        for (let concert of tour.concerts) {
+          await Concert.create(concert)
         }
       })
   }

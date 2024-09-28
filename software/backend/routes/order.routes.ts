@@ -1,6 +1,6 @@
 import { Router, Request, Response } from "express";
 import { Order } from "../models/ordering/order.model";
-import { Show } from "../models/acts/show.model";
+import { Concert } from "../models/acts/concert.model";
 import { OrderItem } from "../models/ordering/orderItem.model";
 import { Payment } from "../models/user/payment.model";
 import { Address } from "../models/user/address.model";
@@ -18,7 +18,7 @@ order.get("/:id", (req: Request, res: Response) => {
         model: OrderItem, 
         include: [ 
           { 
-            model: Show,
+            model: Concert,
             include: [ Band, Location ],
             attributes: {
               exclude: [
@@ -50,7 +50,7 @@ order.post("/", (req: Request, res: Response) => {
           productId: orderItem.productId
         })
 
-        Show.decrement(
+        Concert.decrement(
           "inStock", 
           {
             by: orderItem.quantity,

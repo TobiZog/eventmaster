@@ -1,10 +1,11 @@
 import { BandModel } from "./bandModel"
-import { ShowModel } from "./showModel"
+import { ConcertModel } from "./concertModel"
 
 export class TourModel {
   id: number
   name: string
   offered: boolean
   band: BandModel
-  shows: Array<ShowModel>
+  image: string
+  shows: Array<ConcertModel>
 }

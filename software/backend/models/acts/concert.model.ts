@@ -4,7 +4,7 @@ import { Tour } from "./tour.model";
 import { OrderItem } from "../ordering/orderItem.model";
 
 @Table({ timestamps: false })
-export class Show extends Model {
+export class Concert extends Model {
   @Column
   date: String
 

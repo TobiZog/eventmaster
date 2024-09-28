@@ -10,12 +10,12 @@
   <v-divider vertical />
 
   <v-btn
-    to="/shows/events"
+    to="/shows/concerts"
     prepend-icon="mdi-ticket"
     height="100%"
     :rounded="false"
   >
-    {{ $t('menu.allEvents', 2) }}
+    {{ $t('menu.allConcerts', 2) }}
   </v-btn>
 
   <v-divider vertical />

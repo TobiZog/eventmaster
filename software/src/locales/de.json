@@ -1,12 +1,13 @@
 {
   "menu": {
-    "allEvents": "Alle Events",
+    "allConcerts": "Alle Konzerte",
     "allLocations": "Alle Veranstaltungsorte",
     "allBands": "Alle Bands"
   },
   "shows": {
+    "highlights": "Highlights",
     "tickets": "Ticket | Tickets",
-    "topEvents": "Top Events",
+    "topConcerts": "Top Konzerte",
     "topBands": "Top Bands",
     "topLocations": "Top Veranstaltungsorte"
   },

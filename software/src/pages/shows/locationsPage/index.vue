@@ -1,14 +1,14 @@
 <script setup lang="ts">
 import sectionDivider from '@/components/sectionDivider.vue';
-import { useShowStore } from '@/data/stores/showStore';
+import { useConcertStore } from '@/data/stores/concertStore';
 import cardWithTopImage from '@/components/cardWithTopImage.vue';
 
-const showStore = useShowStore()
+const concertStore = useConcertStore()
 </script>
 
 <template>
   <v-container>
-    <div v-for="city in showStore.cities">
+    <div v-for="city in concertStore.cities">
       <v-row>
         <v-col>
           <section-divider 

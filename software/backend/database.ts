@@ -11,7 +11,7 @@ import { AccountRole } from "./models/user/accountRole.model"
 import { Genre } from "./models/acts/genre.model"
 import { Location } from "./models/acts/location.model"
 import { Band } from "./models/acts/band.model"
-import { Show } from "./models/acts/show.model"
+import { Concert } from "./models/acts/concert.model"
 import { Member } from "./models/acts/member.model"
 import { Rating } from "./models/acts/rating.model"
 import { Tour } from "./models/acts/tour.model"
@@ -31,7 +31,7 @@ export const sequelize = new Sequelize({
   storage: "database.sqlite",
   models: [
     AccountRole, Account, Payment, Address,
-    City, Location, Genre, Band, BandGenre, Rating, Member, Tour, Show,
+    City, Location, Genre, Band, BandGenre, Rating, Member, Tour, Concert,
     Order, OrderItem
   ]
 })
