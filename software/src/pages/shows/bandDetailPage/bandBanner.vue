@@ -32,6 +32,15 @@ defineProps({
 
           <v-col>
             <p class="text-h3">{{ band.name }}</p>
+            <div>
+              <v-chip
+                v-for="genre in band.genres"
+                class="mr-2 my-1"
+                variant="flat"
+              >
+                {{ genre.name }}
+              </v-chip>
+            </div>
             <p class="text-h6">{{ band.descriptionDe }}</p>
           </v-col>
         </v-row>

@@ -4,6 +4,9 @@ import { dateStringToHumanReadableString } from '@/scripts/dateTimeScripts';
 import sectionDivider from '@/components/sectionDivider.vue';
 import cardWithLeftImage from '@/components/cardWithLeftImage.vue';
 import outlinedButton from '@/components/outlinedButton.vue';
+import { useRouter } from 'vue-router';
+
+const router = useRouter()
 
 defineProps({
   band: {
@@ -27,17 +30,26 @@ defineProps({
         :image="'http://localhost:3000/static/locations/' + concert.location.image"
         :link="false"
       >
-        <div>
-          {{ concert.location.name }}
-        </div>
+        <v-row>
+          <v-col cols="auto" class="d-flex justify-center align-center px-0">
+            <v-btn
+              icon="mdi-map"
+              variant="text"
+              size="x-large"
+              @click="router.push('/locations/' + concert.location.name.replaceAll(' ', '-').toLowerCase())"
+            />
+          </v-col>
 
-        <div>
-          {{ concert.location.address }}
-        </div>
+          <v-col>
+            <div class="text-h6">
+              {{ concert.location.name }}
+            </div>
 
-        <div>
-          {{ concert.location.city.name }}
-        </div>
+            <div class="text-h6">
+              {{ concert.location.city.name }}
+            </div>
+          </v-col>
+        </v-row>
 
         <template #append>
           <div class="pb-3">
@@ -46,11 +58,19 @@ defineProps({
 
           <div>
             <outlined-button
+              v-if="concert.inStock > 0"
               prepend-icon="mdi-basket-plus"
             >
-                Hinzufügen
+              {{ $t('add') }}
             </outlined-button>
-          </div>            
+
+            <outlined-button v-else
+              color="red"
+              disabled
+            >
+              {{ $t('soldOut') }}
+            </outlined-button>
+          </div>
         </template>
       </card-with-left-image>
     </v-col>

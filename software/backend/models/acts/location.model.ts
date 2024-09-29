@@ -21,7 +21,7 @@ export class Location extends Model {
   // Relations
 
   @HasMany(() => Concert)
-  shows: Concert[]
+  concerts: Concert[]
 
   @BelongsTo(() => City)
   city: City

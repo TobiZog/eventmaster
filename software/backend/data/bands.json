@@ -426,6 +426,59 @@
           "bandId": 6
         }
       ]
+    },
+    {
+      "id": 7,
+      "name": "Muse",
+      "foundingYear": 1994,
+      "descriptionEn": "Muse are an English rock band from Teignmouth, Devon, formed in 1994. The band consists of Matt Bellamy (lead vocals, guitar, keyboards), Chris Wolstenholme (bass guitar, backing vocals), and Dominic Howard (drums, percussion).",
+      "descriptionDe": "Muse ist eine britische Rockband, die 1994 in Teignmouth, England gegründet wurde. Die Band besteht aus Matthew Bellamy (Gesang, Gitarre, Klavier und Synthesizers), Chris Wolstenholme (E-Bass, Gesang, Synthesizer) und Dominic Howard (Schlagzeug und Perkussion). Muse verbindet stilistisch Alternative, Hard und Progressive Rock sowie Electronica mit Elementen klassischer Musik zu Rockballaden und wird dem Subgenre New Prog zugeordnet.",
+      "images": [
+        "muse-1.jpg",
+        "muse-2.jpg",
+        "muse-3.jpg"
+      ],
+      "imageMembers": "muse-members.jpg",
+      "logo": "muse-logo.jpg",
+      "genreId": [
+        2,
+        15,
+        16
+      ],
+      "members": [
+        {
+          "name": "Matthew Bellamy",
+          "bandId": 7,
+          "image": "matthew-bellamy.jpg"
+        },
+        {
+          "name": "Dominic Howard",
+          "bandId": 7,
+          "image": "dominic-howard.jpg"
+        },
+        {
+          "name": "Chris Wolstenholme",
+          "bandId": 7,
+          "image": "christ-wolstenholme.jpg"
+        }
+      ],
+      "ratings": [
+        {
+          "accountId": 0,
+          "rating": 5,
+          "bandId": 7
+        },
+        {
+          "accountId": 1,
+          "rating": 4,
+          "bandId": 7
+        },
+        {
+          "accountId": 2,
+          "rating": 4,
+          "bandId": 7
+        }
+      ]
     }
   ]
 }

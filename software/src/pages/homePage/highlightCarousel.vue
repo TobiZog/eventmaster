@@ -51,9 +51,9 @@ const router = useRouter()
             append-icon="mdi-arrow-right"
             class="mt-2"
             color="primary"
-            @click="router.push('shows/band/red-hot-chili-peppers')"
+            @click="router.push('bands/' + band.name.replaceAll(' ', '-').toLowerCase())"
           >
-            {{ $t('shows.tickets', 2) }}
+            {{ $t('tickets', 2) }}
           </outlined-button>
         </v-card-text>
       </v-card>

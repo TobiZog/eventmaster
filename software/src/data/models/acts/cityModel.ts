@@ -1,3 +1,6 @@
+/**
+ * Replica of the API endpoint /cities
+ */
 export class CityModel {
   id: number
   name: string
@@ -8,5 +11,6 @@ export class CityModel {
     name: string
     address: string
     image: string
+    nrOfConcerts: number
   }>
 }

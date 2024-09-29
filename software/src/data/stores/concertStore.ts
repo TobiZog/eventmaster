@@ -53,6 +53,10 @@ export const useConcertStore = defineStore("concertStore", {
       await getAllGenres()
         .then(result => {
           this.genres = result.data
+
+          this.genres.sort((a, b) => {
+            return a.name > b.name
+          })
         })
 
       await getAllCities()

@@ -1,19 +1,10 @@
 {
-  "menu": {
-    "allConcerts": "Alle Konzerte",
-    "allLocations": "Alle Veranstaltungsorte",
-    "allBands": "Alle Bands"
-  },
-  "shows": {
-    "highlights": "Highlights",
-    "tickets": "Ticket | Tickets",
-    "topConcerts": "Top Konzerte",
-    "topBands": "Top Bands",
-    "topLocations": "Top Veranstaltungsorte"
-  },
-  "tours": {
-    "concert": "Konzert | Konzerte"
-  },
+  "allEvents": "Alle Events",
+  "allLocations": "Alle Veranstaltungsorte",
+  "topEvents": "Top Events",
+  "topLocations": "Top Veranstaltungsorte",
+  "tickets": "Ticket | Tickets",
+  "concert": "Konzert | Konzerte",
   "preferences": {
     "pageSetup": "Seiteneinstellungen",
     "selectedTheme": "Ausgewähltes Theme",
@@ -143,5 +134,10 @@
   "brand": "Marke | Marken",
   "concerts": {
     "location": "Veranstaltungsort"
-  }
+  },
+  "location": "Veranstaltungsort | Veranstaltungsorte",
+  "band": "Band | Bands",
+  "noEventsFound": "Keine Events gefunden",
+  "from": "ab",
+  "soldOut": "Ausverkauft"
 }

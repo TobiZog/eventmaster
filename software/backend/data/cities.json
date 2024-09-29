@@ -4,7 +4,6 @@
       "id": 0,
       "name": "Hannover",
       "country": "Germany",
-      "image": "hannover.jpg",
       "locations": [
         {
           "id": 0,
@@ -40,7 +39,6 @@
       "id": 1,
       "name": "München",
       "country": "Germany",
-      "image": "munich.jpg",
       "locations": [
         {
           "id": 4,
@@ -69,7 +67,6 @@
       "id": 2,
       "name": "Hamburg",
       "country": "Germany",
-      "image": "hamburg.jpg",
       "locations": [
         {
           "id": 7,
@@ -105,7 +102,6 @@
       "id": 3,
       "name": "Berlin",
       "country": "Germany",
-      "image": "berlin.jpg",
       "locations": [
         {
           "id": 11,

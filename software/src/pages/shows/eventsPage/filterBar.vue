@@ -23,7 +23,10 @@ const concertStore = useConcertStore()
           color="secondary"
         >
           <template #item="{ props, item }">
-            <v-list-item v-bind="props" :title="item.raw.name" />
+            <v-list-item
+            v-bind="props"
+              :title="item.raw.name + ' (' + item.raw.locations.length + ' ' + 
+              $t('location', item.raw.locations.length) + ')'" />
           </template>
 
           <template #selection="{ item }">
@@ -41,7 +44,7 @@ const concertStore = useConcertStore()
           variant="outlined"
           :items="concertStore.filteredLocations"
           v-model="concertStore.locationFilter"
-          :label="$t('concerts.location')"
+          :label="$t('location', 2)"
           density="compact"
           :clearable="concertStore.locationFilter != null && concertStore.locationFilter.id != undefined"
           :disabled="concertStore.cityFilter == null || concertStore.cityFilter.id == undefined"
@@ -50,7 +53,10 @@ const concertStore = useConcertStore()
           color="secondary"
         >
           <template #item="{ props, item }">
-            <v-list-item v-bind="props" :title="item.raw.name" />
+            <v-list-item
+              v-bind="props"
+              :title="item.raw.name + ' (' + item.raw.concerts + ' Locations)'"
+            />
           </template>
 
           <template #selection="{ item }">
@@ -74,7 +80,9 @@ const concertStore = useConcertStore()
           color="secondary"
         >
           <template #item="{ props, item }">
-            <v-list-item v-bind="props" :title="item.raw.name" />
+            <v-list-item v-bind="props" :title="item.raw.name + ' (' + item.raw.bands.length + 
+            ' ' + $t('band', item.raw.bands.length) +  ')'"
+          />
           </template>
 
           <template #selection="{ item }">
