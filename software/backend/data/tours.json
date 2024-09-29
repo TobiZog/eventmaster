@@ -173,6 +173,31 @@
           "tourId": 5
         }
       ]
+    },
+    {
+      "id": 6,
+      "name": "Back to the Water Below",
+      "bandId": 6,
+      "offered": true,
+      "image": "back-to-the-water-below.jpg",
+      "concerts": [
+        {
+          "id": 15,
+          "date": "2025-02-27",
+          "price": 67.90,
+          "inStock": 847,
+          "locationId": 3,
+          "tourId": 6
+        },
+        {
+          "id": 16,
+          "date": "2025-03-06",
+          "price": 64.90,
+          "inStock": 245,
+          "locationId": 9,
+          "tourId": 6
+        }
+      ]
     }
   ]
 }

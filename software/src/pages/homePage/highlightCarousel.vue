@@ -1,8 +1,10 @@
 <script setup lang="ts">
 import OutlinedButton from '@/components/outlinedButton.vue';
 import { useConcertStore } from '@/data/stores/concertStore';
+import { useRouter } from 'vue-router';
 
 const concertStore = useConcertStore()
+const router = useRouter()
 </script>
 
 <template>
@@ -29,23 +31,28 @@ const concertStore = useConcertStore()
     </template>
 
     <v-carousel-item
-      v-for="tour in concertStore.tours"
-      :src="'http://localhost:3000/static/bands/' + tour.band.images[0]" 
+      v-for="band in concertStore.bands"
+      :src="'http://localhost:3000/static/bands/' + band.imageMembers" 
       cover
     >
       <v-card
         class="position-absolute bottom-0"
-        :title="tour.band.name"
+        :title="band.name"
         width="100%"
         :rounded="false"
         background-opacity="50%"
       >
         <v-card-text>
           <div>
-            {{ tour.band.descriptionDe }}
+            {{ band.descriptionDe }}
           </div>
 
-          <outlined-button append-icon="mdi-arrow-right" class="mt-2">
+          <outlined-button
+            append-icon="mdi-arrow-right"
+            class="mt-2"
+            color="primary"
+            @click="router.push('shows/band/red-hot-chili-peppers')"
+          >
             {{ $t('shows.tickets', 2) }}
           </outlined-button>
         </v-card-text>

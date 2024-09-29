@@ -9,6 +9,10 @@ defineProps({
   smallerTitle: {
     type: Boolean,
     default: false
+  },
+  link: {
+    type: Boolean,
+    default: true
   }
 })
 </script>
@@ -16,12 +20,11 @@ defineProps({
 <template>
   <v-card
     variant="tonal"
-    link
+    :link="link"
   >
     <v-img
       :src="'http://localhost:3000/static/' + image"
       aspect-ratio="1"
-      style="background-color: aliceblue;"
       cover
     >
       <template #error>

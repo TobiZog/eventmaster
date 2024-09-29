@@ -33,7 +33,7 @@ defineProps({
 
   <v-row v-else class="pt-3">
     <v-col class="d-flex justify-center align-center">
-      <v-sheet height="12" width="100%" color="primary" :rounded="true" />
+      <v-sheet height="12" width="100%" color="primary" class="rounded-s-lg" />
     </v-col>
     
     <v-col class="v-col-auto">
@@ -41,7 +41,7 @@ defineProps({
     </v-col>
 
     <v-col class="d-flex justify-center align-center">
-      <v-sheet height="12" width="100%" color="primary" :rounded="true" />
+      <v-sheet height="12" width="100%" color="primary" class="rounded-e-lg" />
     </v-col>
   </v-row>
 </template>

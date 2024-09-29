@@ -31,6 +31,9 @@ export class Band extends Model {
   images: Array<String>
 
   @Column
+  imageMembers: String
+
+  @Column
   logo: String
 
 

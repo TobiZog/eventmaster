@@ -8,6 +8,7 @@ export class BandModel {
   descriptionEn: string
   descriptionDe: string
   images: Array<string>
+  imageMembers: string
   logo: string
   ratings: Array<RatingModel>
   members: Array<{

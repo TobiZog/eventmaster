@@ -36,7 +36,7 @@ defineProps({
 
       <v-spacer />
 
-      <v-divider vertical height="100%" color="blue"/>
+      <v-divider vertical height="100%" />
 
       <v-col
         cols="2"
