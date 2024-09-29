@@ -7,5 +7,5 @@ export class TourModel {
   offered: boolean
   band: BandModel
   image: string
-  shows: Array<ConcertModel>
+  concerts: Array<ConcertModel>
 }

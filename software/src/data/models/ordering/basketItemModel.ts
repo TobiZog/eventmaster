@@ -1,4 +1,4 @@
-import { ConcertModel } from "./concertModel"
+import { ConcertModel } from "../acts/concertModel"
 
 export class BasketItemModel {
   id: number = -1

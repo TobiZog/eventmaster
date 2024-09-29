@@ -1,18 +1,17 @@
 <script setup lang="ts">
-import { TourModel } from '@/data/models/tourModel';
 import cardView from '@/components/cardView.vue';
 import OutlinedButton from '@/components/outlinedButton.vue';
 
-defineProps({
-  tour: {
-    required: true,
-    type: TourModel
-  }
-})
+// defineProps({
+//   tour: {
+//     required: true,
+//     type: TourModel
+//   }
+// })
 </script>
 
 <template>
-  <card-view
+  <!-- <card-view
     :title="tour.band.name"
     :subtitle="tour.name"
     :prepend-image="'http://127.0.0.1:3000/static/bands/' + tour.band.images[0]"
@@ -24,7 +23,7 @@ defineProps({
       <OutlinedButton>
         {{ tour.shows.length }} {{ $t('tours.concert', tour.shows.length) }}
       </OutlinedButton>
-    </template>
+    </template> -->
     
     <!-- <template> -->
           <!-- <div>
@@ -75,7 +74,7 @@ defineProps({
             </div>
           </div> -->
     <!-- </template> -->
-  </card-view>
+  <!-- </card-view> -->
 </template>
 
 <style scoped>

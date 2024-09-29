@@ -23,5 +23,5 @@ export class Tour extends Model {
   band: Band
 
   @HasMany(() => Concert)
-  shows: Concert[]
+  concerts: Concert[]
 }

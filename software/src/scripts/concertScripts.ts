@@ -1,6 +1,6 @@
-import { RatingModel } from "@/data/models/ratingModel"
+import { RatingModel } from "@/data/models/acts/ratingModel"
 import { dateToHumanReadableString } from "./dateTimeScripts"
-import { TourModel } from "@/data/models/tourModel"
+import { TourModel } from "@/data/models/acts/tourModel"
 
 /**
  * Calculate a price based on parameters
@@ -35,7 +35,7 @@ export function calcRating(ratings: Array<RatingModel>) {
 export function createDateRangeString(tour: TourModel) {
   const dateArray = []
 
-  for (let concert of tour.shows) {
+  for (let concert of tour.concerts) {
     dateArray.push(new Date(concert.date))
   }
 
@@ -55,7 +55,7 @@ export function createDateRangeString(tour: TourModel) {
 export function lowestTicketPrice(tour: TourModel): string {
   const priceArray : Array<number> = []
 
-  for (let concert of tour.shows) {
+  for (let concert of tour.concerts) {
     priceArray.push(concert.price)
   }
 

@@ -1,6 +1,6 @@
-import { AddressModel } from "./addressModel"
+import { AddressModel } from "../user/addressModel"
 import { OrderItemModel } from "./orderItemModel"
-import { PaymentModel } from "./paymentModel"
+import { PaymentModel } from "../user/paymentModel"
 
 export class OrderModel {
   id: number

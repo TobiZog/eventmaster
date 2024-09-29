@@ -1,5 +1,3 @@
-import { GenreModel } from "./genreModel"
-import { MemberModel } from "./memberModel"
 import { RatingModel } from "./ratingModel"
 
 export class BandModel {
@@ -11,8 +9,11 @@ export class BandModel {
   images: Array<string>
   logo: string
   ratings: Array<RatingModel>
-  members: Array<MemberModel>
-  genres: {
+  members: Array<{
+    name: string,
+    image: string
+  }>
+  genres: Array<{
     name: string
-  }
+  }>
 }

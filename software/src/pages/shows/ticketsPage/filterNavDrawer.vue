@@ -1,8 +1,6 @@
 <script setup lang="ts">
 import { SortOrder } from '@/data/enums/sortOrderEnum';
-import { useTourStore } from '@/data/stores/tourStore';
 
-const tourStore = useTourStore()
 const sortOrderItems = Object.values(SortOrder)
 </script>
 

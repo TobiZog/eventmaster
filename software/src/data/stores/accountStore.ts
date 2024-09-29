@@ -1,13 +1,13 @@
 import { useLocalStorage } from "@vueuse/core";
 import { defineStore } from "pinia";
-import { AccountModel } from "../models/accountModel";
-import { OrderModel } from "../models/orderModel";
+import { AccountModel } from "../models/user/accountModel";
+import { OrderModel } from "../models/ordering/orderModel";
 import { useFeedbackStore } from "./feedbackStore";
 import { loginAccount, registerAccount, updateAccount } from "../api/accountApi";
 import { getUserOrders } from "../api/orderApi";
 import { BannerStateEnum } from "../enums/bannerStateEnum";
-import { AddressModel } from "../models/addressModel";
-import { PaymentModel } from "../models/paymentModel";
+import { AddressModel } from "../models/user/addressModel";
+import { PaymentModel } from "../models/user/paymentModel";
 
 export const useAccountStore = defineStore("accountStore", {
   state: () => ({

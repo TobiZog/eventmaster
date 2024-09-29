@@ -2,43 +2,40 @@
 import { VNumberInput } from 'vuetify/labs/VNumberInput'
 import { ModelRef, ref, watch } from 'vue';
 import { useBasketStore } from '@/data/stores/basketStore';
-import { calcPrice } from '@/scripts/productScripts';
 import ActionDialog from '@/components/actionDialog.vue'
-import { ProductModel } from '@/data/models/productModel';
 import outlinedButton from '@/components/outlinedButton.vue';
 
-const props = defineProps({
-  product: {
-    type: ProductModel,
-    default: new ProductModel()
-  }
-})
+// const props = defineProps({
+//   product: {
+//     type: ProductModel,
+//     default: new ProductModel()
+//   }
+// })
 
-const showDialog: ModelRef<boolean> = defineModel()
-const nrOfArticles = ref(1)
-const basketStore = useBasketStore()
-const selectedImage = ref("")
+// const showDialog: ModelRef<boolean> = defineModel()
+// const nrOfArticles = ref(1)
+// const basketStore = useBasketStore()
+// const selectedImage = ref("")
 
-function addProductToBasket() {
-  basketStore.addItemToBasket(props.product, nrOfArticles.value)
-  nrOfArticles.value = 1
-  showDialog.value = false
-}
+// function addProductToBasket() {
+//   basketStore.addItemToBasket(props.product, nrOfArticles.value)
+//   nrOfArticles.value = 1
+//   showDialog.value = false
+// }
 
-watch(() => props.product.images, () => {
-  selectedImage.value = 'http://localhost:3000/static/' + props.product.images[0]
-})
+// watch(() => props.product.images, () => {
+//   selectedImage.value = 'http://localhost:3000/static/' + props.product.images[0]
+// })
 </script>
 
 <template>
-  <action-dialog
+  <!-- <action-dialog
     :title="product.brand.name + ': ' + product.name"
     :icon="product.category.icon"
     :subtitle="product.category.name"
     v-model="showDialog"
   >
     <v-row>
-      <!-- Image col -->
       <v-col>
         <v-row>
           <v-col class="py-0">
@@ -66,7 +63,6 @@ watch(() => props.product.images, () => {
       </v-col>
 
 
-      <!-- Product description col -->
       <v-col>
         <v-row>
           <v-col class="text-h6 pt-0">
@@ -157,5 +153,5 @@ watch(() => props.product.images, () => {
         {{ $t('addToBasket') }}
       </outlined-button>
     </template>
-  </action-dialog>
+  </action-dialog> -->
 </template>

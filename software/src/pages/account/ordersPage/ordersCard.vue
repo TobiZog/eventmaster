@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import cardView from '@/components/cardView.vue';
-import { OrderModel } from '@/data/models/orderModel';
+import { OrderModel } from '@/data/models/ordering/orderModel';
 import { useAccountStore } from '@/data/stores/accountStore';
 
 const accountStore = useAccountStore()

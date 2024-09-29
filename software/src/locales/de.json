@@ -11,17 +11,9 @@
     "topBands": "Top Bands",
     "topLocations": "Top Veranstaltungsorte"
   },
-
-
-
-
-
-
-  
   "tours": {
     "concert": "Konzert | Konzerte"
   },
-
   "preferences": {
     "pageSetup": "Seiteneinstellungen",
     "selectedTheme": "Ausgewähltes Theme",
@@ -148,5 +140,8 @@
   "wrongIban": "Falsches IBAN Format, nur deutsche IBAN-Nummern erlaubt!",
   "save": "Speichern",
   "editProduct": "Produkt bearbeiten",
-  "brand": "Marke | Marken"
+  "brand": "Marke | Marken",
+  "concerts": {
+    "location": "Veranstaltungsort"
+  }
 }

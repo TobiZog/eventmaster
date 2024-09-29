@@ -7,6 +7,7 @@ import navigationPrependItems from './components/navigation/navigationPrependIte
 import { usePreferencesStore } from './data/stores/preferencesStore';
 import { useFeedbackStore } from './data/stores/feedbackStore';
 import { useConcertStore } from './data/stores/concertStore';
+import { LocationModel } from './data/models/acts/locationModel';
 
 const preferencesStore = usePreferencesStore()
 const concertStore = useConcertStore()
@@ -22,6 +23,19 @@ concertStore.fetchAllTours()
 watch(() => preferencesStore.language, () => {
   i18n.global.locale = preferencesStore.language
 }, { immediate: true })
+
+watch(() => concertStore.cityFilter, () => {
+  concertStore.locationFilter = new LocationModel()
+  concertStore.filterTours()
+})
+
+watch(() => concertStore.locationFilter, () => {
+  concertStore.filterTours()
+})
+
+watch(() => concertStore.genreFilter, () => {
+  concertStore.filterTours()
+})
 </script>
 
 <template>
@@ -64,8 +78,8 @@ watch(() => preferencesStore.language, () => {
       </v-snackbar>
 
       <!-- Here changes the router the content -->
-      <v-container max-width="1400" class="pt-0 pb-5">
-        <v-sheet color="sheet">
+      <v-container max-width="1400" class="py-0" height="100%">
+        <v-sheet color="sheet" height="100%">
           <router-view></router-view>
         </v-sheet>
       </v-container>

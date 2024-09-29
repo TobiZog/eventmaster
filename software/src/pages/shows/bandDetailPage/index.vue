@@ -2,5 +2,5 @@
 </script>
 
 <template>
-
+  Tour Detail
 </template>

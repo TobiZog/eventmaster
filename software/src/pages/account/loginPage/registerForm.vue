@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { AccountModel } from '@/data/models/accountModel';
+import { AccountModel } from '@/data/models/user/accountModel';
 import { ref } from 'vue';
 import cardView from '@/components/cardView.vue';
 import outlinedButton from '@/components/outlinedButton.vue';

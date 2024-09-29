@@ -2,7 +2,7 @@
 import cardView from '@/components/cardView.vue';
 import { useAccountStore } from '@/data/stores/accountStore';
 import outlinedButton from '@/components/outlinedButton.vue';
-import { PaymentModel } from '@/data/models/paymentModel';
+import { PaymentModel } from '@/data/models/user/paymentModel';
 import { getIbanRules, getStringRules } from '@/scripts/validationRules';
 
 const accountStore = useAccountStore()

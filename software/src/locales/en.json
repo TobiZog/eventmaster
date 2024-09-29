@@ -11,18 +11,9 @@
     "topBands": "Top Bands",
     "topLocations": "Top Locations"
   },
-
-
-
-
-
-
-
   "tours": {
     "concert": "Concert | Concerts"
   },
-
-
   "preferences": {
     "pageSetup": "Page setup",
     "selectedTheme": "Selected theme",
@@ -149,5 +140,8 @@
   "wrongIban": "Wrong IBAN format, only German IBANs are allowed!",
   "save": "Save",
   "editProduct": "Edit product",
-  "brand": "Brand | Brands"
+  "brand": "Brand | Brands",
+  "concerts": {
+    "location": "Locations"
+  }
 }

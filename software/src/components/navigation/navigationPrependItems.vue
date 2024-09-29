@@ -10,7 +10,7 @@
   <v-divider vertical />
 
   <v-btn
-    to="/shows/concerts"
+    to="/shows/tours"
     prepend-icon="mdi-ticket"
     height="100%"
     :rounded="false"

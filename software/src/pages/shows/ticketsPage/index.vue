@@ -2,9 +2,7 @@
 import tourCard from "./tourCard.vue"
 import { ref, watch } from "vue";
 import filterNavDrawer from "./filterNavDrawer.vue";
-import { useTourStore } from "@/data/stores/tourStore";
 
-const tourStore = useTourStore()
 
 const showProductDetails = ref(false)
 // const dialogProduct = ref(new ProductModel())
@@ -20,7 +18,7 @@ const showProductDetails = ref(false)
 </script>
 
 <template>
-  <v-container max-width="1200">
+  <!-- <v-container max-width="1200">
     <v-row dense>
       <v-col
         v-if="tourStore.tours.length > 0"
@@ -39,7 +37,7 @@ const showProductDetails = ref(false)
         />
       </v-col>
     </v-row>
-  </v-container>
+  </v-container> -->
 
   <filter-nav-drawer />
 
