@@ -3,3 +3,7 @@ export function dateToHumanReadableString(date: Date) {
     String(date.getMonth() + 1).padStart(2, '0') + '.' + 
     date.getFullYear()
 }
+
+export function dateStringToHumanReadableString(string: string) {
+  return dateToHumanReadableString(new Date(string))
+}

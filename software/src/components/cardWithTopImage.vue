@@ -1,6 +1,10 @@
 <script setup lang="ts">
 defineProps({
   image: String,
+  errorImage: {
+    type: String,
+    default: "artists/unknown-artist.jpg"
+  },
   title: String,
   smallerTitle: {
     type: Boolean,
@@ -19,7 +23,15 @@ defineProps({
       aspect-ratio="1"
       style="background-color: aliceblue;"
       cover
-    />
+    >
+      <template #error>
+        <v-img
+          :src="'http://localhost:3000/static/' + errorImage"
+          aspect-ratio="1"
+          style="background-color: aliceblue;"
+        />
+      </template>
+    </v-img>
 
     <div v-if="title">
       <v-card-title v-if="!smallerTitle">

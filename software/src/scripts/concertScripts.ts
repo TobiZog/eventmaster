@@ -32,6 +32,22 @@ export function calcRating(ratings: Array<RatingModel>) {
   return sum / ratings.length
 }
 
+export function calcRatingValues(ratings: Array<RatingModel>) {
+  let ratingValues = [
+    { value: 1, count: 0 },
+    { value: 2, count: 0 },
+    { value: 3, count: 0 },
+    { value: 4, count: 0 },
+    { value: 5, count: 0 }
+  ]
+
+  for (let rating of ratings) {
+    ratingValues[rating.rating - 1].count += 1
+  }
+
+  return ratingValues
+}
+
 export function createDateRangeString(tour: TourModel) {
   const dateArray = []
 

@@ -1,4 +1,5 @@
 import { RatingModel } from "./ratingModel"
+import { TourModel } from "./tourModel"
 
 export class BandModel {
   id: number
@@ -16,4 +17,5 @@ export class BandModel {
   genres: Array<{
     name: string
   }>
+  tours: Array<TourModel>
 }

@@ -23,19 +23,6 @@
 
   <v-btn
     variant="text"
-    to="/shows/bands"
-    prepend-icon="mdi-music-clef-treble"
-    height="100%"
-    :rounded="false"
-  >
-    {{ $t('menu.allBands') }}
-  </v-btn>
-
-  <v-divider vertical />
-
-
-  <v-btn
-    variant="text"
     to="/shows/locations"
     prepend-icon="mdi-city"
     height="100%"
