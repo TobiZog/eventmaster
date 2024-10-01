@@ -2,9 +2,9 @@ import { Concert } from "../models/acts/concert.model";
 import { Band } from "../models/acts/band.model";
 import { Tour } from "../models/acts/tour.model";
 import { Request, Response, Router } from "express";
-import { Location } from "../models/acts/location.model";
+import { Location } from "../models/locations/location.model";
 import { Genre } from "../models/acts/genre.model";
-import { City } from "../models/acts/city.model";
+import { City } from "../models/locations/city.model";
 
 export const tour = Router()
 

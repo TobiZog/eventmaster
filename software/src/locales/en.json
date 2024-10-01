@@ -139,5 +139,8 @@
   "band": "Band | Bands",
   "noEventsFound": "No Events found",
   "from": "from",
-  "soldOut": "Sold Out"
+  "soldOut": "Sold Out",
+  "city": "City",
+  "seatPlan": "Seat Plan",
+  "stage": "Stage"
 }

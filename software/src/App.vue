@@ -7,7 +7,7 @@ import navigationPrependItems from './components/navigation/navigationPrependIte
 import { usePreferencesStore } from './data/stores/preferencesStore';
 import { useFeedbackStore } from './data/stores/feedbackStore';
 import { useConcertStore } from './data/stores/concertStore';
-import { LocationModel } from './data/models/acts/locationModel';
+import { LocationModel } from './data/models/locations/locationModel';
 
 const preferencesStore = usePreferencesStore()
 const concertStore = useConcertStore()

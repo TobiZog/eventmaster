@@ -1,3 +1,5 @@
+import { SeatGroupModel } from "./seatGroupModel"
+
 /**
  * Replica of the API endpoint /locations
  */
@@ -6,6 +8,7 @@ export class LocationModel {
   name: string
   address: string
   image: string
+  seatSchema: string
   city: {
     name: string
     country: string
@@ -22,4 +25,5 @@ export class LocationModel {
       bandName: string
     }
   }>
+  seatGroups: Array<SeatGroupModel>
 }

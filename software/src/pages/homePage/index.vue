@@ -62,6 +62,7 @@ const concertStore = useConcertStore()
               :image="'locations/' + concertStore.locations[i + 2].image"
               :title="concertStore.locations[i + 2].name"
               smaller-title
+              @click="router.push('/locations/' + concertStore.locations[i + 2].name.replaceAll(' ', '-').toLowerCase())"
             >
               {{ concertStore.locations[i + 2].city.name }}, {{ concertStore.locations[i + 2].city.country }}
             </card-with-top-image>

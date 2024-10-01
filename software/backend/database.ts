@@ -9,14 +9,17 @@ import { Address } from "./models/user/address.model"
 import { Payment } from "./models/user/payment.model"
 import { AccountRole } from "./models/user/accountRole.model"
 import { Genre } from "./models/acts/genre.model"
-import { Location } from "./models/acts/location.model"
+import { Location } from "./models/locations/location.model"
 import { Band } from "./models/acts/band.model"
 import { Concert } from "./models/acts/concert.model"
 import { Member } from "./models/acts/member.model"
 import { Rating } from "./models/acts/rating.model"
 import { Tour } from "./models/acts/tour.model"
-import { City } from "./models/acts/city.model"
+import { City } from "./models/locations/city.model"
 import { BandGenre } from "./models/acts/bandGenre.model"
+import { Seat } from "./models/locations/seat.model"
+import { SeatGroup } from "./models/locations/seatGroup.model"
+import { SeatRow } from "./models/locations/seatRow.model"
 
 const dbName = "database"
 const dbUser = "root"
@@ -31,7 +34,8 @@ export const sequelize = new Sequelize({
   storage: "database.sqlite",
   models: [
     AccountRole, Account, Payment, Address,
-    City, Location, Genre, Band, BandGenre, Rating, Member, Tour, Concert,
+    City, Location, SeatGroup, SeatRow, Seat,
+    Genre, Band, BandGenre, Rating, Member, Tour, Concert,
     Order, OrderItem
   ]
 })

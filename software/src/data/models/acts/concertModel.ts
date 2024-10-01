@@ -1,4 +1,4 @@
-import { LocationModel } from "./locationModel"
+import { LocationModel } from "./../locations/locationModel"
 
 export class ConcertModel {
   id: number

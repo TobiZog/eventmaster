@@ -5,7 +5,7 @@ import { OrderItem } from "../models/ordering/orderItem.model";
 import { Payment } from "../models/user/payment.model";
 import { Address } from "../models/user/address.model";
 import { Band } from "../models/acts/band.model";
-import { Location } from "../models/acts/location.model";
+import { Location } from "../models/locations/location.model";
 
 export const order = Router()
 

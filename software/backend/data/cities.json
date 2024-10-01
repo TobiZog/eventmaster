@@ -1,7 +1,6 @@
 {
   "data": [
     {
-      "id": 0,
       "name": "Hannover",
       "country": "Germany",
       "locations": [
@@ -9,34 +8,131 @@
           "id": 0,
           "name": "Swiss Life Hall",
           "address": "Ferdinand-Wilhelm-Fricke-Weg 8",
-          "cityId": 0,
-          "image": "swiss-life-hall.jpg"
+          "image": "swiss-life-hall.jpg",
+          "seatGroups": [
+            {
+              "name": "A",
+              "surcharge": 20,
+              "standingArea": true,
+              "capacity": 40
+            },
+            {
+              "name": "B",
+              "surcharge": 10,
+              "standingArea": false,
+              "rows": 5,
+              "capacity": 25
+            },
+            {
+              "name": "C",
+              "surcharge": 10,
+              "standingArea": false,
+              "rows": 5,
+              "capacity": 25
+            },
+            {
+              "name": "D",
+              "surcharge": 10,
+              "standingArea": false,
+              "rows": 3,
+              "capacity": 30
+            },
+            {
+              "name": "E",
+              "surcharge": 10,
+              "standingArea": false,
+              "rows": 3,
+              "capacity": 12
+            },
+            {
+              "name": "F",
+              "surcharge": 10,
+              "standingArea": false,
+              "rows": 3,
+              "capacity": 12
+            }
+          ]
         },
         {
           "id": 1,
           "name": "Capitol",
           "address": "Schwarzer Bär 2",
-          "cityId": 0,
-          "image": "capitol.jpg"
+          "image": "capitol.jpg",
+          "seatGroups": [
+            {
+              "name": "A",
+              "surcharge": 20,
+              "standingArea": true,
+              "capacity": 50
+            }
+          ]
         },
         {
           "id": 2,
           "name": "ZAG Arena",
           "address": "EXPO-Plaza 7",
-          "cityId": 0,
-          "image": "zag-arena.jpg"
+          "image": "zag-arena.jpg",
+          "seatGroups": [
+            {
+              "name": "A",
+              "surcharge": 20,
+              "standingArea": true,
+              "capacity": 40
+            },
+            {
+              "name": "B",
+              "surcharge": 10,
+              "standingArea": false,
+              "rows": 5,
+              "capacity": 25
+            },
+            {
+              "name": "C",
+              "surcharge": 10,
+              "standingArea": false,
+              "rows": 5,
+              "capacity": 25
+            },
+            {
+              "name": "D",
+              "surcharge": 10,
+              "standingArea": false,
+              "rows": 3,
+              "capacity": 30
+            },
+            {
+              "name": "E",
+              "surcharge": 10,
+              "standingArea": false,
+              "rows": 3,
+              "capacity": 12
+            },
+            {
+              "name": "F",
+              "surcharge": 10,
+              "standingArea": false,
+              "rows": 3,
+              "capacity": 12
+            }
+          ]
         },
         {
           "id": 3,
           "name": "Kulturzentrum Faust",
           "address": "Zur Bettfedernfabrik 3",
-          "cityId": 0,
-          "image": "faust-hannover.jpg"
+          "image": "faust-hannover.jpg",
+          "seatGroups": [
+            {
+              "name": "A",
+              "surcharge": 20,
+              "standingArea": true,
+              "capacity": 10
+            }
+          ]
         }
       ]
     },
     {
-      "id": 1,
       "name": "München",
       "country": "Germany",
       "locations": [
@@ -44,27 +140,47 @@
           "id": 4,
           "name": "Olympiahalle München",
           "address": "Spiridon-Louis-Ring 21",
-          "cityId": 1,
-          "image": "olympiahalle-munich.jpg"
+          "image": "olympiahalle-munich.jpg",
+          "seatGroups": [
+            {
+              "name": "A",
+              "surcharge": 20,
+              "standingArea": true,
+              "capacity": 10
+            }
+          ]
         },
         {
           "id": 5,
           "name": "Schlachthof München",
           "address": "Zenettistraße 9",
-          "cityId": 1,
-          "image": "schlachthof-munich.jpg"
+          "image": "schlachthof-munich.jpg",
+          "seatGroups": [
+            {
+              "name": "A",
+              "surcharge": 20,
+              "standingArea": true,
+              "capacity": 10
+            }
+          ]
         },
         {
           "id": 6,
           "name": "Muffatwerk",
           "address": "Zellstraße 4",
-          "cityId": 1,
-          "image": "muffatwerk.jpg"
+          "image": "muffatwerk.jpg",
+          "seatGroups": [
+            {
+              "name": "A",
+              "surcharge": 20,
+              "standingArea": true,
+              "capacity": 10
+            }
+          ]
         }
       ]
     },
     {
-      "id": 2,
       "name": "Hamburg",
       "country": "Germany",
       "locations": [
@@ -72,34 +188,61 @@
           "id": 7,
           "name": "Elbphilharmonie Hamburg",
           "address": "Platz der deutschen Einheit",
-          "cityId": 2,
-          "image": "elbphilharmonie-hamburg.jpg"
+          "image": "elbphilharmonie-hamburg.jpg",
+          "seatGroups": [
+            {
+              "name": "A",
+              "surcharge": 20,
+              "standingArea": true,
+              "capacity": 10
+            }
+          ]
         },
         {
           "id": 8,
           "name": "Volksparkstadion",
           "address": "Sylvesterallee 7",
-          "cityId": 2,
-          "image": "volksparkstadion-hamburg.jpg"
+          "image": "volksparkstadion-hamburg.jpg",
+          "seatGroups": [
+            {
+              "name": "A",
+              "surcharge": 20,
+              "standingArea": true,
+              "capacity": 10
+            }
+          ]
         },
         {
           "id": 9,
           "name": "Barclays Arena",
           "address": "Sylvesterallee 10",
-          "cityId": 2,
-          "image": "barclays-arena.jpg"
+          "image": "barclays-arena.jpg",
+          "seatGroups": [
+            {
+              "name": "A",
+              "surcharge": 20,
+              "standingArea": true,
+              "capacity": 10
+            }
+          ]
         },
         {
           "id": 10,
           "name": "Stage Theater im Hafen Hamburg",
           "address": "Norderelbestraße 6",
-          "cityId": 2,
-          "image": "stage-theater-hamburg.jpg"
+          "image": "stage-theater-hamburg.jpg",
+          "seatGroups": [
+            {
+              "name": "A",
+              "surcharge": 20,
+              "standingArea": true,
+              "capacity": 10
+            }
+          ]
         }
       ]
     },
     {
-      "id": 3,
       "name": "Berlin",
       "country": "Germany",
       "locations": [
@@ -107,43 +250,85 @@
           "id": 11,
           "name": "Waldbühne Berlin",
           "address": "Am Glockenturm",
-          "cityId": 3,
-          "image": "waldbuehne-berlin.jpg"
+          "image": "waldbuehne-berlin.jpg",
+          "seatGroups": [
+            {
+              "name": "A",
+              "surcharge": 20,
+              "standingArea": true,
+              "capacity": 10
+            }
+          ]
         },
         {
           "id": 12,
           "name": "Olympiastadion Berlin",
           "address": "Olympischer Platz 3",
-          "cityId": 3,
-          "image": "olympiastadion-berlin.jpg"
+          "image": "olympiastadion-berlin.jpg",
+          "seatGroups": [
+            {
+              "name": "A",
+              "surcharge": 20,
+              "standingArea": true,
+              "capacity": 10
+            }
+          ]
         },
         {
           "id": 13,
           "name": "Uber Arena Berlin",
           "address": "Uber-Platz 1",
-          "cityId": 3,
-          "image": "uber-arena-berlin.jpg"
+          "image": "uber-arena-berlin.jpg",
+          "seatGroups": [
+            {
+              "name": "A",
+              "surcharge": 20,
+              "standingArea": true,
+              "capacity": 10
+            }
+          ]
         },
         {
           "id": 14,
           "name": "Columbiahalle",
           "address": "Columbiadamm 13-21",
-          "cityId": 3,
-          "image": "columbiahalle.jpg"
+          "image": "columbiahalle.jpg",
+          "seatGroups": [
+            {
+              "name": "A",
+              "surcharge": 20,
+              "standingArea": true,
+              "capacity": 10
+            }
+          ]
         },
         {
           "id": 15,
           "name": "Astra Kulturhaus",
           "address": "Revaler Straße 99",
-          "cityId": 3,
-          "image": "astra-kulturhaus.jpg"
+          "image": "astra-kulturhaus.jpg",
+          "seatGroups": [
+            {
+              "name": "A",
+              "surcharge": 20,
+              "standingArea": true,
+              "capacity": 10
+            }
+          ]
         },
         {
           "id": 16,
           "name": "Deutsche Oper Berlin",
           "address": "Bismarckstraße 35",
-          "cityId": 3,
-          "image": "deutsche-oper-berlin.jpg"
+          "image": "deutsche-oper-berlin.jpg",
+          "seatGroups": [
+            {
+              "name": "A",
+              "surcharge": 20,
+              "standingArea": true,
+              "capacity": 10
+            }
+          ]
         }
       ]
     }

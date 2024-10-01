@@ -15,7 +15,7 @@ const concertStore = useConcertStore()
           variant="outlined"
           :items="concertStore.cities"
           v-model="concertStore.cityFilter"
-          label="Stadt"
+          :label="$t('city')"
           density="compact"
           class="mb-n5"
           :clearable="concertStore.cityFilter != null && concertStore.cityFilter.id != undefined"

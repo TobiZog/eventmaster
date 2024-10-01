@@ -139,5 +139,8 @@
   "band": "Band | Bands",
   "noEventsFound": "Keine Events gefunden",
   "from": "ab",
-  "soldOut": "Ausverkauft"
+  "soldOut": "Ausverkauft",
+  "city": "Stadt",
+  "seatPlan": "Saalplan",
+  "stage": "Bühne"
 }

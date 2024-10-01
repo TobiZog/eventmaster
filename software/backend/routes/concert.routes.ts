@@ -1,8 +1,8 @@
-import { Location } from "../models/acts/location.model";
+import { Location } from "../models/locations/location.model";
 import { Concert } from "../models/acts/concert.model";
 import { Request, Response, Router } from "express";
 import { Tour } from "../models/acts/tour.model";
-import { City } from "../models/acts/city.model";
+import { City } from "../models/locations/city.model";
 
 export const concert = Router()
 

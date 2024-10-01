@@ -1,11 +1,11 @@
 <script setup lang="ts">
-import { LocationModel } from '@/data/models/acts/locationModel';
+import { LocationModel } from '@/data/models/locations/locationModel';
 import { useConcertStore } from '@/data/stores/concertStore';
-import { createDateRangeString, lowestTicketPrice } from '@/scripts/concertScripts';
 import { useRouter } from 'vue-router';
 import cardWithLeftImage from '@/components/cardWithLeftImage.vue';
 import sectionDivider from '@/components/sectionDivider.vue';
 import { dateStringToHumanReadableString } from '@/scripts/dateTimeScripts';
+import seatPlanMap from '@/components/seatPlanMap/seatPlanMap.vue';
 
 const router = useRouter()
 const concertStore = useConcertStore()
@@ -80,6 +80,20 @@ const location: LocationModel = concertStore.locations.find(location =>
             <v-empty-state
               icon="mdi-magnify"
               :title="$t('noEventsFound')"
+            />
+          </v-col>
+        </v-row>
+
+        <v-row>
+          <v-col>
+            <section-divider :title="$t('seatPlan')" />
+          </v-col>
+        </v-row>
+
+        <v-row>
+          <v-col>
+            <seat-plan-map
+              :seat-groups="location.seatGroups"
             />
           </v-col>
         </v-row>

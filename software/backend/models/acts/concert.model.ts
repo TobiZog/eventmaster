@@ -1,5 +1,5 @@
 import { BelongsTo, Column, ForeignKey, HasMany, Model, Table } from "sequelize-typescript";
-import { Location } from "./location.model";
+import { Location } from "./../locations/location.model";
 import { Tour } from "./tour.model";
 import { OrderItem } from "../ordering/orderItem.model";
 

@@ -1,5 +1,5 @@
-import { Location } from "../models/acts/location.model";
-import { City } from "../models/acts/city.model";
+import { Location } from "../models/locations/location.model";
+import { City } from "../models/locations/city.model";
 import { Request, Response, Router } from "express";
 import { Concert } from "../models/acts/concert.model";
 

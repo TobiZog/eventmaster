@@ -5,10 +5,10 @@ import { getAllTours } from "../api/tourApi";
 import { GenreModel } from "../models/acts/genreModel";
 import { getAllBands } from "../api/bandApi";
 import { BandModel } from "../models/acts/bandModel";
-import { LocationModel } from "../models/acts/locationModel";
+import { LocationModel } from "../models/locations/locationModel";
 import { getAllLocations } from "../api/locationApi";
 import { getAllGenres } from "../api/genreApi";
-import { CityModel } from "../models/acts/cityModel";
+import { CityModel } from "../models/locations/cityModel";
 import { getAllCities } from "../api/cityApi";
 
 export const useConcertStore = defineStore("concertStore", {
@@ -47,6 +47,7 @@ export const useConcertStore = defineStore("concertStore", {
 
       await getAllLocations() 
         .then(result => {
+          console.log(result.data)
           this.locations = result.data
         })
 

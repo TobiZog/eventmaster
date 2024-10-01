@@ -8,11 +8,14 @@ import { Rating } from '../models/acts/rating.model'
 import { Member } from '../models/acts/member.model'
 import { Genre } from '../models/acts/genre.model'
 import { Band } from '../models/acts/band.model'
-import { Location } from '../models/acts/location.model'
+import { Location } from '../models/locations/location.model'
 import { Concert } from '../models/acts/concert.model'
 import { Tour } from '../models/acts/tour.model'
-import { City } from '../models/acts/city.model'
+import { City } from '../models/locations/city.model'
 import { BandGenre } from '../models/acts/bandGenre.model'
+import { SeatGroup } from '../models/locations/seatGroup.model'
+import { Seat } from '../models/locations/seat.model'
+import { SeatRow } from '../models/locations/seatRow.model'
 
 import accounts from "./../data/accounts.json"
 import orders from "./../data/orders.json"
@@ -35,8 +38,13 @@ export function deleteAllTables() {
   Member.destroy({ truncate: true })
   Genre.destroy({ truncate: true })
   Band.destroy({ truncate: true })
+  Tour.destroy({ truncate: true })
+
   Location.destroy({ truncate: true })
   Concert.destroy({ truncate: true })
+  SeatGroup.destroy({ truncate: true })
+  SeatRow.destroy({ truncate: true })
+  Seat.destroy({ truncate: true })
   
   Address.destroy({ truncate: true })
   Payment.destroy({ truncate: true })
@@ -48,13 +56,63 @@ export function deleteAllTables() {
  * Insert default datasets in the database tables
  */
 export async function prepopulateDatabase() {
+  deleteAllTables()
+  
   AccountRole.bulkCreate(accountRoles.data)
   Genre.bulkCreate(genres.data)
 
-  for (let city of cities.data) {
+  for (let city of cities.data)
+  {
     await City.create(city)
-      .then(dataset => {
-        Location.bulkCreate(city.locations)
+      .then(async cityDataset => {
+        for (let location of city.locations) 
+        {
+          location["cityId"] = cityDataset.id
+
+          await Location.create(location)
+            .then(async locationDataset => {
+              for (let seatGroup of location.seatGroups)
+              {
+                seatGroup["locationId"] = locationDataset.id
+                
+                await SeatGroup.create(seatGroup)
+                  .then(async seatGroupRes => {
+                    if (seatGroup.standingArea) {
+                      // In an area without seats, create one row with all "seats"
+                      await SeatRow.create({
+                        row: 0,
+                        seatGroupId: seatGroupRes.id
+                      })
+                        .then(async seatRowRes => {
+                          for (let i = 0; i < seatGroup.capacity; i++) {
+                            await Seat.create({
+                              seatNr: i + 1,
+                              seatRowId: seatRowRes.id
+                            })
+                          }
+                        })
+                    }
+                    else
+                    {
+                      for (let row = 0; row < seatGroup.rows; row++) {
+                        await SeatRow.create({
+                          row: row + 1,
+                          seatGroupId: seatGroupRes.id
+                        })
+                          .then(async seatRowRes => {
+                            for (let col = 0; col < seatGroup.capacity / seatGroup.rows; col++) {
+                              await Seat.create({
+                                seatNr: col,
+                                seatRowId: seatRowRes.id
+                              })
+                            }
+                          })
+                      }
+                    }
+                  })
+              }
+          })
+        }
       })
   }
 

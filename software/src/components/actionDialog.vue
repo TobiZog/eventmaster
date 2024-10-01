@@ -17,7 +17,7 @@ defineProps({
 
 <template>
   <v-dialog max-width="1200" v-model="showDialog">
-    <card-view
+    <v-card
       :title="title"
       :subtitle="subtitle"
       :icon="icon"
@@ -27,6 +27,6 @@ defineProps({
       <template #actions>
         <slot name="actions"></slot>
       </template>
-    </card-view>
+    </v-card>
   </v-dialog>
 </template>

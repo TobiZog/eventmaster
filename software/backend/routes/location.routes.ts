@@ -1,9 +1,12 @@
 import { Concert } from "../models/acts/concert.model";
-import { City } from "../models/acts/city.model";
-import { Location } from "../models/acts/location.model";
+import { City } from "../models/locations/city.model";
+import { Location } from "../models/locations/location.model";
 import { Request, Response, Router } from "express";
 import { Tour } from "../models/acts/tour.model";
 import { Band } from "../models/acts/band.model";
+import { SeatGroup } from "../models/locations/seatGroup.model";
+import { Seat } from "../models/locations/seat.model";
+import { SeatRow } from "../models/locations/seatRow.model";
 
 export const location = Router()
 
@@ -17,6 +20,15 @@ location.get("/", (req: Request, res: Response) => {
         attributes: {
           exclude: [ "locationId", "tourId" ]
         }
+      },
+      {
+        model: SeatGroup,
+        include: [
+          {
+            model: SeatRow,
+            include: [ Seat ]
+          }
+        ]
       }
     ],
     attributes: {

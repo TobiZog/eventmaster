@@ -1,6 +1,7 @@
 import { BelongsTo, Column, ForeignKey, HasMany, Model, Table } from "sequelize-typescript";
-import { Concert } from "./concert.model";
+import { Concert } from "./../acts/concert.model";
 import { City } from "./city.model";
+import { SeatGroup } from "./seatGroup.model";
 
 @Table({ timestamps: false })
 export class Location extends Model {
@@ -22,6 +23,9 @@ export class Location extends Model {
 
   @HasMany(() => Concert)
   concerts: Concert[]
+
+  @HasMany(() => SeatGroup)
+  seatGroups: SeatGroup[]
 
   @BelongsTo(() => City)
   city: City
