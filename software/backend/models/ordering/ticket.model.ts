@@ -1,22 +1,24 @@
 import { Model, BelongsTo, Column, ForeignKey, HasMany, HasOne, Table } from "sequelize-typescript";
 import { Concert } from "../acts/concert.model";
 import { Order } from "./order.model";
+import { Seat } from "../locations/seat.model";
 
 @Table({ timestamps: false })
-export class OrderItem extends Model {
+export class Ticket extends Model {
   @Column
   @ForeignKey(() => Order)
   orderId: number
 
   @Column
-  quantity: number
-  
-  @Column
   orderPrice: number
 
   @Column
   @ForeignKey(() => Concert)
-  showId: number
+  concertId: number
+
+  @Column
+  @ForeignKey(() => Seat)
+  seatId: number
 
 
   // Relations
@@ -25,4 +27,7 @@ export class OrderItem extends Model {
 
   @BelongsTo(() => Concert)
   product: Concert
+
+  @BelongsTo(() => Seat)
+  seat: Seat
 }

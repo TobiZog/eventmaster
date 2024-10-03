@@ -3,7 +3,7 @@ import { Band } from "./band.model";
 import { Concert } from "./concert.model";
 
 @Table({ timestamps: false })
-export class Tour extends Model {
+export class Event extends Model {
   @Column
   name: String
 

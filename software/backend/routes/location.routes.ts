@@ -2,7 +2,7 @@ import { Concert } from "../models/acts/concert.model";
 import { City } from "../models/locations/city.model";
 import { Location } from "../models/locations/location.model";
 import { Request, Response, Router } from "express";
-import { Tour } from "../models/acts/tour.model";
+import { Event } from "../models/acts/event.model";
 import { Band } from "../models/acts/band.model";
 import { SeatGroup } from "../models/locations/seatGroup.model";
 import { Seat } from "../models/locations/seat.model";
@@ -16,7 +16,7 @@ location.get("/", (req: Request, res: Response) => {
       City, 
       {
         model: Concert,
-        include: [ Tour ],
+        include: [ Event ],
         attributes: {
           exclude: [ "locationId", "tourId" ]
         }

@@ -50,28 +50,33 @@ The application host it's data in a SQLite database. The access is managed by an
 
 ---
 
-#### Validate
+#### Listing existing
 
 <details>
-<summary><code><span style="color:#69CA92"><b>POST</b></span></code> <code><b>/accounts/login</b></code> <code> (Login for user)</code></summary>
+<summary><code><span style="color:#70AFFD"><b>GET</b></span></code> <code><b>/events?city=cityName&genre=genreName</b></code> <code> (Get all events, filtered by city and genre)</code>
+</summary>
 
 ##### Parameters
 > | name | type | data type | description |
-> | --- | --- | --- | --- |
-> | username |  required | string   | Username of the account  |
-> | password |  required | string   | Password of the account  |
+> | :---: | --- | --- | --- |
+> | `cityName` |  optional | string   | Name of the city to filter for  |
+> | `genreName` |  optional | string   | Name of the genre to filter for  |
 
 ##### Responses
 > | http code | content-type | response |
 > | :---: | --- | --- |
-> | `200` | `application/json` | `AccountObject` + `Addresses`, `Payments`, `AccountRole`  |
-> | `400` | `application/json` | `{code: 400, message: "Bad Request"}` |
-> | `401` | `application/json` | `{code: 401, message: "Unauthorized"}` |
+> | `200` | `application/json` | `Event` + `Array<Concert + Location>` +  `Array<Band>`  |
 </details>
 
----
 
-#### Listing existing
+
+
+
+
+Down here: todo!
+
+
+
 
 <details>
 <summary><code><span style="color:#70AFFD"><b>GET</b></span></code> <code><b>/bands</b></code> <code> (Get all bands)</code>
@@ -320,3 +325,25 @@ The application host it's data in a SQLite database. The access is managed by an
 > | :---: | --- | --- |
 > | `200` | None | None |
 </details>
+
+
+#### Validate
+
+<details>
+<summary><code><span style="color:#69CA92"><b>POST</b></span></code> <code><b>/accounts/login</b></code> <code> (Login for user)</code></summary>
+
+##### Parameters
+> | name | type | data type | description |
+> | --- | --- | --- | --- |
+> | username |  required | string   | Username of the account  |
+> | password |  required | string   | Password of the account  |
+
+##### Responses
+> | http code | content-type | response |
+> | :---: | --- | --- |
+> | `200` | `application/json` | `AccountObject` + `Addresses`, `Payments`, `AccountRole`  |
+> | `400` | `application/json` | `{code: 400, message: "Bad Request"}` |
+> | `401` | `application/json` | `{code: 401, message: "Unauthorized"}` |
+</details>
+
+---

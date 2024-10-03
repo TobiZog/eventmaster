@@ -9,7 +9,7 @@ import { concert } from './routes/concert.routes'
 import { band } from './routes/band.routes'
 import { genre } from './routes/genre.routes'
 import { location } from './routes/location.routes'
-import { tour } from './routes/tour.routes'
+import { events } from './routes/events.routes'
 import { city } from './routes/city.routes'
 
 const app = express()
@@ -35,13 +35,12 @@ app.use('/static', express.static(path.join(__dirname, 'images')))
 
 // Routes
 app.use("/api", api)
-app.use("/shows", concert)
+app.use("/events", events)
 app.use("/bands", band)
-app.use("/genres", genre)
 app.use("/locations", location)
+app.use("/genres", genre)
 app.use("/orders", order)
 app.use("/accounts", account)
-app.use("/tours", tour)
 app.use("/cities", city)
 
 

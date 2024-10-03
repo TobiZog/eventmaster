@@ -2,7 +2,7 @@ import { BelongsTo, BelongsToMany, Column, DataType, ForeignKey, HasMany, Model,
 import { Member } from "./member.model";
 import { Genre } from "./genre.model";
 import { Rating } from "./rating.model";
-import { Tour } from "./tour.model";
+import { Event } from "./event.model";
 import { BandGenre } from "./bandGenre.model";
 
 @Table({ timestamps: false })
@@ -45,8 +45,8 @@ export class Band extends Model {
   @HasMany(() => Rating)
   ratings: Rating[]
 
-  @HasMany(() => Tour)
-  tours: Tour[]
+  @HasMany(() => Event)
+  events: Event[]
 
   @BelongsToMany(() => Genre, () => BandGenre)
   genres: Genre[]

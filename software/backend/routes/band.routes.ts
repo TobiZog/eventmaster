@@ -3,7 +3,7 @@ import { Band } from "../models/acts/band.model";
 import { Request, Response, Router } from "express";
 import { Rating } from "../models/acts/rating.model";
 import { Genre } from "../models/acts/genre.model";
-import { Tour } from "../models/acts/tour.model";
+import { Event } from "../models/acts/event.model";
 import { Concert } from "../models/acts/concert.model";
 import { Location } from "../models/locations/location.model";
 import { City } from "../models/locations/city.model";
@@ -27,7 +27,7 @@ band.get("/", (req: Request, res: Response) => {
         }
       },
       {
-        model: Tour,
+        model: Event,
         include: [
           {
             model: Concert,

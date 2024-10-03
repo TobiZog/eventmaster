@@ -1,14 +1,11 @@
 import { BandModel } from "./bandModel"
 import { ConcertModel } from "./concertModel"
 
-/**
- * @deprecated Use EventModel!
- */
-export class TourModel {
+export class EventModel {
   id: number
   name: string
   offered: boolean
-  band: BandModel
   image: string
+  band: BandModel
   concerts: Array<ConcertModel>
 }

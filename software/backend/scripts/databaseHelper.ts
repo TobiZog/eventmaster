@@ -1,5 +1,5 @@
 import { Order } from '../models/ordering/order.model'
-import { OrderItem } from '../models/ordering/orderItem.model'
+import { Ticket } from '../models/ordering/ticket.model'
 import { Account } from '../models/user/account.model'
 import { Address } from '../models/user/address.model'
 import { Payment } from '../models/user/payment.model'
@@ -10,7 +10,7 @@ import { Genre } from '../models/acts/genre.model'
 import { Band } from '../models/acts/band.model'
 import { Location } from '../models/locations/location.model'
 import { Concert } from '../models/acts/concert.model'
-import { Tour } from '../models/acts/tour.model'
+import { Event } from '../models/acts/event.model'
 import { City } from '../models/locations/city.model'
 import { BandGenre } from '../models/acts/bandGenre.model'
 import { SeatGroup } from '../models/locations/seatGroup.model'
@@ -19,11 +19,10 @@ import { SeatRow } from '../models/locations/seatRow.model'
 
 import accounts from "./../data/accounts.json"
 import orders from "./../data/orders.json"
-import orderItems from "./../data/orderItems.json"
 import accountRoles from "./../data/accountRoles.json"
 import bands from "./../data/bands.json"
 import genres from "./../data/genres.json"
-import tours from "./../data/tours.json"
+import events from "./../data/events.json"
 import cities from "./../data/cities.json"
 
 
@@ -31,14 +30,14 @@ import cities from "./../data/cities.json"
  * Delete all datasets in every database table
  */
 export function deleteAllTables() {
-  OrderItem.destroy({truncate: true })
+  Ticket.destroy({truncate: true })
   Order.destroy({ truncate: true })
 
   Rating.destroy({ truncate: true })
   Member.destroy({ truncate: true })
   Genre.destroy({ truncate: true })
   Band.destroy({ truncate: true })
-  Tour.destroy({ truncate: true })
+  Event.destroy({ truncate: true })
 
   Location.destroy({ truncate: true })
   Concert.destroy({ truncate: true })
@@ -145,15 +144,25 @@ export async function prepopulateDatabase() {
   }
 
 
-  for (let tour of tours.data) {
-    await Tour.create(tour)
+  for (let tour of events.data) {
+    await Event.create(tour)
       .then(async dataset => {
         for (let concert of tour.concerts) {
+          concert["eventId"] = dataset.id
+          
           await Concert.create(concert)
         }
       })
   }
 
-  Order.bulkCreate(orders.data)
-  OrderItem.bulkCreate(orderItems.data)
+  for (let order of orders.data) {
+    await Order.create(order)
+      .then(async dataset => {
+        for (let ticket of order.tickets) {
+          ticket["orderId"] = dataset.id
+
+          await Ticket.create(ticket)
+        }
+      })
+  }
 }

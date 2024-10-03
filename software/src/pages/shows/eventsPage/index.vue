@@ -1,12 +1,14 @@
 <script setup lang="ts">
 import cardWithLeftImage from '@/components/cardWithLeftImage.vue';
-import { useConcertStore } from '@/data/stores/concertStore';
 import { createDateRangeString, lowestTicketPrice } from '@/scripts/concertScripts';
 import filterBar from './filterBar.vue';
 import { useRouter } from 'vue-router';
+import { useShoppingStore } from '@/data/stores/shoppingStore';
 
 const router = useRouter()
-const concertStore = useConcertStore()
+const shoppingStore = useShoppingStore()
+
+shoppingStore.getEvents()
 </script>
 
 <template>
@@ -22,8 +24,8 @@ const concertStore = useConcertStore()
         </v-row>
 
         <v-row
-          v-if="concertStore.filteredTours.length > 0"
-          v-for="tour of concertStore.filteredTours"
+          v-if="shoppingStore.events.length > 0"
+          v-for="tour of shoppingStore.events"
         >
           <v-col>
             <card-with-left-image

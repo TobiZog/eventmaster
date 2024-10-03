@@ -1,7 +1,7 @@
 import { Router, Request, Response } from "express";
 import { Order } from "../models/ordering/order.model";
 import { Concert } from "../models/acts/concert.model";
-import { OrderItem } from "../models/ordering/orderItem.model";
+import { Ticket } from "../models/ordering/ticket.model";
 import { Payment } from "../models/user/payment.model";
 import { Address } from "../models/user/address.model";
 import { Band } from "../models/acts/band.model";
@@ -15,7 +15,7 @@ order.get("/:id", (req: Request, res: Response) => {
     where: { accountId: req.params.id },
     include: [
       { 
-        model: OrderItem, 
+        model: Ticket, 
         include: [ 
           { 
             model: Concert,
@@ -43,7 +43,7 @@ order.post("/", (req: Request, res: Response) => {
   Order.create(req.body)
     .then(async order => {
       for (let orderItem of req.body.orderItems) {
-        OrderItem.create({
+        Ticket.create({
           orderId: order.id,
           quantity: orderItem.quantity,
           orderPrice: orderItem.orderPrice,

@@ -5,8 +5,12 @@ import sectionDivider from '@/components/sectionDivider.vue';
 import cardWithLeftImage from '@/components/cardWithLeftImage.vue';
 import outlinedButton from '@/components/outlinedButton.vue';
 import { useRouter } from 'vue-router';
+import ticketOrderDialog from './ticketOrderDialog.vue';
+import { ref } from 'vue';
+import { ConcertModel } from '@/data/models/acts/concertModel';
 
 const router = useRouter()
+const showDialog = ref(false)
 
 defineProps({
   band: {
@@ -14,6 +18,10 @@ defineProps({
     required: true
   }
 })
+
+function openTicketOrderDialog(concert: ConcertModel) {
+  showDialog.value = true
+}
 </script>
 
 <template>
@@ -60,6 +68,7 @@ defineProps({
             <outlined-button
               v-if="concert.inStock > 0"
               prepend-icon="mdi-basket-plus"
+              @click="openTicketOrderDialog(concert)"
             >
               {{ $t('add') }}
             </outlined-button>
@@ -75,4 +84,6 @@ defineProps({
       </card-with-left-image>
     </v-col>
   </v-row>
+  
+  <ticket-order-dialog />
 </template>

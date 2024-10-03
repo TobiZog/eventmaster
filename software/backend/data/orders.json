@@ -5,21 +5,43 @@
       "accountId": 0,
       "shippingProgress": 4,
       "addressId": 0,
-      "paymentId": 0
+      "paymentId": 0,
+      "tickets": [
+        {
+          "concertId": 0,
+          "orderPrice": 184
+        }
+      ]
     },
     {
       "id": 1,
       "accountId": 3,
       "shippingProgress": 5,
       "addressId": 4,
-      "paymentId": 3
+      "paymentId": 3,
+      "tickets": [
+        {
+          "concertId": 0,
+          "orderPrice": 184
+        },
+        {
+          "concertId": 0,
+          "orderPrice": 184
+        }
+      ]
     },
     {
       "id": 2,
       "accountId": 3,
       "shippingProgress": 2,
       "addressId": 5,
-      "paymentId": 3
+      "paymentId": 3,
+      "tickets": [
+        {
+          "concertId": 0,
+          "orderPrice": 184
+        }
+      ]
     }
   ]
 }

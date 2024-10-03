@@ -1,6 +1,6 @@
 import { Table, Column, Model, BelongsTo, ForeignKey, HasMany, BelongsToMany, Default } from 'sequelize-typescript';
 import { Account } from '../user/account.model';
-import { OrderItem } from './orderItem.model';
+import { Ticket } from './ticket.model';
 import { Address } from '../user/address.model';
 import { Payment } from '../user/payment.model';
 
@@ -40,6 +40,6 @@ export class Order extends Model {
   @BelongsTo(() => Payment)
   payment: Payment
 
-  @HasMany(() => OrderItem)
-  orderItems: OrderItem[]
+  @HasMany(() => Ticket)
+  tickets: Ticket[]
 }

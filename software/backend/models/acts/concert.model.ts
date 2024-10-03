@@ -1,7 +1,7 @@
 import { BelongsTo, Column, ForeignKey, HasMany, Model, Table } from "sequelize-typescript";
 import { Location } from "./../locations/location.model";
-import { Tour } from "./tour.model";
-import { OrderItem } from "../ordering/orderItem.model";
+import { Event } from "./event.model";
+import { Ticket } from "../ordering/ticket.model";
 
 @Table({ timestamps: false })
 export class Concert extends Model {
@@ -18,18 +18,19 @@ export class Concert extends Model {
   @Column
   locationId: Number
 
-  @ForeignKey(() => Tour)
-  tourId: Number
+  @ForeignKey(() => Event)
+  @Column
+  eventId: Number
   
 
   // Relations
 
-  @BelongsTo(() => Tour)
-  tour: Tour
+  @BelongsTo(() => Event)
+  event: Event
 
   @BelongsTo(() => Location)
   location: Location
 
-  @HasMany(() => OrderItem)
-  orderItems: OrderItem[]
+  @HasMany(() => Ticket)
+  tickets: Ticket[]
 }

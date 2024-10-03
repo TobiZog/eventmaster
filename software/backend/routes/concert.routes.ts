@@ -1,7 +1,7 @@
 import { Location } from "../models/locations/location.model";
 import { Concert } from "../models/acts/concert.model";
 import { Request, Response, Router } from "express";
-import { Tour } from "../models/acts/tour.model";
+import { Event } from "../models/acts/event.model";
 import { City } from "../models/locations/city.model";
 
 export const concert = Router()
@@ -9,7 +9,7 @@ export const concert = Router()
 concert.get("/:id", (req: Request, res: Response) => {
   Concert.findByPk(req.params.id, {
     include: [ 
-      Tour,
+      Event,
       {
         model: Location,
         include: [ City ],
