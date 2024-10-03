@@ -4,9 +4,11 @@ import { createDateRangeString, lowestTicketPrice } from '@/scripts/concertScrip
 import filterBar from './filterBar.vue';
 import { useRouter } from 'vue-router';
 import { useShoppingStore } from '@/data/stores/shoppingStore';
+import { useFeedbackStore } from '@/data/stores/feedbackStore';
 
 const router = useRouter()
 const shoppingStore = useShoppingStore()
+const feedbackStore = useFeedbackStore()
 
 shoppingStore.getEvents()
 </script>
@@ -23,8 +25,14 @@ shoppingStore.getEvents()
           </v-col>
         </v-row>
 
+        <v-row v-if="feedbackStore.fetchDataFromServerInProgress">
+          <v-col class="text-center">
+            <v-progress-circular indeterminate :size="128" :width="12" color="primary" />
+          </v-col>
+        </v-row>
+
         <v-row
-          v-if="shoppingStore.events.length > 0"
+          v-else-if="shoppingStore.events.length > 0"
           v-for="event of shoppingStore.events"
         >
           <v-col>

@@ -9,6 +9,7 @@ export const useFeedbackStore = defineStore("feedbackStore", {
     title: ref(""),
     color: ref(""),
     icon: ref(""),
+    fetchDataFromServerInProgress: ref(false),
     $i18n: {}
   }),
 
