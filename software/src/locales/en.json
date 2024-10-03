@@ -142,5 +142,6 @@
   "soldOut": "Sold Out",
   "city": "City",
   "seatPlan": "Seat Plan",
-  "stage": "Stage"
+  "stage": "Stage",
+  "filtering": "Filtering"
 }

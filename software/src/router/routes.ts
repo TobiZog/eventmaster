@@ -3,10 +3,10 @@ import HomePage from "@/pages/homePage/index.vue"
 import { adminRoutes } from "./admin.routes";
 import { accountRoutes } from "./account.routes";
 import { systemRoutes } from "./system.routes";
-import EventsPage from "@/pages/shows/eventsPage/index.vue";
+import EventsPage from "@/pages/events/eventsPage/index.vue";
 import LocationsPage from "@/pages/locations/locationsPage/index.vue"
-import SearchPage from "@/pages/shows/searchPage/index.vue"
-import BandDetailPage from "@/pages/shows/bandDetailPage/index.vue"
+import SearchPage from "@/pages/events/searchPage/index.vue"
+import BandDetailPage from "@/pages/events/bandDetailPage/index.vue"
 import LocationDetailPage from "@/pages/locations/locationDetailPage/index.vue"
 
 const routes = [

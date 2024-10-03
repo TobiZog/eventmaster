@@ -16,8 +16,8 @@ defineProps({
 </script>
 
 <template>
-  <v-card>
-    <v-row v-if="prependImage != ''">
+  <v-card v-if="prependImage != ''">
+    <v-row>
       <v-col cols="3" class="pr-0">
         <v-img
           :src="prependImage"
@@ -53,26 +53,11 @@ defineProps({
         </v-card-actions>
       </v-col>
     </v-row>
+  </v-card>
 
-    <v-container v-else>
+  <v-card v-else :title="title" :prepend-icon="icon">
+    <v-container>
       <slot></slot>
     </v-container>
-
-    
-
-
-    <!-- Show default container only, if there is content -->
-    <!-- <v-container v-if="$slots.default">
-      <slot></slot>
-    </v-container> -->
-
-    <!-- Slot for content without padding -->
-    <!-- <slot name="withoutContainer"></slot> -->
-    
-    <!-- Slot for Action Buttons in the right bottom corner -->
-    <!-- <v-card-actions v-if="$slots.actions" class="card-actions">
-      <v-spacer />
-      <slot name="actions"></slot>
-    </v-card-actions> -->
   </v-card>
 </template>

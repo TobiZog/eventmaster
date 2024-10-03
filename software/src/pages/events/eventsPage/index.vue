@@ -25,16 +25,16 @@ shoppingStore.getEvents()
 
         <v-row
           v-if="shoppingStore.events.length > 0"
-          v-for="tour of shoppingStore.events"
+          v-for="event of shoppingStore.events"
         >
           <v-col>
             <card-with-left-image
-              :title="tour.band.name + ' - ' +  tour.name"
-              :image="'http://localhost:3000/static/tours/' + tour.image"
-              @click="router.push('/bands/' + tour.band.name.replaceAll(' ', '-').toLowerCase())"
+              :title="event.band.name + ' - ' +  event.name"
+              :image="'http://localhost:3000/static/tours/' + event.image"
+              @click="router.push('/bands/' + event.band.name.replaceAll(' ', '-').toLowerCase())"
             >
-              {{ createDateRangeString(tour) }}
-              <div>{{ tour.concerts.length }} {{ $t('concert', tour.concerts.length) }}</div>
+              {{ createDateRangeString(event) }}
+              <div>{{ event.concerts.length }} {{ $t('concert', event.concerts.length) }}</div>
 
               <template #append>
                 <div>
@@ -44,7 +44,7 @@ shoppingStore.getEvents()
                     size="x-large"
                   />
                 </div>
-                ab {{ lowestTicketPrice(tour) }} €
+                ab {{ lowestTicketPrice(event) }} €
               </template>
             </card-with-left-image>
           </v-col>

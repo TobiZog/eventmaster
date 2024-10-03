@@ -78,8 +78,6 @@ account.post("/", (req: Request, res: Response) => {
 })
 
 account.patch("/", (req: Request, res: Response) => {
-  console.log(req.body)
-  
   Account.update(req.body,
   {
     where: { id: req.body.id }

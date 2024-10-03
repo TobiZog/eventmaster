@@ -38,12 +38,12 @@ location.get("/", (req: Request, res: Response) => {
     .then(async locations => {
       for (let location of locations) {
         for (let concert of location.dataValues.concerts) {
-          let tour = concert.dataValues.tour
+          let event = concert.dataValues.event
 
-          await Band.findByPk(tour.dataValues.bandId)
+          await Band.findByPk(event.dataValues.bandId)
             .then(band => {
-              tour.dataValues.bandName = band.dataValues.name
-              delete tour.dataValues.bandId
+              event.dataValues.bandName = band.dataValues.name
+              delete event.dataValues.bandId
             })
         }
       }

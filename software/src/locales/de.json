@@ -142,5 +142,6 @@
   "soldOut": "Ausverkauft",
   "city": "Stadt",
   "seatPlan": "Saalplan",
-  "stage": "Bühne"
+  "stage": "Bühne",
+  "filtering": "Filtern"
 }

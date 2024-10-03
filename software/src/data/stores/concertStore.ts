@@ -29,15 +29,15 @@ export const useConcertStore = defineStore("concertStore", {
     async fetchAllTours() {
       await getAllTours()
         .then(result => {
-          this.tours = result.data
+          // this.tours = result.data
 
-          this.tours.sort((a, b) => {
-            return new Date(a.concerts[0].date) < new Date(b.concerts[0].date) ? -1 : 1
-          })
+          // this.tours.sort((a, b) => {
+          //   return new Date(a.concerts[0].date) < new Date(b.concerts[0].date) ? -1 : 1
+          // })
 
-          this.filteredTours = this.tours
+          // this.filteredTours = this.tours
 
-          this.filterTours()
+          // this.filterTours()
         })
 
       await getAllBands()
@@ -47,7 +47,6 @@ export const useConcertStore = defineStore("concertStore", {
 
       await getAllLocations() 
         .then(result => {
-          console.log(result.data)
           this.locations = result.data
         })
 

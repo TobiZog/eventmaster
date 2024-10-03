@@ -6,6 +6,6 @@ export class EventModel {
   name: string
   offered: boolean
   image: string
-  band: BandModel
-  concerts: Array<ConcertModel>
+  band: BandModel = new BandModel()
+  concerts: Array<ConcertModel> = [ new ConcertModel() ]
 }
