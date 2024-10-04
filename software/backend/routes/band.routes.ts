@@ -7,6 +7,7 @@ import { Event } from "../models/acts/event.model";
 import { Concert } from "../models/acts/concert.model";
 import { Location } from "../models/locations/location.model";
 import { City } from "../models/locations/city.model";
+import { Op } from "sequelize";
 
 export const band = Router()
 
@@ -58,8 +59,11 @@ band.get("/", (req: Request, res: Response) => {
 })
 
 // Get all information about one band
-band.get("/:id", (req: Request, res: Response) => {
-  Band.findByPk(req.params.id, {
+band.get("/:name", (req: Request, res: Response) => {
+  Band.findOne({
+    where: {
+      name: { [Op.like]: req.params.name }
+    },
     include: [ 
       {
         model: Member,
@@ -71,6 +75,29 @@ band.get("/:id", (req: Request, res: Response) => {
         model: Rating,
         attributes: {
           exclude: [ "bandId" ]
+        }
+      },
+      {
+        model: Event,
+        include: [
+          {
+            model: Concert,
+            include: [
+              {
+                model: Location,
+                include: [ City ],
+                attributes: {
+                  exclude: [ "id" ]
+                }
+              }
+            ],
+            attributes: {
+              exclude: [ "id", "tourId", "locationId" ]
+            }
+          }
+        ],
+        attributes: {
+          exclude: [ "id", "bandId" ]
         }
       },
       Genre

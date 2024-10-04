@@ -9,6 +9,7 @@
           "name": "Swiss Life Hall",
           "address": "Ferdinand-Wilhelm-Fricke-Weg 8",
           "image": "locations/swiss-life-hall.jpg",
+          "logo": "locations/capitol.logo.png",
           "seatGroups": [
             {
               "name": "A",
@@ -58,6 +59,7 @@
           "name": "Capitol",
           "address": "Schwarzer Bär 2",
           "image": "locations/capitol.jpg",
+          "logo": "locations/capitol-logo.png",
           "seatGroups": [
             {
               "name": "A",
@@ -72,6 +74,7 @@
           "name": "ZAG Arena",
           "address": "EXPO-Plaza 7",
           "image": "locations/zag-arena.jpg",
+          "logo": "locations/capitol.logo.png",
           "seatGroups": [
             {
               "name": "A",
@@ -121,6 +124,7 @@
           "name": "Kulturzentrum Faust",
           "address": "Zur Bettfedernfabrik 3",
           "image": "locations/faust-hannover.jpg",
+          "logo": "locations/faust-logo.png",
           "seatGroups": [
             {
               "name": "A",
@@ -141,6 +145,7 @@
           "name": "Olympiahalle München",
           "address": "Spiridon-Louis-Ring 21",
           "image": "locations/olympiahalle-munich.jpg",
+          "logo": "locations/capitol.logo.png",
           "seatGroups": [
             {
               "name": "A",
@@ -155,6 +160,7 @@
           "name": "Schlachthof München",
           "address": "Zenettistraße 9",
           "image": "locations/schlachthof-munich.jpg",
+          "logo": "locations/capitol.logo.png",
           "seatGroups": [
             {
               "name": "A",
@@ -169,6 +175,7 @@
           "name": "Muffatwerk",
           "address": "Zellstraße 4",
           "image": "locations/muffatwerk.jpg",
+          "logo": "locations/capitol.logo.png",
           "seatGroups": [
             {
               "name": "A",
@@ -189,6 +196,7 @@
           "name": "Elbphilharmonie Hamburg",
           "address": "Platz der deutschen Einheit",
           "image": "locations/elbphilharmonie-hamburg.jpg",
+          "logo": "locations/capitol.logo.png",
           "seatGroups": [
             {
               "name": "A",
@@ -203,6 +211,7 @@
           "name": "Volksparkstadion",
           "address": "Sylvesterallee 7",
           "image": "locations/volksparkstadion-hamburg.jpg",
+          "logo": "locations/capitol.logo.png",
           "seatGroups": [
             {
               "name": "A",
@@ -217,6 +226,7 @@
           "name": "Barclays Arena",
           "address": "Sylvesterallee 10",
           "image": "locations/barclays-arena.jpg",
+          "logo": "locations/capitol.logo.png",
           "seatGroups": [
             {
               "name": "A",
@@ -231,6 +241,7 @@
           "name": "Stage Theater im Hafen Hamburg",
           "address": "Norderelbestraße 6",
           "image": "locations/stage-theater-hamburg.jpg",
+          "logo": "locations/capitol.logo.png",
           "seatGroups": [
             {
               "name": "A",
@@ -251,6 +262,7 @@
           "name": "Waldbühne Berlin",
           "address": "Am Glockenturm",
           "image": "locations/waldbuehne-berlin.jpg",
+          "logo": "locations/capitol.logo.png",
           "seatGroups": [
             {
               "name": "A",
@@ -265,6 +277,7 @@
           "name": "Olympiastadion Berlin",
           "address": "Olympischer Platz 3",
           "image": "locations/olympiastadion-berlin.jpg",
+          "logo": "locations/capitol.logo.png",
           "seatGroups": [
             {
               "name": "A",
@@ -279,6 +292,7 @@
           "name": "Uber Arena Berlin",
           "address": "Uber-Platz 1",
           "image": "locations/uber-arena-berlin.jpg",
+          "logo": "locations/capitol.logo.png",
           "seatGroups": [
             {
               "name": "A",
@@ -293,6 +307,7 @@
           "name": "Columbiahalle",
           "address": "Columbiadamm 13-21",
           "image": "locations/columbiahalle.jpg",
+          "logo": "locations/capitol.logo.png",
           "seatGroups": [
             {
               "name": "A",
@@ -307,6 +322,7 @@
           "name": "Astra Kulturhaus",
           "address": "Revaler Straße 99",
           "image": "locations/astra-kulturhaus.jpg",
+          "logo": "locations/capitol.logo.png",
           "seatGroups": [
             {
               "name": "A",
@@ -321,6 +337,7 @@
           "name": "Deutsche Oper Berlin",
           "address": "Bismarckstraße 35",
           "image": "locations/deutsche-oper-berlin.jpg",
+          "logo": "locations/capitol-logo.png",
           "seatGroups": [
             {
               "name": "A",

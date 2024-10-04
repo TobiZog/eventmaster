@@ -10,13 +10,13 @@ export class BandModel {
   images: Array<string>
   imageMembers: string
   logo: string
-  ratings: Array<RatingModel>
+  ratings: Array<RatingModel> = []
   members: Array<{
     name: string,
     image: string
   }>
   genres: Array<{
     name: string
-  }>
+  }> = []
   events: Array<EventModel>
 }

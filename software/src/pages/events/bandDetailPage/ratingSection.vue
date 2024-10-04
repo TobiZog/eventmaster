@@ -1,7 +1,9 @@
 <script setup lang="ts">
 import { BandModel } from '@/data/models/acts/bandModel';
+import { useFeedbackStore } from '@/data/stores/feedbackStore';
 import { calcRating, calcRatingValues } from '@/scripts/concertScripts';
-import sectionDivider from '@/components/sectionDivider.vue';
+
+const feedbackStore = useFeedbackStore()
 
 defineProps({
   band: {
@@ -12,12 +14,6 @@ defineProps({
 </script>
 
 <template>
-  <v-row>
-    <v-col>
-      <section-divider title="Bewertungen" />
-    </v-col>
-  </v-row>
-
   <v-row>
     <v-col>
       <div class="d-flex align-center justify-center flex-column" style="height: 100%;">

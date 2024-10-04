@@ -143,5 +143,8 @@
   "city": "City",
   "seatPlan": "Seat Plan",
   "stage": "Stage",
-  "filtering": "Filtering"
+  "filtering": "Filtering",
+  "bandMember": "Band members",
+  "rating": "Rating | Ratings",
+  "image": "Image | Images"
 }

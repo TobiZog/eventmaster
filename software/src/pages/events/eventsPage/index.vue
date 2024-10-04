@@ -36,12 +36,15 @@ shoppingStore.getEvents()
           v-for="event of shoppingStore.events"
           :image="event.image"
           :title="event.band.name + ' - ' +  event.name"
-          :price="$t('from') + ' ' + lowestTicketPrice(event) + ' €'"
           @click="router.push('/bands/' + event.band.name.replaceAll(' ', '-').toLowerCase())"
         >
           <template #description>
             {{ createDateRangeString(event) }}
             <div>{{ event.concerts.length }} {{ $t('concert', event.concerts.length) }}</div>
+          </template>
+
+          <template #append-text>
+            {{ $t('from') + ' ' + lowestTicketPrice(event) + ' €' }}
           </template>
         </concert-list-item>
 

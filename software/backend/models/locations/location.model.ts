@@ -18,6 +18,9 @@ export class Location extends Model {
   @Column
   image: String
 
+  @Column
+  logo: String
+
 
   // Relations
 

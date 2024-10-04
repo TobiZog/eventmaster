@@ -143,5 +143,8 @@
   "city": "Stadt",
   "seatPlan": "Saalplan",
   "stage": "Bühne",
-  "filtering": "Filtern"
+  "filtering": "Filtern",
+  "bandMember": "Band Mitglieder",
+  "rating": "Bewertung | Bewertungen",
+  "image": "Foto | Fotos"
 }

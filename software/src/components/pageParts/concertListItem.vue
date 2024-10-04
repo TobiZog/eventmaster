@@ -5,7 +5,6 @@ defineProps({
   image: String,
   title: String,
   description: String,
-  price: String,
   loading: Boolean
 })
 </script>
@@ -35,7 +34,7 @@ defineProps({
               size="x-large"
             />
           </div>
-          {{ price }}
+          <slot name="append-text"></slot>
         </template>
       </card-with-left-image>
     </v-col>

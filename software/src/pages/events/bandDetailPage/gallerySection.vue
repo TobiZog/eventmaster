@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import { BandModel } from '@/data/models/acts/bandModel';
-import sectionDivider from '@/components/sectionDivider.vue';
+import { useFeedbackStore } from '@/data/stores/feedbackStore';
+
+const feedbackStore = useFeedbackStore()
 
 defineProps({
   band: {
@@ -13,41 +15,40 @@ defineProps({
 <template>
   <v-row>
     <v-col>
-      <section-divider title="Fotos" />
-    </v-col>
-  </v-row>
-
-  <v-row>
-    <v-col>
-      <v-carousel
-        show-arrows
-        hide-delimiter-background
-        hide-delimiters
-        height="900"
+      <v-skeleton-loader
+        type="image"
+        :loading="feedbackStore.fetchDataFromServerInProgress"
       >
-        <template #prev="{ props }">
-          <v-btn
-            variant="text"
-            @click="props.onClick"
-            icon="mdi-chevron-left"
+        <v-carousel
+          show-arrows
+          hide-delimiter-background
+          hide-delimiters
+          height="900"
+        >
+          <template #prev="{ props }">
+            <v-btn
+              variant="text"
+              @click="props.onClick"
+              icon="mdi-chevron-left"
+            />
+          </template>
+
+          <template #next="{ props }">
+            <v-btn
+              variant="text"
+              @click="props.onClick"
+              icon="mdi-chevron-right"
+            />
+          </template>
+
+
+          <v-carousel-item
+            v-for="image in band.images"
+            :src="'http://localhost:3000/static/' + image" 
+            cover
           />
-        </template>
-
-        <template #next="{ props }">
-          <v-btn
-            variant="text"
-            @click="props.onClick"
-            icon="mdi-chevron-right"
-          />
-        </template>
-
-
-        <v-carousel-item
-          v-for="image in band.images"
-          :src="'http://localhost:3000/static/bands/' + image" 
-          cover
-        />
-      </v-carousel>
+        </v-carousel>
+      </v-skeleton-loader>
     </v-col>
   </v-row>
 </template>

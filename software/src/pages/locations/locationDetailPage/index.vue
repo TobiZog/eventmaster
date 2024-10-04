@@ -30,6 +30,8 @@ getLocation(String(router.currentRoute.value.params.locationName).replaceAll('-'
     :title="location.name"
     :image="location.image"
     :description="location.address + location.city.name"
+    :loading="feedbackStore.fetchDataFromServerInProgress"
+    :logo="location.logo"
   >
     <template #description>
       <p class="text-h6">{{ location.address }}</p>
@@ -61,8 +63,11 @@ getLocation(String(router.currentRoute.value.params.locationName).replaceAll('-'
           :title="concert.event.bandName + ' - ' +  concert.event.name"
           :description="dateStringToHumanReadableString(concert.date)"
           :onClick="() => router.push('/bands/' + concert.event.bandName.replaceAll(' ', '-').toLowerCase())"
-          :price="$t('from') + ' ' + concert.price.toFixed(2) + ' €'"
-        />
+        >
+          <template #append-text>
+            {{ $t('from') + ' ' + concert.price.toFixed(2) + ' €' }}
+          </template>
+        </concert-list-item>
 
         <v-row v-else>
           <v-col>
@@ -72,6 +77,8 @@ getLocation(String(router.currentRoute.value.params.locationName).replaceAll('-'
             />
           </v-col>
         </v-row>
+
+
 
         <v-row>
           <v-col>
