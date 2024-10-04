@@ -11,6 +11,8 @@ export const events = Router()
 events.get("/", async (req: Request, res: Response) => {
   let cityName = req.query.city
   let genreName = req.query.genre
+  let sort = req.query.sort
+  let count = req.query.count
   let cityFilter = {}
   let genreFilter = {}
 
@@ -44,14 +46,16 @@ events.get("/", async (req: Request, res: Response) => {
         include: [
           {
             model: Location,
+            required: true,
             include: [
               cityFilter
             ]
           }
-        ]
+        ],
       },
       {
         model: Band,
+        required: true,
         include: [
           genreFilter
         ]
@@ -59,21 +63,21 @@ events.get("/", async (req: Request, res: Response) => {
     ]
   })
     .then(events => {
-      let resultArray = []
-
-      // Remove datasets which not fulfill the optional parameter
-      for (let event of events) {
-        if (event.dataValues.band != null) {
-          for (let concert of event.dataValues.concerts) {
-            if (concert.dataValues.location != null) {
-              resultArray.push(event)
-              break
-            }
+      if (sort != undefined) {
+        events.sort((event1, event2) => {
+          if (sort == "desc") {
+            return event2.dataValues.concerts.length - event1.dataValues.concerts.length
+          } else if (sort == "asc") {
+            return event1.dataValues.concerts.length - event2.dataValues.concerts.length
           }
-        }
+        })
       }
 
-      res.status(200).json(resultArray)
+      if (count != undefined) {
+        events.splice(Number(count))
+      }
+
+      res.status(200).json(events)
     })
 
 })

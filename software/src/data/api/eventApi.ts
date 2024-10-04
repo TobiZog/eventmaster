@@ -9,3 +9,9 @@ export async function fetchEvents(city: string = "", genre: string = "") {
 
   return await axios.get(url)
 }
+
+export async function getTopEvents(nrOfEvents) {
+  let url = BASE_URL + "?sort=desc&count=" + nrOfEvents
+
+  return await axios.get(url)
+}

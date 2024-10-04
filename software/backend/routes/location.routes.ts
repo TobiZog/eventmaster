@@ -12,6 +12,9 @@ import { Op } from "sequelize";
 export const location = Router()
 
 location.get("/", (req: Request, res: Response) => {
+  let sort = req.query.sort
+  let count = req.query.count
+
   Location.findAll({
     include: [
       City, 
@@ -49,13 +52,25 @@ location.get("/", (req: Request, res: Response) => {
         }
       }
 
+      if (sort != undefined) {
+        locations.sort((location1, location2) => {
+          if (sort == "desc") {
+            return location2.dataValues.concerts.length - location1.dataValues.concerts.length
+          } else if (sort == "asc") {
+            return location1.dataValues.concerts.length - location2.dataValues.concerts.length
+          }
+        })
+      }
+
+      if (count != undefined) {
+        locations.splice(Number(count))
+      }
+
       res.status(200).json(locations)
     })
 })
 
 location.get("/:name", (req: Request, res: Response) => {
-  console.log(req.params.name)
-
   Location.findOne({
     where: { name: { [Op.like]: req.params.name } },
     include: [

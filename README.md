@@ -53,7 +53,7 @@ The application host it's data in a SQLite database. The access is managed by an
 #### Listing existing
 
 <details>
-<summary><code><span style="color:#70AFFD"><b>GET</b></span></code> <code><b>/events?city=cityName&genre=genreName</b></code> <code> (Get all events, filtered by city and genre)</code>
+<summary><code><span style="color:#70AFFD"><b>GET</b></span></code> <code><b>/events?city=cityName&genre=genreName&count=nrOfItems&sort=sortDirection</b></code> <code> (Get all events, filtered by city and genre)</code>
 </summary>
 
 ##### Parameters
@@ -61,16 +61,31 @@ The application host it's data in a SQLite database. The access is managed by an
 > | :---: | --- | --- | --- |
 > | `cityName` |  optional | string   | Name of the city to filter for  |
 > | `genreName` |  optional | string   | Name of the genre to filter for  |
+> | `nrOfItems` |  optional | number   | Limits number of results |
+> | `sortDirection` |  optional | string   | Sort by number of concerts, 'asc' or 'desc' |
 
 ##### Responses
 > | http code | content-type | response |
 > | :---: | --- | --- |
-> | `200` | `application/json` | `Event` + `Array<Concert + Location>` +  `Array<Band>`  |
+> | `200` | `application/json` | `Array<Event + Array<Concert + Location + City> + Band & Genre>`  |
 </details>
 
 
+<details>
+<summary><code><span style="color:#70AFFD"><b>GET</b></span></code> <code><b>/locations?count=nrOfItems&sort=sortDirection</b></code> <code> (Get all locations)</code>
+</summary>
 
+##### Parameters
+> | name | type | data type | description |
+> | :---: | --- | --- | --- |
+> | `nrOfItems` |  optional | number   | Limits number of results |
+> | `sortDirection` |  optional | string   | Sort by number of concerts, 'asc' or 'desc' |
 
+##### Responses
+> | http code | content-type | response |
+> | :---: | --- | --- |
+> | `200` | `application/json` | `Array<Location + City + Array<Concert + Event>>`  |
+</details>
 
 
 Down here: todo!
@@ -156,18 +171,7 @@ Down here: todo!
 
 
 
-<details>
-<summary><code><span style="color:#70AFFD"><b>GET</b></span></code> <code><b>/locations</b></code> <code> (Get all locations)</code>
-</summary>
 
-##### Parameters
-> None
-
-##### Responses
-> | http code | content-type | response |
-> | :---: | --- | --- |
-> | `200` | `application/json` | `Array<Location>` + `City`  |
-</details>
 
 
 

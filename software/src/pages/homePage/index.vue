@@ -3,12 +3,33 @@ import { useConcertStore } from '@/data/stores/concertStore';
 import highlightCarousel from './highlightCarousel.vue';
 import sectionDivider from '@/components/sectionDivider.vue';
 import cardWithTopImage from '@/components/cardWithTopImage.vue';
-import { calcRating, lowestTicketPrice } from '@/scripts/concertScripts';
+import { lowestTicketPrice } from '@/scripts/concertScripts';
 import OutlinedButton from '@/components/outlinedButton.vue';
 import { useRouter } from 'vue-router';
+import { useFeedbackStore } from '@/data/stores/feedbackStore';
+import { ref } from 'vue';
+import { EventModel } from '@/data/models/acts/eventModel';
+import { getTopEvents } from '@/data/api/eventApi';
+import { LocationModel } from '@/data/models/locations/locationModel';
+import { getTopLocations } from '@/data/api/locationApi';
 
 const router = useRouter()
-const concertStore = useConcertStore()
+const feedbackStore = useFeedbackStore()
+const topEvents = ref<Array<EventModel>>(Array.from({length: 4}, () => new EventModel()))
+const topLocations = ref<Array<LocationModel>>(Array.from({length: 8}, () => new LocationModel()))
+
+feedbackStore.fetchDataFromServerInProgress = true
+
+getTopEvents(4)
+  .then(events => {
+    topEvents.value = events.data
+
+    getTopLocations(8)
+      .then(locations => {
+        topLocations.value = locations.data
+        feedbackStore.fetchDataFromServerInProgress = false
+      })
+  })
 </script>
 
 <template>
@@ -28,12 +49,13 @@ const concertStore = useConcertStore()
         <v-row>
           <v-col v-for="i in 4" cols="3">
             <card-with-top-image
-              :image="'tours/' + concertStore.tours[i - 1].image"
-              :title="concertStore.tours[i - 1].band.name"
+              :image="topEvents[i - 1].image"
+              :title="topEvents[i - 1].band.name"
               smaller-title
-              @click="router.push('/bands/' + concertStore.tours[i - 1].band.name.replaceAll(' ', '-').toLowerCase())"
+              @click="router.push('/bands/' + topEvents[i - 1].band.name.replaceAll(' ', '-').toLowerCase())"
+              :loading="feedbackStore.fetchDataFromServerInProgress"
             >
-              ab {{ lowestTicketPrice(concertStore.tours[i - 1]) }} €
+              ab {{ lowestTicketPrice(topEvents[i - 1]) }} €
             </card-with-top-image>
           </v-col>
         </v-row>
@@ -59,12 +81,13 @@ const concertStore = useConcertStore()
         <v-row>
           <v-col v-for="i in 8" cols="3">
             <card-with-top-image
-              :image="'locations/' + concertStore.locations[i + 2].image"
-              :title="concertStore.locations[i + 2].name"
+              :image="topLocations[i - 1].image"
+              :title="topLocations[i - 1].name"
               smaller-title
-              @click="router.push('/locations/' + concertStore.locations[i + 2].name.replaceAll(' ', '-').toLowerCase())"
+              @click="router.push('/locations/' + topLocations[i - 1].name.replaceAll(' ', '-').toLowerCase())"
+              :loading="feedbackStore.fetchDataFromServerInProgress"
             >
-              {{ concertStore.locations[i + 2].city.name }}, {{ concertStore.locations[i + 2].city.country }}
+              {{ topLocations[i - 1].city.name }}, {{ topLocations[i - 1].city.country }}
             </card-with-top-image>
           </v-col>
         </v-row>

@@ -15,7 +15,7 @@ defineProps({
     <v-col>
       <card-with-left-image
         :title="title"
-        :image="'http://localhost:3000/static/tours/' + image"
+        :image="'http://localhost:3000/static/' + image"
       >
         <div class="text-body-1 font-weight-bold">
           <div v-if="!$slots.description">

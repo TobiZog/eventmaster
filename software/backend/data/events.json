@@ -5,7 +5,7 @@
       "name": "Unlimited Love",
       "bandId": 0,
       "offered": true,
-      "image": "unlimited-love-tour.jpg",
+      "image": "events/unlimited-love-tour.jpg",
       "concerts": [
         {
           "id": 0,
@@ -49,7 +49,7 @@
       "name": "The Bends",
       "bandId": 1,
       "offered": true,
-      "image": "the-bends-tour.jpg",
+      "image": "events/the-bends-tour.jpg",
       "concerts": [
         {
           "id": 5,
@@ -79,7 +79,7 @@
       "name": "European Tour",
       "bandId": 2,
       "offered": true,
-      "image": "european-tour-arctic-monkeys.jpg",
+      "image": "events/european-tour-arctic-monkeys.jpg",
       "concerts": [
         {
           "id": 8,
@@ -102,7 +102,7 @@
       "name": "Music of the Spheres",
       "bandId": 3,
       "offered": true,
-      "image": "music-of-the-spheres.png",
+      "image": "events/music-of-the-spheres.png",
       "concerts": [
         {
           "id": 10,
@@ -132,7 +132,7 @@
       "name": "But Here We Are Tour",
       "bandId": 4,
       "offered": true,
-      "image": "but-here-we-are.jpg",
+      "image": "events/but-here-we-are.jpg",
       "concerts": [
         {
           "id": 13,
@@ -148,7 +148,7 @@
       "name": "Crisis of Faith",
       "bandId": 5,
       "offered": true,
-      "image": "crisis-of-faith-tour.jpg",
+      "image": "events/crisis-of-faith-tour.jpg",
       "concerts": [
         {
           "id": 14,
@@ -171,7 +171,7 @@
       "name": "Back to the Water Below",
       "bandId": 6,
       "offered": true,
-      "image": "back-to-the-water-below.jpg",
+      "image": "events/back-to-the-water-below.jpg",
       "concerts": [
         {
           "id": 16,
@@ -194,7 +194,7 @@
       "name": "Will of the People Tour",
       "bandId": 7,
       "offered": true,
-      "image": "will-of-the-people-tour.jpg",
+      "image": "events/will-of-the-people-tour.jpg",
       "concerts": [
         {
           "id": 18,
