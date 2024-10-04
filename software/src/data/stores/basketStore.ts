@@ -3,17 +3,19 @@ import { useLocalStorage } from "@vueuse/core";
 import { BasketItemModel } from "../models/ordering/basketItemModel";
 import { useFeedbackStore } from "./feedbackStore";
 import { BannerStateEnum } from "../enums/bannerStateEnum";
-import { addOrder } from "../api/orderApi";
-import { useAccountStore } from "./accountStore";
 import { ConcertModel } from "../models/acts/concertModel";
 import { AddressModel } from "../models/user/addressModel";
 import { PaymentModel } from "../models/user/paymentModel";
+import { SeatModel } from "../models/locations/seatModel";
+import { ref } from "vue";
+import { SelectedSeatModel } from "../models/ordering/selectedSeatModel";
 
 export const useBasketStore = defineStore('basketStore', {
   state: () => ({
     itemsInBasket: useLocalStorage<Array<BasketItemModel>>("hackmycart/basketStore/productsInBasket", []),
     usedAddress: useLocalStorage("hackmycart/basketStore/usedAddress", new AddressModel()),
-    usedPayment: useLocalStorage("hackmycart/basketStore/usedPayment", new PaymentModel())
+    usedPayment: useLocalStorage("hackmycart/basketStore/usedPayment", new PaymentModel()),
+    selectedSeats: ref<Array<SelectedSeatModel>>([])
   }),
 
   getters: {

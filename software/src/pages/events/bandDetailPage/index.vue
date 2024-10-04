@@ -14,7 +14,7 @@ import { ref } from 'vue';
 import { useFeedbackStore } from '@/data/stores/feedbackStore';
 import { getBand } from '@/data/api/bandApi';
 import { dateStringToHumanReadableString } from '@/scripts/dateTimeScripts';
-import cardWithTopImage from '@/components/cardWithTopImage.vue';
+import { ConcertModel } from '@/data/models/acts/concertModel';
 
 const router = useRouter()
 const shoppingStore = useShoppingStore()
@@ -62,6 +62,7 @@ getBand(String(router.currentRoute.value.params.bandName).replaceAll('-', ' '))
             <concert-list-item
               :title="dateStringToHumanReadableString(concert.date)"
               :image="concert.location.image"
+              @click="router.push('/concert/' + concert.id)"
             >
               <template #description>
                 <v-row>

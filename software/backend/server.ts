@@ -42,6 +42,7 @@ app.use("/genres", genre)
 app.use("/orders", order)
 app.use("/accounts", account)
 app.use("/cities", city)
+app.use("/concerts", concert)
 
 
 // Start server

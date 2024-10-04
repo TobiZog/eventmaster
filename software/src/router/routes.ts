@@ -8,6 +8,7 @@ import LocationsPage from "@/pages/locations/locationsPage/index.vue"
 import SearchPage from "@/pages/events/searchPage/index.vue"
 import BandDetailPage from "@/pages/events/bandDetailPage/index.vue"
 import LocationDetailPage from "@/pages/locations/locationDetailPage/index.vue"
+import TicketOrderPage from "@/pages/events/ticketOrderPage/index.vue"
 
 const routes = [
   { path: "/", component: HomePage },
@@ -15,6 +16,7 @@ const routes = [
   { path: '/locations', component: LocationsPage },
   { path: '/locations/:locationName', component: LocationDetailPage },
   { path: '/bands/:bandName', component: BandDetailPage },
+  { path: '/concert/:id', component: TicketOrderPage },
   { path: '/events', component: EventsPage },
   { path: '/search', component: SearchPage },
   ...accountRoutes,

@@ -9,7 +9,8 @@
       "tickets": [
         {
           "concertId": 0,
-          "orderPrice": 184
+          "orderPrice": 184,
+          "seatId": 43
         }
       ]
     },

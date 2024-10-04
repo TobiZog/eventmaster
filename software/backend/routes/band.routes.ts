@@ -92,12 +92,12 @@ band.get("/:name", (req: Request, res: Response) => {
               }
             ],
             attributes: {
-              exclude: [ "id", "tourId", "locationId" ]
+              exclude: [ "tourId", "locationId" ]
             }
           }
         ],
         attributes: {
-          exclude: [ "id", "bandId" ]
+          exclude: [ "bandId" ]
         }
       },
       Genre

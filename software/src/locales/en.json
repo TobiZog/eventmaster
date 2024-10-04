@@ -146,5 +146,8 @@
   "filtering": "Filtering",
   "bandMember": "Band members",
   "rating": "Rating | Ratings",
-  "image": "Image | Images"
+  "image": "Image | Images",
+  "seatSelection": "Select seat",
+  "loading": "Loading",
+  "orderSummary": "Order Summary"
 }

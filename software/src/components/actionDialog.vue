@@ -20,7 +20,7 @@ defineProps({
     <v-card
       :title="title"
       :subtitle="subtitle"
-      :icon="icon"
+      :prepend-icon="icon"
     >
       <slot></slot>
 

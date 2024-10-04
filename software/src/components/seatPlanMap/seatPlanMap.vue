@@ -39,7 +39,7 @@ const seatGroupF = findSeatCategory("F")
 
   <v-row>
     <v-col>
-      <seat-group-sheet :seat-group="seatGroupC" background-color="cyan-darken-2" />
+      <seat-group-sheet :seat-group="seatGroupC" background-color="cyan-darken-4" />
     </v-col>
 
     <v-col>
@@ -47,21 +47,21 @@ const seatGroupF = findSeatCategory("F")
     </v-col>
 
     <v-col>
-      <seat-group-sheet :seat-group="seatGroupB" background-color="cyan-darken-2" />
+      <seat-group-sheet :seat-group="seatGroupB" background-color="cyan-darken-4" />
     </v-col>
   </v-row>
 
   <v-row>
     <v-col>
-      <seat-group-sheet :seat-group="seatGroupF" background-color="deep-purple-darken-2" />
+      <seat-group-sheet :seat-group="seatGroupF" background-color="deep-purple-darken-4" />
     </v-col>
 
     <v-col>
-      <seat-group-sheet :seat-group="seatGroupD" background-color="indigo-darken-2" />
+      <seat-group-sheet :seat-group="seatGroupD" background-color="indigo-darken-4" />
     </v-col>
 
     <v-col>
-      <seat-group-sheet :seat-group="seatGroupE" background-color="deep-purple-darken-2" />
+      <seat-group-sheet :seat-group="seatGroupE" background-color="deep-purple-darken-4" />
     </v-col>
   </v-row>
 </template>

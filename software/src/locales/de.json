@@ -146,5 +146,8 @@
   "filtering": "Filtern",
   "bandMember": "Band Mitglieder",
   "rating": "Bewertung | Bewertungen",
-  "image": "Foto | Fotos"
+  "image": "Foto | Fotos",
+  "seatSelection": "Sitzauswahl",
+  "loading": "Lade",
+  "orderSummary": "Bestellübersicht"
 }
