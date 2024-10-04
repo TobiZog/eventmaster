@@ -1,11 +1,15 @@
 <script setup lang="ts">
 import sectionDivider from '@/components/sectionDivider.vue';
-import { useConcertStore } from '@/data/stores/concertStore';
 import cardWithTopImage from '@/components/cardWithTopImage.vue';
 import { useRouter } from 'vue-router';
+import { useShoppingStore } from '@/data/stores/shoppingStore';
+import { useFeedbackStore } from '@/data/stores/feedbackStore';
 
-const concertStore = useConcertStore()
+const shoppingStore = useShoppingStore()
+const feedbackStore = useFeedbackStore()
 const router = useRouter()
+
+shoppingStore.getCities()
 </script>
 
 <template>
@@ -14,7 +18,26 @@ const router = useRouter()
       <v-spacer />
 
       <v-col cols="10">
-        <div v-for="city in concertStore.cities">
+        <!-- During fetching -->
+        <div v-if="feedbackStore.fetchDataFromServerInProgress" v-for="i in 2">
+          <v-row>
+            <v-col>
+              <section-divider :loading="true" />
+            </v-col>
+          </v-row>
+
+          <v-row >
+            <v-col class="text-center" v-for="i in 4" cols="3">
+              <card-with-top-image :loading="true" />
+            </v-col>
+          </v-row>
+        </div>
+
+        <!-- When all data are downloaded -->
+        <div
+          v-else
+          v-for="city in shoppingStore.cities"
+        >
           <v-row>
             <v-col>
               <section-divider 
@@ -26,7 +49,7 @@ const router = useRouter()
           <v-row>
             <v-col v-for="location in city.locations" cols="3">
               <card-with-top-image
-                :image="'locations/' + location.image"
+                :image="location.image"
                 :title="location.name"
                 @click="router.push('locations/' + location.name.replaceAll(' ', '-').toLowerCase())"
               >

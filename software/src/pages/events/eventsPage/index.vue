@@ -1,10 +1,10 @@
 <script setup lang="ts">
-import cardWithLeftImage from '@/components/cardWithLeftImage.vue';
 import { createDateRangeString, lowestTicketPrice } from '@/scripts/concertScripts';
 import filterBar from './filterBar.vue';
 import { useRouter } from 'vue-router';
 import { useShoppingStore } from '@/data/stores/shoppingStore';
 import { useFeedbackStore } from '@/data/stores/feedbackStore';
+import concertListItem from '@/components/pageParts/concertListItem.vue';
 
 const router = useRouter()
 const shoppingStore = useShoppingStore()
@@ -25,38 +25,25 @@ shoppingStore.getEvents()
           </v-col>
         </v-row>
 
-        <v-row v-if="feedbackStore.fetchDataFromServerInProgress">
-          <v-col class="text-center">
-            <v-progress-circular indeterminate :size="128" :width="12" color="primary" />
-          </v-col>
-        </v-row>
+        <concert-list-item
+          v-if="feedbackStore.fetchDataFromServerInProgress"
+          v-for="i in 3"
+          :loading="true"
+        />
 
-        <v-row
+        <concert-list-item
           v-else-if="shoppingStore.events.length > 0"
           v-for="event of shoppingStore.events"
+          :image="event.image"
+          :title="event.band.name + ' - ' +  event.name"
+          :price="$t('from') + ' ' + lowestTicketPrice(event) + ' €'"
+          @click="router.push('/bands/' + event.band.name.replaceAll(' ', '-').toLowerCase())"
         >
-          <v-col>
-            <card-with-left-image
-              :title="event.band.name + ' - ' +  event.name"
-              :image="'http://localhost:3000/static/tours/' + event.image"
-              @click="router.push('/bands/' + event.band.name.replaceAll(' ', '-').toLowerCase())"
-            >
-              {{ createDateRangeString(event) }}
-              <div>{{ event.concerts.length }} {{ $t('concert', event.concerts.length) }}</div>
-
-              <template #append>
-                <div>
-                  <v-icon
-                    icon="mdi-ticket"
-                    color="secondary"
-                    size="x-large"
-                  />
-                </div>
-                ab {{ lowestTicketPrice(event) }} €
-              </template>
-            </card-with-left-image>
-          </v-col>
-        </v-row>
+          <template #description>
+            {{ createDateRangeString(event) }}
+            <div>{{ event.concerts.length }} {{ $t('concert', event.concerts.length) }}</div>
+          </template>
+        </concert-list-item>
 
         <v-row v-else>
           <v-col>

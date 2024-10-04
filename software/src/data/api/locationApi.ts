@@ -5,3 +5,7 @@ let BASE_URL = "http://localhost:3000/locations"
 export async function getAllLocations() {
   return await axios.get(BASE_URL)
 }
+
+export async function getLocation(locationName: string) {
+  return await axios.get(BASE_URL + "/" + locationName)
+}

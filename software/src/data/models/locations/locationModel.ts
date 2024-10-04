@@ -12,13 +12,13 @@ export class LocationModel {
   city: {
     name: string
     country: string
-  }
+  } = { name: "", country: "" }
   concerts: Array<{
     id: number
     date: string
     price: number
     inStock: number
-    tour: {
+    event: {
       name: string
       offered: boolean
       image: string

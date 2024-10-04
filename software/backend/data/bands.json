@@ -7,13 +7,13 @@
       "descriptionEn": "The Red Hot Chili Peppers are an American rock band formed in Los Angeles in 1983, comprising vocalist Anthony Kiedis, bassist Flea, drummer Chad Smith, and guitarist John Frusciante. Their music incorporates elements of alternative rock, funk, punk rock, hard rock, hip hop, and psychedelic rock. Their eclectic range has influenced genres such as funk metal, rap metal, rap rock, and nu metal. With over 120 million records sold worldwide, the Red Hot Chili Peppers are one of the top-selling bands of all time.",
       "descriptionDe": "Red Hot Chili Peppers (Abkürzung: RHCP) ist eine 1983 gegründete US-amerikanische Funk- und Alternative-Rockband. Sie zählt zu den kommerziell erfolgreichsten Vertretern des Crossover. Ihr Album Blood Sugar Sex Magik gilt als eines der bedeutendsten dieses Genres.",
       "images": [
-        "red-hot-chili-peppers-1.jpg",
-        "red-hot-chili-peppers-2.jpg",
-        "red-hot-chili-peppers-3.jpg",
-        "red-hot-chili-peppers-4.jpg"
+        "bands/red-hot-chili-peppers-1.jpg",
+        "bands/red-hot-chili-peppers-2.jpg",
+        "bands/red-hot-chili-peppers-3.jpg",
+        "bands/red-hot-chili-peppers-4.jpg"
       ],
-      "imageMembers": "red-hot-chili-peppers-members.jpg",
-      "logo": "red-hot-chili-peppers-logo.png",
+      "imageMembers": "bands/red-hot-chili-peppers-members.jpg",
+      "logo": "bands/red-hot-chili-peppers-logo.png",
       "genreId": [
         0,
         2,
@@ -23,22 +23,22 @@
         {
           "name": "Anthony Kiedis",
           "bandId": 0,
-          "image": "anthony-kiedis.jpg"
+          "image": "artists/anthony-kiedis.jpg"
         },
         {
           "name": "Flea",
           "bandId": 0,
-          "image": "flea.jpg"
+          "image": "artists/flea.jpg"
         },
         {
           "name": "Chad Smith",
           "bandId": 0,
-          "image": "chad-smith.jpg"
+          "image": "artists/chad-smith.jpg"
         },
         {
           "name": "John Frusciante",
           "bandId": 0,
-          "image": "john-frusciante.jpg"
+          "image": "artists/john-frusciante.jpg"
         }
       ],
       "ratings": [
@@ -86,12 +86,12 @@
       "descriptionEn": "Radiohead are an English rock band formed in Abingdon, Oxfordshire, in 1985. They comprise Thom Yorke (vocals, guitar, piano, keyboards); brothers Jonny Greenwood (guitar, keyboards, other instruments) and Colin Greenwood (bass); Ed O'Brien (guitar, backing vocals); and Philip Selway (drums, percussion). They have worked with the producer Nigel Godrich and the cover artist Stanley Donwood since 1994. Radiohead's experimental approach is credited with advancing the sound of alternative rock.",
       "descriptionDe": "Radiohead ist eine britische Rockband, die 1985 in Oxford, England gegründet wurde. Die Band besteht aus Thom Yorke (Gesang, Rhythmusgitarre, Piano), Jonny Greenwood (Lead-Gitarre, Keyboard, Ondes Martenot), Colin Greenwood (E-Bass, Keyboard), Ed O’Brien (Gitarre, Backgroundvocals) und Phil Selway (Schlagzeug, Backgroundvocals). Radioheads experimenteller Ansatz gilt als Wegbereiter für den Sound des Alternative Rocks.",
       "images": [
-        "radiohead-1.png",
-        "radiohead-2.jpg",
-        "radiohead-3.jpg"
+        "bands/radiohead-1.png",
+        "bands/radiohead-2.jpg",
+        "bands/radiohead-3.jpg"
       ],
-      "imageMembers": "radiohead-members.jpg",
-      "logo": "radiohead-logo.jpg",
+      "imageMembers": "bands/radiohead-members.jpg",
+      "logo": "bands/radiohead-logo.jpg",
       "genreId": [
         1,
         2,
@@ -103,27 +103,27 @@
         {
           "name": "Thom Yorke",
           "bandId": 1,
-          "image": "thom-yorke.jpg"
+          "image": "artists/thom-yorke.jpg"
         },
         {
           "name": "Jonny Greenwood",
           "bandId": 1,
-          "image": "jonny-greenwood.jpg"
+          "image": "artists/jonny-greenwood.jpg"
         },
         {
           "name": "Colin Greenwood",
           "bandId": 1,
-          "image": "colin-greenwood.jpg"
+          "image": "artists/colin-greenwood.jpg"
         },
         {
           "name": "Ed O'Brien",
           "bandId": 1,
-          "image": "ed-o-brien.jpg"
+          "image": "artists/ed-o-brien.jpg"
         },
         {
           "name": "Philip Selway",
           "bandId": 1,
-          "image": "philip-selway.jpg"
+          "image": "artists/philip-selway.jpg"
         }
       ],
       "ratings": [
@@ -146,12 +146,12 @@
       "descriptionEn": "Arctic Monkeys are an English rock band formed in Sheffield in 2002. The group consists of lead singer Alex Turner, drummer Matt Helders, guitarist Jamie Cook and bassist Nick O'Malley. Former bassist Andy Nicholson left the band in 2006 shortly after their debut album, Whatever People Say I Am, That's What I'm Not, was released.",
       "descriptionDe": "Die Arctic Monkeys sind eine vierköpfige britische Alternative-Rock-Band mit Einflüssen aus Post-Punk und Garage Rock. Sie wurde 2002 im englischen Sheffield gegründet und veröffentlichte 2006 ihr Debütalbum, das Platz eins der britischen Charts erreichte. 2007, 2009, 2011, 2013 und 2018 erschienen jeweils weitere Alben der Musikgruppe, die alle ebenfalls die Spitzenposition in Großbritannien erreichten. Aktuelles Album der Band ist das am 21. Oktober 2022 erschienene The Car.",
       "images": [
-        "arctic-monkeys-1.jpg",
-        "arctic-monkeys-2.jpg",
-        "arctic-monkeys-3.jpg"
+        "bands/arctic-monkeys-1.jpg",
+        "bands/arctic-monkeys-2.jpg",
+        "bands/arctic-monkeys-3.jpg"
       ],
-      "imageMembers": "arctic-monkeys-members.jpg",
-      "logo": "arctic-monkeys-logo.png",
+      "imageMembers": "bands/arctic-monkeys-members.jpg",
+      "logo": "bands/arctic-monkeys-logo.png",
       "genreId": [
         2,
         7,
@@ -161,27 +161,27 @@
         {
           "name": "Glyn Jones",
           "bandId": 2,
-          "image": "glyn-jones.jpg"
+          "image": "artists/glyn-jones.jpg"
         },
         {
           "name": "Alex Turner",
           "bandId": 2,
-          "image": "alex-turner.jpg"
+          "image": "artists/alex-turner.jpg"
         },
         {
           "name": "Jamie Cook",
           "bandId": 2,
-          "image": "jamie-cook.jpg"
+          "image": "artists/jamie-cook.jpg"
         },
         {
           "name": "Matt Helders",
           "bandId": 2,
-          "image": "matt-helders.jpg"
+          "image": "artists/matt-helders.jpg"
         },
         {
           "name": "Andy Nicholson",
           "bandId": 2,
-          "image": "andy-nicholson.jpg"
+          "image": "artists/andy-nicholson.jpg"
         }
       ],
       "ratings": [
@@ -209,12 +209,12 @@
       "descriptionEn": "Coldplay are a British rock band formed in London in 1997. They consist of vocalist and pianist Chris Martin, guitarist Jonny Buckland, bassist Guy Berryman, drummer and percussionist Will Champion, and manager Phil Harvey. They are best known for their live performances, and for impacting popular culture through their artistry, advocacy and achievements.",
       "descriptionDe": "Coldplay ist eine britische Pop-Rock-Band, bestehend aus Chris Martin, Jonny Buckland, Will Champion und Guy Berryman. Sie ist eine der weltweit erfolgreichsten Bands der 2000er-Jahre und hat knapp 80 Millionen Tonträger weltweit verkauft, davon 50 Millionen Alben.",
       "images": [
-        "coldplay-1.jpg",
-        "coldplay-2.jpg",
-        "coldplay-3.jpg"
+        "bands/coldplay-1.jpg",
+        "bands/coldplay-2.jpg",
+        "bands/coldplay-3.jpg"
       ],
-      "imageMembers": "coldplay-members.jpg",
-      "logo": "coldplay-logo.jpg",
+      "imageMembers": "bands/coldplay-members.jpg",
+      "logo": "bands/coldplay-logo.jpg",
       "genreId": [
         2,
         9
@@ -223,27 +223,27 @@
         {
           "name": "Chris Martin",
           "bandId": 3,
-          "image": "chris-martin.jpg"
+          "image": "artists/chris-martin.jpg"
         },
         {
           "name": "Jonny Buckland",
           "bandId": 3,
-          "image": "jonny-buckland.jpg"
+          "image": "artists/jonny-buckland.jpg"
         },
         {
           "name": "Guy Berryman",
           "bandId": 3,
-          "image": "guy-berryman.jpg"
+          "image": "artists/guy-berryman.jpg"
         },
         {
           "name": "Will Champion",
           "bandId": 3,
-          "image": "will-champion.jpg"
+          "image": "artists/will-champion.jpg"
         },
         {
           "name": "Phil Harvey",
           "bandId": 3,
-          "image": "phil-harvey.png"
+          "image": "artists/phil-harvey.png"
         }
       ],
       "ratings": [
@@ -266,12 +266,12 @@
       "descriptionEn": "Foo Fighters is an American rock band formed in Seattle in 1994. Founded as a one-man project by former Nirvana drummer Dave Grohl, the lineup now consists of Grohl (lead vocals, guitar), Nate Mendel (bass), Chris Shiflett and Pat Smear (guitars), Rami Jaffee (keyboards), and Josh Freese (drums). Drummers William Goldsmith and Taylor Hawkins, along with guitarist Franz Stahl, are former members of the band.",
       "descriptionDe": "Foo Fighters ist eine US-amerikanische Rockband. Prominentestes Mitglied und Band-Gründer ist der ehemalige Nirvana-Schlagzeuger Dave Grohl. ",
       "images": [
-        "foo-fighters-1.jpg",
-        "foo-fighters-2.jpg",
-        "foo-fighters-3.jpg"
+        "bands/foo-fighters-1.jpg",
+        "bands/foo-fighters-2.jpg",
+        "bands/foo-fighters-3.jpg"
       ],
-      "imageMembers": "foo-fighters-members.jpg",
-      "logo": "foo-fighters-logo.png",
+      "imageMembers": "bands/foo-fighters-members.jpg",
+      "logo": "bands/foo-fighters-logo.png",
       "genreId": [
         2,
         10
@@ -280,32 +280,32 @@
         {
           "name": "Dave Grohl",
           "bandId": 4,
-          "image": "dave-grohl.jpg"
+          "image": "artists/dave-grohl.jpg"
         },
         {
           "name": "Pat Smear",
           "bandId": 4,
-          "image": "pat-smear.jpg"
+          "image": "artists/pat-smear.jpg"
         },
         {
           "name": "Nate Mendel",
           "bandId": 4,
-          "image": "nate-mendel.jpg"
+          "image": "artists/nate-mendel.jpg"
         },
         {
           "name": "Chris Shiflett",
           "bandId": 4,
-          "image": "chris-shiflett.jpg"
+          "image": "artists/chris-shiflett.jpg"
         },
         {
           "name": "Rami Jaffee",
           "bandId": 4,
-          "image": "rami-jaffee.jpg"
+          "image": "artists/rami-jaffee.jpg"
         },
         {
           "name": "Josh Freese",
           "bandId": 4,
-          "image": "josh-freese.jpg"
+          "image": "artists/josh-freese.jpg"
         }
       ],
       "ratings": [
@@ -323,12 +323,12 @@
       "descriptionEn": "Billy Talent is a Canadian rock band from Mississauga, Ontario. They formed in 1993 with lead vocalist Benjamin Kowalewicz, guitarist Ian D'Sa, bassist Jonathan Gallant, and drummer Aaron Solowoniuk. There have been no lineup changes, although Solowoniuk has been on hiatus from the band since 2016 due to a relapse of multiple sclerosis. In the three decades since their inception, Billy Talent has sold well over a million physical albums in Canada alone and nearly 3 million albums internationally. During their most successful period, they were ranked as one of the top 10 best-selling native bands in Canada.",
       "descriptionDe": "Billy Talent ist eine kanadische Rockband aus Mississauga, Ontario. Die Band spielte anfangs Punk, ordnet sich auf den späteren Alben jedoch eher im Alternative Rock ein. ",
       "images": [
-        "billy-talent-1.jpg",
-        "billy-talent-2.jpg",
-        "billy-talent-3.jpg"
+        "bands/billy-talent-1.jpg",
+        "bands/billy-talent-2.jpg",
+        "bands/billy-talent-3.jpg"
       ],
-      "imageMembers": "billy-talent-members.jpg",
-      "logo": "billy-talent-logo.png",
+      "imageMembers": "bands/billy-talent-members.jpg",
+      "logo": "bands/billy-talent-logo.png",
       "genreId": [
         2,
         11,
@@ -344,22 +344,22 @@
         {
           "name": "Ian D'Sa ",
           "bandId": 5,
-          "image": "ian-d-sa.jpg"
+          "image": "artists/ian-d-sa.jpg"
         },
         {
           "name": "Jonathan Gallant",
           "bandId": 5,
-          "image": "jonathan-gallant.jpg"
+          "image": "artists/jonathan-gallant.jpg"
         },
         {
           "name": "Jordan Hastings",
           "bandId": 5,
-          "image": "jordan-hastings.jpg"
+          "image": "artists/jordan-hastings.jpg"
         },
         {
           "name": "Josh Freese",
           "bandId": 5,
-          "image": "josh-freese.jpg"
+          "image": "artists/josh-freese.jpg"
         }
       ],
       "ratings": [
@@ -387,12 +387,12 @@
       "descriptionEn": "Royal Blood are an English rock duo formed in Littlehampton in 2011. The current lineup consists of Mike Kerr (vocals, bass guitar, piano) and Ben Thatcher (drums). Their signature sound is built around Kerr's bass playing style, which sees him using various effects pedals and amps to make his bass guitar sound like an electric guitar and bass guitar at the same time. The duo were signed by Warner Chappell Music in 2013 and have since released four studio albums: Royal Blood (2014), How Did We Get So Dark? (2017), Typhoons (2021), and Back to the Water Below (2023).",
       "descriptionDe": "Royal Blood ist ein britisches Garage- und Bluesrock-Duo, das 2013 in Worthing gegründet wurde. Im Gegensatz zu herkömmlichen Rockbands besteht Royal Blood nur aus zwei Mitgliedern, dem Bassisten und Sänger Mike Kerr und dem Schlagzeuger Ben Thatcher. Durch die Verwendung mehrerer Effektpedale emuliert Kerr den Klang einer verzerrten E-Gitarre, wodurch das Fehlen eines Gitarristen kompensiert wird. ",
       "images": [
-        "royal-blood-1.jpg",
-        "royal-blood-2.jpg",
-        "royal-blood-3.jpg"
+        "bands/royal-blood-1.jpg",
+        "bands/royal-blood-2.jpg",
+        "bands/royal-blood-3.jpg"
       ],
-      "imageMembers": "royal-blood-members.jpg",
-      "logo": "royal-blood-logo.jpg",
+      "imageMembers": "bands/royal-blood-members.jpg",
+      "logo": "bands/royal-blood-logo.jpg",
       "genreId": [
         8,
         14
@@ -401,12 +401,12 @@
         {
           "name": "Mike Kerr",
           "bandId": 6,
-          "image": "mike-kerr.jpg"
+          "image": "artists/mike-kerr.jpg"
         },
         {
           "name": "Ben Thatcher",
           "bandId": 6,
-          "image": "ben-thatcher.jpg"
+          "image": "artists/ben-thatcher.jpg"
         }
       ],
       "ratings": [
@@ -434,12 +434,12 @@
       "descriptionEn": "Muse are an English rock band from Teignmouth, Devon, formed in 1994. The band consists of Matt Bellamy (lead vocals, guitar, keyboards), Chris Wolstenholme (bass guitar, backing vocals), and Dominic Howard (drums, percussion).",
       "descriptionDe": "Muse ist eine britische Rockband, die 1994 in Teignmouth, England gegründet wurde. Die Band besteht aus Matthew Bellamy (Gesang, Gitarre, Klavier und Synthesizers), Chris Wolstenholme (E-Bass, Gesang, Synthesizer) und Dominic Howard (Schlagzeug und Perkussion). Muse verbindet stilistisch Alternative, Hard und Progressive Rock sowie Electronica mit Elementen klassischer Musik zu Rockballaden und wird dem Subgenre New Prog zugeordnet.",
       "images": [
-        "muse-1.jpg",
-        "muse-2.jpg",
-        "muse-3.jpg"
+        "bands/muse-1.jpg",
+        "bands/muse-2.jpg",
+        "bands/muse-3.jpg"
       ],
-      "imageMembers": "muse-members.jpg",
-      "logo": "muse-logo.jpg",
+      "imageMembers": "bands/muse-members.jpg",
+      "logo": "bands/muse-logo.jpg",
       "genreId": [
         2,
         15,
@@ -449,17 +449,17 @@
         {
           "name": "Matthew Bellamy",
           "bandId": 7,
-          "image": "matthew-bellamy.jpg"
+          "image": "artists/matthew-bellamy.jpg"
         },
         {
           "name": "Dominic Howard",
           "bandId": 7,
-          "image": "dominic-howard.jpg"
+          "image": "artists/dominic-howard.jpg"
         },
         {
           "name": "Chris Wolstenholme",
           "bandId": 7,
-          "image": "chris-wolstenholme.jpg"
+          "image": "artists/chris-wolstenholme.jpg"
         }
       ],
       "ratings": [

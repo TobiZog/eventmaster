@@ -5,7 +5,6 @@ import sectionDivider from '@/components/sectionDivider.vue';
 import cardWithLeftImage from '@/components/cardWithLeftImage.vue';
 import outlinedButton from '@/components/outlinedButton.vue';
 import { useRouter } from 'vue-router';
-import ticketOrderDialog from './ticketOrderDialog.vue';
 import { ref } from 'vue';
 import { ConcertModel } from '@/data/models/acts/concertModel';
 
@@ -31,7 +30,7 @@ function openTicketOrderDialog(concert: ConcertModel) {
     </v-col>
   </v-row>
 
-  <v-row v-for="concert of band.tours[0].concerts">
+  <v-row v-for="concert of band.events[0].concerts">
     <v-col>
       <card-with-left-image
         :title="dateStringToHumanReadableString(concert.date)"
@@ -84,6 +83,4 @@ function openTicketOrderDialog(concert: ConcertModel) {
       </card-with-left-image>
     </v-col>
   </v-row>
-  
-  <ticket-order-dialog />
 </template>

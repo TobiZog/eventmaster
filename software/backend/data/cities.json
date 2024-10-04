@@ -8,7 +8,7 @@
           "id": 0,
           "name": "Swiss Life Hall",
           "address": "Ferdinand-Wilhelm-Fricke-Weg 8",
-          "image": "swiss-life-hall.jpg",
+          "image": "locations/swiss-life-hall.jpg",
           "seatGroups": [
             {
               "name": "A",
@@ -57,7 +57,7 @@
           "id": 1,
           "name": "Capitol",
           "address": "Schwarzer Bär 2",
-          "image": "capitol.jpg",
+          "image": "locations/capitol.jpg",
           "seatGroups": [
             {
               "name": "A",
@@ -71,7 +71,7 @@
           "id": 2,
           "name": "ZAG Arena",
           "address": "EXPO-Plaza 7",
-          "image": "zag-arena.jpg",
+          "image": "locations/zag-arena.jpg",
           "seatGroups": [
             {
               "name": "A",
@@ -120,7 +120,7 @@
           "id": 3,
           "name": "Kulturzentrum Faust",
           "address": "Zur Bettfedernfabrik 3",
-          "image": "faust-hannover.jpg",
+          "image": "locations/faust-hannover.jpg",
           "seatGroups": [
             {
               "name": "A",
@@ -140,7 +140,7 @@
           "id": 4,
           "name": "Olympiahalle München",
           "address": "Spiridon-Louis-Ring 21",
-          "image": "olympiahalle-munich.jpg",
+          "image": "locations/olympiahalle-munich.jpg",
           "seatGroups": [
             {
               "name": "A",
@@ -154,7 +154,7 @@
           "id": 5,
           "name": "Schlachthof München",
           "address": "Zenettistraße 9",
-          "image": "schlachthof-munich.jpg",
+          "image": "locations/schlachthof-munich.jpg",
           "seatGroups": [
             {
               "name": "A",
@@ -168,7 +168,7 @@
           "id": 6,
           "name": "Muffatwerk",
           "address": "Zellstraße 4",
-          "image": "muffatwerk.jpg",
+          "image": "locations/muffatwerk.jpg",
           "seatGroups": [
             {
               "name": "A",
@@ -188,7 +188,7 @@
           "id": 7,
           "name": "Elbphilharmonie Hamburg",
           "address": "Platz der deutschen Einheit",
-          "image": "elbphilharmonie-hamburg.jpg",
+          "image": "locations/elbphilharmonie-hamburg.jpg",
           "seatGroups": [
             {
               "name": "A",
@@ -202,7 +202,7 @@
           "id": 8,
           "name": "Volksparkstadion",
           "address": "Sylvesterallee 7",
-          "image": "volksparkstadion-hamburg.jpg",
+          "image": "locations/volksparkstadion-hamburg.jpg",
           "seatGroups": [
             {
               "name": "A",
@@ -216,7 +216,7 @@
           "id": 9,
           "name": "Barclays Arena",
           "address": "Sylvesterallee 10",
-          "image": "barclays-arena.jpg",
+          "image": "locations/barclays-arena.jpg",
           "seatGroups": [
             {
               "name": "A",
@@ -230,7 +230,7 @@
           "id": 10,
           "name": "Stage Theater im Hafen Hamburg",
           "address": "Norderelbestraße 6",
-          "image": "stage-theater-hamburg.jpg",
+          "image": "locations/stage-theater-hamburg.jpg",
           "seatGroups": [
             {
               "name": "A",
@@ -250,7 +250,7 @@
           "id": 11,
           "name": "Waldbühne Berlin",
           "address": "Am Glockenturm",
-          "image": "waldbuehne-berlin.jpg",
+          "image": "locations/waldbuehne-berlin.jpg",
           "seatGroups": [
             {
               "name": "A",
@@ -264,7 +264,7 @@
           "id": 12,
           "name": "Olympiastadion Berlin",
           "address": "Olympischer Platz 3",
-          "image": "olympiastadion-berlin.jpg",
+          "image": "locations/olympiastadion-berlin.jpg",
           "seatGroups": [
             {
               "name": "A",
@@ -278,7 +278,7 @@
           "id": 13,
           "name": "Uber Arena Berlin",
           "address": "Uber-Platz 1",
-          "image": "uber-arena-berlin.jpg",
+          "image": "locations/uber-arena-berlin.jpg",
           "seatGroups": [
             {
               "name": "A",
@@ -292,7 +292,7 @@
           "id": 14,
           "name": "Columbiahalle",
           "address": "Columbiadamm 13-21",
-          "image": "columbiahalle.jpg",
+          "image": "locations/columbiahalle.jpg",
           "seatGroups": [
             {
               "name": "A",
@@ -306,7 +306,7 @@
           "id": 15,
           "name": "Astra Kulturhaus",
           "address": "Revaler Straße 99",
-          "image": "astra-kulturhaus.jpg",
+          "image": "locations/astra-kulturhaus.jpg",
           "seatGroups": [
             {
               "name": "A",
@@ -320,7 +320,7 @@
           "id": 16,
           "name": "Deutsche Oper Berlin",
           "address": "Bismarckstraße 35",
-          "image": "deutsche-oper-berlin.jpg",
+          "image": "locations/deutsche-oper-berlin.jpg",
           "seatGroups": [
             {
               "name": "A",

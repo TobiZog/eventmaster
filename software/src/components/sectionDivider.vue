@@ -1,7 +1,8 @@
 <script setup lang="ts">
 defineProps({
   title: String,
-  image: String
+  image: String,
+  loading: Boolean
 })
 </script>
 
@@ -37,7 +38,13 @@ defineProps({
     </v-col>
     
     <v-col class="v-col-auto">
-      <span class="text-h4">{{ title }}</span>
+      <v-skeleton-loader
+        type="heading"
+        :loading="loading"
+        width="300"
+      >
+        <span class="text-h4">{{ title }}</span>
+      </v-skeleton-loader>
     </v-col>
 
     <v-col class="d-flex justify-center align-center">

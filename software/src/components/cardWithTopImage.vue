@@ -13,7 +13,8 @@ defineProps({
   link: {
     type: Boolean,
     default: true
-  }
+  },
+  loading: Boolean
 })
 </script>
 
@@ -22,34 +23,51 @@ defineProps({
     variant="tonal"
     :link="link"
   >
-    <v-img
-      :src="'http://localhost:3000/static/' + image"
-      aspect-ratio="1"
-      cover
+    <v-skeleton-loader
+      :loading="loading"
+      type="image"
+      height="200"
     >
-      <template #error>
-        <v-img
-          :src="'http://localhost:3000/static/' + errorImage"
-          aspect-ratio="1"
-          style="background-color: aliceblue;"
-        />
-      </template>
-    </v-img>
+      <v-img
+        :src="'http://localhost:3000/static/' + image"
+        aspect-ratio="1"
+        max-height="200"
+        cover
+      >
+        <template #error>
+          <v-img
+            :src="'http://localhost:3000/static/' + errorImage"
+            aspect-ratio="1"
+            style="background-color: aliceblue;"
+          />
+        </template>
+      </v-img>
+      
+      </v-skeleton-loader>
 
-    <div v-if="title">
-      <v-card-title v-if="!smallerTitle">
-        {{ title }}
-      </v-card-title>
+    <v-skeleton-loader
+      :loading="loading"
+      type="heading"
+    >
+      <div v-if="title">
+        <v-card-title v-if="!smallerTitle">
+          {{ title }}
+        </v-card-title>
 
-      <v-card-title v-else style="font-size: medium">
-        {{ title }}
-      </v-card-title>
-    </div>
+        <v-card-title v-else style="font-size: medium">
+          {{ title }}
+        </v-card-title>
+      </div>
+    </v-skeleton-loader>
 
-
-    <div class="px-4 pb-4" v-if="$slots.default">
-      <slot></slot>
-    </div>
+    <v-skeleton-loader
+      type="sentences"
+      :loading="loading"
+    >
+      <div class="px-4 pb-4" v-if="$slots.default">
+        <slot></slot>
+      </div>
+    </v-skeleton-loader>
 
     <v-card-actions v-if="$slots.actions" class="card-actions position-absolute bottom-0 right-0">
       <v-spacer />

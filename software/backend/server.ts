@@ -30,7 +30,7 @@ app.use('/static', express.static(path.join(__dirname, 'images')))
 
 // Add delay for more realistic response times
 app.use((req, res, next) => {
-  setTimeout(next, Math.floor((Math.random () * 4000) + 100))
+  setTimeout(next, Math.floor((Math.random () * 2000) + 100))
 })
 
 // Routes

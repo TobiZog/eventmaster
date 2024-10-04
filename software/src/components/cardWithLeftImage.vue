@@ -5,7 +5,8 @@ defineProps({
   link: {
     type: Boolean,
     default: true
-  }
+  },
+  loading: Boolean
 })
 </script>
 
@@ -16,21 +17,37 @@ defineProps({
   >
     <v-row>
       <v-col cols="auto" class="pr-0">
-        <v-img 
-          :src="image" 
-          aspect-ratio="1" 
-          width="140" 
-          cover 
-        />
+        <v-skeleton-loader
+          type="image"
+          :loading="loading"
+          width="140"
+        >
+          <v-img 
+            :src="image" 
+            aspect-ratio="1" 
+            width="140" 
+            cover 
+          />
+        </v-skeleton-loader>
       </v-col>
 
       <v-col class="pl-0" cols="7">
-        <v-card-title v-if="title">
-          {{ title }}
-        </v-card-title>
+        <v-skeleton-loader
+          :loading="loading"
+          type="heading"
+        >
+          <v-card-title v-if="title">
+            {{ title }}
+          </v-card-title>
+        </v-skeleton-loader>
 
         <div class="px-4 pb-4" v-if="$slots.default">
-          <slot></slot>
+          <v-skeleton-loader
+            :loading="loading"
+            type="sentences"
+          >
+            <slot></slot>
+          </v-skeleton-loader>
         </div>
       </v-col>
 

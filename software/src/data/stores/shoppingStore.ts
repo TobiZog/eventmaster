@@ -33,16 +33,24 @@ export const useShoppingStore = defineStore("shoppingStore", {
     },
 
     async getCities() {
+      const feedbackStore = useFeedbackStore()
+      feedbackStore.fetchDataFromServerInProgress = true
+
       await fetchAllCities()
         .then(result => {
           this.cities = result.data
+          feedbackStore.fetchDataFromServerInProgress = false
         })
     },
 
     async getGenres() {
+      const feedbackStore = useFeedbackStore()
+      feedbackStore.fetchDataFromServerInProgress = true
+
       await fetchAllGenres()
         .then(result => {
           this.genres = result.data
+          feedbackStore.fetchDataFromServerInProgress = false
         })
     }
   }

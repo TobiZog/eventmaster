@@ -1,39 +1,41 @@
 <script setup lang="ts">
 import { LocationModel } from '@/data/models/locations/locationModel';
-import { useConcertStore } from '@/data/stores/concertStore';
 import { useRouter } from 'vue-router';
-import cardWithLeftImage from '@/components/cardWithLeftImage.vue';
 import sectionDivider from '@/components/sectionDivider.vue';
 import { dateStringToHumanReadableString } from '@/scripts/dateTimeScripts';
 import seatPlanMap from '@/components/seatPlanMap/seatPlanMap.vue';
+import { useShoppingStore } from '@/data/stores/shoppingStore';
+import { getLocation } from '@/data/api/locationApi';
+import { ref } from 'vue';
+import { useFeedbackStore } from '@/data/stores/feedbackStore';
+import heroImage from '@/components/pageParts/heroImage.vue';
+import concertListItem from '@/components/pageParts/concertListItem.vue';
 
 const router = useRouter()
-const concertStore = useConcertStore()
+const shoppingStore = useShoppingStore()
+const feedbackStore = useFeedbackStore()
+const location = ref<LocationModel>(new LocationModel())
 
-const location: LocationModel = concertStore.locations.find(location =>
-  location.name.replaceAll(' ', '-').toLowerCase() == router.currentRoute.value.params.locationName
-)
+feedbackStore.fetchDataFromServerInProgress = true
+
+getLocation(String(router.currentRoute.value.params.locationName).replaceAll('-', ' '))
+  .then(result => {
+    location.value = result.data
+    feedbackStore.fetchDataFromServerInProgress = false
+  })
 </script>
 
 <template>
-  <div class="position-relative top-0 left-0">
-    <v-img
-      :src="'http://localhost:3000/static/locations/' + location.image"
-      height="500"
-      gradient="to top, rgba(0, 0, 0, .9), rgba(255, 255, 255, 0.1)"
-      cover
-    >
-      <div class="position-absolute bottom-0 pa-5">
-        <v-row>
-          <v-col>
-            <p class="text-h3">{{ location.name }}</p>
-            <p class="text-h6">{{ location.address }}</p>
-            <p class="text-h6">{{ location.city.name }}</p>
-          </v-col>
-        </v-row>
-      </div>
-    </v-img>
-  </div>
+  <hero-image
+    :title="location.name"
+    :image="location.image"
+    :description="location.address + location.city.name"
+  >
+    <template #description>
+      <p class="text-h6">{{ location.address }}</p>
+      <p class="text-h6">{{ location.city.name }}</p>
+    </template>
+  </hero-image>
 
   <v-container>
     <v-row>
@@ -42,38 +44,25 @@ const location: LocationModel = concertStore.locations.find(location =>
       <v-col cols="10">
         <v-row>
           <v-col>
-            <section-divider title="Konzerte" />
+            <section-divider :title="$t('concert', 2)" />
           </v-col>
         </v-row>
 
-        <v-row
-          v-if="location.concerts.length > 0"
+        <v-row v-if="feedbackStore.fetchDataFromServerInProgress" v-for="i in 3">
+          <v-col class="text-center">
+            <concert-list-item :loading="feedbackStore.fetchDataFromServerInProgress" />
+          </v-col>
+        </v-row>
+
+        <concert-list-item
+          v-else-if="location.concerts.length > 0"
           v-for="concert of location.concerts"
-        >
-          <v-col>
-            <card-with-left-image
-              :title="concert.tour.bandName + ' - ' +  concert.tour.name"
-              :image="'http://localhost:3000/static/tours/' + concert.tour.image"
-              @click="router.push('/bands/' + concert.tour.bandName.replaceAll(' ', '-').toLowerCase())"
-            >
-              <div class="text-h6">
-                {{ dateStringToHumanReadableString(concert.date) }}
-              </div>
-              <!-- <div>{{ concert.length }} {{ $t('concert', concert.tour.concerts.length) }}</div> -->
-
-              <template #append>
-                <div>
-                  <v-icon
-                    icon="mdi-ticket"
-                    color="secondary"
-                    size="x-large"
-                  />
-                </div>
-                {{ $t('from') }} {{ concert.price.toFixed(2) }} €
-              </template>
-            </card-with-left-image>
-          </v-col>
-        </v-row>
+          :image="concert.event.image"
+          :title="concert.event.bandName + ' - ' +  concert.event.name"
+          :description="dateStringToHumanReadableString(concert.date)"
+          :onClick="() => router.push('/bands/' + concert.event.bandName.replaceAll(' ', '-').toLowerCase())"
+          :price="$t('from') + ' ' + concert.price.toFixed(2) + ' €'"
+        />
 
         <v-row v-else>
           <v-col>
@@ -90,7 +79,13 @@ const location: LocationModel = concertStore.locations.find(location =>
           </v-col>
         </v-row>
 
-        <v-row>
+        <div v-if="feedbackStore.fetchDataFromServerInProgress">
+          <v-col class="text-center">
+            <v-progress-circular indeterminate :size="128" :width="12" color="primary" />
+          </v-col>
+        </div>
+
+        <v-row v-else>
           <v-col>
             <seat-plan-map
               :seat-groups="location.seatGroups"
