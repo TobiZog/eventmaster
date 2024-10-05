@@ -1,14 +1,15 @@
 <script setup lang="ts">
+import { ConcertModel } from '@/data/models/acts/concertModel';
 import { SeatGroupModel } from '@/data/models/locations/seatGroupModel';
-import { SeatModel } from '@/data/models/locations/seatModel';
-import { SeatRowModel } from '@/data/models/locations/seatRowModel';
 import { SelectedSeatModel } from '@/data/models/ordering/selectedSeatModel';
 import { useBasketStore } from '@/data/stores/basketStore';
+import { concert } from 'backend/routes/concert.routes';
 
 const basketStore = useBasketStore()
 
 let props = defineProps({
   seatGroup: SeatGroupModel,
+  concert: ConcertModel,
   backgroundColor: String
 })
 
@@ -19,7 +20,7 @@ function handleSeatClick() {
 
   freeSeat.state = 2
 
-  basketStore.selectedSeats.push(new SelectedSeatModel(freeSeat, 0, props.seatGroup.name))
+  basketStore.selectedSeats.push(new SelectedSeatModel(freeSeat, 0, props.seatGroup.name, props.concert))
 }
 </script>
 

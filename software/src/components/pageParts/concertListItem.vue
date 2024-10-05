@@ -5,7 +5,19 @@ defineProps({
   image: String,
   title: String,
   description: String,
-  loading: Boolean
+  loading: Boolean,
+  appendIcon: {
+    type: String,
+    default: "mdi-ticket"
+  },
+  appendIconColor: {
+    type: String,
+    default: "secondary"
+  },
+  link: {
+    type: Boolean,
+    default: true
+  }
 })
 </script>
 
@@ -15,6 +27,7 @@ defineProps({
       <card-with-left-image
         :title="title"
         :image="'http://localhost:3000/static/' + image"
+        :link="link"
       >
         <div class="text-body-1 font-weight-bold">
           <div v-if="!$slots.description">
@@ -29,8 +42,8 @@ defineProps({
         <template #append>
           <div>
             <v-icon
-              icon="mdi-ticket"
-              color="secondary"
+              :icon="appendIcon"
+              :color="appendIconColor"
               size="x-large"
             />
           </div>
@@ -49,3 +62,8 @@ defineProps({
     </v-col>
   </v-row>
 </template>
+
+<style scoped>
+.v-card--variant-tonal {
+}
+</style>

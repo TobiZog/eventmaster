@@ -1,11 +1,13 @@
 <script setup lang="ts">
 import { useBasketStore } from '@/data/stores/basketStore';
-import productsTable from './productsTable.vue';
 import cardView from '@/components/cardView.vue';
 import orderingDialog from './orderingDialog.vue';
 import outlinedButton from '@/components/outlinedButton.vue';
 import { ref } from 'vue';
 import { useAccountStore } from '@/data/stores/accountStore';
+import concertListItem from '@/components/pageParts/concertListItem.vue';
+import { dateStringToHumanReadableString } from '@/scripts/dateTimeScripts';
+import ticketsTable from './ticketsTable.vue';
 
 const basketStore = useBasketStore()
 const accountStore = useAccountStore()
@@ -17,27 +19,28 @@ const showOrderingDialog = ref()
     <v-row>
       <v-col>
         <card-view
-          :title="$t('menu.basket')"
+          :title="$t('basket')"
           :subtitle="basketStore.itemsInBasket.length + ' ' + 
             $tc('product.product', basketStore.itemsInBasket.length)"
           v-model="showOrderingDialog"
           icon="mdi-cart"
         >
-          <template #withoutContainer>
-            <!-- Display items if card is not empty -->
-            <products-table v-if="basketStore.itemsInBasket.length > 0" />
+          <!-- Display items if basket is not empty -->
+          <div v-if="basketStore.itemsInBasket.length > 0">
+            <tickets-table />
+          </div>
 
-            <!-- Display empty state if card is empty -->
-            <v-empty-state v-else
-              icon="mdi-basket-off"
-              :title="$t('emptyBasketTitle')"
-              :text="$t('emptyBasketText')"
-            />
+          <!-- Display empty state if card is empty -->
+          <v-empty-state v-else
+            icon="mdi-basket-off"
+            :title="$t('emptyBasketTitle')"
+            :text="$t('emptyBasketText')"
+          />
 
-            <v-card-text class="text-right text-h5" v-if="basketStore.itemsInBasket.length > 0">
-              {{ $t('totalPrice') }}: {{ basketStore.getTotalPrice }} €
-            </v-card-text>
-          </template>
+          <v-card-text class="text-right text-h5" v-if="basketStore.itemsInBasket.length > 0">
+            {{ $t('totalPrice') }}: {{ (basketStore.getTotalPrice).toFixed(2) }} €
+          </v-card-text>
+          
 
           <template #actions>
             <outlined-button

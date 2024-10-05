@@ -149,5 +149,7 @@
   "image": "Foto | Fotos",
   "seatSelection": "Sitzauswahl",
   "loading": "Lade",
-  "orderSummary": "Bestellübersicht"
+  "orderSummary": "Bestellübersicht",
+  "basket": "Warenkorb",
+  "event": "Event"
 }

@@ -149,5 +149,7 @@
   "image": "Image | Images",
   "seatSelection": "Select seat",
   "loading": "Loading",
-  "orderSummary": "Order Summary"
+  "orderSummary": "Order Summary",
+  "basket": "Basket",
+  "event": "Event"
 }

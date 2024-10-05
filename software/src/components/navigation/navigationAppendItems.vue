@@ -1,8 +1,10 @@
 <script setup lang="ts">
 import { useAccountStore } from '@/data/stores/accountStore';
+import { useBasketStore } from '@/data/stores/basketStore';
 import router from '@/plugins/router';
 
 const accountStore = useAccountStore()
+const basketStore = useBasketStore()
 
 function startSearch() {
   // todo
@@ -23,7 +25,16 @@ function startSearch() {
   <v-btn v-if="accountStore.userAccount.id == 0" variant="plain" icon="mdi-account" to="/account/login" />
   <v-btn v-else variant="plain" icon="mdi-account" to="/account/home" />
 
-  <v-btn variant="plain" icon="mdi-cart" to="/basket" />
+  <div>
+    <v-badge
+      :content="basketStore.itemsInBasket.reduce((tot, item) => {
+        return tot + item.seats.length
+      }, 0)"
+      color="red" offset-x="8" offset-y="8">
+      <v-btn variant="plain" icon="mdi-cart" to="/basket" />
+    </v-badge>
+  </div>
+
   <v-btn variant="plain" icon="mdi-help" to="/system/help" />
   <v-btn variant="plain" icon="mdi-cog" to="/system/preferences"/>
 </template>

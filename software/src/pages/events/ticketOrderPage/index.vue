@@ -6,11 +6,15 @@ import { getConcert } from '@/data/api/concertApi';
 import { useFeedbackStore } from '@/data/stores/feedbackStore';
 import { useRouter } from 'vue-router';
 import sectionDivider from '@/components/sectionDivider.vue';
-import { useShoppingStore } from '@/data/stores/shoppingStore';
 import { useBasketStore } from '@/data/stores/basketStore';
+import concertListItem from '@/components/pageParts/concertListItem.vue';
+import { ConcertModel } from '@/data/models/acts/concertModel';
+import { dateStringToHumanReadableString } from '@/scripts/dateTimeScripts';
+import outlinedButton from '@/components/outlinedButton.vue';
 
 const router = useRouter()
 const seatGroups = ref<Array<SeatGroupModel>>()
+const concertModel = ref<ConcertModel>(new ConcertModel())
 const feedbackStore = useFeedbackStore()
 const basketStore = useBasketStore()
 
@@ -19,16 +23,9 @@ feedbackStore.fetchDataFromServerInProgress = true
 getConcert(Number(router.currentRoute.value.params.id))
   .then(result => {
     seatGroups.value = result.data.location.seatGroups
+    concertModel.value = result.data
     feedbackStore.fetchDataFromServerInProgress = false
   })
-
-// function findRow(seatRowId: number) {
-//   for (let seatGroup of seatGroups.value) {
-//     for(let seatRow of seatGroup.seatRows) {
-//       let result = seatRow.seats.find()
-//     }
-//   }
-// }
 </script>
 
 <template>
@@ -37,6 +34,22 @@ getConcert(Number(router.currentRoute.value.params.id))
       <v-spacer />
 
       <v-col cols="10">
+        <v-row>
+          <v-col>
+            <concert-list-item
+              :loading="feedbackStore.fetchDataFromServerInProgress"
+              :link="false"
+              :title="concertModel.event.band.name + ' - ' + concertModel.event.name"
+              :image="concertModel.location.image"
+            >
+              <template #description>
+                <p>{{ dateStringToHumanReadableString(concertModel.date) }}</p>
+                <p>{{ concertModel.location.name }}</p>
+                <p>{{ concertModel.location.city.name }}</p>
+              </template>
+            </concert-list-item>
+          </v-col>
+        </v-row>
         <v-row>
           <v-col>
             <section-divider :title="$t('seatSelection')" />
@@ -58,7 +71,7 @@ getConcert(Number(router.currentRoute.value.params.id))
           </v-col>
 
           <v-col v-else>
-            <seat-plan-map :seat-groups="seatGroups" />
+            <seat-plan-map :concert="concertModel" :seat-groups="seatGroups" />
           </v-col>
         </v-row>
 
@@ -77,6 +90,17 @@ getConcert(Number(router.currentRoute.value.params.id))
               </v-list-item>
             </v-list>
           </v-col>
+        </v-row>
+
+        <v-row class="pb-5">
+          <outlined-button
+            prepend-icon="mdi-basket-plus"
+            @click="basketStore.moveSeatSelectionsToBasket(); router.push('/basket')"
+            :disabled="basketStore.selectedSeats.length == 0"
+            block
+          >
+            {{ $t('addToBasket') }}
+          </outlined-button>
         </v-row>
       </v-col>
 

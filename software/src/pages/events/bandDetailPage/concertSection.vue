@@ -1,15 +1,12 @@
 <script setup lang="ts">
 import { BandModel } from '@/data/models/acts/bandModel';
 import { dateStringToHumanReadableString } from '@/scripts/dateTimeScripts';
-import sectionDivider from '@/components/sectionDivider.vue';
-import cardWithLeftImage from '@/components/cardWithLeftImage.vue';
-import outlinedButton from '@/components/outlinedButton.vue';
 import { useRouter } from 'vue-router';
-import { ref } from 'vue';
-import { ConcertModel } from '@/data/models/acts/concertModel';
+import { useFeedbackStore } from '@/data/stores/feedbackStore';
+import concertListItem from '@/components/pageParts/concertListItem.vue';
 
 const router = useRouter()
-const showDialog = ref(false)
+const feedbackStore = useFeedbackStore()
 
 defineProps({
   band: {
@@ -17,70 +14,58 @@ defineProps({
     required: true
   }
 })
-
-function openTicketOrderDialog(concert: ConcertModel) {
-  showDialog.value = true
-}
 </script>
 
 <template>
-  <v-row>
+  <v-row v-if="feedbackStore.fetchDataFromServerInProgress" v-for="i in 3">
     <v-col>
-      <section-divider title="Konzerte" />
+      <concert-list-item :loading="true" />
     </v-col>
   </v-row>
 
-  <v-row v-for="concert of band.events[0].concerts">
+  <v-row v-else v-for="concert of band.events[0].concerts">
     <v-col>
-      <card-with-left-image
+      <concert-list-item
         :title="dateStringToHumanReadableString(concert.date)"
-        :image="'http://localhost:3000/static/locations/' + concert.location.image"
-        :link="false"
+        :image="concert.location.image"
+        @click="(concert.inStock > 0) && router.push('/concert/' + concert.id)"
+        :link="concert.inStock > 0"
+        :append-icon="concert.inStock == 0 ? 'mdi-minus-circle' : 'mdi-ticket'"
+        :append-icon-color="concert.inStock > 0 ? 'green' : 'red'"
       >
-        <v-row>
-          <v-col cols="auto" class="d-flex justify-center align-center px-0">
-            <v-btn
-              icon="mdi-map"
-              variant="text"
-              size="x-large"
-              @click="router.push('/locations/' + concert.location.name.replaceAll(' ', '-').toLowerCase())"
-            />
-          </v-col>
+        <template #description>
+          <v-row>
+            <v-col cols="auto" class="d-flex justify-center align-center px-0">
+              <v-btn
+                icon="mdi-map"
+                variant="text"
+                size="x-large"
+                @click="router.push('/locations/' + concert.location.name.replaceAll(' ', '-').toLowerCase())"
+              />
+            </v-col>
 
-          <v-col>
-            <div class="text-h6">
-              {{ concert.location.name }}
-            </div>
+            <v-col>
+              <div class="text-h6">
+                {{ concert.location.name }}
+              </div>
 
-            <div class="text-h6">
-              {{ concert.location.city.name }}
-            </div>
-          </v-col>
-        </v-row>
+              <div class="text-h6">
+                {{ concert.location.city.name }}
+              </div>
+            </v-col>
+          </v-row>
+        </template>
 
-        <template #append>
-          <div class="pb-3">
+        <template #append-text>
+          <div class="pb-3" v-if="concert.inStock > 0">
             {{ concert.price.toFixed(2) }} €
           </div>
 
-          <div>
-            <outlined-button
-              v-if="concert.inStock > 0"
-              prepend-icon="mdi-basket-plus"
-              @click="openTicketOrderDialog(concert)"
-            >
-              {{ $t('add') }}
-            </outlined-button>
-
-            <outlined-button v-else
-              color="red"
-              disabled
-            >
-              {{ $t('soldOut') }}
-            </outlined-button>
+          <div v-else>
+            {{ $t('soldOut') }}
           </div>
         </template>
-      </card-with-left-image>
+      </concert-list-item>
     </v-col>
   </v-row>
 </template>

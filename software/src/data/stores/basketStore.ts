@@ -3,12 +3,11 @@ import { useLocalStorage } from "@vueuse/core";
 import { BasketItemModel } from "../models/ordering/basketItemModel";
 import { useFeedbackStore } from "./feedbackStore";
 import { BannerStateEnum } from "../enums/bannerStateEnum";
-import { ConcertModel } from "../models/acts/concertModel";
 import { AddressModel } from "../models/user/addressModel";
 import { PaymentModel } from "../models/user/paymentModel";
-import { SeatModel } from "../models/locations/seatModel";
 import { ref } from "vue";
 import { SelectedSeatModel } from "../models/ordering/selectedSeatModel";
+import { calcPrice } from "@/scripts/concertScripts";
 
 export const useBasketStore = defineStore('basketStore', {
   state: () => ({
@@ -27,9 +26,9 @@ export const useBasketStore = defineStore('basketStore', {
     getTotalPrice() {
       let result = 0
 
-      // for (let item of this.itemsInBasket) {
-      //   result += calcPrice(item.product.price, item.product.discount, item.quantity)
-      // }
+      for (let item of this.itemsInBasket) {
+        result += calcPrice(item.price, item.seats.length)
+      }
 
       return Math.round(result * 100) / 100
     }
@@ -50,25 +49,22 @@ export const useBasketStore = defineStore('basketStore', {
       )
     },
 
-    /**
-     * Add an item to the basket. If the product is already in the basket, the quantity will increase
-     * 
-     * @param concert Concert to add
-     * @param quantity Quantity of the product
-     */
-    addItemToBasket(concert: ConcertModel, quantity: number) {
-      const feedbackStore = useFeedbackStore()
-      feedbackStore.changeBanner(BannerStateEnum.BASKETPRODUCTADDED)
+    moveSeatSelectionsToBasket() {
+      for (let selectedSeat of this.selectedSeats) {
+        let itemInBasket: BasketItemModel = this.itemsInBasket.find((basketItem: BasketItemModel) => {
+          return basketItem.concert.id == selectedSeat.concert.id
+        })
 
-      // Product is already in the basket, increase number of items
-      if (this.itemsInBasket.find((basketItem: BasketItemModel) => 
-        basketItem.concert.id == concert.id))
-      {
-        this.itemsInBasket.find((basketItem: BasketItemModel) => 
-          basketItem.concert.id == concert.id).quantity += quantity
-      } else {
-        this.itemsInBasket.push(new BasketItemModel(quantity, concert))
+        if (itemInBasket != undefined) {
+          itemInBasket.seats.push(selectedSeat.seat)
+        } else {
+          this.itemsInBasket.push(
+            new BasketItemModel(selectedSeat.concert, selectedSeat.seat, selectedSeat.concert.price)
+          )
+        }
       }
+
+      this.selectedSeats = []
     },
 
     /**

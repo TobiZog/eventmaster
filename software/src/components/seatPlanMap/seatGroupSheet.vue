@@ -3,9 +3,11 @@ import { SeatGroupModel } from '@/data/models/locations/seatGroupModel';
 import seatGroupTable from './seatGroupTable.vue';
 import { useBasketStore } from '@/data/stores/basketStore';
 import standingArea from './standingArea.vue';
+import { ConcertModel } from '@/data/models/acts/concertModel';
 
 defineProps({
   seatGroup: SeatGroupModel,
+  concert: ConcertModel,
   backgroundColor: String
 })
 
@@ -15,6 +17,7 @@ defineProps({
 <template>
   <standing-area
     :seat-group="seatGroup"
+    :concert="concert"
     :background-color="backgroundColor"
     v-if="seatGroup != undefined && seatGroup.standingArea"
   />
@@ -32,7 +35,11 @@ defineProps({
 
     <v-row>
       <v-col class="d-flex justify-center align-center">
-        <seat-group-table :seat-rows="seatGroup.seatRows" :seat-group="seatGroup"/>
+        <seat-group-table
+          :seat-rows="seatGroup.seatRows"
+          :seat-group="seatGroup"
+          :concert="concert"
+        />
       </v-col>
     </v-row>
   </v-sheet>

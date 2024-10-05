@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { ConcertModel } from '@/data/models/acts/concertModel';
 import { SeatGroupModel } from '@/data/models/locations/seatGroupModel';
 import { SeatModel } from '@/data/models/locations/seatModel';
 import { SeatRowModel } from '@/data/models/locations/seatRowModel';
@@ -9,6 +10,7 @@ const basketStore = useBasketStore()
 
 let props = defineProps({
   seatRows: Array<SeatRowModel>,
+  concert: ConcertModel,
   seatGroup: SeatGroupModel
 })
 
@@ -19,7 +21,7 @@ function handleSeatClick(clickedSeat: SeatModel, seatRow: SeatRowModel) {
 
   if (storeSeat == undefined) {
     clickedSeat.state = 2
-    basketStore.selectedSeats.push(new SelectedSeatModel(clickedSeat, seatRow.row, props.seatGroup.name))
+    basketStore.selectedSeats.push(new SelectedSeatModel(clickedSeat, seatRow.row, props.seatGroup.name, props.concert))
   } else {
     clickedSeat.state = 0
     basketStore.selectedSeats = basketStore.selectedSeats.filter(seat => 

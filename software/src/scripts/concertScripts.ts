@@ -12,8 +12,8 @@ import { EventModel } from "@/data/models/acts/eventModel"
  * 
  * @returns Price rounded to two digits
  */
-export function calcPrice(price: number, discount: number = 0, quantity: number = 1): number {
-  return Math.round(quantity * price * ((100 - discount) / 100) * 100) / 100
+export function calcPrice(price: number, quantity: number = 1): number {
+  return Math.round(quantity * price * 100) / 100
 }
 
 /**

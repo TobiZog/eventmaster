@@ -7,13 +7,21 @@ import { SeatGroup } from "../models/locations/seatGroup.model";
 import { SeatRow } from "../models/locations/seatRow.model";
 import { Seat } from "../models/locations/seat.model";
 import { Ticket } from "../models/ordering/ticket.model";
+import { Band } from "../models/acts/band.model";
 
 export const concert = Router()
 
 concert.get("/:id", (req: Request, res: Response) => {
   Concert.findByPk(req.params.id, {
     include: [ 
-      Event,
+      {
+        model: Event,
+        include: [
+          {
+            model: Band
+          }
+        ]
+      },
       {
         model: Location,
         include: [

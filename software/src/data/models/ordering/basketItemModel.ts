@@ -1,12 +1,14 @@
 import { ConcertModel } from "../acts/concertModel"
+import { SeatModel } from "../locations/seatModel"
 
 export class BasketItemModel {
-  id: number = -1
-  quantity: number = 1
   concert: ConcertModel = new ConcertModel()
+  seats: Array<SeatModel> = []
+  price: number
 
-  constructor(quantity: number, concert: ConcertModel) {
-    this.quantity = quantity
+  constructor(concert: ConcertModel, seat: SeatModel, price: number) {
     this.concert = concert
+    this.seats = [ seat ]
+    this.price = price
   }
 }
