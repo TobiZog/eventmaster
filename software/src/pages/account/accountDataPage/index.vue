@@ -3,23 +3,22 @@ import accountDataCard from './accountDataCard.vue';
 import accountManagingCard from './accountManagingCard.vue';
 import addressesCard from './addressesCard.vue';
 import paymentsCard from './paymentsCard.vue';
-import { ref } from 'vue';
-import { useAccountStore } from '@/data/stores/accountStore';
+import OutlinedButton from '@/components/outlinedButton.vue';
+import { useRouter } from 'vue-router';
 
-const accountStore = useAccountStore()
-const updateInProgress = ref(false)
-
-async function updateAccount() {
-  updateInProgress.value = true
-
-  await accountStore.updateAccount()
-
-  updateInProgress.value = false
-}
+const router = useRouter()
 </script>
 
 <template>
   <v-container max-width="1000">
+    <v-row>
+      <v-col>
+        <outlined-button prepend-icon="mdi-arrow-left" @click="router.back()" >
+          {{ $t('onePageBack') }}
+        </outlined-button>
+      </v-col>
+    </v-row>
+
     <v-row>
       <v-col>
         <account-data-card />
@@ -44,18 +43,4 @@ async function updateAccount() {
       </v-col>
     </v-row>
   </v-container>
-
-  <VLayoutItem model-value position="bottom" size="60">
-    <div class="ma-4">
-      <v-fab
-        icon="mdi-content-save"
-        location="right"
-        color="green"
-        absolute
-        offset
-        @click="updateAccount"
-        :loading="updateInProgress"
-      />
-    </div>
-  </VLayoutItem>
 </template>

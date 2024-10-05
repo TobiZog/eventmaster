@@ -29,6 +29,7 @@ async function startLogin() {
     password.value != null && password.value.length > 0)
   {
     await accountStore.login(username.value, password.value)
+    // todo: Route to account home page
   }
 
   loginInProgress.value = false
@@ -36,7 +37,7 @@ async function startLogin() {
 </script>
 
 <template>
-  <card-view :title="$t('menu.login')" prepend-icon="mdi-login" elevation="8">
+  <card-view :title="$t('login')" prepend-icon="mdi-login" elevation="8">
     <v-row>
       <v-col>
         <v-text-field
@@ -76,7 +77,7 @@ async function startLogin() {
         @click="startLogin"
         :loading="loginInProgress"
       >
-        {{ $t('menu.login') }}
+        {{ $t('login') }}
       </outlined-button>
     </template>
   </card-view>

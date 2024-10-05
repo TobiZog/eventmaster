@@ -6,6 +6,7 @@ import { Payment } from "../models/user/payment.model";
 import { Address } from "../models/user/address.model";
 import { Band } from "../models/acts/band.model";
 import { Location } from "../models/locations/location.model";
+import { Event } from "../models/acts/event.model";
 
 export const order = Router()
 
@@ -19,7 +20,13 @@ order.get("/:id", (req: Request, res: Response) => {
         include: [ 
           { 
             model: Concert,
-            include: [ Band, Location ],
+            include: [
+              {
+                model: Event,
+                include: [ Band ]
+              },
+              Location 
+            ],
             attributes: {
               exclude: [
                 "categoryId",

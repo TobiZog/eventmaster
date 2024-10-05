@@ -2,12 +2,23 @@
 import cardView from '@/components/cardView.vue';
 import confirmDialog from '@/components/confirmDialog.vue';
 import outlinedButton from '@/components/outlinedButton.vue';
+import { useAccountStore } from '@/data/stores/accountStore';
 import { ref } from 'vue';
 
 const showConfirmDialog = ref(false)
+const updateInProgress = ref(false)
+const accountStore = useAccountStore()
 
 function deleteAccount() {
   // todo
+}
+
+async function updateAccount() {
+  updateInProgress.value = true
+
+  await accountStore.updateAccount()
+
+  updateInProgress.value = false
 }
 </script>
 
@@ -24,6 +35,16 @@ function deleteAccount() {
           @click="showConfirmDialog = true"
         >
           {{ $t("account.delete") }}
+        </outlined-button>
+      </v-col>
+
+      <v-col class="d-flex justify-center align-center">
+        <outlined-button
+          prepend-icon="mdi-content-save"
+          color="green"
+          @click="updateAccount"
+        >
+          {{ $t("save") }}
         </outlined-button>
       </v-col>
     </v-row>

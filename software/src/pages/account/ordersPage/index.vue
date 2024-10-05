@@ -1,8 +1,11 @@
 <script setup lang="ts">
 import { useAccountStore } from '@/data/stores/accountStore';
-import ordersCard from './ordersCard.vue';
+import ordersCard from './orderItem.vue';
+import { useRouter } from 'vue-router';
+import outlinedButton from '@/components/outlinedButton.vue';
 
 const accountStore = useAccountStore()
+const router = useRouter()
 
 function getDotColor(order, step: number) {
   if (order.shippingProgress == step)
@@ -27,6 +30,14 @@ function formatDateTimeString(string: string) {
 
 <template>
   <v-container max-width="1000">
+    <v-row>
+      <v-col>
+        <outlined-button prepend-icon="mdi-arrow-left" @click="router.back()" >
+          {{ $t('onePageBack') }}
+        </outlined-button>
+      </v-col>
+    </v-row>
+
     <v-row
       v-if="accountStore.orders.length > 0"
       v-for="order in accountStore.orders"

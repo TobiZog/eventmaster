@@ -41,7 +41,7 @@ export const sequelize = new Sequelize({
 })
 
 export function startDatabase() {
-  let force = true
+  let force = false
 
   // Create database and tables
   sequelize.sync({ force: force })

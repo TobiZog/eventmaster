@@ -35,14 +35,6 @@
   "emptyBasketText": "Gehe zu unseren Produkten und lege Artikel in den Warenkorb",
   "totalPrice": "Gesamtpreis",
   "orderNow": "Jetzt bestellen",
-  "orders": {
-    "orderFrom": "Bestellung vom",
-    "ordered": "Bestellt",
-    "preparingForShipping": "Versandvorbereitung",
-    "shipped": "Versendet",
-    "delivered": "Geliefert",
-    "inDelivery": "In Zustellung"
-  },
   "userInfo": {
     "firstName": "Vorname",
     "lastName": "Nachname",
@@ -151,5 +143,15 @@
   "loading": "Lade",
   "orderSummary": "Bestellübersicht",
   "basket": "Warenkorb",
-  "event": "Event"
+  "event": "Event",
+  "hello": "Hallo",
+  "accountManagement": "Account verwalten",
+  "accountManagementDescription": "Persönliche Daten, Adressen, Bezahlmethoden",
+  "orders": "Bestellung | Bestellungen",
+  "ordersDescription": "Übersicht aller getätigten Bestellungen",
+  "onePageBack": "Zurück zur vorherigen Seite",
+  "orderedAt": "Bestellt am",
+  "logout": "Ausloggen",
+  "logoutDescription": "Aktuellen Useraccount ausloggen",
+  "login": "Login"
 }

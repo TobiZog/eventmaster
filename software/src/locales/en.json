@@ -35,14 +35,6 @@
   "emptyBasketText": "Go to our products and add some of them to the basket",
   "totalPrice": "Total price",
   "orderNow": "Order now",
-  "orders": {
-    "orderFrom": "Order from",
-    "ordered": "Ordered",
-    "preparingForShipping": "Preparing for shipping",
-    "shipped": "Shipped",
-    "delivered": "Delivered",
-    "inDelivery": "In Delivery"
-  },
   "userInfo": {
     "firstName": "First Name",
     "lastName": "Family Name",
@@ -151,5 +143,15 @@
   "loading": "Loading",
   "orderSummary": "Order Summary",
   "basket": "Basket",
-  "event": "Event"
+  "event": "Event",
+  "hello": "Hello",
+  "accountManagement": "Account Management",
+  "accountManagementDescription": "Contact data, Addresses, Payment methods",
+  "orders": "Order | Orders",
+  "ordersDescription": "Overview about all orders",
+  "onePageBack": "Back to previous page",
+  "orderedAt": "Ordered at",
+  "logout": "Logout",
+  "logoutDescription": "Logout current account",
+  "login": "Login"
 }
