@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import sectionDivider from '@/components/sectionDivider.vue';
-import cardWithTopImage from '@/components/cardWithTopImage.vue';
+import sectionDivider from '@/components/basics/sectionDivider.vue';
+import cardWithTopImage from '@/components/basics/cardViewTopImage.vue';
 import { useRouter } from 'vue-router';
 import { useShoppingStore } from '@/data/stores/shoppingStore';
 import { useFeedbackStore } from '@/data/stores/feedbackStore';

@@ -1,10 +1,10 @@
 <script setup lang="ts">
-import cardWithLeftImage from '../cardWithLeftImage.vue';
+import cardWithLeftImage from '../basics/cardViewLeftImage.vue';
 
 defineProps({
+  /** Image to print on the left side */ 
   image: String,
   title: String,
-  description: String,
   loading: Boolean,
   appendIcon: {
     type: String,
@@ -29,25 +29,23 @@ defineProps({
         :image="'http://localhost:3000/static/' + image"
         :link="link"
       >
-        <div class="text-body-1 font-weight-bold">
-          <div v-if="!$slots.description">
-            {{ description }}
+        <template #content>
+          <div>
+            <slot name="content" />
           </div>
-
-          <div v-else>
-            <slot name="description" />
-          </div>
-        </div>
+        </template>
 
         <template #append>
           <div>
-            <v-icon
-              :icon="appendIcon"
-              :color="appendIconColor"
-              size="x-large"
-            />
+            <div>
+              <v-icon
+                :icon="appendIcon"
+                :color="appendIconColor"
+                size="x-large"
+              />
+            </div>
+            <slot name="append-text"></slot>
           </div>
-          <slot name="append-text"></slot>
         </template>
       </card-with-left-image>
     </v-col>
@@ -62,8 +60,3 @@ defineProps({
     </v-col>
   </v-row>
 </template>
-
-<style scoped>
-.v-card--variant-tonal {
-}
-</style>

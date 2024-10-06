@@ -3,7 +3,7 @@ import accountDataCard from './accountDataCard.vue';
 import accountManagingCard from './accountManagingCard.vue';
 import addressesCard from './addressesCard.vue';
 import paymentsCard from './paymentsCard.vue';
-import OutlinedButton from '@/components/outlinedButton.vue';
+import OutlinedButton from '@/components/basics/outlinedButton.vue';
 import { useRouter } from 'vue-router';
 
 const router = useRouter()

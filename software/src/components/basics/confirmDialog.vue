@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ModelRef } from 'vue';
-import actionDialog from './actionDialog.vue';
-import outlinedButton from './outlinedButton.vue';
+import actionDialog from './../basics/actionDialog.vue';
+import outlinedButton from './../basics/outlinedButton.vue';
 
 const showDialog: ModelRef<boolean> = defineModel()
 

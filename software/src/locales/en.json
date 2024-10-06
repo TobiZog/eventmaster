@@ -153,5 +153,11 @@
   "orderedAt": "Ordered at",
   "logout": "Logout",
   "logoutDescription": "Logout current account",
-  "login": "Login"
+  "login": "Login",
+  "seatRow": "Seat Row",
+  "seat": "Seat",
+  "seatGroup": "Category",
+  "date": "Date",
+  "price": "Price",
+  "standingArea": "Standing Area"
 }

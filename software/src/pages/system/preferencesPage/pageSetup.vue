@@ -2,7 +2,7 @@
 import { ThemeEnum } from '@/data/enums/themeEnums';
 import { useTheme } from 'vuetify/lib/framework.mjs';
 import { i18n } from '@/plugins/i18n';
-import cardView from '@/components/cardView.vue';
+import cardView from '@/components/basics/cardView.vue';
 import { usePreferencesStore } from '@/data/stores/preferencesStore';
 
 const preferencesStore = usePreferencesStore()

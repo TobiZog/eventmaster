@@ -1,9 +1,8 @@
 <script setup lang="ts">
-import cardView from '@/components/cardView.vue';
+import cardView from '@/components/basics/cardView.vue';
 import { useAccountStore } from '@/data/stores/accountStore';
-import outlinedButton from '@/components/outlinedButton.vue';
+import outlinedButton from '@/components/basics/outlinedButton.vue';
 import { AddressModel } from '@/data/models/user/addressModel';
-import { useFeedbackStore } from '@/data/stores/feedbackStore';
 import { getNumberStartRules, getPostalRules, getStringRules } from '@/scripts/validationRules';
 
 const accountStore = useAccountStore()

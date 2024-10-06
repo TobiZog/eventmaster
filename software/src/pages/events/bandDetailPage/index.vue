@@ -6,7 +6,7 @@ import bandMemberSection from './bandMemberSection.vue';
 import gallerySection from './gallerySection.vue';
 import concertSection from './concertSection.vue';
 import heroImage from '@/components/pageParts/heroImage.vue';
-import sectionDivider from '@/components/sectionDivider.vue';
+import sectionDivider from '@/components/basics/sectionDivider.vue';
 import { useShoppingStore } from '@/data/stores/shoppingStore';
 import { ref } from 'vue';
 import { useFeedbackStore } from '@/data/stores/feedbackStore';

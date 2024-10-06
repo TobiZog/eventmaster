@@ -1,10 +1,10 @@
 <script setup lang="ts">
 import { BannerStateEnum } from '@/data/enums/bannerStateEnum';
 import { useFeedbackStore } from '@/data/stores/feedbackStore';
-import cardView from '@/components/cardView.vue';
-import outlinedButton from '@/components/outlinedButton.vue';
+import cardView from '@/components/basics/cardView.vue';
+import outlinedButton from '@/components/basics/outlinedButton.vue';
 import { ref } from 'vue';
-import confirmDialog from '@/components/confirmDialog.vue';
+import confirmDialog from '@/components/basics/confirmDialog.vue';
 import { getServerState, resetDatabase } from '@/data/api/mainApi';
 import { ServerStateEnum } from '@/data/enums/serverStateEnum';
 

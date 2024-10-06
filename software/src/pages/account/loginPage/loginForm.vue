@@ -1,8 +1,9 @@
 <script setup lang="ts">
 import { ref } from 'vue';
-import cardView from '@/components/cardView.vue';
-import outlinedButton from '@/components/outlinedButton.vue';
+import cardView from '@/components/basics/cardView.vue';
+import outlinedButton from '@/components/basics/outlinedButton.vue';
 import { useAccountStore } from '@/data/stores/accountStore';
+import { useRouter } from 'vue-router';
 
 const accountStore = useAccountStore()
 const showRegisterCard = defineModel("showRegisterCard", { type: Boolean, default: false })
@@ -11,6 +12,7 @@ const username = ref("duranduran")
 const password = ref("H4nn0ver")
 const usernameWrong = ref(false)
 const passwordWrong = ref(false)
+const router = useRouter()
 
 async function startLogin() {
   loginInProgress.value = true
@@ -29,6 +31,10 @@ async function startLogin() {
     password.value != null && password.value.length > 0)
   {
     await accountStore.login(username.value, password.value)
+
+    if (accountStore.userAccount.id != undefined) {
+      router.push("/account/home")
+    }
     // todo: Route to account home page
   }
 

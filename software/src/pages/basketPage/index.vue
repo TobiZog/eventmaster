@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import { useBasketStore } from '@/data/stores/basketStore';
-import cardView from '@/components/cardView.vue';
+import cardView from '@/components/basics/cardView.vue';
 import orderingDialog from './orderingDialog.vue';
-import outlinedButton from '@/components/outlinedButton.vue';
+import outlinedButton from '@/components/basics/outlinedButton.vue';
 import { ref } from 'vue';
 import { useAccountStore } from '@/data/stores/accountStore';
 import concertListItem from '@/components/pageParts/concertListItem.vue';

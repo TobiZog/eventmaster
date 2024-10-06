@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import cardView from '@/components/cardView.vue';
-import confirmDialog from '@/components/confirmDialog.vue';
-import outlinedButton from '@/components/outlinedButton.vue';
+import cardView from '@/components/basics/cardView.vue';
+import confirmDialog from '@/components/basics/confirmDialog.vue';
+import outlinedButton from '@/components/basics/outlinedButton.vue';
 import { useAccountStore } from '@/data/stores/accountStore';
 import { ref } from 'vue';
 

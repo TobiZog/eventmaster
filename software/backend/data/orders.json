@@ -23,11 +23,13 @@
       "tickets": [
         {
           "concertId": 0,
-          "orderPrice": 184
+          "orderPrice": 184,
+          "seatId": 2
         },
         {
           "concertId": 0,
-          "orderPrice": 184
+          "orderPrice": 184,
+          "seatId": 3
         }
       ]
     },
@@ -40,7 +42,8 @@
       "tickets": [
         {
           "concertId": 0,
-          "orderPrice": 184
+          "orderPrice": 184,
+          "seatId": 3
         }
       ]
     }

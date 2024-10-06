@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import cardView from '@/components/cardView.vue';
+import cardView from '@/components/basics/cardView.vue';
 import productEditDialog from './productEditDialog.vue';
 import { ref } from 'vue';
 

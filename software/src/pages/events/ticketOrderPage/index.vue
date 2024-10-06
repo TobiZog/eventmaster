@@ -5,12 +5,12 @@ import { SeatGroupModel } from '@/data/models/locations/seatGroupModel';
 import { getConcert } from '@/data/api/concertApi';
 import { useFeedbackStore } from '@/data/stores/feedbackStore';
 import { useRouter } from 'vue-router';
-import sectionDivider from '@/components/sectionDivider.vue';
+import sectionDivider from '@/components/basics/sectionDivider.vue';
 import { useBasketStore } from '@/data/stores/basketStore';
 import concertListItem from '@/components/pageParts/concertListItem.vue';
 import { ConcertModel } from '@/data/models/acts/concertModel';
 import { dateStringToHumanReadableString } from '@/scripts/dateTimeScripts';
-import outlinedButton from '@/components/outlinedButton.vue';
+import outlinedButton from '@/components/basics/outlinedButton.vue';
 
 const router = useRouter()
 const seatGroups = ref<Array<SeatGroupModel>>()

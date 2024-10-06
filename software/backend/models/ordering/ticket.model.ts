@@ -26,7 +26,7 @@ export class Ticket extends Model {
   order: Order
 
   @BelongsTo(() => Concert)
-  product: Concert
+  concert: Concert
 
   @BelongsTo(() => Seat)
   seat: Seat

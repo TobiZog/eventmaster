@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import cardView from '@/components/cardView.vue';
+import cardView from '@/components/basics/cardView.vue';
 import { useAccountStore } from '@/data/stores/accountStore';
-import outlinedButton from '@/components/outlinedButton.vue';
+import outlinedButton from '@/components/basics/outlinedButton.vue';
 import { PaymentModel } from '@/data/models/user/paymentModel';
 import { getIbanRules, getStringRules } from '@/scripts/validationRules';
 

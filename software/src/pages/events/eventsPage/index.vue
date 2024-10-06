@@ -35,12 +35,20 @@ shoppingStore.getEvents()
           v-else-if="shoppingStore.events.length > 0"
           v-for="event of shoppingStore.events"
           :image="event.image"
-          :title="event.band.name + ' - ' +  event.name"
           @click="router.push('/bands/' + event.band.name.replaceAll(' ', '-').toLowerCase())"
         >
-          <template #description>
-            {{ createDateRangeString(event) }}
-            <div>{{ event.concerts.length }} {{ $t('concert', event.concerts.length) }}</div>
+          <template #content>
+            <div class="text-h4">
+              {{ event.band.name + ' - ' +  event.name }}
+            </div>
+
+            <div class="text-h5">
+              {{ createDateRangeString(event) }}
+            </div>
+
+            <div class="text-h5">
+              {{ event.concerts.length }} {{ $t('concert', event.concerts.length) }}
+            </div>
           </template>
 
           <template #append-text>

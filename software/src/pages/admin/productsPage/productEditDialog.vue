@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import actionDialog from '@/components/actionDialog.vue';
+import actionDialog from '@/components/basics/actionDialog.vue';
 import { ProductModel } from '@/data/models/productModel';
-import outlinedButton from '@/components/outlinedButton.vue';
+import outlinedButton from '@/components/basics/outlinedButton.vue';
 import { useProductStore } from '@/data/stores/productStore';
 import { ModelRef } from 'vue';
 

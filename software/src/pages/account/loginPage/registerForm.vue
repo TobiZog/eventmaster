@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import { AccountModel } from '@/data/models/user/accountModel';
 import { ref } from 'vue';
-import cardView from '@/components/cardView.vue';
-import outlinedButton from '@/components/outlinedButton.vue';
+import cardView from '@/components/basics/cardView.vue';
+import outlinedButton from '@/components/basics/outlinedButton.vue';
 import { useAccountStore } from '@/data/stores/accountStore';
 import { useFeedbackStore } from '@/data/stores/feedbackStore';
 import { getEmailRules, getPasswordRules, getStringRules } from '@/scripts/validationRules';

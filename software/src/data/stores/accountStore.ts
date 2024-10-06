@@ -11,8 +11,7 @@ import { PaymentModel } from "../models/user/paymentModel";
 
 export const useAccountStore = defineStore("accountStore", {
   state: () => ({
-    userAccount: useLocalStorage("hackmycart/accountStore/userAccount", new AccountModel()),
-    orders: useLocalStorage<Array<OrderModel>>("hackmycart/accountStore/orders", [ new OrderModel() ])
+    userAccount: useLocalStorage("hackmycart/accountStore/userAccount", new AccountModel())
   }),
 
   actions: {

@@ -1,10 +1,10 @@
 <script setup lang="ts">
 import { useConcertStore } from '@/data/stores/concertStore';
 import highlightCarousel from './highlightCarousel.vue';
-import sectionDivider from '@/components/sectionDivider.vue';
-import cardWithTopImage from '@/components/cardWithTopImage.vue';
+import sectionDivider from '@/components/basics/sectionDivider.vue';
+import cardWithTopImage from '@/components/basics/cardViewTopImage.vue';
 import { lowestTicketPrice } from '@/scripts/concertScripts';
-import OutlinedButton from '@/components/outlinedButton.vue';
+import OutlinedButton from '@/components/basics/outlinedButton.vue';
 import { useRouter } from 'vue-router';
 import { useFeedbackStore } from '@/data/stores/feedbackStore';
 import { ref } from 'vue';

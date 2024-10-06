@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import OutlinedButton from '@/components/outlinedButton.vue';
+import OutlinedButton from '@/components/basics/outlinedButton.vue';
 import { useConcertStore } from '@/data/stores/concertStore';
 import { useRouter } from 'vue-router';
 
@@ -32,7 +32,7 @@ const router = useRouter()
 
     <v-carousel-item
       v-for="band in concertStore.bands"
-      :src="'http://localhost:3000/static/bands/' + band.imageMembers" 
+      :src="'http://localhost:3000/static/' + band.imageMembers" 
       cover
     >
       <v-card

@@ -1,31 +1,20 @@
 <script setup lang="ts">
 import { useAccountStore } from '@/data/stores/accountStore';
-import ordersCard from './orderItem.vue';
+import orderItem from './orderItem.vue';
 import { useRouter } from 'vue-router';
-import outlinedButton from '@/components/outlinedButton.vue';
+import outlinedButton from '@/components/basics/outlinedButton.vue';
+import { getUserOrders } from '@/data/api/orderApi';
+import { ref } from 'vue';
+import { OrderModel } from '@/data/models/ordering/orderModel';
 
 const accountStore = useAccountStore()
 const router = useRouter()
+const orders = ref<Array<OrderModel>>([])
 
-function getDotColor(order, step: number) {
-  if (order.shippingProgress == step)
-  {
-    return "orange"
-  } else if (order.shippingProgress >= step) 
-  {
-    return "green"
-  } else 
-  {
-    return "grey"
-  }
-}
-
-function formatDateTimeString(string: string) {
-  let date = new Date(string)
-
-  return date.getDate() + '.' + (date.getMonth() + 1) + '.' + date.getFullYear() + ', ' + 
-    date.getHours() + ':' + date.getMinutes()
-}
+getUserOrders(accountStore.userAccount.id)
+  .then(result => {
+    orders.value = result.data
+  })
 </script>
 
 <template>
@@ -39,11 +28,11 @@ function formatDateTimeString(string: string) {
     </v-row>
 
     <v-row
-      v-if="accountStore.orders.length > 0"
-      v-for="order in accountStore.orders"
+      v-if="orders.length > 0"
+      v-for="order in orders"
     >
       <v-col>
-        <orders-card :order="order" />
+        <order-item :order="order" />
       </v-col>
     </v-row>
 

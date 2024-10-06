@@ -7,6 +7,10 @@ import { Address } from "../models/user/address.model";
 import { Band } from "../models/acts/band.model";
 import { Location } from "../models/locations/location.model";
 import { Event } from "../models/acts/event.model";
+import { City } from "../models/locations/city.model";
+import { Seat } from "../models/locations/seat.model";
+import { SeatRow } from "../models/locations/seatRow.model";
+import { SeatGroup } from "../models/locations/seatGroup.model";
 
 export const order = Router()
 
@@ -25,7 +29,10 @@ order.get("/:id", (req: Request, res: Response) => {
                 model: Event,
                 include: [ Band ]
               },
-              Location 
+              {
+                model: Location,
+                include: [ City ]
+              }
             ],
             attributes: {
               exclude: [
@@ -34,6 +41,15 @@ order.get("/:id", (req: Request, res: Response) => {
               ]
             }
           },
+          {
+            model: Seat,
+            include: [
+              {
+                model: SeatRow,
+                include: [ SeatGroup ]
+              }
+            ]
+          }
         ]
       },
       Payment,

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import cardView from '@/components/cardView.vue';
+import cardView from '@/components/basics/cardView.vue';
 // import { useProductStore } from '@/data/stores/productStore';
 
 // const productStore = useProductStore()

@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { LocationModel } from '@/data/models/locations/locationModel';
 import { useRouter } from 'vue-router';
-import sectionDivider from '@/components/sectionDivider.vue';
+import sectionDivider from '@/components/basics/sectionDivider.vue';
 import { dateStringToHumanReadableString } from '@/scripts/dateTimeScripts';
 import seatPlanMap from '@/components/seatPlanMap/seatPlanMap.vue';
 import { useShoppingStore } from '@/data/stores/shoppingStore';

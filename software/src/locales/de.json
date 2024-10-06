@@ -153,5 +153,11 @@
   "orderedAt": "Bestellt am",
   "logout": "Ausloggen",
   "logoutDescription": "Aktuellen Useraccount ausloggen",
-  "login": "Login"
+  "login": "Login",
+  "seatRow": "Sitzreihe",
+  "seat": "Sitz",
+  "seatGroup": "Kategorie",
+  "date": "Datum",
+  "price": "Preis",
+  "standingArea": "Stehbereich"
 }

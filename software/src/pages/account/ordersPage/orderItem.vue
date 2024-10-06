@@ -1,13 +1,17 @@
 <script setup lang="ts">
-import cardView from '@/components/cardView.vue';
+import cardView from '@/components/basics/cardView.vue';
 import { OrderModel } from '@/data/models/ordering/orderModel';
 import { useAccountStore } from '@/data/stores/accountStore';
-import concertListItem from '@/components/pageParts/concertListItem.vue';
+import ticketListItem from '@/components/pageParts/ticketListItem.vue';
 
 const accountStore = useAccountStore()
 
 defineProps({
-  order: OrderModel
+  order: OrderModel,
+  loading: {
+    type: Boolean,
+    default: false
+  }
 })
 
 function formatDateTimeString(string: string) {
@@ -21,7 +25,7 @@ function formatDateTimeString(string: string) {
 <template>
   <card-view
     :title="$t('orderedAt') + ' ' + formatDateTimeString(order.orderedAt) + ' ' + $t('oclock')"
-    :subtitle="$t('totalPrice') + ': ' + accountStore.getOrderTotalPrice(order.id) + ' €'"
+    variant="outlined"
   >
     <v-row>
       <v-col>
@@ -48,18 +52,29 @@ function formatDateTimeString(string: string) {
       </v-col>
     </v-row>
 
-    <v-row>
-      
+    <v-row v-for="ticket of order.tickets">
+      <v-col>
+        <ticket-list-item
+          :concert="ticket.concert"
+          :image="ticket.concert.event.image"
+          :seat-group="ticket.seat.seatRow.seatGroup.name"
+          :seat-row="ticket.seat.seatRow.row"
+          :seat="ticket.seat.seatNr"
+          :standing-area="ticket.seat.seatRow.seatGroup.standingArea"
+        />
+      </v-col>
     </v-row>
 
-      <v-row>
+      <!-- <v-row>
         <v-col>
           <v-table class="bg-surface-light">
             <thead>
               <tr>
                 <th>{{ $t('quantity') }}</th>
-                <th>{{ $t('product.brand') }}</th>
-                <th>{{ $t('product.productName') }}</th>
+                <th>{{ $t('event') }}</th>
+                <th>{{ $t('seatGroup') }}</th>
+                <th>{{ $t('seatRow') }}</th>
+                <th>{{ $t('seat') }}</th>
                 <th>{{ $t('product.productPrice') }}</th>
               </tr>
             </thead>
@@ -73,6 +88,6 @@ function formatDateTimeString(string: string) {
             </tbody>
           </v-table>
         </v-col>
-      </v-row>
+      </v-row> -->
   </card-view>
 </template>

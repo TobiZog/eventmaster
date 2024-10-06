@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import cardView from '@/components/cardView.vue';
-import outlinedButton from '@/components/outlinedButton.vue';
+import cardView from '@/components/basics/cardView.vue';
+import outlinedButton from '@/components/basics/outlinedButton.vue';
 import { GenreModel } from '@/data/models/acts/genreModel';
 import { CityModel } from '@/data/models/locations/cityModel';
 import { useShoppingStore } from '@/data/stores/shoppingStore';

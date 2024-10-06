@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { ModelRef } from 'vue';
-import cardView from './cardView.vue';
 
 const showDialog: ModelRef<boolean> = defineModel()
 

@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { useAccountStore } from '@/data/stores/accountStore';
-import cardView from '@/components/cardView.vue';
+import cardView from '@/components/basics/cardView.vue';
 import { useRouter } from 'vue-router';
 
 const accountStore = useAccountStore()
