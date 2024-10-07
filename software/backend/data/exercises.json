@@ -1,0 +1,54 @@
+{
+  "data": [
+    {
+      "nameDe": "Den Shop kennenlernen",
+      "nameEn": "Getting to know the shop",
+      "groupNr": 0,
+      "exercises": [
+        {
+          "nameDe": "Registrieren",
+          "nameEn": "Register",
+          "exerciseNr": 1,
+          "descriptionDe": "Erstelle einen neuen Account im Online Shop",
+          "descriptionEn": "Create a new account in the online shop",
+          "solved": false
+        },
+        {
+          "nameDe": "Ein Ticket kaufen",
+          "nameEn": "Buy a ticket",
+          "exerciseNr": 2,
+          "descriptionDe": "Suche dir ein Event deiner Wahl und kaufe dafür ein Ticket",
+          "descriptionEn": "Search for an event of choice and buy a ticket for",
+          "solved": false
+        }
+      ]
+    },
+    {
+      "nameDe": "SQL Injections",
+      "nameEn": "SQL Injections",
+      "groupNr": 1,
+      "exercises": []
+    },
+    {
+      "nameDe": "Broken Access Control",
+      "nameEn": "Broken Access Control",
+      "groupNr": 2,
+      "exercises": []
+    },
+    {
+      "nameDe": "Cross-Site Scripting (XSS)",
+      "nameEn": "Cross-Site Scripting (XSS)",
+      "groupNr": 3,
+      "exercises": [
+        {
+          "nameDe": "Hallo Welt!",
+          "nameEn": "Hello World!",
+          "exerciseNr": 1,
+          "descriptionDe": "Nimm dir eine URL des Shops und erweitere sie mit JavaScript Code so, dass beim Öffnen des Links eine 'Hallo Welt' Nachricht erscheint",
+          "descriptionEn": "Take an URL of the shop and extend it with JavaScript code so that a 'Hello World' message appears whent the link is opened",
+          "solved": false
+        }
+      ]
+    }
+  ]
+}

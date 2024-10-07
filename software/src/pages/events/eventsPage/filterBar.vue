@@ -27,7 +27,6 @@ function itemPropsGenre(genre: GenreModel) {
   <card-view
     variant="tonal"
     :title="$t('filtering')"
-    subtitle="123"
     icon="mdi-cog"
   >
     <v-row class="d-flex justify-center" >

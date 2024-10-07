@@ -159,5 +159,7 @@
   "seatGroup": "Category",
   "date": "Date",
   "price": "Price",
-  "standingArea": "Standing Area"
+  "standingArea": "Standing Area",
+  "exerciseGroup": "Exercise group",
+  "exercise": "Exercise"
 }

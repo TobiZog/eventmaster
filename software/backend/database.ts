@@ -20,6 +20,8 @@ import { BandGenre } from "./models/acts/bandGenre.model"
 import { Seat } from "./models/locations/seat.model"
 import { SeatGroup } from "./models/locations/seatGroup.model"
 import { SeatRow } from "./models/locations/seatRow.model"
+import { Exercise } from "./models/exercises/exercise.model"
+import { ExerciseGroup } from "./models/exercises/exerciseGroup.model"
 
 const dbName = "database"
 const dbUser = "root"
@@ -36,19 +38,20 @@ export const sequelize = new Sequelize({
     AccountRole, Account, Payment, Address,
     City, Location, SeatGroup, SeatRow, Seat,
     Genre, Band, BandGenre, Rating, Member, Event, Concert,
-    Order, Ticket
+    Order, Ticket,
+    Exercise, ExerciseGroup
   ]
 })
 
 export function startDatabase() {
-  let force = false
+  let recreateDb = false
 
   // Create database and tables
-  sequelize.sync({ force: force })
+  sequelize.sync({ force: recreateDb })
     .then(() => {
       console.log("Database & tables created!")
 
-      if (force) {
+      if (recreateDb) {
         prepopulateDatabase()
       }
       

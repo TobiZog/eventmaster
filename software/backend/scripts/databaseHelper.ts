@@ -16,6 +16,8 @@ import { BandGenre } from '../models/acts/bandGenre.model'
 import { SeatGroup } from '../models/locations/seatGroup.model'
 import { Seat } from '../models/locations/seat.model'
 import { SeatRow } from '../models/locations/seatRow.model'
+import { Exercise } from '../models/exercises/exercise.model'
+import { ExerciseGroup } from '../models/exercises/exerciseGroup.model'
 
 import accounts from "./../data/accounts.json"
 import orders from "./../data/orders.json"
@@ -24,6 +26,7 @@ import bands from "./../data/bands.json"
 import genres from "./../data/genres.json"
 import events from "./../data/events.json"
 import cities from "./../data/cities.json"
+import exercises from "./../data/exercises.json"
 
 
 /**
@@ -49,6 +52,9 @@ export function deleteAllTables() {
   Payment.destroy({ truncate: true })
   Account.destroy({ truncate: true })
   AccountRole.destroy({ truncate: true})
+
+  Exercise.destroy({truncate: true})
+  ExerciseGroup.destroy({truncate: true})
 }
 
 /**
@@ -144,10 +150,10 @@ export async function prepopulateDatabase() {
   }
 
 
-  for (let tour of events.data) {
-    await Event.create(tour)
+  for (let event of events.data) {
+    await Event.create(event)
       .then(async dataset => {
-        for (let concert of tour.concerts) {
+        for (let concert of event.concerts) {
           concert["eventId"] = dataset.id
           
           await Concert.create(concert)
@@ -161,7 +167,42 @@ export async function prepopulateDatabase() {
         for (let ticket of order.tickets) {
           ticket["orderId"] = dataset.id
 
-          await Ticket.create(ticket)
+          SeatGroup.findOne({
+            where: {
+              name: ticket.seatGroup
+            }
+          })
+            .then(seatGroup => {
+              SeatRow.findOne({
+                where: {
+                  seatGroupId: seatGroup.id,
+                  row: ticket.seatRow
+                }
+              })
+                .then(seatRow => {
+                  Seat.findOne({
+                    where: {
+                      seatRowId: seatRow.id,
+                      seatNr: ticket.seat
+                    }
+                  })
+                    .then(async seat => {
+                      ticket["seatId"] = seat.id
+                      await Ticket.create(ticket)
+                    })
+                })
+            })
+        }
+      })
+  }
+
+  for (let exerciseGroup of exercises.data) {
+    ExerciseGroup.create(exerciseGroup)
+      .then(async dataset => {
+        for (let exercise of exerciseGroup.exercises) {
+          exercise["exerciseGroupId"] = dataset.id
+
+          await Exercise.create(exercise)
         }
       })
   }

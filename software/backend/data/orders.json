@@ -10,7 +10,9 @@
         {
           "concertId": 0,
           "orderPrice": 184,
-          "seatId": 43
+          "seatGroup": "A",
+          "seatRow": 0,
+          "seat": 1
         }
       ]
     },
@@ -24,12 +26,16 @@
         {
           "concertId": 0,
           "orderPrice": 184,
-          "seatId": 2
+          "seatGroup": "A",
+          "seatRow": 0,
+          "seat": 2
         },
         {
           "concertId": 0,
           "orderPrice": 184,
-          "seatId": 3
+          "seatGroup": "A",
+          "seatRow": 0,
+          "seat": 3
         }
       ]
     },
@@ -43,7 +49,9 @@
         {
           "concertId": 0,
           "orderPrice": 184,
-          "seatId": 3
+          "seatGroup": "A",
+          "seatRow": 0,
+          "seat": 4
         }
       ]
     }

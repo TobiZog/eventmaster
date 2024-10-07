@@ -4,6 +4,7 @@ import { validateString } from "../scripts/validateHelper";
 import { Address } from "../models/user/address.model";
 import { Payment } from "../models/user/payment.model";
 import { AccountRole } from "../models/user/accountRole.model";
+import { Exercise } from "../models/exercises/exercise.model";
 
 export const account = Router()
 
@@ -65,16 +66,26 @@ account.post("/", (req: Request, res: Response) => {
 
   // Create account
   Account.create(req.body)
-  .then(account => {
-    // Status: 201 Created
-    res.status(201).json(account)
-  }).catch(reason => {
-    // Status: 409 Conflict
-    res.status(409).json({
-      code: 409,
-      message: "Username already in use"
+    .then(account => {
+      // Status: 201 Created
+      res.status(201).json(account)
+
+      // Check exercise in table
+      Exercise.update(
+        { solved: true },
+        {
+          where: {
+            nameEn: "Register"
+          }
+        }
+      )
+    }).catch(reason => {
+      // Status: 409 Conflict
+      res.status(409).json({
+        code: 409,
+        message: "Username already in use"
+      })
     })
-  })
 })
 
 account.patch("/", (req: Request, res: Response) => {

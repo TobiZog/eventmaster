@@ -1,46 +1,83 @@
 <script setup lang="ts">
 import cardView from '@/components/basics/cardView.vue';
+import { ExerciseGroupModel } from '@/data/models/exercises/exerciseGroupModel';
 
-const props = defineProps({
-  exerciseGroup: String,
-  progress: Number,
-  totalSteps: Number,
-  stepNames: Array<String>
+defineProps({
+  exerciseGroup: ExerciseGroupModel,
+  loading: Boolean
 })
-
-function getDotColor(step: number) {
-  if (props.progress >= step) {
-    return "green"
-  } else {
-    return "grey"
-  }
-}
-
-function getIcon(step: number) {
-  if (props.progress >= step) {
-    return "mdi-check"
-  } else {
-    return "mdi-pencil"
-  }
-}
 </script>
 
 <template>
-  <card-view :title="exerciseGroup" >
+  <card-view v-if="loading" :loading="loading" >
     <v-timeline
       direction="horizontal"
-      side="end"
+      side="start"
       class="pb-3"
     >
       <v-timeline-item
-        v-for="step in totalSteps"
-        :dot-color="getDotColor(step)"
-        :icon="getIcon(step)"
+        v-for="i in 3"
+        dot-color="grey"
+        icon="mdi-pencil"
       >
-        {{ stepNames[step - 1] }}
+        <v-skeleton-loader
+          type="list-item"
+          :loading="loading"
+          width="200"
+        />
+
+      <template #opposite>
+        <v-skeleton-loader
+          type="sentences"
+          :loading="loading"
+          width="200"
+        />
+        </template>
+      </v-timeline-item>
+    </v-timeline>
+  </card-view>
+
+
+  <card-view
+    v-else
+    :title="$t('exerciseGroup') + ' ' + exerciseGroup.groupNr + ': ' +  exerciseGroup.nameDe"
+    :loading="loading"
+  >
+    <v-timeline
+      direction="horizontal"
+      side="start"
+      class="pb-3"
+    >
+      <v-timeline-item
+        v-for="exercise in exerciseGroup.exercises"
+        :dot-color="exercise.solved ? 'green' : 'grey'"
+        :icon="exercise.solved ? 'mdi-check' : 'mdi-pencil'"
+      >
+        <v-skeleton-loader
+          type="text"
+          :loading="loading"
+        >
+          <div class="text-h6">
+            {{ $t('exercise') }} {{ exercise.exerciseNr }}
+          </div>
+        </v-skeleton-loader>
+        
 
         <template #opposite>
-          {{ $t('scoreBoard.exercise', [step]) }}
+          <v-skeleton-loader
+          type="text"
+          :loading="loading"
+        >
+          <div class="text-center">
+            <div class="text-h6">
+              {{ exercise.nameDe }}
+            </div>
+
+            <div>
+              {{ exercise.descriptionDe }}
+            </div>
+          </div>
+        </v-skeleton-loader>
         </template>
         
       </v-timeline-item>

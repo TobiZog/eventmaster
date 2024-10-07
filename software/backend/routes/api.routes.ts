@@ -7,12 +7,12 @@ api.get("/", (req: Request, res: Response, next: NextFunction) => {
   res.status(200).send()
 })
 
-api.get("/resetdatabase", (req: Request, res: Response, next: NextFunction) => {
+api.get("/resetdatabase", async (req: Request, res: Response, next: NextFunction) => {
   // Step 1: Delete all data tables
   deleteAllTables()
 
   // Step 2: Prepopulate with default values
-  prepopulateDatabase()
+  await prepopulateDatabase()
 
   // Step 3: Send status back
   res.status(200).send()

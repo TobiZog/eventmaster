@@ -1,49 +1,35 @@
 <script setup lang="ts">
+import { getAllExerciseGroups } from '@/data/api/exerciseApi';
 import scoreCard from './scoreCard.vue';
+import { ref } from 'vue';
+import { ExerciseGroupModel } from '@/data/models/exercises/exerciseGroupModel';
+import { useFeedbackStore } from '@/data/stores/feedbackStore';
+
+const exerciseGroups = ref<Array<ExerciseGroupModel>>([])
+const feedbackStore = useFeedbackStore()
+
+feedbackStore.fetchDataFromServerInProgress = true
+
+getAllExerciseGroups()
+  .then(result => {
+    exerciseGroups.value = result.data
+    feedbackStore.fetchDataFromServerInProgress = false
+  })
 </script>
 
 <template>
   <v-container max-width="1000">
-    <v-row>
+    <v-row v-if="feedbackStore.fetchDataFromServerInProgress" v-for="i in 3">
       <v-col>
-        <score-card
-          :title="$t('scoreBoard.exerciseGroup0')"
-          :progress="2"
-          :total-steps="2"
-          :step-names="['Registrieren', 'Bestellung ausführen']"
-        />
+        <score-card :loading="true"
+      />
       </v-col>
     </v-row>
 
-    <v-row>
+    <v-row v-for="exerciseGroup in exerciseGroups">
       <v-col>
         <score-card
-          :title="$t('scoreBoard.exerciseGroup1')"
-          :progress="1"
-          :total-steps="4"
-          :step-names="['', '']"
-        />
-      </v-col>
-    </v-row>
-
-    <v-row>
-      <v-col>
-        <score-card
-          :title="$t('scoreBoard.exerciseGroup2')"
-          :progress="1"
-          :total-steps="4"
-          :step-names="['', '']"
-        />
-      </v-col>
-    </v-row>
-
-    <v-row>
-      <v-col>
-        <score-card
-          :title="$t('scoreBoard.exerciseGroup3')"
-          :progress="0"
-          :total-steps="3"
-          :step-names="['', '', '']"
+          :exercise-group="exerciseGroup"
         />
       </v-col>
     </v-row>
