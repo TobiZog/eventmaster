@@ -1,0 +1,576 @@
+{
+  "data": [
+    {
+      "name": "Hannover",
+      "country": "Germany",
+      "locations": [
+        {
+          "id": 0,
+          "name": "Swiss Life Hall",
+          "address": "Ferdinand-Wilhelm-Fricke-Weg 8",
+          "imageIndoor": "locations/swiss-life-hall-indoor.jpg",
+          "imageOutdoor": "locations/swiss-life-hall-outdoor.jpg",
+          "seatGroups": [
+            {
+              "name": "A",
+              "surcharge": 20,
+              "standingArea": true,
+              "capacity": 40
+            },
+            {
+              "name": "B",
+              "surcharge": 10,
+              "standingArea": false,
+              "rows": 5,
+              "capacity": 25
+            },
+            {
+              "name": "C",
+              "surcharge": 10,
+              "standingArea": false,
+              "rows": 5,
+              "capacity": 25
+            },
+            {
+              "name": "D",
+              "surcharge": 10,
+              "standingArea": false,
+              "rows": 3,
+              "capacity": 30
+            },
+            {
+              "name": "E",
+              "surcharge": 10,
+              "standingArea": false,
+              "rows": 3,
+              "capacity": 12
+            },
+            {
+              "name": "F",
+              "surcharge": 10,
+              "standingArea": false,
+              "rows": 3,
+              "capacity": 12
+            }
+          ]
+        },
+        {
+          "id": 1,
+          "name": "Capitol",
+          "address": "Schwarzer Bär 2",
+          "imageIndoor": "locations/capitol-indoor.jpg",
+          "imageOutdoor": "locations/capitol-outdoor.jpg",
+          "seatGroups": [
+            {
+              "name": "A",
+              "surcharge": 20,
+              "standingArea": true,
+              "capacity": 50
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "name": "ZAG Arena",
+          "address": "EXPO-Plaza 7",
+          "imageIndoor": "locations/zag-arena-indoor.jpg",
+          "imageOutdoor": "locations/zag-arena-outdoor.jpg",
+          "seatGroups": [
+            {
+              "name": "A",
+              "surcharge": 20,
+              "standingArea": true,
+              "capacity": 40
+            },
+            {
+              "name": "B",
+              "surcharge": 10,
+              "standingArea": false,
+              "rows": 5,
+              "capacity": 25
+            },
+            {
+              "name": "C",
+              "surcharge": 10,
+              "standingArea": false,
+              "rows": 5,
+              "capacity": 25
+            },
+            {
+              "name": "D",
+              "surcharge": 10,
+              "standingArea": false,
+              "rows": 3,
+              "capacity": 30
+            },
+            {
+              "name": "E",
+              "surcharge": 10,
+              "standingArea": false,
+              "rows": 3,
+              "capacity": 12
+            },
+            {
+              "name": "F",
+              "surcharge": 10,
+              "standingArea": false,
+              "rows": 3,
+              "capacity": 12
+            }
+          ]
+        },
+        {
+          "id": 3,
+          "name": "Kulturzentrum Faust",
+          "address": "Zur Bettfedernfabrik 3",
+          "imageIndoor": "locations/faust-hannover-indoor.jpg",
+          "imageOutdoor": "locations/faust-hannover-outdoor.jpg",
+          "seatGroups": [
+            {
+              "name": "A",
+              "surcharge": 20,
+              "standingArea": true,
+              "capacity": 25
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "München",
+      "country": "Germany",
+      "locations": [
+        {
+          "id": 4,
+          "name": "Olympiahalle München",
+          "address": "Spiridon-Louis-Ring 21",
+          "imageIndoor": "locations/olympiahalle-munich-indoor.jpg",
+          "imageOutdoor": "locations/olympiahalle-munich-outdoor.jpg",
+          "seatGroups": [
+            {
+              "name": "A",
+              "surcharge": 20,
+              "standingArea": true,
+              "capacity": 60
+            },
+            {
+              "name": "B",
+              "surcharge": 10,
+              "standingArea": false,
+              "rows": 5,
+              "capacity": 20
+            },
+            {
+              "name": "C",
+              "surcharge": 10,
+              "standingArea": false,
+              "rows": 5,
+              "capacity": 20
+            },
+            {
+              "name": "D",
+              "surcharge": 10,
+              "standingArea": false,
+              "rows": 3,
+              "capacity": 20
+            },
+            {
+              "name": "E",
+              "surcharge": 10,
+              "standingArea": false,
+              "rows": 3,
+              "capacity": 12
+            },
+            {
+              "name": "F",
+              "surcharge": 10,
+              "standingArea": false,
+              "rows": 3,
+              "capacity": 12
+            }
+          ]
+        },
+        {
+          "id": 5,
+          "name": "Schlachthof München",
+          "address": "Zenettistraße 9",
+          "imageIndoor": "locations/schlachthof-munich-indoor.jpg",
+          "imageOutdoor": "locations/schlachthof-munich-outdoor.jpg",
+          "seatGroups": [
+            {
+              "name": "A",
+              "surcharge": 20,
+              "standingArea": true,
+              "capacity": 40
+            }
+          ]
+        },
+        {
+          "id": 6,
+          "name": "Muffatwerk",
+          "address": "Zellstraße 4",
+          "imageIndoor": "locations/muffatwerk-indoor.jpg",
+          "imageOutdoor": "locations/muffatwerk-outdoor.jpg",
+          "seatGroups": [
+            {
+              "name": "A",
+              "surcharge": 20,
+              "standingArea": true,
+              "capacity": 60
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Hamburg",
+      "country": "Germany",
+      "locations": [
+        {
+          "id": 7,
+          "name": "Volksparkstadion",
+          "address": "Sylvesterallee 7",
+          "imageIndoor": "locations/volksparkstadion-hamburg-indoor.jpg",
+          "imageOutdoor": "locations/volksparkstadion-hamburg-outdoor.jpg",
+          "seatGroups": [
+            {
+              "name": "A",
+              "surcharge": 20,
+              "standingArea": true,
+              "capacity": 50
+            },
+            {
+              "name": "B",
+              "surcharge": 10,
+              "standingArea": false,
+              "rows": 5,
+              "capacity": 25
+            },
+            {
+              "name": "C",
+              "surcharge": 10,
+              "standingArea": false,
+              "rows": 5,
+              "capacity": 25
+            },
+            {
+              "name": "D",
+              "surcharge": 10,
+              "standingArea": false,
+              "rows": 3,
+              "capacity": 20
+            },
+            {
+              "name": "E",
+              "surcharge": 10,
+              "standingArea": false,
+              "rows": 3,
+              "capacity": 16
+            },
+            {
+              "name": "F",
+              "surcharge": 10,
+              "standingArea": false,
+              "rows": 3,
+              "capacity": 16
+            }
+          ]
+        },
+        {
+          "id": 8,
+          "name": "Barclays Arena",
+          "address": "Sylvesterallee 10",
+          "imageIndoor": "locations/barclays-arena-indoor.jpg",
+          "imageOutdoor": "locations/barclays-arena-outdoor.jpg",
+          "seatGroups": [
+            {
+              "name": "A",
+              "surcharge": 20,
+              "standingArea": false,
+              "capacity": 40
+            },
+            {
+              "name": "B",
+              "surcharge": 10,
+              "standingArea": false,
+              "rows": 5,
+              "capacity": 25
+            },
+            {
+              "name": "C",
+              "surcharge": 10,
+              "standingArea": false,
+              "rows": 5,
+              "capacity": 25
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Berlin",
+      "country": "Germany",
+      "locations": [
+        {
+          "id": 9,
+          "name": "Waldbühne Berlin",
+          "address": "Am Glockenturm",
+          "imageIndoor": "locations/waldbuehne-berlin-indoor.jpg",
+          "imageOutdoor": "locations/waldbuehne-berlin-outdoor.jpg",
+          "seatGroups": [
+            {
+              "name": "A",
+              "surcharge": 20,
+              "standingArea": false,
+              "capacity": 10
+            },
+            {
+              "name": "B",
+              "surcharge": 10,
+              "standingArea": false,
+              "rows": 5,
+              "capacity": 25
+            },
+            {
+              "name": "C",
+              "surcharge": 10,
+              "standingArea": false,
+              "rows": 5,
+              "capacity": 25
+            }
+          ]
+        },
+        {
+          "id": 10,
+          "name": "Olympiastadion Berlin",
+          "address": "Olympischer Platz 3",
+          "imageIndoor": "locations/olympiastadion-berlin-indoor.jpg",
+          "imageOutdoor": "locations/olympiastadion-berlin-outdoor.jpg",
+          "seatGroups": [
+            {
+              "name": "A",
+              "surcharge": 20,
+              "standingArea": true,
+              "capacity": 60
+            },
+            {
+              "name": "B",
+              "surcharge": 10,
+              "standingArea": false,
+              "rows": 5,
+              "capacity": 20
+            },
+            {
+              "name": "C",
+              "surcharge": 10,
+              "standingArea": false,
+              "rows": 5,
+              "capacity": 20
+            },
+            {
+              "name": "D",
+              "surcharge": 10,
+              "standingArea": false,
+              "rows": 3,
+              "capacity": 20
+            },
+            {
+              "name": "E",
+              "surcharge": 10,
+              "standingArea": false,
+              "rows": 3,
+              "capacity": 12
+            },
+            {
+              "name": "F",
+              "surcharge": 10,
+              "standingArea": false,
+              "rows": 3,
+              "capacity": 12
+            }
+          ]
+        },
+        {
+          "id": 11,
+          "name": "Uber Arena Berlin",
+          "address": "Uber-Platz 1",
+          "imageIndoor": "locations/uber-arena-berlin-indoor.jpg",
+          "imageOutdoor": "locations/uber-arena-berlin-outdoor.jpg",
+          "seatGroups": [
+            {
+              "name": "A",
+              "surcharge": 20,
+              "standingArea": true,
+              "capacity": 50
+            },
+            {
+              "name": "B",
+              "surcharge": 10,
+              "standingArea": false,
+              "rows": 5,
+              "capacity": 30
+            },
+            {
+              "name": "C",
+              "surcharge": 10,
+              "standingArea": false,
+              "rows": 5,
+              "capacity": 30
+            },
+            {
+              "name": "D",
+              "surcharge": 10,
+              "standingArea": false,
+              "rows": 3,
+              "capacity": 20
+            },
+            {
+              "name": "E",
+              "surcharge": 10,
+              "standingArea": false,
+              "rows": 3,
+              "capacity": 12
+            },
+            {
+              "name": "F",
+              "surcharge": 10,
+              "standingArea": false,
+              "rows": 3,
+              "capacity": 12
+            }
+          ]
+        },
+        {
+          "id": 12,
+          "name": "Columbiahalle",
+          "address": "Columbiadamm 13-21",
+          "imageIndoor": "locations/columbiahalle-indoor.jpg",
+          "imageOutdoor": "locations/columbiahalle-outdoor.jpg",
+          "seatGroups": [
+            {
+              "name": "A",
+              "surcharge": 20,
+              "standingArea": true,
+              "capacity": 50
+            },
+            {
+              "name": "B",
+              "surcharge": 10,
+              "standingArea": false,
+              "rows": 5,
+              "capacity": 30
+            },
+            {
+              "name": "C",
+              "surcharge": 10,
+              "standingArea": false,
+              "rows": 5,
+              "capacity": 30
+            }
+          ]
+        },
+        {
+          "id": 13,
+          "name": "Astra Kulturhaus",
+          "address": "Revaler Straße 99",
+          "imageIndoor": "locations/astra-kulturhaus-indoor.jpg",
+          "imageOutdoor": "locations/astra-kulturhaus-outdoor.jpg",
+          "seatGroups": [
+            {
+              "name": "A",
+              "surcharge": 0,
+              "standingArea": true,
+              "capacity": 40
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Köln",
+      "country": "Germany",
+      "locations": [
+        {
+          "id": 14,
+          "name": "LANXESS arena",
+          "address": "Willy-Brandt-Platz",
+          "imageIndoor": "locations/lanxess-arena-indoor.jpg",
+          "imageOutdoor": "locations/lanxess-arena-outdoor.jpg",
+          "seatGroups": [
+            {
+              "name": "A",
+              "surcharge": 20,
+              "standingArea": true,
+              "capacity": 50
+            },
+            {
+              "name": "B",
+              "surcharge": 10,
+              "standingArea": false,
+              "rows": 5,
+              "capacity": 30
+            },
+            {
+              "name": "C",
+              "surcharge": 10,
+              "standingArea": false,
+              "rows": 5,
+              "capacity": 30
+            },
+            {
+              "name": "D",
+              "surcharge": 10,
+              "standingArea": false,
+              "rows": 3,
+              "capacity": 20
+            },
+            {
+              "name": "E",
+              "surcharge": 10,
+              "standingArea": false,
+              "rows": 3,
+              "capacity": 12
+            },
+            {
+              "name": "F",
+              "surcharge": 10,
+              "standingArea": false,
+              "rows": 3,
+              "capacity": 12
+            }
+          ]
+        },
+        {
+          "id": 15,
+          "name": "Palladium",
+          "address": "Schanzenstraße 40",
+          "imageIndoor": "locations/palladium-indoor.jpg",
+          "imageOutdoor": "locations/palladium-outdoor.jpg",
+          "seatGroups": [
+            {
+              "name": "A",
+              "surcharge": 0,
+              "standingArea": true,
+              "capacity": 50
+            }
+          ]
+        },
+        {
+          "id": 16,
+          "name": "E-Werk",
+          "address": "Schanzenstraße 37",
+          "imageIndoor": "locations/e-werk-indoor.jpg",
+          "imageOutdoor": "locations/e-werk-outdoor.jpg",
+          "seatGroups": [
+            {
+              "name": "A",
+              "surcharge": 0,
+              "standingArea": true,
+              "capacity": 40
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

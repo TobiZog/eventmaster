@@ -7,9 +7,9 @@ export class LocationModel {
   id: number
   name: string
   address: string
-  image: string
+  imageIndoor: string
+  imageOutdoor: string
   seatSchema: string
-  logo: string
   city: {
     name: string
     country: string

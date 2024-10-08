@@ -14,7 +14,7 @@ const routes = [
   { path: "/", component: HomePage },
   { path: '/basket', component: BasketPage },
   { path: '/locations', component: LocationsPage },
-  { path: '/locations/:locationName', component: LocationDetailPage },
+  { path: '/locations/:locationName', name: 'locationDetails', component: LocationDetailPage },
   { path: '/bands/:bandName', component: BandDetailPage },
   { path: '/concert/:id', component: TicketOrderPage },
   { path: '/events', component: EventsPage },

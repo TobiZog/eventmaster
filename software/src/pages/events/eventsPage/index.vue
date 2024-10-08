@@ -51,7 +51,6 @@ shoppingStore.getEvents()
 
             <div class="text-h5">
               {{ createDateRangeString(event) }}
-              <!-- {{ console.log(event.concerts) }} -->
             </div>
 
             <div class="text-h5">

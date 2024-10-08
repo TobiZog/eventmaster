@@ -10,13 +10,15 @@ export class CityModel {
     id: number
     name: string
     address: string
-    image: string
+    imageIndoor: string
+    imageOutdoor: string
     nrOfConcerts: number
   }> = [{
     id: -1,
     name: "",
     address: "",
-    image: "",
+    imageIndoor: "",
+    imageOutdoor: "",
     nrOfConcerts: 0
   }]
 }

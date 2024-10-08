@@ -6,6 +6,9 @@ import { SeatGroup } from "./seatGroup.model";
 @Table({ timestamps: false })
 export class Location extends Model {
   @Column
+  urlName: string
+  
+  @Column
   name: String
 
   @Column
@@ -16,10 +19,10 @@ export class Location extends Model {
   cityId: Number
 
   @Column
-  image: String
+  imageIndoor: String
 
   @Column
-  logo: String
+  imageOutdoor: String
 
 
   // Relations

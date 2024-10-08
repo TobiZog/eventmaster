@@ -23,7 +23,6 @@ exercises.get("/", (req: Request, res: Response) => {
 })
 
 exercises.post("/:groupNr/:exerciseNr/:state", (req: Request, res: Response) => {
-  console.log(req.params.groupNr)
   ExerciseGroup.findOne({
     where: { groupNr: req.params.groupNr }
   })

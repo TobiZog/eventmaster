@@ -49,7 +49,7 @@ shoppingStore.getCities()
           <v-row>
             <v-col v-for="location in city.locations" cols="3">
               <card-with-top-image
-                :image="location.image"
+                :image="location.imageOutdoor"
                 :title="location.name"
                 @click="router.push('locations/' + location.name.replaceAll(' ', '-').toLowerCase())"
               >

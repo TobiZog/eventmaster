@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { SeatGroupModel } from '@/data/models/locations/seatGroupModel';
 import seatGroupTable from './seatGroupTable.vue';
-import { useBasketStore } from '@/data/stores/basketStore';
 import standingArea from './standingArea.vue';
 import { ConcertModel } from '@/data/models/acts/concertModel';
 
@@ -10,8 +9,6 @@ defineProps({
   concert: ConcertModel,
   backgroundColor: String
 })
-
-
 </script>
 
 <template>

@@ -70,9 +70,9 @@ location.get("/", (req: Request, res: Response) => {
     })
 })
 
-location.get("/:name", (req: Request, res: Response) => {
+location.get("/:urlName", (req: Request, res: Response) => {
   Location.findOne({
-    where: { name: { [Op.like]: req.params.name } },
+    where: { urlName: req.params.urlName },
     include: [
       City, 
       {

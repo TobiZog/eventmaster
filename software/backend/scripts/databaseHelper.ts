@@ -25,7 +25,7 @@ import accountRoles from "./../data/accountRoles.json"
 import bands from "./../data/bands.json"
 import genres from "./../data/genres.json"
 import events from "./../data/events.json"
-import cities from "./../data/cities.json"
+import citiesLocations from "./../data/cities-locations.json"
 import exercises from "./../data/exercises.json"
 
 
@@ -82,13 +82,14 @@ export async function prepopulateDatabase() {
   AccountRole.bulkCreate(accountRoles.data)
   Genre.bulkCreate(genres.data)
 
-  for (let city of cities.data)
+  for (let city of citiesLocations.data)
   {
     await City.create(city)
       .then(async cityDataset => {
         for (let location of city.locations) 
         {
           location["cityId"] = cityDataset.id
+          location["urlName"] = location.name.replaceAll(" ", "-").toLowerCase()
 
           await Location.create(location)
             .then(async locationDataset => {

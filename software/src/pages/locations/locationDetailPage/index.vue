@@ -18,20 +18,21 @@ const location = ref<LocationModel>(new LocationModel())
 
 feedbackStore.fetchDataFromServerInProgress = true
 
-getLocation(String(router.currentRoute.value.params.locationName).replaceAll('-', ' '))
+getLocation(String(router.currentRoute.value.params.locationName))
   .then(result => {
     location.value = result.data
     feedbackStore.fetchDataFromServerInProgress = false
+    console.log(location.value.seatGroups)
   })
 </script>
 
 <template>
   <hero-image
     :title="location.name"
-    :image="location.image"
+    :image="location.imageIndoor"
     :description="location.address + location.city.name"
     :loading="feedbackStore.fetchDataFromServerInProgress"
-    :logo="location.logo"
+    :logo="location.imageOutdoor"
   >
     <template #description>
       <p class="text-h6">{{ location.address }}</p>

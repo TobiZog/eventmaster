@@ -3,7 +3,6 @@ import { ConcertModel } from '@/data/models/acts/concertModel';
 import { SeatGroupModel } from '@/data/models/locations/seatGroupModel';
 import { SelectedSeatModel } from '@/data/models/ordering/selectedSeatModel';
 import { useBasketStore } from '@/data/stores/basketStore';
-import { concert } from 'backend/routes/concert.routes';
 
 const basketStore = useBasketStore()
 
@@ -52,7 +51,7 @@ function handleSeatClick() {
 
         <v-row>
           <v-col class="text-center text-h6">
-            {{ seatGroup.capacity - seatGroup.occupied }} Stehplätze
+            {{ seatGroup.capacity }} {{ $t('standingPlaces') }}
           </v-col>
         </v-row>
       </v-sheet>
