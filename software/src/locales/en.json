@@ -5,13 +5,17 @@
   "topLocations": "Top Locations",
   "tickets": "Ticket | Tickets",
   "concert": "Concert | Concerts",
+  "resetPreferences": "Reset preferences",
+  "resetDatabase": "Reset database",
+  "resetDatabaseConfirm": {
+    "title": "Reset database?",
+    "description": "Do you really want to reset the server database? This can't be undone! Progress will not be deleted."
+  },
   "preferences": {
     "pageSetup": "Page setup",
     "selectedTheme": "Selected theme",
     "language": "Language",
     "systemSetup": "System setup",
-    "resetDatabase": "Reset database",
-    "resetPreferences": "Reset preferences",
     "resetConfirm": "Really reset the database?"
   },
   "product": {
@@ -93,10 +97,6 @@
     "deleteAccount": {
       "title": "Delete account?",
       "description": "Do you really want to delete the account? This can't be undone!"
-    },
-    "resetConfirm": {
-      "title": "Reset database?",
-      "description": "Do you really want to reset the server database? This can't be undone!"
     }
   },
   "scoreBoard": {
@@ -161,5 +161,7 @@
   "price": "Price",
   "standingArea": "Standing Area",
   "exerciseGroup": "Exercise group",
-  "exercise": "Exercise"
+  "exercise": "Exercise",
+  "resetProgress": "Reset Exercise Progress",
+  "youAreHere": "You are here:"
 }

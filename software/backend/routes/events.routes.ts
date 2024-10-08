@@ -43,6 +43,7 @@ events.get("/", async (req: Request, res: Response) => {
     include: [
       {
         model: Concert,
+        required: true,
         include: [
           {
             model: Location,

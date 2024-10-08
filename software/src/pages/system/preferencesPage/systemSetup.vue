@@ -7,6 +7,7 @@ import { ref } from 'vue';
 import confirmDialog from '@/components/basics/confirmDialog.vue';
 import { getServerState, resetDatabase } from '@/data/api/mainApi';
 import { ServerStateEnum } from '@/data/enums/serverStateEnum';
+import packageJson from './../../../../package.json'
 
 const feedbackStore = useFeedbackStore()
 const showConfirmDialog = ref(false)
@@ -38,16 +39,12 @@ async function resetDb() {
   showConfirmDialog.value = false
   // todo: Request all data
 }
-
-function resetSettings() {
-  // todo
-}
 </script>
 
 <template>
   <card-view
     :title="$t('preferences.systemSetup')"
-    prepend-icon="mdi-engine"
+    icon="mdi-engine"
   >
     <v-row>
       <v-col>
@@ -68,6 +65,13 @@ function resetSettings() {
         </span>
       </v-col>
     </v-row>
+
+    <v-row>
+      <v-col>
+        Software Version: {{ packageJson.version }}
+      </v-col>
+    </v-row>
+
     <v-row>
       <v-col class="d-flex justify-center align-center">
         <outlined-button
@@ -76,23 +80,27 @@ function resetSettings() {
           color="red"
           :disabled="serverOnline != ServerStateEnum.ONLINE"
         >
-          {{ $t('preferences.resetDatabase') }}
+          {{ $t('resetDatabase') }}
         </outlined-button>
       </v-col>
+    </v-row>
+
+    <v-row>
       <v-col class="d-flex justify-center align-center">
         <outlined-button
-          @click="resetSettings"
-          prepend-icon="mdi-cog-counterclockwise"
+          prepend-icon="mdi-progress-close"
+          color="red"
         >
-          {{ $t('preferences.resetPreferences') }}
+          {{ $t('resetProgress') }}
         </outlined-button>
       </v-col>
     </v-row>
   </card-view>
 
+
   <confirm-dialog
-    :title="$t('dialog.resetConfirm.title')"
-    :description="$t('dialog.resetConfirm.description')"
+    :title="$t('resetDatabaseConfirm.title')"
+    :description="$t('resetDatabaseConfirm.description')"
     v-model="showConfirmDialog"
     :onConfirm="resetDb"
   />

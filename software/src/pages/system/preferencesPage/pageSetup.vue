@@ -19,7 +19,10 @@ function changeLanguage() {
 </script>
 
 <template>
-  <card-view :title="$t('preferences.pageSetup')" prepend-icon="mdi-view-dashboard" elevation="8">
+  <card-view
+    :title="$t('preferences.pageSetup')"
+    icon="mdi-view-dashboard"
+  >
     <v-row>
       <v-col>
         <v-select
@@ -27,15 +30,20 @@ function changeLanguage() {
           :items="themeEnums"
           :label="$t('preferences.selectedTheme')"
           @update:model-value="changeTheme"
+          hide-details
         />
       </v-col>
     </v-row>
 
     <v-row>
       <v-col>
-        <v-select v-model="preferencesStore.language" :items="$i18n.availableLocales" :label="$t('preferences.language')"
-        @update:model-value="changeLanguage"
-      />
+        <v-select
+          v-model="preferencesStore.language"
+          :items="$i18n.availableLocales" 
+          :label="$t('preferences.language')"
+          @update:model-value="changeLanguage"
+          hide-details
+        />
       </v-col>
     </v-row>
   </card-view>

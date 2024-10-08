@@ -8,11 +8,13 @@ import { usePreferencesStore } from './data/stores/preferencesStore';
 import { useFeedbackStore } from './data/stores/feedbackStore';
 import { useConcertStore } from './data/stores/concertStore';
 import { LocationModel } from './data/models/locations/locationModel';
+import { useShoppingStore } from './data/stores/shoppingStore';
+import footerItems from './components/navigation/footerItems.vue';
 
 const preferencesStore = usePreferencesStore()
 const concertStore = useConcertStore()
 const feedbackStore = useFeedbackStore()
-
+const shoppingStore = useShoppingStore()
 const theme = useTheme()
 
 theme.global.name.value = preferencesStore.theme
@@ -80,9 +82,19 @@ watch(() => concertStore.genreFilter, () => {
       <!-- Here changes the router the content -->
       <v-container max-width="1400" class="py-0" height="100%">
         <v-sheet color="sheet" height="100%">
+          <v-sheet color="primary" >
+            <v-breadcrumbs class="position-absolute">
+              <v-breadcrumbs-item />
+            </v-breadcrumbs>
+          </v-sheet>
+
           <router-view></router-view>
         </v-sheet>
       </v-container>
+
+      <v-footer color="secondary">
+        <footer-items />
+      </v-footer>
     </v-main>
   </v-app>
 </template>

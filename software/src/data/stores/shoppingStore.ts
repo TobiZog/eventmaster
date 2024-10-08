@@ -13,8 +13,8 @@ export const useShoppingStore = defineStore("shoppingStore", {
     events: ref<Array<EventModel>>([]),
     cities: ref<Array<CityModel>>([]),
     genres: ref<Array<GenreModel>>([]),
-    cityFilterName: ref<String>(),
-    genreFilterName: ref<String>()
+    cityFilterName: ref<string>(),
+    genreFilterName: ref<string>()
   }),
 
   actions: {
@@ -23,8 +23,8 @@ export const useShoppingStore = defineStore("shoppingStore", {
       feedbackStore.fetchDataFromServerInProgress = true
 
       await fetchEvents(
-        this.cityFilterName != null ? this.cityFilterName : "",
-        this.genreFilterName != null ? this.genreFilterName : ""
+        this.cityFilterName != null && this.cityFilterName != "undefined" && !this.cityFilterName.startsWith("<") ? this.cityFilterName : "",
+        this.genreFilterName != null && this.genreFilterName != "undefined" && !this.genreFilterName.startsWith("<") ? this.genreFilterName : ""
       )
         .then(result => {
           this.events = result.data

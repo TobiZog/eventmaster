@@ -1,14 +1,20 @@
 <script setup lang="ts">
 import { createDateRangeString, lowestTicketPrice } from '@/scripts/concertScripts';
 import filterBar from './filterBar.vue';
-import { useRouter } from 'vue-router';
+import { useRouter, useRoute } from 'vue-router';
 import { useShoppingStore } from '@/data/stores/shoppingStore';
 import { useFeedbackStore } from '@/data/stores/feedbackStore';
 import concertListItem from '@/components/pageParts/concertListItem.vue';
+import { useTemplateRef } from 'vue';
 
+const route = useRoute()
 const router = useRouter()
 const shoppingStore = useShoppingStore()
 const feedbackStore = useFeedbackStore()
+
+// Load query attributes
+shoppingStore.cityFilterName = String(route.query.city)
+shoppingStore.genreFilterName = String(route.query.genre)
 
 shoppingStore.getEvents()
 </script>
@@ -17,6 +23,7 @@ shoppingStore.getEvents()
   <v-container>
     <v-row>
       <v-spacer />
+      <!-- <div v-html="route.query.genre" /> -->
 
       <v-col cols="10">
         <v-row>
@@ -44,6 +51,7 @@ shoppingStore.getEvents()
 
             <div class="text-h5">
               {{ createDateRangeString(event) }}
+              <!-- {{ console.log(event.concerts) }} -->
             </div>
 
             <div class="text-h5">

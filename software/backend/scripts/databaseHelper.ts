@@ -42,6 +42,7 @@ export function deleteAllTables() {
   Band.destroy({ truncate: true })
   Event.destroy({ truncate: true })
 
+  City.destroy({ truncate: true })
   Location.destroy({ truncate: true })
   Concert.destroy({ truncate: true })
   SeatGroup.destroy({ truncate: true })
@@ -52,9 +53,24 @@ export function deleteAllTables() {
   Payment.destroy({ truncate: true })
   Account.destroy({ truncate: true })
   AccountRole.destroy({ truncate: true})
+}
 
+export function deleteExerciseProgressTables() {
   Exercise.destroy({truncate: true})
   ExerciseGroup.destroy({truncate: true})
+}
+
+export async function prepopulateExerciseDatabase() {
+  for (let exerciseGroup of exercises.data) {
+    ExerciseGroup.create(exerciseGroup)
+      .then(async dataset => {
+        for (let exercise of exerciseGroup.exercises) {
+          exercise["exerciseGroupId"] = dataset.id
+
+          await Exercise.create(exercise)
+        }
+      })
+  }
 }
 
 /**
@@ -192,17 +208,6 @@ export async function prepopulateDatabase() {
                     })
                 })
             })
-        }
-      })
-  }
-
-  for (let exerciseGroup of exercises.data) {
-    ExerciseGroup.create(exerciseGroup)
-      .then(async dataset => {
-        for (let exercise of exerciseGroup.exercises) {
-          exercise["exerciseGroupId"] = dataset.id
-
-          await Exercise.create(exercise)
         }
       })
   }

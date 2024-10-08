@@ -1,5 +1,5 @@
 import { Request, Response, NextFunction, Router } from 'express'
-import { deleteAllTables, prepopulateDatabase } from '../scripts/databaseHelper'
+import { deleteAllTables, deleteExerciseProgressTables, prepopulateDatabase, prepopulateExerciseDatabase } from '../scripts/databaseHelper'
 
 export const api = Router()
 
@@ -15,5 +15,13 @@ api.get("/resetdatabase", async (req: Request, res: Response, next: NextFunction
   await prepopulateDatabase()
 
   // Step 3: Send status back
+  res.status(200).send()
+})
+
+api.get("/resetExerciseProgress", async (req: Request, res: Response, next: NextFunction) => {
+  deleteExerciseProgressTables()
+  
+  await prepopulateExerciseDatabase()
+  
   res.status(200).send()
 })

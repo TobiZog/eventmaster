@@ -49,15 +49,23 @@ export function calcRatingValues(ratings: Array<RatingModel>) {
   return ratingValues
 }
 
-export function createDateRangeString(tour: TourModel) {
-  const dateArray = []
 
-  for (let concert of tour.concerts) {
+/**
+ * Create a date range string of all concerts from an Event
+ * 
+ * @param event EventModel with a list of concerts
+ * 
+ * @returns A date string. If one concert: dd.MM.YYYY, if two or more: dd.MM.YYYY - dd.MM.YYYY
+ */
+export function createDateRangeString(event: EventModel) {
+  const dateArray: Array<Date> = []
+
+  for (let concert of event.concerts) {
     dateArray.push(new Date(concert.date))
   }
 
   dateArray.sort(function (a, b) {
-    return a - b
+    return a.getUTCMilliseconds() - b.getUTCMilliseconds()
   })
 
 
@@ -69,6 +77,14 @@ export function createDateRangeString(tour: TourModel) {
   }
 }
 
+
+/**
+ * Search in all concerts of an Event for the show with the lowest price
+ * 
+ * @param event EventModel with a list of concerts
+ * 
+ * @returns Lowest ticket price, rounded to two floating point digits
+ */
 export function lowestTicketPrice(event: EventModel): string {
   const priceArray : Array<number> = []
 

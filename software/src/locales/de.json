@@ -5,13 +5,17 @@
   "topLocations": "Top Veranstaltungsorte",
   "tickets": "Ticket | Tickets",
   "concert": "Konzert | Konzerte",
+  "resetPreferences": "Einstellungen zurücksetzen",
+  "resetDatabase": "Datenbank zurücksetzen",
+  "resetConfirm": {
+    "title": "Datenbank zurücksetzen?",
+    "description": "Soll die Datenbank des Servers wirklich zurückgesetzt werden? Dies kann nicht rückgänig gemacht werden! Der Bearbeitungsfortschritt der Aufgaben wird nicht gelöscht."
+  },
   "preferences": {
     "pageSetup": "Seiteneinstellungen",
     "selectedTheme": "Ausgewähltes Theme",
     "language": "Sprache",
     "systemSetup": "Systemeinstellungen",
-    "resetDatabase": "Datenbank zurücksetzen",
-    "resetPreferences": "Einstellungen zurücksetzen",
     "resetConfirm": "Soll die Datenbank wirklich zurückgesetzt werden?"
   },
   "product": {
@@ -93,10 +97,6 @@
     "deleteAccount": {
       "title": "Account löschen?",
       "description": "Soll der Account wirklich gelöscht werden? Dieser kann nicht mehr wiederhergestellt werden!"
-    },
-    "resetConfirm": {
-      "title": "Datenbank zurücksetzen?",
-      "description": "Soll die Datenbank des Servers wirklich zurückgesetzt werden? Dies kann nicht rückgänig gemacht werden!"
     }
   },
   "scoreBoard": {
@@ -161,5 +161,7 @@
   "price": "Preis",
   "standingArea": "Stehbereich",
   "exerciseGroup": "Aufgabengruppe",
-  "exercise": "Aufgabe"
+  "exercise": "Aufgabe",
+  "resetProgress": "Aufgabenfortschritt zurücksetzen",
+  "youAreHere": "Du bist hier:"
 }

@@ -21,3 +21,22 @@ exercises.get("/", (req: Request, res: Response) => {
     res.status(200).json(result)
   })
 })
+
+exercises.post("/:groupNr/:exerciseNr/:state", (req: Request, res: Response) => {
+  console.log(req.params.groupNr)
+  ExerciseGroup.findOne({
+    where: { groupNr: req.params.groupNr }
+  })
+    .then(group => {
+      Exercise.findOne({
+        where: {
+          exerciseNr: req.params.exerciseNr,
+          exerciseGroupId: group.id
+        }
+      })
+        .then(exercise => {
+          exercise.update({ solved: req.params.state == "1"})
+          res.status(200).send()
+        })
+    })
+})

@@ -4,8 +4,10 @@ import outlinedButton from '@/components/basics/outlinedButton.vue';
 import { GenreModel } from '@/data/models/acts/genreModel';
 import { CityModel } from '@/data/models/locations/cityModel';
 import { useShoppingStore } from '@/data/stores/shoppingStore';
+import { useRoute, useRouter } from 'vue-router';
 
 const shoppingStore = useShoppingStore()
+const router = useRouter()
 
 shoppingStore.getCities()
 shoppingStore.getGenres()
@@ -20,6 +22,22 @@ function itemPropsGenre(genre: GenreModel) {
   return {
     title: genre.name
   }
+}
+
+function filter() {
+  let queries = {}
+
+  if (shoppingStore.cityFilterName != null && shoppingStore.cityFilterName != "undefined") {
+    queries["city"] = shoppingStore.cityFilterName
+  }
+
+  if (shoppingStore.genreFilterName != null && shoppingStore.genreFilterName != "undefined") {
+    queries["genre"] = shoppingStore.genreFilterName
+  }
+
+  router.push({ path: '/events', query: queries})
+
+  shoppingStore.getEvents()
 }
 </script>
 
@@ -64,7 +82,7 @@ function itemPropsGenre(genre: GenreModel) {
         <outlined-button
           height="100%"
           append-icon="mdi-chevron-right"
-          @click="shoppingStore.getEvents()"
+          @click="filter"
         >
           {{ $t('filtering') }}
         </outlined-button>
