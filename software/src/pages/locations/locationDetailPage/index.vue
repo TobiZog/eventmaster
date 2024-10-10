@@ -80,7 +80,6 @@ getLocation(String(router.currentRoute.value.params.locationName))
         </v-row>
 
 
-
         <v-row>
           <v-col>
             <section-divider :title="$t('seatPlan')" />
@@ -96,7 +95,7 @@ getLocation(String(router.currentRoute.value.params.locationName))
         <v-row v-else>
           <v-col>
             <seat-plan-map
-              :seat-groups="location.seatGroups"
+              :location="location"
             />
           </v-col>
         </v-row>

@@ -81,7 +81,7 @@ getTopEvents(4)
         <v-row>
           <v-col v-for="i in 8" cols="3">
             <card-with-top-image
-              :image="topLocations[i - 1].image"
+              :image="topLocations[i - 1].imageOutdoor"
               :title="topLocations[i - 1].name"
               smaller-title
               @click="router.push('/locations/' + topLocations[i - 1].name.replaceAll(' ', '-').toLowerCase())"

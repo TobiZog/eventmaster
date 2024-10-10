@@ -9,7 +9,8 @@ const basketStore = useBasketStore()
 let props = defineProps({
   seatGroup: SeatGroupModel,
   concert: ConcertModel,
-  backgroundColor: String
+  backgroundColor: String,
+  withStage: Boolean
 })
 
 function handleSeatClick() {
@@ -31,22 +32,32 @@ function handleSeatClick() {
         class="pa-5"
         min-height="200"
         height="100%"
-        :color="isHovering ? 'red' : backgroundColor"
+        border
+        :color="isHovering ? 'orange' : ''"
         @click="handleSeatClick"
       >
-        <v-row >
-          <v-col class="text-h4 text-center font-weight-black">
-            {{ seatGroup.name }}
-          </v-col>
-        </v-row>
-
         <v-row>
-          <v-col class="text-center">
+          <v-spacer />
+
+          <v-col class="text-center" cols="6">
             <v-icon
+              v-if="!withStage"
               icon="mdi-account-group"
               size="x-large"
             />
+
+            <v-sheet
+              v-else
+              color="grey-darken-3"
+              height="100"
+              width="100%"
+              class="d-flex justify-center align-center"
+            >
+              {{ $t('stage') }}
+            </v-sheet>
           </v-col>
+
+          <v-spacer />
         </v-row>
 
         <v-row>

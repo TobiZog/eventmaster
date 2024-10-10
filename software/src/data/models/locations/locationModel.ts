@@ -10,6 +10,7 @@ export class LocationModel {
   imageIndoor: string
   imageOutdoor: string
   seatSchema: string
+  layout: number
   city: {
     name: string
     country: string

@@ -7,7 +7,7 @@ import { SeatGroup } from "./seatGroup.model";
 export class Location extends Model {
   @Column
   urlName: string
-  
+
   @Column
   name: String
 
@@ -23,6 +23,15 @@ export class Location extends Model {
 
   @Column
   imageOutdoor: String
+
+  /**
+   * Layout identifier of the location
+   * 1 = Stage with simple stay area
+   * 2 = Stage with front stay area and seat places around
+   * 3 = Stage in the middle of the stay area, seat places all around
+   */
+  @Column
+  layout: Number
 
 
   // Relations

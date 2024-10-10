@@ -11,7 +11,22 @@ const basketStore = useBasketStore()
 let props = defineProps({
   seatRows: Array<SeatRowModel>,
   concert: ConcertModel,
-  seatGroup: SeatGroupModel
+  seatGroup: SeatGroupModel,
+
+  /**
+   * Structure of the seat placment
+   * 
+   * 0 = Normal rectangular form, rows from top to bottom (default)
+   * 1 = Normal rectangular form but rows and cols are switched
+   * 2 = Pyramid structure from right bottom corner
+   * 3 = Pyramid structure from right top corner
+   * 4 = Pyramid structure from left top corner
+   * 5 = Pyramid structure from left bottom corner
+   */
+  structure: {
+    type: Number,
+    default: 0
+  }
 })
 
 function handleSeatClick(clickedSeat: SeatModel, seatRow: SeatRowModel) {
@@ -30,27 +45,123 @@ function handleSeatClick(clickedSeat: SeatModel, seatRow: SeatRowModel) {
   }
 }
 
-function seatColor(state: number) {
+function seatColor(surcharge: number, state: number) {
   switch (state) {
-    case 0: return "grey"
-    case 1: return "red"
+    case 0: {
+      switch(surcharge) {
+        case 0: return "orange"
+        case 10: return "teal"
+        case 20: return "green"
+        case 30: return "red"
+      }
+    }
+    case 1: return "grey"
     case 2: return "orange"
   }
 }
 </script>
 
 <template>
-  <table>
+  <table v-if="structure == 0">
     <tbody>
       <tr v-for="seatRow in seatRows">
         <td v-for="seat in seatRow.seats">
           <v-btn
             variant="text"
             icon="mdi-circle"
-            :color="seatColor(seat.state)"
+            :color="seatColor(seatGroup.surcharge, seat.state)"
             :disabled="seat.state == 1"
             density="compact"
             @click="handleSeatClick(seat, seatRow)"
+          />
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <table v-else-if="structure == 1">
+    <tbody>
+      <tr v-for="i in seatRows[0].seats.length">
+        <td v-for="row in seatRows">
+          <v-btn
+            variant="text"
+            icon="mdi-circle"
+            :color="seatColor(seatGroup.surcharge, row.seats[i - 1].state)"
+            :disabled="row.seats[i - 1].state == 1"
+            density="compact"
+            @click="handleSeatClick(row.seats[i - 1], row)"
+          />
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <table v-else-if="structure == 2">
+    <tbody>
+      <tr v-for="i in seatRows.length">
+        <td v-for="j in seatRows[i - 1].seats.length">
+          <v-btn
+            v-if="seatRows[i - 1].seats.length - i < j"
+            variant="text"
+            icon="mdi-circle"
+            :color="seatColor(seatGroup.surcharge, seatRows[i - 1].seats[j - 1].state)"
+            :disabled="seatRows[i - 1].seats[j - 1].state == 1"
+            density="compact"
+            @click="handleSeatClick(seatRows[i - 1].seats[j - 1], seatRows[i - 1])"
+          />
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <table v-else-if="structure == 3">
+    <tbody>
+      <tr v-for="i in seatRows.length">
+        <td v-for="j in seatRows[i - 1].seats.length">
+          <v-btn
+            v-if="j >= i"
+            variant="text"
+            icon="mdi-circle"
+            :color="seatColor(seatGroup.surcharge, seatRows[i - 1].seats[j - 1].state)"
+            :disabled="seatRows[i - 1].seats[j - 1].state == 1"
+            density="compact"
+            @click="handleSeatClick(seatRows[i - 1].seats[j - 1], seatRows[i - 1])"
+          />
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <table v-else-if="structure == 4">
+    <tbody>
+      <tr v-for="i in seatRows.length">
+        <td v-for="j in seatRows[i - 1].seats.length">
+          <v-btn
+            v-if="seatRows[i - 1].seats.length - i >= j - 1"
+            variant="text"
+            icon="mdi-circle"
+            :color="seatColor(seatGroup.surcharge, seatRows[i - 1].seats[j - 1].state)"
+            :disabled="seatRows[i - 1].seats[j - 1].state == 1"
+            density="compact"
+            @click="handleSeatClick(seatRows[i - 1].seats[j - 1], seatRows[i - 1])"
+          />
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <table v-else-if="structure == 5">
+    <tbody>
+      <tr v-for="i in seatRows.length">
+        <td v-for="j in seatRows[i - 1].seats.length">
+          <v-btn
+            v-if="j <= i"
+            variant="text"
+            icon="mdi-circle"
+            :color="seatColor(seatGroup.surcharge, seatRows[i - 1].seats[j - 1].state)"
+            :disabled="seatRows[i - 1].seats[j - 1].state == 1"
+            density="compact"
+            @click="handleSeatClick(seatRows[i - 1].seats[j - 1], seatRows[i - 1])"
           />
         </td>
       </tr>

@@ -42,6 +42,8 @@
     "@types/node": "^22.5.2",
     "@vitejs/plugin-vue": "^5.0.5",
     "nodemon": "^3.1.4",
-    "vite": "^5.3.1"
+    "vite": "^5.3.1",
+    "vue-svg-loader": "^0.16.0",
+    "vue-template-compiler": "^2.7.16"
   }
 }

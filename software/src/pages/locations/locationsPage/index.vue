@@ -15,6 +15,9 @@ shoppingStore.getCities()
 <template>
   <v-container>
     <v-row>
+
+    </v-row>
+    <v-row>
       <v-spacer />
 
       <v-col cols="10">
