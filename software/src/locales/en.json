@@ -169,5 +169,6 @@
     "title": "Reset Exercise progress?",
     "description": "Do you really want to reset the exercise progress? This can't be undone!"
   },
-  "goToTheConcert": "To the concert"
+  "goToTheConcert": "To the concert",
+  "selectedConcert": "Selected Concert"
 }

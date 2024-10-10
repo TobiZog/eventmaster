@@ -65,8 +65,9 @@ getLocation(String(router.currentRoute.value.params.locationName))
             <concert-list-item
               :date="concert.date"
               :title="concert.event.name"
+              :in-stock="concert.inStock"
               :price="concert.price"
-              @click="() => router.push('/bands/' + concert.event.bandName.replaceAll(' ', '-').toLowerCase())"
+              :onClick="() => router.push('/bands/' + concert.event.bandName.replaceAll(' ', '-').toLowerCase())"
             >
               <template #description>
                 {{ concert.event.bandName }}

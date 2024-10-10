@@ -7,7 +7,10 @@ import { useRouter } from 'vue-router';
 const router = useRouter()
 
 defineProps({
+  /** Event to display */
   event: EventModel,
+
+  /** Display text parts as skeleton */
   loading: Boolean
 })
 </script>
@@ -15,26 +18,25 @@ defineProps({
 <template>
   <card-view-horizontal
     v-if="!loading"
+    :title="event.band.name + ' - ' + event.name"
     :image="'http://localhost:3000/static/' + event.image"
     @click="router.push('/bands/' + event.band.name.replaceAll(' ', '-').toLowerCase())"
   >
     <template #content>
-      <div class="text-h6 font-weight-black pt-1">
-        {{ event.band.name }} - {{ event.name }}
-      </div>
-      
-      <div class="descriptionShort mb-2 pr-4 text-disabled" >
+      <div class="oneLine my-2 pr-4 text-disabled" >
         {{ event.band.descriptionDe }}
+        <!-- todo: Englisch text -->
       </div>
 
-      <div class="text-disabled">
-        {{ createDateRangeString(event) }} - {{ event.concerts.length }} {{ $t('concert', event.concerts.length) }}
+      <div class="text-disabled oneLine">
+        {{ createDateRangeString(event) }} - {{ event.concerts.length }} 
+          {{ $t('concert', event.concerts.length) }}
       </div>
     </template>
 
     <template #append>
       <div>
-        <div class="text-secondary font-weight-medium text-body-1 pb-1">
+        <div class="text-secondary font-weight-medium text-h6 pb-1">
           {{ $t('from') + ' ' + lowestTicketPrice(event) + ' €' }}
         </div>
 
@@ -57,11 +59,11 @@ defineProps({
 </template>
 
 <style scoped>
-.descriptionShort {
+.oneLine {
    overflow: hidden;
    display: -webkit-box;
-   -webkit-line-clamp: 2; /* number of lines to show */
-           line-clamp: 2; 
+   -webkit-line-clamp: 1; /* number of lines to show */
+           line-clamp: 1; 
    -webkit-box-orient: vertical;
 }
 </style>

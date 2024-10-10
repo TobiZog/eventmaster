@@ -1,12 +1,11 @@
 <script setup lang="ts">
 import filterBar from './filterBar.vue';
-import { useRouter, useRoute } from 'vue-router';
+import { useRoute } from 'vue-router';
 import { useShoppingStore } from '@/data/stores/shoppingStore';
 import { useFeedbackStore } from '@/data/stores/feedbackStore';
-import eventListItem from './eventListItem.vue';
+import eventListItem from '../../../components/pageParts/eventListItem.vue';
 
 const route = useRoute()
-const router = useRouter()
 const shoppingStore = useShoppingStore()
 const feedbackStore = useFeedbackStore()
 
@@ -21,7 +20,6 @@ shoppingStore.getEvents()
   <v-container>
     <v-row>
       <v-spacer />
-      <!-- <div v-html="route.query.genre" /> -->
 
       <v-col cols="10">
         <v-row>
@@ -30,11 +28,16 @@ shoppingStore.getEvents()
           </v-col>
         </v-row>
 
-        <event-list-item
+        <v-row
           v-if="feedbackStore.fetchDataFromServerInProgress"
           v-for="i in 3"
-          :loading="true"
-        />
+        >
+          <v-col>
+            <event-list-item
+              :loading="true"
+            />
+          </v-col>
+        </v-row>
 
         <v-row
           v-else-if="shoppingStore.events.length > 0"

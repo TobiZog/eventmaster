@@ -1,20 +1,43 @@
 <script setup lang="ts">
 import cardViewHorizontal from '@/components/basics/cardViewHorizontal.vue';
-import { ConcertModel } from '@/data/models/acts/concertModel';
 
 defineProps({
-  concert: ConcertModel,
+  /** Date of the concert */
   date: String,
+
+  /** Card title */
   title: String,
-  description: String,
+
+  /** Name of the event */
   eventName: String,
+
+  /** Price of the cheapest ticket option */
   price: Number,
-  loading: Boolean
+
+  /** Number of available tickets, important to mark a concert as "sold out" */
+  inStock: Number,
+
+  /** Display text parts as skeleton */
+  loading: Boolean,
+
+  /** Show or hide the button on the right side */
+  showButton: {
+    type: Boolean,
+    default: true
+  },
+
+  /** Behaviour if user clicks on button or card */
+  onClick: Function
 })
 </script>
 
 <template>
-  <card-view-horizontal v-if="!loading">
+  <card-view-horizontal
+    :title="title"
+    v-if="!loading"
+    :link="showButton && inStock > 0"
+    @click="showButton && inStock > 0 ? onClick() : () => {}"
+  >
     <template #prepend>
       <div>
         <div class="text-h4">
@@ -32,28 +55,25 @@ defineProps({
     </template>
 
     <template #content>
-      <div>
-        <div class="text-h4 font-weight-black pt-2 h-100">
-          {{ title }}
-        </div>
-
-        <div class="text-disabled">
-          <slot name="description" />
-        </div>
-      </div>
+      <slot name="description" />
     </template>
 
     <template #append>
       <div>
-        <div class="text-secondary font-weight-medium text-body-1 pb-1">
+        <div class="text-secondary font-weight-medium text-h6 pb-1">
           {{ $t('from') + ' ' + price.toFixed(2) + ' €' }}
         </div>
 
-        <div>
+        <div v-if="inStock == 0 && showButton" class="text-h6">
+          {{ $t('soldOut') }}
+        </div>
+
+        <div v-else-if="showButton">
           <v-btn variant="flat" color="secondary">
             {{ $t('goToTheConcert') }}
           </v-btn>
         </div>
+
       </div>
     </template>
   </card-view-horizontal>

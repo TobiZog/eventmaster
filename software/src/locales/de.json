@@ -169,5 +169,6 @@
     "title": "Übungsfortschritt zurücksetzen?",
     "description": "Soll der Bearbeitungsfortschritt der Übungen wirklich zurückgesetzt werden? Dies kann nicht rückgänig gemacht werden!"
   },
-  "goToTheConcert": "Zum Konzert"
+  "goToTheConcert": "Zum Konzert",
+  "selectedConcert": "Ausgewähltes Konzert"
 }

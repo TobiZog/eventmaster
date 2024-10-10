@@ -30,7 +30,8 @@ defineProps({
         :title="concert.location.city.name"
         :description="concert.location.name"
         :link="concert.inStock > 0"
-        @click="(concert.inStock > 0) && router.push('/concert/' + concert.id)"
+        :in-stock="concert.inStock"
+        :onClick="() => router.push('/concert/' + concert.id)"
       >
         <template #description>
           <div>

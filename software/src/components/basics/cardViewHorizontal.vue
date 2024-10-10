@@ -3,6 +3,8 @@ defineProps({
   /** Image to display on the left side (if prepend slot is not in use) */
   image: String,
 
+  title: String,
+
   /** Make the CardView click- and hoverable */
   link: {
     type: Boolean,
@@ -16,9 +18,7 @@ defineProps({
   height: {
     type: Number,
     default: 140
-  },
-
-  colorHeader: String
+  }
 })
 </script>
 
@@ -76,7 +76,15 @@ defineProps({
           <v-sheet
             :height="height"
           >
-            <slot name="content" />
+            <div>
+              <div class="text-h4 font-weight-black pt-2 h-100">
+                {{ title }}
+              </div>
+
+              <div class="text-disabled">
+                <slot name="content" />
+              </div>
+            </div>
           </v-sheet>
         </v-skeleton-loader>
       </v-col>

@@ -9,7 +9,6 @@ import sectionDivider from '@/components/basics/sectionDivider.vue';
 import { useBasketStore } from '@/data/stores/basketStore';
 import concertListItem from '@/components/pageParts/concertListItem.vue';
 import { ConcertModel } from '@/data/models/acts/concertModel';
-import { dateStringToHumanReadableString } from '@/scripts/dateTimeScripts';
 import outlinedButton from '@/components/basics/outlinedButton.vue';
 
 const router = useRouter()
@@ -36,16 +35,24 @@ getConcert(Number(router.currentRoute.value.params.id))
       <v-col cols="10">
         <v-row>
           <v-col>
+            <section-divider :title="$t('selectedConcert')"  />
+          </v-col>
+        </v-row>
+
+        <v-row>
+          <v-col>
             <concert-list-item
               :loading="feedbackStore.fetchDataFromServerInProgress"
               :link="false"
-              :title="concertModel.event.band.name + ' - ' + concertModel.event.name"
+              :title="concertModel.location.city.name"
               :image="concertModel.location.imageOutdoor"
+              :date="concertModel.date"
+              :price="concertModel.price"
+              :show-button="false"
             >
               <template #description>
-                <p>{{ dateStringToHumanReadableString(concertModel.date) }}</p>
                 <p>{{ concertModel.location.name }}</p>
-                <p>{{ concertModel.location.city.name }}</p>
+                <p>{{ concertModel.event.band.name }} - {{ concertModel.event.name }}</p>
               </template>
             </concert-list-item>
           </v-col>
