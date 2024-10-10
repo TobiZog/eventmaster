@@ -1,62 +1,68 @@
 <script setup lang="ts">
-import cardWithLeftImage from '../basics/cardViewLeftImage.vue';
+import cardViewHorizontal from '@/components/basics/cardViewHorizontal.vue';
+import { ConcertModel } from '@/data/models/acts/concertModel';
 
 defineProps({
-  /** Image to print on the left side */ 
-  image: String,
+  concert: ConcertModel,
+  date: String,
   title: String,
-  loading: Boolean,
-  appendIcon: {
-    type: String,
-    default: "mdi-ticket"
-  },
-  appendIconColor: {
-    type: String,
-    default: "secondary"
-  },
-  link: {
-    type: Boolean,
-    default: true
-  }
+  description: String,
+  eventName: String,
+  price: Number,
+  loading: Boolean
 })
 </script>
 
 <template>
-  <v-row v-if="!loading">
-    <v-col>
-      <card-with-left-image
-        :title="title"
-        :image="'http://localhost:3000/static/' + image"
-        :link="link"
-      >
-        <template #content>
-          <div>
-            <slot name="content" />
-          </div>
-        </template>
+  <card-view-horizontal v-if="!loading">
+    <template #prepend>
+      <div>
+        <div class="text-h4">
+          {{ String(new Date(date).getDate()).padStart(2, "0") }}
+        </div>
 
-        <template #append>
-          <div>
-            <div>
-              <v-icon
-                :icon="appendIcon"
-                :color="appendIconColor"
-                size="x-large"
-              />
-            </div>
-            <slot name="append-text"></slot>
-          </div>
-        </template>
-      </card-with-left-image>
-    </v-col>
-  </v-row>
+        <div class="text-h6">
+          {{ new Date(date).toLocaleString('default', { month: 'long' }) }}
+        </div>
 
-  <v-row v-else>
-    <v-col>
-      <card-with-left-image :loading="loading">
-        <v-skeleton-loader
-          type="text" />
-      </card-with-left-image>
-    </v-col>
-  </v-row>
+        <div class="text-h6">
+          {{ new Date(date).getFullYear() }}
+        </div>
+      </div>
+    </template>
+
+    <template #content>
+      <div>
+        <div class="text-h4 font-weight-black pt-2 h-100">
+          {{ title }}
+        </div>
+
+        <div class="text-disabled">
+          <slot name="description" />
+        </div>
+      </div>
+    </template>
+
+    <template #append>
+      <div>
+        <div class="text-secondary font-weight-medium text-body-1 pb-1">
+          {{ $t('from') + ' ' + price.toFixed(2) + ' €' }}
+        </div>
+
+        <div>
+          <v-btn variant="flat" color="secondary">
+            {{ $t('goToTheConcert') }}
+          </v-btn>
+        </div>
+      </div>
+    </template>
+  </card-view-horizontal>
+
+  <card-view-horizontal 
+    v-else
+    :loading="loading"
+  >
+    <v-skeleton-loader
+      type="text" />
+  </card-view-horizontal>
 </template>

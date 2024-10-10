@@ -1,10 +1,7 @@
 <script setup lang="ts">
 defineProps({
-  /** Image to display on the left side */
+  /** Image to display on the left side (if prepend slot is not in use) */
   image: String,
-
-  /** Title in the top bar */
-  title: String,
 
   /** Make the CardView click- and hoverable */
   link: {
@@ -18,7 +15,7 @@ defineProps({
   /** Height of the card, default 140px */
   height: {
     type: Number,
-    default: 200
+    default: 140
   },
 
   colorHeader: String
@@ -29,54 +26,68 @@ defineProps({
   <v-card
     variant="tonal"
     :link="link"
+    :height="height"
   >
-    <v-card-title v-if="title" color="primary" class="pa-0">
-      <v-sheet color="primary" class="pl-2 py-1">
-        {{ title }}
-      </v-sheet>
-    </v-card-title>
-
-    <v-row :height="height">
-      <!-- First col for image -->
+    <v-row
+      no-gutters
+    >
+      <!-- First col for image or prepend text -->
       <v-col
-        cols="3"
+        :cols="!$slots.prepend ? 'auto' : 2"
       >
         <v-skeleton-loader
+          v-if="!$slots.prepend"
           type="image"
           :loading="loading"
         >
           <v-img 
             :src="image" 
             :height="height"
-            :width="100"
-            aspect-ratio="1"
+            :width="height"
             cover
           />
         </v-skeleton-loader>
+
+        <v-skeleton-loader
+          v-else
+          type="text"
+          :loading="loading"
+        >
+          <v-sheet
+            :height="height"
+            width="100%"
+            class="text-center d-flex justify-center align-center"
+          >
+            <slot name="prepend" />
+          </v-sheet>
+        </v-skeleton-loader>
       </v-col>
+
+      <v-divider vertical v-if="$slots.prepend" />
 
       <!-- Second col for main content -->
       <v-col
-        cols="7"
-        class="text-h5"
+        class="pl-2"
       >
         <v-skeleton-loader
           :loading="loading"
           type="sentences"
-          class="my-2"
         >
-          <div>
+          <v-sheet
+            :height="height"
+          >
             <slot name="content" />
-          </div>
+          </v-sheet>
         </v-skeleton-loader>
       </v-col>
 
-      <v-divider vertical class="mt-3" />
+      <v-divider vertical />
 
       <!-- Third col for append content after the divider -->
       <v-col
-        cols="2"
-        class="text-center pr-5 text-h5 d-flex justify-center align-center"
+        class="text-center d-flex justify-center align-center"
+        cols="3"
+        lg="2"
       >
         <slot name="append"></slot>
       </v-col>

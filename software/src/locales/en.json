@@ -143,7 +143,7 @@
   "loading": "Loading",
   "orderSummary": "Order Summary",
   "basket": "Basket",
-  "event": "Event",
+  "event": "Event | Events",
   "hello": "Hello",
   "accountManagement": "Account Management",
   "accountManagementDescription": "Contact data, Addresses, Payment methods",
@@ -168,5 +168,6 @@
   "resetExerciseProgressConfirm": {
     "title": "Reset Exercise progress?",
     "description": "Do you really want to reset the exercise progress? This can't be undone!"
-  }
+  },
+  "goToTheConcert": "To the concert"
 }

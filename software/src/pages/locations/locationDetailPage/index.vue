@@ -57,18 +57,23 @@ getLocation(String(router.currentRoute.value.params.locationName))
           </v-col>
         </v-row>
 
-        <concert-list-item
+        <v-row
           v-else-if="location.concerts.length > 0"
           v-for="concert of location.concerts"
-          :image="concert.event.image"
-          :title="concert.event.bandName + ' - ' +  concert.event.name"
-          :description="dateStringToHumanReadableString(concert.date)"
-          :onClick="() => router.push('/bands/' + concert.event.bandName.replaceAll(' ', '-').toLowerCase())"
         >
-          <template #append-text>
-            {{ $t('from') + ' ' + concert.price.toFixed(2) + ' €' }}
-          </template>
-        </concert-list-item>
+          <v-col>
+            <concert-list-item
+              :date="concert.date"
+              :title="concert.event.name"
+              :price="concert.price"
+              @click="() => router.push('/bands/' + concert.event.bandName.replaceAll(' ', '-').toLowerCase())"
+            >
+              <template #description>
+                {{ concert.event.bandName }}
+              </template>
+            </concert-list-item>
+          </v-col>
+        </v-row>
 
         <v-row v-else>
           <v-col>

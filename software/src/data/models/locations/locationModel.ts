@@ -20,6 +20,7 @@ export class LocationModel {
     date: string
     price: number
     inStock: number
+    location: string
     event: {
       name: string
       offered: boolean

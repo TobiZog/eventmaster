@@ -17,7 +17,7 @@ const vuetify = createVuetify({
         dark: true,
         colors: {
           primary: colors.blue.darken4,
-          secondary: colors.blue.lighten2,
+          secondary: colors.blue.lighten1,
           sheet: colors.grey.darken4
         }
       },
@@ -25,7 +25,7 @@ const vuetify = createVuetify({
         dark: false,
         colors: {
           primary: colors.blue.darken4,
-          secondary: colors.blue.darken2,
+          secondary: colors.blue.darken1,
           sheet: colors.grey.lighten3
         }
       },

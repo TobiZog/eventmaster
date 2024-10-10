@@ -1,11 +1,9 @@
 <script setup lang="ts">
-import { createDateRangeString, lowestTicketPrice } from '@/scripts/concertScripts';
 import filterBar from './filterBar.vue';
 import { useRouter, useRoute } from 'vue-router';
 import { useShoppingStore } from '@/data/stores/shoppingStore';
 import { useFeedbackStore } from '@/data/stores/feedbackStore';
-import concertListItem from '@/components/pageParts/concertListItem.vue';
-import { useTemplateRef } from 'vue';
+import eventListItem from './eventListItem.vue';
 
 const route = useRoute()
 const router = useRouter()
@@ -32,36 +30,22 @@ shoppingStore.getEvents()
           </v-col>
         </v-row>
 
-        <concert-list-item
+        <event-list-item
           v-if="feedbackStore.fetchDataFromServerInProgress"
           v-for="i in 3"
           :loading="true"
         />
 
-        <concert-list-item
+        <v-row
           v-else-if="shoppingStore.events.length > 0"
           v-for="event of shoppingStore.events"
-          :image="event.image"
-          @click="router.push('/bands/' + event.band.name.replaceAll(' ', '-').toLowerCase())"
         >
-          <template #content>
-            <div class="text-h4">
-              {{ event.band.name + ' - ' +  event.name }}
-            </div>
-
-            <div class="text-h5">
-              {{ createDateRangeString(event) }}
-            </div>
-
-            <div class="text-h5">
-              {{ event.concerts.length }} {{ $t('concert', event.concerts.length) }}
-            </div>
-          </template>
-
-          <template #append-text>
-            {{ $t('from') + ' ' + lowestTicketPrice(event) + ' €' }}
-          </template>
-        </concert-list-item>
+          <v-col>
+            <event-list-item
+              :event="event"
+            />
+          </v-col>
+        </v-row>
 
         <v-row v-else>
           <v-col>

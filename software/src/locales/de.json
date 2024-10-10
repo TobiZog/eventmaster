@@ -143,7 +143,7 @@
   "loading": "Lade",
   "orderSummary": "Bestellübersicht",
   "basket": "Warenkorb",
-  "event": "Event",
+  "event": "Event | Events",
   "hello": "Hallo",
   "accountManagement": "Account verwalten",
   "accountManagementDescription": "Persönliche Daten, Adressen, Bezahlmethoden",
@@ -168,5 +168,6 @@
   "resetExerciseProgressConfirm": {
     "title": "Übungsfortschritt zurücksetzen?",
     "description": "Soll der Bearbeitungsfortschritt der Übungen wirklich zurückgesetzt werden? Dies kann nicht rückgänig gemacht werden!"
-  }
+  },
+  "goToTheConcert": "Zum Konzert"
 }

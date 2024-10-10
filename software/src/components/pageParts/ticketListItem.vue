@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ConcertModel } from '@/data/models/acts/concertModel';
-import cardWithLeftImage from '../basics/cardViewLeftImage.vue';
+import cardWithLeftImage from '../basics/cardViewHorizontal.vue';
 import { dateStringToHumanReadableString, dateToHumanReadableString } from '@/scripts/dateTimeScripts';
 
 defineProps({

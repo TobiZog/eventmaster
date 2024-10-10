@@ -42,8 +42,7 @@ defineProps({
           />
         </template>
       </v-img>
-      
-      </v-skeleton-loader>
+    </v-skeleton-loader>
 
     <v-skeleton-loader
       :loading="loading"
@@ -64,7 +63,7 @@ defineProps({
       type="sentences"
       :loading="loading"
     >
-      <div class="px-4 pb-4" v-if="$slots.default">
+      <div class="px-4 pb-4 text-disabled" v-if="$slots.default">
         <slot></slot>
       </div>
     </v-skeleton-loader>

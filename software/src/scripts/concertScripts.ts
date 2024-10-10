@@ -70,7 +70,7 @@ export function createDateRangeString(event: EventModel) {
 
 
   if (dateArray.length > 1) {
-    return dateToHumanReadableString(dateArray[0]) + ' - ' + 
+    return dateToHumanReadableString(dateArray[0]) + ' － ' + 
       dateToHumanReadableString(dateArray[dateArray.length - 1])
   } else {
     return dateToHumanReadableString(dateArray[0])
