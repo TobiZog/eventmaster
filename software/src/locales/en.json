@@ -164,5 +164,9 @@
   "exercise": "Exercise",
   "resetProgress": "Reset Exercise Progress",
   "youAreHere": "You are here:",
-  "standingPlaces": "Standing capacity"
+  "standingPlaces": "Standing capacity",
+  "resetExerciseProgressConfirm": {
+    "title": "Reset Exercise progress?",
+    "description": "Do you really want to reset the exercise progress? This can't be undone!"
+  }
 }

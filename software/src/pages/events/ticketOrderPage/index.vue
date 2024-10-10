@@ -40,7 +40,7 @@ getConcert(Number(router.currentRoute.value.params.id))
               :loading="feedbackStore.fetchDataFromServerInProgress"
               :link="false"
               :title="concertModel.event.band.name + ' - ' + concertModel.event.name"
-              :image="concertModel.location.image"
+              :image="concertModel.location.imageOutdoor"
             >
               <template #description>
                 <p>{{ dateStringToHumanReadableString(concertModel.date) }}</p>
@@ -71,7 +71,8 @@ getConcert(Number(router.currentRoute.value.params.id))
           </v-col>
 
           <v-col v-else>
-            <seat-plan-map :concert="concertModel" :seat-groups="seatGroups" />
+            <seat-plan-map
+              :concert="concertModel" :seat-groups="seatGroups" :location="concertModel.location" />
           </v-col>
         </v-row>
 

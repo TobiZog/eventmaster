@@ -10,3 +10,7 @@ export function getServerState() {
 export function resetDatabase() {
   return axios.get(BASE_URL + "/resetdatabase")
 }
+
+export function resetExerciseProgress() {
+  return axios.get(BASE_URL + "/resetExerciseProgress")
+}

@@ -7,7 +7,7 @@
   "concert": "Konzert | Konzerte",
   "resetPreferences": "Einstellungen zurücksetzen",
   "resetDatabase": "Datenbank zurücksetzen",
-  "resetConfirm": {
+  "resetDatabaseConfirm": {
     "title": "Datenbank zurücksetzen?",
     "description": "Soll die Datenbank des Servers wirklich zurückgesetzt werden? Dies kann nicht rückgänig gemacht werden! Der Bearbeitungsfortschritt der Aufgaben wird nicht gelöscht."
   },
@@ -164,5 +164,9 @@
   "exercise": "Aufgabe",
   "resetProgress": "Aufgabenfortschritt zurücksetzen",
   "youAreHere": "Du bist hier:",
-  "standingPlaces": "Stehplätze"
+  "standingPlaces": "Stehplätze",
+  "resetExerciseProgressConfirm": {
+    "title": "Übungsfortschritt zurücksetzen?",
+    "description": "Soll der Bearbeitungsfortschritt der Übungen wirklich zurückgesetzt werden? Dies kann nicht rückgänig gemacht werden!"
+  }
 }

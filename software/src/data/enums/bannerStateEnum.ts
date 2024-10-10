@@ -14,6 +14,9 @@ export enum BannerStateEnum {
   // Status: 200 OK
   DATABASERESETSUCCESSFUL,
 
+  // Status: 200 OK
+  EXERCISEPROGRESSRESETSUCCESSFUL,
+
 
   ////////// API Endpoint /accounts //////////
 

@@ -27,7 +27,7 @@ defineProps({
     <v-col>
       <concert-list-item
         :title="dateStringToHumanReadableString(concert.date)"
-        :image="concert.location.image"
+        :image="concert.location.imageOutdoor"
         @click="(concert.inStock > 0) && router.push('/concert/' + concert.id)"
         :link="concert.inStock > 0"
         :append-icon="concert.inStock == 0 ? 'mdi-minus-circle' : 'mdi-ticket'"
