@@ -12,6 +12,7 @@ const searchStore = useSearchStore()
       hide-details
       v-model="searchStore.searchTerm"
       :placeholder="$t('enterSomeKeywords')"
+      @keyup.enter="searchStore.startSearch"
     >
       <template #append-inner>
         <v-btn

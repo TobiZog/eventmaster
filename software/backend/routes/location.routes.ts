@@ -116,7 +116,8 @@ location.get("/search", (req: Request, res: Response) => {
       name: {
         [Op.substring]: req.query.value
       }
-    }
+    },
+    include: [ Concert ]
   })
     .then(locations => {
       res.status(200).json(locations)

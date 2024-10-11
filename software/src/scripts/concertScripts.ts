@@ -1,6 +1,8 @@
 import { RatingModel } from "@/data/models/acts/ratingModel"
 import { dateToHumanReadableString } from "./dateTimeScripts"
 import { ConcertModel } from "@/data/models/acts/concertModel"
+import { EventModel } from "@/data/models/acts/eventModel"
+import { EventApiModel } from "@/data/models/acts/eventApiModel"
 
 /**
  * Calculate a price based on parameters
@@ -98,6 +100,24 @@ export function lowestTicketPrice(concerts: Array<ConcertModel>): string {
 
   for (let concert of concerts) {
     priceArray.push(concert.price)
+  }
+
+  priceArray.sort()
+
+  try {
+    return priceArray[0].toFixed(2)
+  } catch(e) {
+    return "0"
+  }
+}
+
+export function lowestTicketPriceEvents(events: Array<EventApiModel>) {
+  const priceArray : Array<number> = []
+
+  for (let event of events) {
+    for (let concert of event.concerts) {
+      priceArray.push(concert.price)
+    }
   }
 
   priceArray.sort()

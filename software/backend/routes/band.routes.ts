@@ -118,8 +118,19 @@ band.get("/search", (req: Request, res: Response) => {
     where: {
       name: {
         [Op.substring]: req.query.value
+      },
+    },
+    include: [
+      {
+        model: Event,
+        include: [
+          Concert
+        ]
+      },
+      {
+        model: Genre
       }
-    }
+    ]
   })
     .then(bands => {
       res.status(200).json(bands)

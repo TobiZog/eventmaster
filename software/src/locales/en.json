@@ -171,5 +171,7 @@
   },
   "goToTheConcert": "To the concert",
   "selectedConcert": "Selected Concert",
-  "enterSomeKeywords": "Enter keywords to search for bands, events, concerts and locations"
+  "enterSomeKeywords": "Enter keywords to search for bands, events, concerts and locations",
+  "noBandFound": "No band found",
+  "noLocationsFound": "No location found"
 }
