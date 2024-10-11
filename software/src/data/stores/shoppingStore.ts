@@ -1,18 +1,18 @@
 import { defineStore } from "pinia";
 import { ref } from "vue";
-import { EventModel } from "../models/acts/eventModel";
 import { fetchEvents } from "../api/eventApi";
 import { fetchAllCities } from "../api/cityApi";
-import { CityModel } from "../models/locations/cityModel";
-import { GenreModel } from "../models/acts/genreModel";
 import { fetchAllGenres } from "../api/genreApi";
 import { useFeedbackStore } from "./feedbackStore";
+import { CityApiModel } from "../models/locations/cityApiModel";
+import { EventApiModel } from "../models/acts/eventApiModel";
+import { GenreApiModel } from "../models/acts/genreApiModel";
 
 export const useShoppingStore = defineStore("shoppingStore", {
   state: () => ({
-    events: ref<Array<EventModel>>([]),
-    cities: ref<Array<CityModel>>([]),
-    genres: ref<Array<GenreModel>>([]),
+    events: ref<Array<EventApiModel>>([]),
+    cities: ref<Array<CityApiModel>>([]),
+    genres: ref<Array<GenreApiModel>>([]),
     cityFilterName: ref<string>(),
     genreFilterName: ref<string>()
   }),

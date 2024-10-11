@@ -8,6 +8,8 @@ import { PaymentModel } from "../models/user/paymentModel";
 import { ref } from "vue";
 import { SelectedSeatModel } from "../models/ordering/selectedSeatModel";
 import { calcPrice } from "@/scripts/concertScripts";
+import { EventModel } from "../models/acts/eventModel";
+import { BandModel } from "../models/acts/bandModel";
 
 export const useBasketStore = defineStore('basketStore', {
   state: () => ({
@@ -49,7 +51,7 @@ export const useBasketStore = defineStore('basketStore', {
       )
     },
 
-    moveSeatSelectionsToBasket() {
+    moveSeatSelectionsToBasket(event: EventModel, band: BandModel) {
       for (let selectedSeat of this.selectedSeats) {
         let itemInBasket: BasketItemModel = this.itemsInBasket.find((basketItem: BasketItemModel) => {
           return basketItem.concert.id == selectedSeat.concert.id
@@ -59,7 +61,13 @@ export const useBasketStore = defineStore('basketStore', {
           itemInBasket.seats.push(selectedSeat.seat)
         } else {
           this.itemsInBasket.push(
-            new BasketItemModel(selectedSeat.concert, selectedSeat.seat, selectedSeat.concert.price)
+            new BasketItemModel(
+              selectedSeat.concert,
+              event,
+              band,
+              selectedSeat.seat,
+              selectedSeat.concert.price
+            )
           )
         }
       }

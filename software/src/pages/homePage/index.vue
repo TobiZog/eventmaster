@@ -9,13 +9,14 @@ import { useFeedbackStore } from '@/data/stores/feedbackStore';
 import { ref } from 'vue';
 import { EventModel } from '@/data/models/acts/eventModel';
 import { getTopEvents } from '@/data/api/eventApi';
-import { LocationModel } from '@/data/models/locations/locationModel';
 import { getTopLocations } from '@/data/api/locationApi';
+import { LocationApiModel } from '@/data/models/locations/locationApiModel';
+import { EventApiModel } from '@/data/models/acts/eventApiModel';
 
 const router = useRouter()
 const feedbackStore = useFeedbackStore()
-const topEvents = ref<Array<EventModel>>(Array.from({length: 4}, () => new EventModel()))
-const topLocations = ref<Array<LocationModel>>(Array.from({length: 8}, () => new LocationModel()))
+const topEvents = ref<Array<EventApiModel>>(Array.from({length: 4}, () => new EventApiModel()))
+const topLocations = ref<Array<LocationApiModel>>(Array.from({length: 8}, () => new LocationApiModel()))
 
 feedbackStore.fetchDataFromServerInProgress = true
 
@@ -54,7 +55,7 @@ getTopEvents(4)
               @click="router.push('/bands/' + topEvents[i - 1].band.name.replaceAll(' ', '-').toLowerCase())"
               :loading="feedbackStore.fetchDataFromServerInProgress"
             >
-              ab {{ lowestTicketPrice(topEvents[i - 1]) }} €
+              ab {{ lowestTicketPrice(topEvents[i - 1].concerts) }} €
             </card-with-top-image>
           </v-col>
         </v-row>

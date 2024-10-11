@@ -1,12 +1,21 @@
 <script setup lang="ts">
-import { useFeedbackStore } from '@/data/stores/feedbackStore';
-
 defineProps({
+  /** Background image */
   image: String,
+
+  /** Mini image on the left */
   logo: String,
+
+  /** Title */
   title: String,
+
+  /** Array of string to display as chips */
   chips: Array<String>,
+
+  /** Description text */
   description: String,
+
+  /** If true, display skeleton loader */
   loading: Boolean
 })
 </script>
@@ -21,6 +30,7 @@ defineProps({
     >
       <div class="position-absolute bottom-0 pa-5" style="width: 100%;">
         <v-row>
+          <!-- Logo -->
           <v-col cols="2">
             <v-skeleton-loader
               type="image"
@@ -40,19 +50,24 @@ defineProps({
             </v-skeleton-loader>
           </v-col>
 
+
           <v-col cols="8">
+            <!-- Title -->
             <v-skeleton-loader
               type="heading"
               :loading="loading"
               width="500"
             >
-              <span class="text-h3">{{ title }}</span>
+              <span class="text-h3 font-weight-bold">
+                {{ title }}
+              </span>
             </v-skeleton-loader>
 
             <v-skeleton-loader
               :loading="loading"
               type="sentences"
             >
+              <!-- Chips -->
               <v-chip
                 v-for="chip in chips"
                 class="mr-2 my-1"
@@ -61,9 +76,13 @@ defineProps({
                 {{ chip }}
               </v-chip>
 
-              <p class="text-h6" v-if="!$slots.description">{{ description }}</p>
+
+              <!-- Description -->
+              <p class="text-h6 text-medium-emphasis" v-if="!$slots.description">
+                {{ description }}
+              </p>
               
-              <p class="text-h6">
+              <p class="text-h6 text-medium-emphasis">
                 <slot name="description"></slot>
               </p>
             </v-skeleton-loader>

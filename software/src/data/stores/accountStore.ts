@@ -8,10 +8,11 @@ import { getUserOrders } from "../api/orderApi";
 import { BannerStateEnum } from "../enums/bannerStateEnum";
 import { AddressModel } from "../models/user/addressModel";
 import { PaymentModel } from "../models/user/paymentModel";
+import { AccountApiModel } from "../models/user/accountApiModel";
 
 export const useAccountStore = defineStore("accountStore", {
   state: () => ({
-    userAccount: useLocalStorage("hackmycart/accountStore/userAccount", new AccountModel())
+    userAccount: useLocalStorage("hackmycart/accountStore/userAccount", new AccountApiModel())
   }),
 
   actions: {

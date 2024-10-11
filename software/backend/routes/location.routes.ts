@@ -20,7 +20,12 @@ location.get("/", (req: Request, res: Response) => {
       City, 
       {
         model: Concert,
-        include: [ Event ],
+        include: [
+          {
+            model: Event,
+            include: [ Band ]
+          }
+        ],
         attributes: {
           exclude: [ "locationId", "tourId" ]
         }
@@ -40,18 +45,6 @@ location.get("/", (req: Request, res: Response) => {
     }
   })
     .then(async locations => {
-      for (let location of locations) {
-        for (let concert of location.dataValues.concerts) {
-          let event = concert.dataValues.event
-
-          await Band.findByPk(event.dataValues.bandId)
-            .then(band => {
-              event.dataValues.bandName = band.dataValues.name
-              delete event.dataValues.bandId
-            })
-        }
-      }
-
       if (sort != undefined) {
         locations.sort((location1, location2) => {
           if (sort == "desc") {
@@ -77,7 +70,12 @@ location.get("/location/:urlName", (req: Request, res: Response) => {
       City, 
       {
         model: Concert,
-        include: [ Event ],
+        include: [
+          {
+            model: Event,
+            include: [ Band ]
+          }
+        ],
         attributes: {
           exclude: [ "locationId", "tourId" ]
         }
@@ -97,16 +95,6 @@ location.get("/location/:urlName", (req: Request, res: Response) => {
     }
   })
     .then(async location => {
-      for (let concert of location.dataValues.concerts) {
-        let event = concert.dataValues.event
-
-        await Band.findByPk(event.dataValues.bandId)
-          .then(band => {
-            event.dataValues.bandName = band.dataValues.name
-            delete event.dataValues.bandId
-          })
-      }
-
       for (let seatGroup of location.dataValues.seatGroups) {
         for (let seatRow of seatGroup.dataValues.seatRows) {
           for (let seat of seatRow.dataValues.seats) {

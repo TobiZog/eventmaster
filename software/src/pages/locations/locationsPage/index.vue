@@ -1,14 +1,12 @@
 <script setup lang="ts">
 import sectionDivider from '@/components/basics/sectionDivider.vue';
 import cardWithTopImage from '@/components/basics/cardViewTopImage.vue';
-import { useRouter } from 'vue-router';
 import { useShoppingStore } from '@/data/stores/shoppingStore';
 import { useFeedbackStore } from '@/data/stores/feedbackStore';
 import locationListItem from '@/components/pageParts/locationListItem.vue';
 
 const shoppingStore = useShoppingStore()
 const feedbackStore = useFeedbackStore()
-const router = useRouter()
 
 shoppingStore.getCities()
 </script>
@@ -52,7 +50,10 @@ shoppingStore.getCities()
 
           <v-row>
             <v-col v-for="location in city.locations" cols="3">
-              <location-list-item :location="location" />
+              <location-list-item
+                :location="location"
+                :concerts="location.concerts"
+              />
             </v-col>
           </v-row>
         </div>

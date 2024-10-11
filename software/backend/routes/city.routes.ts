@@ -15,12 +15,12 @@ city.get("/", (req: Request, res: Response) => {
     ]
   })
     .then(cities => {
-      for (let city of cities) {
-        for (let location of city.dataValues.locations) {
-          location.dataValues.nrOfConcerts = location.dataValues.concerts.length
-          delete location.dataValues.concerts
-        }
-      }
+      // for (let city of cities) {
+      //   for (let location of city.dataValues.locations) {
+      //     location.dataValues.nrOfConcerts = location.dataValues.concerts.length
+      //     delete location.dataValues.concerts
+      //   }
+      // }
       res.status(200).json(cities)
     })
 })

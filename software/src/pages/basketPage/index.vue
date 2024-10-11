@@ -5,8 +5,6 @@ import orderingDialog from './orderingDialog.vue';
 import outlinedButton from '@/components/basics/outlinedButton.vue';
 import { ref } from 'vue';
 import { useAccountStore } from '@/data/stores/accountStore';
-import concertListItem from '@/components/pageParts/concertListItem.vue';
-import { dateStringToHumanReadableString } from '@/scripts/dateTimeScripts';
 import ticketsTable from './ticketsTable.vue';
 
 const basketStore = useBasketStore()

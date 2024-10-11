@@ -1,6 +1,6 @@
 import { SeatModel } from "./seatModel"
 
 export class SeatRowModel {
-  row: number
+  row: number = 0
   seats: Array<SeatModel>
 }

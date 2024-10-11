@@ -1,6 +1,5 @@
 import axios from "axios"
-import { OrderModel } from "../models/orderModel"
-import { BasketItemModel } from "../models/basketItemModel"
+import { BasketItemModel } from "../models/ordering/basketItemModel"
 
 const BASE_URL = "http://localhost:3000/orders"
 

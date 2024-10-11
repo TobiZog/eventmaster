@@ -1,13 +1,10 @@
 <script setup lang="ts">
 import cardView from '@/components/basics/cardView.vue';
-import { OrderModel } from '@/data/models/ordering/orderModel';
-import { useAccountStore } from '@/data/stores/accountStore';
 import ticketListItem from '@/components/pageParts/ticketListItem.vue';
-
-const accountStore = useAccountStore()
+import { OrderApiModel } from '@/data/models/ordering/orderApiModel';
 
 defineProps({
-  order: OrderModel,
+  order: OrderApiModel,
   loading: {
     type: Boolean,
     default: false
@@ -56,12 +53,16 @@ function formatDateTimeString(string: string) {
       <v-col>
         <ticket-list-item
           :concert="ticket.concert"
+          :event="ticket.concert.event"
+          :band="ticket.concert.event.band"
+          :location="ticket.concert.location"
+          :city="ticket.concert.location.city"
           :image="ticket.concert.event.image"
-          :seat-group="ticket.seat.seatRow.seatGroup.name"
+        />
+          <!-- todo :seat-group="ticket.seat.seatRow.seatGroup.name"
           :seat-row="ticket.seat.seatRow.row"
           :seat="ticket.seat.seatNr"
-          :standing-area="ticket.seat.seatRow.seatGroup.standingArea"
-        />
+          :standing-area="ticket.seat.seatRow.seatGroup.standingArea" -->
       </v-col>
     </v-row>
 

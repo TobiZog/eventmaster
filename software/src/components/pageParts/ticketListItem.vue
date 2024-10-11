@@ -1,16 +1,40 @@
 <script setup lang="ts">
 import { ConcertModel } from '@/data/models/acts/concertModel';
 import cardWithLeftImage from '../basics/cardViewHorizontal.vue';
-import { dateStringToHumanReadableString, dateToHumanReadableString } from '@/scripts/dateTimeScripts';
+import { dateStringToHumanReadableString } from '@/scripts/dateTimeScripts';
+import { EventModel } from '@/data/models/acts/eventModel';
+import { BandModel } from '@/data/models/acts/bandModel';
+import { LocationModel } from '@/data/models/locations/locationModel';
+import { CityModel } from '@/data/models/locations/cityModel';
 
 defineProps({
-  concert: ConcertModel,
+  concert: {
+    type: ConcertModel,
+    required: true
+  },
+
+  event: {
+    type: EventModel,
+    required: true
+  },
+
+  band: {
+    type: BandModel,
+    required: true
+  },
+
+  location: {
+    type: LocationModel,
+    required: true
+  },
+
+  city: {
+    type: CityModel,
+    required: true
+  },
 
   /** Image to print on the left side */
   image: String,
-
-  /** Event series name */
-  eventName: String,
 
   seatGroup: String,
 
@@ -30,7 +54,7 @@ defineProps({
     :image="'http://localhost:3000/static/' + image"
     :link="false"
     color-header="primary"
-    :title="concert.event.band.name + ' - ' + concert.event.name"
+    :title="band.name + ' - ' + event.name"
   >
     <template #content>
       <div class="text-caption">
@@ -46,7 +70,7 @@ defineProps({
       </div>
 
       <div>
-        {{ concert.location.name }}, {{ concert.location.city.name }}
+        {{ location.name }}, {{ city.name }}
       </div>
 
       <div class="text-caption">

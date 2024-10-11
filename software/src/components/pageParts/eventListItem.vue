@@ -3,12 +3,29 @@ import { createDateRangeString, lowestTicketPrice } from '@/scripts/concertScrip
 import cardViewHorizontal from '@/components/basics/cardViewHorizontal.vue';
 import { EventModel } from '@/data/models/acts/eventModel';
 import { useRouter } from 'vue-router';
+import { BandModel } from '@/data/models/acts/bandModel';
+import { ConcertModel } from '@/data/models/acts/concertModel';
 
 const router = useRouter()
 
 defineProps({
   /** Event to display */
-  event: EventModel,
+  event: {
+    type: EventModel,
+    required: true
+  },
+
+  /** Band which plays the event */
+  band: {
+    type: BandModel,
+    required: true
+  },
+
+  /** All concerts in the event */
+  concerts: {
+    type: Array<ConcertModel>,
+    required: true
+  },
 
   /** Display text parts as skeleton */
   loading: Boolean
@@ -18,31 +35,31 @@ defineProps({
 <template>
   <card-view-horizontal
     v-if="!loading"
-    :title="event.band.name + ' - ' + event.name"
+    :title="band.name + ' - ' + event.name"
     :image="'http://localhost:3000/static/' + event.image"
-    @click="router.push('/bands/' + event.band.name.replaceAll(' ', '-').toLowerCase())"
+    @click="router.push('/bands/' + band.name.replaceAll(' ', '-').toLowerCase())"
   >
     <template #content>
       <div class="oneLine my-2 pr-4 text-disabled" >
-        {{ event.band.descriptionDe }}
+        {{ band.descriptionDe }}
         <!-- todo: Englisch text -->
       </div>
 
       <div class="text-disabled oneLine">
-        {{ createDateRangeString(event) }} - {{ event.concerts.length }} 
-          {{ $t('concert', event.concerts.length) }}
+        {{ createDateRangeString(concerts) }} - {{ concerts.length }} 
+          {{ $t('concert', concerts.length) }}
       </div>
     </template>
 
     <template #append>
       <div>
         <div class="text-secondary font-weight-medium text-h6 pb-1">
-          {{ $t('from') + ' ' + lowestTicketPrice(event) + ' €' }}
+          {{ $t('from') + ' ' + lowestTicketPrice(concerts) + ' €' }}
         </div>
 
         <div>
           <v-btn variant="flat" color="secondary">
-            {{ event.concerts.length }} {{ $t('concert', event.concerts.length) }}
+            {{ concerts.length }} {{ $t('concert', concerts.length) }}
           </v-btn>
         </div>
       </div>

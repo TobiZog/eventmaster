@@ -1,5 +1,5 @@
 import axios from "axios"
-import { AccountModel } from "../models/accountModel"
+import { AccountModel } from "../models/user/accountModel"
 
 const BASE_URL = "http://localhost:3000/accounts"
 

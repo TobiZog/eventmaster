@@ -1,4 +1,5 @@
 export class ExerciseModel {
+  id = -1
   nameDe: string = ""
   nameEn: string = ""
   exerciseNr: number = 0

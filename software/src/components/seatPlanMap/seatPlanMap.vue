@@ -2,10 +2,10 @@
 import { SeatGroupModel } from '@/data/models/locations/seatGroupModel';
 import seatGroupSheet from './seatGroupSheet.vue';
 import { ConcertModel } from '@/data/models/acts/concertModel';
-import { LocationModel } from '@/data/models/locations/locationModel';
+import { LocationApiModel } from '@/data/models/locations/locationApiModel';
 
 let props = defineProps({
-  location: LocationModel,
+  location: LocationApiModel,
   concert: {
     type: ConcertModel,
     default: new ConcertModel()

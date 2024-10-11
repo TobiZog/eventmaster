@@ -8,12 +8,12 @@ import { useRouter } from 'vue-router';
 import sectionDivider from '@/components/basics/sectionDivider.vue';
 import { useBasketStore } from '@/data/stores/basketStore';
 import concertListItem from '@/components/pageParts/concertListItem.vue';
-import { ConcertModel } from '@/data/models/acts/concertModel';
 import outlinedButton from '@/components/basics/outlinedButton.vue';
+import { ConcertApiModel } from '@/data/models/acts/concertApiModel';
 
 const router = useRouter()
 const seatGroups = ref<Array<SeatGroupModel>>()
-const concertModel = ref<ConcertModel>(new ConcertModel())
+const concertModel = ref<ConcertApiModel>(new ConcertApiModel())
 const feedbackStore = useFeedbackStore()
 const basketStore = useBasketStore()
 
@@ -42,12 +42,10 @@ getConcert(Number(router.currentRoute.value.params.id))
         <v-row>
           <v-col>
             <concert-list-item
+              :concert="concertModel"
               :loading="feedbackStore.fetchDataFromServerInProgress"
               :link="false"
               :title="concertModel.location.city.name"
-              :image="concertModel.location.imageOutdoor"
-              :date="concertModel.date"
-              :price="concertModel.price"
               :show-button="false"
             >
               <template #description>
@@ -79,7 +77,10 @@ getConcert(Number(router.currentRoute.value.params.id))
 
           <v-col v-else>
             <seat-plan-map
-              :concert="concertModel" :seat-groups="seatGroups" :location="concertModel.location" />
+              :concert="concertModel"
+              :seat-groups="seatGroups"
+              :location="concertModel.location"
+            />
           </v-col>
         </v-row>
 
@@ -103,7 +104,8 @@ getConcert(Number(router.currentRoute.value.params.id))
         <v-row class="pb-5">
           <outlined-button
             prepend-icon="mdi-basket-plus"
-            @click="basketStore.moveSeatSelectionsToBasket(); router.push('/basket')"
+            @click="basketStore.moveSeatSelectionsToBasket(concertModel.event, concertModel.event.band); 
+              router.push('/basket')"
             :disabled="basketStore.selectedSeats.length == 0"
             block
           >

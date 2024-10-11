@@ -5,11 +5,11 @@ import { useRouter } from 'vue-router';
 import outlinedButton from '@/components/basics/outlinedButton.vue';
 import { getUserOrders } from '@/data/api/orderApi';
 import { ref } from 'vue';
-import { OrderModel } from '@/data/models/ordering/orderModel';
+import { OrderApiModel } from '@/data/models/ordering/orderApiModel';
 
 const accountStore = useAccountStore()
 const router = useRouter()
-const orders = ref<Array<OrderModel>>([])
+const orders = ref<Array<OrderApiModel>>([])
 
 getUserOrders(accountStore.userAccount.id)
   .then(result => {
@@ -32,7 +32,9 @@ getUserOrders(accountStore.userAccount.id)
       v-for="order in orders"
     >
       <v-col>
-        <order-item :order="order" />
+        <order-item
+          :order="order"
+        />
       </v-col>
     </v-row>
 

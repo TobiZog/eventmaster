@@ -33,9 +33,10 @@ shoppingStore.getEvents()
           v-for="i in 3"
         >
           <v-col>
-            <event-list-item
+            Loading...
+            <!-- todo <event-list-item
               :loading="true"
-            />
+            /> -->
           </v-col>
         </v-row>
 
@@ -46,6 +47,8 @@ shoppingStore.getEvents()
           <v-col>
             <event-list-item
               :event="event"
+              :band="event.band"
+              :concerts="event.concerts"
             />
           </v-col>
         </v-row>

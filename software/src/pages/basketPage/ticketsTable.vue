@@ -8,10 +8,6 @@ const basketStore = useBasketStore()
 function removeFromBasket(basketItem: BasketItemModel) {
   basketStore.removeItemFromBasket(basketItem)
 }
-
-function editQuantity(basketItem: BasketItemModel) {
-  // todo
-}
 </script>
 
 <template>
@@ -31,12 +27,12 @@ function editQuantity(basketItem: BasketItemModel) {
       <tr v-for="basketItem in basketStore.itemsInBasket">
         <!-- Band name -->
         <td>
-          {{ basketItem.concert.event.band.name }}
+          {{ basketItem.band.name }}
         </td>
 
         <!-- Event name -->
         <td>
-          {{ basketItem.concert.event.name }}
+          {{ basketItem.event.name }}
         </td>
 
         <!-- Quantity -->

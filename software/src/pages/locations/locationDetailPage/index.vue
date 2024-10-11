@@ -1,20 +1,17 @@
 <script setup lang="ts">
-import { LocationModel } from '@/data/models/locations/locationModel';
 import { useRouter } from 'vue-router';
 import sectionDivider from '@/components/basics/sectionDivider.vue';
-import { dateStringToHumanReadableString } from '@/scripts/dateTimeScripts';
 import seatPlanMap from '@/components/seatPlanMap/seatPlanMap.vue';
-import { useShoppingStore } from '@/data/stores/shoppingStore';
 import { getLocation } from '@/data/api/locationApi';
 import { ref } from 'vue';
 import { useFeedbackStore } from '@/data/stores/feedbackStore';
 import heroImage from '@/components/pageParts/heroImage.vue';
 import concertListItem from '@/components/pageParts/concertListItem.vue';
+import { LocationApiModel } from '@/data/models/locations/locationApiModel';
 
 const router = useRouter()
-const shoppingStore = useShoppingStore()
 const feedbackStore = useFeedbackStore()
-const location = ref<LocationModel>(new LocationModel())
+const location = ref<LocationApiModel>(new LocationApiModel())
 
 feedbackStore.fetchDataFromServerInProgress = true
 
@@ -22,7 +19,6 @@ getLocation(String(router.currentRoute.value.params.locationName))
   .then(result => {
     location.value = result.data
     feedbackStore.fetchDataFromServerInProgress = false
-    console.log(location.value.seatGroups)
   })
 </script>
 
@@ -53,7 +49,8 @@ getLocation(String(router.currentRoute.value.params.locationName))
 
         <v-row v-if="feedbackStore.fetchDataFromServerInProgress" v-for="i in 3">
           <v-col class="text-center">
-            <concert-list-item :loading="feedbackStore.fetchDataFromServerInProgress" />
+            Loading...
+            <!-- todo <concert-list-item :loading="feedbackStore.fetchDataFromServerInProgress" /> -->
           </v-col>
         </v-row>
 
@@ -63,14 +60,12 @@ getLocation(String(router.currentRoute.value.params.locationName))
         >
           <v-col>
             <concert-list-item
-              :date="concert.date"
+              :concert="concert"
               :title="concert.event.name"
-              :in-stock="concert.inStock"
-              :price="concert.price"
-              :onClick="() => router.push('/bands/' + concert.event.bandName.replaceAll(' ', '-').toLowerCase())"
+              :onClick="() => router.push('/bands/' + concert.event.band.name.replaceAll(' ', '-').toLowerCase())"
             >
               <template #description>
-                {{ concert.event.bandName }}
+                {{ concert.event.band.name }}
               </template>
             </concert-list-item>
           </v-col>

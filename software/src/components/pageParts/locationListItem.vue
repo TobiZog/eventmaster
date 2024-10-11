@@ -1,12 +1,20 @@
 <script setup lang="ts">
 import cardViewTopImage from '../basics/cardViewTopImage.vue';
-import { LocationModel } from '@/data/models/locations/locationModel';
 import { useRouter } from 'vue-router';
+import { LocationModel } from '@/data/models/locations/locationModel';
+import { ConcertModel } from '@/data/models/acts/concertModel';
 
 const router = useRouter()
 
 defineProps({
-  location: LocationModel
+  location: {
+    type: LocationModel,
+    required: true
+  },
+  concerts: {
+    type: Array<ConcertModel>,
+    required: true
+  }
 })
 </script>
 
@@ -17,7 +25,7 @@ defineProps({
     @click="router.push('locations/' + location.name.replaceAll(' ', '-').toLowerCase())"
   >
     <div>
-      {{ location.concerts.length }} {{ $t('concert', location.concerts.length) }}
+      {{ concerts.length }} {{ $t('concert', concerts.length) }}
     </div>
   </card-view-top-image>
 </template>

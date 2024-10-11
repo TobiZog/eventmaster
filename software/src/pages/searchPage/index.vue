@@ -46,7 +46,12 @@ const searchStore = useSearchStore()
           v-for="event in searchStore.events"
         >
           <v-col>
-            <event-list-item :event="event" :loading="searchStore.searchInProgress" />
+            <event-list-item
+              :event="event"
+              :band="event.band"
+              :concerts="event.concerts"
+              :loading="searchStore.searchInProgress"
+            />
           </v-col>
         </v-row>
 
@@ -55,7 +60,10 @@ const searchStore = useSearchStore()
           v-for="i in 3"
         >
           <v-col>
-            <event-list-item :loading="searchStore.searchInProgress" />
+            Loading...
+            <!-- <event-list-item
+              :loading="searchStore.searchInProgress"
+            /> -->
           </v-col>
         </v-row>
 

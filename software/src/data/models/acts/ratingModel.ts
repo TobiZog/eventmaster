@@ -1,7 +1,4 @@
-import { BandModel } from "./bandModel"
-
 export class RatingModel {
-  id: number
-  rating: number
-  band: BandModel
+  id: number = -1
+  rating: number = 1
 }

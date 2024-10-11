@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { BandModel } from '@/data/models/acts/bandModel';
 import { useRouter } from 'vue-router';
 import ratingSection from './ratingSection.vue';
 import bandMemberSection from './bandMemberSection.vue';
@@ -11,11 +10,13 @@ import { useShoppingStore } from '@/data/stores/shoppingStore';
 import { ref } from 'vue';
 import { useFeedbackStore } from '@/data/stores/feedbackStore';
 import { getBand } from '@/data/api/bandApi';
+import { BandApiModel } from '@/data/models/acts/bandApiModel';
+import { genre } from 'backend/routes/genre.routes';
 
 const router = useRouter()
 const shoppingStore = useShoppingStore()
 const feedbackStore = useFeedbackStore()
-const band = ref<BandModel>(new BandModel())
+const band = ref<BandApiModel>(new BandApiModel())
 
 feedbackStore.fetchDataFromServerInProgress = true
 
@@ -47,7 +48,10 @@ getBand(String(router.currentRoute.value.params.bandName).replaceAll('-', ' '))
           </v-col>
         </v-row>
 
-        <concert-section :band="band"/>
+        <concert-section
+          :band="band"
+          :events="band.events"
+        />
 
         <v-row>
           <v-col>
@@ -64,7 +68,7 @@ getBand(String(router.currentRoute.value.params.bandName).replaceAll('-', ' '))
           </v-col>
         </v-row>
 
-        <rating-section :band="band" />
+        <rating-section :ratings="band.ratings" />
 
 
         <v-row>

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { getAllExerciseGroups, updateExercise } from '@/data/api/exerciseApi';
+import { updateExercise } from '@/data/api/exerciseApi';
 import { ref, watch } from 'vue';
 import { useRoute } from 'vue-router';
 
