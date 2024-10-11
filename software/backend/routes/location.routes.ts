@@ -7,6 +7,7 @@ import { Band } from "../models/acts/band.model";
 import { SeatGroup } from "../models/locations/seatGroup.model";
 import { Seat } from "../models/locations/seat.model";
 import { SeatRow } from "../models/locations/seatRow.model";
+import { Op } from "sequelize";
 
 export const location = Router()
 
@@ -69,7 +70,7 @@ location.get("/", (req: Request, res: Response) => {
     })
 })
 
-location.get("/:urlName", (req: Request, res: Response) => {
+location.get("/location/:urlName", (req: Request, res: Response) => {
   Location.findOne({
     where: { urlName: req.params.urlName },
     include: [
@@ -116,5 +117,20 @@ location.get("/:urlName", (req: Request, res: Response) => {
 
 
       res.status(200).json(location)
+    })
+})
+
+
+// Location search
+location.get("/search", (req: Request, res: Response) => {
+  Location.findAll({
+    where: {
+      name: {
+        [Op.substring]: req.query.value
+      }
+    }
+  })
+    .then(locations => {
+      res.status(200).json(locations)
     })
 })

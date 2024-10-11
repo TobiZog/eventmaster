@@ -4,6 +4,7 @@ import cardWithTopImage from '@/components/basics/cardViewTopImage.vue';
 import { useRouter } from 'vue-router';
 import { useShoppingStore } from '@/data/stores/shoppingStore';
 import { useFeedbackStore } from '@/data/stores/feedbackStore';
+import locationListItem from '@/components/pageParts/locationListItem.vue';
 
 const shoppingStore = useShoppingStore()
 const feedbackStore = useFeedbackStore()
@@ -51,15 +52,7 @@ shoppingStore.getCities()
 
           <v-row>
             <v-col v-for="location in city.locations" cols="3">
-              <card-with-top-image
-                :image="location.imageOutdoor"
-                :title="location.name"
-                @click="router.push('locations/' + location.name.replaceAll(' ', '-').toLowerCase())"
-              >
-                <div>
-                  {{ location.nrOfConcerts }} {{ $t('concert', location.nrOfConcerts) }}
-                </div>
-              </card-with-top-image>
+              <location-list-item :location="location" />
             </v-col>
           </v-row>
         </div>

@@ -7,5 +7,9 @@ export async function getAllBands() {
 }
 
 export async function getBand(bandName: string) {
-  return await axios.get(BASE_URL + '/' + bandName)
+  return await axios.get(BASE_URL + '/band/' + bandName)
+}
+
+export async function searchBand(searchTerm: string) {
+  return await axios.get(BASE_URL + '/search?value=' + searchTerm)
 }

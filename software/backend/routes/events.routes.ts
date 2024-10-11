@@ -5,6 +5,7 @@ import { Request, Response, Router } from "express";
 import { Location } from "../models/locations/location.model";
 import { Genre } from "../models/acts/genre.model";
 import { City } from "../models/locations/city.model";
+import { Op } from "sequelize";
 
 export const events = Router()
 
@@ -80,5 +81,33 @@ events.get("/", async (req: Request, res: Response) => {
 
       res.status(200).json(events)
     })
+})
 
+
+// Event search
+events.get("/search", (req: Request, res: Response) => {
+  Event.findAll({
+    where: {
+      name: {
+        [Op.substring]: req.query.value
+      }
+    },
+    include: [
+      {
+        model: Concert,
+        required: true,
+        include: [
+          {
+            model: Location,
+          }
+        ],
+      },
+      {
+        model: Band,
+      }
+    ]
+  })
+    .then(events => {
+      res.status(200).json(events)
+    })
 })

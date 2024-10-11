@@ -170,5 +170,6 @@
     "description": "Do you really want to reset the exercise progress? This can't be undone!"
   },
   "goToTheConcert": "To the concert",
-  "selectedConcert": "Selected Concert"
+  "selectedConcert": "Selected Concert",
+  "enterSomeKeywords": "Enter keywords to search for bands, events, concerts and locations"
 }

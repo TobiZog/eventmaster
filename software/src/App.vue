@@ -6,38 +6,21 @@ import navigationAppendItems from './components/navigation/navigationAppendItems
 import navigationPrependItems from './components/navigation/navigationPrependItems.vue';
 import { usePreferencesStore } from './data/stores/preferencesStore';
 import { useFeedbackStore } from './data/stores/feedbackStore';
-import { useConcertStore } from './data/stores/concertStore';
-import { LocationModel } from './data/models/locations/locationModel';
 import { useShoppingStore } from './data/stores/shoppingStore';
 import footerItems from './components/navigation/footerItems.vue';
 
 const preferencesStore = usePreferencesStore()
-const concertStore = useConcertStore()
 const feedbackStore = useFeedbackStore()
 const shoppingStore = useShoppingStore()
 const theme = useTheme()
 
 theme.global.name.value = preferencesStore.theme
 
-concertStore.fetchAllTours()
 
 // Global watcher
 watch(() => preferencesStore.language, () => {
   i18n.global.locale = preferencesStore.language
 }, { immediate: true })
-
-watch(() => concertStore.cityFilter, () => {
-  concertStore.locationFilter = new LocationModel()
-  concertStore.filterTours()
-})
-
-watch(() => concertStore.locationFilter, () => {
-  concertStore.filterTours()
-})
-
-watch(() => concertStore.genreFilter, () => {
-  concertStore.filterTours()
-})
 </script>
 
 <template>

@@ -59,7 +59,7 @@ band.get("/", (req: Request, res: Response) => {
 })
 
 // Get all information about one band
-band.get("/:name", (req: Request, res: Response) => {
+band.get("/band/:name", (req: Request, res: Response) => {
   Band.findOne({
     where: {
       name: { [Op.like]: req.params.name }
@@ -108,5 +108,20 @@ band.get("/:name", (req: Request, res: Response) => {
   })
     .then(band => {
       res.status(200).json(band)
+    })
+})
+
+
+// Band search
+band.get("/search", (req: Request, res: Response) => {
+  Band.findAll({
+    where: {
+      name: {
+        [Op.substring]: req.query.value
+      }
+    }
+  })
+    .then(bands => {
+      res.status(200).json(bands)
     })
 })

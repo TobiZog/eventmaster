@@ -7,11 +7,15 @@ export async function getAllLocations() {
 }
 
 export async function getLocation(locationName: string) {
-  return await axios.get(BASE_URL + "/" + locationName)
+  return await axios.get(BASE_URL + "/location/" + locationName)
 }
 
 export async function getTopLocations(nrOfLocations: number) {
   let url = BASE_URL + "?sort=desc&count=" + nrOfLocations
 
   return await axios.get(url)
+}
+
+export async function searchLocation(searchTerm: string) {
+  return await axios.get(BASE_URL + "/search?value=" + searchTerm)
 }

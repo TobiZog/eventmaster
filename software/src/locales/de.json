@@ -170,5 +170,6 @@
     "description": "Soll der Bearbeitungsfortschritt der Übungen wirklich zurückgesetzt werden? Dies kann nicht rückgänig gemacht werden!"
   },
   "goToTheConcert": "Zum Konzert",
-  "selectedConcert": "Ausgewähltes Konzert"
+  "selectedConcert": "Ausgewähltes Konzert",
+  "enterSomeKeywords": "Füge Schlagworte ein um nach Bands, Events, Konzerten und Veranstaltungsorten zu suchen"
 }

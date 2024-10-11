@@ -15,3 +15,7 @@ export async function getTopEvents(nrOfEvents) {
 
   return await axios.get(url)
 }
+
+export async function searchEvent(searchTerm: string) {
+  return await axios.get(BASE_URL + "/search?value=" + searchTerm)
+}

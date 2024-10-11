@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { useConcertStore } from '@/data/stores/concertStore';
 import highlightCarousel from './highlightCarousel.vue';
 import sectionDivider from '@/components/basics/sectionDivider.vue';
 import cardWithTopImage from '@/components/basics/cardViewTopImage.vue';
