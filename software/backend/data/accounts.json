@@ -1,7 +1,6 @@
 {
   "data": [
     {
-      "id": 0,
       "username": "hagemeister93",
       "password": "Xjt3qb5t",
       "email": "hagemeister93@gmail.com",
@@ -28,7 +27,6 @@
       "accountRoleId": 2
     },
     {
-      "id": 1,
       "username": "katjaStoiber",
       "password": "target123",
       "email": "k.stoiber@uni-hannover.de",
@@ -55,7 +53,6 @@
       "accountRoleId": 1
     },
     {
-      "id": 2,
       "username": "oetkerohnek",
       "password": "iloveyou",
       "email": "oetker30625@gmx.com",
@@ -63,16 +60,12 @@
       "lastName": "Oeter",
       "addresses": [
         {
-          "id": 2,
-          "accountId": 2,
           "street": "Eckermannstraße",
           "houseNumber": 1,
           "postalCode": 30625,
           "city": "Hannover"
         },
         {
-          "id": 3,
-          "accountId": 2,
           "street": "Gehrdener Straße",
           "houseNumber": 14,
           "postalCode": 30459,
@@ -81,8 +74,6 @@
       ],
       "payments": [
         {
-          "id": 2,
-          "accountId": 2,
           "bankName": "Commerzbank",
           "iban": "DE31500105175417833272"
         }
@@ -90,7 +81,6 @@
       "accountRoleId": 1
     },
     {
-      "id": 3,
       "username": "duranduran",
       "password": "H4nn0ver",
       "email": "dduran@hannover.de",
@@ -98,16 +88,12 @@
       "lastName": "Durand",
       "addresses": [
         {
-          "id": 4,
-          "accountId": 3,
           "street": "Schlägerstraße",
           "houseNumber": 36,
           "postalCode": 30171,
           "city": "Hannover"
         },
         {
-          "id": 5,
-          "accountId": 3,
           "street": "Else-Ury-Weg",
           "houseNumber": 20,
           "postalCode": 30629,
@@ -116,8 +102,6 @@
       ],
       "payments": [
         {
-          "id": 3,
-          "accountId": 3,
           "bankName": "ING",
           "iban": "DE41500105172184936679"
         }
@@ -125,7 +109,6 @@
       "accountRoleId": 2
     },
     {
-      "id": 4,
       "username": "guitarhero",
       "password": "gwerty123",
       "email": "guitarheroFurti@gmail.com",
@@ -133,8 +116,6 @@
       "lastName": "Furtwängler",
       "addresses": [
         {
-          "id": 6,
-          "accountId": 4,
           "street": "Steinmetzstraße",
           "houseNumber": 12,
           "postalCode": 30163,
@@ -143,8 +124,6 @@
       ],
       "payments": [
         {
-          "id": 4,
-          "accountId": 4,
           "bankName": "Sparkasse Hannover",
           "iban": "DE85500105172283979774"
         }
@@ -152,7 +131,6 @@
       "accountRoleId": 1
     },
     {
-      "id": 5,
       "username": "herbstMareike",
       "password": "qhsrbpgrs",
       "email": "m.herbst@uni-hannover.de",
@@ -160,8 +138,6 @@
       "lastName": "Herbst",
       "addresses": [
         {
-          "id": 7,
-          "accountId": 5,
           "street": "Allerweg",
           "houseNumber": 33,
           "postalCode": 30851,
@@ -170,8 +146,6 @@
       ],
       "payments": [
         {
-          "id": 5,
-          "accountId": 5,
           "bankName": "Postbank",
           "iban": "DE45500105178862417577"
         }
@@ -179,7 +153,6 @@
       "accountRoleId": 1
     },
     {
-      "id": 6,
       "username": "seibertmitb",
       "password": "{jkz+WvQe",
       "email": "janna-seibert@yahoo.com",
@@ -187,16 +160,12 @@
       "lastName": "Seibert",
       "addresses": [
         {
-          "id": 8,
-          "accountId": 6,
           "street": "Marktstraße",
           "houseNumber": 26,
           "postalCode": 30880,
           "city": "Laatzen"
         },
         {
-          "id": 9,
-          "accountId": 6,
           "street": "Kleiner Hillen",
           "houseNumber": 24,
           "postalCode": 30559,
@@ -205,8 +174,6 @@
       ],
       "payments": [
         {
-          "id": 6,
-          "accountId": 6,
           "bankName": "Sparkasse Hannover",
           "iban": "DE51500105177526222196"
         }

@@ -1,8 +1,7 @@
 {
   "data": [
     {
-      "id": 0,
-      "accountId": 0,
+      "username": "hagemeister93",
       "shippingProgress": 4,
       "addressId": 0,
       "paymentId": 0,
@@ -17,8 +16,7 @@
       ]
     },
     {
-      "id": 1,
-      "accountId": 3,
+      "username": "duranduran",
       "shippingProgress": 5,
       "addressId": 4,
       "paymentId": 3,
@@ -40,8 +38,7 @@
       ]
     },
     {
-      "id": 2,
-      "accountId": 3,
+      "username": "duranduran",
       "shippingProgress": 2,
       "addressId": 5,
       "paymentId": 3,

@@ -1,7 +1,6 @@
 {
-  "data": [
+  "bands": [
     {
-      "id": 0,
       "name": "Red Hot Chili Peppers",
       "foundingYear": 1983,
       "descriptionEn": "The Red Hot Chili Peppers are an American rock band formed in Los Angeles in 1983, comprising vocalist Anthony Kiedis, bassist Flea, drummer Chad Smith, and guitarist John Frusciante. Their music incorporates elements of alternative rock, funk, punk rock, hard rock, hip hop, and psychedelic rock. Their eclectic range has influenced genres such as funk metal, rap metal, rap rock, and nu metal. With over 120 million records sold worldwide, the Red Hot Chili Peppers are one of the top-selling bands of all time.",
@@ -14,73 +13,99 @@
       ],
       "imageMembers": "bands/red-hot-chili-peppers-members.jpg",
       "logo": "bands/red-hot-chili-peppers-logo.png",
-      "genreId": [
-        0,
-        2,
-        3
+      "genres": [
+        "Funk Rock",
+        "Alternative Rock",
+        "Crossover"
       ],
       "members": [
         {
           "name": "Anthony Kiedis",
-          "bandId": 0,
           "image": "artists/anthony-kiedis.jpg"
         },
         {
           "name": "Flea",
-          "bandId": 0,
           "image": "artists/flea.jpg"
         },
         {
           "name": "Chad Smith",
-          "bandId": 0,
           "image": "artists/chad-smith.jpg"
         },
         {
           "name": "John Frusciante",
-          "bandId": 0,
           "image": "artists/john-frusciante.jpg"
         }
       ],
       "ratings": [
         {
-          "accountId": 0,
-          "rating": 5,
-          "bandId": 0
+          "username": "hagemeister93",
+          "rating": 5
         },
         {
-          "accountId": 1,
-          "rating": 5,
-          "bandId": 0
+          "username": "katjaStoiber",
+          "rating": 5
         },
         {
-          "accountId": 2,
-          "rating": 4,
-          "bandId": 0
+          "username": "oetkerohnek",
+          "rating": 4
         },
         {
-          "accountId": 3,
-          "rating": 3,
-          "bandId": 0
+          "username": "duranduran",
+          "rating": 3
         },
         {
-          "accountId": 4,
-          "rating": 5,
-          "bandId": 0
+          "username": "guitarhero",
+          "rating": 5
         },
         {
-          "accountId": 5,
-          "rating": 4,
-          "bandId": 0
+          "username": "herbstMareike",
+          "rating": 4
         },
         {
-          "accountId": 6,
-          "rating": 5,
-          "bandId": 0
+          "username": "seibertmitb",
+          "rating": 5
+        }
+      ],
+      "concertGroups": [
+        {
+          "name": "Unlimited Love",
+          "image": "events/unlimited-love-tour.jpg",
+          "concerts": [
+            {
+              "date": "2024-10-18",
+              "price": 92,
+              "inStock": 0,
+              "location": "Swiss Life Hall"
+            },
+            {
+              "date": "2024-10-19",
+              "price": 92,
+              "inStock": 170,
+              "location": "Swiss Life Hall"
+            },
+            {
+              "date": "2024-10-23",
+              "price": 119.90,
+              "inStock": 8736,
+              "location": "Olympiahalle München"
+            },
+            {
+              "date": "2024-10-26",
+              "price": 114.90,
+              "inStock": 2793,
+              "location": "Barclays Arena"
+            },
+            {
+              "date": "2024-11-02",
+              "price": 124.90,
+              "inStock": 3079,
+              "location": "Uber Arena Berlin"
+            }
+          ]
         }
       ]
     },
     {
-      "id": 1,
       "name": "Radiohead",
       "foundingYear": 1985,
       "descriptionEn": "Radiohead are an English rock band formed in Abingdon, Oxfordshire, in 1985. They comprise Thom Yorke (vocals, guitar, piano, keyboards); brothers Jonny Greenwood (guitar, keyboards, other instruments) and Colin Greenwood (bass); Ed O'Brien (guitar, backing vocals); and Philip Selway (drums, percussion). They have worked with the producer Nigel Godrich and the cover artist Stanley Donwood since 1994. Radiohead's experimental approach is credited with advancing the sound of alternative rock.",
@@ -92,55 +117,73 @@
       ],
       "imageMembers": "bands/radiohead-members.jpg",
       "logo": "bands/radiohead-logo.jpg",
-      "genreId": [
-        1,
-        2,
-        4,
-        5,
-        6
+      "genres": [
+        "Art Rock",
+        "Alternative Rock",
+        "Electronica",
+        "Post-Rock",
+        "Britpop"
       ],
       "members": [
         {
           "name": "Thom Yorke",
-          "bandId": 1,
           "image": "artists/thom-yorke.jpg"
         },
         {
           "name": "Jonny Greenwood",
-          "bandId": 1,
           "image": "artists/jonny-greenwood.jpg"
         },
         {
           "name": "Colin Greenwood",
-          "bandId": 1,
           "image": "artists/colin-greenwood.jpg"
         },
         {
           "name": "Ed O'Brien",
-          "bandId": 1,
           "image": "artists/ed-o-brien.jpg"
         },
         {
           "name": "Philip Selway",
-          "bandId": 1,
           "image": "artists/philip-selway.jpg"
         }
       ],
       "ratings": [
         {
-          "accountId": 0,
-          "rating": 5,
-          "bandId": 1
+          "username": "hagemeister93",
+          "rating": 5
         },
         {
-          "accountId": 1,
-          "rating": 4,
-          "bandId": 1
+          "username": "katjaStoiber",
+          "rating": 4
+        }
+      ],
+      "concertGroups": [
+        {
+          "name": "The Bends",
+          "image": "events/the-bends-tour.jpg",
+          "concerts": [
+            {
+              "date": "2024-11-30",
+              "price": 108,
+              "inStock": 1200,
+              "location": "Capitol"
+            },
+            {
+              "date": "2024-12-01",
+              "price": 104,
+              "inStock": 1800,
+              "location": "Schlachthof München"
+            },
+            {
+              "date": "2024-12-07",
+              "price": 99.90,
+              "inStock": 2438,
+              "location": "Waldbühne Berlin"
+            }
+          ]
         }
       ]
     },
     {
-      "id": 2,
       "name": "Arctic Monkeys",
       "foundingYear": 2002,
       "descriptionEn": "Arctic Monkeys are an English rock band formed in Sheffield in 2002. The group consists of lead singer Alex Turner, drummer Matt Helders, guitarist Jamie Cook and bassist Nick O'Malley. Former bassist Andy Nicholson left the band in 2006 shortly after their debut album, Whatever People Say I Am, That's What I'm Not, was released.",
@@ -152,58 +195,69 @@
       ],
       "imageMembers": "bands/arctic-monkeys-members.jpg",
       "logo": "bands/arctic-monkeys-logo.png",
-      "genreId": [
-        2,
-        7,
-        8
+      "genres": [
+        "Alternative Rock",
+        "Post-Punk",
+        "Garage Rock"
       ],
       "members": [
         {
           "name": "Glyn Jones",
-          "bandId": 2,
           "image": "artists/glyn-jones.jpg"
         },
         {
           "name": "Alex Turner",
-          "bandId": 2,
           "image": "artists/alex-turner.jpg"
         },
         {
           "name": "Jamie Cook",
-          "bandId": 2,
           "image": "artists/jamie-cook.jpg"
         },
         {
           "name": "Matt Helders",
-          "bandId": 2,
           "image": "artists/matt-helders.jpg"
         },
         {
           "name": "Andy Nicholson",
-          "bandId": 2,
           "image": "artists/andy-nicholson.jpg"
         }
       ],
       "ratings": [
         {
-          "accountId": 0,
-          "rating": 5,
-          "bandId": 2
+          "username": "hagemeister93",
+          "rating": 5
         },
         {
-          "accountId": 1,
-          "rating": 3,
-          "bandId": 2
+          "username": "katjaStoiber",
+          "rating": 3
         },
         {
-          "accountId": 2,
-          "rating": 4,
-          "bandId": 2
+          "username": "oetkerohnek",
+          "rating": 4
+        }
+      ],
+      "concertGroups":[
+        {
+          "name": "European Tour",
+          "image": "events/european-tour-arctic-monkeys.jpg",
+          "concerts": [
+            {
+              "date": "2025-01-21",
+              "price": 67.90,
+              "inStock": 994,
+              "location": "Kulturzentrum Faust"
+            },
+            {
+              "date": "2024-11-15",
+              "price": 79.90,
+              "inStock": 1073,
+              "location": "LANXESS arena"
+            }
+          ]
         }
       ]
     },
     {
-      "id": 3,
       "name": "Coldplay",
       "foundingYear": 1997,
       "descriptionEn": "Coldplay are a British rock band formed in London in 1997. They consist of vocalist and pianist Chris Martin, guitarist Jonny Buckland, bassist Guy Berryman, drummer and percussionist Will Champion, and manager Phil Harvey. They are best known for their live performances, and for impacting popular culture through their artistry, advocacy and achievements.",
@@ -215,52 +269,70 @@
       ],
       "imageMembers": "bands/coldplay-members.jpg",
       "logo": "bands/coldplay-logo.jpg",
-      "genreId": [
-        2,
-        9
+      "genres": [
+        "Alternative Rock",
+        "Pop-Rock"
       ],
       "members": [
         {
           "name": "Chris Martin",
-          "bandId": 3,
           "image": "artists/chris-martin.jpg"
         },
         {
           "name": "Jonny Buckland",
-          "bandId": 3,
           "image": "artists/jonny-buckland.jpg"
         },
         {
           "name": "Guy Berryman",
-          "bandId": 3,
           "image": "artists/guy-berryman.jpg"
         },
         {
           "name": "Will Champion",
-          "bandId": 3,
           "image": "artists/will-champion.jpg"
         },
         {
           "name": "Phil Harvey",
-          "bandId": 3,
           "image": "artists/phil-harvey.png"
         }
       ],
       "ratings": [
         {
-          "accountId": 0,
-          "rating": 5,
-          "bandId": 3
+          "username": "hagemeister93",
+          "rating": 5
         },
         {
-          "accountId": 1,
-          "rating": 4,
-          "bandId": 3
+          "username": "katjaStoiber",
+          "rating": 4
+        }
+      ],
+      "concertGroups": [
+        {
+          "name": "Music of the Spheres",
+          "image": "events/music-of-the-spheres.png",
+          "concerts": [
+            {
+              "date": "2024-12-07",
+              "price": 124.90,
+              "inStock": 765,
+              "location": "Astra Kulturhaus"
+            },
+            {
+              "date": "2025-01-17",
+              "price": 129.90,
+              "inStock": 989,
+              "location": "Waldbühne Berlin"
+            },
+            {
+              "date": "2025-02-01",
+              "price": 134.90,
+              "inStock": 827,
+              "location": "Olympiahalle München"
+            }
+          ]
         }
       ]
     },
     {
-      "id": 4,
       "name": "Foo Fighters",
       "foundingYear": 1994,
       "descriptionEn": "Foo Fighters is an American rock band formed in Seattle in 1994. Founded as a one-man project by former Nirvana drummer Dave Grohl, the lineup now consists of Grohl (lead vocals, guitar), Nate Mendel (bass), Chris Shiflett and Pat Smear (guitars), Rami Jaffee (keyboards), and Josh Freese (drums). Drummers William Goldsmith and Taylor Hawkins, along with guitarist Franz Stahl, are former members of the band.",
@@ -272,52 +344,58 @@
       ],
       "imageMembers": "bands/foo-fighters-members.jpg",
       "logo": "bands/foo-fighters-logo.png",
-      "genreId": [
-        2,
-        10
+      "genres": [
+        "Alternative Rock",
+        "Post-Grunge"
       ],
       "members": [
         {
           "name": "Dave Grohl",
-          "bandId": 4,
           "image": "artists/dave-grohl.jpg"
         },
         {
           "name": "Pat Smear",
-          "bandId": 4,
           "image": "artists/pat-smear.jpg"
         },
         {
           "name": "Nate Mendel",
-          "bandId": 4,
           "image": "artists/nate-mendel.jpg"
         },
         {
           "name": "Chris Shiflett",
-          "bandId": 4,
           "image": "artists/chris-shiflett.jpg"
         },
         {
           "name": "Rami Jaffee",
-          "bandId": 4,
           "image": "artists/rami-jaffee.jpg"
         },
         {
           "name": "Josh Freese",
-          "bandId": 4,
           "image": "artists/josh-freese.jpg"
         }
       ],
       "ratings": [
         {
-          "accountId": 0,
-          "rating": 5,
-          "bandId": 4
+          "username": "hagemeister93",
+          "rating": 5
+        }
+      ],
+      "concertGroups": [
+        {
+          "name": "But Here We Are Tour",
+          "image": "events/but-here-we-are.jpg",
+          "concerts": [
+            {
+              "date": "2024-12-05",
+              "price": 80,
+              "inStock": 99,
+              "location": "ZAG Arena"
+            }
+          ]
         }
       ]
     },
     {
-      "id": 5,
       "name": "Billy Talent",
       "foundingYear": 1993,
       "descriptionEn": "Billy Talent is a Canadian rock band from Mississauga, Ontario. They formed in 1993 with lead vocalist Benjamin Kowalewicz, guitarist Ian D'Sa, bassist Jonathan Gallant, and drummer Aaron Solowoniuk. There have been no lineup changes, although Solowoniuk has been on hiatus from the band since 2016 due to a relapse of multiple sclerosis. In the three decades since their inception, Billy Talent has sold well over a million physical albums in Canada alone and nearly 3 million albums internationally. During their most successful period, they were ranked as one of the top 10 best-selling native bands in Canada.",
@@ -329,59 +407,70 @@
       ],
       "imageMembers": "bands/billy-talent-members.jpg",
       "logo": "bands/billy-talent-logo.png",
-      "genreId": [
-        2,
-        11,
-        12,
-        13
+      "genres": [
+        "Alternative Rock",
+        "Punk-Rock",
+        "Post-Hardcore",
+        "Pop-Punk"
       ],
       "members": [
         {
           "name": "Benjamin Kowalewicz",
-          "bandId": 5,
           "image": "benjamin-kowalewicz.jpg"
         },
         {
           "name": "Ian D'Sa ",
-          "bandId": 5,
           "image": "artists/ian-d-sa.jpg"
         },
         {
           "name": "Jonathan Gallant",
-          "bandId": 5,
           "image": "artists/jonathan-gallant.jpg"
         },
         {
           "name": "Jordan Hastings",
-          "bandId": 5,
           "image": "artists/jordan-hastings.jpg"
         },
         {
           "name": "Josh Freese",
-          "bandId": 5,
           "image": "artists/josh-freese.jpg"
         }
       ],
       "ratings": [
         {
-          "accountId": 0,
-          "rating": 5,
-          "bandId": 5
+          "username": "hagemeister93",
+          "rating": 5
         },
         {
-          "accountId": 1,
-          "rating": 3,
-          "bandId": 5
+          "username": "katjaStoiber",
+          "rating": 3
         },
         {
-          "accountId": 2,
-          "rating": 4,
-          "bandId": 5
+          "username": "oetkerohnek",
+          "rating": 4
+        }
+      ],
+      "concertGroups": [
+        {
+          "name": "Crisis of Faith",
+          "image": "events/crisis-of-faith-tour.jpg",
+          "concerts": [
+            {
+              "date": "2025-01-12",
+              "price": 81.90,
+              "inStock": 173,
+              "location": "ZAG Arena"
+            },
+            {
+              "date": "2025-02-01",
+              "price": 84.90,
+              "inStock": 192,
+              "location": "Muffatwerk"
+            }
+          ]
         }
       ]
     },
     {
-      "id": 6,
       "name": "Royal Blood",
       "foundingYear": 2013,
       "descriptionEn": "Royal Blood are an English rock duo formed in Littlehampton in 2011. The current lineup consists of Mike Kerr (vocals, bass guitar, piano) and Ben Thatcher (drums). Their signature sound is built around Kerr's bass playing style, which sees him using various effects pedals and amps to make his bass guitar sound like an electric guitar and bass guitar at the same time. The duo were signed by Warner Chappell Music in 2013 and have since released four studio albums: Royal Blood (2014), How Did We Get So Dark? (2017), Typhoons (2021), and Back to the Water Below (2023).",
@@ -393,42 +482,56 @@
       ],
       "imageMembers": "bands/royal-blood-members.jpg",
       "logo": "bands/royal-blood-logo.jpg",
-      "genreId": [
-        8,
-        14
+      "genres": [
+        "Garage Rock",
+        "Bluesrock"
       ],
       "members": [
         {
           "name": "Mike Kerr",
-          "bandId": 6,
           "image": "artists/mike-kerr.jpg"
         },
         {
           "name": "Ben Thatcher",
-          "bandId": 6,
           "image": "artists/ben-thatcher.jpg"
         }
       ],
       "ratings": [
         {
-          "accountId": 0,
-          "rating": 5,
-          "bandId": 6
+          "username": "hagemeister93",
+          "rating": 5
         },
         {
-          "accountId": 1,
-          "rating": 4,
-          "bandId": 6
+          "username": "katjaStoiber",
+          "rating": 4
         },
         {
-          "accountId": 2,
-          "rating": 4,
-          "bandId": 6
+          "username": "oetkerohnek",
+          "rating": 4
+        }
+      ],
+      "concertGroups": [
+        {
+          "name": "Back to the Water Below",
+          "image": "events/back-to-the-water-below.jpg",
+          "concerts": [
+            {
+              "date": "2025-02-27",
+              "price": 67.90,
+              "inStock": 847,
+              "location": "Kulturzentrum Faust"
+            },
+            {
+              "date": "2025-03-06",
+              "price": 64.90,
+              "inStock": 245,
+              "location": "Waldbühne Berlin"
+            }
+          ]
         }
       ]
     },
     {
-      "id": 7,
       "name": "Muse",
       "foundingYear": 1994,
       "descriptionEn": "Muse are an English rock band from Teignmouth, Devon, formed in 1994. The band consists of Matt Bellamy (lead vocals, guitar, keyboards), Chris Wolstenholme (bass guitar, backing vocals), and Dominic Howard (drums, percussion).",
@@ -440,43 +543,69 @@
       ],
       "imageMembers": "bands/muse-members.jpg",
       "logo": "bands/muse-logo.jpg",
-      "genreId": [
-        2,
-        15,
-        16
+      "genres": [
+        "Alternative Rock",
+        "New Prog",
+        "Hard Rock"
       ],
       "members": [
         {
           "name": "Matthew Bellamy",
-          "bandId": 7,
           "image": "artists/matthew-bellamy.jpg"
         },
         {
           "name": "Dominic Howard",
-          "bandId": 7,
           "image": "artists/dominic-howard.jpg"
         },
         {
           "name": "Chris Wolstenholme",
-          "bandId": 7,
           "image": "artists/chris-wolstenholme.jpg"
         }
       ],
       "ratings": [
         {
-          "accountId": 0,
-          "rating": 5,
-          "bandId": 7
+          "username": "hagemeister93",
+          "rating": 5
         },
         {
-          "accountId": 1,
-          "rating": 4,
-          "bandId": 7
+          "username": "katjaStoiber",
+          "rating": 4
         },
         {
-          "accountId": 2,
-          "rating": 4,
-          "bandId": 7
+          "username": "oetkerohnek",
+          "rating": 4
+        }
+      ],
+      "concertGroups": [
+        {
+          "name": "Will of the People Tour",
+          "image": "events/will-of-the-people-tour.jpg",
+          "concerts": [
+            {
+              "date": "2025-01-15",
+              "price": 67.90,
+              "inStock": 847,
+              "location": "ZAG Arena"
+            },
+            {
+              "date": "2025-01-23",
+              "price": 64.90,
+              "inStock": 245,
+              "location": "Olympiastadion Berlin"
+            },
+            {
+              "date": "2025-02-02",
+              "price": 64.90,
+              "inStock": 245,
+              "location": "Astra Kulturhaus"
+            },
+            {
+              "date": "2025-02-05",
+              "price": 64.90,
+              "inStock": 245,
+              "location": "Astra Kulturhaus"
+            }
+          ]
         }
       ]
     }

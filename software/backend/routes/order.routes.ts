@@ -6,7 +6,6 @@ import { Payment } from "../models/user/payment.model";
 import { Address } from "../models/user/address.model";
 import { Band } from "../models/acts/band.model";
 import { Location } from "../models/locations/location.model";
-import { Event } from "../models/acts/event.model";
 import { City } from "../models/locations/city.model";
 import { Seat } from "../models/locations/seat.model";
 import { SeatRow } from "../models/locations/seatRow.model";
@@ -26,8 +25,7 @@ order.get("/:id", (req: Request, res: Response) => {
             model: Concert,
             include: [
               {
-                model: Event,
-                include: [ Band ]
+                model: Band
               },
               {
                 model: Location,

@@ -14,7 +14,6 @@ import { Band } from "./models/acts/band.model"
 import { Concert } from "./models/acts/concert.model"
 import { Member } from "./models/acts/member.model"
 import { Rating } from "./models/acts/rating.model"
-import { Event } from "./models/acts/event.model"
 import { City } from "./models/locations/city.model"
 import { BandGenre } from "./models/acts/bandGenre.model"
 import { Seat } from "./models/locations/seat.model"
@@ -37,14 +36,14 @@ export const sequelize = new Sequelize({
   models: [
     AccountRole, Account, Payment, Address,
     City, Location, SeatGroup, SeatRow, Seat,
-    Genre, Band, BandGenre, Rating, Member, Event, Concert,
+    Genre, Band, BandGenre, Rating, Member, Concert,
     Order, Ticket,
     Exercise, ExerciseGroup
   ]
 })
 
 export function startDatabase() {
-  let recreateDb = false
+  let recreateDb = true
 
   // Create database and tables
   sequelize.sync({ force: recreateDb })

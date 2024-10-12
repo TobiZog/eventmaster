@@ -5,7 +5,6 @@
       "country": "Germany",
       "locations": [
         {
-          "id": 0,
           "name": "Swiss Life Hall",
           "address": "Ferdinand-Wilhelm-Fricke-Weg 8",
           "imageIndoor": "locations/swiss-life-hall-indoor.jpg",
@@ -56,7 +55,6 @@
           ]
         },
         {
-          "id": 1,
           "name": "Capitol",
           "address": "Schwarzer Bär 2",
           "imageIndoor": "locations/capitol-indoor.jpg",
@@ -72,7 +70,6 @@
           ]
         },
         {
-          "id": 2,
           "name": "ZAG Arena",
           "address": "EXPO-Plaza 7",
           "imageIndoor": "locations/zag-arena-indoor.jpg",
@@ -144,7 +141,6 @@
           ]
         },
         {
-          "id": 3,
           "name": "Kulturzentrum Faust",
           "address": "Zur Bettfedernfabrik 3",
           "imageIndoor": "locations/faust-hannover-indoor.jpg",
@@ -166,7 +162,6 @@
       "country": "Germany",
       "locations": [
         {
-          "id": 4,
           "name": "Olympiahalle München",
           "address": "Spiridon-Louis-Ring 21",
           "imageIndoor": "locations/olympiahalle-munich-indoor.jpg",
@@ -217,7 +212,6 @@
           ]
         },
         {
-          "id": 5,
           "name": "Schlachthof München",
           "address": "Zenettistraße 9",
           "imageIndoor": "locations/schlachthof-munich-indoor.jpg",
@@ -233,7 +227,6 @@
           ]
         },
         {
-          "id": 6,
           "name": "Muffatwerk",
           "address": "Zellstraße 4",
           "imageIndoor": "locations/muffatwerk-indoor.jpg",
@@ -255,7 +248,6 @@
       "country": "Germany",
       "locations": [
         {
-          "id": 7,
           "name": "Volksparkstadion",
           "address": "Sylvesterallee 7",
           "imageIndoor": "locations/volksparkstadion-hamburg-indoor.jpg",
@@ -327,7 +319,6 @@
           ]
         },
         {
-          "id": 8,
           "name": "Barclays Arena",
           "address": "Sylvesterallee 10",
           "imageIndoor": "locations/barclays-arena-indoor.jpg",
@@ -363,7 +354,6 @@
       "country": "Germany",
       "locations": [
         {
-          "id": 9,
           "name": "Waldbühne Berlin",
           "address": "Am Glockenturm",
           "imageIndoor": "locations/waldbuehne-berlin-indoor.jpg",
@@ -393,7 +383,6 @@
           ]
         },
         {
-          "id": 10,
           "name": "Olympiastadion Berlin",
           "address": "Olympischer Platz 3",
           "imageIndoor": "locations/olympiastadion-berlin-indoor.jpg",
@@ -444,7 +433,6 @@
           ]
         },
         {
-          "id": 11,
           "name": "Uber Arena Berlin",
           "address": "Uber-Platz 1",
           "imageIndoor": "locations/uber-arena-berlin-indoor.jpg",
@@ -495,7 +483,6 @@
           ]
         },
         {
-          "id": 12,
           "name": "Columbiahalle",
           "address": "Columbiadamm 13-21",
           "imageIndoor": "locations/columbiahalle-indoor.jpg",
@@ -525,7 +512,6 @@
           ]
         },
         {
-          "id": 13,
           "name": "Astra Kulturhaus",
           "address": "Revaler Straße 99",
           "imageIndoor": "locations/astra-kulturhaus-indoor.jpg",
@@ -547,7 +533,6 @@
       "country": "Germany",
       "locations": [
         {
-          "id": 14,
           "name": "LANXESS arena",
           "address": "Willy-Brandt-Platz",
           "imageIndoor": "locations/lanxess-arena-indoor.jpg",
@@ -598,7 +583,6 @@
           ]
         },
         {
-          "id": 15,
           "name": "Palladium",
           "address": "Schanzenstraße 40",
           "imageIndoor": "locations/palladium-indoor.jpg",
@@ -614,7 +598,6 @@
           ]
         },
         {
-          "id": 16,
           "name": "E-Werk",
           "address": "Schanzenstraße 37",
           "imageIndoor": "locations/e-werk-indoor.jpg",

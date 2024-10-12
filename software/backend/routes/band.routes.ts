@@ -3,7 +3,6 @@ import { Band } from "../models/acts/band.model";
 import { Request, Response, Router } from "express";
 import { Rating } from "../models/acts/rating.model";
 import { Genre } from "../models/acts/genre.model";
-import { Event } from "../models/acts/event.model";
 import { Concert } from "../models/acts/concert.model";
 import { Location } from "../models/locations/location.model";
 import { City } from "../models/locations/city.model";
@@ -28,26 +27,18 @@ band.get("/", (req: Request, res: Response) => {
         }
       },
       {
-        model: Event,
+        model: Concert,
         include: [
           {
-            model: Concert,
-            include: [
-              {
-                model: Location,
-                include: [ City ],
-                attributes: {
-                  exclude: [ "id" ]
-                }
-              }
-            ],
+            model: Location,
+            include: [ City ],
             attributes: {
-              exclude: [ "id", "tourId", "locationId" ]
+              exclude: [ "id" ]
             }
           }
         ],
         attributes: {
-          exclude: [ "id", "bandId" ]
+          exclude: [ "id", "tourId", "locationId" ]
         }
       },
       Genre
@@ -78,26 +69,18 @@ band.get("/band/:name", (req: Request, res: Response) => {
         }
       },
       {
-        model: Event,
+        model: Concert,
         include: [
           {
-            model: Concert,
-            include: [
-              {
-                model: Location,
-                include: [ City ],
-                attributes: {
-                  exclude: [ "id" ]
-                }
-              }
-            ],
+            model: Location,
+            include: [ City ],
             attributes: {
-              exclude: [ "tourId", "locationId" ]
+              exclude: [ "id" ]
             }
           }
         ],
         attributes: {
-          exclude: [ "bandId" ]
+          exclude: [ "tourId", "locationId" ]
         }
       },
       Genre
@@ -120,17 +103,7 @@ band.get("/search", (req: Request, res: Response) => {
         [Op.substring]: req.query.value
       },
     },
-    include: [
-      {
-        model: Event,
-        include: [
-          Concert
-        ]
-      },
-      {
-        model: Genre
-      }
-    ]
+    include: [ Concert, Genre ]
   })
     .then(bands => {
       res.status(200).json(bands)

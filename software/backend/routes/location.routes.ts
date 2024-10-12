@@ -2,7 +2,6 @@ import { Concert } from "../models/acts/concert.model";
 import { City } from "../models/locations/city.model";
 import { Location } from "../models/locations/location.model";
 import { Request, Response, Router } from "express";
-import { Event } from "../models/acts/event.model";
 import { Band } from "../models/acts/band.model";
 import { SeatGroup } from "../models/locations/seatGroup.model";
 import { Seat } from "../models/locations/seat.model";
@@ -20,15 +19,7 @@ location.get("/", (req: Request, res: Response) => {
       City, 
       {
         model: Concert,
-        include: [
-          {
-            model: Event,
-            include: [ Band ]
-          }
-        ],
-        attributes: {
-          exclude: [ "locationId", "tourId" ]
-        }
+        include: [ Band ],
       },
       {
         model: SeatGroup,
@@ -70,15 +61,7 @@ location.get("/location/:urlName", (req: Request, res: Response) => {
       City, 
       {
         model: Concert,
-        include: [
-          {
-            model: Event,
-            include: [ Band ]
-          }
-        ],
-        attributes: {
-          exclude: [ "locationId", "tourId" ]
-        }
+        include: [ Band ],
       },
       {
         model: SeatGroup,
