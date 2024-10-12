@@ -226,7 +226,7 @@ export async function prepopulateDatabase() {
                   date: concert.date,
                   name: concertGroup.name,
                   price: concert.price,
-                  image: concertGroup.name,
+                  image: concertGroup.image,
                   inStock: concert.inStock,
                   offered: true,
                   bandId: dataset.dataValues.id,

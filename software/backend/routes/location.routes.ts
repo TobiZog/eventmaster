@@ -27,6 +27,7 @@ location.get("/", (req: Request, res: Response) => {
     }
   })
     .then(async locations => {
+      // Sort ascending/descending by number of concerts
       if (sort != undefined) {
         locations.sort((location1, location2) => {
           if (sort == "desc") {

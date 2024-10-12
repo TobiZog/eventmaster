@@ -2,7 +2,7 @@ import axios from "axios"
 
 let BASE_URL = "http://localhost:3000/bands"
 
-export async function getAllBands() {
+export async function fetchAllBands() {
   return await axios.get(BASE_URL)
 }
 

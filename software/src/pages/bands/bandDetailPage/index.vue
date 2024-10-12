@@ -6,35 +6,22 @@ import gallerySection from './gallerySection.vue';
 import concertSection from './concertSection.vue';
 import heroImage from '@/components/pageParts/heroImage.vue';
 import sectionDivider from '@/components/basics/sectionDivider.vue';
-import { useShoppingStore } from '@/data/stores/shoppingStore';
-import { ref } from 'vue';
-import { useFeedbackStore } from '@/data/stores/feedbackStore';
-import { getBand } from '@/data/api/bandApi';
-import { BandApiModel } from '@/data/models/acts/bandApiModel';
-import { genre } from 'backend/routes/genre.routes';
+import { useBandStore } from '@/data/stores/bandStore';
 
 const router = useRouter()
-const shoppingStore = useShoppingStore()
-const feedbackStore = useFeedbackStore()
-const band = ref<BandApiModel>(new BandApiModel())
+const bandStore = useBandStore()
 
-feedbackStore.fetchDataFromServerInProgress = true
-
-getBand(String(router.currentRoute.value.params.bandName).replaceAll('-', ' '))
-  .then(result => {
-    band.value = result.data
-    feedbackStore.fetchDataFromServerInProgress = false
-  })
+bandStore.getBand(String(router.currentRoute.value.params.name).replaceAll('-', ' '))
 </script>
 
 <template>
   <hero-image
-    :image="band.imageMembers"
-    :logo="band.logo"
-    :title="band.name"
-    :chips="band.genres.map(genre => genre.name)"
-    :description="band.descriptionDe"
-    :loading="feedbackStore.fetchDataFromServerInProgress"
+    :image="bandStore.band.imageMembers"
+    :logo="bandStore.band.logo"
+    :title="bandStore.band.name"
+    :chips="bandStore.band.genres.map(genre => genre.name)"
+    :description="bandStore.band.descriptionDe"
+    :loading="bandStore.fetchInProgress"
   />
 
   <v-container>
@@ -49,8 +36,8 @@ getBand(String(router.currentRoute.value.params.bandName).replaceAll('-', ' '))
         </v-row>
 
         <concert-section
-          :band="band"
-          :events="band.events"
+          :band="bandStore.band"
+          :concerts="bandStore.band.concerts"
         />
 
         <v-row>
@@ -59,7 +46,9 @@ getBand(String(router.currentRoute.value.params.bandName).replaceAll('-', ' '))
           </v-col>
         </v-row>
 
-        <band-member-section :band="band" />
+        <band-member-section
+          :band="bandStore.band"
+        />
         
 
         <v-row>
@@ -68,7 +57,10 @@ getBand(String(router.currentRoute.value.params.bandName).replaceAll('-', ' '))
           </v-col>
         </v-row>
 
-        <rating-section :ratings="band.ratings" />
+        <rating-section
+          :rating="bandStore.band.rating"
+          :ratings="bandStore.band.ratingValues"
+        />
 
 
         <v-row>
@@ -77,7 +69,9 @@ getBand(String(router.currentRoute.value.params.bandName).replaceAll('-', ' '))
           </v-col>
         </v-row>
 
-        <gallery-section :band="band" />
+        <gallery-section
+          :band="bandStore.band"
+        />
       </v-col>
 
       <v-spacer />

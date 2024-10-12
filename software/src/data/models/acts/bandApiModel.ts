@@ -1,4 +1,5 @@
 import { BandModel } from "./bandModel";
+import { ConcertModel } from "./concertModel";
 import { GenreModel } from "./genreModel"
 
 /**
@@ -7,5 +8,5 @@ import { GenreModel } from "./genreModel"
 export class BandApiModel extends BandModel {
   genres: Array<GenreModel> = []
   rating: number = 0
-  nrOfConcerts: number = 0
+  concerts: Array<ConcertModel> = []
 }

@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import { BandModel } from '@/data/models/acts/bandModel';
-import { useFeedbackStore } from '@/data/stores/feedbackStore';
+import { useBandStore } from '@/data/stores/bandStore';
 
-const feedbackStore = useFeedbackStore()
+const bandStore = useBandStore()
 
 defineProps({
   band: {
@@ -17,7 +17,7 @@ defineProps({
     <v-col>
       <v-skeleton-loader
         type="image"
-        :loading="feedbackStore.fetchDataFromServerInProgress"
+        :loading="bandStore.fetchInProgress"
       >
         <v-carousel
           show-arrows

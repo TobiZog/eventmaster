@@ -1,9 +1,15 @@
 <script setup lang="ts">
-import { BandApiModel } from '@/data/models/acts/bandApiModel';
 import { RatingModel } from '@/data/models/acts/ratingModel';
 
 defineProps({
+  /**
+   * Overall rating of the band
+   */
   rating: Number,
+
+  /**
+   * Array of rating steps from 1 to 5
+   */
   ratings: {
     type: Array<RatingModel>,
     required: true

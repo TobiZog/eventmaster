@@ -2,14 +2,14 @@ import { defineStore } from "pinia";
 import { ref } from "vue";
 import { searchBand } from "../api/bandApi";
 import { searchLocation } from "../api/locationApi";
-import { searchEvent } from "../api/eventApi";
+import { searchConcert } from "../api/concertApi";
 
 export const useSearchStore = defineStore("searchStore", {
   state: () => ({
     searchTerm: ref(""),
     bands: ref(),
     locations: ref(),
-    events: ref(),
+    concerts: ref(),
     alreadySearched: ref(false),
     searchInProgress: ref(false)
   }),
@@ -32,9 +32,9 @@ export const useSearchStore = defineStore("searchStore", {
           this.locations = result.data
         })
 
-      await searchEvent(this.searchTerm)
+      await searchConcert(this.searchTerm)
         .then(result => {
-          this.events = result.data
+          this.concerts = result.data
         })
 
       this.searchInProgress = false

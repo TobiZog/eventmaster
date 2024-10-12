@@ -34,7 +34,7 @@ const routes = [
 
   // Concerts
   { path: '/concerts', component: ConcertsPage },
-  { path: '/concert/booking/:id', component: ConcertBookingPage },
+  { path: '/concerts/booking/:id', component: ConcertBookingPage },
 
   // Locations
   { path: '/locations', component: LocationsPage },

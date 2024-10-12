@@ -175,5 +175,7 @@
   "noBandFound": "Keine Band gefunden",
   "noLocationsFound": "Keine Veranstaltungsorte gefunden",
   "allBands": "Alle Bands",
-  "allConcerts": "Alle Konzerte"
+  "allConcerts": "Alle Konzerte",
+  "more": "Mehr",
+  "upcomingConcerts": "Nächste Konzerte"
 }

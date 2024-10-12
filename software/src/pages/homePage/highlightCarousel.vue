@@ -10,7 +10,7 @@ shoppingStore.getEvents()
 </script>
 
 <template>
-  <v-carousel
+  <!-- <v-carousel
     hide-delimiters
     hide-delimiter-background
     height="700"
@@ -30,10 +30,10 @@ shoppingStore.getEvents()
         @click="props.onClick"
         icon="mdi-chevron-right"
       />
-    </template>
+    </template> -->
 
-    <v-carousel-item
-      v-for="event in shoppingStore.events"
+    <!-- <v-carousel-item
+      v-for="event in shoppingStore.concerts"
       :src="'http://localhost:3000/static/' + event.band.imageMembers" 
       cover
     >
@@ -60,7 +60,7 @@ shoppingStore.getEvents()
         </v-card-text>
       </v-card>
     </v-carousel-item>
-  </v-carousel>
+  </v-carousel> -->
 </template>
 
 <style scoped>

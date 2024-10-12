@@ -1,12 +1,10 @@
 <script setup lang="ts">
 import { useConcertStore } from '@/data/stores/concertStore';
 import concertListItem from '@/components/pageParts/concertListItem.vue';
-import { useFeedbackStore } from '@/data/stores/feedbackStore';
 import cardViewHorizontal from '@/components/basics/cardViewHorizontal.vue';
 import sectionDivider from '@/components/basics/sectionDivider.vue';
 
 const concertStore = useConcertStore()
-const feedbackStore = useFeedbackStore()
 
 concertStore.getConcerts()
 </script>
@@ -25,7 +23,7 @@ concertStore.getConcerts()
         </v-row>
 
         <v-row
-          v-if="feedbackStore.fetchDataFromServerInProgress"
+          v-if="concertStore.fetchInProgress"
           v-for="i in 3"
         >
           <v-col>

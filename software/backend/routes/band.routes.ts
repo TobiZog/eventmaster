@@ -13,6 +13,9 @@ export const band = Router()
 
 // Get all bands
 band.get("/", (req: Request, res: Response) => {
+  let sort = req.query.sort
+  let count = req.query.count
+
   Band.findAll({
     include: [
       {
@@ -35,11 +38,26 @@ band.get("/", (req: Request, res: Response) => {
 
         // Delete unnecessary Arrays
         delete band.dataValues.ratings
-        delete band.dataValues.concerts
 
         for (let genre of band.dataValues.genres) {
           delete genre.dataValues.BandGenre
         }
+      }
+
+      // Sort ascending/descending by number of concerts
+      if (sort != undefined) {
+        bands.sort((band1, band2) => {
+          if (sort == "desc") {
+            return band2.dataValues.concerts.length - band1.dataValues.concerts.length
+          } else if (sort == "asc") {
+            return band1.dataValues.concerts.length - band2.dataValues.concerts.length
+          }
+        })
+      }
+
+      // Limit number of items
+      if (count != undefined) {
+        bands.splice(Number(count))
       }
 
       res.status(200).json(bands)

@@ -9,6 +9,7 @@ import { ref } from "vue";
 import { SelectedSeatModel } from "../models/ordering/selectedSeatModel";
 import { calcPrice } from "@/scripts/concertScripts";
 import { BandModel } from "../models/acts/bandModel";
+import { ConcertModel } from "../models/acts/concertModel";
 
 export const useBasketStore = defineStore('basketStore', {
   state: () => ({
@@ -50,7 +51,7 @@ export const useBasketStore = defineStore('basketStore', {
       )
     },
 
-    moveSeatSelectionsToBasket(event, band: BandModel) {
+    moveSeatSelectionsToBasket(concert: ConcertModel, band: BandModel) {
       // todo
       // for (let selectedSeat of this.selectedSeats) {
       //   let itemInBasket: BasketItemModel = this.itemsInBasket.find((basketItem: BasketItemModel) => {

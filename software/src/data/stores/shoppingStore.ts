@@ -1,12 +1,14 @@
 import { defineStore } from "pinia";
 import { ref } from "vue";
-import { fetchEvents } from "../api/eventApi";
 import { fetchAllCities } from "../api/cityApi";
 import { fetchAllGenres } from "../api/genreApi";
 import { useFeedbackStore } from "./feedbackStore";
 import { CityApiModel } from "../models/locations/cityApiModel";
 import { GenreApiModel } from "../models/acts/genreApiModel";
 
+/**
+ * @deprecated
+ */
 export const useShoppingStore = defineStore("shoppingStore", {
   state: () => ({
     cities: ref<Array<CityApiModel>>([]),
@@ -19,15 +21,6 @@ export const useShoppingStore = defineStore("shoppingStore", {
     async getEvents() {
       const feedbackStore = useFeedbackStore()
       feedbackStore.fetchDataFromServerInProgress = true
-
-      await fetchEvents(
-        this.cityFilterName != null && this.cityFilterName != "undefined" && !this.cityFilterName.startsWith("<") ? this.cityFilterName : "",
-        this.genreFilterName != null && this.genreFilterName != "undefined" && !this.genreFilterName.startsWith("<") ? this.genreFilterName : ""
-      )
-        .then(result => {
-          this.events = result.data
-          feedbackStore.fetchDataFromServerInProgress = false
-        })
     },
 
     async getCities() {

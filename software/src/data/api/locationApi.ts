@@ -7,11 +7,10 @@ export async function fetchAllLocations() {
 }
 
 export async function getLocation(locationName: string) {
-  console.log(locationName)
   return await axios.get(BASE_URL + "/location/" + locationName)
 }
 
-export async function getTopLocations(nrOfLocations: number) {
+export async function fetchTopLocations(nrOfLocations: number) {
   let url = BASE_URL + "?sort=desc&count=" + nrOfLocations
 
   return await axios.get(url)

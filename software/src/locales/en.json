@@ -175,5 +175,7 @@
   "noBandFound": "No band found",
   "noLocationsFound": "No location found",
   "allBands": "All Bands",
-  "allConcerts": "All Concerts"
+  "allConcerts": "All Concerts",
+  "more": "More",
+  "upcomingConcerts": "Upcoming Concerts"
 }

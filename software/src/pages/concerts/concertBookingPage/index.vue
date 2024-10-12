@@ -1,30 +1,17 @@
 <script setup lang="ts">
 import seatPlanMap from '@/components/seatPlanMap/seatPlanMap.vue';
-import { ref } from 'vue';
-import { SeatGroupModel } from '@/data/models/locations/seatGroupModel';
-import { getConcert } from '@/data/api/concertApi';
-import { useFeedbackStore } from '@/data/stores/feedbackStore';
 import { useRouter } from 'vue-router';
 import sectionDivider from '@/components/basics/sectionDivider.vue';
 import { useBasketStore } from '@/data/stores/basketStore';
 import concertListItem from '@/components/pageParts/concertListItem.vue';
 import outlinedButton from '@/components/basics/outlinedButton.vue';
-import { ConcertApiModel } from '@/data/models/acts/concertApiModel';
+import { useConcertStore } from '@/data/stores/concertStore';
 
 const router = useRouter()
-const seatGroups = ref<Array<SeatGroupModel>>()
-const concertModel = ref<ConcertApiModel>(new ConcertApiModel())
-const feedbackStore = useFeedbackStore()
 const basketStore = useBasketStore()
+const concertStore = useConcertStore()
 
-feedbackStore.fetchDataFromServerInProgress = true
-
-getConcert(Number(router.currentRoute.value.params.id))
-  .then(result => {
-    seatGroups.value = result.data.location.seatGroups
-    concertModel.value = result.data
-    feedbackStore.fetchDataFromServerInProgress = false
-  })
+concertStore.getConcert(Number(router.currentRoute.value.params.id))
 </script>
 
 <template>
@@ -42,14 +29,16 @@ getConcert(Number(router.currentRoute.value.params.id))
         <v-row>
           <v-col>
             <concert-list-item
-              :concert="concertModel"
-              :loading="feedbackStore.fetchDataFromServerInProgress"
+              :concert="concertStore.concert"
+              :band="concertStore.concert.band"
+              :location="concertStore.concert.location"
+              :loading="concertStore.fetchInProgress"
               :link="false"
-              :title="concertModel.location.city.name"
+              :title="concertStore.concert.location.city.name"
               :show-button="false"
             >
               <template #description>
-                <p>{{ concertModel.location.name }}</p>
+                <p>{{ concertStore.concert.location.name }}</p>
                 <!-- todo <p>{{ concertModel.event.band.name }} - {{ concertModel.event.name }}</p> -->
               </template>
             </concert-list-item>
@@ -62,7 +51,7 @@ getConcert(Number(router.currentRoute.value.params.id))
         </v-row>
 
         <v-row >
-          <v-col class="text-center" v-if="feedbackStore.fetchDataFromServerInProgress">
+          <v-col class="text-center" v-if="concertStore.fetchInProgress">
             <v-progress-circular
               size="x-large"
               width="10"
@@ -77,9 +66,9 @@ getConcert(Number(router.currentRoute.value.params.id))
 
           <v-col v-else>
             <seat-plan-map
-              :concert="concertModel"
-              :seat-groups="seatGroups"
-              :location="concertModel.location"
+              :concert="concertStore.concert"
+              :seat-groups="concertStore.concert.location.seatGroups"
+              :location="concertStore.concert.location"
             />
           </v-col>
         </v-row>
@@ -102,15 +91,15 @@ getConcert(Number(router.currentRoute.value.params.id))
         </v-row>
 
         <v-row class="pb-5">
-          <!-- <outlined-button todo
+          <outlined-button todo
             prepend-icon="mdi-basket-plus"
-            @click="basketStore.moveSeatSelectionsToBasket(concertModel.event, concertModel.event.band); 
+            @click="basketStore.moveSeatSelectionsToBasket(concertStore.concert, concertStore.concert.band); 
               router.push('/basket')"
             :disabled="basketStore.selectedSeats.length == 0"
             block
           >
             {{ $t('addToBasket') }}
-          </outlined-button> -->
+          </outlined-button>
         </v-row>
       </v-col>
 

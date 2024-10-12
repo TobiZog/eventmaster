@@ -12,6 +12,8 @@ export const concert = Router()
 
 
 concert.get("/", (req: Request, res: Response) => {
+  let count = req.query.count
+
   Concert.findAll({
     include: [ Band, Location ],
     order: [
@@ -19,6 +21,11 @@ concert.get("/", (req: Request, res: Response) => {
     ]
   })
     .then(concerts => {
+      // Limit number of items
+      if (count != undefined) {
+        concerts.splice(Number(count))
+      }
+
       res.status(200).json(concerts)
     })
 })

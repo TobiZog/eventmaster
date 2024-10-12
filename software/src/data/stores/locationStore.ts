@@ -1,7 +1,6 @@
 import { defineStore } from "pinia";
 import { ref } from "vue";
-import { useFeedbackStore } from "./feedbackStore";
-import { fetchAllLocations } from "../api/locationApi";
+import { fetchAllLocations, fetchTopLocations } from "../api/locationApi";
 import { LocationApiModel } from "../models/locations/locationApiModel";
 import { CityModel } from "../models/locations/cityModel";
 import { fetchAllCities } from "../api/cityApi";
@@ -9,13 +8,17 @@ import { fetchAllCities } from "../api/cityApi";
 export const useLocationStore = defineStore("locationStore", {
   state: () => ({
     locations: ref<Array<LocationApiModel>>([]),
-    cities: ref<Array<CityModel>>([])
+    topLocations: ref<Array<LocationApiModel>>([]),
+    cities: ref<Array<CityModel>>([]),
+    fetchInProgress: ref(false)
   }),
 
   actions: {
+    /**
+     * Download all cities/locations from server
+     */
     async getLocations() {
-      const feedbackStore = useFeedbackStore()
-      feedbackStore.fetchDataFromServerInProgress = true
+      this.fetchInProgress = true
 
       await fetchAllLocations()
         .then(result => {
@@ -25,12 +28,29 @@ export const useLocationStore = defineStore("locationStore", {
       await fetchAllCities()
         .then(result => {
           this.cities = result.data
-          feedbackStore.fetchDataFromServerInProgress = false
+          this.fetchInProgress = false
         })
     },
 
+    /**
+     * Get all locations in a specific city
+     * 
+     * @param city City to filter for
+     * 
+     * @returns Array of cities which are in the target city
+     */
     getLocationsByCity(city: string): Array<LocationApiModel> {
-      return this.locations.filter(location => location.city.name == city)
+      return this.locations.filter((location: LocationApiModel) => {
+        return location.city.name == city
+      })
+    },
+
+
+    async getTopLocations() {
+      await fetchTopLocations(8)
+        .then(result => {
+          this.topLocations = result.data
+        })
     }
   },
 })

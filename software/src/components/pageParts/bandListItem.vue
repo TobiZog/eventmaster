@@ -57,7 +57,7 @@ defineProps({
 
         <div>
           <v-btn variant="flat" color="secondary">
-            {{ concerts.length }} {{ $t('event', concerts.length) }}
+            {{ $t('more') }}
           </v-btn>
         </div>
       </div>

@@ -8,6 +8,7 @@ import { useFeedbackStore } from '@/data/stores/feedbackStore';
 import heroImage from '@/components/pageParts/heroImage.vue';
 import concertListItem from '@/components/pageParts/concertListItem.vue';
 import { LocationDetailsApiModel } from '@/data/models/locations/locationDetailsApiModel';
+import cardViewHorizontal from '@/components/basics/cardViewHorizontal.vue';
 
 const router = useRouter()
 const feedbackStore = useFeedbackStore()
@@ -49,8 +50,7 @@ getLocation(String(router.currentRoute.value.params.name))
 
         <v-row v-if="feedbackStore.fetchDataFromServerInProgress" v-for="i in 3">
           <v-col class="text-center">
-            Loading...
-            <!-- todo <concert-list-item :loading="feedbackStore.fetchDataFromServerInProgress" /> -->
+            <card-view-horizontal :loading="true" />
           </v-col>
         </v-row>
 
@@ -61,8 +61,9 @@ getLocation(String(router.currentRoute.value.params.name))
           <v-col>
             <concert-list-item
               :concert="concert"
+              :band="concert.band"
+              :location="location"
               :title="concert.name"
-              :onClick="() => router.push('/bands/' + concert.band.name.replaceAll(' ', '-').toLowerCase())"
             >
               <template #description>
                 {{ concert.band.name }}
