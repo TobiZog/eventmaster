@@ -2,11 +2,12 @@ import axios from "axios"
 
 const BASE_URL = "http://localhost:3000/locations"
 
-export async function getAllLocations() {
+export async function fetchAllLocations() {
   return await axios.get(BASE_URL)
 }
 
 export async function getLocation(locationName: string) {
+  console.log(locationName)
   return await axios.get(BASE_URL + "/location/" + locationName)
 }
 

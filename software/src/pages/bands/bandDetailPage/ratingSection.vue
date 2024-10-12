@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import { BandApiModel } from '@/data/models/acts/bandApiModel';
 import { RatingModel } from '@/data/models/acts/ratingModel';
-import { calcRating, calcRatingValues } from '@/scripts/concertScripts';
 
 defineProps({
+  rating: Number,
   ratings: {
     type: Array<RatingModel>,
     required: true
@@ -16,12 +16,12 @@ defineProps({
     <v-col>
       <div class="d-flex align-center justify-center flex-column" style="height: 100%;">
         <div class="text-h2 mt-5">
-          {{ calcRating(ratings).toFixed(1) }}
+          {{ rating.toFixed(1) }}
           <span class="text-h6 ml-n3">/5</span>
         </div>
     
         <v-rating
-          :model-value="calcRating(ratings)"
+          :model-value="rating"
           color="yellow-darken-3"
           half-increments
           size="x-large"
@@ -34,7 +34,7 @@ defineProps({
 
     <v-col>
       <v-list>
-        <v-list-item v-for="ratingValue in calcRatingValues(ratings)">
+        <v-list-item v-for="ratingValue in ratings">
           <template v-slot:prepend>
             <span>{{ ratingValue.value }}</span>
             <v-icon class="ml-3 mr-n3" icon="mdi-star" />

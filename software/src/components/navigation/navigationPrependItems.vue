@@ -10,19 +10,29 @@
   <v-divider vertical />
 
   <v-btn
-    to="/events"
+    to="/bands"
+    prepend-icon="mdi-guitar-electric"
+    height="100%"
+    :rounded="false"
+  >
+    {{ $t('allBands', 2) }}
+  </v-btn>
+
+  <v-divider vertical />
+
+  <v-btn
+    to="/concerts"
     prepend-icon="mdi-ticket"
     height="100%"
     :rounded="false"
   >
-    {{ $t('allEvents', 2) }}
+    {{ $t('allConcerts', 2) }}
   </v-btn>
 
   <v-divider vertical />
 
 
   <v-btn
-    variant="text"
     to="/locations"
     prepend-icon="mdi-city"
     height="100%"

@@ -1,6 +1,11 @@
 <script setup lang="ts">
 import cardViewHorizontal from '@/components/basics/cardViewHorizontal.vue';
+import { BandModel } from '@/data/models/acts/bandModel';
 import { ConcertModel } from '@/data/models/acts/concertModel';
+import { LocationModel } from '@/data/models/locations/locationModel';
+import { useRouter } from 'vue-router';
+
+const router = useRouter()
 
 defineProps({
   /** Concert to display */
@@ -9,8 +14,15 @@ defineProps({
     required: true
   },
 
-  /** Card title */
-  title: String,
+  band: {
+    type: BandModel,
+    required: true
+  },
+
+  location: {
+    type: LocationModel,
+    required: true
+  },
 
   /** Display text parts as skeleton */
   loading: Boolean,
@@ -19,19 +31,16 @@ defineProps({
   showButton: {
     type: Boolean,
     default: true
-  },
-
-  /** Behaviour if user clicks on button or card */
-  onClick: Function
+  }
 })
 </script>
 
 <template>
   <card-view-horizontal
-    :title="title"
+    :title="concert.name"
     v-if="!loading"
     :link="showButton && concert.inStock > 0"
-    @click="showButton && concert.inStock > 0 ? onClick() : () => {}"
+    @click="showButton && concert.inStock > 0 ? router.push('/concerts/booking/' + concert.id) : () => {}"
   >
     <template #prepend>
       <div>
@@ -50,7 +59,13 @@ defineProps({
     </template>
 
     <template #content>
-      <slot name="description" />
+      <div>
+        {{ band.name }}
+      </div>
+
+      <div>
+        {{ location.name }}
+      </div>
     </template>
 
     <template #append>

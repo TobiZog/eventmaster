@@ -7,14 +7,14 @@ export class Rating extends Model {
   
   @ForeignKey(() => Account)
   @Column
-  accountId: Number
+  accountId: number
   
   @Column
-  rating: Number
+  rating: number
 
   @ForeignKey(() => Band)
   @Column
-  bandId: Number
+  bandId: number
 
 
   // Relations

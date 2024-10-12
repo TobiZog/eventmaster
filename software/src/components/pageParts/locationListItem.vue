@@ -2,7 +2,6 @@
 import cardViewTopImage from '../basics/cardViewTopImage.vue';
 import { useRouter } from 'vue-router';
 import { LocationModel } from '@/data/models/locations/locationModel';
-import { ConcertModel } from '@/data/models/acts/concertModel';
 
 const router = useRouter()
 
@@ -11,9 +10,8 @@ defineProps({
     type: LocationModel,
     required: true
   },
-  concerts: {
-    type: Array<ConcertModel>,
-    required: true
+  nrOfConcerts: {
+    type: Number
   }
 })
 </script>
@@ -22,10 +20,10 @@ defineProps({
   <card-view-top-image
     :image="location.imageOutdoor"
     :title="location.name"
-    @click="router.push('locations/' + location.name.replaceAll(' ', '-').toLowerCase())"
+    @click="router.push('locations/details/' + location.name.replaceAll(' ', '-').toLowerCase())"
   >
     <div>
-      {{ concerts.length }} {{ $t('concert', concerts.length) }}
+      {{ nrOfConcerts }} {{ $t('concert', nrOfConcerts) }}
     </div>
   </card-view-top-image>
 </template>

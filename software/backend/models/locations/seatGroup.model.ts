@@ -5,21 +5,21 @@ import { SeatRow } from "./seatRow.model";
 @Table({ timestamps: false })
 export class SeatGroup extends Model {
   @Column
-  name: String
+  name: string
 
   @Column
-  surcharge: Number
+  surcharge: number
 
   @Column
-  capacity: Number
+  capacity: number
 
   @Default(false)
   @Column
-  standingArea: Boolean
+  standingArea: boolean
 
   @ForeignKey(() => Location)
   @Column
-  locationId: Number
+  locationId: number
 
 
   // Relations

@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import searchBar from './searchBar.vue';
-import eventListItem from '@/components/pageParts/eventListItem.vue';
 import sectionDivider from '@/components/basics/sectionDivider.vue';
 import cardViewHorizontal from '@/components/basics/cardViewHorizontal.vue';
 import locationListItem from '@/components/pageParts/locationListItem.vue';
@@ -45,7 +44,7 @@ const searchStore = useSearchStore()
             <v-col>
               <band-list-item
                 :band="band"
-                :events="band.events"
+                :concerts="band.concerts"
                 :genres="band.genres"
                 :loading="searchStore.searchInProgress"
               />

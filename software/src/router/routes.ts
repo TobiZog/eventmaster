@@ -30,7 +30,7 @@ const routes = [
 
   // Bands
   { path: '/bands', component: BandsPage },
-  { path: '/bands/detail/:name', component: BandDetailPage },
+  { path: '/bands/details/:name', component: BandDetailPage },
 
   // Concerts
   { path: '/concerts', component: ConcertsPage },
@@ -38,7 +38,7 @@ const routes = [
 
   // Locations
   { path: '/locations', component: LocationsPage },
-  { path: '/locations/detail/:name', name: 'locationDetails', component: LocationDetailPage },
+  { path: '/locations/details/:name', name: 'locationDetails', component: LocationDetailPage },
   
   // Misc
   { path: '/search', component: SearchPage },

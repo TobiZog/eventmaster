@@ -1,4 +1,4 @@
 export class RatingModel {
-  id: number = -1
-  rating: number = 1
+  value: number = 0
+  count: number = 0
 }

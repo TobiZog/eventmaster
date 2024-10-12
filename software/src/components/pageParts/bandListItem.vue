@@ -1,11 +1,10 @@
 <script setup lang="ts">
 import { BandModel } from '@/data/models/acts/bandModel';
-import { lowestTicketPrice, lowestTicketPriceEvents } from '@/scripts/concertScripts';
+import { lowestTicketPrice } from '@/scripts/concertScripts';
 import cardViewHorizontal from '@/components/basics/cardViewHorizontal.vue';
-import { EventModel } from '@/data/models/acts/eventModel';
 import { useRouter } from 'vue-router';
 import { GenreModel } from '@/data/models/acts/genreModel';
-import { EventApiModel } from '@/data/models/acts/eventApiModel';
+import { ConcertModel } from '@/data/models/acts/concertModel';
 
 const router = useRouter()
 
@@ -16,9 +15,8 @@ defineProps({
     required: true
   },
 
-  /** Events where the band participate */
-  events: {
-    type: Array<EventApiModel>,
+  concerts: {
+    type: Array<ConcertModel>,
     required: true
   },
 
@@ -37,7 +35,7 @@ defineProps({
     v-if="!loading"
     :title="band.name"
     :image="'http://localhost:3000/static/' + band.logo"
-    @click="router.push('/bands/' + band.name.replaceAll(' ', '-').toLowerCase())"
+    @click="router.push('/bands/details/' + band.name.replaceAll(' ', '-').toLowerCase())"
   >
     <template #content>
       <div>
@@ -54,12 +52,12 @@ defineProps({
     <template #append>
       <div>
         <div class="text-secondary font-weight-medium text-h6 pb-1">
-          {{ $t('from') + ' ' + lowestTicketPriceEvents(events) + ' €' }}
+          {{ $t('from') + ' ' + lowestTicketPrice(concerts) + ' €' }}
         </div>
 
         <div>
           <v-btn variant="flat" color="secondary">
-            {{ events.length }} {{ $t('event', events.length) }}
+            {{ concerts.length }} {{ $t('event', concerts.length) }}
           </v-btn>
         </div>
       </div>

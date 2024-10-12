@@ -7,44 +7,41 @@ import { Concert } from "../models/acts/concert.model";
 import { Location } from "../models/locations/location.model";
 import { City } from "../models/locations/city.model";
 import { Op } from "sequelize";
+import { calcOverallRating, calcRatingValues } from "../scripts/calcScripts";
 
 export const band = Router()
 
 // Get all bands
 band.get("/", (req: Request, res: Response) => {
   Band.findAll({
-    include: [ 
-      {
-        model: Member,
-        attributes: {
-          exclude: [ "id", "bandId" ]
-        }
-      },
+    include: [
       {
         model: Rating,
-        attributes: {
-          exclude: [ "id", "bandId" ]
-        }
       },
       {
-        model: Concert,
-        include: [
-          {
-            model: Location,
-            include: [ City ],
-            attributes: {
-              exclude: [ "id" ]
-            }
-          }
-        ],
+        model: Genre,
         attributes: {
-          exclude: [ "id", "tourId", "locationId" ]
+          exclude: [ "id" ]
         }
       },
-      Genre
+      Concert
     ]
   })
     .then(bands => {
+      for (let band of bands) {
+        band.dataValues["nrOfConcerts"] = band.dataValues.concerts.length
+        band.dataValues["rating"] = calcOverallRating(band.dataValues.ratings)
+
+
+        // Delete unnecessary Arrays
+        delete band.dataValues.ratings
+        delete band.dataValues.concerts
+
+        for (let genre of band.dataValues.genres) {
+          delete genre.dataValues.BandGenre
+        }
+      }
+
       res.status(200).json(bands)
     })
 })
@@ -90,6 +87,16 @@ band.get("/band/:name", (req: Request, res: Response) => {
     }
   })
     .then(band => {
+      band.dataValues["rating"] = calcOverallRating(band.dataValues.ratings)
+      band.dataValues["ratingValues"] = calcRatingValues(band.dataValues.ratings)
+
+      // Delete unnecessary Arrays
+      delete band.dataValues.ratings
+
+      for (let genre of band.dataValues.genres) {
+          delete genre.dataValues.BandGenre
+        }
+
       res.status(200).json(band)
     })
 })

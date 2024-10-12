@@ -5,7 +5,7 @@ import { BandGenre } from "./bandGenre.model";
 @Table({ timestamps: false })
 export class Genre extends Model {
   @Column
-  name: String
+  name: string
 
 
   // Relations

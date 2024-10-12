@@ -9,20 +9,20 @@ export class Location extends Model {
   urlName: string
 
   @Column
-  name: String
+  name: string
 
   @Column
-  address: String
+  address: string
 
   @ForeignKey(() => City)
   @Column
-  cityId: Number
+  cityId: number
 
   @Column
-  imageIndoor: String
+  imageIndoor: string
 
   @Column
-  imageOutdoor: String
+  imageOutdoor: string
 
   /**
    * Layout identifier of the location
@@ -31,7 +31,7 @@ export class Location extends Model {
    * 3 = Stage in the middle of the stay area, seat places all around
    */
   @Column
-  layout: Number
+  layout: number
 
 
   // Relations

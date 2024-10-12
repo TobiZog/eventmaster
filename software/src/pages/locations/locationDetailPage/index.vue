@@ -7,15 +7,15 @@ import { ref } from 'vue';
 import { useFeedbackStore } from '@/data/stores/feedbackStore';
 import heroImage from '@/components/pageParts/heroImage.vue';
 import concertListItem from '@/components/pageParts/concertListItem.vue';
-import { LocationApiModel } from '@/data/models/locations/locationApiModel';
+import { LocationDetailsApiModel } from '@/data/models/locations/locationDetailsApiModel';
 
 const router = useRouter()
 const feedbackStore = useFeedbackStore()
-const location = ref<LocationApiModel>(new LocationApiModel())
+const location = ref<LocationDetailsApiModel>(new LocationDetailsApiModel())
 
 feedbackStore.fetchDataFromServerInProgress = true
 
-getLocation(String(router.currentRoute.value.params.locationName))
+getLocation(String(router.currentRoute.value.params.name))
   .then(result => {
     location.value = result.data
     feedbackStore.fetchDataFromServerInProgress = false
@@ -61,11 +61,11 @@ getLocation(String(router.currentRoute.value.params.locationName))
           <v-col>
             <concert-list-item
               :concert="concert"
-              :title="concert.event.name"
-              :onClick="() => router.push('/bands/' + concert.event.band.name.replaceAll(' ', '-').toLowerCase())"
+              :title="concert.name"
+              :onClick="() => router.push('/bands/' + concert.band.name.replaceAll(' ', '-').toLowerCase())"
             >
               <template #description>
-                {{ concert.event.band.name }}
+                {{ concert.band.name }}
               </template>
             </concert-list-item>
           </v-col>
@@ -97,6 +97,7 @@ getLocation(String(router.currentRoute.value.params.locationName))
           <v-col>
             <seat-plan-map
               :location="location"
+              :seat-groups="location.seatGroups"
             />
           </v-col>
         </v-row>

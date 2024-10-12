@@ -4,13 +4,13 @@ import { Exercise } from "./exercise.model";
 @Table({ timestamps: false })
 export class ExerciseGroup extends Model {
   @Column
-  nameDe: String
+  nameDe: string
 
   @Column
-  nameEn: String
+  nameEn: string
 
   @Column
-  groupNr: Number
+  groupNr: number
 
 
   // Relations

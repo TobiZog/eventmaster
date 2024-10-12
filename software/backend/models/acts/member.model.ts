@@ -4,14 +4,14 @@ import { Band } from "./band.model";
 @Table({ timestamps: false })
 export class Member extends Model {
   @Column
-  name: String
+  name: string
 
   @ForeignKey(() => Band)
   @Column
-  bandId: Number
+  bandId: number
 
   @Column
-  image: String
+  image: string
 
 
   // Relations

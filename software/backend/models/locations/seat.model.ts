@@ -9,7 +9,7 @@ export class Seat extends Model {
 
   @ForeignKey(() => SeatRow)
   @Column
-  seatRowId: Number
+  seatRowId: number
 
 
   // Relations

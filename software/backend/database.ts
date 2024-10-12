@@ -43,7 +43,7 @@ export const sequelize = new Sequelize({
 })
 
 export function startDatabase() {
-  let recreateDb = true
+  let recreateDb = false
 
   // Create database and tables
   sequelize.sync({ force: recreateDb })

@@ -1,14 +1,14 @@
 <script setup lang="ts">
 import sectionDivider from '@/components/basics/sectionDivider.vue';
 import cardWithTopImage from '@/components/basics/cardViewTopImage.vue';
-import { useShoppingStore } from '@/data/stores/shoppingStore';
 import { useFeedbackStore } from '@/data/stores/feedbackStore';
 import locationListItem from '@/components/pageParts/locationListItem.vue';
+import { useLocationStore } from '@/data/stores/locationStore';
 
-const shoppingStore = useShoppingStore()
+const locationStore = useLocationStore()
 const feedbackStore = useFeedbackStore()
 
-shoppingStore.getCities()
+locationStore.getLocations()
 </script>
 
 <template>
@@ -37,23 +37,31 @@ shoppingStore.getCities()
 
         <!-- When all data are downloaded -->
         <div
-          v-else
-          v-for="city in shoppingStore.cities"
+          v-else-if="locationStore.locations.length > 0"
+          v-for="city in locationStore.cities"
         >
           <v-row>
             <v-col>
-              <section-divider 
-                :title="city.name"
-              />
-            </v-col>
-          </v-row>
+              <v-row>
+                <v-col>
+                  <section-divider 
+                    :title="city.name"
+                  />
+                </v-col>
+              </v-row>
 
-          <v-row>
-            <v-col v-for="location in city.locations" cols="3">
-              <location-list-item
-                :location="location"
-                :concerts="location.concerts"
-              />
+              <v-row>
+                <v-col
+                  v-for="location in locationStore.getLocationsByCity(city.name)"
+                  cols="3"
+                >
+                  <location-list-item
+                    :location="location"
+                    :nrOfConcerts="location.nrOfConcerts"
+                  />
+                </v-col>
+              </v-row>
+
             </v-col>
           </v-row>
         </div>
@@ -61,8 +69,5 @@ shoppingStore.getCities()
 
       <v-spacer />
     </v-row>
-
-
-    
   </v-container>
 </template>

@@ -2,7 +2,6 @@
 import { ConcertModel } from '@/data/models/acts/concertModel';
 import cardWithLeftImage from '../basics/cardViewHorizontal.vue';
 import { dateStringToHumanReadableString } from '@/scripts/dateTimeScripts';
-import { EventModel } from '@/data/models/acts/eventModel';
 import { BandModel } from '@/data/models/acts/bandModel';
 import { LocationModel } from '@/data/models/locations/locationModel';
 import { CityModel } from '@/data/models/locations/cityModel';
@@ -10,11 +9,6 @@ import { CityModel } from '@/data/models/locations/cityModel';
 defineProps({
   concert: {
     type: ConcertModel,
-    required: true
-  },
-
-  event: {
-    type: EventModel,
     required: true
   },
 
@@ -54,7 +48,7 @@ defineProps({
     :image="'http://localhost:3000/static/' + image"
     :link="false"
     color-header="primary"
-    :title="band.name + ' - ' + event.name"
+    :title="band.name + ' - ' + concert.name"
   >
     <template #content>
       <div class="text-caption">

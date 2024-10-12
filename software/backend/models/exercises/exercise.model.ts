@@ -4,26 +4,26 @@ import { ExerciseGroup } from "./exerciseGroup.model";
 @Table({ timestamps: false })
 export class Exercise extends Model {
   @Column
-  nameDe: String
+  nameDe: string
 
   @Column
-  nameEn: String
+  nameEn: string
 
   @Column
-  exerciseNr: Number
+  exerciseNr: number
 
   @Column
-  descriptionDe: String
+  descriptionDe: string
 
   @Column
-  descriptionEn: String
+  descriptionEn: string
 
   @Column
-  solved: Boolean
+  solved: boolean
 
   @ForeignKey(() => ExerciseGroup)
   @Column
-  exerciseGroupId: Number
+  exerciseGroupId: number
 
 
   // Relations

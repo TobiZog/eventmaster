@@ -2,10 +2,14 @@
 import { SeatGroupModel } from '@/data/models/locations/seatGroupModel';
 import seatGroupSheet from './seatGroupSheet.vue';
 import { ConcertModel } from '@/data/models/acts/concertModel';
-import { LocationApiModel } from '@/data/models/locations/locationApiModel';
+import { LocationModel } from '@/data/models/locations/locationModel';
 
 let props = defineProps({
-  location: LocationApiModel,
+  location: LocationModel,
+  seatGroups: {
+    type: Array<SeatGroupModel>,
+    required: true
+  },
   concert: {
     type: ConcertModel,
     default: new ConcertModel()
@@ -13,7 +17,7 @@ let props = defineProps({
 })
 
 function findSeatCategory(name: string): SeatGroupModel {
-  return props.location.seatGroups.find(category =>
+  return props.seatGroups.find(category =>
     category.name == name
   )
 }

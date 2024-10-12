@@ -20,15 +20,6 @@ location.get("/", (req: Request, res: Response) => {
       {
         model: Concert,
         include: [ Band ],
-      },
-      {
-        model: SeatGroup,
-        include: [
-          {
-            model: SeatRow,
-            include: [ Seat ]
-          }
-        ]
       }
     ],
     attributes: {
@@ -46,6 +37,12 @@ location.get("/", (req: Request, res: Response) => {
         })
       }
 
+      for (let location of locations) {
+        location.dataValues["nrOfConcerts"] = location.dataValues.concerts.length
+        delete location.dataValues.concerts
+      }
+
+      // Limit number of items
       if (count != undefined) {
         locations.splice(Number(count))
       }
@@ -85,7 +82,6 @@ location.get("/location/:urlName", (req: Request, res: Response) => {
           }
         }
       }
-
 
       res.status(200).json(location)
     })

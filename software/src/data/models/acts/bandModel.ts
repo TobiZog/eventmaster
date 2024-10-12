@@ -7,4 +7,5 @@ export class BandModel {
   images: Array<string> = []
   imageMembers: string = ""
   logo: string = ""
+  rating: number = 0
 }

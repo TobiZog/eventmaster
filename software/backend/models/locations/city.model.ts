@@ -4,10 +4,10 @@ import { Location } from "./location.model";
 @Table({ timestamps: false })
 export class City extends Model {
   @Column
-  name: String
+  name: string
 
   @Column
-  country: String
+  country: string
 
 
   // Relations

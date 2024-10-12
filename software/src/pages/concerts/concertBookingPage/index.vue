@@ -50,7 +50,7 @@ getConcert(Number(router.currentRoute.value.params.id))
             >
               <template #description>
                 <p>{{ concertModel.location.name }}</p>
-                <p>{{ concertModel.event.band.name }} - {{ concertModel.event.name }}</p>
+                <!-- todo <p>{{ concertModel.event.band.name }} - {{ concertModel.event.name }}</p> -->
               </template>
             </concert-list-item>
           </v-col>
@@ -102,7 +102,7 @@ getConcert(Number(router.currentRoute.value.params.id))
         </v-row>
 
         <v-row class="pb-5">
-          <outlined-button
+          <!-- <outlined-button todo
             prepend-icon="mdi-basket-plus"
             @click="basketStore.moveSeatSelectionsToBasket(concertModel.event, concertModel.event.band); 
               router.push('/basket')"
@@ -110,7 +110,7 @@ getConcert(Number(router.currentRoute.value.params.id))
             block
           >
             {{ $t('addToBasket') }}
-          </outlined-button>
+          </outlined-button> -->
         </v-row>
       </v-col>
 

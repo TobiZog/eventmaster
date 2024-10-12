@@ -6,33 +6,36 @@ import { Band } from "./band.model";
 @Table({ timestamps: false })
 export class Concert extends Model {
   @Column
-  date: String
+  date: string
 
   @Column
-  name: String
+  name: string
 
   @Column
-  price: Number
+  price: number
 
   @Column
-  image: String
+  image: string
 
   @Column
-  inStock: Number
+  inStock: number
 
   @Column
-  offered: Boolean
+  offered: boolean
 
   @ForeignKey(() => Band)
   @Column
-  bandId: Number
+  bandId: number
 
   @ForeignKey(() => Location)
   @Column
-  locationId: Number
+  locationId: number
   
 
   // Relations
+
+  @BelongsTo(() => Band)
+  band: Band
 
   @BelongsTo(() => Location)
   location: Location

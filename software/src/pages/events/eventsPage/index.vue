@@ -3,7 +3,6 @@ import filterBar from './filterBar.vue';
 import { useRoute } from 'vue-router';
 import { useShoppingStore } from '@/data/stores/shoppingStore';
 import { useFeedbackStore } from '@/data/stores/feedbackStore';
-import eventListItem from '../../../components/pageParts/eventListItem.vue';
 
 const route = useRoute()
 const shoppingStore = useShoppingStore()

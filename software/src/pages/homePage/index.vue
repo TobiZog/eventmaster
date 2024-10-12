@@ -7,29 +7,25 @@ import OutlinedButton from '@/components/basics/outlinedButton.vue';
 import { useRouter } from 'vue-router';
 import { useFeedbackStore } from '@/data/stores/feedbackStore';
 import { ref } from 'vue';
-import { EventModel } from '@/data/models/acts/eventModel';
-import { getTopEvents } from '@/data/api/eventApi';
 import { getTopLocations } from '@/data/api/locationApi';
 import { LocationApiModel } from '@/data/models/locations/locationApiModel';
-import { EventApiModel } from '@/data/models/acts/eventApiModel';
 
 const router = useRouter()
 const feedbackStore = useFeedbackStore()
-const topEvents = ref<Array<EventApiModel>>(Array.from({length: 4}, () => new EventApiModel()))
 const topLocations = ref<Array<LocationApiModel>>(Array.from({length: 8}, () => new LocationApiModel()))
 
 feedbackStore.fetchDataFromServerInProgress = true
 
-getTopEvents(4)
-  .then(events => {
-    topEvents.value = events.data
+// todo getTopEvents(4)
+//   .then(events => {
+//     topEvents.value = events.data
 
-    getTopLocations(8)
-      .then(locations => {
-        topLocations.value = locations.data
-        feedbackStore.fetchDataFromServerInProgress = false
-      })
-  })
+//     getTopLocations(8)
+//       .then(locations => {
+//         topLocations.value = locations.data
+//         feedbackStore.fetchDataFromServerInProgress = false
+//       })
+//   })
 </script>
 
 <template>
@@ -46,7 +42,7 @@ getTopEvents(4)
           </v-col>
         </v-row>
 
-        <v-row>
+        <!-- <v-row> todo
           <v-col v-for="i in 4" cols="3">
             <card-with-top-image
               :image="topEvents[i - 1].image"
@@ -58,7 +54,7 @@ getTopEvents(4)
               ab {{ lowestTicketPrice(topEvents[i - 1].concerts) }} €
             </card-with-top-image>
           </v-col>
-        </v-row>
+        </v-row> -->
 
         <v-row>
           <v-col>

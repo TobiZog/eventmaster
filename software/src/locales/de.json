@@ -173,5 +173,7 @@
   "selectedConcert": "Ausgewähltes Konzert",
   "enterSomeKeywords": "Füge Schlagworte ein um nach Bands, Events, Konzerten und Veranstaltungsorten zu suchen",
   "noBandFound": "Keine Band gefunden",
-  "noLocationsFound": "Keine Veranstaltungsorte gefunden"
+  "noLocationsFound": "Keine Veranstaltungsorte gefunden",
+  "allBands": "Alle Bands",
+  "allConcerts": "Alle Konzerte"
 }

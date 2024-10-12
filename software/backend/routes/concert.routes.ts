@@ -7,9 +7,22 @@ import { SeatRow } from "../models/locations/seatRow.model";
 import { Seat } from "../models/locations/seat.model";
 import { Ticket } from "../models/ordering/ticket.model";
 import { Band } from "../models/acts/band.model";
-import { Op } from "sequelize";
 
 export const concert = Router()
+
+
+concert.get("/", (req: Request, res: Response) => {
+  Concert.findAll({
+    include: [ Band, Location ],
+    order: [
+      [ 'date', 'ASC' ]
+    ]
+  })
+    .then(concerts => {
+      res.status(200).json(concerts)
+    })
+})
+
 
 concert.get("/concert/:id", (req: Request, res: Response) => {
   Concert.findByPk(req.params.id, {

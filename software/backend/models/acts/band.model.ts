@@ -8,16 +8,16 @@ import { Concert } from "./concert.model";
 @Table({ timestamps: false })
 export class Band extends Model {
   @Column
-  name: String
+  name: string
 
   @Column
-  foundingYear: Number
+  foundingYear: number
 
   @Column
-  descriptionEn: String
+  descriptionEn: string
 
   @Column
-  descriptionDe: String
+  descriptionDe: string
 
   @Column({
     type: DataType.STRING,
@@ -28,13 +28,13 @@ export class Band extends Model {
       this.setDataValue('images', value.join(';'))
     }
   })
-  images: Array<String>
+  images: Array<string>
 
   @Column
-  imageMembers: String
+  imageMembers: string
 
   @Column
-  logo: String
+  logo: string
 
 
   // Relations
