@@ -16,10 +16,6 @@ export class Order extends Model {
   @Column
   orderedAt: Date
 
-  @Default(1)
-  @Column
-  shippingProgress: number
-
   @ForeignKey(() => Address)
   @Column
   addressId: number

@@ -1,6 +1,6 @@
 <mxfile host="Electron" agent="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/24.7.17 Chrome/128.0.6613.36 Electron/32.0.1 Safari/537.36" version="24.7.17">
   <diagram name="Page-1" id="WevClHWmhzPAQ7FDN5po">
-    <mxGraphModel dx="4871" dy="2547" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="3437" dy="1720" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -270,9 +270,6 @@
         <mxCell id="EQeajuEG8KHzwlrw_xps-89" value="&lt;blockquote style=&quot;margin: 0px 0px 0px 8px; border: none; padding: 0px;&quot;&gt;&lt;i&gt;orderId:&amp;nbsp;&lt;/i&gt;&lt;i style=&quot;background-color: initial;&quot;&gt;Number&lt;/i&gt;&lt;/blockquote&gt;" style="rounded=0;whiteSpace=wrap;html=1;align=left;" parent="1" vertex="1">
           <mxGeometry x="-837.42" y="130" width="160" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="EQeajuEG8KHzwlrw_xps-91" value="&lt;blockquote style=&quot;margin: 0px 0px 0px 8px; border: none; padding: 0px;&quot;&gt;shippingProgress: Number&lt;/blockquote&gt;" style="rounded=0;whiteSpace=wrap;html=1;align=left;" parent="1" vertex="1">
-          <mxGeometry x="-1078.1399999999999" y="190" width="160" height="30" as="geometry" />
-        </mxCell>
         <mxCell id="EQeajuEG8KHzwlrw_xps-92" value="" style="sketch=0;pointerEvents=1;shadow=0;dashed=0;html=1;strokeColor=none;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;outlineConnect=0;align=center;shape=mxgraph.office.security.key_permissions;fillColor=#2072B8;" parent="1" vertex="1">
           <mxGeometry x="-1640.1999999999998" y="105" width="9.43" height="20" as="geometry" />
         </mxCell>
@@ -451,10 +448,10 @@
           </mxGeometry>
         </mxCell>
         <mxCell id="EQeajuEG8KHzwlrw_xps-139" value="&lt;blockquote style=&quot;margin: 0px 0px 0px 8px; border: none; padding: 0px;&quot;&gt;paymentId: Number&lt;/blockquote&gt;" style="rounded=0;whiteSpace=wrap;html=1;align=left;" parent="1" vertex="1">
-          <mxGeometry x="-1078.1399999999999" y="220" width="160" height="30" as="geometry" />
+          <mxGeometry x="-1078.1399999999999" y="190" width="160" height="30" as="geometry" />
         </mxCell>
         <mxCell id="EQeajuEG8KHzwlrw_xps-140" value="&lt;blockquote style=&quot;margin: 0px 0px 0px 8px; border: none; padding: 0px;&quot;&gt;addressId: Number&lt;/blockquote&gt;" style="rounded=0;whiteSpace=wrap;html=1;align=left;" parent="1" vertex="1">
-          <mxGeometry x="-1078.1399999999999" y="250" width="160" height="30" as="geometry" />
+          <mxGeometry x="-1078.1399999999999" y="220" width="160" height="30" as="geometry" />
         </mxCell>
         <mxCell id="EQeajuEG8KHzwlrw_xps-141" value="" style="endArrow=open;endSize=12;startArrow=diamondThin;startSize=14;startFill=0;edgeStyle=orthogonalEdgeStyle;entryX=1;entryY=0.5;entryDx=0;entryDy=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;" parent="1" source="EQeajuEG8KHzwlrw_xps-139" target="EQeajuEG8KHzwlrw_xps-117" edge="1">
           <mxGeometry x="389.35999999999996" y="350" as="geometry">
@@ -532,7 +529,7 @@
           <mxGeometry x="-938.0500000000001" y="225" width="9.43" height="20" as="geometry" />
         </mxCell>
         <mxCell id="EQeajuEG8KHzwlrw_xps-155" value="" style="sketch=0;pointerEvents=1;shadow=0;dashed=0;html=1;strokeColor=none;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;outlineConnect=0;align=center;shape=mxgraph.office.security.key_permissions;fillColor=#CCCCCC;" parent="1" vertex="1">
-          <mxGeometry x="-938.0500000000001" y="255" width="9.43" height="20" as="geometry" />
+          <mxGeometry x="-938.0500000000001" y="195" width="9.43" height="20" as="geometry" />
         </mxCell>
         <mxCell id="EQeajuEG8KHzwlrw_xps-156" value="&lt;blockquote style=&quot;margin: 0px 0px 0px 8px; border: none; padding: 0px;&quot;&gt;logo: String&lt;/blockquote&gt;" style="rounded=0;whiteSpace=wrap;html=1;align=left;" parent="1" vertex="1">
           <mxGeometry x="-358.14" y="250" width="160" height="30" as="geometry" />

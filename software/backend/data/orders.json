@@ -1,13 +1,11 @@
 {
-  "data": [
+  "orders": [
     {
       "username": "hagemeister93",
-      "shippingProgress": 4,
-      "addressId": 0,
-      "paymentId": 0,
       "tickets": [
         {
-          "concertId": 0,
+          "date": "2024-10-18",
+          "concertGroupName": "Unlimited Love",
           "orderPrice": 184,
           "seatGroup": "A",
           "seatRow": 0,
@@ -17,19 +15,18 @@
     },
     {
       "username": "duranduran",
-      "shippingProgress": 5,
-      "addressId": 4,
-      "paymentId": 3,
       "tickets": [
         {
-          "concertId": 0,
+          "date": "2024-10-18",
+          "concertGroupName": "Unlimited Love",
           "orderPrice": 184,
           "seatGroup": "A",
           "seatRow": 0,
           "seat": 2
         },
         {
-          "concertId": 0,
+          "date": "2024-10-18",
+          "concertGroupName": "Unlimited Love",
           "orderPrice": 184,
           "seatGroup": "A",
           "seatRow": 0,
@@ -39,12 +36,10 @@
     },
     {
       "username": "duranduran",
-      "shippingProgress": 2,
-      "addressId": 5,
-      "paymentId": 3,
       "tickets": [
         {
-          "concertId": 0,
+          "date": "2024-10-18",
+          "concertGroupName": "Unlimited Love",
           "orderPrice": 184,
           "seatGroup": "A",
           "seatRow": 0,

@@ -8,8 +8,6 @@
       "lastName": "Hagemeister",
       "addresses": [
         {
-          "id": 0,
-          "accountId": 0,
           "street": "Laportestraße",
           "houseNumber": 22,
           "postalCode": 30449,
@@ -18,8 +16,6 @@
       ],
       "payments": [
         {
-          "id": 0,
-          "accountId": 0,
           "bankName": "Deutsche Bank",
           "iban": "DE92500105175721645777"
         }
@@ -34,8 +30,6 @@
       "lastName": "Stoiber",
       "addresses": [
         {
-          "id": 1,
-          "accountId": 1,
           "street": "Gustav-Adolf-Straße",
           "houseNumber": 30,
           "postalCode": 30167,
@@ -44,8 +38,6 @@
       ],
       "payments": [
         {
-          "id": 1,
-          "accountId": 1,
           "bankName": "DZ Bank",
           "iban": "DE12500105179557939114"
         }

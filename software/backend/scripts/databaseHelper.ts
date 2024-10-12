@@ -23,7 +23,8 @@ import orders from "./../data/orders.json"
 import accountRoles from "./../data/accountRoles.json"
 import citiesLocations from "./../data/cities-locations.json"
 import exercises from "./../data/exercises.json"
-import bands from "./../data/bands-concerts.json"
+import bandsConcerts from "./../data/bands-concerts.json"
+import { Op } from 'sequelize'
 
 
 /**
@@ -57,7 +58,7 @@ export function deleteExerciseProgressTables() {
 }
 
 export async function prepopulateExerciseDatabase() {
-  for (let exerciseGroup of exercises.data) {
+  for (let exerciseGroup of exercises.groups) {
     ExerciseGroup.create(exerciseGroup)
       .then(async dataset => {
         for (let exercise of exerciseGroup.exercises) {
@@ -75,10 +76,11 @@ export async function prepopulateExerciseDatabase() {
 export async function prepopulateDatabase() {
   deleteAllTables()
   
-  AccountRole.bulkCreate(accountRoles.data)
-  //Genre.bulkCreate(genres.data)
 
-  for (let city of citiesLocations.data)
+
+  ////////// Locations and Seat Tables //////////
+
+  for (let city of citiesLocations.cities)
   {
     await City.create(city)
       .then(async cityDataset => {
@@ -93,42 +95,41 @@ export async function prepopulateDatabase() {
               {
                 seatGroup["locationId"] = locationDataset.id
                 
-                // todo activate
-                // await SeatGroup.create(seatGroup)
-                //   .then(async seatGroupRes => {
-                //     if (seatGroup.standingArea) {
-                //       // In an area without seats, create one row with all "seats"
-                //       await SeatRow.create({
-                //         row: 0,
-                //         seatGroupId: seatGroupRes.id
-                //       })
-                //         .then(async seatRowRes => {
-                //           for (let i = 0; i < seatGroup.capacity; i++) {
-                //             await Seat.create({
-                //               seatNr: i + 1,
-                //               seatRowId: seatRowRes.id
-                //             })
-                //           }
-                //         })
-                //     }
-                //     else
-                //     {
-                //       for (let row = 0; row < seatGroup.rows; row++) {
-                //         await SeatRow.create({
-                //           row: row + 1,
-                //           seatGroupId: seatGroupRes.id
-                //         })
-                //           .then(async seatRowRes => {
-                //             for (let col = 0; col < seatGroup.capacity / seatGroup.rows; col++) {
-                //               await Seat.create({
-                //                 seatNr: col,
-                //                 seatRowId: seatRowRes.id
-                //               })
-                //             }
-                //           })
-                //       }
-                //     }
-                //   })
+                await SeatGroup.create(seatGroup)
+                  .then(async seatGroupRes => {
+                    if (seatGroup.standingArea) {
+                      // In an area without seats, create one row with all "seats"
+                      await SeatRow.create({
+                        row: 0,
+                        seatGroupId: seatGroupRes.id
+                      })
+                        .then(async seatRowRes => {
+                          for (let i = 0; i < seatGroup.capacity; i++) {
+                            await Seat.create({
+                              seatNr: i + 1,
+                              seatRowId: seatRowRes.id
+                            })
+                          }
+                        })
+                    }
+                    else
+                    {
+                      for (let row = 0; row < seatGroup.rows; row++) {
+                        await SeatRow.create({
+                          row: row + 1,
+                          seatGroupId: seatGroupRes.id
+                        })
+                          .then(async seatRowRes => {
+                            for (let col = 0; col < seatGroup.capacity / seatGroup.rows; col++) {
+                              await Seat.create({
+                                seatNr: col,
+                                seatRowId: seatRowRes.id
+                              })
+                            }
+                          })
+                      }
+                    }
+                  })
               }
           })
         }
@@ -136,7 +137,11 @@ export async function prepopulateDatabase() {
   }
 
 
-  // Account & Sub tables
+
+  ////////// Account Tables //////////
+
+  AccountRole.bulkCreate(accountRoles.data)
+
   for (let account of accounts.data) {
     await Account.create(account)
       .then(async dataset => {
@@ -161,7 +166,10 @@ export async function prepopulateDatabase() {
   }
 
 
-  for(let band of bands.bands) {
+
+  ////////// Band and Concert Tables //////////
+
+  for(let band of bandsConcerts.bands) {
     // Create a band dataset
     await Band.create(band)
       .then(async dataset => {
@@ -230,38 +238,75 @@ export async function prepopulateDatabase() {
       })
   }
 
-  // for (let order of orders.data) {
-  //   await Order.create(order)
-  //     .then(async dataset => {
-  //       for (let ticket of order.tickets) {
-  //         ticket["orderId"] = dataset.id
 
-  //         SeatGroup.findOne({
-  //           where: {
-  //             name: ticket.seatGroup
-  //           }
-  //         })
-  //           .then(seatGroup => {
-  //             SeatRow.findOne({
-  //               where: {
-  //                 seatGroupId: seatGroup.id,
-  //                 row: ticket.seatRow
-  //               }
-  //             })
-  //               .then(seatRow => {
-  //                 Seat.findOne({
-  //                   where: {
-  //                     seatRowId: seatRow.id,
-  //                     seatNr: ticket.seat
-  //                   }
-  //                 })
-  //                   .then(async seat => {
-  //                     ticket["seatId"] = seat.id
-  //                     await Ticket.create(ticket)
-  //                   })
-  //               })
-  //           })
-  //       }
-  //     })
-  // }
+
+  ////////// Order and Ticket Tables //////////
+
+  for (let order of orders.orders) {
+    let account = await Account.findOne({
+      where: {
+        username: order.username
+      }
+    })
+
+    let payment = await Payment.findOne({
+      where: {
+        accountId: account.dataValues.id
+      }
+    })
+
+    let address = await Address.findOne({
+      where: {
+        accountId: account.dataValues.id
+      }
+    })
+
+    await Order.create({
+      accountId: account.dataValues.id,
+      paymentId: payment.dataValues.id,
+      addressId: address.dataValues.id
+    })
+      .then(async dataset => {
+        for (let ticket of order.tickets) {
+          let concert = await Concert.findOne({
+            where: {
+              [Op.and] : [
+                { name: ticket.concertGroupName },
+                { date: ticket.date }
+              ]
+            }
+          })
+
+          SeatGroup.findOne({
+            where: {
+              name: ticket.seatGroup
+            }
+          })
+            .then(seatGroup => {
+              SeatRow.findOne({
+                where: {
+                  seatGroupId: seatGroup.id,
+                  row: ticket.seatRow
+                }
+              })
+                .then(seatRow => {
+                  Seat.findOne({
+                    where: {
+                      seatRowId: seatRow.id,
+                      seatNr: ticket.seat
+                    }
+                  })
+                    .then(async seat => {
+                      await Ticket.create({
+                        orderId: dataset.dataValues.id,
+                        concertId: concert.dataValues.id,
+                        orderPrice: ticket.orderPrice,
+                        seatId: seat.dataValues.id
+                      })
+                    })
+                })
+            })
+        }
+      })
+  }
 }
