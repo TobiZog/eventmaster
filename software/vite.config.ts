@@ -13,7 +13,8 @@ export default defineConfig({
     }
   },
   build: {
-    outDir: 'build/vite',
+    outDir: 'build/src/vite',
     emptyOutDir: true
-  }
+  },
+  base: "./"
 })

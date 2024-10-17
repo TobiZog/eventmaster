@@ -1,0 +1,21 @@
+{
+  "include": [
+    "src/**/*",
+    "src/**/*.vue"
+  ],
+  "compilerOptions": {
+    "composite": true,
+    "target": "esnext",
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "isolatedModules": false,
+    "outDir": "build/src/dist",
+    "esModuleInterop": true,
+    "resolveJsonModule": true,
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"]
+    }
+  },
+  "exclude": ["node_modules", "dist"]
+}

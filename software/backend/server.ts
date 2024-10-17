@@ -46,6 +46,8 @@ app.use("/exercises", exercises)
 
 
 // Start server
-app.listen(port, () => {
+const server = app.listen(port, () => {
   console.log(`Server is running and listening to port ${port}`)
 })
+
+module.exports = server
