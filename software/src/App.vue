@@ -6,12 +6,11 @@ import navigationAppendItems from './components/navigation/navigationAppendItems
 import navigationPrependItems from './components/navigation/navigationPrependItems.vue';
 import { usePreferencesStore } from './data/stores/preferencesStore';
 import { useFeedbackStore } from './data/stores/feedbackStore';
-import { useShoppingStore } from './data/stores/shoppingStore';
 import footerItems from './components/navigation/footerItems.vue';
+import urlBar from './components/navigation/urlBar.vue';
 
 const preferencesStore = usePreferencesStore()
 const feedbackStore = useFeedbackStore()
-const shoppingStore = useShoppingStore()
 const theme = useTheme()
 
 theme.global.name.value = preferencesStore.theme
@@ -25,6 +24,8 @@ watch(() => preferencesStore.language, () => {
 
 <template>
   <v-app>
+    <url-bar />
+    
     <v-app-bar
       height="80"
       color="primary" 
