@@ -10,6 +10,8 @@ import { SelectedSeatModel } from "../data/models/ordering/selectedSeatModel";
 import { calcPrice } from "@/scripts/concertScripts";
 import { BandModel } from "../data/models/acts/bandModel";
 import { ConcertModel } from "../data/models/acts/concertModel";
+import { useAccountStore } from "./account.store";
+import { createOrder } from "@/data/api/orderApi";
 
 export const useBasketStore = defineStore('basketStore', {
   state: () => ({
@@ -52,51 +54,46 @@ export const useBasketStore = defineStore('basketStore', {
     },
 
     moveSeatSelectionsToBasket(concert: ConcertModel, band: BandModel) {
-      // todo
-      // for (let selectedSeat of this.selectedSeats) {
-      //   let itemInBasket: BasketItemModel = this.itemsInBasket.find((basketItem: BasketItemModel) => {
-      //     return basketItem.concert.id == selectedSeat.concert.id
-      //   })
+      for (let selectedSeat of this.selectedSeats) {
+        let itemInBasket: BasketItemModel = this.itemsInBasket.find((basketItem: BasketItemModel) => {
+          return basketItem.concert.id == selectedSeat.concert.id
+        })
 
-      //   if (itemInBasket != undefined) {
-      //     itemInBasket.seats.push(selectedSeat.seat)
-      //   } else {
-      //     this.itemsInBasket.push(
-      //       new BasketItemModel(
-      //         selectedSeat.concert,
-      //         event,
-      //         band,
-      //         selectedSeat.seat,
-      //         selectedSeat.concert.price
-      //       )
-      //     )
-      //   }
-      // }
+        if (itemInBasket != undefined) {
+          itemInBasket.seats.push(selectedSeat.seat)
+        } else {
+          this.itemsInBasket.push(
+            new BasketItemModel(
+              selectedSeat.concert,
+              band,
+              selectedSeat.seat,
+              selectedSeat.concert.price
+            )
+          )
+        }
+      }
 
-      // this.selectedSeats = []
+      this.selectedSeats = []
     },
 
     /**
      * Take an order to the server. Sends all articles in the basket and creates an order entry in the backend database
      */
     async takeOrder() {
-      // todo
-      // const accountStore = useAccountStore()
-      // const productStore = useProductStore()
-      // const feedbackStore = useFeedbackStore()
+      const accountStore = useAccountStore()
+      const feedbackStore = useFeedbackStore()
 
-      // await addOrder(accountStore.userAccount.id, this.itemsInBasket, this.usedPayment.id, this.usedAddress.id)
-      //   .then(async result => {
-      //     if (result.status == 201) {
-      //       await accountStore.refreshOrders()
-      //       await productStore.fetchAllProducts()
+      await createOrder(accountStore.userAccount.id, this.itemsInBasket, this.usedPayment.id, this.usedAddress.id)
+        .then(async result => {
+          if (result.status == 201) {
+            await accountStore.refreshOrders()
 
-      //       this.itemsInBasket = []
-      //       feedbackStore.changeBanner(BannerStateEnum.ORDERPLACESUCCESSFUL)
-      //     } else {
-      //       feedbackStore.changeBanner(BannerStateEnum.ERROR)
-      //     }
-      //   })
+            this.itemsInBasket = []
+            feedbackStore.changeBanner(BannerStateEnum.ORDERPLACESUCCESSFUL)
+          } else {
+            feedbackStore.changeBanner(BannerStateEnum.ERROR)
+          }
+        })
     }
   }
 })

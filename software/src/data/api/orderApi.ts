@@ -7,25 +7,29 @@ export async function getUserOrders(userId: number) {
   return axios.get(BASE_URL + "/" + userId)
 }
 
-export async function addOrder(
+export async function createOrder(
   accountId: number, 
-  basketItems: Array<BasketItemModel>,
+  basketItem: Array<BasketItemModel>,
   paymentId: number,
   addressId: number
 ) {
-  let orderItems = []
+  let tickets = []
 
-  // for (let basketItem of basketItems) {
-  //   orderItems.push({
-  //     productId: basketItem.product.id,
-  //     quantity: basketItem.quantity,
-  //     orderPrice: calcPrice(basketItem.product.price, basketItem.product.discount)
-  //   })
-  // }
+  for (let item of basketItem) {
+    for (let seat of item.seats) {
+      tickets.push({
+        concertId: item.concert.id,
+        orderPrice: item.price,
+        seatId: seat.id
+      })
+    }
+  }
+
+  console.log(tickets)
 
   return axios.post(BASE_URL, {
     accountId: accountId,
-    orderItems: orderItems,
+    tickets: tickets,
     paymentId: paymentId,
     addressId: addressId
   })

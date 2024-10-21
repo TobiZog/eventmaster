@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { useAccountStore } from '@/stores/account.store';
-import { useBasketStore } from '@/stores/basketStore';
+import { useBasketStore } from '@/stores/basket.store';
 
 const accountStore = useAccountStore()
 const basketStore = useBasketStore()
@@ -10,7 +10,7 @@ const basketStore = useBasketStore()
   <v-btn variant="plain" icon="mdi-magnify" to="/search" />
 
   <v-btn v-if="accountStore.userAccount.id == undefined" variant="plain" icon="mdi-account" to="/account/login" />
-  <v-btn v-else variant="plain" icon="mdi-account" to="/account/home" />
+  <v-btn v-else variant="plain" icon="mdi-account-check" to="/account/home" />
 
   <div>
     <v-badge

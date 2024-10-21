@@ -61,21 +61,22 @@ order.get("/:id", (req: Request, res: Response) => {
 
 // Place a new order
 order.post("/", (req: Request, res: Response) => {
+  console.log(req.body.tickets)
   Order.create(req.body)
     .then(async order => {
-      for (let orderItem of req.body.orderItems) {
+      for (let ticket of req.body.tickets) {
         Ticket.create({
-          orderId: order.id,
-          quantity: orderItem.quantity,
-          orderPrice: orderItem.orderPrice,
-          productId: orderItem.productId
+          orderId: order.dataValues.id,
+          concertId: ticket.concertId,
+          orderPrice: ticket.orderPrice,
+          seatId: ticket.seatId
         })
 
         Concert.decrement(
           "inStock", 
           {
-            by: orderItem.quantity,
-            where: { id: orderItem.productId } 
+            by: 1,
+            where: { id: ticket.concertId } 
           }
         )
       }

@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import actionDialog from '@/components/basics/actionDialog.vue';
-import { useBasketStore } from '@/stores/basketStore';
+import { useBasketStore } from '@/stores/basket.store';
 import outlinedButton from '@/components/basics/outlinedButton.vue';
 import { ModelRef, ref } from 'vue';
 import { useAccountStore } from '@/stores/account.store';
@@ -43,14 +43,12 @@ async function doOrder() {
     max-width="800"
     persistent
   >
-    <v-row>
-      <v-col>
+    <v-list class="pa-0">
+      <v-list-subheader>
         {{ $t('account.address', accountStore.userAccount.addresses.length) }}
-      </v-col>
-    </v-row>
-    
-    <v-row>
-      <v-col>
+      </v-list-subheader>
+
+      <v-list-item>
         <v-radio-group
           v-model="basketStore.usedAddress"
           :error="addressError"
@@ -62,17 +60,13 @@ async function doOrder() {
             
           />
         </v-radio-group>
-      </v-col>
-    </v-row>
+      </v-list-item>
 
-    <v-row>
-      <v-col>
+      <v-list-subheader>
         {{ $t('account.payment', accountStore.userAccount.payments.length) }}
-      </v-col>
-    </v-row>
-    
-    <v-row>
-      <v-col>
+      </v-list-subheader>
+
+      <v-list-item>
         <v-radio-group
           v-model="basketStore.usedPayment"
         >
@@ -83,8 +77,8 @@ async function doOrder() {
             :error="paymentError"
           />
         </v-radio-group>
-      </v-col>
-    </v-row>
+      </v-list-item>
+    </v-list>
 
     <template #actions>
       <outlined-button 

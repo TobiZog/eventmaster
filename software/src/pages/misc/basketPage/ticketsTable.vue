@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { useBasketStore } from '@/stores/basketStore';
+import { useBasketStore } from '@/stores/basket.store';
 import { BasketItemModel } from '@/data/models/ordering/basketItemModel';
 import { calcPrice } from '@/scripts/concertScripts';
 
@@ -15,7 +15,7 @@ function removeFromBasket(basketItem: BasketItemModel) {
     <thead>
       <tr>
         <th>{{ $t('band') }}</th>
-        <th>{{ $t('event') }}</th>
+        <th>{{ $t('concert') }}</th>
         <th class="text-center">{{ $t('quantity') }}</th>
         <th class="text-right">{{ $t('product.productPrice') }}</th>
         <th class="text-right">{{ $t('totalPrice') }}</th>
@@ -30,9 +30,9 @@ function removeFromBasket(basketItem: BasketItemModel) {
           {{ basketItem.band.name }}
         </td>
 
-        <!-- Event name -->
+        <!-- Concert name -->
         <td>
-          {{ basketItem.event.name }}
+          {{ basketItem.concert.name }}
         </td>
 
         <!-- Quantity -->
@@ -52,7 +52,7 @@ function removeFromBasket(basketItem: BasketItemModel) {
           {{ (calcPrice(basketItem.concert.price, basketItem.seats.length)).toFixed(2) }} €
         </td>
 
-        <td>
+        <td class="text-right">
           <v-btn
             icon="mdi-delete"
             @click="removeFromBasket(basketItem)"

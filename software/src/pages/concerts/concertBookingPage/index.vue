@@ -2,7 +2,7 @@
 import seatPlanMap from '@/components/seatPlanMap/seatPlanMap.vue';
 import { useRouter } from 'vue-router';
 import sectionDivider from '@/components/basics/sectionDivider.vue';
-import { useBasketStore } from '@/stores/basketStore';
+import { useBasketStore } from '@/stores/basket.store';
 import concertListItem from '@/components/pageParts/concertListItem.vue';
 import outlinedButton from '@/components/basics/outlinedButton.vue';
 import { useConcertStore } from '@/stores/concertStore';

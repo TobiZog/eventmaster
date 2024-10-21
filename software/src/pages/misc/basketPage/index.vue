@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { useBasketStore } from '@/stores/basketStore';
+import { useBasketStore } from '@/stores/basket.store';
 import cardView from '@/components/basics/cardView.vue';
 import orderingDialog from './orderingDialog.vue';
 import outlinedButton from '@/components/basics/outlinedButton.vue';
@@ -24,9 +24,7 @@ const showOrderingDialog = ref()
           icon="mdi-cart"
         >
           <!-- Display items if basket is not empty -->
-          <div v-if="basketStore.itemsInBasket.length > 0">
-            <tickets-table />
-          </div>
+          <tickets-table v-if="basketStore.itemsInBasket.length > 0"/>
 
           <!-- Display empty state if card is empty -->
           <v-empty-state v-else

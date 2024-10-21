@@ -9,12 +9,18 @@ defineProps({
   loading: {
     type: Boolean,
     default: false
+  },
+  tonal: {
+    type: Boolean,
+    default: true
   }
 })
 </script>
 
 <template>
-  <v-card variant="tonal" >
+  <v-card
+    :variant="tonal ? 'tonal' : 'elevated'"
+  >
     <v-card-title v-if="title || loading" color="primary" class="pa-0">
       <v-sheet color="primary">
         <v-skeleton-loader

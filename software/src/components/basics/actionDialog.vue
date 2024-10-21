@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { ModelRef } from 'vue';
+import cardView from './cardView.vue';
 
 const showDialog: ModelRef<boolean> = defineModel()
 
@@ -16,16 +17,17 @@ defineProps({
 
 <template>
   <v-dialog max-width="1200" v-model="showDialog">
-    <v-card
+    <card-view
       :title="title"
       :subtitle="subtitle"
-      :prepend-icon="icon"
+      :icon="icon"
+      :tonal="false"
     >
       <slot></slot>
 
       <template #actions>
         <slot name="actions"></slot>
       </template>
-    </v-card>
+    </card-view>
   </v-dialog>
 </template>

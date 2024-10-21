@@ -10,7 +10,7 @@ import { AddressModel } from "../data/models/user/addressModel";
 import { PaymentModel } from "../data/models/user/paymentModel";
 import { AccountApiModel } from "../data/models/user/accountApiModel";
 import { ref } from "vue";
-import { OrderApiModel } from "@/data/models/ordering/orderApiModel";
+import { OrderApiModel } from "@/data/models/apiEndpoints/orderApiModel";
 
 export const useAccountStore = defineStore("accountStore", {
   state: () => ({

@@ -2,7 +2,7 @@
 import { ConcertModel } from '@/data/models/acts/concertModel';
 import { SeatGroupModel } from '@/data/models/locations/seatGroupModel';
 import { SelectedSeatModel } from '@/data/models/ordering/selectedSeatModel';
-import { useBasketStore } from '@/stores/basketStore';
+import { useBasketStore } from '@/stores/basket.store';
 
 const basketStore = useBasketStore()
 
