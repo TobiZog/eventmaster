@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import actionDialog from '@/components/basics/actionDialog.vue';
-import { useBasketStore } from '@/data/stores/basketStore';
+import { useBasketStore } from '@/stores/basketStore';
 import outlinedButton from '@/components/basics/outlinedButton.vue';
 import { ModelRef, ref } from 'vue';
-import { useAccountStore } from '@/data/stores/accountStore';
+import { useAccountStore } from '@/stores/account.store';
 
 const basketStore = useBasketStore()
 const accountStore = useAccountStore()

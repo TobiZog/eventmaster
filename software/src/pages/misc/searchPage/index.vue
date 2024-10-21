@@ -5,7 +5,7 @@ import cardViewHorizontal from '@/components/basics/cardViewHorizontal.vue';
 import locationListItem from '@/components/pageParts/locationListItem.vue';
 import cardViewTopImage from '@/components/basics/cardViewTopImage.vue';
 import bandListItem from '@/components/pageParts/bandListItem.vue';
-import { useSearchStore } from '@/data/stores/searchStore';
+import { useSearchStore } from '@/stores/searchStore';
 
 const searchStore = useSearchStore()
 </script>
@@ -118,7 +118,7 @@ const searchStore = useSearchStore()
             </v-col>
           </v-row>
 
-          <v-row
+          <!-- <v-row
             v-else-if="searchStore.events.length > 0"
             v-for="event in searchStore.events"
           >
@@ -130,7 +130,7 @@ const searchStore = useSearchStore()
                 :loading="searchStore.searchInProgress"
               />
             </v-col>
-          </v-row>
+          </v-row> -->
 
           <v-row v-else >
             <v-col>

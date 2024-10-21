@@ -3,8 +3,7 @@ import { AccountModel } from '@/data/models/user/accountModel';
 import { ref } from 'vue';
 import cardView from '@/components/basics/cardView.vue';
 import outlinedButton from '@/components/basics/outlinedButton.vue';
-import { useAccountStore } from '@/data/stores/accountStore';
-import { useFeedbackStore } from '@/data/stores/feedbackStore';
+import { useAccountStore } from '@/stores/account.store';
 import { getEmailRules, getPasswordRules, getStringRules } from '@/scripts/validationRules';
 
 const newUser = ref(new AccountModel())

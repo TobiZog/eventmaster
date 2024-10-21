@@ -5,9 +5,9 @@ import cardWithTopImage from '@/components/basics/cardViewTopImage.vue';
 import { lowestTicketPrice } from '@/scripts/concertScripts';
 import OutlinedButton from '@/components/basics/outlinedButton.vue';
 import { useRouter } from 'vue-router';
-import { useConcertStore } from '@/data/stores/concertStore';
-import { useLocationStore } from '@/data/stores/locationStore';
-import { useBandStore } from '@/data/stores/bandStore';
+import { useConcertStore } from '@/stores/concertStore';
+import { useLocationStore } from '@/stores/locationStore';
+import { useBandStore } from '@/stores/bandStore';
 
 const router = useRouter()
 const concertStore = useConcertStore()

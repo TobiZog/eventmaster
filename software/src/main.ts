@@ -5,7 +5,7 @@ import vuetify from './plugins/vuetify'
 import router from './plugins/router'
 import pinia from './plugins/pinia'
 import { i18n } from './plugins/i18n'
-import { useFeedbackStore } from './data/stores/feedbackStore'
+import { useFeedbackStore } from './stores/feedbackStore'
 
 createApp(App)
   .use(vuetify)

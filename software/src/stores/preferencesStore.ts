@@ -1,7 +1,7 @@
 import { defineStore } from "pinia";
 import { useLocalStorage } from "@vueuse/core";
-import { ThemeEnum } from "../enums/themeEnums";
-import { LanguageEnum } from "../enums/languageEnum";
+import { ThemeEnum } from "../data/enums/themeEnums";
+import { LanguageEnum } from "../data/enums/languageEnum";
 
 export const usePreferencesStore = defineStore('preferencesStore', {
   state: () => ({

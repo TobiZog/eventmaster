@@ -1,8 +1,8 @@
 import { defineStore } from "pinia";
 import { ref } from "vue";
-import { searchBand } from "../api/bandApi";
-import { searchLocation } from "../api/locationApi";
-import { searchConcert } from "../api/concertApi";
+import { searchBand } from "../data/api/bandApi";
+import { searchLocation } from "../data/api/locationApi";
+import { searchConcert } from "../data/api/concertApi";
 
 export const useSearchStore = defineStore("searchStore", {
   state: () => ({

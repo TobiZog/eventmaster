@@ -1,9 +1,9 @@
 import { defineStore } from "pinia";
 import { ref } from "vue";
-import { fetchAllLocations, fetchTopLocations } from "../api/locationApi";
-import { LocationApiModel } from "../models/locations/locationApiModel";
-import { CityModel } from "../models/locations/cityModel";
-import { fetchAllCities } from "../api/cityApi";
+import { fetchAllLocations, fetchTopLocations } from "../data/api/locationApi";
+import { LocationApiModel } from "../data/models/locations/locationApiModel";
+import { CityModel } from "../data/models/locations/cityModel";
+import { fetchAllCities } from "../data/api/cityApi";
 
 export const useLocationStore = defineStore("locationStore", {
   state: () => ({

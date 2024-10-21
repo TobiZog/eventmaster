@@ -34,12 +34,9 @@ defineProps({
 
   seatRow: Number,
 
-  seat: Number,
+  seatNr: Number,
 
-  standingArea: {
-    type: Boolean,
-    default: false
-  }
+  standingArea: Boolean
 })
 </script>
 
@@ -110,7 +107,7 @@ defineProps({
               </div>
 
               <div>
-                {{ seat }}
+                {{ seatNr }}
               </div>
             </v-card>
           </div>

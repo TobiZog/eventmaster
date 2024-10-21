@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import cardView from '@/components/basics/cardView.vue';
-import { ExerciseGroupModel } from '@/data/models/exercises/exerciseGroupModel';
+import { ExerciseGroupApiModel } from '@/data/models/exercises/exerciseGroupApiModel';
 
 defineProps({
-  exerciseGroup: ExerciseGroupModel,
+  exerciseGroup: ExerciseGroupApiModel,
   loading: Boolean
 })
 </script>

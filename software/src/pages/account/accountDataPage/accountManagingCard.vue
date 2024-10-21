@@ -2,7 +2,7 @@
 import cardView from '@/components/basics/cardView.vue';
 import confirmDialog from '@/components/basics/confirmDialog.vue';
 import outlinedButton from '@/components/basics/outlinedButton.vue';
-import { useAccountStore } from '@/data/stores/accountStore';
+import { useAccountStore } from '@/stores/account.store';
 import { ref } from 'vue';
 
 const showConfirmDialog = ref(false)

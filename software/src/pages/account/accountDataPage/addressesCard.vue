@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import cardView from '@/components/basics/cardView.vue';
-import { useAccountStore } from '@/data/stores/accountStore';
+import { useAccountStore } from '@/stores/account.store';
 import outlinedButton from '@/components/basics/outlinedButton.vue';
 import { AddressModel } from '@/data/models/user/addressModel';
 import { getNumberStartRules, getPostalRules, getStringRules } from '@/scripts/validationRules';

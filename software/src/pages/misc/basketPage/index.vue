@@ -1,10 +1,10 @@
 <script setup lang="ts">
-import { useBasketStore } from '@/data/stores/basketStore';
+import { useBasketStore } from '@/stores/basketStore';
 import cardView from '@/components/basics/cardView.vue';
 import orderingDialog from './orderingDialog.vue';
 import outlinedButton from '@/components/basics/outlinedButton.vue';
 import { ref } from 'vue';
-import { useAccountStore } from '@/data/stores/accountStore';
+import { useAccountStore } from '@/stores/account.store';
 import ticketsTable from './ticketsTable.vue';
 
 const basketStore = useBasketStore()

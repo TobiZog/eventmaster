@@ -1,5 +1,5 @@
 export class SeatModel {
   id: number = -1
-  seatNr: string = ""
+  seatNr: number = 0
   state: number = 0
 }

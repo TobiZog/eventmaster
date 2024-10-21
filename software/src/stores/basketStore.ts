@@ -1,15 +1,15 @@
 import { defineStore } from "pinia";
 import { useLocalStorage } from "@vueuse/core";
-import { BasketItemModel } from "../models/ordering/basketItemModel";
+import { BasketItemModel } from "../data/models/ordering/basketItemModel";
 import { useFeedbackStore } from "./feedbackStore";
-import { BannerStateEnum } from "../enums/bannerStateEnum";
-import { AddressModel } from "../models/user/addressModel";
-import { PaymentModel } from "../models/user/paymentModel";
+import { BannerStateEnum } from "../data/enums/bannerStateEnum";
+import { AddressModel } from "../data/models/user/addressModel";
+import { PaymentModel } from "../data/models/user/paymentModel";
 import { ref } from "vue";
-import { SelectedSeatModel } from "../models/ordering/selectedSeatModel";
+import { SelectedSeatModel } from "../data/models/ordering/selectedSeatModel";
 import { calcPrice } from "@/scripts/concertScripts";
-import { BandModel } from "../models/acts/bandModel";
-import { ConcertModel } from "../models/acts/concertModel";
+import { BandModel } from "../data/models/acts/bandModel";
+import { ConcertModel } from "../data/models/acts/concertModel";
 
 export const useBasketStore = defineStore('basketStore', {
   state: () => ({

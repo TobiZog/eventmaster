@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { useAccountStore } from '@/data/stores/accountStore';
+import { useAccountStore } from '@/stores/account.store';
 import cardView from '@/components/basics/cardView.vue';
 import { useRouter } from 'vue-router';
 
@@ -33,7 +33,7 @@ const router = useRouter()
                 <card-view
                   :title="$t('accountManagement')"
                   icon="mdi-account"
-                  @click="router.push('/account/edit')"
+                  @click="router.push('/account/data')"
                 >
                   {{ $t('accountManagementDescription') }}
                 </card-view>

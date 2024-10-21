@@ -1,10 +1,10 @@
 import { defineStore } from "pinia";
 import { ref } from "vue";
-import { fetchAllCities } from "../api/cityApi";
-import { fetchAllGenres } from "../api/genreApi";
+import { fetchAllCities } from "../data/api/cityApi";
+import { fetchAllGenres } from "../data/api/genreApi";
 import { useFeedbackStore } from "./feedbackStore";
-import { CityApiModel } from "../models/locations/cityApiModel";
-import { GenreApiModel } from "../models/acts/genreApiModel";
+import { CityApiModel } from "../data/models/locations/cityApiModel";
+import { GenreApiModel } from "../data/models/acts/genreApiModel";
 
 /**
  * @deprecated

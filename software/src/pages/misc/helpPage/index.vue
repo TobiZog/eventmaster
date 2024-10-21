@@ -2,10 +2,10 @@
 import { getAllExerciseGroups } from '@/data/api/exerciseApi';
 import scoreCard from './scoreCard.vue';
 import { ref } from 'vue';
-import { ExerciseGroupModel } from '@/data/models/exercises/exerciseGroupModel';
-import { useFeedbackStore } from '@/data/stores/feedbackStore';
+import { useFeedbackStore } from '@/stores/feedbackStore';
+import { ExerciseGroupApiModel } from '@/data/models/exercises/exerciseGroupApiModel';
 
-const exerciseGroups = ref<Array<ExerciseGroupModel>>([])
+const exerciseGroups = ref<Array<ExerciseGroupApiModel>>([])
 const feedbackStore = useFeedbackStore()
 
 feedbackStore.fetchDataFromServerInProgress = true

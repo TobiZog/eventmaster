@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { useBasketStore } from '@/data/stores/basketStore';
+import { useBasketStore } from '@/stores/basketStore';
 import { BasketItemModel } from '@/data/models/ordering/basketItemModel';
 import { calcPrice } from '@/scripts/concertScripts';
 

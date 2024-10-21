@@ -2,6 +2,7 @@
 
 defineProps({
   title: String,
+  subtitle: String,
   icon: {
     type: String
   },
@@ -15,13 +16,20 @@ defineProps({
 <template>
   <v-card variant="tonal" >
     <v-card-title v-if="title || loading" color="primary" class="pa-0">
-      <v-sheet color="primary" class="pl-2 py-1">
+      <v-sheet color="primary">
         <v-skeleton-loader
           type="heading"
           :loading="loading"
           style="background-color: transparent"
         >
-          <v-icon :icon="icon" v-if="icon" /> &nbsp;{{ title }}
+          <div>
+            <div class="pl-2 py-1">
+              <v-icon :icon="icon" v-if="icon" /> &nbsp;{{ title }}
+            </div>
+            <div>
+              <v-card-subtitle >{{ subtitle }}</v-card-subtitle>
+            </div>
+          </div>
         </v-skeleton-loader>
       </v-sheet>
     </v-card-title>

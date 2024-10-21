@@ -1,21 +1,33 @@
 import { useLocalStorage } from "@vueuse/core";
 import { defineStore } from "pinia";
-import { AccountModel } from "../models/user/accountModel";
-import { OrderModel } from "../models/ordering/orderModel";
+import { AccountModel } from "../data/models/user/accountModel";
+import { OrderModel } from "../data/models/ordering/orderModel";
 import { useFeedbackStore } from "./feedbackStore";
-import { loginAccount, registerAccount, updateAccount } from "../api/accountApi";
-import { getUserOrders } from "../api/orderApi";
-import { BannerStateEnum } from "../enums/bannerStateEnum";
-import { AddressModel } from "../models/user/addressModel";
-import { PaymentModel } from "../models/user/paymentModel";
-import { AccountApiModel } from "../models/user/accountApiModel";
+import { loginAccount, registerAccount, updateAccount } from "../data/api/accountApi";
+import { getUserOrders } from "../data/api/orderApi";
+import { BannerStateEnum } from "../data/enums/bannerStateEnum";
+import { AddressModel } from "../data/models/user/addressModel";
+import { PaymentModel } from "../data/models/user/paymentModel";
+import { AccountApiModel } from "../data/models/user/accountApiModel";
+import { ref } from "vue";
+import { OrderApiModel } from "@/data/models/ordering/orderApiModel";
 
 export const useAccountStore = defineStore("accountStore", {
   state: () => ({
-    userAccount: useLocalStorage("hackmycart/accountStore/userAccount", new AccountApiModel())
+    /** Useraccount which is currently logged in */
+    userAccount: useLocalStorage("hackmycart/accountStore/userAccount", new AccountApiModel()),
+
+    /** All orders of the user */
+    orders: ref<Array<OrderApiModel>>([])
   }),
 
   actions: {
+    /**
+     * Start the login process
+     * 
+     * @param username Account username
+     * @param password Account password
+     */
     async login(username: string, password: string) {
       const feedbackStore = useFeedbackStore()
 
@@ -36,6 +48,11 @@ export const useAccountStore = defineStore("accountStore", {
         })
     },
 
+    /**
+     * Register a new account to the database
+     * 
+     * @param userAccount New account dataset
+     */
     async registerAccount(userAccount: AccountModel) {
       const feedbackStore = useFeedbackStore()
 
@@ -74,6 +91,9 @@ export const useAccountStore = defineStore("accountStore", {
       feedbackStore.changeBanner(BannerStateEnum.ACCOUNTLOGOUTSUCCESSFUL)
     },
 
+    /**
+     * Get all orders from current user
+     */
     async refreshOrders() {
       await getUserOrders(this.userAccount.id)
         .then(result => {
@@ -92,12 +112,22 @@ export const useAccountStore = defineStore("accountStore", {
       return Math.round(totalPrice * 100) / 100
     },
 
+    /**
+     * Remove an address from the user model
+     * 
+     * @param address Address dataset to remove
+     */
     removeAddress(address: AddressModel) {
       this.userAccount.addresses = this.userAccount.addresses.filter((addr: AddressModel) => 
         addr != address
       )
     },
 
+    /**
+     * Remove an payment from the user model
+     * 
+     * @param address Payment dataset to remove
+     */
     removePayment(payment: PaymentModel) {
       this.userAccount.payments = this.userAccount.payments.filter((paym: PaymentModel) =>
         paym != payment

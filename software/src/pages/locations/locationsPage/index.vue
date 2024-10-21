@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import sectionDivider from '@/components/basics/sectionDivider.vue';
 import cardWithTopImage from '@/components/basics/cardViewTopImage.vue';
-import { useFeedbackStore } from '@/data/stores/feedbackStore';
+import { useFeedbackStore } from '@/stores/feedbackStore';
 import locationListItem from '@/components/pageParts/locationListItem.vue';
-import { useLocationStore } from '@/data/stores/locationStore';
+import { useLocationStore } from '@/stores/locationStore';
 
 const locationStore = useLocationStore()
 const feedbackStore = useFeedbackStore()

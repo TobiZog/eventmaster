@@ -1,20 +1,13 @@
 <script setup lang="ts">
-import { useAccountStore } from '@/data/stores/accountStore';
+import { useAccountStore } from '@/stores/account.store';
 import orderItem from './orderItem.vue';
 import { useRouter } from 'vue-router';
 import outlinedButton from '@/components/basics/outlinedButton.vue';
-import { getUserOrders } from '@/data/api/orderApi';
-import { ref } from 'vue';
-import { OrderApiModel } from '@/data/models/ordering/orderApiModel';
 
 const accountStore = useAccountStore()
 const router = useRouter()
-const orders = ref<Array<OrderApiModel>>([])
 
-getUserOrders(accountStore.userAccount.id)
-  .then(result => {
-    orders.value = result.data
-  })
+accountStore.refreshOrders()
 </script>
 
 <template>
@@ -28,8 +21,8 @@ getUserOrders(accountStore.userAccount.id)
     </v-row>
 
     <v-row
-      v-if="orders.length > 0"
-      v-for="order in orders"
+      v-if="accountStore.orders.length > 0"
+      v-for="order in accountStore.orders"
     >
       <v-col>
         <order-item

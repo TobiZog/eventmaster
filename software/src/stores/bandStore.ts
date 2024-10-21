@@ -1,8 +1,8 @@
 import { defineStore } from "pinia";
 import { ref } from "vue";
-import { BandApiModel } from "../models/acts/bandApiModel";
-import { fetchAllBands, getBand } from "../api/bandApi";
-import { BandDetailsApiModel } from "../models/acts/bandDetailsApiModel";
+import { BandApiModel } from "../data/models/acts/bandApiModel";
+import { fetchAllBands, getBand } from "../data/api/bandApi";
+import { BandDetailsApiModel } from "../data/models/acts/bandDetailsApiModel";
 
 export const useBandStore = defineStore("bandStore", {
   state: () => ({

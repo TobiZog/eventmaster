@@ -1,8 +1,8 @@
 import { defineStore } from "pinia";
 import { ref } from "vue";
-import { ConcertApiModel } from "../models/acts/concertApiModel";
-import { fetchConcert, fetchConcerts, fetchUpcomingConcerts } from "../api/concertApi";
-import { ConcertDetailsApiModel } from "../models/acts/concertDetailsApiModel";
+import { ConcertApiModel } from "../data/models/acts/concertApiModel";
+import { fetchConcert, fetchConcerts, fetchUpcomingConcerts } from "../data/api/concertApi";
+import { ConcertDetailsApiModel } from "../data/models/acts/concertDetailsApiModel";
 
 export const useConcertStore = defineStore("concertStore", {
   state: () => ({

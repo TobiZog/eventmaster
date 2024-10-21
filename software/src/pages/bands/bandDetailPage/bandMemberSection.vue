@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import cardWithTopImage from '@/components/basics/cardViewTopImage.vue';
-import { useFeedbackStore } from '@/data/stores/feedbackStore';
+import { useFeedbackStore } from '@/stores/feedbackStore';
 import { BandApiModel } from '@/data/models/acts/bandApiModel';
 
 const feedbackStore = useFeedbackStore()

@@ -1,7 +1,8 @@
 <script setup lang="ts">
 import cardView from '@/components/basics/cardView.vue';
 import ticketListItem from '@/components/pageParts/ticketListItem.vue';
-import { OrderApiModel } from '@/data/models/ordering/orderApiModel';
+import { OrderApiModel } from '@/data/models/apiEndpoints/orderApiModel';
+import moment from 'moment';
 
 defineProps({
   order: OrderApiModel,
@@ -10,18 +11,11 @@ defineProps({
     default: false
   }
 })
-
-function formatDateTimeString(string: string) {
-  let date = new Date(string)
-
-  return date.getDate() + '.' + (date.getMonth() + 1) + '.' + date.getFullYear() + ', ' + 
-    date.getHours() + ':' + date.getMinutes()
-}
 </script>
 
 <template>
   <card-view
-    :title="$t('orderedAt') + ' ' + formatDateTimeString(order.orderedAt) + ' ' + $t('oclock')"
+    :title="$t('orderedAt') + ' ' + moment(order.orderedAt).format('DD.MM.YY, HH:mm') + ' ' + $t('oclock')"
     variant="outlined"
   >
     <v-row>
@@ -53,16 +47,16 @@ function formatDateTimeString(string: string) {
       <v-col>
         <ticket-list-item
           :concert="ticket.concert"
-          :event="ticket.concert.event"
-          :band="ticket.concert.event.band"
+          :event="ticket.concert.name"
+          :band="ticket.concert.band"
           :location="ticket.concert.location"
           :city="ticket.concert.location.city"
-          :image="ticket.concert.event.image"
-        />
-          <!-- todo :seat-group="ticket.seat.seatRow.seatGroup.name"
-          :seat-row="ticket.seat.seatRow.row"
+          :image="ticket.concert.image"
           :seat="ticket.seat.seatNr"
-          :standing-area="ticket.seat.seatRow.seatGroup.standingArea" -->
+          :seat-group="ticket.seat.seatRow.seatGroup.name"
+          :seat-row="ticket.seat.seatRow.row"
+          :standing-area="ticket.seat.seatRow.seatGroup.standingArea"
+        />
       </v-col>
     </v-row>
 

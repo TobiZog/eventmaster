@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import cardView from '@/components/basics/cardView.vue';
-import { useAccountStore } from '@/data/stores/accountStore';
-import { useFeedbackStore } from '@/data/stores/feedbackStore';
+import { useAccountStore } from '@/stores/account.store';
+import { useFeedbackStore } from '@/stores/feedbackStore';
 
 const accountStore = useAccountStore()
 const feedbackStore = useFeedbackStore()

@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { BandModel } from '@/data/models/acts/bandModel';
-import { useBandStore } from '@/data/stores/bandStore';
+import { useBandStore } from '@/stores/bandStore';
 
 const bandStore = useBandStore()
 

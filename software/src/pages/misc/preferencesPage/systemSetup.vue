@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { BannerStateEnum } from '@/data/enums/bannerStateEnum';
-import { useFeedbackStore } from '@/data/stores/feedbackStore';
+import { useFeedbackStore } from '@/stores/feedbackStore';
 import cardView from '@/components/basics/cardView.vue';
 import outlinedButton from '@/components/basics/outlinedButton.vue';
 import { ref } from 'vue';

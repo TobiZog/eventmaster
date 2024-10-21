@@ -1,12 +1,12 @@
 import { defineStore } from "pinia";
 import { ref } from "vue";
-import { ConcertApiModel } from "../models/acts/concertApiModel";
-import { BandApiModel } from "../models/acts/bandApiModel";
-import { CityApiModel } from "../models/locations/cityApiModel";
-import { GenreApiModel } from "../models/acts/genreApiModel";
-import { searchBand } from "../api/bandApi";
-import { searchLocation } from "../api/locationApi";
-import { fetchConcerts, searchConcert } from "../api/concertApi";
+import { ConcertApiModel } from "../data/models/acts/concertApiModel";
+import { BandApiModel } from "../data/models/acts/bandApiModel";
+import { CityApiModel } from "../data/models/locations/cityApiModel";
+import { GenreApiModel } from "../data/models/acts/genreApiModel";
+import { searchBand } from "../data/api/bandApi";
+import { searchLocation } from "../data/api/locationApi";
+import { fetchConcerts, searchConcert } from "../data/api/concertApi";
 import { useFeedbackStore } from "./feedbackStore";
 
 export const useShopStore = defineStore("shopStore", {

@@ -2,7 +2,7 @@
 import { ref } from 'vue';
 import cardView from '@/components/basics/cardView.vue';
 import outlinedButton from '@/components/basics/outlinedButton.vue';
-import { useAccountStore } from '@/data/stores/accountStore';
+import { useAccountStore } from '@/stores/account.store';
 import { useRouter } from 'vue-router';
 
 const accountStore = useAccountStore()
@@ -35,7 +35,6 @@ async function startLogin() {
     if (accountStore.userAccount.id != undefined) {
       router.push("/account/home")
     }
-    // todo: Route to account home page
   }
 
   loginInProgress.value = false
@@ -43,7 +42,11 @@ async function startLogin() {
 </script>
 
 <template>
-  <card-view :title="$t('login')" prepend-icon="mdi-login" elevation="8">
+  <card-view
+    :title="$t('login')"
+    icon="mdi-login"
+    max-width="600"
+  >
     <v-row>
       <v-col>
         <v-text-field

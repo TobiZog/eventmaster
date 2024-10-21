@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import OutlinedButton from '@/components/basics/outlinedButton.vue';
-import { useShoppingStore } from '@/data/stores/shoppingStore';
+import { useShoppingStore } from '@/stores/shoppingStore';
 import { useRouter } from 'vue-router';
 
 const shoppingStore = useShoppingStore()

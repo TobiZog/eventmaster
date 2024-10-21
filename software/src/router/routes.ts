@@ -20,7 +20,7 @@ const routes = [
   { path: "/", component: HomePage },
 
   // Account
-  { path: '/account', component: AccountHomePage },
+  { path: '/account/home', component: AccountHomePage },
   { path: '/account/orders', component: OrdersPage },
   { path: '/account/data', component: AccountDataPage },
   { path: '/account/login', component: LoginPage },

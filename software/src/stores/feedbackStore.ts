@@ -1,6 +1,6 @@
 import { defineStore } from "pinia";
 import { ref } from "vue";
-import { BannerStateEnum } from "../enums/bannerStateEnum";
+import { BannerStateEnum } from "../data/enums/bannerStateEnum";
 import { Composer } from 'vue-i18n';
 
 export const useFeedbackStore = defineStore("feedbackStore", {

@@ -4,7 +4,7 @@ import sectionDivider from '@/components/basics/sectionDivider.vue';
 import seatPlanMap from '@/components/seatPlanMap/seatPlanMap.vue';
 import { getLocation } from '@/data/api/locationApi';
 import { ref } from 'vue';
-import { useFeedbackStore } from '@/data/stores/feedbackStore';
+import { useFeedbackStore } from '@/stores/feedbackStore';
 import heroImage from '@/components/pageParts/heroImage.vue';
 import concertListItem from '@/components/pageParts/concertListItem.vue';
 import { LocationDetailsApiModel } from '@/data/models/locations/locationDetailsApiModel';
