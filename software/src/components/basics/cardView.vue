@@ -40,6 +40,8 @@ defineProps({
       </v-sheet>
     </v-card-title>
 
+    <slot name="borderless"></slot>
+
     <v-container>
       <v-row>
         <v-col >

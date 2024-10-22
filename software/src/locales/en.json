@@ -129,7 +129,7 @@
   },
   "location": "Location | Locations",
   "band": "Band | Bands",
-  "noEventsFound": "No Events found",
+  "noConcertsFound": "No Concerts found",
   "from": "from",
   "soldOut": "Sold Out",
   "city": "City",

@@ -129,7 +129,7 @@
   },
   "location": "Veranstaltungsort | Veranstaltungsorte",
   "band": "Band | Bands",
-  "noEventsFound": "Keine Events gefunden",
+  "noConcertsFound": "Keine Konzerte gefunden",
   "from": "ab",
   "soldOut": "Ausverkauft",
   "city": "Stadt",

@@ -18,20 +18,20 @@ const showOrderingDialog = ref()
       <v-col>
         <card-view
           :title="$t('basket')"
-          :subtitle="basketStore.itemsInBasket.length + ' ' + 
-            $tc('product.product', basketStore.itemsInBasket.length)"
           v-model="showOrderingDialog"
           icon="mdi-cart"
         >
-          <!-- Display items if basket is not empty -->
-          <tickets-table v-if="basketStore.itemsInBasket.length > 0"/>
+          <template #borderless>
+            <!-- Display items if basket is not empty -->
+            <tickets-table v-if="basketStore.itemsInBasket.length > 0"/>
 
-          <!-- Display empty state if card is empty -->
-          <v-empty-state v-else
-            icon="mdi-basket-off"
-            :title="$t('emptyBasketTitle')"
-            :text="$t('emptyBasketText')"
-          />
+            <!-- Display empty state if card is empty -->
+            <v-empty-state v-else
+              icon="mdi-basket-off"
+              :title="$t('emptyBasketTitle')"
+              :text="$t('emptyBasketText')"
+            />
+          </template>
 
           <v-card-text class="text-right text-h5" v-if="basketStore.itemsInBasket.length > 0">
             {{ $t('totalPrice') }}: {{ (basketStore.getTotalPrice).toFixed(2) }} €

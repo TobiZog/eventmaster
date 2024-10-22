@@ -102,9 +102,18 @@ concert.get("/concert/:id", (req: Request, res: Response) => {
 concert.get("/search", (req: Request, res: Response) => {
   Concert.findAll({
     where: {
-      name: {
-        [Op.substring]: req.query.value
-      }
+      [Op.or]: [
+        {
+          name: {
+            [Op.substring]: req.query.value
+          }
+        },
+        {
+          "$band.name$": {
+            [Op.substring]: req.query.value
+          }
+        }
+      ]
     },
     include: [ Band, Location ]
   })

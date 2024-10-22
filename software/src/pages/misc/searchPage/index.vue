@@ -66,7 +66,7 @@ const searchStore = useSearchStore()
           <!-- Section Concert results -->
           <v-row>
             <v-col>
-              <section-divider :title="$t('event', 2)" />
+              <section-divider :title="$t('concert', 2)" />
             </v-col>
           </v-row>
 
@@ -95,7 +95,7 @@ const searchStore = useSearchStore()
           <v-row v-else >
             <v-col>
               <v-empty-state 
-                :title="$t('noEventsFound')"
+                :title="$t('noConcertsFound')"
                 icon="mdi-party-popper"
               />
             </v-col>
