@@ -10,47 +10,37 @@
           "imageIndoor": "locations/swiss-life-hall-indoor.jpg",
           "imageOutdoor": "locations/swiss-life-hall-outdoor.jpg",
           "layout": 2,
+          "rows": 5,
           "seatGroups": [
             {
               "name": "A",
-              "surcharge": 20,
               "standingArea": true,
               "capacity": 40
             },
             {
               "name": "B",
-              "surcharge": 10,
               "standingArea": false,
-              "rows": 5,
               "capacity": 25
             },
             {
               "name": "C",
-              "surcharge": 10,
               "standingArea": false,
-              "rows": 5,
               "capacity": 25
             },
             {
               "name": "D",
-              "surcharge": 10,
               "standingArea": false,
-              "rows": 3,
-              "capacity": 30
+              "capacity": 40
             },
             {
               "name": "E",
-              "surcharge": 10,
               "standingArea": false,
-              "rows": 3,
-              "capacity": 12
+              "capacity": 25
             },
             {
               "name": "F",
-              "surcharge": 10,
               "standingArea": false,
-              "rows": 3,
-              "capacity": 12
+              "capacity": 25
             }
           ]
         },
@@ -60,10 +50,10 @@
           "imageIndoor": "locations/capitol-indoor.jpg",
           "imageOutdoor": "locations/capitol-outdoor.jpg",
           "layout": 1,
+          "rows": 1,
           "seatGroups": [
             {
               "name": "A",
-              "surcharge": 20,
               "standingArea": true,
               "capacity": 50
             }
@@ -75,68 +65,37 @@
           "imageIndoor": "locations/zag-arena-indoor.jpg",
           "imageOutdoor": "locations/zag-arena-outdoor.jpg",
           "layout": 2,
+          "rows": 5,
           "seatGroups": [
             {
               "name": "A",
-              "surcharge": 20,
               "standingArea": true,
               "capacity": 40
             },
             {
               "name": "B",
-              "surcharge": 10,
               "standingArea": false,
-              "rows": 5,
               "capacity": 25
             },
             {
               "name": "C",
-              "surcharge": 10,
               "standingArea": false,
-              "rows": 5,
               "capacity": 25
             },
             {
               "name": "D",
-              "surcharge": 10,
               "standingArea": false,
-              "rows": 3,
               "capacity": 30
             },
             {
               "name": "E",
-              "surcharge": 10,
               "standingArea": false,
-              "rows": 3,
-              "capacity": 12
+              "capacity": 25
             },
             {
               "name": "F",
-              "surcharge": 10,
               "standingArea": false,
-              "rows": 3,
-              "capacity": 12
-            },
-            {
-              "name": "G",
-              "surcharge": 10,
-              "standingArea": false,
-              "rows": 3,
-              "capacity": 30
-            },
-            {
-              "name": "H",
-              "surcharge": 10,
-              "standingArea": false,
-              "rows": 3,
-              "capacity": 12
-            },
-            {
-              "name": "I",
-              "surcharge": 10,
-              "standingArea": false,
-              "rows": 3,
-              "capacity": 12
+              "capacity": 25
             }
           ]
         },
@@ -146,10 +105,10 @@
           "imageIndoor": "locations/faust-hannover-indoor.jpg",
           "imageOutdoor": "locations/faust-hannover-outdoor.jpg",
           "layout": 1,
+          "rows": 1,
           "seatGroups": [
             {
               "name": "A",
-              "surcharge": 20,
               "standingArea": true,
               "capacity": 25
             }
@@ -167,47 +126,37 @@
           "imageIndoor": "locations/olympiahalle-munich-indoor.jpg",
           "imageOutdoor": "locations/olympiahalle-munich-outdoor.jpg",
           "layout": 2,
+          "rows": 5,
           "seatGroups": [
             {
               "name": "A",
-              "surcharge": 20,
               "standingArea": true,
               "capacity": 60
             },
             {
               "name": "B",
-              "surcharge": 10,
               "standingArea": false,
-              "rows": 5,
-              "capacity": 20
+              "capacity": 30
             },
             {
               "name": "C",
-              "surcharge": 10,
               "standingArea": false,
-              "rows": 5,
-              "capacity": 20
+              "capacity": 25
             },
             {
               "name": "D",
-              "surcharge": 10,
               "standingArea": false,
-              "rows": 3,
-              "capacity": 20
+              "capacity": 25
             },
             {
               "name": "E",
-              "surcharge": 10,
               "standingArea": false,
-              "rows": 3,
-              "capacity": 12
+              "capacity": 25
             },
             {
               "name": "F",
-              "surcharge": 10,
               "standingArea": false,
-              "rows": 3,
-              "capacity": 12
+              "capacity": 30
             }
           ]
         },
@@ -217,10 +166,10 @@
           "imageIndoor": "locations/schlachthof-munich-indoor.jpg",
           "imageOutdoor": "locations/schlachthof-munich-outdoor.jpg",
           "layout": 1,
+          "rows": 1,
           "seatGroups": [
             {
               "name": "A",
-              "surcharge": 20,
               "standingArea": true,
               "capacity": 40
             }
@@ -232,10 +181,10 @@
           "imageIndoor": "locations/muffatwerk-indoor.jpg",
           "imageOutdoor": "locations/muffatwerk-outdoor.jpg",
           "layout": 1,
+          "rows": 1,
           "seatGroups": [
             {
               "name": "A",
-              "surcharge": 20,
               "standingArea": true,
               "capacity": 60
             }
@@ -253,67 +202,51 @@
           "imageIndoor": "locations/volksparkstadion-hamburg-indoor.jpg",
           "imageOutdoor": "locations/volksparkstadion-hamburg-outdoor.jpg",
           "layout": 3,
+          "rows": 5,
           "seatGroups": [
             {
               "name": "A",
-              "surcharge": 30,
               "standingArea": true,
               "capacity": 50
             },
             {
               "name": "B",
-              "surcharge": 20,
               "standingArea": false,
-              "rows": 5,
-              "capacity": 50
+              "capacity": 35
             },
             {
               "name": "C",
-              "surcharge": 10,
               "standingArea": false,
-              "rows": 5,
               "capacity": 25
             },
             {
               "name": "D",
-              "surcharge": 20,
               "standingArea": false,
-              "rows": 5,
               "capacity": 30
             },
             {
               "name": "E",
-              "surcharge": 10,
               "standingArea": false,
-              "rows": 5,
               "capacity": 25
             },
             {
               "name": "F",
-              "surcharge": 20,
               "standingArea": false,
-              "rows": 5,
-              "capacity": 50
+              "capacity": 35
             },
             {
               "name": "G",
-              "surcharge": 10,
               "standingArea": false,
-              "rows": 5,
               "capacity": 25
             },
             {
               "name": "H",
-              "surcharge": 20,
               "standingArea": false,
-              "rows": 5,
               "capacity": 30
             },
             {
               "name": "I",
-              "surcharge": 10,
               "standingArea": false,
-              "rows": 5,
               "capacity": 25
             }
           ]
@@ -323,27 +256,53 @@
           "address": "Sylvesterallee 10",
           "imageIndoor": "locations/barclays-arena-indoor.jpg",
           "imageOutdoor": "locations/barclays-arena-outdoor.jpg",
-          "layout": 2,
+          "layout": 3,
+          "rows": 3,
           "seatGroups": [
             {
               "name": "A",
-              "surcharge": 20,
-              "standingArea": false,
+              "standingArea": true,
               "capacity": 40
             },
             {
               "name": "B",
-              "surcharge": 10,
               "standingArea": false,
-              "rows": 5,
-              "capacity": 25
+              "capacity": 18
             },
             {
               "name": "C",
-              "surcharge": 10,
               "standingArea": false,
-              "rows": 5,
-              "capacity": 25
+              "capacity": 9
+            },
+            {
+              "name": "D",
+              "standingArea": false,
+              "capacity": 18
+            },
+            {
+              "name": "E",
+              "standingArea": false,
+              "capacity": 9
+            },
+            {
+              "name": "F",
+              "standingArea": false,
+              "capacity": 18
+            },
+            {
+              "name": "G",
+              "standingArea": false,
+              "capacity": 9
+            },
+            {
+              "name": "H",
+              "standingArea": false,
+              "capacity": 18
+            },
+            {
+              "name": "I",
+              "standingArea": false,
+              "capacity": 9
             }
           ]
         }
@@ -359,25 +318,36 @@
           "imageIndoor": "locations/waldbuehne-berlin-indoor.jpg",
           "imageOutdoor": "locations/waldbuehne-berlin-outdoor.jpg",
           "layout": 2,
+          "rows": 5,
           "seatGroups": [
             {
               "name": "A",
-              "surcharge": 20,
               "standingArea": false,
-              "capacity": 10
+              "capacity": 15
             },
             {
               "name": "B",
-              "surcharge": 10,
               "standingArea": false,
-              "rows": 5,
               "capacity": 25
             },
             {
               "name": "C",
-              "surcharge": 10,
               "standingArea": false,
-              "rows": 5,
+              "capacity": 25
+            },
+            {
+              "name": "D",
+              "standingArea": false,
+              "capacity": 25
+            },
+            {
+              "name": "E",
+              "standingArea": false,
+              "capacity": 25
+            },
+            {
+              "name": "F",
+              "standingArea": false,
               "capacity": 25
             }
           ]
@@ -388,46 +358,51 @@
           "imageIndoor": "locations/olympiastadion-berlin-indoor.jpg",
           "imageOutdoor": "locations/olympiastadion-berlin-outdoor.jpg",
           "layout": 3,
+          "rows": 5,
           "seatGroups": [
             {
               "name": "A",
-              "surcharge": 20,
               "standingArea": true,
               "capacity": 60
             },
             {
               "name": "B",
-              "surcharge": 10,
               "standingArea": false,
-              "rows": 5,
               "capacity": 20
             },
             {
               "name": "C",
-              "surcharge": 10,
               "standingArea": false,
-              "rows": 5,
               "capacity": 20
             },
             {
               "name": "D",
-              "surcharge": 10,
               "standingArea": false,
-              "rows": 3,
               "capacity": 20
             },
             {
               "name": "E",
-              "surcharge": 10,
               "standingArea": false,
-              "rows": 3,
               "capacity": 12
             },
             {
               "name": "F",
-              "surcharge": 10,
               "standingArea": false,
-              "rows": 3,
+              "capacity": 12
+            },
+            {
+              "name": "G",
+              "standingArea": false,
+              "capacity": 12
+            },
+            {
+              "name": "H",
+              "standingArea": false,
+              "capacity": 12
+            },
+            {
+              "name": "I",
+              "standingArea": false,
               "capacity": 12
             }
           ]
@@ -438,46 +413,36 @@
           "imageIndoor": "locations/uber-arena-berlin-indoor.jpg",
           "imageOutdoor": "locations/uber-arena-berlin-outdoor.jpg",
           "layout": 2,
+          "rows": 4,
           "seatGroups": [
             {
               "name": "A",
-              "surcharge": 20,
               "standingArea": true,
               "capacity": 50
             },
             {
               "name": "B",
-              "surcharge": 10,
               "standingArea": false,
-              "rows": 5,
               "capacity": 30
             },
             {
               "name": "C",
-              "surcharge": 10,
               "standingArea": false,
-              "rows": 5,
               "capacity": 30
             },
             {
               "name": "D",
-              "surcharge": 10,
               "standingArea": false,
-              "rows": 3,
               "capacity": 20
             },
             {
               "name": "E",
-              "surcharge": 10,
               "standingArea": false,
-              "rows": 3,
               "capacity": 12
             },
             {
               "name": "F",
-              "surcharge": 10,
               "standingArea": false,
-              "rows": 3,
               "capacity": 12
             }
           ]
@@ -488,25 +453,36 @@
           "imageIndoor": "locations/columbiahalle-indoor.jpg",
           "imageOutdoor": "locations/columbiahalle-outdoor.jpg",
           "layout": 2,
+          "rows": 3,
           "seatGroups": [
             {
               "name": "A",
-              "surcharge": 20,
               "standingArea": true,
               "capacity": 50
             },
             {
               "name": "B",
-              "surcharge": 10,
               "standingArea": false,
-              "rows": 5,
               "capacity": 30
             },
             {
               "name": "C",
-              "surcharge": 10,
               "standingArea": false,
-              "rows": 5,
+              "capacity": 9
+            },
+            {
+              "name": "D",
+              "standingArea": false,
+              "capacity": 21
+            },
+            {
+              "name": "E",
+              "standingArea": false,
+              "capacity": 9
+            },
+            {
+              "name": "F",
+              "standingArea": false,
               "capacity": 30
             }
           ]
@@ -517,10 +493,10 @@
           "imageIndoor": "locations/astra-kulturhaus-indoor.jpg",
           "imageOutdoor": "locations/astra-kulturhaus-outdoor.jpg",
           "layout": 1,
+          "rows": 1,
           "seatGroups": [
             {
               "name": "A",
-              "surcharge": 0,
               "standingArea": true,
               "capacity": 40
             }
@@ -538,47 +514,52 @@
           "imageIndoor": "locations/lanxess-arena-indoor.jpg",
           "imageOutdoor": "locations/lanxess-arena-outdoor.jpg",
           "layout": 3,
+          "rows": 5,
           "seatGroups": [
             {
               "name": "A",
-              "surcharge": 20,
               "standingArea": true,
               "capacity": 50
             },
             {
               "name": "B",
-              "surcharge": 10,
               "standingArea": false,
-              "rows": 5,
               "capacity": 30
             },
             {
               "name": "C",
-              "surcharge": 10,
               "standingArea": false,
-              "rows": 5,
-              "capacity": 30
+              "capacity": 25
             },
             {
               "name": "D",
-              "surcharge": 10,
               "standingArea": false,
-              "rows": 3,
               "capacity": 20
             },
             {
               "name": "E",
-              "surcharge": 10,
               "standingArea": false,
-              "rows": 3,
-              "capacity": 12
+              "capacity": 25
             },
             {
               "name": "F",
-              "surcharge": 10,
               "standingArea": false,
-              "rows": 3,
-              "capacity": 12
+              "capacity": 30
+            },
+            {
+              "name": "G",
+              "standingArea": false,
+              "capacity": 25
+            },
+            {
+              "name": "H",
+              "standingArea": false,
+              "capacity": 20
+            },
+            {
+              "name": "I",
+              "standingArea": false,
+              "capacity": 25
             }
           ]
         },
@@ -588,10 +569,10 @@
           "imageIndoor": "locations/palladium-indoor.jpg",
           "imageOutdoor": "locations/palladium-outdoor.jpg",
           "layout": 1,
+          "rows": 1,
           "seatGroups": [
             {
               "name": "A",
-              "surcharge": 0,
               "standingArea": true,
               "capacity": 50
             }
@@ -603,10 +584,10 @@
           "imageIndoor": "locations/e-werk-indoor.jpg",
           "imageOutdoor": "locations/e-werk-outdoor.jpg",
           "layout": 1,
+          "rows": 1,
           "seatGroups": [
             {
               "name": "A",
-              "surcharge": 0,
               "standingArea": true,
               "capacity": 40
             }

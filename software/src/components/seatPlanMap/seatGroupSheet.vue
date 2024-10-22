@@ -57,7 +57,7 @@ function getNameLocation() {
 
   <v-sheet
     v-else-if="seatGroup != undefined"
-    class="pa-3"
+    class="pa-2"
     :class="getCornerClass()"
     border
     style="height: 100%;"
@@ -71,9 +71,9 @@ function getNameLocation() {
       </v-row>
 
       <v-row>
-        <v-spacer v-if="seatGroup.name == 'C'" />
+        <v-spacer v-if="seatGroup.name == 'B' || seatGroup.name == 'C'" />
 
-        <v-col class="d-flex justify-center align-center">
+        <v-col cols="auto">
           <seat-group-table
             :seat-rows="seatGroup.seatRows"
             :seat-group="seatGroup"
@@ -82,7 +82,7 @@ function getNameLocation() {
           />
         </v-col>
 
-        <v-spacer v-if="seatGroup.name == 'I'" />
+        <v-spacer v-if="seatGroup.name == 'B' || seatGroup.name == 'I'" />
       </v-row>
     </div>
 

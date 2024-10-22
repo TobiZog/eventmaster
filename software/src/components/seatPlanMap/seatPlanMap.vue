@@ -36,7 +36,8 @@ const seatGroupI = findSeatCategory("I")
 <template>
   <v-sheet border class="pa-5">
     <v-row>
-      <v-col cols="4">
+      <!-- Seat Group C -->
+      <v-col cols="4" class="pa-0">
         <seat-group-sheet
           :seat-group="seatGroupC"
           :concert="concert"
@@ -44,7 +45,8 @@ const seatGroupI = findSeatCategory("I")
         />
       </v-col>
 
-      <v-col cols="4">
+      <!-- Seat Group B -->
+      <v-col cols="4" class="pa-0">
         <seat-group-sheet
           :seat-group="seatGroupB"
           :concert="concert"
@@ -52,7 +54,8 @@ const seatGroupI = findSeatCategory("I")
         />
       </v-col>
 
-      <v-col cols="4">
+      <!-- Seat Group I -->
+      <v-col cols="4" class="pa-0">
         <seat-group-sheet
           :seat-group="seatGroupI"
           :concert="concert"
@@ -62,7 +65,8 @@ const seatGroupI = findSeatCategory("I")
     </v-row>
 
     <v-row>
-      <v-col cols="4">
+      <!-- Seat Group D -->
+      <v-col cols="4" class="pa-0">
         <seat-group-sheet
           v-if="location.layout != 1"
           :seat-group="seatGroupD"
@@ -71,7 +75,8 @@ const seatGroupI = findSeatCategory("I")
         />
       </v-col>
 
-      <v-col :cols="location.layout == 1 ? 10 : 4">
+      <!-- Seat Group A -->
+      <v-col :cols="location.layout == 1 ? 10 : 4" class="pa-0">
         <seat-group-sheet
           :seat-group="seatGroupA"
           :concert="concert"
@@ -80,6 +85,7 @@ const seatGroupI = findSeatCategory("I")
         />
       </v-col>
 
+      <!-- Seat Group H or stage -->
       <v-col v-if="location.layout != 3">
         <v-sheet
           color="grey-darken-3"
@@ -91,7 +97,7 @@ const seatGroupI = findSeatCategory("I")
         </v-sheet>
       </v-col>
 
-      <v-col v-else cols="4">
+      <v-col v-else cols="4" class="pa-0">
         <seat-group-sheet
           :seat-group="seatGroupH"
           :concert="concert"
@@ -102,7 +108,8 @@ const seatGroupI = findSeatCategory("I")
 
 
     <v-row v-if="location.layout != 1">
-      <v-col cols="4">
+      <!-- Seat Group E -->
+      <v-col cols="4" class="pa-0">
         <seat-group-sheet
           :seat-group="seatGroupE"
           :concert="concert"
@@ -110,7 +117,8 @@ const seatGroupI = findSeatCategory("I")
         />
       </v-col>
 
-      <v-col cols="4">
+      <!-- Seat Group F -->
+      <v-col cols="4" class="pa-0">
         <seat-group-sheet
           :seat-group="seatGroupF"
           :concert="concert"
@@ -118,7 +126,8 @@ const seatGroupI = findSeatCategory("I")
         />
       </v-col>
 
-      <v-col cols="4">
+      <!-- Seat Group G -->
+      <v-col cols="4" class="pa-0">
         <seat-group-sheet
           :seat-group="seatGroupG"
           :concert="concert"

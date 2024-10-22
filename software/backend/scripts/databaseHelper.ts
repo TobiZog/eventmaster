@@ -94,6 +94,28 @@ export async function prepopulateDatabase() {
               for (let seatGroup of location.seatGroups)
               {
                 seatGroup["locationId"] = locationDataset.id
+
+                let surcharge = 0
+
+                switch (seatGroup.name) {
+                  case 'A': {
+                    if (location.rows != 0) {
+                      surcharge = 30
+                    }
+                    break;
+                  }
+                  case 'B':
+                  case 'D':
+                  case 'F':
+                  case 'H': surcharge = 20; break;
+
+                  case 'C':
+                  case 'E':
+                  case 'G':
+                  case 'I': surcharge = 10; break;
+                }
+
+                seatGroup["surcharge"] = surcharge
                 
                 await SeatGroup.create(seatGroup)
                   .then(async seatGroupRes => {
@@ -114,13 +136,13 @@ export async function prepopulateDatabase() {
                     }
                     else
                     {
-                      for (let row = 0; row < seatGroup.rows; row++) {
+                      for (let row = 0; row < location.rows; row++) {
                         await SeatRow.create({
                           row: row + 1,
                           seatGroupId: seatGroupRes.id
                         })
                           .then(async seatRowRes => {
-                            for (let col = 0; col < seatGroup.capacity / seatGroup.rows; col++) {
+                            for (let col = 0; col < seatGroup.capacity / location.rows; col++) {
                               await Seat.create({
                                 seatNr: col,
                                 seatRowId: seatRowRes.id

@@ -3,7 +3,7 @@ import { ref, watch } from 'vue';
 import { useRouter } from 'vue-router';
 
 const router = useRouter()
-const path = ref(router.currentRoute.value.fullPath)
+const path = ref("https://www.eventmaster.com" + router.currentRoute.value.fullPath)
 
 function navigate() {
   router.replace({ path: path.value.substring(path.value.indexOf('.com') + 4) })
