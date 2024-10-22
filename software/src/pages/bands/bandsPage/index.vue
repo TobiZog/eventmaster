@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { useBandStore } from '@/stores/bandStore';
+import { useBandStore } from '@/stores/band.store';
 import cardViewHorizontal from '@/components/basics/cardViewHorizontal.vue';
 import bandListItem from '@/components/pageParts/bandListItem.vue';
 

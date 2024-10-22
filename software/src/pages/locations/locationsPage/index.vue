@@ -1,12 +1,10 @@
 <script setup lang="ts">
 import sectionDivider from '@/components/basics/sectionDivider.vue';
 import cardWithTopImage from '@/components/basics/cardViewTopImage.vue';
-import { useFeedbackStore } from '@/stores/feedbackStore';
 import locationListItem from '@/components/pageParts/locationListItem.vue';
-import { useLocationStore } from '@/stores/locationStore';
+import { useLocationStore } from '@/stores/location.store';
 
 const locationStore = useLocationStore()
-const feedbackStore = useFeedbackStore()
 
 locationStore.getLocations()
 </script>
@@ -21,7 +19,7 @@ locationStore.getLocations()
 
       <v-col cols="10">
         <!-- During fetching -->
-        <div v-if="feedbackStore.fetchDataFromServerInProgress" v-for="i in 2">
+        <div v-if="locationStore.fetchInProgress" v-for="i in 2">
           <v-row>
             <v-col>
               <section-divider :loading="true" />

@@ -6,7 +6,7 @@ export async function fetchAllLocations() {
   return await axios.get(BASE_URL)
 }
 
-export async function getLocation(locationName: string) {
+export async function fetchLocationByName(locationName: string) {
   return await axios.get(BASE_URL + "/location/" + locationName)
 }
 
@@ -16,6 +16,6 @@ export async function fetchTopLocations(nrOfLocations: number) {
   return await axios.get(url)
 }
 
-export async function searchLocation(searchTerm: string) {
+export async function fetchLocationsBySearchTerm(searchTerm: string) {
   return await axios.get(BASE_URL + "/search?value=" + searchTerm)
 }

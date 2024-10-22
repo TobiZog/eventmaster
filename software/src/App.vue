@@ -4,8 +4,8 @@ import { i18n } from './plugins/i18n';
 import { watch } from 'vue';
 import navigationAppendItems from './components/navigation/navigationAppendItems.vue';
 import navigationPrependItems from './components/navigation/navigationPrependItems.vue';
-import { usePreferencesStore } from './stores/preferencesStore';
-import { useFeedbackStore } from './stores/feedbackStore';
+import { usePreferencesStore } from './stores/preferences.store';
+import { useFeedbackStore } from './stores/feedback.store';
 import footerItems from './components/navigation/footerItems.vue';
 import urlBar from './components/navigation/urlBar.vue';
 

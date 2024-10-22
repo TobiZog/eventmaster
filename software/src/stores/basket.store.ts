@@ -1,7 +1,7 @@
 import { defineStore } from "pinia";
 import { useLocalStorage } from "@vueuse/core";
 import { BasketItemModel } from "../data/models/ordering/basketItemModel";
-import { useFeedbackStore } from "./feedbackStore";
+import { useFeedbackStore } from "./feedback.store";
 import { BannerStateEnum } from "../data/enums/bannerStateEnum";
 import { AddressModel } from "../data/models/user/addressModel";
 import { PaymentModel } from "../data/models/user/paymentModel";
@@ -15,9 +15,16 @@ import { createOrder } from "@/data/api/orderApi";
 
 export const useBasketStore = defineStore('basketStore', {
   state: () => ({
-    itemsInBasket: useLocalStorage<Array<BasketItemModel>>("hackmycart/basketStore/productsInBasket", []),
+    /** Items in customers basket */
+    itemsInBasket: useLocalStorage<Array<BasketItemModel>>("hackmycart/basketStore/itemsInBasket", []),
+
+    /** Address used in the order dialog */
     usedAddress: useLocalStorage("hackmycart/basketStore/usedAddress", new AddressModel()),
+
+    /** Payment method used in the order dialog */
     usedPayment: useLocalStorage("hackmycart/basketStore/usedPayment", new PaymentModel()),
+
+    /** Selected seats in the booking page */
     selectedSeats: ref<Array<SelectedSeatModel>>([])
   }),
 
@@ -53,9 +60,16 @@ export const useBasketStore = defineStore('basketStore', {
       )
     },
 
-    moveSeatSelectionsToBasket(concert: ConcertModel, band: BandModel) {
+    /**
+     * Move all selected seats from selectedSeats to itemsInBasket variable
+     * 
+     * @param band Band of the concert
+     */
+    moveSeatSelectionsToBasket(band: BandModel) {
       for (let selectedSeat of this.selectedSeats) {
-        let itemInBasket: BasketItemModel = this.itemsInBasket.find((basketItem: BasketItemModel) => {
+        let itemInBasket: BasketItemModel = 
+          this.itemsInBasket.find((basketItem: BasketItemModel) => 
+        {
           return basketItem.concert.id == selectedSeat.concert.id
         })
 
@@ -77,13 +91,19 @@ export const useBasketStore = defineStore('basketStore', {
     },
 
     /**
-     * Take an order to the server. Sends all articles in the basket and creates an order entry in the backend database
+     * Take an order to the server. Sends all articles in the basket and 
+     * creates an order entry in the backend database
      */
     async takeOrder() {
       const accountStore = useAccountStore()
       const feedbackStore = useFeedbackStore()
 
-      await createOrder(accountStore.userAccount.id, this.itemsInBasket, this.usedPayment.id, this.usedAddress.id)
+      await createOrder(
+        accountStore.userAccount.id,
+        this.itemsInBasket,
+        this.usedPayment.id,
+        this.usedAddress.id
+      )
         .then(async result => {
           if (result.status == 201) {
             await accountStore.refreshOrders()

@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { ref } from 'vue';
 import cardView from '@/components/basics/cardView.vue';
 import outlinedButton from '@/components/basics/outlinedButton.vue';
 import { useAccountStore } from '@/stores/account.store';
@@ -7,37 +6,15 @@ import { useRouter } from 'vue-router';
 
 const accountStore = useAccountStore()
 const showRegisterCard = defineModel("showRegisterCard", { type: Boolean, default: false })
-const loginInProgress = ref(false)
-const username = ref("duranduran")
-const password = ref("H4nn0ver")
-const usernameWrong = ref(false)
-const passwordWrong = ref(false)
 const router = useRouter()
 
 async function startLogin() {
-  loginInProgress.value = true
-  usernameWrong.value = false
-  passwordWrong.value = false
-
-  if (username.value == null || username.value.length == 0) {
-    usernameWrong.value = true
-  } 
-
-  if (password.value == null || password.value.length == 0) {
-    passwordWrong.value = true
-  }
-
-  if (username.value != null && username.value.length > 0 && 
-    password.value != null && password.value.length > 0)
-  {
-    await accountStore.login(username.value, password.value)
-
-    if (accountStore.userAccount.id != undefined) {
-      router.push("/account/home")
-    }
-  }
-
-  loginInProgress.value = false
+  accountStore.login()
+    .then(result => {
+      if (accountStore.userAccount.id != undefined) {
+        router.push("/account/home")
+      }
+    })
 }
 </script>
 
@@ -52,8 +29,7 @@ async function startLogin() {
         <v-text-field
           :label="$t('account.username')"
           prepend-icon="mdi-account"
-          v-model="username"
-          :error="usernameWrong"
+          v-model="accountStore.loginData.username"
           clearable
         />
       </v-col>
@@ -65,8 +41,7 @@ async function startLogin() {
           :label="$t('account.password')"
           prepend-icon="mdi-key"
           type="password" 
-          v-model="password"
-          :error="passwordWrong"
+          v-model="accountStore.loginData.password"
           clearable
         />
       </v-col>
@@ -76,7 +51,7 @@ async function startLogin() {
       <outlined-button 
         @click="showRegisterCard = true"
         prepend-icon="mdi-plus"
-        :disabled="loginInProgress"
+        :loading="accountStore.fetchInProgress"
       >
         {{ $t('account.noAccountRegister') }}
       </outlined-button>
@@ -84,7 +59,7 @@ async function startLogin() {
       <outlined-button
         append-icon="mdi-arrow-right"
         @click="startLogin"
-        :loading="loginInProgress"
+        :loading="accountStore.fetchInProgress"
       >
         {{ $t('login') }}
       </outlined-button>

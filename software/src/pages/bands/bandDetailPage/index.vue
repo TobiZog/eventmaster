@@ -6,7 +6,7 @@ import gallerySection from './gallerySection.vue';
 import concertSection from './concertSection.vue';
 import heroImage from '@/components/pageParts/heroImage.vue';
 import sectionDivider from '@/components/basics/sectionDivider.vue';
-import { useBandStore } from '@/stores/bandStore';
+import { useBandStore } from '@/stores/band.store';
 
 const router = useRouter()
 const bandStore = useBandStore()

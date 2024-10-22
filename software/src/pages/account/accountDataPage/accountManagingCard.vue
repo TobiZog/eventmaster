@@ -6,20 +6,7 @@ import { useAccountStore } from '@/stores/account.store';
 import { ref } from 'vue';
 
 const showConfirmDialog = ref(false)
-const updateInProgress = ref(false)
 const accountStore = useAccountStore()
-
-function deleteAccount() {
-  // todo
-}
-
-async function updateAccount() {
-  updateInProgress.value = true
-
-  await accountStore.updateAccount()
-
-  updateInProgress.value = false
-}
 </script>
 
 <template>
@@ -32,6 +19,7 @@ async function updateAccount() {
         <outlined-button
           prepend-icon="mdi-delete"
           color="red"
+          :loading="accountStore.fetchInProgress"
           @click="showConfirmDialog = true"
         >
           {{ $t("account.delete") }}
@@ -42,7 +30,8 @@ async function updateAccount() {
         <outlined-button
           prepend-icon="mdi-content-save"
           color="green"
-          @click="updateAccount"
+          :loading="accountStore.fetchInProgress"
+          @click="accountStore.updateAccount()"
         >
           {{ $t("save") }}
         </outlined-button>
@@ -54,6 +43,6 @@ async function updateAccount() {
     v-model="showConfirmDialog"
     :title="$t('dialog.deleteAccount.title')"
     :description="$t('dialog.deleteAccount.description')"
-    :onConfirm="deleteAccount"
   />
+    <!-- todo :onConfirm="deleteAccount" -->
 </template>

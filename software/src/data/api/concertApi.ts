@@ -2,11 +2,11 @@ import axios from "axios"
 
 let BASE_URL = "http://localhost:3000/concerts"
 
-export async function fetchConcerts() {
+export async function fetchAllConcerts() {
   return await axios.get(BASE_URL)
 }
 
-export async function fetchConcert(id: number) {
+export async function fetchConcertById(id: number) {
   if (id != undefined) {
     return await axios.get(BASE_URL + "/concert/" + id)
   } else {
@@ -27,6 +27,6 @@ export async function fetchUpcomingConcerts(nrOfConcerts: number) {
   return await axios.get(url)
 }
 
-export async function searchConcert(searchTerm: string) {
+export async function fetchConcertsBySearchTerm(searchTerm: string) {
   return await axios.get(BASE_URL + '/search?value=' + searchTerm)
 }

@@ -1,7 +1,8 @@
 {
   "include": [
     "src/**/*",
-    "src/**/*.vue"
+    "src/**/*.vue",
+    "package.json"
   ],
   "compilerOptions": {
     "composite": true,

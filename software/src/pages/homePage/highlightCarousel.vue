@@ -1,12 +1,9 @@
 <script setup lang="ts">
 import OutlinedButton from '@/components/basics/outlinedButton.vue';
-import { useShoppingStore } from '@/stores/shoppingStore';
 import { useRouter } from 'vue-router';
 
-const shoppingStore = useShoppingStore()
 const router = useRouter()
 
-shoppingStore.getEvents()
 </script>
 
 <template>

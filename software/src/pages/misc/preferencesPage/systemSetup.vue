@@ -1,11 +1,11 @@
 <script setup lang="ts">
 import { BannerStateEnum } from '@/data/enums/bannerStateEnum';
-import { useFeedbackStore } from '@/stores/feedbackStore';
+import { useFeedbackStore } from '@/stores/feedback.store';
 import cardView from '@/components/basics/cardView.vue';
 import outlinedButton from '@/components/basics/outlinedButton.vue';
 import { ref } from 'vue';
 import confirmDialog from '@/components/basics/confirmDialog.vue';
-import { getServerState, resetDatabase, resetExerciseProgress } from '@/data/api/mainApi';
+import { fetchServerState, resetDatabase, resetExerciseProgress } from '@/data/api/mainApi';
 import { ServerStateEnum } from '@/data/enums/serverStateEnum';
 import packageJson from './../../../../package.json'
 
@@ -14,7 +14,7 @@ const showConfirmDeleteDbDialog = ref(false)
 const showConfirmDeleteExerciseProgressDialog = ref(false)
 const serverOnline = ref(ServerStateEnum.PENDING)
 
-getServerState()
+fetchServerState()
   .then(result => {
     if (result.status == 200) {
       serverOnline.value = ServerStateEnum.ONLINE

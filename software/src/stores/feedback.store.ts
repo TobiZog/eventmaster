@@ -3,13 +3,16 @@ import { ref } from "vue";
 import { BannerStateEnum } from "../data/enums/bannerStateEnum";
 import { Composer } from 'vue-i18n';
 
+/**
+ * Logic of the bubble notifications
+ * Includes an i18n object for translation
+ */
 export const useFeedbackStore = defineStore("feedbackStore", {
   state: () => ({
     showBanner: ref(false),
     title: ref(""),
     color: ref(""),
     icon: ref(""),
-    fetchDataFromServerInProgress: ref(false),
     $i18n: {}
   }),
 
@@ -50,21 +53,27 @@ export const useFeedbackStore = defineStore("feedbackStore", {
         case BannerStateEnum.ACCOUNTLOGINSUCCESSFUL: {
           this.title = this.i18n.t('bannerMessages.loginSuccessful'); break;
         }
+
         case BannerStateEnum.ACCOUNTLOGINWRONGLOGIN: {
           this.title = this.i18n.t('bannerMessages.wrongLogin'); break;
         }
+
         case BannerStateEnum.ACCOUNTLOGINERROR: {
           this.title = this.i18n.t('bannerMessages.error'); break;
         }
+
         case BannerStateEnum.ACCOUNTREGISTERSUCCESSFUL: {
           this.title = this.i18n.t("bannerMessages.registerSuccessful"); break;
         }
+
         case BannerStateEnum.ACCOUNTREGISTERUSERNAMEINUSE: {
           this.title = this.i18n.t("bannerMessages.usernameInUse"); break;
         }
+
         case BannerStateEnum.ACCOUNTUPDATESUCCESSFUL: {
           this.title = this.i18n.t("bannerMessages.accountUpdated"); break;
         }
+
         case BannerStateEnum.ACCOUNTLOGOUTSUCCESSFUL: {
           this.title = this.i18n.t('bannerMessages.logoutSuccessful'); break;
         }
@@ -75,12 +84,15 @@ export const useFeedbackStore = defineStore("feedbackStore", {
         case BannerStateEnum.CATEGORYCREATESUCCESSFUL: {
           this.title = this.i18n.t('bannerMessages.categoryCreateSuccessful'); break;
         }
+
         case BannerStateEnum.CATEGORYDELETESUCESSFUL: {
           this.title = this.i18n.t('bannerMessages.categoryDeleteSuccessful'); break;
         }
+
         case BannerStateEnum.CATEGORYCREATEERROR: {
           this.title = this.i18n.t('bannerMessages.categoryCreateError'); break;
         }
+
         case BannerStateEnum.CATEGORYDELETEERROR: {
           this.title = this.i18n.t('bannerMessages.categoryDeleteError'); break;
         }
@@ -98,16 +110,20 @@ export const useFeedbackStore = defineStore("feedbackStore", {
         case BannerStateEnum.PRODUCTCREATESUCCESSFUL: {
           this.title = this.i18n.t('bannerMessages.productCreateSuccessful'); break;
         }
+
         case BannerStateEnum.PRODUCTCREATEERROR: {
           this.title = this.i18n.t('bannerMessages.productCreateError'); break;
         }
+
         case BannerStateEnum.PRODUCTDELETESUCCESSFUL: {
           this.title = this.i18n.t('bannerMessages.productDeleteSuccessful'); break;
         }
+
         case BannerStateEnum.PRODUCTDELETEERROR: {
           this.title = this.i18n.t('bannerMessages.productDeleteError'); break;
         }
       }
+
 
       // Banner color
 
@@ -200,9 +216,6 @@ export const useFeedbackStore = defineStore("feedbackStore", {
           this.icon = "mdi-account-reactivate"
           break;
       }
-
-      
-      
 
       this.showBanner = true
     }

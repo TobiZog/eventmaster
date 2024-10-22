@@ -2,12 +2,11 @@
 import highlightCarousel from './highlightCarousel.vue';
 import sectionDivider from '@/components/basics/sectionDivider.vue';
 import cardWithTopImage from '@/components/basics/cardViewTopImage.vue';
-import { lowestTicketPrice } from '@/scripts/concertScripts';
 import OutlinedButton from '@/components/basics/outlinedButton.vue';
 import { useRouter } from 'vue-router';
-import { useConcertStore } from '@/stores/concertStore';
-import { useLocationStore } from '@/stores/locationStore';
-import { useBandStore } from '@/stores/bandStore';
+import { useConcertStore } from '@/stores/concert.store';
+import { useLocationStore } from '@/stores/location.store';
+import { useBandStore } from '@/stores/band.store';
 
 const router = useRouter()
 const concertStore = useConcertStore()

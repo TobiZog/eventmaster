@@ -1,15 +1,26 @@
 import { defineStore } from "pinia";
 import { ref } from "vue";
-import { fetchAllLocations, fetchTopLocations } from "../data/api/locationApi";
+import { fetchAllLocations, fetchLocationByName, fetchTopLocations } from "../data/api/locationApi";
 import { LocationApiModel } from "../data/models/locations/locationApiModel";
 import { CityModel } from "../data/models/locations/cityModel";
 import { fetchAllCities } from "../data/api/cityApi";
+import { LocationDetailsApiModel } from "@/data/models/locations/locationDetailsApiModel";
 
 export const useLocationStore = defineStore("locationStore", {
   state: () => ({
+    /** All available locations */
     locations: ref<Array<LocationApiModel>>([]),
+
+    /** Locations with the most concerts */
     topLocations: ref<Array<LocationApiModel>>([]),
+
+    /** Enhanced data about a specific location */
+    location: ref<LocationDetailsApiModel>(),
+
+    /** All available cities */
     cities: ref<Array<CityModel>>([]),
+
+    /** Request to server sent, waiting for data response */
     fetchInProgress: ref(false)
   }),
 
@@ -32,6 +43,16 @@ export const useLocationStore = defineStore("locationStore", {
         })
     },
 
+    getLocationByName(name: string) {
+      this.fetchInProgress = true
+
+      fetchLocationByName(name)
+        .then(result => {
+          this.location = result.data
+          this.fetchInProgress = false
+        })
+    },
+
     /**
      * Get all locations in a specific city
      * 
@@ -46,6 +67,9 @@ export const useLocationStore = defineStore("locationStore", {
     },
 
 
+    /**
+     * Fetch top 8 locations from server
+     */
     async getTopLocations() {
       await fetchTopLocations(8)
         .then(result => {

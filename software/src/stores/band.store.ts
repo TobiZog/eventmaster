@@ -1,13 +1,18 @@
 import { defineStore } from "pinia";
 import { ref } from "vue";
 import { BandApiModel } from "../data/models/acts/bandApiModel";
-import { fetchAllBands, getBand } from "../data/api/bandApi";
+import { fetchAllBands, fetchBandByName } from "../data/api/bandApi";
 import { BandDetailsApiModel } from "../data/models/acts/bandDetailsApiModel";
 
 export const useBandStore = defineStore("bandStore", {
   state: () => ({
+    /** All available bands */
     bands: ref<Array<BandApiModel>>([]),
+
+    /** All information about a single band */
     band: ref<BandDetailsApiModel>(new BandDetailsApiModel()),
+    
+    /** Request to server sent, waiting for data response */
     fetchInProgress: ref(false)
   }),
 
@@ -25,7 +30,7 @@ export const useBandStore = defineStore("bandStore", {
     async getBand(name: string) {
       this.fetchInProgress = true
 
-      getBand(name)
+      fetchBandByName(name)
         .then(result => {
           this.band = result.data
           this.fetchInProgress = false

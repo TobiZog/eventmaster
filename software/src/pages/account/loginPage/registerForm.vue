@@ -1,21 +1,21 @@
 <script setup lang="ts">
-import { AccountModel } from '@/data/models/user/accountModel';
-import { ref } from 'vue';
 import cardView from '@/components/basics/cardView.vue';
 import outlinedButton from '@/components/basics/outlinedButton.vue';
 import { useAccountStore } from '@/stores/account.store';
 import { getEmailRules, getPasswordRules, getStringRules } from '@/scripts/validationRules';
+import { useRouter } from 'vue-router';
 
-const newUser = ref(new AccountModel())
 const showRegisterCard = defineModel("showRegisterCard", { type: Boolean, default: false })
 const accountStore = useAccountStore()
-const registerInProgress = ref(false)
+const router = useRouter()
 
 async function registerAccount() {
-  registerInProgress.value = true
-
-  await accountStore.registerAccount(newUser.value)
-  registerInProgress.value = false
+  accountStore.registerAccount()
+    .then(result => {
+      if (result) {
+        router.push("/account/home")
+      }
+    })
 }
 </script>
 
@@ -29,7 +29,7 @@ async function registerAccount() {
         <v-text-field
           :label="$t('account.username')"
           prepend-icon="mdi-account"
-          v-model="newUser.username"
+          v-model="accountStore.registerData.username"
           clearable
           :rules="getStringRules()"
         />
@@ -42,7 +42,7 @@ async function registerAccount() {
           :label="$t('account.password')"
           prepend-icon="mdi-key"
           type="password"
-          v-model="newUser.password"
+          v-model="accountStore.registerData.password"
           clearable
           :rules="getPasswordRules()"
         />
@@ -54,7 +54,7 @@ async function registerAccount() {
         <v-text-field
           :label="$t('account.email')"
           prepend-icon="mdi-mail"
-          v-model="newUser.email"
+          v-model="accountStore.registerData.email"
           :rules="getEmailRules()"
           clearable
         />
@@ -65,7 +65,7 @@ async function registerAccount() {
       <outlined-button
         prepend-icon="mdi-arrow-left" 
         @click="showRegisterCard = false"
-        :disabled="registerInProgress"
+        :disabled="accountStore.fetchInProgress"
       >
         {{ $t('account.backToLogin') }}
       </outlined-button>
@@ -73,7 +73,7 @@ async function registerAccount() {
       <outlined-button
         prepend-icon="mdi-account-plus"
         @click="registerAccount"
-        :loading="registerInProgress"
+        :loading="accountStore.fetchInProgress"
       >
         {{ $t('account.register') }}
       </outlined-button>

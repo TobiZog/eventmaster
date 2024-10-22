@@ -6,10 +6,10 @@ export async function fetchAllBands() {
   return await axios.get(BASE_URL)
 }
 
-export async function getBand(bandName: string) {
+export async function fetchBandByName(bandName: string) {
   return await axios.get(BASE_URL + '/band/' + bandName)
 }
 
-export async function searchBand(searchTerm: string) {
+export async function fetchBandsBySearchTerm(searchTerm: string) {
   return await axios.get(BASE_URL + '/search?value=' + searchTerm)
 }

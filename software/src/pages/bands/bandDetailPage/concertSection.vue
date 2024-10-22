@@ -3,7 +3,7 @@ import concertListItem from '@/components/pageParts/concertListItem.vue';
 import { BandApiModel } from '@/data/models/acts/bandApiModel';
 import { ConcertApiModel } from '@/data/models/acts/concertApiModel';
 import CardViewHorizontal from '@/components/basics/cardViewHorizontal.vue';
-import { useConcertStore } from '@/stores/concertStore';
+import { useConcertStore } from '@/stores/concert.store';
 
 const concertStore = useConcertStore()
 

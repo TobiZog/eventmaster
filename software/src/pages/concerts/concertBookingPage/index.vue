@@ -5,7 +5,7 @@ import sectionDivider from '@/components/basics/sectionDivider.vue';
 import { useBasketStore } from '@/stores/basket.store';
 import concertListItem from '@/components/pageParts/concertListItem.vue';
 import outlinedButton from '@/components/basics/outlinedButton.vue';
-import { useConcertStore } from '@/stores/concertStore';
+import { useConcertStore } from '@/stores/concert.store';
 
 const router = useRouter()
 const basketStore = useBasketStore()
@@ -93,7 +93,7 @@ concertStore.getConcert(Number(router.currentRoute.value.params.id))
         <v-row class="pb-5">
           <outlined-button todo
             prepend-icon="mdi-basket-plus"
-            @click="basketStore.moveSeatSelectionsToBasket(concertStore.concert, concertStore.concert.band); 
+            @click="basketStore.moveSeatSelectionsToBasket(concertStore.concert.band); 
               router.push('/basket')"
             :disabled="basketStore.selectedSeats.length == 0"
             block

@@ -2,9 +2,9 @@ import { useLocalStorage } from "@vueuse/core";
 import { defineStore } from "pinia";
 import { AccountModel } from "../data/models/user/accountModel";
 import { OrderModel } from "../data/models/ordering/orderModel";
-import { useFeedbackStore } from "./feedbackStore";
+import { useFeedbackStore } from "./feedback.store";
 import { loginAccount, registerAccount, updateAccount } from "../data/api/accountApi";
-import { getUserOrders } from "../data/api/orderApi";
+import { fetchUserOrders } from "../data/api/orderApi";
 import { BannerStateEnum } from "../data/enums/bannerStateEnum";
 import { AddressModel } from "../data/models/user/addressModel";
 import { PaymentModel } from "../data/models/user/paymentModel";
@@ -17,27 +17,49 @@ export const useAccountStore = defineStore("accountStore", {
     /** Useraccount which is currently logged in */
     userAccount: useLocalStorage("hackmycart/accountStore/userAccount", new AccountApiModel()),
 
+    /** User input on login screen */
+    loginData: ref<{ username: String, password: String}>(
+      { username: "duranduran", password: "H4nn0ver" }
+    ),
+
+    /** */
+    registerData: ref<AccountModel>(new AccountModel()),
+
     /** All orders of the user */
-    orders: ref<Array<OrderApiModel>>([])
+    orders: ref<Array<OrderApiModel>>([]),
+
+    /** Request to server sent, waiting for data response */
+    fetchInProgress: ref(false)
   }),
 
   actions: {
     /**
      * Start the login process
      * 
-     * @param username Account username
-     * @param password Account password
+     * @returns True on success
      */
-    async login(username: string, password: string) {
+    async login(): Promise<boolean> {
       const feedbackStore = useFeedbackStore()
+      this.fetchInProgress = true
 
-      await loginAccount(username, password)
+      // Validate
+      if (this.loginData.username == null || this.loginData.username.length == 0 ||
+        this.loginData.password == null || this.loginData.password.length == 0
+      ) {
+        feedbackStore.changeBanner(BannerStateEnum.ACCOUNTLOGINWRONGLOGIN)
+        this.fetchInProgress = false
+        return false
+      }
+      else
+      {
+        await loginAccount(this.loginData.username, this.loginData.password)
         .then(async result => {
           this.userAccount = result.data
 
           feedbackStore.changeBanner(BannerStateEnum.ACCOUNTLOGINSUCCESSFUL)
 
-          this.refreshOrders()
+          this.fetchInProgress = false
+          return true
         })
         .catch(error => {
           if (error.status == 400) {
@@ -45,22 +67,39 @@ export const useAccountStore = defineStore("accountStore", {
           } else if (error.status == 401) {
             feedbackStore.changeBanner(BannerStateEnum.ACCOUNTLOGINWRONGLOGIN)
           }
+
+          this.fetchInProgress = false
+          return false
         })
+      }
     },
 
     /**
      * Register a new account to the database
+     * Log in on success
      * 
-     * @param userAccount New account dataset
+     * @returns True on success
      */
-    async registerAccount(userAccount: AccountModel) {
+    async registerAccount(): Promise<boolean> {
       const feedbackStore = useFeedbackStore()
+      this.fetchInProgress = true
 
-      await registerAccount(userAccount)
-        .then(res => {
+      await registerAccount(this.registerData)
+        .then(async res => {
           if (res.status == 201) {
             feedbackStore.changeBanner(BannerStateEnum.ACCOUNTREGISTERSUCCESSFUL)
           }
+
+          this.loginData = {
+            username: this.registerData.username,
+            password: this.registerData.password
+          }
+
+          await this.login()
+            .then(result => {
+              this.fetchInProgress = false
+              return true
+            })
         })
         .catch((error) => {
           if (error.status == 400) {
@@ -68,9 +107,17 @@ export const useAccountStore = defineStore("accountStore", {
           } else if (error.status == 409) {
             feedbackStore.changeBanner(BannerStateEnum.ACCOUNTREGISTERUSERNAMEINUSE)
           }
+
+          this.fetchInProgress = false
+          return false
         })
+
+        return false
     },
 
+    /**
+     * Update values of an existing account on server
+     */
     async updateAccount() {
       const feedbackStore = useFeedbackStore()
 
@@ -82,6 +129,9 @@ export const useAccountStore = defineStore("accountStore", {
         })
     },
 
+    /**
+     * Logout user
+     */
     logout() {
       const feedbackStore = useFeedbackStore()
 
@@ -95,9 +145,12 @@ export const useAccountStore = defineStore("accountStore", {
      * Get all orders from current user
      */
     async refreshOrders() {
-      await getUserOrders(this.userAccount.id)
+      this.fetchInProgress = true
+
+      await fetchUserOrders(this.userAccount.id)
         .then(result => {
           this.orders = result.data
+          this.fetchInProgress = false
         })
     },
 

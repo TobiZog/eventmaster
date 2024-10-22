@@ -3,7 +3,7 @@ import { BasketItemModel } from "../models/ordering/basketItemModel"
 
 const BASE_URL = "http://localhost:3000/orders"
 
-export async function getUserOrders(userId: number) {
+export async function fetchUserOrders(userId: number) {
   return axios.get(BASE_URL + "/" + userId)
 }
 
@@ -24,8 +24,6 @@ export async function createOrder(
       })
     }
   }
-
-  console.log(tickets)
 
   return axios.post(BASE_URL, {
     accountId: accountId,

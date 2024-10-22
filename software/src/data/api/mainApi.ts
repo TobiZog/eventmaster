@@ -2,9 +2,8 @@ import axios from "axios"
 
 const BASE_URL = "http://localhost:3000/api"
 
-export function getServerState() {
+export function fetchServerState() {
   return axios.get(BASE_URL)
-
 }
 
 export function resetDatabase() {

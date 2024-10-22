@@ -1,4 +1,4 @@
-import { useFeedbackStore } from "@/stores/feedbackStore"
+import { useFeedbackStore } from "@/stores/feedback.store"
 
 /**
  * Check a string for no numbers and more than four digits

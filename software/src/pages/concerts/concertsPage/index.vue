@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { useConcertStore } from '@/stores/concertStore';
+import { useConcertStore } from '@/stores/concert.store';
 import concertListItem from '@/components/pageParts/concertListItem.vue';
 import cardViewHorizontal from '@/components/basics/cardViewHorizontal.vue';
 import sectionDivider from '@/components/basics/sectionDivider.vue';

@@ -2,38 +2,30 @@
 import { useRouter } from 'vue-router';
 import sectionDivider from '@/components/basics/sectionDivider.vue';
 import seatPlanMap from '@/components/seatPlanMap/seatPlanMap.vue';
-import { getLocation } from '@/data/api/locationApi';
 import { ref } from 'vue';
-import { useFeedbackStore } from '@/stores/feedbackStore';
 import heroImage from '@/components/pageParts/heroImage.vue';
 import concertListItem from '@/components/pageParts/concertListItem.vue';
 import { LocationDetailsApiModel } from '@/data/models/locations/locationDetailsApiModel';
 import cardViewHorizontal from '@/components/basics/cardViewHorizontal.vue';
+import { useLocationStore } from '@/stores/location.store';
 
 const router = useRouter()
-const feedbackStore = useFeedbackStore()
-const location = ref<LocationDetailsApiModel>(new LocationDetailsApiModel())
+const locationStore = useLocationStore()
 
-feedbackStore.fetchDataFromServerInProgress = true
-
-getLocation(String(router.currentRoute.value.params.name))
-  .then(result => {
-    location.value = result.data
-    feedbackStore.fetchDataFromServerInProgress = false
-  })
+locationStore.getLocationByName(String(router.currentRoute.value.params.name))
 </script>
 
 <template>
   <hero-image
-    :title="location.name"
-    :image="location.imageIndoor"
-    :description="location.address + location.city.name"
-    :loading="feedbackStore.fetchDataFromServerInProgress"
-    :logo="location.imageOutdoor"
+    :title="locationStore.location.name"
+    :image="locationStore.location.imageIndoor"
+    :description="locationStore.location.address + locationStore.location.city.name"
+    :loading="locationStore.fetchInProgress"
+    :logo="locationStore.location.imageOutdoor"
   >
     <template #description>
-      <p class="text-h6">{{ location.address }}</p>
-      <p class="text-h6">{{ location.city.name }}</p>
+      <p class="text-h6">{{ locationStore.location.address }}</p>
+      <p class="text-h6">{{ locationStore.location.city.name }}</p>
     </template>
   </hero-image>
 
@@ -48,21 +40,21 @@ getLocation(String(router.currentRoute.value.params.name))
           </v-col>
         </v-row>
 
-        <v-row v-if="feedbackStore.fetchDataFromServerInProgress" v-for="i in 3">
+        <v-row v-if="locationStore.fetchInProgress" v-for="i in 3">
           <v-col class="text-center">
             <card-view-horizontal :loading="true" />
           </v-col>
         </v-row>
 
         <v-row
-          v-else-if="location.concerts.length > 0"
-          v-for="concert of location.concerts"
+          v-else-if="locationStore.location.concerts.length > 0"
+          v-for="concert of locationStore.location.concerts"
         >
           <v-col>
             <concert-list-item
               :concert="concert"
               :band="concert.band"
-              :location="location"
+              :location="locationStore.location"
               :title="concert.name"
             >
               <template #description>
@@ -88,7 +80,7 @@ getLocation(String(router.currentRoute.value.params.name))
           </v-col>
         </v-row>
 
-        <div v-if="feedbackStore.fetchDataFromServerInProgress">
+        <div v-if="locationStore.fetchInProgress">
           <v-col class="text-center">
             <v-progress-circular indeterminate :size="128" :width="12" color="primary" />
           </v-col>
@@ -97,8 +89,8 @@ getLocation(String(router.currentRoute.value.params.name))
         <v-row v-else>
           <v-col>
             <seat-plan-map
-              :location="location"
-              :seat-groups="location.seatGroups"
+              :location="locationStore.location"
+              :seat-groups="locationStore.location.seatGroups"
             />
           </v-col>
         </v-row>

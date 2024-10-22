@@ -26,7 +26,6 @@ async function doOrder() {
   }
 
   if (basketStore.usedAddress != null && basketStore.usedPayment != null) {
-    
     await basketStore.takeOrder()
     showDialog.value = false
   }

@@ -93,13 +93,23 @@ location.get("/location/:urlName", (req: Request, res: Response) => {
 location.get("/search", (req: Request, res: Response) => {
   Location.findAll({
     where: {
-      name: {
-        [Op.substring]: req.query.value
-      }
+      [Op.or]: [
+        {
+          name: {
+            [Op.substring]: req.query.value
+          },
+        },
+        {
+          "$city.name$": {
+            [Op.substring]: req.query.value
+          }
+        }
+      ]
     },
-    include: [ Concert ]
+    include: [ City, Concert ]
   })
     .then(locations => {
+      console.log(locations)
       res.status(200).json(locations)
     })
 })

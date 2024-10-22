@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import cardView from '@/components/basics/cardView.vue';
-import { useSearchStore } from '@/stores/searchStore';
+import { useSearchStore } from '@/stores/search.store';
 
 const searchStore = useSearchStore()
 </script>

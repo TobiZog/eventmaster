@@ -5,7 +5,8 @@ import cardViewHorizontal from '@/components/basics/cardViewHorizontal.vue';
 import locationListItem from '@/components/pageParts/locationListItem.vue';
 import cardViewTopImage from '@/components/basics/cardViewTopImage.vue';
 import bandListItem from '@/components/pageParts/bandListItem.vue';
-import { useSearchStore } from '@/stores/searchStore';
+import { useSearchStore } from '@/stores/search.store';
+import ConcertListItem from '@/components/pageParts/concertListItem.vue';
 
 const searchStore = useSearchStore()
 </script>
@@ -30,7 +31,7 @@ const searchStore = useSearchStore()
           </v-row>
 
           <v-row
-            v-if="searchStore.searchInProgress"
+            v-if="searchStore.fetchInProgress"
             v-for="i in 2"
           >
             <v-col>
@@ -46,7 +47,7 @@ const searchStore = useSearchStore()
                 :band="band"
                 :concerts="band.concerts"
                 :genres="band.genres"
-                :loading="searchStore.searchInProgress"
+                :loading="searchStore.fetchInProgress"
               />
             </v-col>
           </v-row>
@@ -62,6 +63,46 @@ const searchStore = useSearchStore()
 
 
 
+          <!-- Section Concert results -->
+          <v-row>
+            <v-col>
+              <section-divider :title="$t('event', 2)" />
+            </v-col>
+          </v-row>
+
+          <v-row
+            v-if="searchStore.fetchInProgress"
+            v-for="i in 2"
+          >
+            <v-col>
+              <card-view-horizontal :loading="true" />
+            </v-col>
+          </v-row>
+
+          <v-row
+            v-else-if="searchStore.concerts.length > 0"
+            v-for="concert in searchStore.concerts"
+          >
+            <v-col>
+              <concert-list-item
+                :concert="concert"
+                :band="concert.band"
+                :location="concert.location"
+              />
+            </v-col>
+          </v-row>
+
+          <v-row v-else >
+            <v-col>
+              <v-empty-state 
+                :title="$t('noEventsFound')"
+                icon="mdi-party-popper"
+              />
+            </v-col>
+          </v-row>
+
+
+
           <!-- Section Location results -->
           <v-row>
             <v-col>
@@ -70,7 +111,7 @@ const searchStore = useSearchStore()
           </v-row>
 
           <v-row
-            v-if="searchStore.searchInProgress"
+            v-if="searchStore.fetchInProgress"
           >
             <v-col v-for="i in 4">
               <card-view-top-image :loading="true" />
@@ -82,11 +123,11 @@ const searchStore = useSearchStore()
           >
             <v-col
               cols="3"
-              v-for="locaiton in searchStore.locations"
+              v-for="location in searchStore.locations"
             >
               <location-list-item
-                :location="locaiton"
-                :concerts="locaiton.concerts"
+                :location="location"
+                :nr-of-concerts="location.concerts.length"
               />
             </v-col>
           </v-row>
@@ -99,49 +140,7 @@ const searchStore = useSearchStore()
               />
             </v-col>
           </v-row>
-
-
-
-          <!-- Section Event results -->
-          <v-row>
-            <v-col>
-              <section-divider :title="$t('event', 2)" />
-            </v-col>
-          </v-row>
-
-          <v-row
-            v-if="searchStore.searchInProgress"
-            v-for="i in 2"
-          >
-            <v-col>
-              <card-view-horizontal :loading="true" />
-            </v-col>
-          </v-row>
-
-          <!-- <v-row
-            v-else-if="searchStore.events.length > 0"
-            v-for="event in searchStore.events"
-          >
-            <v-col>
-              <event-list-item
-                :event="event"
-                :band="event.band"
-                :concerts="event.concerts"
-                :loading="searchStore.searchInProgress"
-              />
-            </v-col>
-          </v-row> -->
-
-          <v-row v-else >
-            <v-col>
-              <v-empty-state 
-                :title="$t('noEventsFound')"
-                icon="mdi-party-popper"
-              />
-            </v-col>
-          </v-row>
         </div>
-
       </v-col>
 
       <v-spacer />
