@@ -5,6 +5,7 @@ import { dateStringToHumanReadableString } from '@/scripts/dateTimeScripts';
 import { BandModel } from '@/data/models/acts/bandModel';
 import { LocationModel } from '@/data/models/locations/locationModel';
 import { CityModel } from '@/data/models/locations/cityModel';
+import cardViewOneLine from '../basics/cardViewOneLine.vue';
 
 defineProps({
   concert: {
@@ -34,9 +35,7 @@ defineProps({
 
   seatRow: Number,
 
-  seatNr: Number,
-
-  standingArea: Boolean
+  seatNr: Number
 })
 </script>
 
@@ -76,41 +75,28 @@ defineProps({
     <template #append>
       <v-row>
         <v-col>
-          <v-card variant="outlined" class="my-1" >
-            <div class="text-caption">
-              {{ $t('seatGroup') }}
-            </div>
+          <card-view-one-line
+            :description-text="$t('seatGroup')"
+            :value-text="seatGroup"
+          />
 
-            <div>
-              {{ seatGroup }}
-            </div>
+          <div v-if="seatRow != 0">
+            <card-view-one-line
+              :description-text="$t('seatRow')"
+              :value-text="seatRow"
+            />
 
-            <div v-if="standingArea" class="text-caption">
-              {{ $t('standingArea') }}
-            </div>
-          </v-card>
-
-          <div v-if="!standingArea">
-            <v-card variant="outlined" class="my-1" >
-              <div class="text-caption">
-                {{ $t('seatRow') }}
-              </div>
-
-              <div>
-                {{ seatRow }}
-              </div>
-            </v-card>
-
-            <v-card variant="outlined" class="my-1" >
-              <div class="text-caption">
-                {{ $t('seat') }}
-              </div>
-
-              <div>
-                {{ seatNr }}
-              </div>
-            </v-card>
+            <card-view-one-line
+              :description-text="$t('seat')"
+              :value-text="seatNr"
+            />
           </div>
+
+          <v-div v-else>
+            <card-view-one-line
+              :value-text="$t('standingArea')"
+            />
+          </v-div>
         </v-col>
       </v-row>
     </template>

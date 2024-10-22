@@ -6,6 +6,7 @@ import { useBasketStore } from '@/stores/basket.store';
 import concertListItem from '@/components/pageParts/concertListItem.vue';
 import outlinedButton from '@/components/basics/outlinedButton.vue';
 import { useConcertStore } from '@/stores/concert.store';
+import ticketListItem from '@/components/pageParts/ticketListItem.vue';
 
 const router = useRouter()
 const basketStore = useBasketStore()
@@ -84,7 +85,16 @@ concertStore.getConcert(Number(router.currentRoute.value.params.id))
           <v-col>
             <v-list >
               <v-list-item v-for="seat in basketStore.selectedSeats" >
-                Group: {{ seat.seatGroupName }} - Row: {{ seat.seatRow }} - Seat: {{ seat.seat.seatNr }}
+                <ticket-list-item
+                  :concert="concertStore.concert"
+                  :band="concertStore.concert.band"
+                  :location="concertStore.concert.location"
+                  :city="concertStore.concert.location.city"
+                  :image="concertStore.concert.image"
+                  :seat-group="seat.seatGroupName"
+                  :seat-nr="seat.seat.seatNr"
+                  :seat-row="seat.seatRow"
+                />
               </v-list-item>
             </v-list>
           </v-col>

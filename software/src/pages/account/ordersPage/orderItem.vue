@@ -55,34 +55,8 @@ defineProps({
           :seat="ticket.seat.seatNr"
           :seat-group="ticket.seat.seatRow.seatGroup.name"
           :seat-row="ticket.seat.seatRow.row"
-          :standing-area="ticket.seat.seatRow.seatGroup.standingArea"
         />
       </v-col>
     </v-row>
-
-      <!-- <v-row>
-        <v-col>
-          <v-table class="bg-surface-light">
-            <thead>
-              <tr>
-                <th>{{ $t('quantity') }}</th>
-                <th>{{ $t('event') }}</th>
-                <th>{{ $t('seatGroup') }}</th>
-                <th>{{ $t('seatRow') }}</th>
-                <th>{{ $t('seat') }}</th>
-                <th>{{ $t('product.productPrice') }}</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr v-for="orderItem in order.orderItems">
-                <td>{{ orderItem.quantity }}x</td>
-                <td>{{ orderItem }}</td>
-                <td>{{ orderItem }}</td>
-                <td>{{ orderItem }} €</td>
-              </tr>
-            </tbody>
-          </v-table>
-        </v-col>
-      </v-row> -->
   </card-view>
 </template>
