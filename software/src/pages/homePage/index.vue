@@ -6,12 +6,10 @@ import OutlinedButton from '@/components/basics/outlinedButton.vue';
 import { useRouter } from 'vue-router';
 import { useConcertStore } from '@/stores/concert.store';
 import { useLocationStore } from '@/stores/location.store';
-import { useBandStore } from '@/stores/band.store';
 
 const router = useRouter()
 const concertStore = useConcertStore()
 const locationStore = useLocationStore()
-const bandStore = useBandStore()
 
 concertStore.getUpcomingConcerts()
 locationStore.getTopLocations()
@@ -40,6 +38,7 @@ locationStore.getTopLocations()
               @click="router.push('/bands/details/' + concert.band.name.replaceAll(' ', '-').toLowerCase())"
               :loading="concertStore.fetchInProgress"
             >
+              {{ $t("from") }} {{ (concert.price).toPrecision(4) }} €
               <!-- ab  € todo -->
             </card-with-top-image>
           </v-col>

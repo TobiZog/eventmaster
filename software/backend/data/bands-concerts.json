@@ -69,7 +69,7 @@
       "concertGroups": [
         {
           "name": "Unlimited Love",
-          "image": "events/unlimited-love-tour.jpg",
+          "image": "concerts/unlimited-love-tour.jpg",
           "concerts": [
             {
               "date": "2024-10-18",
@@ -78,25 +78,25 @@
               "location": "Swiss Life Hall"
             },
             {
-              "date": "2024-10-19",
+              "date": "2024-10-20",
               "price": 92,
               "inStock": 170,
               "location": "Swiss Life Hall"
             },
             {
-              "date": "2024-10-23",
+              "date": "2024-11-02",
               "price": 119.90,
               "inStock": 8736,
               "location": "Olympiahalle München"
             },
             {
-              "date": "2024-10-26",
+              "date": "2024-11-05",
               "price": 114.90,
               "inStock": 2793,
               "location": "Barclays Arena"
             },
             {
-              "date": "2024-11-02",
+              "date": "2024-11-09",
               "price": 124.90,
               "inStock": 3079,
               "location": "Uber Arena Berlin"
@@ -159,7 +159,7 @@
       "concertGroups": [
         {
           "name": "The Bends",
-          "image": "events/the-bends-tour.jpg",
+          "image": "concerts/the-bends-tour.jpg",
           "concerts": [
             {
               "date": "2024-11-30",
@@ -239,7 +239,7 @@
       "concertGroups":[
         {
           "name": "European Tour",
-          "image": "events/european-tour-arctic-monkeys.jpg",
+          "image": "concerts/european-tour-arctic-monkeys.jpg",
           "concerts": [
             {
               "date": "2025-01-21",
@@ -248,10 +248,16 @@
               "location": "Kulturzentrum Faust"
             },
             {
-              "date": "2024-11-15",
+              "date": "2024-10-30",
               "price": 79.90,
               "inStock": 1073,
               "location": "LANXESS arena"
+            },
+            {
+              "date": "2024-10-23",
+              "price": 74.90,
+              "inStock": 100,
+              "location": "Columbiahalle"
             }
           ]
         }
@@ -308,7 +314,7 @@
       "concertGroups": [
         {
           "name": "Music of the Spheres",
-          "image": "events/music-of-the-spheres.png",
+          "image": "concerts/music-of-the-spheres.png",
           "concerts": [
             {
               "date": "2024-12-07",
@@ -383,7 +389,7 @@
       "concertGroups": [
         {
           "name": "But Here We Are Tour",
-          "image": "events/but-here-we-are.jpg",
+          "image": "concerts/but-here-we-are.jpg",
           "concerts": [
             {
               "date": "2024-12-05",
@@ -452,7 +458,7 @@
       "concertGroups": [
         {
           "name": "Crisis of Faith",
-          "image": "events/crisis-of-faith-tour.jpg",
+          "image": "concerts/crisis-of-faith-tour.jpg",
           "concerts": [
             {
               "date": "2025-01-12",
@@ -513,8 +519,14 @@
       "concertGroups": [
         {
           "name": "Back to the Water Below",
-          "image": "events/back-to-the-water-below.jpg",
+          "image": "concerts/back-to-the-water-below.jpg",
           "concerts": [
+            {
+              "date": "2024-10-19",
+              "price": 64.90,
+              "inStock": 245,
+              "location": "E-Werk"
+            },
             {
               "date": "2025-02-27",
               "price": 67.90,
@@ -578,9 +590,33 @@
       ],
       "concertGroups": [
         {
-          "name": "Will of the People Tour",
-          "image": "events/will-of-the-people-tour.jpg",
+          "name": "Simulation Theory",
+          "image": "concerts/simulation-theory.jpg",
           "concerts": [
+            {
+              "date": "2024-10-21",
+              "price": 67.90,
+              "inStock": 847,
+              "location": "Volksparkstadion"
+            },
+            {
+              "date": "2024-10-20",
+              "price": 67.90,
+              "inStock": 847,
+              "location": "LANXESS arena"
+            }
+          ]
+        },
+        {
+          "name": "Will of the People Tour",
+          "image": "concerts/will-of-the-people-tour.jpg",
+          "concerts": [
+            {
+              "date": "2025-01-15",
+              "price": 67.90,
+              "inStock": 847,
+              "location": "ZAG Arena"
+            },
             {
               "date": "2025-01-15",
               "price": 67.90,

@@ -14,8 +14,10 @@ export const useBandStore = defineStore("bandStore", {
     /** All information about a single band */
     band: ref<BandDetailsApiModel>(new BandDetailsApiModel()),
 
+    /** Genres to filter bands for */
     filteredGenres: ref<Array<GenreModel>>([]),
 
+    /** All available genres from server */
     availableGenres: ref<Array<GenreModel>>([]),
     
     /** Request to server sent, waiting for data response */

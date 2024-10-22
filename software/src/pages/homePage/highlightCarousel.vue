@@ -1,13 +1,18 @@
 <script setup lang="ts">
-import OutlinedButton from '@/components/basics/outlinedButton.vue';
+import { useBandStore } from '@/stores/band.store';
+import { ref } from 'vue';
 import { useRouter } from 'vue-router';
+import outlinedButton from '@/components/basics/outlinedButton.vue';
 
 const router = useRouter()
+const bandStore = useBandStore()
+const window = ref(0)
 
+bandStore.getBands()
 </script>
 
-<template>
-  <!-- <v-carousel
+<template>  
+  <v-carousel
     hide-delimiters
     hide-delimiter-background
     height="700"
@@ -27,37 +32,37 @@ const router = useRouter()
         @click="props.onClick"
         icon="mdi-chevron-right"
       />
-    </template> -->
+    </template>
 
-    <!-- <v-carousel-item
-      v-for="event in shoppingStore.concerts"
-      :src="'http://localhost:3000/static/' + event.band.imageMembers" 
+    <v-carousel-item
+      v-for="band in bandStore.bands"
+      :src="'http://localhost:3000/static/' + band.imageMembers" 
       cover
     >
       <v-card
         class="position-absolute bottom-0"
-        :title="event.name"
+        :title="band.name"
         width="100%"
         :rounded="false"
         background-opacity="50%"
       >
         <v-card-text>
           <div>
-            {{ event.band.descriptionDe }}
+            {{ band.descriptionDe }}
           </div>
 
           <outlined-button
             append-icon="mdi-arrow-right"
             class="mt-2"
             color="primary"
-            @click="router.push('bands/' + event.name.replaceAll(' ', '-').toLowerCase())"
+            @click="router.push('bands/details/' + band.name.replaceAll(' ', '-').toLowerCase())"
           >
             {{ $t('tickets', 2) }}
           </outlined-button>
         </v-card-text>
       </v-card>
     </v-carousel-item>
-  </v-carousel> -->
+  </v-carousel>
 </template>
 
 <style scoped>
