@@ -2,6 +2,7 @@
 import { useBandStore } from '@/stores/band.store';
 import cardViewHorizontal from '@/components/basics/cardViewHorizontal.vue';
 import bandListItem from '@/components/pageParts/bandListItem.vue';
+import bandFilterbar from './bandFilterbar.vue';
 
 const bandStore = useBandStore()
 
@@ -16,7 +17,7 @@ bandStore.getBands()
       <v-col cols="10">
         <v-row>
           <v-col>
-            Filterbar
+            <band-filterbar />
           </v-col>
         </v-row>
 
