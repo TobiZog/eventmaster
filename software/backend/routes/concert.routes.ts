@@ -16,7 +16,13 @@ concert.get("/", (req: Request, res: Response) => {
   let count = req.query.count
 
   Concert.findAll({
-    include: [ Band, Location ],
+    include: [
+      {
+        model: Location,
+        include: [ City ]
+      },
+      Band
+    ],
     order: [
       [ 'date', 'ASC' ]
     ]

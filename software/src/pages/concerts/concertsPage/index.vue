@@ -3,6 +3,7 @@ import { useConcertStore } from '@/stores/concert.store';
 import concertListItem from '@/components/pageParts/concertListItem.vue';
 import cardViewHorizontal from '@/components/basics/cardViewHorizontal.vue';
 import sectionDivider from '@/components/basics/sectionDivider.vue';
+import concertFilterbar from './concertFilterbar.vue';
 
 const concertStore = useConcertStore()
 
@@ -17,8 +18,7 @@ concertStore.getConcerts()
       <v-col cols="10">
         <v-row>
           <v-col>
-            Filterbar
-            <!-- todo: Filterbar? -->
+            <concert-filterbar />
           </v-col>
         </v-row>
 

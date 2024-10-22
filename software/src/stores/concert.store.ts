@@ -3,6 +3,7 @@ import { ref } from "vue";
 import { ConcertApiModel } from "../data/models/acts/concertApiModel";
 import { fetchConcertById, fetchAllConcerts, fetchUpcomingConcerts } from "../data/api/concertApi";
 import { ConcertDetailsApiModel } from "../data/models/acts/concertDetailsApiModel";
+import { CityModel } from "@/data/models/locations/cityModel";
 
 export const useConcertStore = defineStore("concertStore", {
   state: () => ({
@@ -14,6 +15,9 @@ export const useConcertStore = defineStore("concertStore", {
 
     /** Enhanced data about a specific concert */
     concert: ref<ConcertDetailsApiModel>(new ConcertDetailsApiModel()),
+
+    /** Array of cities for which the concerts should be filtered */
+    filteredCities: ref<Array<CityModel>>([]),
 
     /** Request to server sent, waiting for data response */
     fetchInProgress: ref(false)
@@ -28,7 +32,20 @@ export const useConcertStore = defineStore("concertStore", {
 
       fetchAllConcerts()
         .then(result => {
-          this.concerts = result.data
+          this.concerts = result.data.filter((concert: ConcertApiModel) => {
+            if (this.filteredCities.length == 0) {
+              return true
+            }
+
+            for (let city of this.filteredCities) {
+              if (city.name == concert.location.city.name) {
+                return true
+              }
+            }
+
+            return false
+          })
+
           this.fetchInProgress = false
         })
     },

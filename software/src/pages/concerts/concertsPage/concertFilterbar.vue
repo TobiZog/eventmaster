@@ -1,12 +1,17 @@
 <script setup lang="ts">
 import cardView from '@/components/basics/cardView.vue';
-import { useBandStore } from '@/stores/band.store';
 import outlinedButton from '@/components/basics/outlinedButton.vue';
-import { GenreModel } from '@/data/models/acts/genreModel';
+import { CityModel } from '@/data/models/locations/cityModel';
+import { LocationModel } from '@/data/models/locations/locationModel';
+import { useConcertStore } from '@/stores/concert.store';
+import { useLocationStore } from '@/stores/location.store';
 
-const bandStore = useBandStore()
+const concertStore = useConcertStore()
+const locationStore = useLocationStore()
 
-function itemProps(item: GenreModel) {
+locationStore.getLocations()
+
+function itemProps(item: CityModel) {
   return {
     title: item.name
   }
@@ -21,10 +26,10 @@ function itemProps(item: GenreModel) {
     <v-row>
       <v-col>
         <v-select
-          v-model="bandStore.filteredGenres"
-          :items="bandStore.availableGenres"
+          v-model="concertStore.filteredCities"
+          :items="locationStore.cities"
           variant="outlined"
-          :label="$t('genres')"
+          :label="$t('city', 2)"
           :item-props="itemProps"
           chips
           clearable
@@ -35,7 +40,7 @@ function itemProps(item: GenreModel) {
 
       <v-col cols="auto">
         <outlined-button
-          @click="bandStore.getBands"
+          @click="concertStore.getConcerts"
           height="100%"
         >
           {{ $t('filtering') }}
