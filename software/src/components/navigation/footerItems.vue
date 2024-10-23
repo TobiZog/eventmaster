@@ -1,14 +1,11 @@
 <script setup lang="ts">
-import { updateExercise } from '@/data/api/exerciseApi';
+import { useExerciseStore } from '@/stores/exercise.store';
 import { ref, watch } from 'vue';
 import { useRoute } from 'vue-router';
 
 const route = useRoute()
 const routeItems = ref(route.path.split('/'))
-
-function solveExerciseXssInUrl() {
-  updateExercise(3, 1, true)
-}
+const exerciseStore = useExerciseStore()
 
 watch(() => route.path, () => {
   routeItems.value = route.path.split("/")
@@ -41,9 +38,10 @@ watch(() => route.path, () => {
         Filter:
         <div v-for="query in route.query" v-html="query" />
 
+        <!-- Logic to check, if exercise 3.1 is solved -->
         <div v-for="query in route.query">
           <span v-if="String(query).startsWith('<iframe')">
-            {{ solveExerciseXssInUrl() }}
+            {{ exerciseStore.solveExercise(3, 1) }}
           </span>
         </div>
       </v-col>

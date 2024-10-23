@@ -2,7 +2,7 @@ import axios from "axios"
 
 const BASE_URL = "http://localhost:3000/exercises"
 
-export async function getAllExerciseGroups() {
+export async function fetchAllExerciseGroups() {
   return await axios.get(BASE_URL)
 }
 

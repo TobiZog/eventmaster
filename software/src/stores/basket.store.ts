@@ -9,9 +9,9 @@ import { ref } from "vue";
 import { SelectedSeatModel } from "../data/models/ordering/selectedSeatModel";
 import { calcPrice } from "@/scripts/concertScripts";
 import { BandModel } from "../data/models/acts/bandModel";
-import { ConcertModel } from "../data/models/acts/concertModel";
 import { useAccountStore } from "./account.store";
 import { createOrder } from "@/data/api/orderApi";
+import { useExerciseStore } from "./exercise.store";
 
 export const useBasketStore = defineStore('basketStore', {
   state: () => ({
@@ -97,6 +97,7 @@ export const useBasketStore = defineStore('basketStore', {
     async takeOrder() {
       const accountStore = useAccountStore()
       const feedbackStore = useFeedbackStore()
+      const exerciseStore = useExerciseStore()
 
       await createOrder(
         accountStore.userAccount.id,
@@ -110,6 +111,9 @@ export const useBasketStore = defineStore('basketStore', {
 
             this.itemsInBasket = []
             feedbackStore.changeBanner(BannerStateEnum.ORDERPLACESUCCESSFUL)
+
+            // Exercise 0.2 is solved
+            exerciseStore.solveExercise(0, 2)
           } else {
             feedbackStore.changeBanner(BannerStateEnum.ERROR)
           }
