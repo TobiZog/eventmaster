@@ -62,7 +62,7 @@ function handleSeatClick() {
 
         <v-row>
           <v-col class="text-center text-h6">
-            {{ seatGroup.capacity }} {{ $t('standingPlaces') }}
+            {{ seatGroup.capacity - seatGroup.occupied }} {{ $t('standingPlaces') }}
           </v-col>
         </v-row>
       </v-sheet>

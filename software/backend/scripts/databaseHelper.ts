@@ -91,6 +91,8 @@ export async function prepopulateDatabase() {
 
           await Location.create(location)
             .then(async locationDataset => {
+              let capacity = 0
+
               for (let seatGroup of location.seatGroups)
               {
                 seatGroup["locationId"] = locationDataset.id
@@ -131,6 +133,8 @@ export async function prepopulateDatabase() {
                               seatNr: i + 1,
                               seatRowId: seatRowRes.id
                             })
+
+                            capacity++
                           }
                         })
                     }
@@ -147,12 +151,24 @@ export async function prepopulateDatabase() {
                                 seatNr: col,
                                 seatRowId: seatRowRes.id
                               })
+
+                              capacity++
                             }
                           })
                       }
                     }
                   })
               }
+
+            // Update capacity of location
+            await Location.update(
+              { capacity: capacity },
+              {
+                where: {
+                  id: locationDataset.dataValues.id
+                }
+              }
+            )
           })
         }
       })

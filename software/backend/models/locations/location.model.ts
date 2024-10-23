@@ -33,6 +33,9 @@ export class Location extends Model {
   @Column
   layout: number
 
+  @Column
+  capacity: number
+
 
   // Relations
 

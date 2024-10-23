@@ -4,5 +4,6 @@ export class LocationModel {
   address: string = ""
   imageIndoor: string = ""
   imageOutdoor: string = ""
+  capacity: number = 0
   layout: number = 1
 }

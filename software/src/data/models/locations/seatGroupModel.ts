@@ -5,5 +5,6 @@ export class SeatGroupModel {
   surcharge: number = 0
   standingArea: boolean = false
   capacity: number = 0
+  occupied: number = 0
   seatRows: Array<SeatRowModel>
 }

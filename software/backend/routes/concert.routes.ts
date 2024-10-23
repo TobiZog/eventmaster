@@ -38,6 +38,7 @@ concert.get("/", (req: Request, res: Response) => {
 })
 
 
+// Get all available data about a band by it's ID
 concert.get("/concert/:id", (req: Request, res: Response) => {
   Concert.findByPk(req.params.id, {
     include: [
@@ -79,14 +80,22 @@ concert.get("/concert/:id", (req: Request, res: Response) => {
     }
   })
     .then(concert => {
+      concert.dataValues["capacity"] = 0
+
+      // Go through every seat group
       for (let seatGroup of concert.dataValues.location.dataValues.seatGroups) {
         seatGroup.dataValues["occupied"] = 0
 
+        // Go through every seat row
         for (let seatRow of seatGroup.dataValues.seatRows) {
           for (let seat of seatRow.dataValues.seats) {
             seat.dataValues["state"] = 0
+            concert.dataValues["inStock"] += 1
 
+            // Go through every seat
             for (let ticket of seat.dataValues.tickets) {
+              // Check if the seat is occupied through a ticket
+              // If yes, reduce number of available seats
               if (ticket.dataValues.concertId == req.params.id) {
                 seat.dataValues["state"] = 1
                 seatGroup.dataValues["occupied"] += 1
@@ -109,19 +118,35 @@ concert.get("/search", (req: Request, res: Response) => {
   Concert.findAll({
     where: {
       [Op.or]: [
+        // Search by name of concert
         {
           name: {
             [Op.substring]: req.query.value
           }
         },
+
+        // Search by name of band
         {
           "$band.name$": {
+            [Op.substring]: req.query.value
+          }
+        },
+
+        // Search by name of city of location
+        {
+          "$location.city.name$": {
             [Op.substring]: req.query.value
           }
         }
       ]
     },
-    include: [ Band, Location ]
+    include: [
+      Band,
+      {
+        model: Location,
+        include: [ City ]
+      }
+    ]
   })
     .then(concerts => {
       res.status(200).json(concerts)

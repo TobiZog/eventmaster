@@ -10,6 +10,12 @@ import { Op } from "sequelize";
 
 export const location = Router()
 
+/**
+ * Get all available Locations
+ * 
+ * @query sort    Sort results ascending (asc) or descending (desc)
+ * @query count   Limit number of results
+ */
 location.get("/", (req: Request, res: Response) => {
   let sort = req.query.sort
   let count = req.query.count
@@ -52,6 +58,12 @@ location.get("/", (req: Request, res: Response) => {
     })
 })
 
+
+/**
+ * Get all data about a specific location
+ * 
+ * @param urlName   UrlName of the band (e.g. Red Hot Chili Peppers => red-hot-chili-peppers)
+ */
 location.get("/location/:urlName", (req: Request, res: Response) => {
   Location.findOne({
     where: { urlName: req.params.urlName },
@@ -89,16 +101,23 @@ location.get("/location/:urlName", (req: Request, res: Response) => {
 })
 
 
-// Location search
+/**
+ * Search for Locations
+ * 
+ * @query value     Search term to look for
+ */
 location.get("/search", (req: Request, res: Response) => {
   Location.findAll({
     where: {
       [Op.or]: [
+        // Search by name of location
         {
           name: {
             [Op.substring]: req.query.value
           },
         },
+
+        // Search by name of city
         {
           "$city.name$": {
             [Op.substring]: req.query.value
