@@ -1,28 +1,38 @@
 import DashboardPage from "@/pages/admin/dashboardPage/index.vue"
-import CategoriesPage from "@/pages/admin/categoriesPage/index.vue"
-import AccountsPage from "@/pages/admin/accountsPage/index.vue"
-import ProductsPage from "@/pages/admin/productsPage/index.vue"
-import BrandsPage from "@/pages/admin/brandsPage/index.vue"
+import ConcertsAdminPage from "@/pages/admin/concertsAdminPage/index.vue"
+import BandsAdminPage from "@/pages/admin/bandsAdminPage/index.vue"
+import AccountsAdminPage from "@/pages/admin/accountsAdminPage/index.vue"
+import GenresAdminPage from "@/pages/admin/genresAdminPage/index.vue"
+import CategoriesAdminPage from "@/pages/admin/categoriesAdminPage/index.vue"
+import LocationsAdminPage from "@/pages/admin/locationsAdminPage/index.vue"
 
 export const adminRoutes = [
   {
-    path: '/admin/dashboard',
+    path: '/admin',
     component: DashboardPage
   },
   {
-    path: '/admin/categories',
-    component: CategoriesPage
+    path: '/admin/concerts',
+    component: ConcertsAdminPage
+  },
+  {
+    path: '/admin/bands',
+    component: BandsAdminPage
   },
   {
     path: '/admin/accounts',
-    component: AccountsPage
+    component: AccountsAdminPage
   },
   {
-    path: '/admin/products',
-    component: ProductsPage
+    path: '/admin/genres',
+    component: GenresAdminPage
   },
   {
-    path: '/admin/brands',
-    component: BrandsPage
-  }
+    path: '/admin/categories',
+    component: CategoriesAdminPage
+  },
+  {
+    path: '/admin/locations',
+    component: LocationsAdminPage
+  },
 ]

@@ -9,6 +9,31 @@ export enum BannerStateEnum {
   BASKETPRODUCTREMOVED,
 
 
+  ////////// Exercise feedback //////////
+
+  EXERCISESOLVED01,
+
+  EXERCISESOLVED02,
+
+  EXERCISESOLVED11,
+
+  EXERCISESOLVED12,
+
+  EXERCISESOLVED13,
+
+  EXERCISESOLVED21,
+
+  EXERCISESOLVED22,
+
+  EXERCISESOLVED23,
+
+  EXERCISESOLVED31,
+
+  EXERCISESOLVED32,
+
+  EXERCISESOLVED33,
+
+
   ////////// API Endpoint /api //////////
 
   // Status: 200 OK
@@ -43,21 +68,6 @@ export enum BannerStateEnum {
 
   // No status code, runs in local cache
   ACCOUNTLOGOUTSUCCESSFUL,
-
-
-  ////////// API Endpoint /categories //////////
-
-  // Status: 201 Created
-  CATEGORYCREATESUCCESSFUL,
-
-  // Status: 200 OK
-  CATEGORYDELETESUCESSFUL,
-
-  // Status: 400 Bad request
-  CATEGORYCREATEERROR,
-
-  // Status: 400 Bad request
-  CATEGORYDELETEERROR,
 
 
   ////////// API Endpoint /orders //////////

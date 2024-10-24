@@ -2,5 +2,5 @@
 </script>
 
 <template>
-  Accounts Page
+  Concerts Admin Page
 </template>

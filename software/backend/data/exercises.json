@@ -33,7 +33,16 @@
       "nameDe": "Broken Access Control",
       "nameEn": "Broken Access Control",
       "groupNr": 2,
-      "exercises": []
+      "exercises": [
+        {
+          "nameDe": "Admin-Panel aufrufen",
+          "nameEn": "Access Admin Panel",
+          "exerciseNr": 1,
+          "descriptionDe": "Manipuliere die URL so, dass du das Admin-Panel erreichen kannst",
+          "descriptionEn": "Manipulate the URL and access the admin panel",
+          "solved": false
+        }
+      ]
     },
     {
       "nameDe": "Cross-Site Scripting (XSS)",
