@@ -27,7 +27,7 @@ async function registerAccount() {
     <v-row>
       <v-col>
         <v-text-field
-          :label="$t('account.username')"
+          :label="$t('account.userData.username')"
           prepend-icon="mdi-account"
           v-model="accountStore.registerData.username"
           clearable
@@ -39,7 +39,7 @@ async function registerAccount() {
     <v-row>
       <v-col>
         <v-text-field
-          :label="$t('account.password')"
+          :label="$t('account.userData.password')"
           prepend-icon="mdi-key"
           type="password"
           v-model="accountStore.registerData.password"
@@ -52,7 +52,7 @@ async function registerAccount() {
     <v-row>
       <v-col>
         <v-text-field
-          :label="$t('account.email')"
+          :label="$t('account.userData.email')"
           prepend-icon="mdi-mail"
           v-model="accountStore.registerData.email"
           :rules="getEmailRules()"
@@ -67,7 +67,7 @@ async function registerAccount() {
         @click="showRegisterCard = false"
         :disabled="accountStore.fetchInProgress"
       >
-        {{ $t('account.backToLogin') }}
+        {{ $t('account.login.backToLogin') }}
       </outlined-button>
 
       <outlined-button

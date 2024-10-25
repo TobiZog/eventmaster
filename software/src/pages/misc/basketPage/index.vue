@@ -14,10 +14,20 @@ const showOrderingDialog = ref()
 
 <template>
   <v-container max-width="1000">
+    <v-row v-if="accountStore.userAccount.id == null">
+      <v-col>
+        <v-alert
+          color="info"
+          closable
+        >
+          {{ $t('account.login.pleaseLoginToOrder') }}
+        </v-alert>
+      </v-col>
+    </v-row>
     <v-row>
       <v-col>
         <card-view
-          :title="$t('basket')"
+          :title="$t('basket.basket')"
           v-model="showOrderingDialog"
           icon="mdi-cart"
         >
@@ -28,13 +38,13 @@ const showOrderingDialog = ref()
             <!-- Display empty state if card is empty -->
             <v-empty-state v-else
               icon="mdi-basket-off"
-              :title="$t('emptyBasketTitle')"
-              :text="$t('emptyBasketText')"
+              :title="$t('basket.emptyBasketTitle')"
+              :text="$t('basket.emptyBasketText')"
             />
           </template>
 
           <v-card-text class="text-right text-h5" v-if="basketStore.itemsInBasket.length > 0">
-            {{ $t('totalPrice') }}: {{ (basketStore.getTotalPrice).toFixed(2) }} €
+            {{ $t('misc.totalPrice') }}: {{ (basketStore.getTotalPrice).toFixed(2) }} €
           </v-card-text>
           
 
@@ -46,7 +56,7 @@ const showOrderingDialog = ref()
               color="green"
               @click="showOrderingDialog = true"
             >
-              {{ $t('orderNow') }}
+              {{ $t('order.takeOrder') }}
             </outlined-button>
           </template>
         </card-view>

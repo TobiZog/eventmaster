@@ -11,7 +11,7 @@ const searchStore = useSearchStore()
       variant="outlined"
       hide-details
       v-model="searchStore.searchTerm"
-      :placeholder="$t('enterSomeKeywords')"
+      :placeholder="$t('misc.enterSomeKeywords')"
       @keyup.enter="searchStore.startSearch"
     >
       <template #append-inner>

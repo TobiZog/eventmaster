@@ -37,50 +37,52 @@ defineProps({
     </v-timeline>
   </card-view>
 
-
+  <!-- todo: English -->
   <card-view
     v-else
-    :title="$t('exerciseGroup') + ' ' + exerciseGroup.groupNr + ': ' +  exerciseGroup.nameDe"
+    :title="$t('help.scoreBoard.exerciseGroupNr', [exerciseGroup.groupNr]) +  exerciseGroup.nameDe"
     :loading="loading"
   >
-    <v-timeline
-      direction="horizontal"
-      side="start"
-      class="pb-3"
-    >
-      <v-timeline-item
-        v-for="exercise in exerciseGroup.exercises"
-        :dot-color="exercise.solved ? 'green' : 'grey'"
-        :icon="exercise.solved ? 'mdi-check' : 'mdi-pencil'"
+    <template #borderless>
+      <v-timeline
+        direction="horizontal"
+        side="start"
+        class="pt-3"
       >
-        <v-skeleton-loader
-          type="text"
-          :loading="loading"
+        <v-timeline-item
+          v-for="exercise in exerciseGroup.exercises"
+          :dot-color="exercise.solved ? 'green' : 'grey'"
+          :icon="exercise.solved ? 'mdi-check' : 'mdi-pencil'"
         >
-          <div class="text-h6">
-            {{ $t('exercise') }} {{ exercise.exerciseNr }}
-          </div>
-        </v-skeleton-loader>
-        
-
-        <template #opposite>
           <v-skeleton-loader
-          type="text"
-          :loading="loading"
-        >
-          <div class="text-center">
+            type="text"
+            :loading="loading"
+          >
             <div class="text-h6">
-              {{ exercise.nameDe }}
+              {{ $t('help.scoreBoard.exerciseNr', [exercise.exerciseNr]) }}
             </div>
+          </v-skeleton-loader>
+          
 
-            <div>
-              {{ exercise.descriptionDe }}
+          <template #opposite>
+            <v-skeleton-loader
+            type="text"
+            :loading="loading"
+          >
+            <div class="text-center">
+              <div class="text-h6">
+                {{ exercise.nameDe }}
+              </div>
+
+              <div>
+                <!-- todo: English -->
+                {{ exercise.descriptionDe }}
+              </div>
             </div>
-          </div>
-        </v-skeleton-loader>
-        </template>
-        
-      </v-timeline-item>
-    </v-timeline>
+          </v-skeleton-loader>
+          </template>
+        </v-timeline-item>
+      </v-timeline>
+    </template>
   </card-view>
 </template>

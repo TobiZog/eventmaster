@@ -23,7 +23,7 @@ concertStore.getConcert(Number(router.currentRoute.value.params.id))
       <v-col cols="10">
         <v-row>
           <v-col>
-            <section-divider :title="$t('selectedConcert')"  />
+            <section-divider :title="$t('concert.selectedConcert')"  />
           </v-col>
         </v-row>
 
@@ -47,7 +47,7 @@ concertStore.getConcert(Number(router.currentRoute.value.params.id))
         </v-row>
         <v-row>
           <v-col>
-            <section-divider :title="$t('seatSelection')" />
+            <section-divider :title="$t('location.seat.seatSelection')" />
           </v-col>
         </v-row>
 
@@ -61,7 +61,7 @@ concertStore.getConcert(Number(router.currentRoute.value.params.id))
             />
 
             <div class="pt-5 text-h3">
-              {{ $t('loading') }}...
+              {{ $t('misc.loading') }}...
             </div>
           </v-col>
 
@@ -77,7 +77,7 @@ concertStore.getConcert(Number(router.currentRoute.value.params.id))
 
         <v-row>
           <v-col>
-            <section-divider :title="$t('orderSummary')" />
+            <section-divider :title="$t('order.orderSummary')" />
           </v-col>
         </v-row>
 
@@ -108,7 +108,7 @@ concertStore.getConcert(Number(router.currentRoute.value.params.id))
             :disabled="basketStore.selectedSeats.length == 0"
             block
           >
-            {{ $t('addToBasket') }}
+            {{ $t('basket.addToBasket') }}
           </outlined-button>
         </v-row>
       </v-col>

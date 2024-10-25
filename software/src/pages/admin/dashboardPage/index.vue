@@ -34,18 +34,18 @@ concertStore.getConcerts()
     <v-row>
       <v-col>
         <card-view
-          :title="$t('band', 2)"
+          :title="$t('band.band', 2)"
           icon="mdi-guitar-electric"
         >
           <div class="text-h4 text-center">
-            {{ bandStore.bands.length }} {{ $t('band', 2) }}
+            {{ bandStore.bands.length }} {{ $t('band.band', 2) }}
           </div>
 
           <template #actions>
             <outlined-button
               @click="router.push('/admin/bands')"
             >
-              {{ $t('more') }}
+              {{ $t('misc.actions.more') }}
             </outlined-button>
           </template>
         </card-view>
@@ -53,22 +53,22 @@ concertStore.getConcerts()
 
       <v-col>
         <card-view
-          :title="$t('concert', 2)"
+          :title="$t('concert.concert', 2)"
           icon="mdi-ticket"
         >
           <div class="text-h4 text-center">
-            {{ concertStore.concerts.length }} {{ $t('concert', 2) }}
+            {{ concertStore.concerts.length }} {{ $t('concert.concert', 2) }}
           </div>
 
           <div class="text-disabled text-center">
-            {{ soldOutConcerts }} {{ $t('soldOut') }}
+            {{ soldOutConcerts }} {{ $t('concert.concertSoldOut') }}
           </div>
 
           <template #actions>
             <outlined-button
               @click="router.push('/admin/concerts')"
             >
-              {{ $t('more') }}
+              {{ $t('misc.actions.more') }}
             </outlined-button>
           </template>
         </card-view>
@@ -77,18 +77,18 @@ concertStore.getConcerts()
 
       <v-col>
         <card-view
-          :title="$t('location', 2)"
+          :title="$t('location.location', 2)"
           icon="mdi-city"
         >
           <div class="text-h4 text-center">
-            {{ locationStore.locations.length }} {{ $t('location', 2) }}
+            {{ locationStore.locations.length }} {{ $t('location.location', 2) }}
           </div>
 
           <template #actions>
             <outlined-button
               @click="router.push('/admin/locations')"
             >
-              {{ $t('more') }}
+              {{ $t('misc.actions.more') }}
             </outlined-button>
           </template>
         </card-view>
@@ -100,7 +100,7 @@ concertStore.getConcerts()
     <v-row>
       <v-col>
         <card-view
-          :title="$t('account', 2)"
+          :title="$t('account.account', 2)"
           icon="mdi-account"
         >
         </card-view>
@@ -108,37 +108,18 @@ concertStore.getConcerts()
 
       <v-col>
         <card-view
-          :title="$t('category', 2)"
+          :title="$t('band.genre', 2)"
           icon="mdi-account"
         >
           <div class="text-h4 text-center">
-            {{ bandStore.availableGenres.length }} {{ $t('genres', 2) }}
+            {{ bandStore.availableGenres.length }} {{ $t('band.genre', 2) }}
           </div>
 
           <template #actions>
             <outlined-button
               @click="router.push('/admin/genres')"
             >
-              {{ $t('more') }}
-            </outlined-button>
-          </template>
-        </card-view>
-      </v-col>
-
-      <v-col>
-        <card-view
-          :title="$t('genres', 2)"
-          icon="mdi-guitar-electric"
-        >
-          <div class="text-h4 text-center">
-            {{ bandStore.availableGenres.length }} {{ $t('genres', 2) }}
-          </div>
-
-          <template #actions>
-            <outlined-button
-              @click="router.push('/admin/genres')"
-            >
-              {{ $t('more') }}
+              {{ $t('misc.actions.more') }}
             </outlined-button>
           </template>
         </card-view>

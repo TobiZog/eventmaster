@@ -71,16 +71,16 @@ defineProps({
     <template #append>
       <div>
         <div class="text-secondary font-weight-medium text-h6 pb-1">
-          {{ $t('from') + ' ' + concert.price.toFixed(2) + ' €' }}
+          {{ $t('misc.from') + ' ' + concert.price.toFixed(2) + ' €' }}
         </div>
 
         <div v-if="concert.inStock == 0 && showButton" class="text-h6">
-          {{ $t('soldOut') }}
+          {{ $t('concert.concertSoldOut') }}
         </div>
 
         <div v-else-if="showButton">
           <v-btn variant="flat" color="secondary">
-            {{ $t('goToTheConcert') }}
+            {{ $t('concert.goToTheConcert') }}
           </v-btn>
         </div>
 

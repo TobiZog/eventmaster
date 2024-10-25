@@ -53,7 +53,7 @@ function handleSeatClick() {
               width="100%"
               class="d-flex justify-center align-center"
             >
-              {{ $t('stage') }}
+              {{ $t('location.stage') }}
             </v-sheet>
           </v-col>
 
@@ -62,7 +62,7 @@ function handleSeatClick() {
 
         <v-row>
           <v-col class="text-center text-h6">
-            {{ seatGroup.capacity - seatGroup.occupied }} {{ $t('standingPlaces') }}
+            {{ seatGroup.capacity - seatGroup.occupied }} {{ $t('location.seat.standingPlace', 2) }}
           </v-col>
         </v-row>
       </v-sheet>

@@ -11,14 +11,14 @@ const passwordRules = [
     if (value) {
       return true
     } else {
-      return feedbackStore.i18n.t('required')
+      return feedbackStore.i18n.t('misc.validation.required')
     }
   },
   value => {
     if (value?.length >= 8) {
       return true
     } else {
-      return feedbackStore.i18n.t('passwordToShort')
+      return feedbackStore.i18n.t('misc.validation.notEnoughChars')
     }
   }
 ]
@@ -28,21 +28,21 @@ const stringRules = [
     if (value) {
       return true
     } else {
-      return feedbackStore.i18n.t('required')
+      return feedbackStore.i18n.t('misc.validation.required')
     }
   },
   value => {
     if (/[^0-9]/.test(value)) {
       return true
     } else {
-      return feedbackStore.i18n.t('noDigitsAllowed')
+      return feedbackStore.i18n.t('misc.validation.noDigitsAllowed')
     }
   },
   value => {
     if (value?.length >= 3) {
       return true
     } else {
-      return feedbackStore.i18n.t('notEnoughChars')
+      return feedbackStore.i18n.t('misc.validation.notEnoughChars')
     }
   }
 ]
@@ -56,7 +56,7 @@ const stringRules = [
     <v-row>
       <v-col>
         <v-text-field
-          :label="$t('account.email')"
+          :label="$t('account.userData.email')"
           v-model="accountStore.userAccount.email"
           disabled
         />
@@ -65,14 +65,14 @@ const stringRules = [
     <v-row>
       <v-col>
         <v-text-field
-          :label="$t('account.username')"
+          :label="$t('account.userData.username')"
           v-model="accountStore.userAccount.username"
           disabled
         />
       </v-col>
       <v-col>
         <v-text-field
-          :label="$t('account.password')"
+          :label="$t('account.userData.password')"
           v-model="accountStore.userAccount.password"
           type="password"
           :rules="passwordRules"
@@ -83,14 +83,14 @@ const stringRules = [
     <v-row>
       <v-col>
         <v-text-field
-          :label="$t('userInfo.firstName')"
+          :label="$t('account.userData.firstName')"
           v-model="accountStore.userAccount.firstName"
           :rules="stringRules"
         />
       </v-col>
       <v-col>
         <v-text-field
-          :label="$t('userInfo.lastName')"
+          :label="$t('account.userData.lastName')"
           v-model="accountStore.userAccount.lastName"
           :rules="stringRules"
         />

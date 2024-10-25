@@ -57,7 +57,7 @@ bandStore.getBands()
             color="primary"
             @click="router.push('bands/details/' + band.name.replaceAll(' ', '-').toLowerCase())"
           >
-            {{ $t('tickets', 2) }}
+            {{ $t('ticket.tickets', 2) }}
           </outlined-button>
         </v-card-text>
       </v-card>

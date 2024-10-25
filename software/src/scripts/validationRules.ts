@@ -13,21 +13,21 @@ export function getStringRules() {
       if (value) {
         return true
       } else {
-        return feedbackStore.i18n.t('required')
+        return feedbackStore.i18n.t('misc.validation.required')
       }
     },
     value => {
       if (/[^0-9]/.test(value)) {
         return true
       } else {
-        return feedbackStore.i18n.t('noDigitsAllowed')
+        return feedbackStore.i18n.t('misc.validation.noDigitsAllowed')
       }
     },
     value => {
       if (value?.length >= 4) {
         return true
       } else {
-        return feedbackStore.i18n.t('notEnoughChars')
+        return feedbackStore.i18n.t('misc.validation.notEnoughChars')
       }
     }
   ]
@@ -46,23 +46,23 @@ export function getPostalRules() {
       if (value?.length == 5) {
         return true
       } else if (value?.length < 5) {
-        return feedbackStore.i18n.t('notEnoughChars')
+        return feedbackStore.i18n.t('misc.validation.notEnoughChars')
       } else {
-        return feedbackStore.i18n.t('tooMuchChars')
+        return feedbackStore.i18n.t('misc.validation.tooMuchChars')
       }
     },
     value => {
       if (value?.length == 5) {
         return true
       } else {
-        return feedbackStore.i18n.t('notEnoughChars')
+        return feedbackStore.i18n.t('misc.validation.notEnoughChars')
       }
     },
     value => {
       if (/^\d+$/.test(value)) {
         return true
       } else {
-        return feedbackStore.i18n.t('onlyDigitsAllowed')
+        return feedbackStore.i18n.t('misc.validation.onlyDigitsAllowed')
       }
     }
   ]
@@ -81,14 +81,14 @@ export function getNumberStartRules() {
       if (value) {
         return true
       } else {
-        return feedbackStore.i18n.t('required')
+        return feedbackStore.i18n.t('misc.validation.required')
       }
     },
     value => {
       if (/^\d/.test(value)) {
         return true
       } else {
-        return feedbackStore.i18n.t('digitsAtStartNeeded')
+        return feedbackStore.i18n.t('misc.validation.digitsAtStartNeeded')
       }
     },
   ]
@@ -106,12 +106,12 @@ export function getEmailRules() {
     value => {
       if (value) return true
 
-      return feedbackStore.i18n.t('emailRequired')
+      return feedbackStore.i18n.t('account.emailRequired')
     },
     value => {
       if (/.+@.+\..+/.test(value)) return true
 
-      return feedbackStore.i18n.t('emailIsNotValid')
+      return feedbackStore.i18n.t('account.emailIsNotValid')
     },
   ]
 }
@@ -129,14 +129,14 @@ export function getPasswordRules() {
       if (value) {
         return true
       } else {
-        return feedbackStore.i18n.t('required')
+        return feedbackStore.i18n.t('misc.validation.required')
       }
     },
     value => {
       if (value?.length >= 8) {
         return true
       } else {
-        return feedbackStore.i18n.t('passwordToShort')
+        return feedbackStore.i18n.t('misc.validation.notEnoughChars')
       }
     }
   ]
@@ -155,14 +155,14 @@ export function getIbanRules() {
       if (value) {
         return true
       } else {
-        return feedbackStore.i18n.t('required')
+        return feedbackStore.i18n.t('misc.validation.required')
       }
     },
     value => {
       if (/[A-Z]{2}[0-9]{2}(?:[ ]?[0-9]{4}){4}(?!(?:[ ]?[0-9]){3})(?:[ ]?[0-9]{1,2})?/.test(value)) {
         return true
       } else {
-        return feedbackStore.i18n.t('wrongIban')
+        return feedbackStore.i18n.t('account.wrongIban')
       }
     }
   ]

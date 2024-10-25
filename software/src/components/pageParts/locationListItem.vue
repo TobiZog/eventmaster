@@ -23,7 +23,7 @@ defineProps({
     @click="router.push('locations/details/' + location.name.replaceAll(' ', '-').toLowerCase())"
   >
     <div>
-      {{ nrOfConcerts }} {{ $t('concert', nrOfConcerts) }}
+      {{ nrOfConcerts }} {{ $t('concert.concert', nrOfConcerts) }}
     </div>
   </card-view-top-image>
 </template>

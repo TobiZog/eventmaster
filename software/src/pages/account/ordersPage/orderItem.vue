@@ -15,7 +15,7 @@ defineProps({
 
 <template>
   <card-view
-    :title="$t('orderedAt') + ' ' + moment(order.orderedAt).format('DD.MM.YY, HH:mm') + ' ' + $t('oclock')"
+    :title="$t('order.orderedAt') + ' ' + moment(order.orderedAt).format('DD.MM.YY, HH:mm') + ' ' + $t('order.oclock')"
     variant="outlined"
   >
     <v-row>
@@ -23,7 +23,7 @@ defineProps({
         <v-card variant="outlined" class="ml-5 pa-3">
           <div class="text-h6">
             <v-icon icon="mdi-home" />
-            {{ $t('account.address', 1) }}
+            {{ $t('account.userData.address', 1) }}
           </div>
 
           <div class="pl-9">{{ order.address.street }} {{ order.address.houseNumber }}</div>
@@ -35,7 +35,7 @@ defineProps({
         <v-card variant="outlined" class="mr-5 pa-3">
           <div class="text-h6">
             <v-icon icon="mdi-currency-usd" />
-            {{ $t('account.payment', 1) }}
+            {{ $t('account.userData.payment', 1) }}
           </div>
           <div class="pl-9">{{ order.payment.bankName }}</div>
           <div class="pl-9">{{ order.payment.iban }}</div>

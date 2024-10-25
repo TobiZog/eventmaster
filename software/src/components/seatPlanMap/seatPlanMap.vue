@@ -93,7 +93,7 @@ const seatGroupI = findSeatCategory("I")
           width="50"
           class="px-5 py-2 d-flex justify-center align-center"
         >
-          {{ $t('stage') }}
+          {{ $t('location.stage') }}
         </v-sheet>
       </v-col>
 

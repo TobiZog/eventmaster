@@ -34,7 +34,7 @@ defineProps({
           readonly
         />
 
-        <div class="px-3 text-h6">{{ ratings.length }} {{ $t('rating', ratings.length) }}</div>
+        <div class="px-3 text-h6">{{ ratings.length }} {{ $t('band.rating', ratings.length) }}</div>
       </div>
     </v-col>
 

@@ -25,7 +25,7 @@ locationStore.getTopLocations()
       <v-col cols="10">
         <v-row>
           <v-col>
-            <section-divider :title="$t('upcomingConcerts')" />
+            <section-divider :title="$t('concert.upcomingConcerts')" />
           </v-col>
         </v-row>
 
@@ -38,7 +38,7 @@ locationStore.getTopLocations()
               @click="router.push('/bands/details/' + concert.band.name.replaceAll(' ', '-').toLowerCase())"
               :loading="concertStore.fetchInProgress"
             >
-              {{ $t("from") }} {{ (concert.price).toPrecision(4) }} €
+              {{ $t("misc.from") }} {{ (concert.price).toPrecision(4) }} €
               <!-- ab  € todo -->
             </card-with-top-image>
           </v-col>
@@ -51,14 +51,14 @@ locationStore.getTopLocations()
               @click="router.push('/concerts')"
               block
             >
-              {{ $t('allConcerts') }}
+              {{ $t('concert.allConcerts') }}
             </outlined-button>
           </v-col>
         </v-row>
 
         <v-row>
           <v-col>
-            <section-divider :title="$t('topLocations')" />
+            <section-divider :title="$t('location.topLocations')" />
           </v-col>
         </v-row>
 
@@ -83,7 +83,7 @@ locationStore.getTopLocations()
               @click="router.push('/locations')"
               block
             >
-              {{ $t('allLocations') }}
+              {{ $t('location.allLocations') }}
             </outlined-button>
           </v-col>
         </v-row>

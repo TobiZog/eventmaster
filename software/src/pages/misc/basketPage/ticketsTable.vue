@@ -14,11 +14,11 @@ function removeFromBasket(basketItem: BasketItemModel) {
   <v-table>
     <thead>
       <tr>
-        <th>{{ $t('band') }}</th>
-        <th>{{ $t('concert') }}</th>
-        <th class="text-center">{{ $t('quantity') }}</th>
-        <th class="text-right">{{ $t('product.productPrice') }}</th>
-        <th class="text-right">{{ $t('totalPrice') }}</th>
+        <th>{{ $t('band.band') }}</th>
+        <th>{{ $t('concert.concert') }}</th>
+        <th class="text-center">{{ $t('misc.quantity') }}</th>
+        <th class="text-right">{{ $t('misc.price') }}</th>
+        <th class="text-right">{{ $t('misc.totalPrice') }}</th>
         <th></th>
       </tr>
     </thead>

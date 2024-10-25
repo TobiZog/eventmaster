@@ -1,69 +1,129 @@
 {
-  "allEvents": "Alle Events",
-  "allLocations": "Alle Veranstaltungsorte",
-  "topEvents": "Top Events",
-  "topLocations": "Top Veranstaltungsorte",
-  "tickets": "Ticket | Tickets",
-  "concert": "Konzert | Konzerte",
-  "resetPreferences": "Einstellungen zurücksetzen",
-  "resetDatabase": "Datenbank zurücksetzen",
-  "resetDatabaseConfirm": {
-    "title": "Datenbank zurücksetzen?",
-    "description": "Soll die Datenbank des Servers wirklich zurückgesetzt werden? Dies kann nicht rückgänig gemacht werden! Der Bearbeitungsfortschritt der Aufgaben wird nicht gelöscht."
+  "location": {
+    "allLocations": "Alle Veranstaltungsorte",
+    "topLocations": "Top Veranstaltungsorte",
+    "location": "Veranstaltungsort | Veranstaltungsorte",
+    "noLocationsFound": "Keine Veranstaltungsorte gefunden",
+    "city": "Stadt | Städte",
+    "stage": "Bühne | Bühnen",
+    "seat": {
+      "seatRow": "Sitzreihe | Sitzreihen",
+      "seat": "Sitz | Sitze",
+      "seatGroup": "Sitzgruppe | Sitzgruppen",
+      "standingPlace": "Stehplatz | Stehplätze",
+      "seatPlan": "Saalplan | Saalpläne",
+      "seatSelection": "Sitzauswahl",
+      "standingArea": "Stehbereich"
+    }
+  },
+  "concert": {
+    "concert": "Konzert | Konzerte",
+    "allConcerts": "Alle Konzerte",
+    "upcomingConcerts": "Nächste Konzerte",
+    "goToTheConcert": "Zum Konzert",
+    "noConcertsFound": "Keine Konzerte gefunden",
+    "selectedConcert": "Ausgewähltes Konzert",
+    "concertSoldOut": "Ausverkauft"
+  },
+  "band": {
+    "band": "Band | Bands",
+    "allBands": "Alle Bands",
+    "noBandFound": "Keine Band gefunden",
+    "rating": "Bewertung | Bewertungen",
+    "bandMember": "Band Mitglieder",
+    "image": "Foto | Fotos",
+    "genre": "Genre | Genres"
+  },
+  "ticket": {
+    "tickets": "Ticket | Tickets"
+  },
+  "account": {
+    "account": "Account | Accounts",
+    "register": "Account erstellen",
+    "masterData": "Stammdaten",
+    "noAddresses": "Keine Adressen gefunden",
+    "noPayments": "Keine Bezahlarten gefunden",
+    "wrongIban": "Falsches IBAN Format, nur deutsche IBAN-Nummern erlaubt!",
+    "emailIsNotValid": "Ungültige E-Mail Addresse",
+    "emailRequired": "E-Mail-Adresse benötigt",
+    "accountManagement": "Account verwalten",
+    "accountManagementDescription": "Persönliche Daten, Adressen, Bezahlmethoden",
+    "login": {
+      "pleaseLoginToOrder": "Bitte anmelden zum bestellen",
+      "backToLogin": "Zurück zum Login",
+      "login": "Login"
+    },
+    "logout": {
+      "logout": "Ausloggen",
+      "logoutDescription": "Aktuellen Useraccount ausloggen"
+    },
+    "userData": {
+      "username": "Username",
+      "password": "Passwort",
+      "address": "Adresse | Addressen",
+      "payment": "Bezahlart | Bezahlarten",
+      "email": "E-Mail-Adresse",
+      "firstName": "Vorname",
+      "lastName": "Nachname",
+      "street": "Straße",
+      "houseNumber": "Hausnummer",
+      "postalCode": "Postleitzahl",
+      "placeOfResidence": "Wohnort",
+      "bankName": "Name der Bank",
+      "iban": "IBAN"
+    },
+    "deleteAccount": {
+      "deleteAccount": "Account löschen",
+      "dialog": {
+        "title": "Account löschen?",
+        "description": "Soll der Account wirklich gelöscht werden? Dieser kann nicht mehr wiederhergestellt werden!"
+      }
+    }
+  },
+  "order": {
+    "orders": "Bestellung | Bestellungen",
+    "oclock": "Uhr",
+    "ordering": "Bestellabschluss",
+    "orderSummary": "Bestellübersicht",
+    "takeOrder": "Bestellung ausführen",
+    "noOrders": "Keine Bestellungen gefunden",
+    "orderedAt": "Bestellt am",
+    "noOrdersText": "Bisher wurden keine Bestellungen von diesem Account getätigt. Gehe zum Warenkorb und bestelle!",
+    "ordersDescription": "Übersicht aller getätigten Bestellungen"
+  },
+  "basket": {
+    "addToBasket": "Zum Warenkorb hinzufügen",
+    "emptyBasketTitle": "Keine Tickets im Warenkorb",
+    "emptyBasketText": "Gehe zu unseren Konzerten und lege Tickets in den Warenkorb",
+    "basket": "Warenkorb"
   },
   "preferences": {
     "pageSetup": "Seiteneinstellungen",
     "selectedTheme": "Ausgewähltes Theme",
-    "language": "Sprache",
+    "language": "Sprache | Sprachen",
+    "serverState": "Server Status",
     "systemSetup": "Systemeinstellungen",
-    "resetConfirm": "Soll die Datenbank wirklich zurückgesetzt werden?"
+    "resetDatabase": {
+      "resetDatabase": "Datenbank zurücksetzen",
+      "dialog": {
+        "title": "Datenbank zurücksetzen?",
+        "description": "Soll die Datenbank des Servers wirklich zurückgesetzt werden? Dies kann nicht rückgänig gemacht werden! Der Bearbeitungsfortschritt der Aufgaben wird nicht gelöscht."
+      }
+    },
+    "resetExerciseProgress": {
+      "resetExerciseProgress": "Aufgabenfortschritt zurücksetzen",
+      "dialog": {
+        "title": "Übungsfortschritt zurücksetzen?",
+        "description": "Soll der Bearbeitungsfortschritt der Übungen wirklich zurückgesetzt werden? Dies kann nicht rückgänig gemacht werden!"
+      }
+    }
   },
-  "product": {
-    "product": "Produkt | Produkte",
-    "productName": "Produkt Name",
-    "brand": "Marke",
-    "productPrice": "Einzelpreis",
-    "category": "Kategorie",
-    "description": "Beschreibung",
-    "storedItemsAvailable": "{0} verfügbar",
-    "soldOut": "Ausverkauft",
-    "discount": "Rabatt",
-    "inStock": "Warenbestand"
+  "help": {
+    "scoreBoard": {
+      "exerciseGroupNr": "Aufgabengruppe {0}: ",
+      "exerciseNr": "Aufgabe {0}"
+    }
   },
-  "offers": "Angebote",
-  "category": "Kategorie | Kategorien",
-  "sortBy": "Sortieren nach",
-  "quantity": "Anzahl",
-  "addToBasket": "Zum Warenkorb hinzufügen",
-  "emptyBasketTitle": "Keine Artikel im Warenkorb",
-  "emptyBasketText": "Gehe zu unseren Produkten und lege Artikel in den Warenkorb",
-  "totalPrice": "Gesamtpreis",
-  "orderNow": "Jetzt bestellen",
-  "userInfo": {
-    "firstName": "Vorname",
-    "lastName": "Nachname",
-    "street": "Straße",
-    "houseNumber": "Hausnummer",
-    "postalCode": "Postleitzahl",
-    "city": "Stadt",
-    "bankName": "Name der Bank",
-    "iban": "IBAN"
-  },
-  "account": "Account | Accounts",
-  "username": "Username",
-  "password": "Passwort",
-  "noAccountRegister": "Neuen Account erstellen!",
-  "register": "Account erstellen",
-  "backToLogin": "Zurück zum Login",
-  "delete": "Account löschen",
-  "managingAccount": "Account verwalten",
-  "address": "Adresse | Addressen",
-  "payment": "Bezahlart | Bezahlarten",
-  "masterData": "Stammdaten",
-  "noAddresses": "Keine Adressen gefunden",
-  "noPayments": "Keine Bezahlarten gefunden",
-  "newPayment": "New Payment",
-  "email": "E-Mail-Adresse",
   "bannerMessages": {
     "loginSuccessful": "Login erfolgreich!",
     "wrongLogin": "Falscher Username oder falsches Passwort!",
@@ -73,121 +133,39 @@
     "usernameInUse": "Der Accountname ist bereits vergeben!",
     "accountUpdated": "Account erfolgreich aktualisiert",
     "logoutSuccessful": "Logout erfolgreich",
-    "categoryCreateSuccessful": "Kategorie hinzugefügt",
-    "categoryDeleteSuccessful": "Kategorie gelöscht",
-    "categoryCreateError": "Fehler beim Erstellen der Kategorie",
-    "categoryDeleteError": "Fehler beim Löschen der Kategorie",
     "orderPlaceSuccessfull": "Bestellung erfolgreich aufgegeben",
-    "productCreateSuccessful": "Produkt hinzugefügt",
-    "productCreateError": "Fehler beim Erstellen des Produktes",
-    "productDeleteSuccessful": "Produkt erfolgreich entfernt",
-    "productDeleteError": "Fehler beim Entfernen des Produktes",
-    "basketProductAdded": "Artikel zum Warenkorb hinzugefügt",
-    "basketProductRemoved": "Artikel aus Warenkorb entfernt",
-    "exerciseSolved01": "Aufgabe 0.1 gelöst!",
-    "exerciseSolved02": "Aufgabe 0.2 gelöst!",
-    "exerciseSolved11": "Aufgabe 1.1 gelöst!",
-    "exerciseSolved12": "Aufgabe 1.2 gelöst!",
-    "exerciseSolved13": "Aufgabe 1.3 gelöst!",
-    "exerciseSolved21": "Aufgabe 2.1 gelöst!",
-    "exerciseSolved22": "Aufgabe 2.2 gelöst!",
-    "exerciseSolved23": "Aufgabe 2.3 gelöst!",
-    "exerciseSolved31": "Aufgabe 3.1 gelöst!",
-    "exerciseSolved32": "Aufgabe 3.2 gelöst!",
-    "exerciseSolved33": "Aufgabe 3.3 gelöst!"
+    "basketTicketAdded": "Ticket zum Warenkorb hinzugefügt",
+    "basketTicketRemoved": "Ticket aus Warenkorb entfernt",
+    "exerciseSolvedNr": "Aufgabe {0}.{1} gelöst!"
   },
-  "oclock": "Uhr",
-  "ordering": {
-    "ordering": "Bestellabschluss",
-    "takeOrder": "Bestellung ausführen"
-  },
-  "dialog": {
-    "cancel": "Abbrechen",
-    "confirm": "Bestätigen",
-    "deleteAccount": {
-      "title": "Account löschen?",
-      "description": "Soll der Account wirklich gelöscht werden? Dieser kann nicht mehr wiederhergestellt werden!"
+  "misc": {
+    "sortBy": "Sortieren nach",
+    "greeting": "Hallo {msg}",
+    "from": "ab",
+    "youAreHere": "Du bist hier:",
+    "date": "Datum | Daten",
+    "totalPrice": "Gesamtpreis",
+    "price": "Preis | Preise",
+    "quantity": "Anzahl",
+    "loading": "Lade...",
+    "onePageBack": "Zurück zur vorherigen Seite",
+    "enterSomeKeywords": "Füge Schlagworte ein um nach Bands, Konzerten und Veranstaltungsorten zu suchen",
+    "actions": {
+      "add": "Hinzufügen",
+      "remove": "Entfernen",
+      "save": "Speichern",
+      "filtering": "Filtern",
+      "cancel": "Abbrechen",
+      "more": "Mehr",
+      "confirm": "Bestätigen"
+    },
+    "validation": {
+      "required": "Darf nicht leer bleiben",
+      "noDigitsAllowed": "Zahlen sind nicht erlaubt",
+      "notEnoughChars": "Nicht wenige Zeichen",
+      "tooMuchChars": "Zu viele Zeichen",
+      "onlyDigitsAllowed": "Nur Zahlen erlaubt",
+      "digitsAtStartNeeded": "Muss mit einer Zahl beginnen"
     }
-  },
-  "scoreBoard": {
-    "exerciseGroup0": "Aufgabengruppe 0: Den Shop kennenlernen",
-    "exerciseGroup1": "Aufgabengruppe 1: SQL Injections",
-    "exerciseGroup2": "Aufgabengruppe 2: Broken Access Control",
-    "exerciseGroup3": "Aufgabengruppe 3: Cross-Site Scripting (XSS)",
-    "exercise": "Aufgabe {0}"
-  },
-  "serverState": "Server Status",
-  "required": "Darf nicht leer bleiben",
-  "noDigitsAllowed": "Zahlen sind nicht erlaubt",
-  "notEnoughChars": "Nicht lang genug",
-  "passwordToShort": "Passwort zu kurz",
-  "onlyDigitsAllowed": "Nur Zahlen erlaubt",
-  "noOrders": "Keine Bestellungen gefunden",
-  "noOrdersText": "Bisher wurden keine Bestellungen von diesem Account getätigt. Gehe zum Warenkorb und bestelle!",
-  "add": "Hinzufügen",
-  "remove": "Entfernen",
-  "emailIsNotValid": "Ungültige E-Mail Addresse",
-  "emailRequired": "E-Mail-Adresse benötigt",
-  "tooMuchChars": "Zu lang",
-  "digitsAtStartNeeded": "Muss mit einer Zahl beginnen",
-  "wrongIban": "Falsches IBAN Format, nur deutsche IBAN-Nummern erlaubt!",
-  "save": "Speichern",
-  "editProduct": "Produkt bearbeiten",
-  "brand": "Marke | Marken",
-  "concerts": {
-    "location": "Veranstaltungsort"
-  },
-  "location": "Veranstaltungsort | Veranstaltungsorte",
-  "band": "Band | Bands",
-  "noConcertsFound": "Keine Konzerte gefunden",
-  "from": "ab",
-  "soldOut": "Ausverkauft",
-  "city": "Stadt | Städte",
-  "seatPlan": "Saalplan",
-  "stage": "Bühne",
-  "filtering": "Filtern",
-  "bandMember": "Band Mitglieder",
-  "rating": "Bewertung | Bewertungen",
-  "image": "Foto | Fotos",
-  "seatSelection": "Sitzauswahl",
-  "loading": "Lade",
-  "orderSummary": "Bestellübersicht",
-  "basket": "Warenkorb",
-  "event": "Event | Events",
-  "hello": "Hallo",
-  "accountManagement": "Account verwalten",
-  "accountManagementDescription": "Persönliche Daten, Adressen, Bezahlmethoden",
-  "orders": "Bestellung | Bestellungen",
-  "ordersDescription": "Übersicht aller getätigten Bestellungen",
-  "onePageBack": "Zurück zur vorherigen Seite",
-  "orderedAt": "Bestellt am",
-  "logout": "Ausloggen",
-  "logoutDescription": "Aktuellen Useraccount ausloggen",
-  "login": "Login",
-  "seatRow": "Sitzreihe",
-  "seat": "Sitz",
-  "seatGroup": "Kategorie",
-  "date": "Datum",
-  "price": "Preis",
-  "standingArea": "Stehbereich",
-  "exerciseGroup": "Aufgabengruppe",
-  "exercise": "Aufgabe",
-  "resetProgress": "Aufgabenfortschritt zurücksetzen",
-  "youAreHere": "Du bist hier:",
-  "standingPlaces": "Stehplätze",
-  "resetExerciseProgressConfirm": {
-    "title": "Übungsfortschritt zurücksetzen?",
-    "description": "Soll der Bearbeitungsfortschritt der Übungen wirklich zurückgesetzt werden? Dies kann nicht rückgänig gemacht werden!"
-  },
-  "goToTheConcert": "Zum Konzert",
-  "selectedConcert": "Ausgewähltes Konzert",
-  "enterSomeKeywords": "Füge Schlagworte ein um nach Bands, Events, Konzerten und Veranstaltungsorten zu suchen",
-  "noBandFound": "Keine Band gefunden",
-  "noLocationsFound": "Keine Veranstaltungsorte gefunden",
-  "allBands": "Alle Bands",
-  "allConcerts": "Alle Konzerte",
-  "more": "Mehr",
-  "upcomingConcerts": "Nächste Konzerte",
-  "pleaseLogin": "Bitte anmelden",
-  "genres": "Genres"
+  }
 }

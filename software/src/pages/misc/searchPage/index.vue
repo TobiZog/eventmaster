@@ -26,7 +26,7 @@ const searchStore = useSearchStore()
         <div v-if="searchStore.alreadySearched">
           <v-row>
             <v-col>
-              <section-divider :title="$t('band', 2)" />
+              <section-divider :title="$t('band.band', 2)" />
             </v-col>
           </v-row>
 
@@ -55,7 +55,7 @@ const searchStore = useSearchStore()
           <v-row v-else >
             <v-col>
               <v-empty-state 
-                :title="$t('noBandFound')"
+                :title="$t('band.noBandFound')"
                 icon="mdi-guitar-electric"
               />
             </v-col>
@@ -66,7 +66,7 @@ const searchStore = useSearchStore()
           <!-- Section Concert results -->
           <v-row>
             <v-col>
-              <section-divider :title="$t('concert', 2)" />
+              <section-divider :title="$t('concert.concert', 2)" />
             </v-col>
           </v-row>
 
@@ -95,7 +95,7 @@ const searchStore = useSearchStore()
           <v-row v-else >
             <v-col>
               <v-empty-state 
-                :title="$t('noConcertsFound')"
+                :title="$t('concert.noConcertsFound')"
                 icon="mdi-party-popper"
               />
             </v-col>
@@ -106,7 +106,7 @@ const searchStore = useSearchStore()
           <!-- Section Location results -->
           <v-row>
             <v-col>
-              <section-divider :title="$t('location', 2)" />
+              <section-divider :title="$t('location.location', 2)" />
             </v-col>
           </v-row>
 
@@ -135,7 +135,7 @@ const searchStore = useSearchStore()
           <v-row v-else >
             <v-col>
               <v-empty-state 
-                :title="$t('noLocationsFound')"
+                :title="$t('location.noLocationsFound')"
                 icon="mdi-city"
               />
             </v-col>

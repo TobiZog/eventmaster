@@ -31,7 +31,7 @@ bandStore.getBand(String(router.currentRoute.value.params.name).replaceAll('-', 
       <v-col cols="10">
         <v-row>
           <v-col>
-            <section-divider :title="$t('concert', 2)" />
+            <section-divider :title="$t('concert.concert', 2)" />
           </v-col>
         </v-row>
 
@@ -42,7 +42,7 @@ bandStore.getBand(String(router.currentRoute.value.params.name).replaceAll('-', 
 
         <v-row>
           <v-col>
-            <section-divider :title="$t('bandMember')" />
+            <section-divider :title="$t('band.bandMember')" />
           </v-col>
         </v-row>
 
@@ -53,7 +53,7 @@ bandStore.getBand(String(router.currentRoute.value.params.name).replaceAll('-', 
 
         <v-row>
           <v-col>
-            <section-divider :title="$t('rating', 2)" />
+            <section-divider :title="$t('band.rating', 2)" />
           </v-col>
         </v-row>
 
@@ -65,7 +65,7 @@ bandStore.getBand(String(router.currentRoute.value.params.name).replaceAll('-', 
 
         <v-row>
           <v-col>
-            <section-divider :title="$t('image', 2)" />
+            <section-divider :title="$t('band.image', 2)" />
           </v-col>
         </v-row>
 

@@ -31,7 +31,7 @@ function confirmPressed() {
         prepend-icon="mdi-close"
         color="orange"
       >
-        {{ $t("dialog.cancel") }}
+        {{ $t("misc.actions.cancel") }}
       </outlined-button>
 
       <outlined-button
@@ -39,7 +39,7 @@ function confirmPressed() {
         prepend-icon="mdi-check"
         color="red"
       >
-        {{ $t("dialog.confirm") }}
+        {{ $t("misc.actions.confirm") }}
       </outlined-button>
     </template>
   </action-dialog>

@@ -33,58 +33,58 @@ export const useFeedbackStore = defineStore("feedbackStore", {
         }
 
         case BannerStateEnum.BASKETPRODUCTADDED: {
-          this.title = this.i18n.t('bannerMessages.basketProductAdded'); break;
+          this.title = this.i18n.t('bannerMessages.basketTicketAdded'); break;
         }
 
         case BannerStateEnum.BASKETPRODUCTREMOVED: {
-          this.title = this.i18n.t("bannerMessages.basketProductRemoved"); break;
+          this.title = this.i18n.t("bannerMessages.basketTicketRemoved"); break;
         }
 
 
         ////////// Exercise feedback //////////
 
         case BannerStateEnum.EXERCISESOLVED01: {
-          this.title = this.i18n.t("bannerMessages.exerciseSolved01"); break;
+          this.title = this.i18n.t("bannerMessages.exerciseSolvedNr", [0, 1]); break;
         }
 
         case BannerStateEnum.EXERCISESOLVED02: {
-          this.title = this.i18n.t("bannerMessages.exerciseSolved02"); break;
+          this.title = this.i18n.t("bannerMessages.exerciseSolvedNr", [0, 2]); break;
         }
 
         case BannerStateEnum.EXERCISESOLVED11: {
-          this.title = this.i18n.t("bannerMessages.exerciseSolved11"); break;
+          this.title = this.i18n.t("bannerMessages.exerciseSolvedNr", [1, 1]); break;
         }
 
         case BannerStateEnum.EXERCISESOLVED12: {
-          this.title = this.i18n.t("bannerMessages.exerciseSolved12"); break;
+          this.title = this.i18n.t("bannerMessages.exerciseSolvedNr", [1, 2]); break;
         }
 
         case BannerStateEnum.EXERCISESOLVED13: {
-          this.title = this.i18n.t("bannerMessages.exerciseSolved13"); break;
+          this.title = this.i18n.t("bannerMessages.exerciseSolvedNr", [1, 3]); break;
         }
 
         case BannerStateEnum.EXERCISESOLVED21: {
-          this.title = this.i18n.t("bannerMessages.exerciseSolved21"); break;
+          this.title = this.i18n.t("bannerMessages.exerciseSolvedNr", [2, 1]); break;
         }
 
         case BannerStateEnum.EXERCISESOLVED22: {
-          this.title = this.i18n.t("bannerMessages.exerciseSolved22"); break;
+          this.title = this.i18n.t("bannerMessages.exerciseSolvedNr", [2, 2]); break;
         }
 
         case BannerStateEnum.EXERCISESOLVED23: {
-          this.title = this.i18n.t("bannerMessages.exerciseSolved23"); break;
+          this.title = this.i18n.t("bannerMessages.exerciseSolvedNr", [2, 3]); break;
         }
 
         case BannerStateEnum.EXERCISESOLVED31: {
-          this.title = this.i18n.t("bannerMessages.exerciseSolved31"); break;
+          this.title = this.i18n.t("bannerMessages.exerciseSolvedNr", [3, 1]); break;
         }
 
         case BannerStateEnum.EXERCISESOLVED32: {
-          this.title = this.i18n.t("bannerMessages.exerciseSolved32"); break;
+          this.title = this.i18n.t("bannerMessages.exerciseSolvedNr", [3, 2]); break;
         }
 
         case BannerStateEnum.EXERCISESOLVED33: {
-          this.title = this.i18n.t("bannerMessages.exerciseSolved33"); break;
+          this.title = this.i18n.t("bannerMessages.exerciseSolvedNr", [3, 3]); break;
         }
 
 
@@ -130,25 +130,6 @@ export const useFeedbackStore = defineStore("feedbackStore", {
 
         case BannerStateEnum.ORDERPLACESUCCESSFUL: {
           this.title = this.i18n.t('bannerMessages.orderPlaceSuccessfull'); break;
-        }
-
-
-        ////////// API Endpoint /products //////////
-
-        case BannerStateEnum.PRODUCTCREATESUCCESSFUL: {
-          this.title = this.i18n.t('bannerMessages.productCreateSuccessful'); break;
-        }
-
-        case BannerStateEnum.PRODUCTCREATEERROR: {
-          this.title = this.i18n.t('bannerMessages.productCreateError'); break;
-        }
-
-        case BannerStateEnum.PRODUCTDELETESUCCESSFUL: {
-          this.title = this.i18n.t('bannerMessages.productDeleteSuccessful'); break;
-        }
-
-        case BannerStateEnum.PRODUCTDELETEERROR: {
-          this.title = this.i18n.t('bannerMessages.productDeleteError'); break;
         }
       }
 

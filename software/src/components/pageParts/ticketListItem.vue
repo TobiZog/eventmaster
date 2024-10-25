@@ -48,7 +48,7 @@ defineProps({
   >
     <template #content>
       <div class="text-caption">
-        {{ $t('date') }}
+        {{ $t('misc.date') }}
       </div>
 
       <div>
@@ -56,7 +56,7 @@ defineProps({
       </div>
 
       <div class="text-caption">
-        {{ $t('location') }}
+        {{ $t('location.location') }}
       </div>
 
       <div>
@@ -64,7 +64,7 @@ defineProps({
       </div>
 
       <div class="text-caption">
-        {{ $t('price') }}
+        {{ $t('misc.price') }}
       </div>
 
       <div>
@@ -76,25 +76,25 @@ defineProps({
       <v-row>
         <v-col>
           <card-view-one-line
-            :description-text="$t('seatGroup')"
+            :description-text="$t('location.seat.seatGroup')"
             :value-text="seatGroup"
           />
 
           <div v-if="seatRow != 0">
             <card-view-one-line
-              :description-text="$t('seatRow')"
+              :description-text="$t('location.seat.seatRow')"
               :value-text="seatRow"
             />
 
             <card-view-one-line
-              :description-text="$t('seat')"
+              :description-text="$t('location.seat.seat')"
               :value-text="seatNr"
             />
           </div>
 
           <v-div v-else>
             <card-view-one-line
-              :value-text="$t('standingArea')"
+              :value-text="$t('location.seat.standingArea')"
             />
           </v-div>
         </v-col>

@@ -11,7 +11,7 @@ const accountStore = useAccountStore()
 <template>
   <card-view 
     icon="mdi-home"
-    :title="$t('account.address')"
+    :title="$t('account.userData.address')"
   >
     <v-expansion-panels v-if="accountStore.userAccount.addresses.length > 0">
       <v-expansion-panel
@@ -26,7 +26,7 @@ const accountStore = useAccountStore()
           <v-row class="pt-5">
             <v-col>
               <v-text-field
-                :label="$t('userInfo.street')"
+                :label="$t('account.userData.street')"
                 v-model="address.street"
                 :rules="getStringRules()"
                 clearable
@@ -34,7 +34,7 @@ const accountStore = useAccountStore()
             </v-col>
             <v-col>
               <v-text-field
-                :label="$t('userInfo.houseNumber')"
+                :label="$t('account.userData.houseNumber')"
                 v-model="address.houseNumber"
                 :rules="getNumberStartRules()"
                 clearable
@@ -45,7 +45,7 @@ const accountStore = useAccountStore()
           <v-row>
             <v-col>
               <v-text-field
-                :label="$t('userInfo.postalCode')"
+                :label="$t('account.userData.postalCode')"
                 v-model="address.postalCode"
                 :rules="getPostalRules()"
                 clearable
@@ -53,7 +53,7 @@ const accountStore = useAccountStore()
             </v-col>
             <v-col>
               <v-text-field
-                :label="$t('userInfo.city')"
+                :label="$t('account.userData.placeOfResidence')"
                 v-model="address.city"
                 :rules="getStringRules()"
                 clearable
@@ -68,7 +68,7 @@ const accountStore = useAccountStore()
                 color="red"
                 prepend-icon="mdi-delete"
               >
-                {{ $t('remove') }}
+                {{ $t('misc.actions.remove') }}
               </outlined-button>
             </v-col>
           </v-row>
@@ -88,7 +88,7 @@ const accountStore = useAccountStore()
         prepend-icon="mdi-plus"
         color="green"
       >
-        {{ $t('add') }}
+        {{ $t('misc.actions.add') }}
       </outlined-button>
     </template>
   </card-view>

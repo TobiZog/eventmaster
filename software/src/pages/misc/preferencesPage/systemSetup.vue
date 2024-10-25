@@ -63,7 +63,7 @@ async function resetExerciseProg() {
   >
     <v-row>
       <v-col>
-        {{ $t('serverState') }}:
+        {{ $t('preferences.serverState') }}:
         <span v-if="serverOnline == ServerStateEnum.ONLINE" class="text-green">
           <v-icon icon="mdi-check" />
           Online
@@ -95,7 +95,7 @@ async function resetExerciseProg() {
           color="red"
           :disabled="serverOnline != ServerStateEnum.ONLINE"
         >
-          {{ $t('resetDatabase') }}
+          {{ $t('preferences.resetDatabase.resetDatabase') }}
         </outlined-button>
       </v-col>
     </v-row>
@@ -108,7 +108,7 @@ async function resetExerciseProg() {
           color="red"
           :disabled="serverOnline != ServerStateEnum.ONLINE"
         >
-          {{ $t('resetProgress') }}
+          {{ $t('preferences.resetExerciseProgress.resetExerciseProgress') }}
         </outlined-button>
       </v-col>
     </v-row>
@@ -116,16 +116,16 @@ async function resetExerciseProg() {
 
   <!-- Confirm delete database -->
   <confirm-dialog
-    :title="$t('resetDatabaseConfirm.title')"
-    :description="$t('resetDatabaseConfirm.description')"
+    :title="$t('preferences.resetDatabase.dialog.title')"
+    :description="$t('preferences.resetDatabase.dialog.description')"
     v-model="showConfirmDeleteDbDialog"
     :onConfirm="resetDb"
   />
 
   <!-- Confirm delete exercise progress -->
   <confirm-dialog
-    :title="$t('resetExerciseProgressConfirm.title')"
-    :description="$t('resetExerciseProgressConfirm.description')"
+    :title="$t('preferences.resetExerciseProgress.dialog.title')"
+    :description="$t('preferences.resetExerciseProgress.dialog.description')"
     v-model="showConfirmDeleteExerciseProgressDialog"
     :onConfirm="resetExerciseProg"
   />

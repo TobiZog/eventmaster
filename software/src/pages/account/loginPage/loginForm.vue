@@ -20,14 +20,14 @@ async function startLogin() {
 
 <template>
   <card-view
-    :title="$t('login')"
+    :title="$t('account.login.login')"
     icon="mdi-login"
     max-width="600"
   >
     <v-row>
       <v-col>
         <v-text-field
-          :label="$t('account.username')"
+          :label="$t('account.userData.username')"
           prepend-icon="mdi-account"
           v-model="accountStore.loginData.username"
           clearable
@@ -38,7 +38,7 @@ async function startLogin() {
     <v-row>
       <v-col>
         <v-text-field
-          :label="$t('account.password')"
+          :label="$t('account.userData.password')"
           prepend-icon="mdi-key"
           type="password" 
           v-model="accountStore.loginData.password"
@@ -53,7 +53,7 @@ async function startLogin() {
         prepend-icon="mdi-plus"
         :loading="accountStore.fetchInProgress"
       >
-        {{ $t('account.noAccountRegister') }}
+        {{ $t('account.register') }}
       </outlined-button>
 
       <outlined-button
@@ -61,7 +61,7 @@ async function startLogin() {
         @click="startLogin"
         :loading="accountStore.fetchInProgress"
       >
-        {{ $t('login') }}
+        {{ $t('account.login.login') }}
       </outlined-button>
     </template>
   </card-view>

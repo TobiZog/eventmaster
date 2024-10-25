@@ -15,7 +15,7 @@ accountStore.refreshOrders()
     <v-row>
       <v-col>
         <outlined-button prepend-icon="mdi-arrow-left" @click="router.back()" >
-          {{ $t('onePageBack') }}
+          {{ $t('misc.onePageBack') }}
         </outlined-button>
       </v-col>
     </v-row>
@@ -35,8 +35,8 @@ accountStore.refreshOrders()
       <v-col>
         <v-empty-state
           icon="mdi-basket-off"
-          :title="$t('noOrders')"
-          :text="$t('noOrdersText')"
+          :title="$t('order.noOrders')"
+          :text="$t('order.noOrdersText')"
         />
       </v-col>
     </v-row>

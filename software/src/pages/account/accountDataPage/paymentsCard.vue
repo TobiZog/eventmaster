@@ -12,7 +12,7 @@ const accountStore = useAccountStore()
 <template>
   <card-view 
     icon="mdi-currency-usd"
-    :title="$t('account.payment')"
+    :title="$t('account.userData.payment')"
   >
     <v-expansion-panels
       v-if="accountStore.userAccount.payments.length > 0"
@@ -28,14 +28,14 @@ const accountStore = useAccountStore()
           <v-row class="pt-5">
             <v-col>
               <v-text-field
-                :label="$t('userInfo.bankName')"
+                :label="$t('account.userData.bankName')"
                 v-model="payment.bankName"
                 :rules="getStringRules()"
               />
             </v-col>
             <v-col>
               <v-text-field
-                :label="$t('userInfo.iban')"
+                :label="$t('account.userData.iban')"
                 v-model="payment.iban"
                 :rules="getIbanRules()"
               />
@@ -49,7 +49,7 @@ const accountStore = useAccountStore()
                 color="red"
                 prepend-icon="mdi-delete"
               >
-                {{ $t('remove') }}
+                {{ $t('misc.actions.remove') }}
               </outlined-button>
             </v-col>
           </v-row>
@@ -69,7 +69,7 @@ const accountStore = useAccountStore()
         prepend-icon="mdi-plus"
         color="green"
       >
-        {{ $t('add') }}
+        {{ $t('misc.actions.add') }}
       </outlined-button>
     </template>
   </card-view>

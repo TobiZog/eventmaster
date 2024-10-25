@@ -15,7 +15,7 @@ function itemProps(item: GenreModel) {
 
 <template>
   <card-view
-    :title="$t('filtering')"
+    :title="$t('misc.actions.filtering')"
     icon="mdi-filter"
   >
     <v-row>
@@ -24,7 +24,7 @@ function itemProps(item: GenreModel) {
           v-model="bandStore.filteredGenres"
           :items="bandStore.availableGenres"
           variant="outlined"
-          :label="$t('genres')"
+          :label="$t('band.genre', 2)"
           :item-props="itemProps"
           chips
           clearable
@@ -38,7 +38,7 @@ function itemProps(item: GenreModel) {
           @click="bandStore.getBands"
           height="100%"
         >
-          {{ $t('filtering') }}
+          {{ $t('misc.actions.filtering') }}
         </outlined-button>
       </v-col>
     </v-row>

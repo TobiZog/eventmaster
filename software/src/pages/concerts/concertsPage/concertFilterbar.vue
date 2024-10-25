@@ -20,7 +20,7 @@ function itemProps(item: CityModel) {
 
 <template>
   <card-view
-    :title="$t('filtering')"
+    :title="$t('misc.actions.filtering')"
     icon="mdi-filter"
   >
     <v-row>
@@ -29,7 +29,7 @@ function itemProps(item: CityModel) {
           v-model="concertStore.filteredCities"
           :items="locationStore.cities"
           variant="outlined"
-          :label="$t('city', 2)"
+          :label="$t('location.city', 2)"
           :item-props="itemProps"
           chips
           clearable
@@ -43,7 +43,7 @@ function itemProps(item: CityModel) {
           @click="concertStore.getConcerts"
           height="100%"
         >
-          {{ $t('filtering') }}
+          {{ $t('misc.actions.filtering') }}
         </outlined-button>
       </v-col>
     </v-row>

@@ -11,7 +11,7 @@ const accountStore = useAccountStore()
 
 <template>
   <card-view
-    :title="$t('account.managingAccount')"
+    :title="$t('account.accountManagement')"
     icon="mdi-account-edit"
   >
     <v-row>
@@ -22,7 +22,7 @@ const accountStore = useAccountStore()
           :loading="accountStore.fetchInProgress"
           @click="showConfirmDialog = true"
         >
-          {{ $t("account.delete") }}
+          {{ $t("account.deleteAccount.deleteAccount") }}
         </outlined-button>
       </v-col>
 
@@ -33,7 +33,7 @@ const accountStore = useAccountStore()
           :loading="accountStore.fetchInProgress"
           @click="accountStore.updateAccount()"
         >
-          {{ $t("save") }}
+          {{ $t("misc.actions.save") }}
         </outlined-button>
       </v-col>
     </v-row>
@@ -41,8 +41,8 @@ const accountStore = useAccountStore()
 
   <confirm-dialog
     v-model="showConfirmDialog"
-    :title="$t('dialog.deleteAccount.title')"
-    :description="$t('dialog.deleteAccount.description')"
+    :title="$t('account.deleteAccount.dialog.title')"
+    :description="$t('account.deleteAccount.dialog.description')"
   />
     <!-- todo :onConfirm="deleteAccount" -->
 </template>

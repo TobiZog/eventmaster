@@ -52,12 +52,12 @@ defineProps({
     <template #append>
       <div>
         <div class="text-secondary font-weight-medium text-h6 pb-1">
-          {{ $t('from') + ' ' + lowestTicketPrice(concerts) + ' €' }}
+          {{ $t('misc.from') + ' ' + lowestTicketPrice(concerts) + ' €' }}
         </div>
 
         <div>
           <v-btn variant="flat" color="secondary">
-            {{ $t('more') }}
+            {{ $t('misc.actions.more') }}
           </v-btn>
         </div>
       </div>

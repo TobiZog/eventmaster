@@ -36,7 +36,7 @@ async function doOrder() {
 
 <template>
   <action-dialog
-    :title="$t('ordering.ordering')"
+    :title="$t('order.ordering')"
     icon="mdi-basket-check"
     v-model="showDialog"
     max-width="800"
@@ -44,7 +44,7 @@ async function doOrder() {
   >
     <v-list class="pa-0">
       <v-list-subheader>
-        {{ $t('account.address', accountStore.userAccount.addresses.length) }}
+        {{ $t('account.userData.address', accountStore.userAccount.addresses.length) }}
       </v-list-subheader>
 
       <v-list-item>
@@ -62,7 +62,7 @@ async function doOrder() {
       </v-list-item>
 
       <v-list-subheader>
-        {{ $t('account.payment', accountStore.userAccount.payments.length) }}
+        {{ $t('account.userData.payment', accountStore.userAccount.payments.length) }}
       </v-list-subheader>
 
       <v-list-item>
@@ -86,7 +86,7 @@ async function doOrder() {
         color="orange"
         :disabled="orderingInProgress"
       >
-        {{ $t('dialog.cancel') }}
+        {{ $t('misc.actions.cancel') }}
       </outlined-button>
 
       <outlined-button
@@ -95,7 +95,7 @@ async function doOrder() {
         prepend-icon="mdi-send"
         color="green"
       >
-        {{ $t('ordering.takeOrder') }}
+        {{ $t('order.takeOrder') }}
       </outlined-button>
     </template>
   </action-dialog>

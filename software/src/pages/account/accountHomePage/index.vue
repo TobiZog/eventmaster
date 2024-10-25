@@ -12,18 +12,18 @@ const router = useRouter()
     <v-row>
       <v-col>
         <card-view
-          :title="$t('hello') + ' ' + accountStore.userAccount.firstName + ' ' + accountStore.userAccount.lastName"
+          :title="$t('misc.greeting', { msg: accountStore.userAccount.username })"
           icon="mdi-hand-wave"
         >
           <v-container>
             <v-row>
               <v-col>
                 <card-view
-                  :title="$t('orders', 2)"
+                  :title="$t('order.orders', 2)"
                   icon="mdi-basket-check"
                   @click="router.push('/account/orders')"
                 >
-                  {{ $t('ordersDescription') }}
+                  {{ $t('order.ordersDescription') }}
                 </card-view>
               </v-col>
             </v-row>
@@ -31,11 +31,11 @@ const router = useRouter()
             <v-row>
               <v-col>
                 <card-view
-                  :title="$t('accountManagement')"
+                  :title="$t('account.accountManagement')"
                   icon="mdi-account"
                   @click="router.push('/account/data')"
                 >
-                  {{ $t('accountManagementDescription') }}
+                  {{ $t('account.accountManagementDescription') }}
                 </card-view>
               </v-col>
             </v-row>
@@ -43,11 +43,11 @@ const router = useRouter()
             <v-row>
               <v-col>
                 <card-view
-                  :title="$t('logout')"
+                  :title="$t('account.logout.logout')"
                   icon="mdi-logout"
                   @click="accountStore.logout(); router.push('/account/login')"
                 >
-                  {{ $t('logoutDescription') }}
+                  {{ $t('account.logout.logoutDescription') }}
                 </card-view>
               </v-col>
             </v-row>

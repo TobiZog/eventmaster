@@ -15,7 +15,7 @@
     height="100%"
     :rounded="false"
   >
-    {{ $t('allBands', 2) }}
+    {{ $t('band.allBands', 2) }}
   </v-btn>
 
   <v-divider vertical />
@@ -26,7 +26,7 @@
     height="100%"
     :rounded="false"
   >
-    {{ $t('allConcerts', 2) }}
+    {{ $t('concert.allConcerts', 2) }}
   </v-btn>
 
   <v-divider vertical />
@@ -38,7 +38,7 @@
     height="100%"
     :rounded="false"
   >
-    {{ $t('allLocations', 2) }}
+    {{ $t('location.allLocations', 2) }}
   </v-btn>
 
   <v-divider vertical />

@@ -14,7 +14,7 @@ const router = useRouter()
     <v-row>
       <v-col>
         <outlined-button prepend-icon="mdi-arrow-left" @click="router.back()" >
-          {{ $t('onePageBack') }}
+          {{ $t('misc.onePageBack') }}
         </outlined-button>
       </v-col>
     </v-row>

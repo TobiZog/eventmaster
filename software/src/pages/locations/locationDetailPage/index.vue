@@ -36,7 +36,7 @@ locationStore.getLocationByName(String(router.currentRoute.value.params.name))
       <v-col cols="10">
         <v-row>
           <v-col>
-            <section-divider :title="$t('concert', 2)" />
+            <section-divider :title="$t('concert.concert', 2)" />
           </v-col>
         </v-row>
 
@@ -68,7 +68,7 @@ locationStore.getLocationByName(String(router.currentRoute.value.params.name))
           <v-col>
             <v-empty-state
               icon="mdi-magnify"
-              :title="$t('noEventsFound')"
+              :title="$t('concert.noConcertsFound')"
             />
           </v-col>
         </v-row>
@@ -76,7 +76,7 @@ locationStore.getLocationByName(String(router.currentRoute.value.params.name))
 
         <v-row>
           <v-col>
-            <section-divider :title="$t('seatPlan')" />
+            <section-divider :title="$t('location.seat.seatPlan')" />
           </v-col>
         </v-row>
 

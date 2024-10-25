@@ -22,7 +22,7 @@ watch(() => route.path, () => {
       <v-spacer />
 
       <v-col>
-        {{ $t('youAreHere') }}
+        {{ $t('misc.youAreHere') }}
         <v-breadcrumbs :items="routeItems">
           <template v-slot:title="{ item }">
             {{ item.title.charAt(0).toUpperCase() + item.title.slice(1) }}

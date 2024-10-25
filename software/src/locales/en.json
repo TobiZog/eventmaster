@@ -1,193 +1,171 @@
 {
-  "allEvents": "All Events",
-  "allLocations": "All Locations",
-  "topEvents": "Top Events",
-  "topLocations": "Top Locations",
-  "tickets": "Ticket | Tickets",
-  "concert": "Concert | Concerts",
-  "resetPreferences": "Reset preferences",
-  "resetDatabase": "Reset database",
-  "resetDatabaseConfirm": {
-    "title": "Reset database?",
-    "description": "Do you really want to reset the server database? This can't be undone! Progress will not be deleted."
+  "location": {
+    "allLocations": "All Locations",
+    "topLocations": "Top Locations",
+    "location": "Location | Locations",
+    "noLocationsFound": "No Locations found",
+    "city": "City | Cities",
+    "stage": "Stage | Stages",
+    "seat": {
+      "seatRow": "Seat Row | Seat Rows",
+      "seat": "Seat | Seats",
+      "seatGroup": "Seat Group | Seat Groups",
+      "standingPlace": "Standing place | Standing places",
+      "seatPlan": "Seat plan | Seat plans",
+      "seatSelection": "Seat selection",
+      "standingArea": "Seat area"
+    }
+  },
+  "concert": {
+    "concert": "Concert | Concerts",
+    "allConcerts": "All Concerts",
+    "upcomingConcerts": "Upcoming Concerts",
+    "goToTheConcert": "Go to concert",
+    "noConcertsFound": "No Concerts found",
+    "selectedConcert": "Selected Concert",
+    "concertSoldOut": "Sold out"
+  },
+  "band": {
+    "band": "Band | Bands",
+    "allBands": "All Bands",
+    "noBandFound": "No Band found",
+    "rating": "Rating | Ratings",
+    "bandMember": "Band Member",
+    "image": "Photo | Photos",
+    "genre": "Genre | Genres"
+  },
+  "ticket": {
+    "tickets": "Ticket | Tickets"
+  },
+  "account": {
+    "account": "Account | Accounts",
+    "register": "Register",
+    "masterData": "Master data",
+    "noAddresses": "No addresses found",
+    "noPayments": "No payments found",
+    "wrongIban": "Wrong IBAN format, only German IBAN-numbers allowed!",
+    "emailIsNotValid": "E-Mail not valid",
+    "emailRequired": "E-Mail required",
+    "accountManagement": "Manage Account",
+    "accountManagementDescription": "Personal data, addresses, payments",
+    "login": {
+      "pleaseLoginToOrder": "Please login to order",
+      "backToLogin": "Back to Login",
+      "login": "Login"
+    },
+    "logout": {
+      "logout": "Logout",
+      "logoutDescription": "Logout current user account"
+    },
+    "userData": {
+      "username": "Username",
+      "password": "Password",
+      "address": "Adress | Addresses",
+      "payment": "Payment | Payments",
+      "email": "E-Mail address",
+      "firstName": "First name",
+      "lastName": "Last name",
+      "street": "Street",
+      "houseNumber": "House number",
+      "postalCode": "Postal code",
+      "placeOfResidence": "Place of residence",
+      "bankName": "Name of bank",
+      "iban": "IBAN"
+    },
+    "deleteAccount": {
+      "deleteAccount": "Delete Account",
+      "dialog": {
+        "title": "Delete Account?",
+        "description": "Do you really want to delete this account? This is permanent!"
+      }
+    }
+  },
+  "order": {
+    "orders": "Order | Orders",
+    "oclock": "o'clock",
+    "ordering": "Finish order process",
+    "orderSummary": "Order overview",
+    "takeOrder": "Execute order",
+    "noOrders": "No orders found",
+    "orderedAt": "Ordered at",
+    "noOrdersText": "Bisher wurden keine Bestellungen von diesem Account getätigt. Gehe zum Warenkorb und bestelle!",
+    "ordersDescription": "Overview of all placed orders"
+  },
+  "basket": {
+    "addToBasket": "Add to basket",
+    "emptyBasketTitle": "No tickets in basket",
+    "emptyBasketText": "Go to our concerts and place some ticket in the basket",
+    "basket": "Basket"
   },
   "preferences": {
     "pageSetup": "Page setup",
-    "selectedTheme": "Selected theme",
-    "language": "Language",
-    "systemSetup": "System setup",
-    "resetConfirm": "Really reset the database?"
-  },
-  "product": {
-    "product": "Product | Products",
-    "productName": "Product name",
-    "brand": "Brand",
-    "productPrice": "Unit price",
-    "category": "Category",
-    "description": "Description",
-    "storedItemsAvailable": "{0} items available",
-    "soldOut": "Sold Out",
-    "discount": "Discount",
-    "inStock": "In Stock"
-  },
-  "offers": "Offers",
-  "category": "Category | Categories",
-  "sortBy": "Sort by",
-  "quantity": "Quantity",
-  "addToBasket": "Add to basket",
-  "emptyBasketTitle": "The basket is empty...",
-  "emptyBasketText": "Go to our products and add some of them to the basket",
-  "totalPrice": "Total price",
-  "orderNow": "Order now",
-  "userInfo": {
-    "firstName": "First Name",
-    "lastName": "Family Name",
-    "street": "Street",
-    "houseNumber": "House Number",
-    "postalCode": "Postal Code",
-    "city": "City",
-    "bankName": "Bank name",
-    "iban": "IBAN"
-  },
-  "account": "Account | Accounts",
-  "backToLogin": "Back to Login",
-  "username": "Username",
-  "password": "Password",
-  "noAccountRegister": "Create new Account!",
-  "register": "Create Account",
-  "delete": "Delete Account",
-  "managingAccount": "Managing Account",
-  "address": "Address | Addresses",
-  "payment": "Payment | Payments",
-  "masterData": "Master data",
-  "noAddresses": "No Addresses found",
-  "noPayments": "No payments found",
-  "newPayment": "New Payment",
-  "email": "E-Mail address",
-  "bannerMessages": {
-    "loginSuccessful": "Login erfolgreich!",
-    "wrongLogin": "Falscher Username oder falsches Passwort!",
-    "error": "Some error occurred...",
-    "databaseResetSuccessful": "Database reset successful!",
-    "usernameInUse": "Username always in use!",
-    "registerSuccessful": "Account successfully created!",
-    "accountUpdated": "Account successfully updated",
-    "logoutSuccessful": "Logout successful",
-    "categoryCreateSuccessful": "Category created",
-    "categoryDeleteSuccessful": "Category deleted",
-    "categoryCreateError": "Error on creating category",
-    "categoryDeleteError": "Error on deleting category",
-    "orderPlaceSuccessfull": "Order successfully placed",
-    "productCreateSuccessful": "Product created",
-    "productCreateError": "Error on product creation",
-    "productDeleteSuccessful": "Product successfully deleted",
-    "productDeleteError": "Error on product delete",
-    "basketProductAdded": "Add product to basket",
-    "basketProductRemoved": "Product removed from basket",
-    "exerciseSolved01": "Exercise 0.1 solved!",
-    "exerciseSolved02": "Exercise 0.2 solved!",
-    "exerciseSolved11": "Exercise 1.1 solved!",
-    "exerciseSolved12": "Exercise 1.2 solved!",
-    "exerciseSolved13": "Exercise 1.3 solved!",
-    "exerciseSolved21": "Exercise 2.1 solved!",
-    "exerciseSolved22": "Exercise 2.2 solved!",
-    "exerciseSolved23": "Exercise 2.3 solved!",
-    "exerciseSolved31": "Exercise 3.1 solved!",
-    "exerciseSolved32": "Exercise 3.2 solved!",
-    "exerciseSolved33": "Exercise 3.3 solved!"
-  },
-  "oclock": "o'clock",
-  "ordering": {
-    "ordering": "Finish order",
-    "takeOrder": "Do order now"
-  },
-  "dialog": {
-    "cancel": "Cancel",
-    "confirm": "Bestätigen",
-    "deleteAccount": {
-      "title": "Delete account?",
-      "description": "Do you really want to delete the account? This can't be undone!"
+    "selectedTheme": "Selected Theme",
+    "language": "Language | Languages",
+    "serverState": "Server Status",
+    "systemSetup": "System preferences",
+    "resetDatabase": {
+      "resetDatabase": "Reset database",
+      "dialog": {
+        "title": "Reset database?",
+        "description": "Do you really want to reset the database? This is permanent! Exercise progress will not be affected"
+      }
+    },
+    "resetExerciseProgress": {
+      "resetExerciseProgress": "Reset exercise progress",
+      "dialog": {
+        "title": "Reset exercise progress?",
+        "description": "Do you really want to reset the exercise progress? This is permanent!"
+      }
     }
   },
-  "scoreBoard": {
-    "exerciseGroup0": "Exercise Group 0: Getting Started",
-    "exerciseGroup1": "Exercise Group 1: SQL Injections",
-    "exerciseGroup2": "Exercise Group 2: Broken Access Control",
-    "exerciseGroup3": "Exercise Group 3: Cross-Site Scripting (XSS)",
-    "exercise": "Exercise {0}"
+  "help": {
+    "scoreBoard": {
+      "exerciseGroupNr": "Exercise Group {0}: ",
+      "exerciseNr": "Exercise {0}"
+    }
   },
-  "serverState": "Server State:",
-  "required": "Is required",
-  "noDigitsAllowed": "Digits are not allowed",
-  "notEnoughChars": "Too short",
-  "passwordToShort": "Password too short",
-  "onlyDigitsAllowed": "Only digits are allowed",
-  "noOrders": "No orders found",
-  "noOrdersText": "There are no orders with this account until now. Go to the basket page and order something!",
-  "add": "Add",
-  "remove": "Remove",
-  "emailIsNotValid": "E-mail must be valid",
-  "emailRequired": "E-Mail is required",
-  "tooMuchChars": "Too long",
-  "digitsAtStartNeeded": "Has to beginn with a number",
-  "wrongIban": "Wrong IBAN format, only German IBANs are allowed!",
-  "save": "Save",
-  "editProduct": "Edit product",
-  "brand": "Brand | Brands",
-  "concerts": {
-    "location": "Locations"
+  "bannerMessages": {
+    "loginSuccessful": "Login successfull!",
+    "wrongLogin": "Wrong username or wrong password!",
+    "error": "There is some error...",
+    "databaseResetSuccessful": "Database successfully resetted!",
+    "registerSuccessful": "Account successfully created!",
+    "usernameInUse": "The username is already in use!",
+    "accountUpdated": "Account successfully updated",
+    "logoutSuccessful": "Logout successfull",
+    "orderPlaceSuccessfull": "Order successfully placed",
+    "basketTicketAdded": "Added ticket to basket",
+    "basketTicketRemoved": "Removed ticket from basket",
+    "exerciseSolvedNr": "Exercise {0}.{1} solved!"
   },
-  "location": "Location | Locations",
-  "band": "Band | Bands",
-  "noConcertsFound": "No Concerts found",
-  "from": "from",
-  "soldOut": "Sold Out",
-  "city": "City | Cities",
-  "seatPlan": "Seat Plan",
-  "stage": "Stage",
-  "filtering": "Filtering",
-  "bandMember": "Band members",
-  "rating": "Rating | Ratings",
-  "image": "Image | Images",
-  "seatSelection": "Select seat",
-  "loading": "Loading",
-  "orderSummary": "Order Summary",
-  "basket": "Basket",
-  "event": "Event | Events",
-  "hello": "Hello",
-  "accountManagement": "Account Management",
-  "accountManagementDescription": "Contact data, Addresses, Payment methods",
-  "orders": "Order | Orders",
-  "ordersDescription": "Overview about all orders",
-  "onePageBack": "Back to previous page",
-  "orderedAt": "Ordered at",
-  "logout": "Logout",
-  "logoutDescription": "Logout current account",
-  "login": "Login",
-  "seatRow": "Seat Row",
-  "seat": "Seat",
-  "seatGroup": "Category",
-  "date": "Date",
-  "price": "Price",
-  "standingArea": "Standing Area",
-  "exerciseGroup": "Exercise group",
-  "exercise": "Exercise",
-  "resetProgress": "Reset Exercise Progress",
-  "youAreHere": "You are here:",
-  "standingPlaces": "Standing capacity",
-  "resetExerciseProgressConfirm": {
-    "title": "Reset Exercise progress?",
-    "description": "Do you really want to reset the exercise progress? This can't be undone!"
-  },
-  "goToTheConcert": "To the concert",
-  "selectedConcert": "Selected Concert",
-  "enterSomeKeywords": "Enter keywords to search for bands, events, concerts and locations",
-  "noBandFound": "No band found",
-  "noLocationsFound": "No location found",
-  "allBands": "All Bands",
-  "allConcerts": "All Concerts",
-  "more": "More",
-  "upcomingConcerts": "Upcoming Concerts",
-  "pleaseLogin": "Please login",
-  "genres": "Genres"
+  "misc": {
+    "sortBy": "Sort by",
+    "greeting": "Hello {msg}",
+    "from": "from",
+    "youAreHere": "You are here:",
+    "date": "Date | Dates",
+    "totalPrice": "Total price",
+    "price": "Price | Prices",
+    "quantity": "Quantity",
+    "loading": "Loading...",
+    "onePageBack": "Back to previous page",
+    "enterSomeKeywords": "Enter keywords to search for bands, concerts and locations",
+    "actions": {
+      "add": "Add",
+      "remove": "Remove",
+      "save": "Save",
+      "filtering": "Filter",
+      "cancel": "Cancel",
+      "more": "More",
+      "confirm": "Confirm"
+    },
+    "validation": {
+      "required": "Must not remain empty",
+      "noDigitsAllowed": "Numbers are not allowed",
+      "notEnoughChars": "Not enough characters",
+      "tooMuchChars": "Too much characters",
+      "onlyDigitsAllowed": "Only numbers are allowed",
+      "digitsAtStartNeeded": "Must start with a number"
+    }
+  }
 }
