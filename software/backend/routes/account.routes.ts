@@ -43,7 +43,7 @@ account.post("/login", (req: Request, res: Response) => {
 })
 
 // Creating a new user
-account.post("/", (req: Request, res: Response) => {
+account.post("/", async (req: Request, res: Response) => {
   // Check if username is valid
   if (!validateString(req.body.username, 4))
   {
@@ -65,6 +65,15 @@ account.post("/", (req: Request, res: Response) => {
   }
 
   // Create account
+  await AccountRole.findOne({
+    where: {
+      name: "User"
+    }
+  })
+    .then(role => {
+      req.body["accountRoleId"] = role.id
+    })
+
   Account.create(req.body)
     .then(account => {
       // Status: 201 Created

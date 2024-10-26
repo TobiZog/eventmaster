@@ -22,6 +22,14 @@ const basketStore = useBasketStore()
     </v-badge>
   </div>
 
+  <v-btn
+    v-if="accountStore.userAccount.accountRole != null && 
+      accountStore.userAccount.accountRole.privilegeAdminPanel"
+    variant="plain"
+    icon="mdi-table-cog"
+    to="/admin"
+  />
+
   <v-btn variant="plain" icon="mdi-help" to="/help" />
   <v-btn variant="plain" icon="mdi-cog" to="/preferences"/>
 </template>

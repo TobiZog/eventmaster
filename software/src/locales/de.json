@@ -32,7 +32,15 @@
     "rating": "Bewertung | Bewertungen",
     "bandMember": "Band Mitglieder",
     "image": "Foto | Fotos",
-    "genre": "Genre | Genres"
+    "genre": "Genre | Genres",
+    "name": "Bandname",
+    "editBand": "Band bearbeiten",
+    "foundingYear": "Gründungsjahr",
+    "descriptionDe": "Beschreibung Deutsch",
+    "descriptionEn": "Beschreibung Englisch",
+    "addNewBand": "Neue Band hinzufügen",
+    "logo": "Band Logo",
+    "imageMember": "Bilder Mitglieder"
   },
   "ticket": {
     "tickets": "Ticket | Tickets"
@@ -136,7 +144,11 @@
     "orderPlaceSuccessfull": "Bestellung erfolgreich aufgegeben",
     "basketTicketAdded": "Ticket zum Warenkorb hinzugefügt",
     "basketTicketRemoved": "Ticket aus Warenkorb entfernt",
-    "exerciseSolvedNr": "Aufgabe {0}.{1} gelöst!"
+    "exerciseSolvedNr": "Aufgabe {0}.{1} gelöst!",
+    "bandDeleteError": "Fehler beim Löschen der Band",
+    "bandDeleteSuccessful": "Band erfolgreich gelöscht",
+    "bandSavedError": "Fehler beim Speichern der Band",
+    "bandSavedSuccessful": "Band erfolgreich gespeichert"
   },
   "misc": {
     "sortBy": "Sortieren nach",

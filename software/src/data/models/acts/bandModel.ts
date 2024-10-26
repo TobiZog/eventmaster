@@ -1,5 +1,5 @@
 export class BandModel {
-  id: number = -1
+  id: number
   name: string = ""
   foundingYear: number = 1900
   descriptionEn: string = ""

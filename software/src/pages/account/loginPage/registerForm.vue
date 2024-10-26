@@ -13,7 +13,7 @@ async function registerAccount() {
   accountStore.registerAccount()
     .then(result => {
       if (result) {
-        router.push("/account/home")
+        showRegisterCard.value = false
       }
     })
 }

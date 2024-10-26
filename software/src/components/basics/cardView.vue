@@ -44,7 +44,7 @@ defineProps({
 
     <v-container>
       <v-row>
-        <v-col >
+        <v-col>
           <slot></slot>
         </v-col>
       </v-row>

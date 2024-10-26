@@ -95,11 +95,7 @@ export const useAccountStore = defineStore("accountStore", {
             password: this.registerData.password
           }
 
-          await this.login()
-            .then(result => {
-              this.fetchInProgress = false
-              return true
-            })
+          this.fetchInProgress = false
         })
         .catch((error) => {
           if (error.status == 400) {

@@ -131,6 +131,25 @@ export const useFeedbackStore = defineStore("feedbackStore", {
         case BannerStateEnum.ORDERPLACESUCCESSFUL: {
           this.title = this.i18n.t('bannerMessages.orderPlaceSuccessfull'); break;
         }
+
+
+        ////////// API Endpoint /bands //////////
+
+        case BannerStateEnum.BANDDELETEERROR: {
+          this.title = this.i18n.t('bannerMessages.bandDeleteError'); break;
+        }
+
+        case BannerStateEnum.BANDDELETESUCCESSFUL: {
+          this.title = this.i18n.t('bannerMessages.bandDeleteSuccessful'); break;
+        }
+
+        case BannerStateEnum.BANDSAVEDERROR: {
+          this.title = this.i18n.t('bannerMessages.bandSavedError'); break;
+        }
+
+        case BannerStateEnum.BANDSAVEDSUCCESSFUL: {
+          this.title = this.i18n.t('bannerMessages.bandSavedSuccessful'); break;
+        }
       }
 
 
@@ -142,8 +161,8 @@ export const useFeedbackStore = defineStore("feedbackStore", {
         case BannerStateEnum.ACCOUNTLOGINWRONGLOGIN:
         case BannerStateEnum.ACCOUNTREGISTERERROR:
         case BannerStateEnum.ACCOUNTREGISTERUSERNAMEINUSE:
-        case BannerStateEnum.PRODUCTDELETESUCCESSFUL:
-        case BannerStateEnum.PRODUCTDELETEERROR:
+        case BannerStateEnum.BANDDELETEERROR:
+        case BannerStateEnum.BANDSAVEDERROR:
           this.color = "red"
           break;
         
@@ -154,8 +173,9 @@ export const useFeedbackStore = defineStore("feedbackStore", {
         case BannerStateEnum.ACCOUNTUPDATESUCCESSFUL:
         case BannerStateEnum.ACCOUNTLOGOUTSUCCESSFUL:
         case BannerStateEnum.ORDERPLACESUCCESSFUL:
-        case BannerStateEnum.PRODUCTCREATESUCCESSFUL:
-        case BannerStateEnum.PRODUCTCREATEERROR:
+        case BannerStateEnum.BANDDELETESUCCESSFUL:
+        case BannerStateEnum.BANDSAVEDSUCCESSFUL:
+        case BannerStateEnum.EXERCISEPROGRESSRESETSUCCESSFUL:
           this.color = "green"
           break;
 
@@ -192,14 +212,6 @@ export const useFeedbackStore = defineStore("feedbackStore", {
           this.icon = "mdi-account"
           break;
 
-
-        case BannerStateEnum.PRODUCTDELETESUCCESSFUL:
-        case BannerStateEnum.PRODUCTDELETEERROR:
-        case BannerStateEnum.PRODUCTCREATESUCCESSFUL:
-        case BannerStateEnum.PRODUCTCREATEERROR:
-          this.icon = "mdi-store"
-          break;
-
         case BannerStateEnum.EXERCISESOLVED01:
         case BannerStateEnum.EXERCISESOLVED02:
         case BannerStateEnum.EXERCISESOLVED11:
@@ -214,6 +226,7 @@ export const useFeedbackStore = defineStore("feedbackStore", {
           this.icon = "mdi-check-circle-outline"
           break;
         
+      
         case BannerStateEnum.DATABASERESETSUCCESSFUL:
           this.icon = "mdi-database-refresh"
           break;
@@ -241,6 +254,13 @@ export const useFeedbackStore = defineStore("feedbackStore", {
         
         case BannerStateEnum.ACCOUNTUPDATESUCCESSFUL:
           this.icon = "mdi-account-reactivate"
+          break;
+
+        case BannerStateEnum.BANDDELETEERROR:
+        case BannerStateEnum.BANDDELETESUCCESSFUL:
+        case BannerStateEnum.BANDSAVEDERROR:
+        case BannerStateEnum.BANDSAVEDSUCCESSFUL:
+          this.icon = "mdi-guitar-electric"
           break;
       }
 

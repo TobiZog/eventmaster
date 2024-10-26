@@ -1,10 +1,12 @@
 import { defineStore } from "pinia";
 import { ref } from "vue";
 import { BandApiModel } from "../data/models/acts/bandApiModel";
-import { fetchAllBands, fetchBandByName } from "../data/api/bandApi";
+import { fetchAllBands, fetchBandByName, patchBand, postBand } from "../data/api/bandApi";
 import { BandDetailsApiModel } from "../data/models/acts/bandDetailsApiModel";
 import { GenreModel } from "@/data/models/acts/genreModel";
 import { fetchAllGenres } from "@/data/api/genreApi";
+import { useFeedbackStore } from "./feedback.store";
+import { BannerStateEnum } from "@/data/enums/bannerStateEnum";
 
 export const useBandStore = defineStore("bandStore", {
   state: () => ({
@@ -21,7 +23,10 @@ export const useBandStore = defineStore("bandStore", {
     availableGenres: ref<Array<GenreModel>>([]),
     
     /** Request to server sent, waiting for data response */
-    fetchInProgress: ref(false)
+    fetchInProgress: ref(false),
+
+    /** Show or hide the edit dialog for edit a band */
+    showBandEditDialog: ref(false)
   }),
 
   actions: {
@@ -66,11 +71,74 @@ export const useBandStore = defineStore("bandStore", {
     async getBand(name: string) {
       this.fetchInProgress = true
 
-      fetchBandByName(name)
+      await fetchBandByName(name)
         .then(result => {
           this.band = result.data
           this.fetchInProgress = false
         })
+    },
+
+    /**
+     * Prepare edit dialog for new band, opens it
+     */
+    newBand() {
+      this.band = new BandDetailsApiModel()
+
+      this.showBandEditDialog = true
+    },
+
+    /**
+     * Edit a band. Fetch all information about the band, opens the edit dialog
+     * 
+     * @param name Name of band to edit
+     */
+    async editBand(name: string) {
+      await this.getBand(name)
+      
+      this.showBandEditDialog = true
+    },
+
+    /**
+     * Save band in this store to the database
+     */
+    saveBand() {
+      const feedbackStore = useFeedbackStore()
+      this.fetchInProgress = true
+
+      if (this.band.id == undefined) {
+        postBand(this.band)
+          .then(result => {
+            if (result.status == 200) {
+              feedbackStore.changeBanner(BannerStateEnum.BANDSAVEDSUCCESSFUL)
+
+              this.getBands()
+              this.showBandEditDialog = false
+            } else {
+              feedbackStore.changeBanner(BannerStateEnum.BANDSAVEDERROR)
+            }
+          })
+      } else {
+        patchBand(this.band)
+          .then(result => {
+            if (result.status == 200) {
+              feedbackStore.changeBanner(BannerStateEnum.BANDSAVEDSUCCESSFUL)
+
+              this.getBands()
+              this.showBandEditDialog = false
+            } else {
+              feedbackStore.changeBanner(BannerStateEnum.BANDSAVEDERROR)
+            }
+          })
+      }
+    },
+
+    /**
+     * Delete a band by it's identifier
+     * 
+     * @param id Id of the band in the database
+     */
+    deleteBand(id: number) {
+      // todo
     }
   }
 })

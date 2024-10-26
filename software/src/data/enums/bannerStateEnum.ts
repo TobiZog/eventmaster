@@ -76,17 +76,13 @@ export enum BannerStateEnum {
   ORDERPLACESUCCESSFUL,
 
 
-  ////////// API Endpoint /products //////////
+  ////////// API Endpoint /bands //////////
 
-  // Status: 201 Created
-  PRODUCTCREATESUCCESSFUL,
+  BANDSAVEDSUCCESSFUL,
 
-  // Status: 400 Bad request
-  PRODUCTCREATEERROR,
+  BANDSAVEDERROR,
 
-  // Status: 200 OK
-  PRODUCTDELETESUCCESSFUL,
+  BANDDELETESUCCESSFUL,
 
-  // Status: 400 Bad request
-  PRODUCTDELETEERROR
+  BANDDELETEERROR
 }

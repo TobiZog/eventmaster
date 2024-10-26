@@ -32,7 +32,15 @@
     "rating": "Rating | Ratings",
     "bandMember": "Band Member",
     "image": "Photo | Photos",
-    "genre": "Genre | Genres"
+    "genre": "Genre | Genres",
+    "name": "Name of band",
+    "editBand": "Edit band",
+    "foundingYear": "Founding Year",
+    "descriptionDe": "Description German",
+    "descriptionEn": "Description English",
+    "addNewBand": "Add new Band",
+    "logo": "Band logo",
+    "imageMember": "Images Members"
   },
   "ticket": {
     "tickets": "Ticket | Tickets"
@@ -136,7 +144,11 @@
     "orderPlaceSuccessfull": "Order successfully placed",
     "basketTicketAdded": "Added ticket to basket",
     "basketTicketRemoved": "Removed ticket from basket",
-    "exerciseSolvedNr": "Exercise {0}.{1} solved!"
+    "exerciseSolvedNr": "Exercise {0}.{1} solved!",
+    "bandDeleteError": "Error on deleting band",
+    "bandDeleteSuccessful": "Band successfully deleted",
+    "bandSavedError": "Error on saving band",
+    "bandSavedSuccessful": "Band successfully saved"
   },
   "misc": {
     "sortBy": "Sort by",

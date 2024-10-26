@@ -134,3 +134,25 @@ band.get("/search", (req: Request, res: Response) => {
       res.status(200).json(bands)
     })
 })
+
+
+// Edit band
+band.patch("/", (req: Request, res: Response) => {
+  Band.update(req.body, {
+    where: {
+      id: req.body.id
+    }
+  })
+    .then(result => {
+      res.status(200).json(result)
+    })
+})
+
+
+// New band
+band.post("/", (req: Request, res: Response) => {
+  Band.create(req.body)
+    .then(result => {
+      res.status(200).json(result)
+    })
+})
