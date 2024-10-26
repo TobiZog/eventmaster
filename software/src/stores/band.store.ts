@@ -3,10 +3,9 @@ import { ref } from "vue";
 import { BandApiModel } from "../data/models/acts/bandApiModel";
 import { fetchAllBands, fetchBandByName, patchBand, postBand } from "../data/api/bandApi";
 import { BandDetailsApiModel } from "../data/models/acts/bandDetailsApiModel";
-import { GenreModel } from "@/data/models/acts/genreModel";
-import { fetchAllGenres } from "@/data/api/genreApi";
 import { useFeedbackStore } from "./feedback.store";
 import { BannerStateEnum } from "@/data/enums/bannerStateEnum";
+import { useGenreStore } from "./genre.store";
 
 export const useBandStore = defineStore("bandStore", {
   state: () => ({
@@ -16,17 +15,11 @@ export const useBandStore = defineStore("bandStore", {
     /** All information about a single band */
     band: ref<BandDetailsApiModel>(new BandDetailsApiModel()),
 
-    /** Genres to filter bands for */
-    filteredGenres: ref<Array<GenreModel>>([]),
-
-    /** All available genres from server */
-    availableGenres: ref<Array<GenreModel>>([]),
-    
     /** Request to server sent, waiting for data response */
     fetchInProgress: ref(false),
 
-    /** Show or hide the edit dialog for edit a band */
-    showBandEditDialog: ref(false)
+    /** Show or hide the edit dialog for edit a band or genre */
+    showEditDialog: ref(false)
   }),
 
   actions: {
@@ -34,17 +27,18 @@ export const useBandStore = defineStore("bandStore", {
      * Get all bands from server
      */
     async getBands() {
+      const genreStore = useGenreStore()
       this.fetchInProgress = true
 
       await fetchAllBands()
         .then(result => {
           this.bands = result.data.filter((band: BandApiModel) => {
-            if (this.filteredGenres.length == 0) {
+            if (genreStore.filteredGenres.length == 0) {
               return true
             }
 
             for (let bandGenre of band.genres) {
-              for (let filteredGenres of this.filteredGenres) {
+              for (let filteredGenres of genreStore.filteredGenres) {
                 if (bandGenre.name == filteredGenres.name) {
                   return true
                 }
@@ -53,11 +47,6 @@ export const useBandStore = defineStore("bandStore", {
 
             return false
           })
-        })
-
-      await fetchAllGenres()
-        .then(result => {
-          this.availableGenres = result.data
         })
 
       this.fetchInProgress = false
@@ -83,10 +72,10 @@ export const useBandStore = defineStore("bandStore", {
      */
     newBand() {
       this.band = new BandDetailsApiModel()
-
-      this.showBandEditDialog = true
+      this.showEditDialog = true
     },
 
+    
     /**
      * Edit a band. Fetch all information about the band, opens the edit dialog
      * 
@@ -95,7 +84,7 @@ export const useBandStore = defineStore("bandStore", {
     async editBand(name: string) {
       await this.getBand(name)
       
-      this.showBandEditDialog = true
+      this.showEditDialog = true
     },
 
     /**
@@ -112,7 +101,7 @@ export const useBandStore = defineStore("bandStore", {
               feedbackStore.changeBanner(BannerStateEnum.BANDSAVEDSUCCESSFUL)
 
               this.getBands()
-              this.showBandEditDialog = false
+              this.showEditDialog = false
             } else {
               feedbackStore.changeBanner(BannerStateEnum.BANDSAVEDERROR)
             }
@@ -124,7 +113,7 @@ export const useBandStore = defineStore("bandStore", {
               feedbackStore.changeBanner(BannerStateEnum.BANDSAVEDSUCCESSFUL)
 
               this.getBands()
-              this.showBandEditDialog = false
+              this.showEditDialog = false
             } else {
               feedbackStore.changeBanner(BannerStateEnum.BANDSAVEDERROR)
             }

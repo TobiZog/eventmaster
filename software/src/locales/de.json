@@ -40,7 +40,9 @@
     "descriptionEn": "Beschreibung Englisch",
     "addNewBand": "Neue Band hinzufügen",
     "logo": "Band Logo",
-    "imageMember": "Bilder Mitglieder"
+    "imageMember": "Bilder Mitglieder",
+    "addNewGenre": "Neues Genre hinzufügen",
+    "editGenre": "Genre bearbeiten"
   },
   "ticket": {
     "tickets": "Ticket | Tickets"

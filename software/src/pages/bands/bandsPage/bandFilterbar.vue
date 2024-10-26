@@ -3,8 +3,10 @@ import cardView from '@/components/basics/cardView.vue';
 import { useBandStore } from '@/stores/band.store';
 import outlinedButton from '@/components/basics/outlinedButton.vue';
 import { GenreModel } from '@/data/models/acts/genreModel';
+import { useGenreStore } from '@/stores/genre.store';
 
 const bandStore = useBandStore()
+const genreStore = useGenreStore()
 
 function itemProps(item: GenreModel) {
   return {
@@ -21,8 +23,8 @@ function itemProps(item: GenreModel) {
     <v-row>
       <v-col>
         <v-select
-          v-model="bandStore.filteredGenres"
-          :items="bandStore.availableGenres"
+          v-model="genreStore.filteredGenres"
+          :items="genreStore.genres"
           variant="outlined"
           :label="$t('band.genre', 2)"
           :item-props="itemProps"

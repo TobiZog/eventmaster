@@ -3,8 +3,10 @@ import actionDialog from '@/components/basics/actionDialog.vue';
 import OutlinedButton from '@/components/basics/outlinedButton.vue';
 import { GenreModel } from '@/data/models/acts/genreModel';
 import { useBandStore } from '@/stores/band.store';
+import { useGenreStore } from '@/stores/genre.store';
 
 const bandStore = useBandStore()
+const genreStore = useGenreStore()
 
 function itemProps(item: GenreModel) {
   return {
@@ -15,7 +17,7 @@ function itemProps(item: GenreModel) {
 
 <template>
   <action-dialog
-    v-model="bandStore.showBandEditDialog"
+    v-model="bandStore.showEditDialog"
     :title="$t('band.editBand')"
     icon="mdi-pencil"
   >
@@ -43,7 +45,7 @@ function itemProps(item: GenreModel) {
           <v-select
             :label="$t('band.genre', 2)"
             v-model="bandStore.band.genres"
-            :items="bandStore.availableGenres"
+            :items="genreStore.genres"
             :item-props="itemProps"
             variant="outlined"
             hide-details

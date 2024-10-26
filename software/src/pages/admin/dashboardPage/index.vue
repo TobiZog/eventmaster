@@ -8,11 +8,13 @@ import { useAccountStore } from '@/stores/account.store';
 import { useLocationStore } from '@/stores/location.store';
 import { ref } from 'vue';
 import { useExerciseStore } from '@/stores/exercise.store';
+import { useGenreStore } from '@/stores/genre.store';
 
 const router = useRouter()
 const concertStore = useConcertStore()
 const bandStore = useBandStore()
 const accountStore = useAccountStore()
+const genreStore = useGenreStore()
 const locationStore = useLocationStore()
 const soldOutConcerts = ref(0)
 const exerciseStore = useExerciseStore()
@@ -21,6 +23,7 @@ exerciseStore.solveExercise(2, 1)
 
 bandStore.getBands()
 locationStore.getLocations()
+genreStore.getGenres()
 concertStore.getConcerts()
   .then(result => {
     for(let concert of concertStore.concerts) {
@@ -112,7 +115,7 @@ concertStore.getConcerts()
           icon="mdi-account"
         >
           <div class="text-h4 text-center">
-            {{ bandStore.availableGenres.length }} {{ $t('band.genre', 2) }}
+            {{ genreStore.genres.length }} {{ $t('band.genre', 2) }}
           </div>
 
           <template #actions>
