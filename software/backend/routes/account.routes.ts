@@ -8,6 +8,15 @@ import { Exercise } from "../models/exercises/exercise.model";
 
 export const account = Router()
 
+account.get("/", (req: Request, res: Response) => {
+  Account.findAll({
+    include: [ AccountRole ]
+  })
+    .then(accounts => {
+      res.status(200).json(accounts)
+    })
+})
+
 // Login user
 account.post("/login", (req: Request, res: Response) => {
   Account.findOne({ 

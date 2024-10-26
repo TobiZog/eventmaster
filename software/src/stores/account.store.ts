@@ -3,7 +3,7 @@ import { defineStore } from "pinia";
 import { AccountModel } from "../data/models/user/accountModel";
 import { OrderModel } from "../data/models/ordering/orderModel";
 import { useFeedbackStore } from "./feedback.store";
-import { loginAccount, registerAccount, updateAccount } from "../data/api/accountApi";
+import { fetchAllAccounts, loginAccount, registerAccount, updateAccount } from "../data/api/accountApi";
 import { fetchUserOrders } from "../data/api/orderApi";
 import { BannerStateEnum } from "../data/enums/bannerStateEnum";
 import { AddressModel } from "../data/models/user/addressModel";
@@ -11,18 +11,23 @@ import { PaymentModel } from "../data/models/user/paymentModel";
 import { AccountApiModel } from "../data/models/user/accountApiModel";
 import { ref } from "vue";
 import { OrderApiModel } from "@/data/models/apiEndpoints/orderApiModel";
+import { LocationApiModel } from "@/data/models/locations/locationApiModel";
 
 export const useAccountStore = defineStore("accountStore", {
   state: () => ({
+    /** All accounts */
+    accounts: ref<Array<LocationApiModel>>([]),
+
     /** Useraccount which is currently logged in */
     userAccount: useLocalStorage("hackmycart/accountStore/userAccount", new AccountApiModel()),
 
     /** User input on login screen */
+    // todo: Remove JSON!
     loginData: ref<{ username: String, password: String}>(
       { username: "duranduran", password: "H4nn0ver" }
     ),
 
-    /** */
+    /** Buffer for register data */
     registerData: ref<AccountModel>(new AccountModel()),
 
     /** All orders of the user */
@@ -33,6 +38,16 @@ export const useAccountStore = defineStore("accountStore", {
   }),
 
   actions: {
+    async getAllAccounts() {
+      this.fetchInProgress = true
+
+      fetchAllAccounts()
+        .then(response => {
+          this.accounts = response.data
+          this.fetchInProgress = false
+        })
+    },
+
     /**
      * Start the login process
      * 

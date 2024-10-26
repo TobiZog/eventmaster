@@ -3,6 +3,10 @@ import { AccountModel } from "../models/user/accountModel"
 
 const BASE_URL = "http://localhost:3000/accounts"
 
+export async function fetchAllAccounts() {
+  return await axios.get(BASE_URL)
+}
+
 export async function loginAccount(username: string, password: string) {
   return await axios.post(BASE_URL + "/login", { 
       username: username,

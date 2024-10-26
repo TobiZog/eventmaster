@@ -24,6 +24,7 @@ exerciseStore.solveExercise(2, 1)
 bandStore.getBands()
 locationStore.getLocations()
 genreStore.getGenres()
+accountStore.getAllAccounts()
 concertStore.getConcerts()
   .then(result => {
     for(let concert of concertStore.concerts) {
@@ -106,13 +107,24 @@ concertStore.getConcerts()
           :title="$t('account.account', 2)"
           icon="mdi-account"
         >
+          <div class="text-h4 text-center">
+            {{ accountStore.accounts.length }} {{ $t('account.account', accountStore.accounts.length) }}
+          </div>
+
+          <template #actions>
+            <outlined-button
+              @click="router.push('/admin/accounts')"
+            >
+              {{ $t('misc.actions.more') }}
+            </outlined-button>
+          </template>
         </card-view>
       </v-col>
 
       <v-col>
         <card-view
           :title="$t('band.genre', 2)"
-          icon="mdi-account"
+          icon="mdi-music-clef-treble"
         >
           <div class="text-h4 text-center">
             {{ genreStore.genres.length }} {{ $t('band.genre', 2) }}
