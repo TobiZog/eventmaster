@@ -21,7 +21,9 @@ export const useLocationStore = defineStore("locationStore", {
     cities: ref<Array<CityModel>>([]),
 
     /** Request to server sent, waiting for data response */
-    fetchInProgress: ref(false)
+    fetchInProgress: ref(false),
+
+    showEditLocation: ref(false)
   }),
 
   actions: {
@@ -75,6 +77,21 @@ export const useLocationStore = defineStore("locationStore", {
         .then(result => {
           this.topLocations = result.data
         })
+    },
+
+
+    newLocation() {
+      this.location = new LocationDetailsApiModel()
+      this.showEditLocation = true
+    },
+
+    editLocation(item: LocationApiModel) {
+      this.location = item
+      this.showEditLocation = true
+    },
+
+    async deleteLocation(item: LocationApiModel) {
+      // todo
     }
   },
 })

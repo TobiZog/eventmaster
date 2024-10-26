@@ -14,7 +14,15 @@
       "seatPlan": "Seat plan | Seat plans",
       "seatSelection": "Seat selection",
       "standingArea": "Seat area"
-    }
+    },
+    "nrOfConcerts": "Concerts",
+    "capacity": "Capacity",
+    "layoutNr": "Layout Nr",
+    "name": "Location Name",
+    "address": "Adress",
+    "imageIndoor": "Image Indoor",
+    "imageOutdoor": "Image Outdoor",
+    "addLocation": "Add new Location"
   },
   "concert": {
     "concert": "Concert | Concerts",

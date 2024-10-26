@@ -14,7 +14,15 @@
       "seatPlan": "Saalplan | Saalpläne",
       "seatSelection": "Sitzauswahl",
       "standingArea": "Stehbereich"
-    }
+    },
+    "nrOfConcerts": "Konzerte",
+    "capacity": "Kapazität",
+    "layoutNr": "Layout Nr",
+    "name": "Location Name",
+    "address": "Adresse",
+    "imageIndoor": "Bild Innenraum",
+    "imageOutdoor": "Bild Außen",
+    "addLocation": "Neue Location hinzufügen"
   },
   "concert": {
     "concert": "Konzert | Konzerte",
