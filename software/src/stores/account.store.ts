@@ -16,7 +16,7 @@ import { LocationApiModel } from "@/data/models/locations/locationApiModel";
 export const useAccountStore = defineStore("accountStore", {
   state: () => ({
     /** All accounts */
-    accounts: ref<Array<LocationApiModel>>([]),
+    accounts: ref<Array<AccountApiModel>>([]),
 
     /** Useraccount which is currently logged in */
     userAccount: useLocalStorage("hackmycart/accountStore/userAccount", new AccountApiModel()),
@@ -165,17 +165,6 @@ export const useAccountStore = defineStore("accountStore", {
         })
     },
 
-    getOrderTotalPrice(orderId: number) {
-      let totalPrice = 0
-      let order: OrderModel = this.orders.find((order: OrderModel) => order.id == orderId)
-      
-      // for (let item of order.orderItems) {
-      //   totalPrice += calcPrice(item.orderPrice, 0, item.quantity)
-      // }
-
-      return Math.round(totalPrice * 100) / 100
-    },
-
     /**
      * Remove an address from the user model
      * 
@@ -196,6 +185,14 @@ export const useAccountStore = defineStore("accountStore", {
       this.userAccount.payments = this.userAccount.payments.filter((paym: PaymentModel) =>
         paym != payment
       )
+    },
+
+    editAccount(item: AccountModel) {
+      // todo
+    },
+
+    async deleteAccount(item: AccountModel) {
+      // todo
     }
   }
 })

@@ -4,6 +4,7 @@ import { ConcertApiModel } from "../data/models/acts/concertApiModel";
 import { fetchConcertById, fetchAllConcerts, fetchUpcomingConcerts } from "../data/api/concertApi";
 import { ConcertDetailsApiModel } from "../data/models/acts/concertDetailsApiModel";
 import { CityModel } from "@/data/models/locations/cityModel";
+import { ConcertModel } from "@/data/models/acts/concertModel";
 
 export const useConcertStore = defineStore("concertStore", {
   state: () => ({
@@ -20,7 +21,10 @@ export const useConcertStore = defineStore("concertStore", {
     filteredCities: ref<Array<CityModel>>([]),
 
     /** Request to server sent, waiting for data response */
-    fetchInProgress: ref(false)
+    fetchInProgress: ref(false),
+
+    /** Show or hide the edit dialog for edit a concert */
+    showEditDialog: ref(false)
   }),
 
   actions: {
@@ -76,6 +80,19 @@ export const useConcertStore = defineStore("concertStore", {
           this.upcomingConcerts = result.data
           this.fetchInProgress = false
         })
+    },
+
+    newConcert() {
+      this.concert = new ConcertDetailsApiModel()
+      this.showEditDialog = true
+    },
+
+    editConcert(concert: ConcertModel) {
+      // todo
+    },
+
+    async deleteConcert(item: ConcertModel) {
+      // todo
     }
   }
 })

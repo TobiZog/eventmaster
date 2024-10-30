@@ -1,13 +1,10 @@
 <script setup lang="ts">
 import { useBandStore } from '@/stores/band.store';
-import outlinedButton from '@/components/basics/outlinedButton.vue';
 import bandEditDialog from './bandEditDialog.vue';
 import adminDataLayout from '@/layouts/adminDataLayout.vue';
-import { useRouter } from 'vue-router';
 import { useFeedbackStore } from '@/stores/feedback.store';
 
 const bandStore = useBandStore()
-const router = useRouter()
 const feedbackStore = useFeedbackStore()
 
 const headers = [
@@ -18,7 +15,7 @@ const headers = [
   { title: feedbackStore.i18n.t('band.imageMember', 2), value: "imageMembers" },
   { title: feedbackStore.i18n.t('band.image', 2), value: "images" },
   { title: feedbackStore.i18n.t('concert.concert', 2), value: "nrOfConcerts" },
-  { title: "", value: "edit", width: 130 },
+  { title: "", value: "edit", width: 130 }
 ]
 
 bandStore.getBands()

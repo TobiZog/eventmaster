@@ -31,7 +31,14 @@
     "goToTheConcert": "Zum Konzert",
     "noConcertsFound": "Keine Konzerte gefunden",
     "selectedConcert": "Ausgewähltes Konzert",
-    "concertSoldOut": "Ausverkauft"
+    "concertSoldOut": "Ausverkauft",
+    "addNewConcert": "Neues Konzert hinzufügen",
+    "date": "Datum",
+    "name": "Name des Konzertes",
+    "offered": "Angeboten",
+    "image": "Veranstaltungsbild",
+    "price": "Preis",
+    "inStock": "Übrige Tickets"
   },
   "band": {
     "band": "Band | Bands",
@@ -96,7 +103,9 @@
         "title": "Account löschen?",
         "description": "Soll der Account wirklich gelöscht werden? Dieser kann nicht mehr wiederhergestellt werden!"
       }
-    }
+    },
+    "addNewAccount": "Neuen Account hinzufügen",
+    "accountRole": "Account Rolle"
   },
   "order": {
     "orders": "Bestellung | Bestellungen",

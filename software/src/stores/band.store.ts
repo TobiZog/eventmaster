@@ -18,7 +18,7 @@ export const useBandStore = defineStore("bandStore", {
     /** Request to server sent, waiting for data response */
     fetchInProgress: ref(false),
 
-    /** Show or hide the edit dialog for edit a band or genre */
+    /** Show or hide the edit dialog for edit a band */
     showEditDialog: ref(false)
   }),
 

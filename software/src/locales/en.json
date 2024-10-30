@@ -31,7 +31,14 @@
     "goToTheConcert": "Go to concert",
     "noConcertsFound": "No Concerts found",
     "selectedConcert": "Selected Concert",
-    "concertSoldOut": "Sold out"
+    "concertSoldOut": "Sold out",
+    "addNewConcert": "Add new concert",
+    "date": "Date",
+    "name": "Name of concert",
+    "offered": "Offered",
+    "image": "Image of concert",
+    "price": "Price",
+    "inStock": "Open tickets"
   },
   "band": {
     "band": "Band | Bands",
@@ -96,7 +103,9 @@
         "title": "Delete Account?",
         "description": "Do you really want to delete this account? This is permanent!"
       }
-    }
+    },
+    "addNewAccount": "Add new account",
+    "accountRole": "Account Role"
   },
   "order": {
     "orders": "Order | Orders",
