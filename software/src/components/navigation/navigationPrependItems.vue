@@ -1,11 +1,19 @@
 <script setup lang="ts">
+import { useRouter } from 'vue-router';
+
+const router = useRouter()
 </script>
 
 <template>
-  <v-app-bar-title class="pr-5">
-    <!-- todo: Brand logo -->
-    <v-btn variant="plain" to="/" flat>HackMyCart</v-btn>
-  </v-app-bar-title>
+  <v-card
+    :link="true"
+    rounded="0"
+    elevation="0"
+    class="mr-5"
+    to="/"
+  >
+    <v-img src="logo.png" width="80" />
+  </v-card>
 
   <v-divider vertical />
 

@@ -76,7 +76,7 @@ watch(() => preferencesStore.language, () => {
         </v-sheet>
       </v-container>
 
-      <v-footer color="secondary">
+      <v-footer color="primary">
         <footer-items />
       </v-footer>
     </v-main>
