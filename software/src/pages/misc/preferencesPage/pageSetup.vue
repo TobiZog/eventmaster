@@ -30,6 +30,7 @@ function changeLanguage() {
           :items="themeEnums"
           :label="$t('preferences.selectedTheme')"
           @update:model-value="changeTheme"
+          variant="outlined"
           hide-details
         />
       </v-col>
@@ -42,6 +43,7 @@ function changeLanguage() {
           :items="$i18n.availableLocales" 
           :label="$t('preferences.language')"
           @update:model-value="changeLanguage"
+          variant="outlined"
           hide-details
         />
       </v-col>

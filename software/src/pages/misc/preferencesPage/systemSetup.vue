@@ -1,59 +1,13 @@
 <script setup lang="ts">
-import { BannerStateEnum } from '@/data/enums/bannerStateEnum';
-import { useFeedbackStore } from '@/stores/feedback.store';
 import cardView from '@/components/basics/cardView.vue';
 import outlinedButton from '@/components/basics/outlinedButton.vue';
-import { ref } from 'vue';
 import confirmDialog from '@/components/basics/confirmDialog.vue';
-import { fetchServerState, resetDatabase, resetExerciseProgress } from '@/data/api/mainApi';
 import { ServerStateEnum } from '@/data/enums/serverStateEnum';
-import packageJson from './../../../../package.json'
+import { usePreferencesStore } from '@/stores/preferences.store';
 
-const feedbackStore = useFeedbackStore()
-const showConfirmDeleteDbDialog = ref(false)
-const showConfirmDeleteExerciseProgressDialog = ref(false)
-const serverOnline = ref(ServerStateEnum.PENDING)
+const preferenceStore = usePreferencesStore()
 
-fetchServerState()
-  .then(result => {
-    if (result.status == 200) {
-      serverOnline.value = ServerStateEnum.ONLINE
-    } else {
-      serverOnline.value = ServerStateEnum.OFFLINE
-    }
-  })
-  .catch(error => {
-    serverOnline.value = ServerStateEnum.OFFLINE
-  })
-
-async function resetDb() {
-  serverOnline.value = ServerStateEnum.PENDING
-
-  await resetDatabase()
-    .then(result => {
-      if (result.status == 200) {
-        feedbackStore.changeBanner(BannerStateEnum.DATABASERESETSUCCESSFUL)
-        serverOnline.value = ServerStateEnum.ONLINE
-      }
-
-      showConfirmDeleteDbDialog.value = false
-    })
-}
-
-async function resetExerciseProg() {
-  serverOnline.value = ServerStateEnum.PENDING
-
-  await resetExerciseProgress()
-    .then(result => {
-      if (result.status == 200) {
-        feedbackStore.changeBanner(BannerStateEnum.EXERCISEPROGRESSRESETSUCCESSFUL)
-        serverOnline.value = ServerStateEnum.ONLINE
-      }
-
-      showConfirmDeleteExerciseProgressDialog.value = false
-    })
-}
-
+preferenceStore.getServerState()
 </script>
 
 <template>
@@ -64,36 +18,32 @@ async function resetExerciseProg() {
     <v-row>
       <v-col>
         {{ $t('preferences.serverState') }}:
-        <span v-if="serverOnline == ServerStateEnum.ONLINE" class="text-green">
+        <span v-if="preferenceStore.serverState == ServerStateEnum.ONLINE" class="text-green">
           <v-icon icon="mdi-check" />
           Online
         </span>
 
-        <span v-else-if="serverOnline == ServerStateEnum.OFFLINE" class="text-red">
+        <span v-else-if="preferenceStore.serverState == ServerStateEnum.OFFLINE" class="text-red">
           <v-icon icon="mdi-alert-circle" />
           Offline
         </span>
 
-        <span v-else-if="serverOnline == ServerStateEnum.PENDING" class="text-orange">
+        <span v-else-if="preferenceStore.serverState == ServerStateEnum.PENDING" class="text-orange">
           <v-icon icon="mdi-clock" />
           Pending...
         </span>
       </v-col>
     </v-row>
 
-    <v-row>
-      <v-col>
-        Software Version: {{ packageJson.version }}
-      </v-col>
-    </v-row>
+    
 
     <v-row>
       <v-col class="d-flex justify-center align-center">
         <outlined-button
-          @click="showConfirmDeleteDbDialog = true"
+          @click="preferenceStore.showDeleteDbDialog = true"
           prepend-icon="mdi-database-refresh"
           color="red"
-          :disabled="serverOnline != ServerStateEnum.ONLINE"
+          :disabled="preferenceStore.serverState != ServerStateEnum.ONLINE"
         >
           {{ $t('preferences.resetDatabase.resetDatabase') }}
         </outlined-button>
@@ -103,10 +53,10 @@ async function resetExerciseProg() {
     <v-row>
       <v-col class="d-flex justify-center align-center">
         <outlined-button
-        @click="showConfirmDeleteExerciseProgressDialog = true"
+        @click="preferenceStore.showDeleteExerciseDialog = true"
           prepend-icon="mdi-progress-close"
           color="red"
-          :disabled="serverOnline != ServerStateEnum.ONLINE"
+          :disabled="preferenceStore.serverState != ServerStateEnum.ONLINE"
         >
           {{ $t('preferences.resetExerciseProgress.resetExerciseProgress') }}
         </outlined-button>
@@ -118,15 +68,17 @@ async function resetExerciseProg() {
   <confirm-dialog
     :title="$t('preferences.resetDatabase.dialog.title')"
     :description="$t('preferences.resetDatabase.dialog.description')"
-    v-model="showConfirmDeleteDbDialog"
-    :onConfirm="resetDb"
+    v-model="preferenceStore.showDeleteDbDialog"
+    :onConfirm="preferenceStore.resetDb"
+    :loading="preferenceStore.fetchInProgress"
   />
 
   <!-- Confirm delete exercise progress -->
   <confirm-dialog
     :title="$t('preferences.resetExerciseProgress.dialog.title')"
     :description="$t('preferences.resetExerciseProgress.dialog.description')"
-    v-model="showConfirmDeleteExerciseProgressDialog"
-    :onConfirm="resetExerciseProg"
+    v-model="preferenceStore.showDeleteExerciseDialog"
+    :onConfirm="preferenceStore.resetExerciseProg"
+    :loading="preferenceStore.fetchInProgress"
   />
 </template>

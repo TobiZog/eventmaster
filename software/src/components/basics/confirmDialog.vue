@@ -8,12 +8,12 @@ const showDialog: ModelRef<boolean> = defineModel()
 const props = defineProps({
   title: String,
   description: String,
-  onConfirm: Function
+  onConfirm: Function,
+  loading: Boolean
 })
 
 function confirmPressed() {
   props.onConfirm()
-  showDialog.value = false
 }
 </script>
 
@@ -22,6 +22,7 @@ function confirmPressed() {
     :title="title"
     max-width="400"
     v-model="showDialog"
+    persistent
   >
     {{ description }}
 
@@ -30,6 +31,7 @@ function confirmPressed() {
         @click="showDialog = false" 
         prepend-icon="mdi-close"
         color="orange"
+        :loading="loading"
       >
         {{ $t("misc.actions.cancel") }}
       </outlined-button>
@@ -38,6 +40,7 @@ function confirmPressed() {
         @click="confirmPressed"
         prepend-icon="mdi-check"
         color="red"
+        :loading="loading"
       >
         {{ $t("misc.actions.confirm") }}
       </outlined-button>

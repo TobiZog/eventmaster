@@ -27,7 +27,32 @@
       "nameDe": "SQL Injections",
       "nameEn": "SQL Injections",
       "groupNr": 1,
-      "exercises": []
+      "exercises": [
+        {
+          "nameDe": "Accountnamen auslesen",
+          "nameEn": "Readout account names",
+          "exerciseNr": 1,
+          "descriptionDe": "Lasse dir alle Accountnamen über das Suchfeld ausgeben",
+          "descriptionEn": "Readout all account names via the search field",
+          "solved": false
+        },
+        {
+          "nameDe": "Passwort auslesen",
+          "nameEn": "Readout password",
+          "exerciseNr": 2,
+          "descriptionDe": "Versuche ein Passwort aus der Datenbank eines Accounts auszulesen",
+          "descriptionEn": "Get the password of an account from the database",
+          "solved": false
+        },
+        {
+          "nameDe": "Verändere deine Account Berechtigungen",
+          "nameEn": "Change your account role",
+          "exerciseNr": 3,
+          "descriptionDe": "Ändere die Berechtigungen deines Accounts",
+          "descriptionEn": "Change the privileges of your account",
+          "solved": false
+        }
+      ]
     },
     {
       "nameDe": "Broken Access Control",
@@ -40,6 +65,14 @@
           "exerciseNr": 1,
           "descriptionDe": "Manipuliere die URL so, dass du das Admin-Panel erreichen kannst",
           "descriptionEn": "Manipulate the URL and access the admin panel",
+          "solved": false
+        },
+        {
+          "nameDe": "Das versteckte Konzert buchen",
+          "nameEn": "Book the hidden concert",
+          "exerciseNr": 2,
+          "descriptionDe": "Manipuliere die URL so, dass du das ausgebuchte Konzert aufrufen kannst und buche ein Ticket dafür",
+          "descriptionEn": "Manipulate the URL and access the sold out concert and buy a ticket",
           "solved": false
         }
       ]
@@ -55,6 +88,22 @@
           "exerciseNr": 1,
           "descriptionDe": "Nimm dir eine URL des Shops und erweitere sie mit JavaScript Code so, dass beim Öffnen des Links eine 'Hallo Welt' Nachricht erscheint",
           "descriptionEn": "Take an URL of the shop and extend it with JavaScript code so that a 'Hello World' message appears whent the link is opened",
+          "solved": false
+        },
+        {
+          "nameDe": "Ein externes Script aufrufen",
+          "nameEn": "Run an external script",
+          "exerciseNr": 2,
+          "descriptionDe": "Bearbeite die URL des Shops so, dass du das Script ausführen kannst",
+          "descriptionEn": "Create an URL of the shop, which calls the script",
+          "solved": false
+        },
+        {
+          "nameDe": "Hacken mit eigenem Script",
+          "nameEn": "Hack with your script",
+          "exerciseNr": 3,
+          "descriptionDe": "Schreibe eine JavaScript Datei, lade sie über das Admin Panel hoch und kreiere eine URL, welche es ausführt",
+          "descriptionEn": "Write our own JavaScript file, upload it via Admin Panel and create an URL to execute it",
           "solved": false
         }
       ]

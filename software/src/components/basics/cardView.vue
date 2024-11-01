@@ -29,8 +29,8 @@ defineProps({
           style="background-color: transparent"
         >
           <div>
-            <div class="pl-2 py-1">
-              <v-icon :icon="icon" v-if="icon" /> &nbsp;{{ title }}
+            <div class="pl-2 py-1 d-flex justify-center">
+              <v-icon :icon="icon" v-if="icon" />&nbsp;{{ title }}
             </div>
             <div>
               <v-card-subtitle >{{ subtitle }}</v-card-subtitle>
@@ -40,9 +40,9 @@ defineProps({
       </v-sheet>
     </v-card-title>
 
-    <slot name="borderless"></slot>
+    <slot name="borderless" v-if="$slots.borderless"></slot>
 
-    <v-container>
+    <v-container v-if="$slots.default">
       <v-row>
         <v-col>
           <slot></slot>
