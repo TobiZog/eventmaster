@@ -6,13 +6,13 @@ import outlinedButton from '@/components/basics/outlinedButton.vue';
 
 const router = useRouter()
 const bandStore = useBandStore()
-const window = ref(0)
 
 bandStore.getBands()
 </script>
 
-<template>  
+<template>
   <v-carousel
+    v-if="bandStore.bands.length > 0"
     hide-delimiters
     hide-delimiter-background
     height="700"
@@ -35,6 +35,7 @@ bandStore.getBands()
     </template>
 
     <v-carousel-item
+      
       v-for="band in bandStore.bands"
       :src="'http://localhost:3000/static/' + band.imageMembers" 
       cover
