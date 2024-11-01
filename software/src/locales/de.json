@@ -57,7 +57,8 @@
     "logo": "Band Logo",
     "imageMember": "Bilder Mitglieder",
     "addNewGenre": "Neues Genre hinzufügen",
-    "editGenre": "Genre bearbeiten"
+    "editGenre": "Genre bearbeiten",
+    "bandDetails": "Band Details"
   },
   "ticket": {
     "tickets": "Ticket | Tickets"

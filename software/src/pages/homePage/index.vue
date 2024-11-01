@@ -1,11 +1,11 @@
 <script setup lang="ts">
-import highlightCarousel from './highlightCarousel.vue';
 import sectionDivider from '@/components/basics/sectionDivider.vue';
 import cardWithTopImage from '@/components/basics/cardViewTopImage.vue';
 import OutlinedButton from '@/components/basics/outlinedButton.vue';
 import { useRouter } from 'vue-router';
 import { useConcertStore } from '@/stores/concert.store';
 import { useLocationStore } from '@/stores/location.store';
+import bandSection from './bandsSection.vue';
 
 const router = useRouter()
 const concertStore = useConcertStore()
@@ -16,9 +16,12 @@ locationStore.getTopLocations()
 </script>
 
 <template>
-  <highlight-carousel />
+  <div class="pt-4">
+    <band-section />
+  </div>
 
   <v-container>
+
     <v-row>
       <v-spacer />
 
@@ -91,8 +94,5 @@ locationStore.getTopLocations()
 
       <v-spacer />
     </v-row>
-    
-
-    
   </v-container>
 </template>

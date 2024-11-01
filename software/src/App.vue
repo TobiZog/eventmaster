@@ -6,7 +6,7 @@ import navigationAppendItems from './components/navigation/navigationAppendItems
 import navigationPrependItems from './components/navigation/navigationPrependItems.vue';
 import { usePreferencesStore } from './stores/preferences.store';
 import { useFeedbackStore } from './stores/feedback.store';
-import footerItems from './components/navigation/footerItems.vue';
+import companyFooter from './components/navigation/companyFooter.vue';
 import urlBar from './components/navigation/urlBar.vue';
 
 const preferencesStore = usePreferencesStore()
@@ -24,8 +24,10 @@ watch(() => preferencesStore.language, () => {
 
 <template>
   <v-app>
+    <!-- Browser Navigation bar replica -->
     <url-bar />
     
+    <!-- Navigaion bar of page -->
     <v-app-bar
       height="80"
       color="primary" 
@@ -64,21 +66,13 @@ watch(() => preferencesStore.language, () => {
       </v-snackbar>
 
       <!-- Here changes the router the content -->
-      <v-container max-width="1400" class="py-0" height="100%">
+      <v-container max-width="1400" min-height="1000" class="py-0" height="100%">
         <v-sheet color="sheet" height="100%">
-          <v-sheet color="primary" >
-            <v-breadcrumbs class="position-absolute">
-              <v-breadcrumbs-item />
-            </v-breadcrumbs>
-          </v-sheet>
-
           <router-view></router-view>
         </v-sheet>
       </v-container>
 
-      <v-footer color="primary">
-        <footer-items />
-      </v-footer>
+      <company-footer />
     </v-main>
   </v-app>
 </template>
