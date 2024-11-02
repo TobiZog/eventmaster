@@ -1,0 +1,10 @@
+{
+  "include": [
+    "electron/*", 
+  ],
+  "compilerOptions": {
+    "composite": true,
+    "isolatedModules": false,
+    "outDir": "build/src/electron"
+  }
+}

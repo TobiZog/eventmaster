@@ -1,0 +1,37 @@
+{
+  "asar": true,
+  "appId": "de.luh.app",
+  "directories": {
+    "output": "out"
+  },
+
+  "nsis": {
+    "oneClick": false,
+    "perMachine": false,
+    "allowToChangeInstallationDirectory": true,
+    "shortcutName": "Electron App"
+  },
+  "mac": {
+    "target": "dmg"
+  },
+  "win": {
+    "target": "nsis"
+  },
+  "linux":  {
+    "target": ["deb"],
+    "maintainer": "Tobias Zoghaib"
+  },
+  "files": [
+    {
+      "from": "build",
+      "to": "build",
+      "filter": ["**/*"]
+    },
+    "!backend",
+    "!electron",
+    "!release",
+    "!src",
+    "!dist",
+    "!out"
+  ]
+}
