@@ -73,9 +73,12 @@ export const useLocationStore = defineStore("locationStore", {
      * Fetch top 8 locations from server
      */
     async getTopLocations() {
+      this.fetchInProgress = true
+
       await fetchTopLocations(8)
         .then(result => {
           this.topLocations = result.data
+          this.fetchInProgress = false
         })
     },
 

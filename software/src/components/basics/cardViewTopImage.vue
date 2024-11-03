@@ -26,7 +26,7 @@ defineProps({
     <v-skeleton-loader
       :loading="loading"
       type="image"
-      height="200"
+      height="150"
     >
       <v-img
         :src="'http://localhost:3000/static/' + image"
