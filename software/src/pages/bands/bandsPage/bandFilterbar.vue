@@ -8,6 +8,8 @@ import { useGenreStore } from '@/stores/genre.store';
 const bandStore = useBandStore()
 const genreStore = useGenreStore()
 
+genreStore.getGenres()
+
 function itemProps(item: GenreModel) {
   return {
     title: item.name
