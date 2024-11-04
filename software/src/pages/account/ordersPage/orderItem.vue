@@ -5,11 +5,7 @@ import { OrderApiModel } from '@/data/models/apiEndpoints/orderApiModel';
 import moment from 'moment';
 
 defineProps({
-  order: OrderApiModel,
-  loading: {
-    type: Boolean,
-    default: false
-  }
+  order: OrderApiModel
 })
 </script>
 
@@ -52,7 +48,7 @@ defineProps({
           :location="ticket.concert.location"
           :city="ticket.concert.location.city"
           :image="ticket.concert.image"
-          :seat="ticket.seat.seatNr"
+          :seat-nr="ticket.seat.seatNr"
           :seat-group="ticket.seat.seatRow.seatGroup.name"
           :seat-row="ticket.seat.seatRow.row"
         />

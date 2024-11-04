@@ -106,7 +106,8 @@
       }
     },
     "addNewAccount": "Add new account",
-    "accountRole": "Account Role"
+    "accountRole": "Account Role",
+    "noRealPaymentsNeeded": "No real payment data required!"
   },
   "order": {
     "orders": "Order | Orders",

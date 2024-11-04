@@ -1,27 +1,28 @@
 <script setup lang="ts">
 import { useAccountStore } from '@/stores/account.store';
 import orderItem from './orderItem.vue';
-import { useRouter } from 'vue-router';
-import outlinedButton from '@/components/basics/outlinedButton.vue';
+import accountSubPageLayout from '@/layouts/accountSubPageLayout.vue';
+import circularProgressIndeterminate from '@/components/basics/circularProgressIndeterminate.vue';
 
 const accountStore = useAccountStore()
-const router = useRouter()
 
 accountStore.refreshOrders()
 </script>
 
 <template>
-  <v-container max-width="1000">
-    <v-row>
-      <v-col>
-        <outlined-button prepend-icon="mdi-arrow-left" @click="router.back()" >
-          {{ $t('misc.onePageBack') }}
-        </outlined-button>
+  <account-sub-page-layout>
+    <!-- During fetching state -->
+    <v-row
+      v-if="accountStore.fetchInProgress"
+    >
+      <v-col class="text-center">
+        <circular-progress-indeterminate />
       </v-col>
     </v-row>
 
+    <!-- Display all orders -->
     <v-row
-      v-if="accountStore.orders.length > 0"
+      v-else-if="accountStore.orders.length > 0"
       v-for="order in accountStore.orders"
     >
       <v-col>
@@ -31,6 +32,7 @@ accountStore.refreshOrders()
       </v-col>
     </v-row>
 
+    <!-- No orders -->
     <v-row v-else>
       <v-col>
         <v-empty-state
@@ -40,5 +42,5 @@ accountStore.refreshOrders()
         />
       </v-col>
     </v-row>
-  </v-container>
+  </account-sub-page-layout>
 </template>

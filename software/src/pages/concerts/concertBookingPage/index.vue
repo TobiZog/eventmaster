@@ -7,6 +7,7 @@ import concertListItem from '@/components/pageParts/concertListItem.vue';
 import outlinedButton from '@/components/basics/outlinedButton.vue';
 import { useConcertStore } from '@/stores/concert.store';
 import ticketListItem from '@/components/pageParts/ticketListItem.vue';
+import circularProgressIndeterminate from '@/components/basics/circularProgressIndeterminate.vue';
 
 const router = useRouter()
 const basketStore = useBasketStore()
@@ -53,12 +54,7 @@ concertStore.getConcert(Number(router.currentRoute.value.params.id))
 
         <v-row >
           <v-col class="text-center" v-if="concertStore.fetchInProgress">
-            <v-progress-circular
-              size="x-large"
-              width="10"
-              color="primary"
-              indeterminate
-            />
+            <circular-progress-indeterminate />
 
             <div class="pt-5 text-h3">
               {{ $t('misc.loading') }}...

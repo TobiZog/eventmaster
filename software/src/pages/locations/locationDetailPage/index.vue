@@ -2,12 +2,11 @@
 import { useRouter } from 'vue-router';
 import sectionDivider from '@/components/basics/sectionDivider.vue';
 import seatPlanMap from '@/components/seatPlanMap/seatPlanMap.vue';
-import { ref } from 'vue';
 import heroImage from '@/components/pageParts/heroImage.vue';
 import concertListItem from '@/components/pageParts/concertListItem.vue';
-import { LocationDetailsApiModel } from '@/data/models/locations/locationDetailsApiModel';
 import cardViewHorizontal from '@/components/basics/cardViewHorizontal.vue';
 import { useLocationStore } from '@/stores/location.store';
+import circularProgressIndeterminate from '@/components/basics/circularProgressIndeterminate.vue';
 
 const router = useRouter()
 const locationStore = useLocationStore()
@@ -82,7 +81,7 @@ locationStore.getLocationByName(String(router.currentRoute.value.params.name))
 
         <div v-if="locationStore.fetchInProgress">
           <v-col class="text-center">
-            <v-progress-circular indeterminate :size="128" :width="12" color="primary" />
+            <circular-progress-indeterminate />
           </v-col>
         </div>
 

@@ -12,9 +12,6 @@ locationStore.getLocations()
 <template>
   <v-container>
     <v-row>
-
-    </v-row>
-    <v-row>
       <v-spacer />
 
       <v-col cols="10">
@@ -26,7 +23,7 @@ locationStore.getLocations()
             </v-col>
           </v-row>
 
-          <v-row >
+          <v-row>
             <v-col class="text-center" v-for="i in 4" cols="3">
               <card-with-top-image :loading="true" />
             </v-col>

@@ -106,7 +106,8 @@
       }
     },
     "addNewAccount": "Neuen Account hinzufügen",
-    "accountRole": "Account Rolle"
+    "accountRole": "Account Rolle",
+    "noRealPaymentsNeeded": "Keine echten Kontodaten nötig!"
   },
   "order": {
     "orders": "Bestellung | Bestellungen",
