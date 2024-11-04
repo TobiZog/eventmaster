@@ -1,9 +1,9 @@
 import { useLocalStorage } from "@vueuse/core";
-import { defineStore } from "pinia";
+import { acceptHMRUpdate, defineStore } from "pinia";
 import { AccountModel } from "../data/models/user/accountModel";
 import { OrderModel } from "../data/models/ordering/orderModel";
 import { useFeedbackStore } from "./feedback.store";
-import { fetchAllAccounts, loginAccount, registerAccount, updateAccount } from "../data/api/accountApi";
+import { deleteAccount, fetchAllAccounts, loginAccount, registerAccount, updateAccount } from "../data/api/accountApi";
 import { fetchUserOrders } from "../data/api/orderApi";
 import { BannerStateEnum } from "../data/enums/bannerStateEnum";
 import { AddressModel } from "../data/models/user/addressModel";
@@ -191,8 +191,13 @@ export const useAccountStore = defineStore("accountStore", {
       // todo
     },
 
-    async deleteAccount(item: AccountModel) {
-      // todo
+    async deleteAccount(account: AccountModel) {
+      this.fetchInProgress = true
+
+      deleteAccount(account)
+        .then(response => {
+          this.fetchInProgress = false
+        })
     }
   }
 })

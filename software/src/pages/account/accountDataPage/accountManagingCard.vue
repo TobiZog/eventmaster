@@ -43,6 +43,6 @@ const accountStore = useAccountStore()
     v-model="showConfirmDialog"
     :title="$t('account.deleteAccount.dialog.title')"
     :description="$t('account.deleteAccount.dialog.description')"
+    :on-confirm="() => accountStore.deleteAccount(accountStore.userAccount)"
   />
-    <!-- todo :onConfirm="deleteAccount" -->
 </template>

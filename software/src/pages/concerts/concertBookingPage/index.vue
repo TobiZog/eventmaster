@@ -38,12 +38,7 @@ concertStore.getConcert(Number(router.currentRoute.value.params.id))
               :link="false"
               :title="concertStore.concert.location.city.name"
               :show-button="false"
-            >
-              <template #description>
-                <p>{{ concertStore.concert.location.name }}</p>
-                <!-- todo <p>{{ concertModel.event.band.name }} - {{ concertModel.event.name }}</p> -->
-              </template>
-            </concert-list-item>
+            />
           </v-col>
         </v-row>
         <v-row>

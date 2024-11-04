@@ -21,3 +21,7 @@ export async function registerAccount(account: AccountModel) {
 export async function updateAccount(account: AccountModel) {
   return await axios.patch(BASE_URL, account)
 }
+
+export async function deleteAccount(account: AccountModel) {
+  return await axios.delete(BASE_URL + "/" + account.id)
+}

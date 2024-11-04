@@ -139,3 +139,14 @@ account.patch("/", (req: Request, res: Response) => {
     })
   })
 })
+
+account.delete("/:id", (req: Request, res: Response) => {
+  Account.destroy({
+    where: {
+      id: req.params.id
+    }
+  })
+    .then(account => {
+      res.status(200).send()
+    })
+})
