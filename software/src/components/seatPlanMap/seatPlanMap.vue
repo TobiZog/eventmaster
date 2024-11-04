@@ -13,7 +13,8 @@ let props = defineProps({
   concert: {
     type: ConcertModel,
     default: new ConcertModel()
-  }
+  },
+  disabled: Boolean
 })
 
 function findSeatCategory(name: string): SeatGroupModel {
@@ -42,6 +43,7 @@ const seatGroupI = findSeatCategory("I")
           :seat-group="seatGroupC"
           :concert="concert"
           background-color="grey"
+          :disabled="disabled"
         />
       </v-col>
 
@@ -51,6 +53,7 @@ const seatGroupI = findSeatCategory("I")
           :seat-group="seatGroupB"
           :concert="concert"
           background-color="grey"
+          :disabled="disabled"
         />
       </v-col>
 
@@ -60,6 +63,7 @@ const seatGroupI = findSeatCategory("I")
           :seat-group="seatGroupI"
           :concert="concert"
           background-color="grey"
+          :disabled="disabled"
         />
       </v-col>
     </v-row>
@@ -72,6 +76,7 @@ const seatGroupI = findSeatCategory("I")
           :seat-group="seatGroupD"
           :concert="concert"
           background-color="grey"
+          :disabled="disabled"
         />
       </v-col>
 
@@ -82,10 +87,11 @@ const seatGroupI = findSeatCategory("I")
           :concert="concert"
           background-color="grey"
           :withStage="location.layout == 3"
+          :disabled="disabled"
         />
       </v-col>
 
-      <!-- Seat Group H or stage -->
+      <!-- Stage of layout != 3 -->
       <v-col v-if="location.layout != 3">
         <v-sheet
           color="grey-darken-3"
@@ -97,11 +103,13 @@ const seatGroupI = findSeatCategory("I")
         </v-sheet>
       </v-col>
 
+      <!-- Seat Group H if layout == 3 -->
       <v-col v-else cols="4" class="pa-0">
         <seat-group-sheet
           :seat-group="seatGroupH"
           :concert="concert"
           background-color="grey"
+          :disabled="disabled"
         />
       </v-col>
     </v-row>
@@ -114,6 +122,7 @@ const seatGroupI = findSeatCategory("I")
           :seat-group="seatGroupE"
           :concert="concert"
           background-color="grey"
+          :disabled="disabled"
         />
       </v-col>
 
@@ -123,6 +132,7 @@ const seatGroupI = findSeatCategory("I")
           :seat-group="seatGroupF"
           :concert="concert"
           background-color="grey"
+          :disabled="disabled"
         />
       </v-col>
 
@@ -132,6 +142,7 @@ const seatGroupI = findSeatCategory("I")
           :seat-group="seatGroupG"
           :concert="concert"
           background-color="grey"
+          :disabled="disabled"
         />
       </v-col>
     </v-row>

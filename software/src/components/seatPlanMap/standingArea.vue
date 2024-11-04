@@ -10,7 +10,11 @@ let props = defineProps({
   seatGroup: SeatGroupModel,
   concert: ConcertModel,
   backgroundColor: String,
-  withStage: Boolean
+  withStage: Boolean,
+  disabled: {
+    type: Boolean,
+    default: false
+  }
 })
 
 function handleSeatClick() {
@@ -34,35 +38,44 @@ function handleSeatClick() {
         height="100%"
         border
         :color="isHovering ? 'orange' : ''"
-        @click="handleSeatClick"
+        @click="() => { !disabled ? handleSeatClick() : {} }"
       >
-        <v-row>
-          <v-spacer />
+        <v-row class="d-flex justify-center align-center h-100">
+          <v-col>
+            <v-row>
+              <v-spacer />
 
-          <v-col class="text-center" cols="6">
-            <v-icon
-              v-if="!withStage"
-              icon="mdi-account-group"
-              size="x-large"
-            />
+              <v-col class="text-center" cols="6">
+                <v-icon
+                  v-if="!withStage"
+                  icon="mdi-account-group"
+                  size="x-large"
+                />
 
-            <v-sheet
-              v-else
-              color="grey-darken-3"
-              height="100"
-              width="100%"
-              class="d-flex justify-center align-center"
-            >
-              {{ $t('location.stage') }}
-            </v-sheet>
-          </v-col>
+                <v-sheet
+                  v-else
+                  color="grey-darken-3"
+                  height="100"
+                  width="100%"
+                  
+                >
+                  {{ $t('location.stage') }}
+                </v-sheet>
+              </v-col>
 
-          <v-spacer />
-        </v-row>
+              <v-spacer />
+            </v-row>
 
-        <v-row>
-          <v-col class="text-center text-h6">
-            {{ seatGroup.capacity - seatGroup.occupied }} {{ $t('location.seat.standingPlace', 2) }}
+            <v-row>
+              <v-col class="text-center text-h6">
+                {{ seatGroup.occupied != undefined
+                  ? seatGroup.capacity - seatGroup.occupied 
+                  : seatGroup.capacity
+                }}
+                {{ $t('location.seat.standingPlace', 2) }}
+              </v-col>
+            </v-row>
+
           </v-col>
         </v-row>
       </v-sheet>

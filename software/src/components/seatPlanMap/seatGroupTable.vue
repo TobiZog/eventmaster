@@ -4,6 +4,7 @@ import { SeatGroupModel } from '@/data/models/locations/seatGroupModel';
 import { SeatModel } from '@/data/models/locations/seatModel';
 import { SeatRowModel } from '@/data/models/locations/seatRowModel';
 import { SelectedSeatModel } from '@/data/models/ordering/selectedSeatModel';
+import { getSeatColor } from '@/helpers/colorScripts';
 import { useBasketStore } from '@/stores/basket.store';
 
 const basketStore = useBasketStore()
@@ -12,6 +13,9 @@ let props = defineProps({
   seatRows: Array<SeatRowModel>,
   concert: ConcertModel,
   seatGroup: SeatGroupModel,
+
+  /** Seat is selectable (false) or not (true) */
+  disabled: Boolean,
 
   /**
    * Structure of the seat placment
@@ -29,6 +33,12 @@ let props = defineProps({
   }
 })
 
+/**
+ * Moves seat to store and changes the state
+ * 
+ * @param clickedSeat Model which is clicked
+ * @param seatRow Row of the seat
+ */
 function handleSeatClick(clickedSeat: SeatModel, seatRow: SeatRowModel) {
   let storeSeat = basketStore.selectedSeats.find(seat => 
     seat.seat.id == clickedSeat.id
@@ -44,21 +54,6 @@ function handleSeatClick(clickedSeat: SeatModel, seatRow: SeatRowModel) {
     )
   }
 }
-
-function seatColor(surcharge: number, state: number) {
-  switch (state) {
-    case 0: {
-      switch(surcharge) {
-        case 0: return "orange"
-        case 10: return "teal"
-        case 20: return "green"
-        case 30: return "red"
-      }
-    }
-    case 1: return "grey"
-    case 2: return "orange"
-  }
-}
 </script>
 
 <template>
@@ -69,10 +64,10 @@ function seatColor(surcharge: number, state: number) {
           <v-btn
             variant="text"
             icon="mdi-circle"
-            :color="seatColor(seatGroup.surcharge, seat.state)"
+            :color="getSeatColor(seatGroup.surcharge, seat.state)"
             :disabled="seat.state == 1"
             density="compact"
-            @click="handleSeatClick(seat, seatRow)"
+            @click="() => !disabled ? handleSeatClick(seat, seatRow) : {}"
           />
         </td>
       </tr>
@@ -86,10 +81,10 @@ function seatColor(surcharge: number, state: number) {
           <v-btn
             variant="text"
             icon="mdi-circle"
-            :color="seatColor(seatGroup.surcharge, row.seats[i - 1].state)"
+            :color="getSeatColor(seatGroup.surcharge, row.seats[i - 1].state)"
             :disabled="row.seats[i - 1].state == 1"
             density="compact"
-            @click="handleSeatClick(row.seats[i - 1], row)"
+            @click="() => !disabled ? handleSeatClick(row.seats[i - 1], row) : {}"
           />
         </td>
       </tr>
@@ -104,10 +99,10 @@ function seatColor(surcharge: number, state: number) {
             v-if="seatRows[i - 1].seats.length - i < j"
             variant="text"
             icon="mdi-circle"
-            :color="seatColor(seatGroup.surcharge, seatRows[i - 1].seats[j - 1].state)"
+            :color="getSeatColor(seatGroup.surcharge, seatRows[i - 1].seats[j - 1].state)"
             :disabled="seatRows[i - 1].seats[j - 1].state == 1"
             density="compact"
-            @click="handleSeatClick(seatRows[i - 1].seats[j - 1], seatRows[i - 1])"
+            @click="() => !disabled ? handleSeatClick(seatRows[i - 1].seats[j - 1], seatRows[i - 1]) : {}"
           />
         </td>
       </tr>
@@ -122,10 +117,10 @@ function seatColor(surcharge: number, state: number) {
             v-if="j >= i"
             variant="text"
             icon="mdi-circle"
-            :color="seatColor(seatGroup.surcharge, seatRows[i - 1].seats[j - 1].state)"
+            :color="getSeatColor(seatGroup.surcharge, seatRows[i - 1].seats[j - 1].state)"
             :disabled="seatRows[i - 1].seats[j - 1].state == 1"
             density="compact"
-            @click="handleSeatClick(seatRows[i - 1].seats[j - 1], seatRows[i - 1])"
+            @click="() => !disabled ? handleSeatClick(seatRows[i - 1].seats[j - 1], seatRows[i - 1]) : {}"
           />
         </td>
       </tr>
@@ -140,10 +135,10 @@ function seatColor(surcharge: number, state: number) {
             v-if="seatRows[i - 1].seats.length - i >= j - 1"
             variant="text"
             icon="mdi-circle"
-            :color="seatColor(seatGroup.surcharge, seatRows[i - 1].seats[j - 1].state)"
+            :color="getSeatColor(seatGroup.surcharge, seatRows[i - 1].seats[j - 1].state)"
             :disabled="seatRows[i - 1].seats[j - 1].state == 1"
             density="compact"
-            @click="handleSeatClick(seatRows[i - 1].seats[j - 1], seatRows[i - 1])"
+            @click="() => !disabled ? handleSeatClick(seatRows[i - 1].seats[j - 1], seatRows[i - 1]) : {}"
           />
         </td>
       </tr>
@@ -158,10 +153,10 @@ function seatColor(surcharge: number, state: number) {
             v-if="j <= i"
             variant="text"
             icon="mdi-circle"
-            :color="seatColor(seatGroup.surcharge, seatRows[i - 1].seats[j - 1].state)"
+            :color="getSeatColor(seatGroup.surcharge, seatRows[i - 1].seats[j - 1].state)"
             :disabled="seatRows[i - 1].seats[j - 1].state == 1"
             density="compact"
-            @click="handleSeatClick(seatRows[i - 1].seats[j - 1], seatRows[i - 1])"
+            @click="() => !disabled ? handleSeatClick(seatRows[i - 1].seats[j - 1], seatRows[i - 1]) : {}"
           />
         </td>
       </tr>

@@ -7,7 +7,8 @@ import { ConcertModel } from '@/data/models/acts/concertModel';
 let props = defineProps({
   seatGroup: SeatGroupModel,
   concert: ConcertModel,
-  withStage: Boolean
+  withStage: Boolean,
+  disabled: Boolean
 })
 
 function getCornerClass() {
@@ -53,6 +54,7 @@ function getNameLocation() {
     :concert="concert"
     :with-stage="withStage"
     v-if="seatGroup != undefined && seatGroup.standingArea"
+    :disabled="disabled"
   />
 
   <v-sheet
@@ -79,6 +81,7 @@ function getNameLocation() {
             :seat-group="seatGroup"
             :concert="concert"
             :structure="getStructureNumber()"
+            :disabled="disabled"
           />
         </v-col>
 
@@ -97,6 +100,7 @@ function getNameLocation() {
             :seat-group="seatGroup"
             :concert="concert"
             :structure="getStructureNumber()"
+            :disabled="disabled"
           />
         </v-col>
 
@@ -123,6 +127,7 @@ function getNameLocation() {
             :seat-group="seatGroup"
             :concert="concert"
             :structure="getStructureNumber()"
+            :disabled="disabled"
           />
         </v-col>
       </v-row>
@@ -137,6 +142,7 @@ function getNameLocation() {
             :seat-group="seatGroup"
             :concert="concert"
             :structure="getStructureNumber()"
+            :disabled="disabled"
           />
         </v-col>
 

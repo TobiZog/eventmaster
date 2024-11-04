@@ -15,7 +15,7 @@ export const useLocationStore = defineStore("locationStore", {
     topLocations: ref<Array<LocationApiModel>>([]),
 
     /** Enhanced data about a specific location */
-    location: ref<LocationDetailsApiModel>(),
+    location: ref<LocationDetailsApiModel>(new LocationDetailsApiModel()),
 
     /** All available cities */
     cities: ref<Array<CityModel>>([]),

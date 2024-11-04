@@ -1,12 +1,9 @@
 <script setup lang="ts">
 import { useRouter } from 'vue-router';
-import sectionDivider from '@/components/basics/sectionDivider.vue';
-import seatPlanMap from '@/components/seatPlanMap/seatPlanMap.vue';
 import heroImage from '@/components/pageParts/heroImage.vue';
-import concertListItem from '@/components/pageParts/concertListItem.vue';
-import cardViewHorizontal from '@/components/basics/cardViewHorizontal.vue';
 import { useLocationStore } from '@/stores/location.store';
-import circularProgressIndeterminate from '@/components/basics/circularProgressIndeterminate.vue';
+import locationConcertsSection from './locationConcertsSection.vue';
+import LocationSeatMapSection from './locationSeatMapSection.vue';
 
 const router = useRouter()
 const locationStore = useLocationStore()
@@ -33,66 +30,9 @@ locationStore.getLocationByName(String(router.currentRoute.value.params.name))
       <v-spacer/>
 
       <v-col cols="10">
-        <v-row>
-          <v-col>
-            <section-divider :title="$t('concert.concert', 2)" />
-          </v-col>
-        </v-row>
+        <location-concerts-section />
 
-        <v-row v-if="locationStore.fetchInProgress" v-for="i in 3">
-          <v-col class="text-center">
-            <card-view-horizontal :loading="true" />
-          </v-col>
-        </v-row>
-
-        <v-row
-          v-else-if="locationStore.location.concerts.length > 0"
-          v-for="concert of locationStore.location.concerts"
-        >
-          <v-col>
-            <concert-list-item
-              :concert="concert"
-              :band="concert.band"
-              :location="locationStore.location"
-              :title="concert.name"
-            >
-              <template #description>
-                {{ concert.band.name }}
-              </template>
-            </concert-list-item>
-          </v-col>
-        </v-row>
-
-        <v-row v-else>
-          <v-col>
-            <v-empty-state
-              icon="mdi-magnify"
-              :title="$t('concert.noConcertsFound')"
-            />
-          </v-col>
-        </v-row>
-
-
-        <v-row>
-          <v-col>
-            <section-divider :title="$t('location.seat.seatPlan')" />
-          </v-col>
-        </v-row>
-
-        <div v-if="locationStore.fetchInProgress">
-          <v-col class="text-center">
-            <circular-progress-indeterminate />
-          </v-col>
-        </div>
-
-        <v-row v-else>
-          <v-col>
-            <seat-plan-map
-              :location="locationStore.location"
-              :seat-groups="locationStore.location.seatGroups"
-            />
-          </v-col>
-        </v-row>
+        <location-seat-map-section />
       </v-col>
 
       <v-spacer/>
