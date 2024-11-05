@@ -13,3 +13,7 @@ export function resetDatabase() {
 export function resetExerciseProgress() {
   return axios.get(BASE_URL + "/resetExerciseProgress")
 }
+
+export function fetchFileNames() {
+  return axios.get(BASE_URL + "/files")
+}

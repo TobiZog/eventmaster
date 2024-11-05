@@ -204,6 +204,9 @@
       "tooMuchChars": "Zu viele Zeichen",
       "onlyDigitsAllowed": "Nur Zahlen erlaubt",
       "digitsAtStartNeeded": "Muss mit einer Zahl beginnen"
-    }
+    },
+    "file": "Datei | Dateien",
+    "folder": "Ordner | Ordner",
+    "uploadFile": "Datei hochladen"
   }
 }

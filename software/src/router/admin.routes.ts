@@ -3,8 +3,8 @@ import ConcertsAdminPage from "@/pages/admin/concertsAdminPage/index.vue"
 import BandsAdminPage from "@/pages/admin/bandsAdminPage/index.vue"
 import AccountsAdminPage from "@/pages/admin/accountsAdminPage/index.vue"
 import GenresAdminPage from "@/pages/admin/genresAdminPage/index.vue"
-import CategoriesAdminPage from "@/pages/admin/categoriesAdminPage/index.vue"
 import LocationsAdminPage from "@/pages/admin/locationsAdminPage/index.vue"
+import FilesAdminPage from "@/pages/admin/filesAdminPage/index.vue"
 
 export const adminRoutes = [
   {
@@ -28,11 +28,11 @@ export const adminRoutes = [
     component: GenresAdminPage
   },
   {
-    path: '/admin/categories',
-    component: CategoriesAdminPage
-  },
-  {
     path: '/admin/locations',
     component: LocationsAdminPage
   },
+  {
+    path: '/admin/files',
+    component: FilesAdminPage
+  }
 ]

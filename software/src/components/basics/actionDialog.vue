@@ -29,7 +29,7 @@ defineProps({
         <slot name="borderless"></slot>
       </template>
 
-      <template #actions>
+      <template #actions v-if="$slots.actions">
         <slot name="actions"></slot>
       </template>
     </card-view>
