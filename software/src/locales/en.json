@@ -173,6 +173,10 @@
     "bandSavedSuccessful": "Band successfully saved"
   },
   "misc": {
+    "404": {
+      "title": "Page not found",
+      "headline": "404"
+    },
     "sortBy": "Sort by",
     "greeting": "Hello {msg}",
     "from": "from",

@@ -25,6 +25,10 @@ defineProps({
     >
       <slot></slot>
 
+      <template #borderless>
+        <slot name="borderless"></slot>
+      </template>
+
       <template #actions>
         <slot name="actions"></slot>
       </template>

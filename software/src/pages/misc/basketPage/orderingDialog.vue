@@ -42,13 +42,24 @@ async function doOrder() {
     max-width="800"
     persistent
   >
-    <v-list class="pa-0">
+    <v-radio-group class="pa-0" v-model="basketStore.usedAddress">
       <v-list-subheader>
         {{ $t('account.userData.address', accountStore.userAccount.addresses.length) }}
       </v-list-subheader>
 
-      <v-list-item>
-        <v-radio-group
+      <v-list-item
+        v-for="address in accountStore.userAccount.addresses"
+      >
+        
+        <v-list-item-title>
+          <v-radio :label="address.street + '' + address.houseNumber" />
+        </v-list-item-title>
+
+        <v-list-item-subtitle>
+          {{ address.postalCode }} {{ address.city }}
+        </v-list-item-subtitle>
+
+        <!-- <v-radio-group
           v-model="basketStore.usedAddress"
           :error="addressError"
         >
@@ -58,24 +69,35 @@ async function doOrder() {
             :label="address.street + ' ' + address.houseNumber + ', ' + address.postalCode + ' ' + address.city"
             
           />
-        </v-radio-group>
+        </v-radio-group> -->
       </v-list-item>
+    </v-radio-group>
 
+    <v-list>
       <v-list-subheader>
         {{ $t('account.userData.payment', accountStore.userAccount.payments.length) }}
       </v-list-subheader>
 
-      <v-list-item>
-        <v-radio-group
+      <v-list-item v-for="payment in accountStore.userAccount.payments">
+        <template #prepend="{ isActive }">
+          <v-list-item-action start>
+            <v-radio :model-value="isActive" />
+          </v-list-item-action>
+        </template>
+
+        <v-list-item-title>{{ payment.bankName }}</v-list-item-title>
+
+        <v-list-item-subtitle>{{ payment.iban }}</v-list-item-subtitle>
+        <!-- <v-radio-group
           v-model="basketStore.usedPayment"
         >
           <v-radio
-            v-for="payment in accountStore.userAccount.payments"
+            
             :value="payment"
             :label="payment.bankName + ': ' + payment.iban"
             :error="paymentError"
           />
-        </v-radio-group>
+        </v-radio-group> -->
       </v-list-item>
     </v-list>
 

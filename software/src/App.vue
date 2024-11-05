@@ -8,10 +8,12 @@ import { usePreferencesStore } from './stores/preferences.store';
 import { useFeedbackStore } from './stores/feedback.store';
 import companyFooter from './components/navigation/companyFooter.vue';
 import urlBar from './components/navigation/urlBar.vue';
+import { useRouter } from 'vue-router';
 
 const preferencesStore = usePreferencesStore()
 const feedbackStore = useFeedbackStore()
 const theme = useTheme()
+const router = useRouter()
 
 theme.global.name.value = preferencesStore.theme
 
@@ -20,6 +22,13 @@ theme.global.name.value = preferencesStore.theme
 watch(() => preferencesStore.language, () => {
   i18n.global.locale = preferencesStore.language
 }, { immediate: true })
+
+watch(() => feedbackStore.notFound, () => {
+  if (feedbackStore.notFound) {
+    feedbackStore.notFound = false
+    router.push("/404")
+  }
+})
 </script>
 
 <template>

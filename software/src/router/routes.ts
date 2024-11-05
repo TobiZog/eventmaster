@@ -14,10 +14,17 @@ import OrdersPage from "@/pages/account/ordersPage/index.vue";
 import LoginPage from "@/pages/account/loginPage/index.vue"
 import PreferencesPage from "@/pages/misc/preferencesPage/index.vue";
 import HelpPage from "@/pages/misc/helpPage/index.vue"
+import ErrorPage from "@/pages/misc/errorPage/index.vue"
 
 const routes = [
   // Main page
   { path: "/", component: HomePage },
+  { 
+    path: "/:pathMatch(.*)*", 
+    redirect: to => {
+      return { path: "/404" }
+    }
+  },
 
   // Account
   { path: '/account/home', component: AccountHomePage },
@@ -44,7 +51,10 @@ const routes = [
   { path: '/search', component: SearchPage },
   { path: '/basket', component: BasketPage },
   { path: '/preferences', component: PreferencesPage },
-  { path: '/help', component: HelpPage }
+  { path: '/help', component: HelpPage },
+
+  // Error Page
+  { path: "/404", component: ErrorPage }
 ]
 
 export default routes

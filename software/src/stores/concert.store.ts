@@ -5,6 +5,7 @@ import { fetchConcertById, fetchAllConcerts, fetchUpcomingConcerts } from "../da
 import { ConcertDetailsApiModel } from "../data/models/acts/concertDetailsApiModel";
 import { CityModel } from "@/data/models/locations/cityModel";
 import { ConcertModel } from "@/data/models/acts/concertModel";
+import { useFeedbackStore } from "./feedback.store";
 
 export const useConcertStore = defineStore("concertStore", {
   state: () => ({
@@ -60,12 +61,16 @@ export const useConcertStore = defineStore("concertStore", {
      * @param id ID of the concert in the database
      */
     async getConcert(id: number) {
+      const feedbackStore = useFeedbackStore()
       this.fetchInProgress = true
 
       fetchConcertById(id)
         .then(result => {
           this.concert = result.data
           this.fetchInProgress = false
+        })
+        .catch(res => {
+          feedbackStore.notFound = true
         })
     },
 

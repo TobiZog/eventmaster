@@ -4,11 +4,18 @@ import heroImage from '@/components/pageParts/heroImage.vue';
 import { useLocationStore } from '@/stores/location.store';
 import locationConcertsSection from './locationConcertsSection.vue';
 import LocationSeatMapSection from './locationSeatMapSection.vue';
+import { onMounted, watch } from 'vue';
 
 const router = useRouter()
 const locationStore = useLocationStore()
 
-locationStore.getLocationByName(String(router.currentRoute.value.params.name))
+onMounted(async () => {
+  locationStore.getLocationByName(String(router.currentRoute.value.params.name))
+})
+
+watch(() => router.currentRoute.value.params.name, () => {
+  locationStore.getLocationByName(String(router.currentRoute.value.params.name))
+})
 </script>
 
 <template>

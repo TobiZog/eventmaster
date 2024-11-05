@@ -110,6 +110,9 @@ concert.get("/concert/:id", (req: Request, res: Response) => {
 
       res.status(200).json(concert)
     })
+    .catch(e => {
+      res.status(404).send()
+    })
 })
 
 

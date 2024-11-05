@@ -117,6 +117,9 @@ band.get("/band/:name", (req: Request, res: Response) => {
 
       res.status(200).json(band)
     })
+    .catch(e => {
+      res.status(404).send()
+    })
 })
 
 

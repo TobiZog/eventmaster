@@ -98,6 +98,9 @@ location.get("/location/:urlName", (req: Request, res: Response) => {
 
       res.status(200).json(location)
     })
+    .catch(e => {
+      res.status(404).send()
+    })
 })
 
 

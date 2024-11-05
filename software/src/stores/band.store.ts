@@ -58,12 +58,16 @@ export const useBandStore = defineStore("bandStore", {
      * @param name Name of band
      */
     async getBand(name: string) {
+      const feedbackStore = useFeedbackStore()
       this.fetchInProgress = true
 
       await fetchBandByName(name)
         .then(result => {
           this.band = result.data
           this.fetchInProgress = false
+        })
+        .catch(res => {
+          feedbackStore.notFound = true
         })
     },
 

@@ -1,14 +1,14 @@
 <script setup lang="ts">
 import { useConcertStore } from '@/stores/concert.store';
-import concertListItem from '@/components/pageParts/concertListItem.vue';
-import cardViewHorizontal from '@/components/basics/cardViewHorizontal.vue';
-import sectionDivider from '@/components/basics/sectionDivider.vue';
 import concertFilterbar from './concertFilterbar.vue';
 import ConcertsListSection from './concertsListSection.vue';
+import { onMounted } from 'vue';
 
 const concertStore = useConcertStore()
 
-concertStore.getConcerts()
+onMounted(async () => {
+  concertStore.getConcerts()
+})
 </script>
 
 <template>

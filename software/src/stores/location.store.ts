@@ -5,6 +5,7 @@ import { LocationApiModel } from "../data/models/locations/locationApiModel";
 import { CityModel } from "../data/models/locations/cityModel";
 import { fetchAllCities } from "../data/api/cityApi";
 import { LocationDetailsApiModel } from "@/data/models/locations/locationDetailsApiModel";
+import { useFeedbackStore } from "./feedback.store";
 
 export const useLocationStore = defineStore("locationStore", {
   state: () => ({
@@ -46,12 +47,16 @@ export const useLocationStore = defineStore("locationStore", {
     },
 
     getLocationByName(name: string) {
+      const feedbackStore = useFeedbackStore()
       this.fetchInProgress = true
 
       fetchLocationByName(name)
         .then(result => {
           this.location = result.data
           this.fetchInProgress = false
+        })
+        .catch(res => {
+          feedbackStore.notFound = true
         })
     },
 

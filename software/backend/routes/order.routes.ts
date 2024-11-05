@@ -61,7 +61,6 @@ order.get("/:id", (req: Request, res: Response) => {
 
 // Place a new order
 order.post("/", (req: Request, res: Response) => {
-  console.log(req.body.tickets)
   Order.create(req.body)
     .then(async order => {
       for (let ticket of req.body.tickets) {

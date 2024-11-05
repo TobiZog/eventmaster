@@ -8,12 +8,19 @@ import outlinedButton from '@/components/basics/outlinedButton.vue';
 import { useConcertStore } from '@/stores/concert.store';
 import ticketListItem from '@/components/pageParts/ticketListItem.vue';
 import circularProgressIndeterminate from '@/components/basics/circularProgressIndeterminate.vue';
+import { onMounted, watch } from 'vue';
 
 const router = useRouter()
 const basketStore = useBasketStore()
 const concertStore = useConcertStore()
 
-concertStore.getConcert(Number(router.currentRoute.value.params.id))
+onMounted(async () => {
+  concertStore.getConcert(Number(router.currentRoute.value.params.id))
+})
+
+watch(() => router.currentRoute.value.params.id, () => {
+  concertStore.getConcert(Number(router.currentRoute.value.params.id))
+})
 </script>
 
 <template>

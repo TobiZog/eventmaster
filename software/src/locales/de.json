@@ -86,7 +86,7 @@
     "userData": {
       "username": "Username",
       "password": "Passwort",
-      "address": "Adresse | Addressen",
+      "address": "Adresse | Adressen",
       "payment": "Bezahlart | Bezahlarten",
       "email": "E-Mail-Adresse",
       "firstName": "Vorname",
@@ -173,6 +173,10 @@
     "bandSavedSuccessful": "Band erfolgreich gespeichert"
   },
   "misc": {
+    "404": {
+      "title": "Seite nicht gefunden",
+      "headline": "404"
+    },
     "sortBy": "Sortieren nach",
     "greeting": "Hallo {msg}",
     "from": "ab",

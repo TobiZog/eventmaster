@@ -13,7 +13,10 @@ export const useFeedbackStore = defineStore("feedbackStore", {
     title: ref(""),
     color: ref(""),
     icon: ref(""),
-    $i18n: {}
+    $i18n: {},
+
+    /** Band, Location or concert on URL does not exist, redirect to 404 page */
+    notFound: ref(false)
   }),
 
   getters: {
