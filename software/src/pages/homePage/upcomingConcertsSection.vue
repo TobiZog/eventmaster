@@ -4,6 +4,7 @@ import { useRouter } from 'vue-router';
 import cardViewTopImage from '@/components/basics/cardViewTopImage.vue';
 import outlinedButton from '@/components/basics/outlinedButton.vue';
 import sectionDivider from '@/components/basics/sectionDivider.vue';
+import moment from 'moment';
 
 const concertStore = useConcertStore()
 const router = useRouter()
@@ -29,6 +30,7 @@ const router = useRouter()
         @click="router.push('/bands/details/' + concert.band.name.replaceAll(' ', '-').toLowerCase())"
         :loading="concertStore.fetchInProgress"
       >
+        {{ moment(concert.date).format("DD.MM.YYYY") }},
         {{ $t("misc.from") }} {{ (concert.price).toPrecision(4) }} €
       </card-view-top-image>
     </v-col>

@@ -22,7 +22,6 @@ watch(() => router.currentRoute.value.params.name, () => {
 </script>
 
 <template>
-  {{ router.currentRoute.value.params.name }}
   <hero-image
     :image="bandStore.band.imageMembers"
     :logo="bandStore.band.logo"

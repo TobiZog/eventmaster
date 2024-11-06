@@ -44,7 +44,7 @@ defineProps({
 
           <v-carousel-item
             v-for="image in band.images"
-            :src="'http://localhost:3000/static/' + image" 
+            :src="image" 
             cover
           />
         </v-carousel>

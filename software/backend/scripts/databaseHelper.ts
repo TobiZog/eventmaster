@@ -88,6 +88,8 @@ export async function prepopulateDatabase() {
         {
           location["cityId"] = cityDataset.id
           location["urlName"] = location.name.replaceAll(" ", "-").toLowerCase()
+          location["imageIndoor"] = "http://localhost:3000/static/" + location["imageIndoor"]
+          location["imageOutdoor"] = "http://localhost:3000/static/" + location["imageOutdoor"]
 
           await Location.create(location)
             .then(async locationDataset => {
@@ -193,14 +195,14 @@ export async function prepopulateDatabase() {
           })
         }
 
-         for (let payment of account.payments) {
-          await Payment.create({
-            accountId: dataset.dataValues.id,
-            bankName: payment.bankName,
-            iban: payment.iban
-          })
-        }
-      })
+        for (let payment of account.payments) {
+        await Payment.create({
+          accountId: dataset.dataValues.id,
+          bankName: payment.bankName,
+          iban: payment.iban
+        })
+      }
+    })
   }
 
 
@@ -208,6 +210,10 @@ export async function prepopulateDatabase() {
   ////////// Band and Concert Tables //////////
 
   for(let band of bandsConcerts.bands) {
+    band.imageMembers = "http://localhost:3000/static/" + band.imageMembers
+    band.images = band.images.map(image => "http://localhost:3000/static/" + image)
+    band.logo = "http://localhost:3000/static/" + band.logo
+
     // Create a band dataset
     await Band.create(band)
       .then(async dataset => {
@@ -245,6 +251,8 @@ export async function prepopulateDatabase() {
         }
 
         for (let member of band.members) {
+          member.image = "http://localhost:3000/static/" + member.image
+
           await Member.create({
             name: member.name,
             image: member.image,

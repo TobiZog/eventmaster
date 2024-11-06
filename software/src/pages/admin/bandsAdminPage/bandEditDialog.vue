@@ -74,6 +74,21 @@ function itemProps(item: GenreModel) {
           />
         </v-col>
       </v-row>
+
+      <v-row>
+        <v-col>
+          <v-img
+          :src="bandStore.band.logo"
+        />
+        </v-col>
+        <v-col>
+          <v-img
+            max-width="300"
+            :src="bandStore.band.imageMembers"
+            placeholder=""
+          />
+        </v-col>
+      </v-row>
     </v-container>
     
     <template #actions>

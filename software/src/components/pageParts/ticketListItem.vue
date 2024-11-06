@@ -41,7 +41,7 @@ defineProps({
 
 <template>
   <card-with-left-image
-    :image="'http://localhost:3000/static/' + image"
+    :image="image"
     :link="false"
     color-header="primary"
     :title="band.name + ' - ' + concert.name"

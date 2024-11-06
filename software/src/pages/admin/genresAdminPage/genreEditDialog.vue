@@ -11,6 +11,7 @@ const genreStore = useGenreStore()
     v-model="genreStore.showEditDialog"
     :title="$t('band.editGenre')"
     icon="mdi-pencil"
+    max-width="500"
   >
     <v-container>
       <v-row>

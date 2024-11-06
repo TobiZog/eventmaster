@@ -29,7 +29,7 @@ defineProps({
       height="150"
     >
       <v-img
-        :src="'http://localhost:3000/static/' + image"
+        :src="image"
         aspect-ratio="1"
         max-height="200"
         cover

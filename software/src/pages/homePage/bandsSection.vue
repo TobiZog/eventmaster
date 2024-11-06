@@ -29,7 +29,7 @@ bandStore.getBands()
         >
           <v-img
             class="d-flex align-center text-center"
-            :src="'http://localhost:3000/static/' + band.imageMembers"
+            :src="band.imageMembers"
             height="250px"
             width="350"
             cover

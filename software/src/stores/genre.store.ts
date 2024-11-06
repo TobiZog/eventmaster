@@ -1,7 +1,9 @@
-import { fetchAllGenres } from "@/data/api/genreApi";
+import { deleteGenre, fetchAllGenres, patchGenre, postGenre } from "@/data/api/genreApi";
 import { GenreApiModel } from "@/data/models/acts/genreApiModel";
 import { defineStore } from "pinia";
 import { ref } from "vue";
+import { useFeedbackStore } from "./feedback.store";
+import { BannerStateEnum } from "@/data/enums/bannerStateEnum";
 
 export const useGenreStore = defineStore("genreStore", {
   state: () => ({
@@ -14,11 +16,17 @@ export const useGenreStore = defineStore("genreStore", {
     /** Genres to filter bands for */
     filteredGenres: ref<Array<GenreApiModel>>([]),
 
+    /** Show or hide edit dialog for Genre object */
     showEditDialog: ref(false),
+
+    /** Request to server sent, waiting for data response */
     fetchInProgress: ref(false)
   }),
 
   actions: {
+    /**
+     * Get all genres from the database
+     */
     getGenres() {
       this.fetchInProgress = true
 
@@ -37,17 +45,68 @@ export const useGenreStore = defineStore("genreStore", {
       this.showEditDialog = true
     },
 
+    /**
+     * Edit a Genre object, move parameter to this.genre, opens dialog
+     * 
+     * @param genre Selected Genre object
+     */
     editGenre(genre: GenreApiModel) {
       this.genre = genre
       this.showEditDialog = true
     },
 
+    /**
+     * Save edited genre to the backend server
+     */
     saveGenre() {
-      // todo
+      const feedbackStore = useFeedbackStore()
+      this.fetchInProgress = true
+
+      if (this.genre.id == undefined) {
+        // Creating new Genre
+        postGenre(this.genre)
+          .then(response => {
+            if (response.status == 200) {
+              feedbackStore.changeBanner(BannerStateEnum.GENRESAVEDSUCCESSFUL)
+              this.getGenres()
+              this.showEditDialog = false
+            } else {
+              feedbackStore.changeBanner(BannerStateEnum.GENRESAVEDERROR)
+            }
+          })
+      } else {
+        // Update existing Genre
+        patchGenre(this.genre)
+          .then(response => {
+            if (response.status == 200) {
+              feedbackStore.changeBanner(BannerStateEnum.GENRESAVEDSUCCESSFUL)
+              this.getGenres()
+              this.showEditDialog = false
+            } else {
+              feedbackStore.changeBanner(BannerStateEnum.GENRESAVEDERROR)
+            }
+          })
+      }
     },
 
+    /**
+     * Delete a Genre object
+     * 
+     * @param genre Genre to delete
+     */
     deleteGenre(genre: GenreApiModel) {
-      // todo
+      const feedbackStore = useFeedbackStore()
+      this.fetchInProgress = true
+
+      deleteGenre(genre)
+        .then(response => {
+          if (response.status == 200) {
+            feedbackStore.changeBanner(BannerStateEnum.GENREDELETESUCCESSFUL)
+            this.getGenres()
+          } else {
+            feedbackStore.changeBanner(BannerStateEnum.GENREDELETEERROR)
+          }
+        })
     }
   }
 })

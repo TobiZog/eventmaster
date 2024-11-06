@@ -22,7 +22,7 @@ defineProps({
 
 <template>
   <v-img
-    :src="!loading ? 'http://localhost:3000/static/' + image : ''"
+    :src="!loading ? image : ''"
     height="600"
     gradient="to top, rgba(0, 0, 0, .9), rgba(255, 255, 255, 0.1)"
     cover
@@ -40,7 +40,7 @@ defineProps({
             <v-card>
               <v-img
                 v-if="logo"
-                :src="'http://localhost:3000/static/' + logo"
+                :src="logo"
                 width="200"
                 aspect-ratio="1"
                 cover

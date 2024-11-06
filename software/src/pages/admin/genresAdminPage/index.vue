@@ -24,6 +24,7 @@ genreStore.getGenres()
       :loading="genreStore.fetchInProgress"
       :items="genreStore.genres"
       :headers="headers"
+      :items-per-page="100"
     >
       <template #item.bands="{ item }">
         <v-chip v-for="band of item.bands" class="mx-1">

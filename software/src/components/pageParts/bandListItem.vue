@@ -34,7 +34,7 @@ defineProps({
   <card-view-horizontal
     v-if="!loading"
     :title="band.name"
-    :image="'http://localhost:3000/static/' + band.logo"
+    :image="band.logo"
     @click="router.push('/bands/details/' + band.name.replaceAll(' ', '-').toLowerCase())"
   >
     <template #content>

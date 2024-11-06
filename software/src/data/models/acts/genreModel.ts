@@ -1,4 +1,4 @@
 export class GenreModel {
-  id: number = -1
+  id: number
   name: string = ""
 }
