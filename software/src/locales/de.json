@@ -207,6 +207,10 @@
     },
     "file": "Datei | Dateien",
     "folder": "Ordner | Ordner",
-    "uploadFile": "Datei hochladen"
+    "uploadFile": "Datei hochladen",
+    "firstStartup": {
+      "title": "Ersteinrichtung",
+      "description": "Die Datenbank wird eingerichtet. Dies kann 1-2 Minuten dauern. Bitte warten..."
+    }
   }
 }

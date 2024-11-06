@@ -28,7 +28,11 @@ export const usePreferencesStore = defineStore('preferencesStore', {
     /** Show the "Delete Exercise progress?" confirm dialog */
     showDeleteExerciseDialog: ref(false),
 
-    staticFiles: ref([])
+    /** List of files on the server */
+    staticFiles: ref([]),
+
+    /** Marks the first run of the app */
+    firstStartup: useLocalStorage<Boolean>("hackmycart/preferencesStore/firstStartup", true)
   }),
 
   actions: {
@@ -102,6 +106,13 @@ export const usePreferencesStore = defineStore('preferencesStore', {
           this.staticFiles = res.data
           this.fetchInProgress = false
         })
+    },
+
+    async firstStartupRoutine() {
+      await this.resetDb()
+      await this.resetExerciseProg()
+
+      this.firstStartup = false
     }
   }
 })

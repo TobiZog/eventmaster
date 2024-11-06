@@ -207,6 +207,10 @@
     },
     "file": "File | Files",
     "folder": "folder | folders",
-    "uploadFile": "Upload file"
+    "uploadFile": "Upload file",
+    "firstStartup": {
+      "title": "First startup",
+      "description": "Creating database. This could take 1-2 minutes. Please wait..."
+    }
   }
 }
