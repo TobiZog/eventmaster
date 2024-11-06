@@ -9,10 +9,19 @@ import { Composer } from 'vue-i18n';
  */
 export const useFeedbackStore = defineStore("feedbackStore", {
   state: () => ({
+    /** Show notification banner in top right corner */
     showBanner: ref(false),
+
+    /** Text in the notification banner */
     title: ref(""),
+
+    /** Color of the notification banner */
     color: ref(""),
+
+    /** Prepend icon of the notification banner */
     icon: ref(""),
+
+    /** Programmatically access to language translation module */
     $i18n: {},
 
     /** Band, Location or concert on URL does not exist, redirect to 404 page */
@@ -26,6 +35,11 @@ export const useFeedbackStore = defineStore("feedbackStore", {
   },
 
   actions: {
+    /**
+     * Change the state of the banner, displays it immediately
+     * 
+     * @param bannerState New banner state
+     */
     changeBanner(bannerState: BannerStateEnum) {
       // Banner message
       switch (bannerState) {
@@ -153,6 +167,25 @@ export const useFeedbackStore = defineStore("feedbackStore", {
         case BannerStateEnum.BANDSAVEDSUCCESSFUL: {
           this.title = this.i18n.t('bannerMessages.bandSavedSuccessful'); break;
         }
+
+
+        ////////// API Endpoint /genres //////////
+
+        case BannerStateEnum.GENREDELETEERROR: {
+          this.title = this.i18n.t('bannerMessages.genreDeleteError'); break;
+        }
+
+        case BannerStateEnum.GENREDELETESUCCESSFUL: {
+          this.title = this.i18n.t('bannerMessages.genreDeleteSuccessful'); break;
+        }
+
+        case BannerStateEnum.GENRESAVEDERROR: {
+          this.title = this.i18n.t('bannerMessages.genreSavedError'); break;
+        }
+
+        case BannerStateEnum.GENRESAVEDSUCCESSFUL: {
+          this.title = this.i18n.t('bannerMessages.genreSavedSuccessful'); break;
+        }
       }
 
 
@@ -166,6 +199,8 @@ export const useFeedbackStore = defineStore("feedbackStore", {
         case BannerStateEnum.ACCOUNTREGISTERUSERNAMEINUSE:
         case BannerStateEnum.BANDDELETEERROR:
         case BannerStateEnum.BANDSAVEDERROR:
+        case BannerStateEnum.GENREDELETEERROR:
+        case BannerStateEnum.GENRESAVEDERROR:
           this.color = "red"
           break;
         
@@ -179,6 +214,8 @@ export const useFeedbackStore = defineStore("feedbackStore", {
         case BannerStateEnum.BANDDELETESUCCESSFUL:
         case BannerStateEnum.BANDSAVEDSUCCESSFUL:
         case BannerStateEnum.EXERCISEPROGRESSRESETSUCCESSFUL:
+        case BannerStateEnum.GENREDELETESUCCESSFUL:
+        case BannerStateEnum.GENRESAVEDSUCCESSFUL:
           this.color = "green"
           break;
 
@@ -231,6 +268,7 @@ export const useFeedbackStore = defineStore("feedbackStore", {
         
       
         case BannerStateEnum.DATABASERESETSUCCESSFUL:
+        case BannerStateEnum.EXERCISEPROGRESSRESETSUCCESSFUL:
           this.icon = "mdi-database-refresh"
           break;
         
@@ -264,6 +302,13 @@ export const useFeedbackStore = defineStore("feedbackStore", {
         case BannerStateEnum.BANDSAVEDERROR:
         case BannerStateEnum.BANDSAVEDSUCCESSFUL:
           this.icon = "mdi-guitar-electric"
+          break;
+
+        case BannerStateEnum.GENREDELETEERROR:
+        case BannerStateEnum.GENREDELETESUCCESSFUL:
+        case BannerStateEnum.GENRESAVEDERROR:
+        case BannerStateEnum.GENRESAVEDSUCCESSFUL:
+          this.icon = "mdi-music"
           break;
       }
 

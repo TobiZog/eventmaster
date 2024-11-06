@@ -170,7 +170,11 @@
     "bandDeleteError": "Fehler beim Löschen der Band",
     "bandDeleteSuccessful": "Band erfolgreich gelöscht",
     "bandSavedError": "Fehler beim Speichern der Band",
-    "bandSavedSuccessful": "Band erfolgreich gespeichert"
+    "bandSavedSuccessful": "Band erfolgreich gespeichert",
+    "genreDeleteError": "Fehler beim Löschen des Genres",
+    "genreDeleteSuccessful": "Genre erfolgreich gelöscht",
+    "genreSavedError": "Genre erfolgreich gespeichert",
+    "genreSavedSuccessful": "Fehler beim Speichern des Genres"
   },
   "misc": {
     "404": {
@@ -212,5 +216,8 @@
       "title": "Ersteinrichtung",
       "description": "Die Datenbank wird eingerichtet. Dies kann 1-2 Minuten dauern. Bitte warten..."
     }
+  },
+  "genre": {
+    "withoutBand": "ohne Band"
   }
 }

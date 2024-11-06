@@ -6,7 +6,6 @@ import { useConcertStore } from '@/stores/concert.store';
 import { useBandStore } from '@/stores/band.store';
 import { useAccountStore } from '@/stores/account.store';
 import { useLocationStore } from '@/stores/location.store';
-import { ref } from 'vue';
 import { useExerciseStore } from '@/stores/exercise.store';
 import { useGenreStore } from '@/stores/genre.store';
 import { usePreferencesStore } from '@/stores/preferences.store';
@@ -45,6 +44,7 @@ concertStore.getConcerts()
           <template #actions>
             <outlined-button
               @click="router.push('/admin/bands')"
+              :loading="bandStore.fetchInProgress"
             >
               {{ $t('misc.actions.more') }}
             </outlined-button>
@@ -74,6 +74,7 @@ concertStore.getConcerts()
           <template #actions>
             <outlined-button
               @click="router.push('/admin/concerts')"
+              :loading="concertStore.fetchInProgress"
             >
               {{ $t('misc.actions.more') }}
             </outlined-button>
@@ -106,6 +107,7 @@ concertStore.getConcerts()
           <template #actions>
             <outlined-button
               @click="router.push('/admin/locations')"
+              :loading="locationStore.fetchInProgress"
             >
               {{ $t('misc.actions.more') }}
             </outlined-button>
@@ -114,7 +116,6 @@ concertStore.getConcerts()
       </v-col>
     </v-row>
     
-
 
     <v-row>
       <v-col>
@@ -129,6 +130,7 @@ concertStore.getConcerts()
           <template #actions>
             <outlined-button
               @click="router.push('/admin/accounts')"
+              :loading="accountStore.fetchInProgress"
             >
               {{ $t('misc.actions.more') }}
             </outlined-button>
@@ -145,9 +147,16 @@ concertStore.getConcerts()
             {{ genreStore.genres.length }} {{ $t('band.genre', 2) }}
           </div>
 
+          <div class="text-h6 text-center text-disabled">
+            {{ genreStore.genres.reduce((counter, obj) => {
+              return obj.bands.length == 0 ? counter += 1 : counter
+            }, 0) }} {{ $t('genre.withoutBand') }}
+          </div>
+
           <template #actions>
             <outlined-button
               @click="router.push('/admin/genres')"
+              :loading="genreStore.fetchInProgress"
             >
               {{ $t('misc.actions.more') }}
             </outlined-button>
@@ -173,6 +182,7 @@ concertStore.getConcerts()
           <template #actions>
             <outlined-button
               @click="router.push('/admin/files')"
+              :loading="preferencesStore.fetchInProgress"
             >
               {{ $t('misc.actions.more') }}
             </outlined-button>

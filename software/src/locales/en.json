@@ -170,7 +170,11 @@
     "bandDeleteError": "Error on deleting band",
     "bandDeleteSuccessful": "Band successfully deleted",
     "bandSavedError": "Error on saving band",
-    "bandSavedSuccessful": "Band successfully saved"
+    "bandSavedSuccessful": "Band successfully saved",
+    "genreDeleteError": "Error on deleting Genre",
+    "genreDeleteSuccessful": "Genre successfully deleted",
+    "genreSavedError": "Genre successfully saved",
+    "genreSavedSuccessful": "Error on saving genre"
   },
   "misc": {
     "404": {
@@ -212,5 +216,8 @@
       "title": "First startup",
       "description": "Creating database. This could take 1-2 minutes. Please wait..."
     }
+  },
+  "genre": {
+    "withoutBand": "without Band"
   }
 }
