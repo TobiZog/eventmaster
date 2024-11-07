@@ -200,13 +200,16 @@ export async function prepopulateDatabase() {
 
   ////////// Account Tables //////////
 
+  let addresses = []
+  let payments = []
+
   AccountRole.bulkCreate(accountRoles.data)
 
   for (let account of accounts.data) {
     await Account.create(account)
       .then(async dataset => {
         for (let address of account.addresses) {
-          await Address.create({
+          addresses.push({
             accountId: dataset.dataValues.id,
             street: address.street,
             houseNumber: address.houseNumber,
@@ -216,18 +219,26 @@ export async function prepopulateDatabase() {
         }
 
         for (let payment of account.payments) {
-        await Payment.create({
-          accountId: dataset.dataValues.id,
-          bankName: payment.bankName,
-          iban: payment.iban
-        })
-      }
+          payments.push({
+            accountId: dataset.dataValues.id,
+            bankName: payment.bankName,
+            iban: payment.iban
+          })
+        }
     })
   }
+
+  Address.bulkCreate(addresses)
+  Payment.bulkCreate(payments)
 
 
 
   ////////// Band and Concert Tables //////////
+
+  let bandGenres = []
+  let bandMembers = []
+  let concerts = []
+  let ratings = []
 
   for(let band of bandsConcerts.bands) {
     band.imageMembers = "http://localhost:3000/static/" + band.imageMembers
@@ -248,7 +259,7 @@ export async function prepopulateDatabase() {
             }
           })
             .then(async genreDataset => {
-              await BandGenre.create({
+              bandGenres.push({
                 genreId: genreDataset[0].dataValues.id,
                 bandId: dataset.dataValues.id
               })
@@ -262,7 +273,7 @@ export async function prepopulateDatabase() {
             }
           })
             .then(async account => {
-              await Rating.create({
+              ratings.push({
                 accountId: account.dataValues.id,
                 rating: rating.rating,
                 bandId: dataset.dataValues.id
@@ -273,7 +284,7 @@ export async function prepopulateDatabase() {
         for (let member of band.members) {
           member.image = "http://localhost:3000/static/" + member.image
 
-          await Member.create({
+          bandMembers.push({
             name: member.name,
             image: member.image,
             bandId: dataset.dataValues.id
@@ -288,7 +299,7 @@ export async function prepopulateDatabase() {
               }
             })
               .then(async location => {
-                await Concert.create({
+                concerts.push({
                   date: concert.date,
                   name: concertGroup.name,
                   price: concert.price,
@@ -304,9 +315,16 @@ export async function prepopulateDatabase() {
       })
   }
 
+  BandGenre.bulkCreate(bandGenres)
+  Member.bulkCreate(bandMembers)
+  Concert.bulkCreate(concerts)
+  Rating.bulkCreate(ratings)
+
 
 
   ////////// Order and Ticket Tables //////////
+
+  let tickets = []
 
   for (let order of orders.orders) {
     let account = await Account.findOne({
@@ -363,7 +381,7 @@ export async function prepopulateDatabase() {
                     }
                   })
                     .then(async seat => {
-                      await Ticket.create({
+                      tickets.push({
                         orderId: dataset.dataValues.id,
                         concertId: concert.dataValues.id,
                         orderPrice: ticket.orderPrice,
@@ -374,6 +392,8 @@ export async function prepopulateDatabase() {
             })
         }
       })
+
+      Ticket.bulkCreate(tickets)
   }
 
   console.log(moment().diff(start))
