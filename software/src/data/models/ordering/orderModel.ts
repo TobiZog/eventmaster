@@ -1,5 +1,8 @@
 export class OrderModel {
   id: number
-  shippingProgress: number
+  accountId: number
   orderedAt: string
+  addressId: number
+  paymentId: number
+  shipped: boolean
 }

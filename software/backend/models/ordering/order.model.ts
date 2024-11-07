@@ -24,6 +24,11 @@ export class Order extends Model {
   @Column
   paymentId: number
 
+  @Default(false)
+  @Column
+  shipped: boolean
+
+
 
   // Relations
 

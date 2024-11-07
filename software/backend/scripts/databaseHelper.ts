@@ -25,6 +25,7 @@ import citiesLocations from "./../data/cities-locations.json"
 import exercises from "./../data/exercises.json"
 import bandsConcerts from "./../data/bands-concerts.json"
 import { Op } from 'sequelize'
+import moment from 'moment'
 
 
 /**
@@ -75,10 +76,15 @@ export async function prepopulateExerciseDatabase() {
  */
 export async function prepopulateDatabase() {
   deleteAllTables()
+
+  let start = moment()
   
 
 
   ////////// Locations and Seat Tables //////////
+
+  // Buffer seats, write them in one bulk action to the DB
+  let seats = []
 
   for (let city of citiesLocations.cities)
   {
@@ -94,9 +100,9 @@ export async function prepopulateDatabase() {
           await Location.create(location)
             .then(async locationDataset => {
               let capacity = 0
+              let seatGroups = []
 
-              for (let seatGroup of location.seatGroups)
-              {
+              for (let seatGroup of location.seatGroups) {
                 seatGroup["locationId"] = locationDataset.id
 
                 let surcharge = 0
@@ -120,47 +126,59 @@ export async function prepopulateDatabase() {
                 }
 
                 seatGroup["surcharge"] = surcharge
-                
-                await SeatGroup.create(seatGroup)
-                  .then(async seatGroupRes => {
-                    if (seatGroup.standingArea) {
+
+                seatGroups.push(seatGroup)
+              }
+
+              await SeatGroup.bulkCreate(seatGroups)
+                .then(async seatGroupsRes => {
+                  for (let seatGroup of seatGroupsRes) {
+                    if (seatGroup.dataValues.standingArea) {
                       // In an area without seats, create one row with all "seats"
                       await SeatRow.create({
                         row: 0,
-                        seatGroupId: seatGroupRes.id
+                        seatGroupId: seatGroup.dataValues.id
                       })
                         .then(async seatRowRes => {
-                          for (let i = 0; i < seatGroup.capacity; i++) {
-                            await Seat.create({
+                          for (let i = 0; i < seatGroup.dataValues.capacity; i++) {
+                            seats.push({
                               seatNr: i + 1,
                               seatRowId: seatRowRes.id
                             })
 
                             capacity++
                           }
+
+                          await Seat.bulkCreate(seats)
                         })
                     }
                     else
                     {
-                      for (let row = 0; row < location.rows; row++) {
-                        await SeatRow.create({
-                          row: row + 1,
-                          seatGroupId: seatGroupRes.id
-                        })
-                          .then(async seatRowRes => {
-                            for (let col = 0; col < seatGroup.capacity / location.rows; col++) {
-                              await Seat.create({
-                                seatNr: col,
-                                seatRowId: seatRowRes.id
-                              })
+                      let seatRows = []
 
-                              capacity++
-                            }
-                          })
+                      for (let row = 0; row < location.rows; row++) {
+                        seatRows.push({
+                          row: row + 1,
+                          SeatGroupId: seatGroup.dataValues.id
+                        })
                       }
+
+                      await SeatRow.bulkCreate(seatRows)
+                        .then(seatRowRes => {
+                          for (let seatRow of seatRowRes) {
+                            for (let col = 0; col < seatGroup.capacity / location.rows; col++) {
+                              seats.push({
+                                  seatNr: col,
+                                  seatRowId: seatRow.id
+                                })
+
+                                capacity++
+                            }
+                          }
+                        })
                     }
-                  })
-              }
+                  }
+                })
 
             // Update capacity of location
             await Location.update(
@@ -176,6 +194,8 @@ export async function prepopulateDatabase() {
       })
   }
 
+  // Create seats to the database as bulk for better performance
+  await Seat.bulkCreate(seats)
 
 
   ////////// Account Tables //////////
@@ -355,4 +375,6 @@ export async function prepopulateDatabase() {
         }
       })
   }
+
+  console.log(moment().diff(start))
 }
