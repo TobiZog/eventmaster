@@ -308,7 +308,7 @@ export const useFeedbackStore = defineStore("feedbackStore", {
         case BannerStateEnum.GENREDELETESUCCESSFUL:
         case BannerStateEnum.GENRESAVEDERROR:
         case BannerStateEnum.GENRESAVEDSUCCESSFUL:
-          this.icon = "mdi-music"
+          this.icon = "mdi-music-clef-treble"
           break;
       }
 

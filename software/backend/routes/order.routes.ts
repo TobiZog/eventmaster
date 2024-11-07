@@ -13,6 +13,15 @@ import { SeatGroup } from "../models/locations/seatGroup.model";
 
 export const order = Router()
 
+// Get all orders
+order.get("/", (req: Request, res: Response) => {
+  Order.findAll()
+    .then(orders => {
+      res.status(200).json(orders)
+    })
+})
+
+
 // Get all orders of one account by it's user id
 order.get("/:id", (req: Request, res: Response) => {
   Order.findAll({

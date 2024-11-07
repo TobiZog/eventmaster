@@ -32,3 +32,7 @@ export async function createOrder(
     addressId: addressId
   })
 }
+
+export async function fetchAllOrders() {
+  return axios.get(BASE_URL)
+}

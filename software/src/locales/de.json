@@ -58,7 +58,8 @@
     "imageMember": "Bilder Mitglieder",
     "addNewGenre": "Neues Genre hinzufügen",
     "editGenre": "Genre bearbeiten",
-    "bandDetails": "Band Details"
+    "bandDetails": "Band Details",
+    "withoutConcert": "ohne Konzert"
   },
   "ticket": {
     "tickets": "Ticket | Tickets"
@@ -107,7 +108,8 @@
     },
     "addNewAccount": "Neuen Account hinzufügen",
     "accountRole": "Account Rolle",
-    "noRealPaymentsNeeded": "Keine echten Kontodaten nötig!"
+    "noRealPaymentsNeeded": "Keine echten Kontodaten nötig!",
+    "administrator": "Administrator | Administratoren"
   },
   "order": {
     "orders": "Bestellung | Bestellungen",

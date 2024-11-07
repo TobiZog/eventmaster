@@ -25,12 +25,17 @@ const router = useRouter()
     <v-col v-else v-for="concert in concertStore.upcomingConcerts" cols="3">
       <card-view-top-image
         :image="concert.image"
-        :title="concert.band.name"
+        :title="moment(concert.date).format('DD.MM.YYYY')"
         smaller-title
         @click="router.push('/bands/details/' + concert.band.name.replaceAll(' ', '-').toLowerCase())"
         :loading="concertStore.fetchInProgress"
       >
-        {{ moment(concert.date).format("DD.MM.YYYY") }},
+        <div>
+          {{ concert.name }}
+        </div>
+        <div>
+          {{ concert.band.name }}
+        </div>
         {{ $t("misc.from") }} {{ (concert.price).toPrecision(4) }} €
       </card-view-top-image>
     </v-col>

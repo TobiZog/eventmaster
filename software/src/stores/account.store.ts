@@ -1,7 +1,5 @@
 import { useLocalStorage } from "@vueuse/core";
-import { acceptHMRUpdate, defineStore } from "pinia";
 import { AccountModel } from "../data/models/user/accountModel";
-import { OrderModel } from "../data/models/ordering/orderModel";
 import { useFeedbackStore } from "./feedback.store";
 import { deleteAccount, fetchAllAccounts, loginAccount, registerAccount, updateAccount } from "../data/api/accountApi";
 import { fetchUserOrders } from "../data/api/orderApi";
@@ -10,8 +8,7 @@ import { AddressModel } from "../data/models/user/addressModel";
 import { PaymentModel } from "../data/models/user/paymentModel";
 import { AccountApiModel } from "../data/models/user/accountApiModel";
 import { ref } from "vue";
-import { OrderApiModel } from "@/data/models/apiEndpoints/orderApiModel";
-import { LocationApiModel } from "@/data/models/locations/locationApiModel";
+import { defineStore } from "pinia";
 
 export const useAccountStore = defineStore("accountStore", {
   state: () => ({
@@ -29,9 +26,6 @@ export const useAccountStore = defineStore("accountStore", {
 
     /** Buffer for register data */
     registerData: ref<AccountModel>(new AccountModel()),
-
-    /** All orders of the user */
-    orders: ref<Array<OrderApiModel>>([]),
 
     /** Request to server sent, waiting for data response */
     fetchInProgress: ref(false)

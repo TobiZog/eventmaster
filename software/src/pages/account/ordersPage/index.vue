@@ -3,10 +3,13 @@ import { useAccountStore } from '@/stores/account.store';
 import orderItem from './orderItem.vue';
 import accountSubPageLayout from '@/layouts/accountSubPageLayout.vue';
 import circularProgressIndeterminate from '@/components/basics/circularProgressIndeterminate.vue';
+import { useOrderStore } from '@/stores/order.store';
 
 const accountStore = useAccountStore()
+const orderStore = useOrderStore()
 
 accountStore.refreshOrders()
+orderStore.getOrdersOfAccount(accountStore.userAccount)
 </script>
 
 <template>
@@ -22,8 +25,8 @@ accountStore.refreshOrders()
 
     <!-- Display all orders -->
     <v-row
-      v-else-if="accountStore.orders.length > 0"
-      v-for="order in accountStore.orders"
+      v-else-if="orderStore.orders.length > 0"
+      v-for="order in orderStore.orders"
     >
       <v-col>
         <order-item
