@@ -1,11 +1,15 @@
 <script setup lang="ts">
 import cardView from '@/components/basics/cardView.vue';
+import { LanguageEnum } from '@/data/enums/languageEnum';
 import { ExerciseGroupApiModel } from '@/data/models/exercises/exerciseGroupApiModel';
+import { usePreferencesStore } from '@/stores/preferences.store';
 
 defineProps({
   exerciseGroup: ExerciseGroupApiModel,
   loading: Boolean
 })
+
+const preferencesStore = usePreferencesStore()
 </script>
 
 <template>
@@ -37,10 +41,10 @@ defineProps({
     </v-timeline>
   </card-view>
 
-  <!-- todo: English -->
   <card-view
     v-else
-    :title="$t('help.scoreBoard.exerciseGroupNr', [exerciseGroup.groupNr]) +  exerciseGroup.nameDe"
+    :title="$t('help.scoreBoard.exerciseGroupNr', [exerciseGroup.groupNr]) + 
+      (preferencesStore.language == LanguageEnum.GERMAN ? exerciseGroup.nameDe : exerciseGroup.nameEn)"
     :loading="loading"
   >
     <template #borderless>
@@ -69,14 +73,14 @@ defineProps({
             type="text"
             :loading="loading"
           >
-            <div class="text-center">
+            <div class="text-center pb-3">
               <div class="text-h6">
-                {{ exercise.nameDe }}
+                {{ (preferencesStore.language == LanguageEnum.GERMAN ? exercise.nameDe : exercise.nameEn) }}
               </div>
 
               <div>
-                <!-- todo: English -->
-                {{ exercise.descriptionDe }}
+                {{ (preferencesStore.language == LanguageEnum.GERMAN ? 
+                  exercise.descriptionDe : exercise.descriptionEn) }}
               </div>
             </div>
           </v-skeleton-loader>

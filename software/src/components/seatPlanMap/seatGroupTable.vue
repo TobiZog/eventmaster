@@ -4,7 +4,7 @@ import { SeatGroupModel } from '@/data/models/locations/seatGroupModel';
 import { SeatModel } from '@/data/models/locations/seatModel';
 import { SeatRowModel } from '@/data/models/locations/seatRowModel';
 import { SelectedSeatModel } from '@/data/models/ordering/selectedSeatModel';
-import { getSeatColor } from '@/helpers/colorScripts';
+import { getSeatColor } from '@/scripts/colorScripts';
 import { useBasketStore } from '@/stores/basket.store';
 
 const basketStore = useBasketStore()

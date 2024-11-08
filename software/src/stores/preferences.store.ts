@@ -39,10 +39,10 @@ export const usePreferencesStore = defineStore('preferencesStore', {
     firstStartup: useLocalStorage<Boolean>("hackmycart/preferencesStore/firstStartup", true),
 
     /** Full name of student */
-    studentName: useLocalStorage<String>("hackmycart/preferencesStore/studentName", ""),
+    studentName: useLocalStorage<string>("hackmycart/preferencesStore/studentName", ""),
 
     /** Matrikel number */
-    registrationNumber: useLocalStorage<String>("hackmycart/preferencesStore/registrationNumber", "")
+    registrationNumber: useLocalStorage<string>("hackmycart/preferencesStore/registrationNumber", "")
   }),
 
   actions: {
