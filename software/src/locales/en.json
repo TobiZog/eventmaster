@@ -148,7 +148,15 @@
         "description": "Do you really want to reset the exercise progress? This is permanent!"
       }
     },
-    "aboutProject": "About the project"
+    "aboutProject": "About the project",
+    "resetFirstStartup": "Start first startup dialog",
+    "factoryReset": {
+      "factoryReset": "Factory reset",
+      "dialog": {
+        "title": "Factory reset?",
+        "description": "Do you really want to reset everything? Every change will be lost!"
+      }
+    }
   },
   "help": {
     "scoreBoard": {
@@ -201,7 +209,8 @@
       "filtering": "Filter",
       "cancel": "Cancel",
       "more": "More",
-      "confirm": "Confirm"
+      "confirm": "Confirm",
+      "next": "Next"
     },
     "validation": {
       "required": "Must not remain empty",
@@ -216,8 +225,19 @@
     "uploadFile": "Upload file",
     "firstStartup": {
       "title": "First startup",
-      "description": "Creating database. This could take 1-2 minutes. Please wait..."
-    }
+      "description": "Creating database. Please wait...",
+      "createDatabase": "Create Database...",
+      "complete": "Complete",
+      "createExercises": "Create Exercises...",
+      "finished": "Finished",
+      "connectToServer": "Server",
+      "database": "Database",
+      "exercises": "Exercises",
+      "userData": "User data"
+    },
+    "user": "About person",
+    "registrationNumber": "Matrikel number",
+    "yourFullName": "Full name"
   },
   "genre": {
     "withoutBand": "without Band"

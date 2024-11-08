@@ -7,11 +7,12 @@ import { fetchFileNames, fetchServerState, resetDatabase, resetExerciseProgress 
 import { ServerStateEnum } from "@/data/enums/serverStateEnum";
 import { BannerStateEnum } from "@/data/enums/bannerStateEnum";
 import { useFeedbackStore } from "./feedback.store";
+import { useBasketStore } from "./basket.store";
 
 export const usePreferencesStore = defineStore('preferencesStore', {
   state: () => ({
     /** Selected theme by user */
-    theme: useLocalStorage<ThemeEnum>("hackmycart/preferencesStore/theme", ThemeEnum.DARKBLUE),
+    theme: useLocalStorage<ThemeEnum>("hackmycart/preferencesStore/theme", ThemeEnum.DARK),
 
     /** Selected language by user */
     language: useLocalStorage<LanguageEnum>("hackmycart/preferencesStore/language", LanguageEnum.GERMAN),
@@ -28,11 +29,20 @@ export const usePreferencesStore = defineStore('preferencesStore', {
     /** Show the "Delete Exercise progress?" confirm dialog */
     showDeleteExerciseDialog: ref(false),
 
+    /** Show the "Factory reset" confirm dialog */
+    showFactoryResetDialog: ref(false),
+
     /** List of files on the server */
     staticFiles: ref([]),
 
     /** Marks the first run of the app */
-    firstStartup: useLocalStorage<Boolean>("hackmycart/preferencesStore/firstStartup", true)
+    firstStartup: useLocalStorage<Boolean>("hackmycart/preferencesStore/firstStartup", true),
+
+    /** Full name of student */
+    studentName: useLocalStorage<String>("hackmycart/preferencesStore/studentName", ""),
+
+    /** Matrikel number */
+    registrationNumber: useLocalStorage<String>("hackmycart/preferencesStore/registrationNumber", "")
   }),
 
   actions: {
@@ -108,11 +118,17 @@ export const usePreferencesStore = defineStore('preferencesStore', {
         })
     },
 
-    async firstStartupRoutine() {
-      await this.resetDb()
-      await this.resetExerciseProg()
+    resetToFactorySettings() {
+      const basketStore = useBasketStore()
 
-      this.firstStartup = false
+      this.firstStartup = true
+      this.studentName = ""
+      this.registrationNumber = ""
+      this.theme = "dark"
+      this.language = LanguageEnum.GERMAN
+      basketStore.itemsInBasket = []
+      
+      this.showFactoryResetDialog = false
     }
   }
 })

@@ -148,7 +148,15 @@
         "description": "Soll der Bearbeitungsfortschritt der Übungen wirklich zurückgesetzt werden? Dies kann nicht rückgänig gemacht werden!"
       }
     },
-    "aboutProject": "Über das Projekt"
+    "aboutProject": "Über das Projekt",
+    "resetFirstStartup": "Einrichtungsassistenten starten",
+    "factoryReset": {
+      "factoryReset": "Zurücksetzen auf Werkseinstellungen",
+      "dialog": {
+        "title": "Aus Werkseinstellungen zurücksetzen?",
+        "description": "Sollen alle Einstellungen und Daten auf Werkseinstellungen zurückgesetzt werden? Alle Änderungen und Fortschritte gehen verloren!"
+      }
+    }
   },
   "help": {
     "scoreBoard": {
@@ -201,7 +209,8 @@
       "filtering": "Filtern",
       "cancel": "Abbrechen",
       "more": "Mehr",
-      "confirm": "Bestätigen"
+      "confirm": "Bestätigen",
+      "next": "Weiter"
     },
     "validation": {
       "required": "Darf nicht leer bleiben",
@@ -216,8 +225,19 @@
     "uploadFile": "Datei hochladen",
     "firstStartup": {
       "title": "Ersteinrichtung",
-      "description": "Die Datenbank wird eingerichtet. Dies kann 1-2 Minuten dauern. Bitte warten..."
-    }
+      "description": "Die Datenbank wird eingerichtet. Bitte warten...",
+      "createDatabase": "Erstelle Datenbank...",
+      "complete": "Fertig",
+      "finished": "Abgeschlossen",
+      "createExercises": "Erstelle Aufgaben...",
+      "connectToServer": "Server",
+      "database": "Datenbank",
+      "exercises": "Aufgaben",
+      "userData": "Persönliche Daten"
+    },
+    "user": "Angaben zur Person",
+    "registrationNumber": "Matrikelnummer",
+    "yourFullName": "Vollständiger Name"
   },
   "genre": {
     "withoutBand": "ohne Band"

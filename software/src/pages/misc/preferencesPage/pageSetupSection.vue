@@ -1,21 +1,10 @@
 <script setup lang="ts">
 import { ThemeEnum } from '@/data/enums/themeEnums';
-import { useTheme } from 'vuetify/lib/framework.mjs';
-import { i18n } from '@/plugins/i18n';
 import cardView from '@/components/basics/cardView.vue';
 import { usePreferencesStore } from '@/stores/preferences.store';
 
 const preferencesStore = usePreferencesStore()
-const theme = useTheme()
 const themeEnums = Object.values(ThemeEnum)
-
-function changeTheme() {
-  theme.global.name.value = preferencesStore.theme
-}
-
-function changeLanguage() {
-  i18n.global.locale = preferencesStore.language
-}
 </script>
 
 <template>
@@ -29,7 +18,6 @@ function changeLanguage() {
           v-model="preferencesStore.theme"
           :items="themeEnums"
           :label="$t('preferences.selectedTheme')"
-          @update:model-value="changeTheme"
           variant="outlined"
           hide-details
         />
@@ -42,7 +30,6 @@ function changeLanguage() {
           v-model="preferencesStore.language"
           :items="$i18n.availableLocales" 
           :label="$t('preferences.language')"
-          @update:model-value="changeLanguage"
           variant="outlined"
           hide-details
         />

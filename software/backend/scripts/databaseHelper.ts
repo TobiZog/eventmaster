@@ -90,12 +90,12 @@ export async function prepopulateDatabase() {
   {
     await City.create(city)
       .then(async cityDataset => {
-        for (let location of city.locations) 
+        for (let { ...location } of city.locations) 
         {
           location["cityId"] = cityDataset.id
           location["urlName"] = location.name.replaceAll(" ", "-").toLowerCase()
-          location["imageIndoor"] = "http://localhost:3000/static/" + location["imageIndoor"]
-          location["imageOutdoor"] = "http://localhost:3000/static/" + location["imageOutdoor"]
+          location.imageIndoor = "http://localhost:3000/static/" + location["imageIndoor"]
+          location.imageOutdoor = "http://localhost:3000/static/" + location["imageOutdoor"]
 
           await Location.create(location)
             .then(async locationDataset => {
@@ -240,7 +240,7 @@ export async function prepopulateDatabase() {
   let concerts = []
   let ratings = []
 
-  for(let band of bandsConcerts.bands) {
+  for(let { ...band } of bandsConcerts.bands) {
     band.imageMembers = "http://localhost:3000/static/" + band.imageMembers
     band.images = band.images.map(image => "http://localhost:3000/static/" + image)
     band.logo = "http://localhost:3000/static/" + band.logo
@@ -282,11 +282,9 @@ export async function prepopulateDatabase() {
         }
 
         for (let member of band.members) {
-          member.image = "http://localhost:3000/static/" + member.image
-
           bandMembers.push({
             name: member.name,
-            image: member.image,
+            image: "http://localhost:3000/static/" + member.image,
             bandId: dataset.dataValues.id
           })
         }

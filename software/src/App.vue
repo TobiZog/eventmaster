@@ -9,8 +9,6 @@ import { useFeedbackStore } from './stores/feedback.store';
 import companyFooter from './components/navigation/companyFooter.vue';
 import urlBar from './components/navigation/urlBar.vue';
 import { useRouter } from 'vue-router';
-import actionDialog from './components/basics/actionDialog.vue';
-import CircularProgressIndeterminate from './components/basics/circularProgressIndeterminate.vue';
 
 const preferencesStore = usePreferencesStore()
 const feedbackStore = useFeedbackStore()
@@ -19,18 +17,18 @@ const router = useRouter()
 
 theme.global.name.value = preferencesStore.theme
 
-
-// First startup
-if (preferencesStore.firstStartup) {
-  preferencesStore.firstStartupRoutine()
-}
-
-
 // Global watcher
+// Watch for language change
 watch(() => preferencesStore.language, () => {
   i18n.global.locale = preferencesStore.language
 }, { immediate: true })
 
+// Watch for theme change
+watch(() => preferencesStore.theme, () => {
+  theme.global.name.value = preferencesStore.theme
+})
+
+// Watch for 404 page directions
 watch(() => feedbackStore.notFound, () => {
   if (feedbackStore.notFound) {
     feedbackStore.notFound = false
@@ -92,23 +90,4 @@ watch(() => feedbackStore.notFound, () => {
       <company-footer />
     </v-main>
   </v-app>
-
-  <action-dialog
-    v-model="preferencesStore.firstStartup"
-    :title="$t('misc.firstStartup.title')"
-    persistent
-    max-width="600"
-  >
-    <v-row>
-      <v-col>
-        {{ $t('misc.firstStartup.description') }}
-      </v-col>
-    </v-row>
-
-    <v-row>
-      <v-col class="text-center pa-8">
-        <circular-progress-indeterminate />
-      </v-col>
-    </v-row>
-  </action-dialog>
 </template>

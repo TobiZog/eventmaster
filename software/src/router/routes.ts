@@ -1,5 +1,5 @@
 import BasketPage from "@/pages/misc/basketPage/index.vue"
-import HomePage from "@/pages/homePage/index.vue"
+import HomePage from "@/pages/misc/homePage/index.vue"
 import { adminRoutes } from "./admin.routes";
 import BandsPage from "@/pages/bands/bandsPage/index.vue"
 import BandDetailPage from "@/pages/bands/bandDetailPage/index.vue"
