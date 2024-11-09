@@ -34,6 +34,10 @@ export const useOrderStore = defineStore("orderStore", {
         .then(res => {
           this.orders = res.data
         })
+    },
+
+    async deleteOrder(order: OrderApiModel) {
+      
     }
   }
 })

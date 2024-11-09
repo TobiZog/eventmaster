@@ -2,6 +2,7 @@
   "orders": [
     {
       "username": "hagemeister93",
+      "shipped": true,
       "tickets": [
         {
           "date": "2024-10-18",

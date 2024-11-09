@@ -10,12 +10,35 @@ import { City } from "../models/locations/city.model";
 import { Seat } from "../models/locations/seat.model";
 import { SeatRow } from "../models/locations/seatRow.model";
 import { SeatGroup } from "../models/locations/seatGroup.model";
+import { Account } from "../models/user/account.model";
 
 export const order = Router()
 
 // Get all orders
 order.get("/", (req: Request, res: Response) => {
-  Order.findAll()
+  Order.findAll({
+    include: [
+      Account,
+      Address,
+      {
+        model: Ticket,
+        include: [
+          {
+            model: Concert,
+            include: [
+              {
+                model: Band
+              },
+              {
+                model: Location,
+                include: [ City ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  })
     .then(orders => {
       res.status(200).json(orders)
     })

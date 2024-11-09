@@ -1,4 +1,4 @@
-import { AutoIncrement, Column, ForeignKey, Model, PrimaryKey, Table, Unique } from "sequelize-typescript";
+import { Column, ForeignKey, Model, PrimaryKey, Table } from "sequelize-typescript";
 import { Genre } from "./genre.model";
 import { Band } from "./band.model";
 

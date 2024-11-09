@@ -5,6 +5,7 @@ import AccountsAdminPage from "@/pages/admin/accountsAdminPage/index.vue"
 import GenresAdminPage from "@/pages/admin/genresAdminPage/index.vue"
 import LocationsAdminPage from "@/pages/admin/locationsAdminPage/index.vue"
 import FilesAdminPage from "@/pages/admin/filesAdminPage/index.vue"
+import OrdersAdminPage from "@/pages/admin/ordersAdminPage/index.vue"
 
 export const adminRoutes = [
   {
@@ -34,5 +35,9 @@ export const adminRoutes = [
   {
     path: '/admin/files',
     component: FilesAdminPage
+  },
+  {
+    path: '/admin/orders',
+    component: OrdersAdminPage
   }
 ]
