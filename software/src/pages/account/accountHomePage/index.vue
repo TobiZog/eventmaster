@@ -19,7 +19,7 @@ const router = useRouter()
             <v-row>
               <v-col>
                 <card-view
-                  :title="$t('order.orders', 2)"
+                  :title="$t('order.order', 2)"
                   icon="mdi-basket-check"
                   @click="router.push('/account/orders')"
                 >

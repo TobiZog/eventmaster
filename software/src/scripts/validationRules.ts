@@ -3,9 +3,11 @@ import { useFeedbackStore } from "@/stores/feedback.store"
 /**
  * Check a string for no numbers and more than four digits
  * 
+ * @param [minChars=4] Minimal number of characters
+ * 
  * @returns Array of rules
  */
-export function getStringRules() {
+export function getStringRules(minChars = 4) {
   const feedbackStore = useFeedbackStore()
 
   return [
@@ -24,7 +26,7 @@ export function getStringRules() {
       }
     },
     value => {
-      if (value?.length >= 4) {
+      if (value?.length >= minChars) {
         return true
       } else {
         return feedbackStore.i18n.t('misc.validation.notEnoughChars')

@@ -7,6 +7,10 @@ const router = useRouter()
 
 defineProps({
   addButtonString: String,
+  hideAddButton: {
+    type: Boolean,
+    default: false
+  },
   onAddClick: {
     type: Function,
     default: () => {}
@@ -28,6 +32,7 @@ defineProps({
 
       <v-col class="text-end">
         <outlined-button
+          v-if="!hideAddButton"
           prepend-icon="mdi-plus"
           color="green"
           :disabled="fetchInProgress"

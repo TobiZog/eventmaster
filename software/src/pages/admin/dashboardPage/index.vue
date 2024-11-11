@@ -107,9 +107,9 @@ orderStore.getAllOrders()
       />
 
       <dashboard-card
-        :title="$t('order.orders', 2)"
+        :title="$t('order.order', 2)"
         icon="mdi-basket"
-        :first-line="orderStore.orders.length + ' ' + $t('order.orders', 2)"
+        :first-line="orderStore.orders.length + ' ' + $t('order.order', 2)"
         second-line="todo"
         button-route="/admin/orders"
         :loading="orderStore.fetchInProgress"

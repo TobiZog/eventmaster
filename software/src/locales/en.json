@@ -62,7 +62,7 @@
     "withoutConcert": "without concert"
   },
   "ticket": {
-    "tickets": "Ticket | Tickets"
+    "ticket": "Ticket | Tickets"
   },
   "account": {
     "account": "Account | Accounts",
@@ -112,7 +112,6 @@
     "administrator": "Administrator"
   },
   "order": {
-    "orders": "Order | Orders",
     "oclock": "o'clock",
     "ordering": "Finish order process",
     "orderSummary": "Order overview",
@@ -120,7 +119,8 @@
     "noOrders": "No orders found",
     "orderedAt": "Ordered at",
     "noOrdersText": "Bisher wurden keine Bestellungen von diesem Account getätigt. Gehe zum Warenkorb und bestelle!",
-    "ordersDescription": "Overview of all placed orders"
+    "ordersDescription": "Overview of all placed orders",
+    "order": "Order | Orders"
   },
   "basket": {
     "addToBasket": "Add to basket",

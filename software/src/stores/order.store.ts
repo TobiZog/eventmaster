@@ -9,6 +9,10 @@ export const useOrderStore = defineStore("orderStore", {
     /** All orders of one/all users */
     orders: ref<Array<OrderApiModel>>([]),
 
+    order: ref<OrderApiModel>(new OrderApiModel),
+
+    showDetailDialog: ref<boolean>(false),
+
     /** Request to server sent, waiting for data response */
     fetchInProgress: ref(false)
   }),
@@ -40,6 +44,11 @@ export const useOrderStore = defineStore("orderStore", {
           this.orders = res.data
           this.fetchInProgress = false
         })
+    },
+
+    openDetails(order: OrderApiModel) {
+      this.order = order
+      this.showDetailDialog = true
     },
 
     async deleteOrder(order: OrderApiModel) {

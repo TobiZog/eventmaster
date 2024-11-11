@@ -23,12 +23,8 @@ defineProps({
       :icon="icon"
       :tonal="false"
     >
-      <template #default v-if="$slots.default">
+      <template #borderless>
         <slot></slot>
-      </template>
-
-      <template #borderless v-if="$slots.borderless">
-        <slot name="borderless"></slot>
       </template>
 
       <template #actions v-if="$slots.actions">

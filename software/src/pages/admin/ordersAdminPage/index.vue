@@ -2,7 +2,7 @@
 import adminDataLayout from '@/layouts/adminDataLayout.vue';
 import { useOrderStore } from '@/stores/order.store';
 import moment from 'moment';
-import { title } from 'process';
+import OrderDetailDialog from './orderDetailDialog.vue';
 
 const orderStore = useOrderStore()
 
@@ -20,7 +20,9 @@ orderStore.getAllOrders()
 </script>
 
 <template>
-  <admin-data-layout>
+  <admin-data-layout
+    :hide-add-button="true"
+  >
     <v-data-table
       :headers="headers"
       :items="orderStore.orders"
@@ -52,6 +54,7 @@ orderStore.getAllOrders()
         <v-btn
           icon="mdi-eye"
           variant="plain"
+          @click="orderStore.openDetails(item)"
         />
 
         <v-btn
@@ -64,4 +67,6 @@ orderStore.getAllOrders()
 
     </v-data-table>
   </admin-data-layout>
+
+  <order-detail-dialog />
 </template>
