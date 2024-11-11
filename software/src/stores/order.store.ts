@@ -18,9 +18,12 @@ export const useOrderStore = defineStore("orderStore", {
      * Get all orders from all accounts from server
      */
     async getAllOrders() {
+      this.fetchInProgress = true
+
       fetchAllOrders()
         .then(res => {
           this.orders = res.data
+          this.fetchInProgress = false
         })
     },
 
@@ -30,14 +33,17 @@ export const useOrderStore = defineStore("orderStore", {
      * @param user User to request orders from
      */
     async getOrdersOfAccount(user: AccountModel) {
+      this.fetchInProgress = true
+
       fetchUserOrders(user.id)
         .then(res => {
           this.orders = res.data
+          this.fetchInProgress = false
         })
     },
 
     async deleteOrder(order: OrderApiModel) {
-      
+      // todo
     }
   }
 })

@@ -8,7 +8,6 @@ import { useOrderStore } from '@/stores/order.store';
 const accountStore = useAccountStore()
 const orderStore = useOrderStore()
 
-accountStore.refreshOrders()
 orderStore.getOrdersOfAccount(accountStore.userAccount)
 </script>
 
@@ -16,7 +15,7 @@ orderStore.getOrdersOfAccount(accountStore.userAccount)
   <account-sub-page-layout>
     <!-- During fetching state -->
     <v-row
-      v-if="accountStore.fetchInProgress"
+      v-if="orderStore.fetchInProgress"
     >
       <v-col class="text-center">
         <circular-progress-indeterminate />

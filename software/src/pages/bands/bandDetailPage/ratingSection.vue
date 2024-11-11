@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { RatingModel } from '@/data/models/acts/ratingModel';
+import sectionDivider from '@/components/basics/sectionDivider.vue';
 
 defineProps({
   /**
@@ -18,6 +19,12 @@ defineProps({
 </script>
 
 <template>
+  <v-row>
+    <v-col>
+      <section-divider :title="$t('band.rating', 2)" />
+    </v-col>
+  </v-row>
+
   <v-row>
     <v-col>
       <div class="d-flex align-center justify-center flex-column" style="height: 100%;">

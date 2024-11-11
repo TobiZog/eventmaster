@@ -1,18 +1,17 @@
 <script setup lang="ts">
-import { BandModel } from '@/data/models/acts/bandModel';
 import { useBandStore } from '@/stores/band.store';
+import sectionDivider from '@/components/basics/sectionDivider.vue';
 
 const bandStore = useBandStore()
-
-defineProps({
-  band: {
-    type: BandModel,
-    required: true
-  }
-})
 </script>
 
 <template>
+  <v-row>
+    <v-col>
+      <section-divider :title="$t('band.image', 2)" />
+    </v-col>
+  </v-row>
+
   <v-row>
     <v-col>
       <v-skeleton-loader
@@ -43,7 +42,7 @@ defineProps({
 
 
           <v-carousel-item
-            v-for="image in band.images"
+            v-for="image in bandStore.band.images"
             :src="image" 
             cover
           />

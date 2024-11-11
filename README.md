@@ -66,6 +66,118 @@ The application host it's data in a SQLite database. The access is managed by an
 
 #### Listing existing
 
+<details open>
+<summary><code><span style="color:#70AFFD"><b>GET</b></span></code> <code><b>/accounts/</b></code> <code> (Get all Accounts)</code>
+</summary>
+
+##### Parameters
+> None
+
+##### Responses
+> | http code | content-type | response |
+> | :---: | --- | --- |
+> | `200` | `application/json` | `Array<Account + AccountRole>`  |
+
+##### Example Response
+```json
+[
+  {
+    "id": 421,
+    "username": "hagemeister93",
+    "password": "Xjt3qb5t",
+    "email": "hagemeister93@gmail.com",
+    "firstName": "Laurin",
+    "lastName": "Hagemeister",
+    "accountRoleId": 2,
+    "accountRole": {
+      "id": 2,
+      "name": "Admin",
+      "privilegeBuy": true,
+      "privilegeAdminPanel": true
+    }
+  }
+]
+```
+
+</details>
+
+<details open>
+<summary><code><span style="color:#70AFFD"><b>GET</b></span></code> <code><b>/api/files</b></code> <code> (Get all public files)</code>
+</summary>
+
+##### Parameters
+> None
+
+##### Responses
+> | http code | content-type | response |
+> | :---: | --- | --- |
+> | `200` | `application/json` | `Array<{folder: String, files: Array<{name: String, size: Number, url: String}> }>`  |
+
+##### Example Response
+```json
+[
+  {
+    "folder": "artists",
+    "files": [
+      {
+        "name": "alex-turner.jpg",
+        "size": 56473,
+        "url": "http://localhost:3000/static/artists/alex-turner.jpg"
+      },
+      {
+        "name": "andy-nicholson.jpg",
+        "size": 68983,
+        "url": "http://localhost:3000/static/artists/andy-nicholson.jpg"
+      }
+    ]
+  }
+]
+```
+</details>
+
+<details open>
+<summary><code><span style="color:#70AFFD"><b>GET</b></span></code> <code><b>/bands/</b></code> <code> (Get all bands)</code>
+</summary>
+
+##### Parameters
+> | name | type | data type | description |
+> | :---: | --- | --- | --- |
+> | `sort` |  optional | string   | Sort by number of concerts ascending (asc) or descending (desc) |
+> | `count` |  optional | number   | Number of items to responde |
+
+##### Responses
+> | http code | content-type | response |
+> | :---: | --- | --- |
+> | `200` | `application/json` | `Array<>`  |
+
+##### Example Response
+```json
+[
+  {
+    "folder": "artists",
+    "files": [
+      {
+        "name": "alex-turner.jpg",
+        "size": 56473,
+        "url": "http://localhost:3000/static/artists/alex-turner.jpg"
+      },
+      {
+        "name": "andy-nicholson.jpg",
+        "size": 68983,
+        "url": "http://localhost:3000/static/artists/andy-nicholson.jpg"
+      }
+    ]
+  }
+]
+```
+</details>
+
+
+
+
+
+
+
 <details>
 <summary><code><span style="color:#70AFFD"><b>GET</b></span></code> <code><b>/events?city=cityName&genre=genreName&count=nrOfItems&sort=sortDirection</b></code> <code> (Get all events, filtered by city and genre)</code>
 </summary>

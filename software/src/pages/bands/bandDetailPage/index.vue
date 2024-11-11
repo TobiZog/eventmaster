@@ -5,7 +5,6 @@ import bandMemberSection from './bandMemberSection.vue';
 import gallerySection from './gallerySection.vue';
 import concertSection from './concertSection.vue';
 import heroImage from '@/components/pageParts/heroImage.vue';
-import sectionDivider from '@/components/basics/sectionDivider.vue';
 import { useBandStore } from '@/stores/band.store';
 import { onMounted, watch } from 'vue';
 
@@ -36,49 +35,16 @@ watch(() => router.currentRoute.value.params.name, () => {
       <v-spacer />
 
       <v-col cols="10">
-        <v-row>
-          <v-col>
-            <section-divider :title="$t('concert.concert', 2)" />
-          </v-col>
-        </v-row>
+        <concert-section />
 
-        <concert-section
-          :band="bandStore.band"
-          :concerts="bandStore.band.concerts"
-        />
-
-        <v-row>
-          <v-col>
-            <section-divider :title="$t('band.bandMember')" />
-          </v-col>
-        </v-row>
-
-        <band-member-section
-          :band="bandStore.band"
-        />
-        
-
-        <v-row>
-          <v-col>
-            <section-divider :title="$t('band.rating', 2)" />
-          </v-col>
-        </v-row>
+        <band-member-section />
 
         <rating-section
           :rating="bandStore.band.rating"
           :ratings="bandStore.band.ratingValues"
         />
 
-
-        <v-row>
-          <v-col>
-            <section-divider :title="$t('band.image', 2)" />
-          </v-col>
-        </v-row>
-
-        <gallery-section
-          :band="bandStore.band"
-        />
+        <gallery-section />
       </v-col>
 
       <v-spacer />

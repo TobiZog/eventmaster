@@ -159,3 +159,17 @@ band.post("/", (req: Request, res: Response) => {
       res.status(200).json(result)
     })
 })
+
+band.delete("/", (req: Request, res: Response) => {
+  Band.destroy({
+    where: {
+      id: req.body.id
+    }
+  })
+    .then(result => {
+      res.status(200).json(result)
+    })
+    .catch(error => {
+      res.status(500).send()
+    })
+})

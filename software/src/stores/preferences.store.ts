@@ -108,6 +108,9 @@ export const usePreferencesStore = defineStore('preferencesStore', {
         })
     },
 
+    /**
+     * Request all available static files on server
+     */
     async getStaticFiles() {
       this.fetchInProgress = true
 
@@ -118,6 +121,9 @@ export const usePreferencesStore = defineStore('preferencesStore', {
         })
     },
 
+    /**
+     * Reset all store values to factory state
+     */
     resetToFactorySettings() {
       const basketStore = useBasketStore()
 
