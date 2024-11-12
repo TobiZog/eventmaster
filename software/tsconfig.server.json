@@ -16,5 +16,5 @@
     "backend/**/*.ts",
     "backend/**/*.json",
     "backend/images/**/**/*"
-  ]
+, "backend/server.js"  ]
 }

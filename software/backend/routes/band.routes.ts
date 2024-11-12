@@ -11,7 +11,9 @@ import { calcOverallRating, calcRatingValues } from "../scripts/calcScripts";
 
 export const band = Router()
 
-// Get all bands
+/**
+ * Get all bands
+ */
 band.get("/", (req: Request, res: Response) => {
   let sort = req.query.sort
   let count = req.query.count
@@ -64,7 +66,9 @@ band.get("/", (req: Request, res: Response) => {
     })
 })
 
-// Get all information about one band
+/**
+ * Get all information about one band
+ */
 band.get("/band/:name", (req: Request, res: Response) => {
   Band.findOne({
     where: {
@@ -123,7 +127,9 @@ band.get("/band/:name", (req: Request, res: Response) => {
 })
 
 
-// Band search
+/**
+ * Band search
+ */
 band.get("/search", (req: Request, res: Response) => {
   Band.findAll({
     where: {
@@ -139,7 +145,9 @@ band.get("/search", (req: Request, res: Response) => {
 })
 
 
-// Edit band
+/**
+ * Edit band
+ */
 band.patch("/", (req: Request, res: Response) => {
   Band.update(req.body, {
     where: {
@@ -152,7 +160,9 @@ band.patch("/", (req: Request, res: Response) => {
 })
 
 
-// New band
+/**
+ * New band
+ */
 band.post("/", (req: Request, res: Response) => {
   Band.create(req.body)
     .then(result => {
@@ -160,6 +170,9 @@ band.post("/", (req: Request, res: Response) => {
     })
 })
 
+/**
+ * Delete a band
+ */
 band.delete("/", (req: Request, res: Response) => {
   Band.destroy({
     where: {

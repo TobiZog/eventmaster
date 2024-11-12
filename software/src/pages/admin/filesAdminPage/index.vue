@@ -1,44 +1,64 @@
 <script setup lang="ts">
 import adminDataLayout from '@/layouts/adminDataLayout.vue';
-import { usePreferencesStore } from '@/stores/preferences.store';
-import filePreviewDialog from './filePreviewDialog.vue';
 import { ref } from 'vue';
+import FileUploadDialog from './fileUploadDialog.vue';
+import { useFilesStore } from '@/stores/files.store';
 
-const preferencesStore = usePreferencesStore()
-const showDialog = ref(false)
+const filesStore = useFilesStore()
+const showPreviewDialog = ref(false)
 const previewFile = ref("")
 
-preferencesStore.getStaticFiles()
+filesStore.getStaticFolders()
 </script>
 
 <template>
   <admin-data-layout
     :add-button-string="$t('misc.uploadFile')"
-    :fetch-in-progress="preferencesStore.fetchInProgress"
-    :on-add-click="() => { /** todo */ }"
+    :fetch-in-progress="filesStore.fetchInProgress"
+    :on-add-click="() => { filesStore.showFileUploadDialog = true }"
   >
-    <v-row>
-      <v-col
-        v-for="folder of preferencesStore.staticFiles"
-        cols="12"
-        md="3"
-        sm="6"
-      >
+    <v-row >
+      <v-col cols="2" class="border">
         <v-list>
-          <v-list-subheader>{{ folder.folder }}/</v-list-subheader>
-          <v-list-item 
-            v-for="file of folder.files"
-            :title="file.name"
-            :subtitle="Math.round(file.size / 1024) + ' KB'"
-            @click="() => { previewFile = file.url; showDialog = true }"
+          <v-list-item
+            v-for="folder of filesStore.staticFolders"
+            :key="folder.name"
+            :value="folder"
+            :title="folder.name + '/'"
+            @click="filesStore.selectedFolder = folder; filesStore.getStaticFiles()"
           />
         </v-list>
+      </v-col>
+
+      <v-col cols="4" class="border">
+        <v-skeleton-loader
+          :loading="filesStore.fetchInProgress"
+          type="list-item-two-line"
+        >
+          <v-list max-height="800" class="w-100">
+            <v-list-item
+              v-for="file of filesStore.staticFiles"
+              :title="file.name"
+              :value="file.name"
+              :subtitle="Math.round(file.size / 1024) + ' KB'"
+              @click="() => { filesStore.selectedFile = file }"
+            />
+          </v-list>
+        </v-skeleton-loader>
+      </v-col>
+
+      <v-col class="border">
+        <v-img
+          v-if="filesStore.selectedFile != undefined"
+          :src="filesStore.selectedFile.url" max-height="400" />
       </v-col>
     </v-row>
   </admin-data-layout>
 
   <file-preview-dialog
-    v-model:show-dialog="showDialog"
+    v-model:show-dialog="showPreviewDialog"
     :url="previewFile"
   />
+
+  <file-upload-dialog />
 </template>

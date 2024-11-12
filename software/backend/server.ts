@@ -11,6 +11,7 @@ import { genre } from './routes/genre.routes'
 import { location } from './routes/location.routes'
 import { city } from './routes/city.routes'
 import { exercises } from './routes/exercise.routes'
+import { files } from './routes/files.routes'
 
 const app = express()
 const port = 3000
@@ -43,7 +44,7 @@ app.use("/accounts", account)
 app.use("/cities", city)
 app.use("/concerts", concert)
 app.use("/exercises", exercises)
-
+app.use("/files", files)
 
 // Start server
 const server = app.listen(port, () => {

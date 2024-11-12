@@ -238,7 +238,10 @@
     },
     "user": "About person",
     "registrationNumber": "Matrikel number",
-    "yourFullName": "Full name"
+    "yourFullName": "Full name",
+    "chooseFile": "Choose file",
+    "chooseDestinationFolder": "Choose destination folder",
+    "upload": "Upload"
   },
   "genre": {
     "withoutBand": "without Band"

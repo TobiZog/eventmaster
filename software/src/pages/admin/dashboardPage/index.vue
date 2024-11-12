@@ -8,6 +8,7 @@ import { useGenreStore } from '@/stores/genre.store';
 import { usePreferencesStore } from '@/stores/preferences.store';
 import dashboardCard from './dashboardCard.vue';
 import { useOrderStore } from '@/stores/order.store';
+import { useFilesStore } from '@/stores/files.store';
 
 const concertStore = useConcertStore()
 const bandStore = useBandStore()
@@ -17,10 +18,11 @@ const locationStore = useLocationStore()
 const exerciseStore = useExerciseStore()
 const preferencesStore = usePreferencesStore()
 const orderStore = useOrderStore()
+const filesStore = useFilesStore()
 
 exerciseStore.solveExercise(2, 1)
 
-preferencesStore.getStaticFiles()
+filesStore.getStaticFolders()
 bandStore.getBands()
 locationStore.getLocations()
 genreStore.getGenres()
@@ -98,10 +100,10 @@ orderStore.getAllOrders()
       <dashboard-card
         :title="$t('misc.file', 2)"
         icon="mdi-file"
-        :first-line="preferencesStore.staticFiles.reduce((counter, obj) => {
-            return counter += obj.files.length
-          }, 0) + ' ' + $t('misc.file', 2)"
-        :second-line="preferencesStore.staticFiles.length + ' ' + $t('misc.folder', 2)"
+        :first-line="filesStore.staticFolders.reduce((counter, obj) => {
+          return counter + obj.nrOfItems
+        }, 0) + ' ' + $t('misc.file', 2)"
+        :second-line="filesStore.staticFolders.length + ' ' + $t('misc.folder', 2)"
         button-route="/admin/files"
         :loading="preferencesStore.fetchInProgress"
       />

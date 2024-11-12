@@ -3,7 +3,7 @@ import { useLocalStorage } from "@vueuse/core";
 import { ThemeEnum } from "../data/enums/themeEnums";
 import { LanguageEnum } from "../data/enums/languageEnum";
 import { ref } from "vue";
-import { fetchFileNames, fetchServerState, resetDatabase, resetExerciseProgress } from "@/data/api/mainApi";
+import { fetchServerState,resetDatabase, resetExerciseProgress } from "@/data/api/mainApi";
 import { ServerStateEnum } from "@/data/enums/serverStateEnum";
 import { BannerStateEnum } from "@/data/enums/bannerStateEnum";
 import { useFeedbackStore } from "./feedback.store";
@@ -31,9 +31,6 @@ export const usePreferencesStore = defineStore('preferencesStore', {
 
     /** Show the "Factory reset" confirm dialog */
     showFactoryResetDialog: ref(false),
-
-    /** List of files on the server */
-    staticFiles: ref([]),
 
     /** Marks the first run of the app */
     firstStartup: useLocalStorage<Boolean>("hackmycart/preferencesStore/firstStartup", true),
@@ -105,19 +102,6 @@ export const usePreferencesStore = defineStore('preferencesStore', {
 
           this.fetchInProgress = false
           this.showDeleteExerciseDialog = false
-        })
-    },
-
-    /**
-     * Request all available static files on server
-     */
-    async getStaticFiles() {
-      this.fetchInProgress = true
-
-      fetchFileNames()
-        .then(res => {
-          this.staticFiles = res.data
-          this.fetchInProgress = false
         })
     },
 

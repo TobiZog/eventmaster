@@ -238,7 +238,10 @@
     },
     "user": "Angaben zur Person",
     "registrationNumber": "Matrikelnummer",
-    "yourFullName": "Vollständiger Name"
+    "yourFullName": "Vollständiger Name",
+    "chooseFile": "Datei auswählen",
+    "chooseDestinationFolder": "Zielordner auswählen",
+    "upload": "Hochladen"
   },
   "genre": {
     "withoutBand": "ohne Band"

@@ -28,12 +28,3 @@ export function resetDatabase() {
 export function resetExerciseProgress() {
   return axios.get(BASE_URL + "/resetExerciseProgress")
 }
-
-/**
- * Fetch all static file names
- * 
- * @returns Response from server
- */
-export function fetchFileNames() {
-  return axios.get(BASE_URL + "/files")
-}

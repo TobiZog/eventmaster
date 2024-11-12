@@ -1,13 +1,19 @@
 import { Request, Response, NextFunction, Router } from 'express'
 import { deleteAllTables, deleteExerciseProgressTables, prepopulateDatabase, prepopulateExerciseDatabase } from '../scripts/databaseHelper'
-import fs from "fs"
 
 export const api = Router()
 
+/**
+ * Status check endpoint
+ */
 api.get("/", (req: Request, res: Response, next: NextFunction) => {
   res.status(200).send()
 })
 
+/**
+ * Reset the whole database to factory state
+ * Doesn't effect ExerciseTable and ExerciseGroupTable
+ */
 api.get("/resetdatabase", async (req: Request, res: Response, next: NextFunction) => {
   // Step 1: Delete all data tables
   deleteAllTables()
@@ -19,35 +25,13 @@ api.get("/resetdatabase", async (req: Request, res: Response, next: NextFunction
   res.status(200).send()
 })
 
+/**
+ * Reset ExerciseTable and ExerciseGroupTable to factory state
+ */
 api.get("/resetExerciseProgress", async (req: Request, res: Response, next: NextFunction) => {
   deleteExerciseProgressTables()
   
   await prepopulateExerciseDatabase()
   
   res.status(200).send()
-})
-
-/**
- * Get all uploaded file names
- */
-api.get("/files", async (req: Request, res: Response) => {
-  let dirNames = fs.readdirSync("./backend/images")
-  let result = []
-
-  dirNames.forEach(dir => {
-    let fileNames = fs.readdirSync("./backend/images/" + dir)
-
-    result.push({
-      folder: dir,
-      files: fileNames.map(file => {
-        return {
-          name: file,
-          size: fs.statSync("./backend/images/" + dir + "/" + file).size,
-          url: "http://localhost:3000/static/" + dir + "/" + file
-        }
-      })
-    })
-  })
-
-  res.status(200).json(result)
 })
