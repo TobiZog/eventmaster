@@ -110,7 +110,9 @@ orderStore.getAllOrders()
         :title="$t('order.order', 2)"
         icon="mdi-basket"
         :first-line="orderStore.orders.length + ' ' + $t('order.order', 2)"
-        second-line="todo"
+        :second-line="orderStore.orders.reduce((counter, obj) => {
+          return !obj.shipped ? counter += 1 : counter
+        }, 0) + ' ' + $t('order.notShipped')"
         button-route="/admin/orders"
         :loading="orderStore.fetchInProgress"
       />

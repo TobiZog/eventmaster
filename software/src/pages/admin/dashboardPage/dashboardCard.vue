@@ -21,13 +21,21 @@ defineProps({
       :title="title"
       :icon="icon"
     >
-      <div class="text-h4 text-center">
+      <v-skeleton-loader
+        type="heading"
+        :loading="loading"
+        class="text-h4 d-flex justify-center"
+      >
         {{ firstLine }}
-      </div>
+      </v-skeleton-loader>
 
-      <div class="text-h6 text-center text-disabled">
+      <v-skeleton-loader
+        type="text"
+        :loading="loading"
+        class="text-h6 text-disabled d-flex justify-center"
+      >
         {{ secondLine }}
-      </div>
+      </v-skeleton-loader>
 
       <template #actions>
         <outlined-button

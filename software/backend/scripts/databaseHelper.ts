@@ -148,8 +148,6 @@ export async function prepopulateDatabase() {
 
                             capacity++
                           }
-
-                          await Seat.bulkCreate(seats)
                         })
                     }
                     else
@@ -159,20 +157,20 @@ export async function prepopulateDatabase() {
                       for (let row = 0; row < location.rows; row++) {
                         seatRows.push({
                           row: row + 1,
-                          SeatGroupId: seatGroup.dataValues.id
+                          seatGroupId: seatGroup.dataValues.id
                         })
                       }
 
                       await SeatRow.bulkCreate(seatRows)
                         .then(seatRowRes => {
                           for (let seatRow of seatRowRes) {
-                            for (let col = 0; col < seatGroup.capacity / location.rows; col++) {
+                            for (let col = 0; col < seatGroup.dataValues.capacity / location.rows; col++) {
                               seats.push({
-                                  seatNr: col,
-                                  seatRowId: seatRow.id
-                                })
+                                seatNr: col,
+                                seatRowId: seatRow.dataValues.id
+                              })
 
-                                capacity++
+                              capacity++
                             }
                           }
                         })

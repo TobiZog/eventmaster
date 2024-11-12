@@ -120,7 +120,8 @@
     "orderedAt": "Ordered at",
     "noOrdersText": "Bisher wurden keine Bestellungen von diesem Account getätigt. Gehe zum Warenkorb und bestelle!",
     "ordersDescription": "Overview of all placed orders",
-    "order": "Order | Orders"
+    "order": "Order | Orders",
+    "notShipped": "don't shipped"
   },
   "basket": {
     "addToBasket": "Add to basket",
@@ -183,8 +184,8 @@
     "bandSavedSuccessful": "Band successfully saved",
     "genreDeleteError": "Error on deleting Genre",
     "genreDeleteSuccessful": "Genre successfully deleted",
-    "genreSavedError": "Genre successfully saved",
-    "genreSavedSuccessful": "Error on saving genre"
+    "genreSavedError": "Error on saving genre",
+    "genreSavedSuccessful": "Genre successfully saved"
   },
   "misc": {
     "404": {
