@@ -5,6 +5,7 @@ import { Address } from "../models/user/address.model";
 import { Payment } from "../models/user/payment.model";
 import { AccountRole } from "../models/user/accountRole.model";
 import { Exercise } from "../models/exercises/exercise.model";
+import { sequelize } from "../database";
 
 export const account = Router()
 
@@ -18,37 +19,38 @@ account.get("/", (req: Request, res: Response) => {
 })
 
 // Login user
-account.post("/login", (req: Request, res: Response) => {
-  Account.findOne({ 
-    where: { username: req.body.username },
-    include: [ Address, Payment, AccountRole ],
-    attributes: {
-      exclude: [
-        "accountRoleId"
-      ]
-    }
-  })
-    .then(account => {
-      if (account != null) {
-        if (account.dataValues.password == req.body.password) {
-          // Status: 200 OK
-          res.status(200).json(account)
-        } else {
-          // Status: 401 Unauthorized
-          res.status(401).json({
-            code: 401, 
-            message: "Unauthorized"
-          })
+account.post("/login", async (req: Request, res: Response) => {
+  // Using raw SQL code for SQL injections!
+  // todo: Inner join
+  const [results, metadata] = 
+    await sequelize.query(
+      "SELECT * FROM Accounts " +
+      "INNER JOIN Addresses ON Accounts.id=Addresses.accountId " +
+      "WHERE (username='" + req.body.username + 
+      "' AND password='" + req.body.password + "')")
+
+  // Mechanism to check exercise solved
+  if (results.length > 1) {
+    Exercise.update(
+        { solved: true },
+        {
+          where: {
+            nameEn: "Register"
+          }
         }
-      } else {
-        // Status: 400 Bad request
-        res.status(400).json({
-          code: 400, 
-          message: "Bad Request"
-        })
-      }
-    }
-  )
+      )
+  }
+
+  if (results.length != 0) {
+    // Status: 200 OK
+    res.status(200).json(results[0])
+  } else {
+    // Status: 401 Unauthorized
+    res.status(401).json({
+      code: 401, 
+      message: "Unauthorized"
+    })
+  }
 })
 
 // Creating a new user
