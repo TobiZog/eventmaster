@@ -9,8 +9,10 @@ import { Composer } from 'vue-i18n';
  */
 export const useFeedbackStore = defineStore("feedbackStore", {
   state: () => ({
+    snackbars: ref<Array<{text: string, color: string, icon: string }>>([]),
+
     /** Show notification banner in top right corner */
-    showBanner: ref(false),
+    showSnackbar: ref(false),
 
     /** Text in the notification banner */
     title: ref(""),
@@ -35,162 +37,148 @@ export const useFeedbackStore = defineStore("feedbackStore", {
   },
 
   actions: {
-    /**
-     * Change the state of the banner, displays it immediately
-     * 
-     * @param bannerState New banner state
-     */
-    changeBanner(bannerState: BannerStateEnum) {
-      // Banner message
+    addSnackbar(bannerState: BannerStateEnum) {
+      this.snackbars.push({
+        text: this.getSnackbarText(bannerState),
+        color: this.getSnackbarColor(bannerState),
+        icon: this.getSnackbarIcon(bannerState)
+      })
+
+      this.showSnackbar = true
+    },
+
+    getSnackbarText(bannerState: BannerStateEnum) {
       switch (bannerState) {
         ////////// System feedback //////////
 
-        case BannerStateEnum.ERROR: {
-          this.title = this.i18n.t('bannerMessages.error'); break;
-        }
+        case BannerStateEnum.ERROR:
+          return this.i18n.t('bannerMessages.error')
 
-        case BannerStateEnum.BASKETPRODUCTADDED: {
-          this.title = this.i18n.t('bannerMessages.basketTicketAdded'); break;
-        }
+        case BannerStateEnum.BASKETPRODUCTADDED:
+          return this.i18n.t('bannerMessages.basketTicketAdded')
 
-        case BannerStateEnum.BASKETPRODUCTREMOVED: {
-          this.title = this.i18n.t("bannerMessages.basketTicketRemoved"); break;
-        }
+        case BannerStateEnum.BASKETPRODUCTREMOVED:
+          return this.i18n.t("bannerMessages.basketTicketRemoved")
 
 
         ////////// Exercise feedback //////////
 
-        case BannerStateEnum.EXERCISESOLVED01: {
-          this.title = this.i18n.t("bannerMessages.exerciseSolvedNr", [0, 1]); break;
-        }
+        case BannerStateEnum.EXERCISESOLVED01: 
+          return this.i18n.t("bannerMessages.exerciseSolvedNr", [0, 1])
+        
 
-        case BannerStateEnum.EXERCISESOLVED02: {
-          this.title = this.i18n.t("bannerMessages.exerciseSolvedNr", [0, 2]); break;
-        }
+        case BannerStateEnum.EXERCISESOLVED02: 
+          return this.i18n.t("bannerMessages.exerciseSolvedNr", [0, 2])
+        
 
-        case BannerStateEnum.EXERCISESOLVED11: {
-          this.title = this.i18n.t("bannerMessages.exerciseSolvedNr", [1, 1]); break;
-        }
+        case BannerStateEnum.EXERCISESOLVED11: 
+          return this.i18n.t("bannerMessages.exerciseSolvedNr", [1, 1])
+        
 
-        case BannerStateEnum.EXERCISESOLVED12: {
-          this.title = this.i18n.t("bannerMessages.exerciseSolvedNr", [1, 2]); break;
-        }
+        case BannerStateEnum.EXERCISESOLVED12: 
+          return this.i18n.t("bannerMessages.exerciseSolvedNr", [1, 2])
+        
 
-        case BannerStateEnum.EXERCISESOLVED13: {
-          this.title = this.i18n.t("bannerMessages.exerciseSolvedNr", [1, 3]); break;
-        }
+        case BannerStateEnum.EXERCISESOLVED13: 
+          return this.i18n.t("bannerMessages.exerciseSolvedNr", [1, 3])
+        
 
-        case BannerStateEnum.EXERCISESOLVED21: {
-          this.title = this.i18n.t("bannerMessages.exerciseSolvedNr", [2, 1]); break;
-        }
+        case BannerStateEnum.EXERCISESOLVED21: 
+          return this.i18n.t("bannerMessages.exerciseSolvedNr", [2, 1])
+        
 
-        case BannerStateEnum.EXERCISESOLVED22: {
-          this.title = this.i18n.t("bannerMessages.exerciseSolvedNr", [2, 2]); break;
-        }
+        case BannerStateEnum.EXERCISESOLVED22: 
+          return this.i18n.t("bannerMessages.exerciseSolvedNr", [2, 2])
+        
 
-        case BannerStateEnum.EXERCISESOLVED23: {
-          this.title = this.i18n.t("bannerMessages.exerciseSolvedNr", [2, 3]); break;
-        }
+        case BannerStateEnum.EXERCISESOLVED23: 
+          return this.i18n.t("bannerMessages.exerciseSolvedNr", [2, 3])
+        
 
-        case BannerStateEnum.EXERCISESOLVED31: {
-          this.title = this.i18n.t("bannerMessages.exerciseSolvedNr", [3, 1]); break;
-        }
+        case BannerStateEnum.EXERCISESOLVED31: 
+          return this.i18n.t("bannerMessages.exerciseSolvedNr", [3, 1])
+        
 
-        case BannerStateEnum.EXERCISESOLVED32: {
-          this.title = this.i18n.t("bannerMessages.exerciseSolvedNr", [3, 2]); break;
-        }
+        case BannerStateEnum.EXERCISESOLVED32: 
+          return this.i18n.t("bannerMessages.exerciseSolvedNr", [3, 2])
+        
 
-        case BannerStateEnum.EXERCISESOLVED33: {
-          this.title = this.i18n.t("bannerMessages.exerciseSolvedNr", [3, 3]); break;
-        }
+        case BannerStateEnum.EXERCISESOLVED33: 
+          return this.i18n.t("bannerMessages.exerciseSolvedNr", [3, 3])
+        
 
 
         ////////// API Endpoint /api //////////
 
-        case BannerStateEnum.DATABASERESETSUCCESSFUL: {
-          this.title = this.i18n.t('bannerMessages.databaseResetSuccessful'); break;
-        }
+        case BannerStateEnum.DATABASERESETSUCCESSFUL:
+          return this.i18n.t('bannerMessages.databaseResetSuccessful')
+
+        case BannerStateEnum.EXERCISEPROGRESSRESETSUCCESSFUL:
+          return this.i18n.t('bannerMessages.exerciseProgressResetSuccessful')
 
 
         ////////// API Endpoint /accounts //////////
 
-        case BannerStateEnum.ACCOUNTLOGINSUCCESSFUL: {
-          this.title = this.i18n.t('bannerMessages.loginSuccessful'); break;
-        }
+        case BannerStateEnum.ACCOUNTLOGINSUCCESSFUL: 
+          return this.i18n.t('bannerMessages.loginSuccessful')
 
-        case BannerStateEnum.ACCOUNTLOGINWRONGLOGIN: {
-          this.title = this.i18n.t('bannerMessages.wrongLogin'); break;
-        }
+        case BannerStateEnum.ACCOUNTLOGINWRONGLOGIN: 
+          return this.i18n.t('bannerMessages.wrongLogin')
 
-        case BannerStateEnum.ACCOUNTLOGINERROR: {
-          this.title = this.i18n.t('bannerMessages.error'); break;
-        }
+        case BannerStateEnum.ACCOUNTLOGINERROR: 
+          return this.i18n.t('bannerMessages.error')
 
-        case BannerStateEnum.ACCOUNTREGISTERSUCCESSFUL: {
-          this.title = this.i18n.t("bannerMessages.registerSuccessful"); break;
-        }
+        case BannerStateEnum.ACCOUNTREGISTERSUCCESSFUL: 
+          return this.i18n.t("bannerMessages.registerSuccessful")
 
-        case BannerStateEnum.ACCOUNTREGISTERUSERNAMEINUSE: {
-          this.title = this.i18n.t("bannerMessages.usernameInUse"); break;
-        }
+        case BannerStateEnum.ACCOUNTREGISTERUSERNAMEINUSE: 
+          return this.i18n.t("bannerMessages.usernameInUse")
 
-        case BannerStateEnum.ACCOUNTUPDATESUCCESSFUL: {
-          this.title = this.i18n.t("bannerMessages.accountUpdated"); break;
-        }
+        case BannerStateEnum.ACCOUNTUPDATESUCCESSFUL: 
+          return this.i18n.t("bannerMessages.accountUpdated")
 
-        case BannerStateEnum.ACCOUNTLOGOUTSUCCESSFUL: {
-          this.title = this.i18n.t('bannerMessages.logoutSuccessful'); break;
-        }
-
+        case BannerStateEnum.ACCOUNTLOGOUTSUCCESSFUL: 
+          return this.i18n.t('bannerMessages.logoutSuccessful')
+        
 
         ////////// API Endpoint /orders //////////
 
-        case BannerStateEnum.ORDERPLACESUCCESSFUL: {
-          this.title = this.i18n.t('bannerMessages.orderPlaceSuccessfull'); break;
-        }
-
+        case BannerStateEnum.ORDERPLACESUCCESSFUL: 
+          return this.i18n.t('bannerMessages.orderPlaceSuccessfull')
+        
 
         ////////// API Endpoint /bands //////////
 
-        case BannerStateEnum.BANDDELETEERROR: {
-          this.title = this.i18n.t('bannerMessages.bandDeleteError'); break;
-        }
+        case BannerStateEnum.BANDDELETEERROR: 
+          return this.i18n.t('bannerMessages.bandDeleteError')
+        
+        case BannerStateEnum.BANDDELETESUCCESSFUL: 
+          return this.i18n.t('bannerMessages.bandDeleteSuccessful')
 
-        case BannerStateEnum.BANDDELETESUCCESSFUL: {
-          this.title = this.i18n.t('bannerMessages.bandDeleteSuccessful'); break;
-        }
+        case BannerStateEnum.BANDSAVEDERROR: 
+          return this.i18n.t('bannerMessages.bandSavedError')
 
-        case BannerStateEnum.BANDSAVEDERROR: {
-          this.title = this.i18n.t('bannerMessages.bandSavedError'); break;
-        }
-
-        case BannerStateEnum.BANDSAVEDSUCCESSFUL: {
-          this.title = this.i18n.t('bannerMessages.bandSavedSuccessful'); break;
-        }
-
+        case BannerStateEnum.BANDSAVEDSUCCESSFUL: 
+          return this.i18n.t('bannerMessages.bandSavedSuccessful')
+        
 
         ////////// API Endpoint /genres //////////
 
-        case BannerStateEnum.GENREDELETEERROR: {
-          this.title = this.i18n.t('bannerMessages.genreDeleteError'); break;
-        }
+        case BannerStateEnum.GENREDELETEERROR: 
+          return this.i18n.t('bannerMessages.genreDeleteError')
 
-        case BannerStateEnum.GENREDELETESUCCESSFUL: {
-          this.title = this.i18n.t('bannerMessages.genreDeleteSuccessful'); break;
-        }
+        case BannerStateEnum.GENREDELETESUCCESSFUL: 
+          return this.i18n.t('bannerMessages.genreDeleteSuccessful')
+        
+        case BannerStateEnum.GENRESAVEDERROR: 
+          return this.i18n.t('bannerMessages.genreSavedError')
 
-        case BannerStateEnum.GENRESAVEDERROR: {
-          this.title = this.i18n.t('bannerMessages.genreSavedError'); break;
-        }
-
-        case BannerStateEnum.GENRESAVEDSUCCESSFUL: {
-          this.title = this.i18n.t('bannerMessages.genreSavedSuccessful'); break;
-        }
+        case BannerStateEnum.GENRESAVEDSUCCESSFUL: 
+          return this.i18n.t('bannerMessages.genreSavedSuccessful')
       }
+    },
 
-
-      // Banner color
-
+    getSnackbarColor(bannerState: BannerStateEnum) {
       switch (bannerState) {
         case BannerStateEnum.ERROR:
         case BannerStateEnum.ACCOUNTLOGINERROR:
@@ -201,8 +189,7 @@ export const useFeedbackStore = defineStore("feedbackStore", {
         case BannerStateEnum.BANDSAVEDERROR:
         case BannerStateEnum.GENREDELETEERROR:
         case BannerStateEnum.GENRESAVEDERROR:
-          this.color = "red"
-          break;
+          return "red"
         
         case BannerStateEnum.BASKETPRODUCTADDED:
         case BannerStateEnum.DATABASERESETSUCCESSFUL:
@@ -216,8 +203,7 @@ export const useFeedbackStore = defineStore("feedbackStore", {
         case BannerStateEnum.EXERCISEPROGRESSRESETSUCCESSFUL:
         case BannerStateEnum.GENREDELETESUCCESSFUL:
         case BannerStateEnum.GENRESAVEDSUCCESSFUL:
-          this.color = "green"
-          break;
+          return "green"
 
         case BannerStateEnum.EXERCISESOLVED01:
         case BannerStateEnum.EXERCISESOLVED02:
@@ -230,27 +216,24 @@ export const useFeedbackStore = defineStore("feedbackStore", {
         case BannerStateEnum.EXERCISESOLVED31:
         case BannerStateEnum.EXERCISESOLVED32:
         case BannerStateEnum.EXERCISESOLVED33:
-          this.color = "purple"
-          break;
+          return "purple"
 
         case BannerStateEnum.BASKETPRODUCTREMOVED:
-          this.color = "blue"
+          return "blue"
       }
+    },
 
 
-      // Banner icon
-
+    getSnackbarIcon(bannerState: BannerStateEnum) {
       switch (bannerState) {
         case BannerStateEnum.ERROR:
-          this.icon = "mdi-alert-circle"
-          break;
+          return "mdi-alert-circle"
 
         case BannerStateEnum.ACCOUNTLOGINERROR:
         case BannerStateEnum.ACCOUNTLOGINWRONGLOGIN:
         case BannerStateEnum.ACCOUNTREGISTERERROR:
         case BannerStateEnum.ACCOUNTREGISTERUSERNAMEINUSE:
-          this.icon = "mdi-account"
-          break;
+          return "mdi-account"
 
         case BannerStateEnum.EXERCISESOLVED01:
         case BannerStateEnum.EXERCISESOLVED02:
@@ -263,56 +246,43 @@ export const useFeedbackStore = defineStore("feedbackStore", {
         case BannerStateEnum.EXERCISESOLVED31:
         case BannerStateEnum.EXERCISESOLVED32:
         case BannerStateEnum.EXERCISESOLVED33:
-          this.icon = "mdi-check-circle-outline"
-          break;
-        
+          return "mdi-check-circle-outline"
       
         case BannerStateEnum.DATABASERESETSUCCESSFUL:
         case BannerStateEnum.EXERCISEPROGRESSRESETSUCCESSFUL:
-          this.icon = "mdi-database-refresh"
-          break;
+          return "mdi-database-refresh"
         
         case BannerStateEnum.BASKETPRODUCTADDED:
         case BannerStateEnum.BASKETPRODUCTREMOVED:
-          this.icon = "mdi-basket"
-          break;
+          return "mdi-basket"
 
         case BannerStateEnum.ORDERPLACESUCCESSFUL:
-          this.icon = "mdi-basket-check"
-          break;
+          return "mdi-basket-check"
 
         case BannerStateEnum.ACCOUNTLOGOUTSUCCESSFUL:
-          this.icon = "mdi-logout"
-          break;
+          return "mdi-logout"
 
         case BannerStateEnum.ACCOUNTLOGINSUCCESSFUL:
-          this.icon = "mdi-login"
-          break;
+          return "mdi-login"
 
         case BannerStateEnum.ACCOUNTREGISTERSUCCESSFUL:
-          this.icon = "mdi-account-plus"
-          break;
+          return "mdi-account-plus"
         
         case BannerStateEnum.ACCOUNTUPDATESUCCESSFUL:
-          this.icon = "mdi-account-reactivate"
-          break;
+          return "mdi-account-reactivate"
 
         case BannerStateEnum.BANDDELETEERROR:
         case BannerStateEnum.BANDDELETESUCCESSFUL:
         case BannerStateEnum.BANDSAVEDERROR:
         case BannerStateEnum.BANDSAVEDSUCCESSFUL:
-          this.icon = "mdi-guitar-electric"
-          break;
+          return "mdi-guitar-electric"
 
         case BannerStateEnum.GENREDELETEERROR:
         case BannerStateEnum.GENREDELETESUCCESSFUL:
         case BannerStateEnum.GENRESAVEDERROR:
         case BannerStateEnum.GENRESAVEDSUCCESSFUL:
-          this.icon = "mdi-music-clef-treble"
-          break;
+          return "mdi-music-clef-treble"
       }
-
-      this.showBanner = true
     }
   }
 })

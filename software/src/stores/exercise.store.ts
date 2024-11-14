@@ -107,7 +107,7 @@ export const useExerciseStore = defineStore("exerciseStore", {
               }
             }
 
-            feedbackStore.changeBanner(bannerState)
+            feedbackStore.addSnackbar(bannerState)
             this.getAllExercises()
           }
         })

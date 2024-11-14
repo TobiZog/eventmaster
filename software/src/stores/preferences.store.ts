@@ -8,6 +8,7 @@ import { ServerStateEnum } from "@/data/enums/serverStateEnum";
 import { BannerStateEnum } from "@/data/enums/bannerStateEnum";
 import { useFeedbackStore } from "./feedback.store";
 import { useBasketStore } from "./basket.store";
+import { useExerciseStore } from "./exercise.store";
 
 export const usePreferencesStore = defineStore('preferencesStore', {
   state: () => ({
@@ -76,7 +77,7 @@ export const usePreferencesStore = defineStore('preferencesStore', {
       await resetDatabase()
         .then(result => {
           if (result.status == 200) {
-            feedbackStore.changeBanner(BannerStateEnum.DATABASERESETSUCCESSFUL)
+            feedbackStore.addSnackbar(BannerStateEnum.DATABASERESETSUCCESSFUL)
             this.serverState = ServerStateEnum.ONLINE
           }
 
@@ -90,14 +91,18 @@ export const usePreferencesStore = defineStore('preferencesStore', {
      */
     async resetExerciseProg() {
       const feedbackStore = useFeedbackStore()
+      const exerciseStore = useExerciseStore()
+
       this.serverState = ServerStateEnum.PENDING
       this.fetchInProgress = true
 
       await resetExerciseProgress()
         .then(result => {
           if (result.status == 200) {
-            feedbackStore.changeBanner(BannerStateEnum.EXERCISEPROGRESSRESETSUCCESSFUL)
+            feedbackStore.addSnackbar(BannerStateEnum.EXERCISEPROGRESSRESETSUCCESSFUL)
             this.serverState = ServerStateEnum.ONLINE
+
+            exerciseStore.getAllExercises()
           }
 
           this.fetchInProgress = false

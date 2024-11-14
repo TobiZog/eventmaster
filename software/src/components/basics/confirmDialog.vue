@@ -24,7 +24,13 @@ function confirmPressed() {
     v-model="showDialog"
     persistent
   >
-    {{ description }}
+    <v-container>
+      <v-row>
+        <v-col>
+          {{ description }}
+        </v-col>
+      </v-row>
+    </v-container>
 
     <template #actions>
       <outlined-button

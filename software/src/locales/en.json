@@ -170,6 +170,7 @@
     "wrongLogin": "Wrong username or wrong password!",
     "error": "There is some error...",
     "databaseResetSuccessful": "Database successfully resetted!",
+    "exerciseProgressResetSuccessful": "Exercise progress successfully resetted!",
     "registerSuccessful": "Account successfully created!",
     "usernameInUse": "The username is already in use!",
     "accountUpdated": "Account successfully updated",

@@ -67,11 +67,11 @@ export const useGenreStore = defineStore("genreStore", {
         postGenre(this.genre)
           .then(response => {
             if (response.status == 200) {
-              feedbackStore.changeBanner(BannerStateEnum.GENRESAVEDSUCCESSFUL)
+              feedbackStore.addSnackbar(BannerStateEnum.GENRESAVEDSUCCESSFUL)
               this.getGenres()
               this.showEditDialog = false
             } else {
-              feedbackStore.changeBanner(BannerStateEnum.GENRESAVEDERROR)
+              feedbackStore.addSnackbar(BannerStateEnum.GENRESAVEDERROR)
             }
           })
       } else {
@@ -79,11 +79,11 @@ export const useGenreStore = defineStore("genreStore", {
         patchGenre(this.genre)
           .then(response => {
             if (response.status == 200) {
-              feedbackStore.changeBanner(BannerStateEnum.GENRESAVEDSUCCESSFUL)
+              feedbackStore.addSnackbar(BannerStateEnum.GENRESAVEDSUCCESSFUL)
               this.getGenres()
               this.showEditDialog = false
             } else {
-              feedbackStore.changeBanner(BannerStateEnum.GENRESAVEDERROR)
+              feedbackStore.addSnackbar(BannerStateEnum.GENRESAVEDERROR)
             }
           })
       }
@@ -101,10 +101,10 @@ export const useGenreStore = defineStore("genreStore", {
       deleteGenre(genre)
         .then(response => {
           if (response.status == 200) {
-            feedbackStore.changeBanner(BannerStateEnum.GENREDELETESUCCESSFUL)
+            feedbackStore.addSnackbar(BannerStateEnum.GENREDELETESUCCESSFUL)
             this.getGenres()
           } else {
-            feedbackStore.changeBanner(BannerStateEnum.GENREDELETEERROR)
+            feedbackStore.addSnackbar(BannerStateEnum.GENREDELETEERROR)
           }
         })
     }

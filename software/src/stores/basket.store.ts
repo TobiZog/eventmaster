@@ -53,7 +53,7 @@ export const useBasketStore = defineStore('basketStore', {
      */
     removeItemFromBasket(item: BasketItemModel) {
       const feedbackStore = useFeedbackStore()
-      feedbackStore.changeBanner(BannerStateEnum.BASKETPRODUCTREMOVED)
+      feedbackStore.addSnackbar(BannerStateEnum.BASKETPRODUCTREMOVED)
 
       this.itemsInBasket = this.itemsInBasket.filter((basketItemModel: BasketItemModel) => 
         basketItemModel.concert.id != item.concert.id
@@ -110,12 +110,12 @@ export const useBasketStore = defineStore('basketStore', {
             await accountStore.refreshOrders()
 
             this.itemsInBasket = []
-            feedbackStore.changeBanner(BannerStateEnum.ORDERPLACESUCCESSFUL)
+            feedbackStore.addSnackbar(BannerStateEnum.ORDERPLACESUCCESSFUL)
 
             // Exercise 0.2 is solved
             exerciseStore.solveExercise(0, 2)
           } else {
-            feedbackStore.changeBanner(BannerStateEnum.ERROR)
+            feedbackStore.addSnackbar(BannerStateEnum.ERROR)
           }
         })
     }

@@ -170,6 +170,7 @@
     "wrongLogin": "Falscher Username oder falsches Passwort!",
     "error": "Es ist ein Fehler aufgetreten...",
     "databaseResetSuccessful": "Datenbank erfolgreich zurück gesetzt!",
+    "exerciseProgressResetSuccessful": "Aufgabenfortschritt erfolgreich zurück gesetzt!",
     "registerSuccessful": "Account erfolgreich erstellt!",
     "usernameInUse": "Der Accountname ist bereits vergeben!",
     "accountUpdated": "Account erfolgreich aktualisiert",

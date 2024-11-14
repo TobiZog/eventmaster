@@ -88,16 +88,6 @@ account.post("/", async (req: Request, res: Response) => {
     .then(account => {
       // Status: 201 Created
       res.status(201).json(account)
-
-      // Check exercise in table
-      Exercise.update(
-        { solved: true },
-        {
-          where: {
-            nameEn: "Register"
-          }
-        }
-      )
     }).catch(reason => {
       // Status: 409 Conflict
       res.status(409).json({

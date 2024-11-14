@@ -102,24 +102,24 @@ export const useBandStore = defineStore("bandStore", {
         postBand(this.band)
           .then(result => {
             if (result.status == 200) {
-              feedbackStore.changeBanner(BannerStateEnum.BANDSAVEDSUCCESSFUL)
+              feedbackStore.addSnackbar(BannerStateEnum.BANDSAVEDSUCCESSFUL)
 
               this.getBands()
               this.showEditDialog = false
             } else {
-              feedbackStore.changeBanner(BannerStateEnum.BANDSAVEDERROR)
+              feedbackStore.addSnackbar(BannerStateEnum.BANDSAVEDERROR)
             }
           })
       } else {
         patchBand(this.band)
           .then(result => {
             if (result.status == 200) {
-              feedbackStore.changeBanner(BannerStateEnum.BANDSAVEDSUCCESSFUL)
+              feedbackStore.addSnackbar(BannerStateEnum.BANDSAVEDSUCCESSFUL)
 
               this.getBands()
               this.showEditDialog = false
             } else {
-              feedbackStore.changeBanner(BannerStateEnum.BANDSAVEDERROR)
+              feedbackStore.addSnackbar(BannerStateEnum.BANDSAVEDERROR)
             }
           })
       }

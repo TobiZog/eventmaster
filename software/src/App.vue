@@ -1,15 +1,14 @@
 <script setup lang="ts">
 import { useTheme } from 'vuetify/lib/framework.mjs';
 import { i18n } from './plugins/i18n';
-import { watch } from 'vue';
-import navigationAppendItems from './components/navigation/navigationAppendItems.vue';
-import navigationPrependItems from './components/navigation/navigationPrependItems.vue';
+import { ref, watch } from 'vue';
 import { usePreferencesStore } from './stores/preferences.store';
 import { useFeedbackStore } from './stores/feedback.store';
 import companyFooter from './components/navigation/companyFooter.vue';
 import urlBar from './components/navigation/urlBar.vue';
 import { useRouter } from 'vue-router';
 import NavigationBar from './components/navigation/navigationBar.vue';
+import { BannerStateEnum } from './data/enums/bannerStateEnum';
 
 const preferencesStore = usePreferencesStore()
 const feedbackStore = useFeedbackStore()
@@ -27,6 +26,7 @@ watch(() => preferencesStore.language, () => {
 // Watch for theme change
 watch(() => preferencesStore.theme, () => {
   theme.global.name.value = preferencesStore.theme
+  feedbackStore.addSnackbar(BannerStateEnum.ERROR)
 })
 
 // Watch for 404 page directions
@@ -36,6 +36,17 @@ watch(() => feedbackStore.notFound, () => {
     router.push("/404")
   }
 })
+
+// Watch for snackbar disappear
+watch(() => feedbackStore.showSnackbar, () => {
+  if (!feedbackStore.showSnackbar) {
+    feedbackStore.snackbars = []
+  }
+})
+
+function calcMargin(i) {
+  return (i * 60) + 10 + 'px'
+}
 </script>
 
 <template>
@@ -50,22 +61,18 @@ watch(() => feedbackStore.notFound, () => {
     <v-main>
       <!-- Snackbar in the top right corner for user feedback -->
       <v-snackbar
-        v-model="feedbackStore.showBanner"
+        v-for="(s, i) in feedbackStore.snackbars"
+        v-model="feedbackStore.showSnackbar"
+        :key="i"
         timeout="3000"
         location="top right"
-        :color="feedbackStore.color"
+        :color="s.color"
+        :style="{ 'margin-top': calcMargin(i) }"
+        :icon="s.icon"
         close
       >
-        <v-icon :icon="feedbackStore.icon" />
-        {{ feedbackStore.title }}
-
-        <template v-slot:actions>
-          <v-btn
-            variant="text"
-            @click="feedbackStore.showBanner = false"
-            icon="mdi-close"
-          />
-        </template>
+        <v-icon :icon="s.icon" />
+        {{ s.text }}
       </v-snackbar>
 
       <!-- Here changes the router the content -->

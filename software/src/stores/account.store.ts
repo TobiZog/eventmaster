@@ -9,6 +9,7 @@ import { PaymentModel } from "../data/models/user/paymentModel";
 import { AccountApiModel } from "../data/models/user/accountApiModel";
 import { ref } from "vue";
 import { defineStore } from "pinia";
+import { useExerciseStore } from "./exercise.store";
 
 export const useAccountStore = defineStore("accountStore", {
   state: () => ({
@@ -21,7 +22,7 @@ export const useAccountStore = defineStore("accountStore", {
     /** User input on login screen */
     // todo: Remove JSON!
     loginData: ref<{ username: String, password: String}>(
-      { username: "duranduran", password: "H4nn0ver" }
+      { username: "", password: "" }
     ),
 
     /** Buffer for register data */
@@ -55,31 +56,31 @@ export const useAccountStore = defineStore("accountStore", {
       if (this.loginData.username == null || this.loginData.username.length == 0 ||
         this.loginData.password == null || this.loginData.password.length == 0
       ) {
-        feedbackStore.changeBanner(BannerStateEnum.ACCOUNTLOGINWRONGLOGIN)
+        feedbackStore.addSnackbar(BannerStateEnum.ACCOUNTLOGINWRONGLOGIN)
         this.fetchInProgress = false
         return false
       }
       else
       {
         await loginAccount(this.loginData.username, this.loginData.password)
-        .then(async result => {
-          this.userAccount = result.data
+          .then(async result => {
+            this.userAccount = result.data
 
-          feedbackStore.changeBanner(BannerStateEnum.ACCOUNTLOGINSUCCESSFUL)
+            feedbackStore.addSnackbar(BannerStateEnum.ACCOUNTLOGINSUCCESSFUL)
 
-          this.fetchInProgress = false
-          return true
-        })
-        .catch(error => {
-          if (error.status == 400) {
-            feedbackStore.changeBanner(BannerStateEnum.ACCOUNTLOGINERROR)
-          } else if (error.status == 401) {
-            feedbackStore.changeBanner(BannerStateEnum.ACCOUNTLOGINWRONGLOGIN)
-          }
+            this.fetchInProgress = false
+            return true
+          })
+          .catch(error => {
+            if (error.status == 400) {
+              feedbackStore.addSnackbar(BannerStateEnum.ACCOUNTLOGINERROR)
+            } else if (error.status == 401) {
+              feedbackStore.addSnackbar(BannerStateEnum.ACCOUNTLOGINWRONGLOGIN)
+            }
 
-          this.fetchInProgress = false
-          return false
-        })
+            this.fetchInProgress = false
+            return false
+          })
       }
     },
 
@@ -91,12 +92,14 @@ export const useAccountStore = defineStore("accountStore", {
      */
     async registerAccount(): Promise<boolean> {
       const feedbackStore = useFeedbackStore()
+      const exerciseStore = useExerciseStore()
       this.fetchInProgress = true
 
       await registerAccount(this.registerData)
         .then(async res => {
           if (res.status == 201) {
-            feedbackStore.changeBanner(BannerStateEnum.ACCOUNTREGISTERSUCCESSFUL)
+            feedbackStore.addSnackbar(BannerStateEnum.ACCOUNTREGISTERSUCCESSFUL)
+            exerciseStore.solveExercise(0, 1)
           }
 
           this.loginData = {
@@ -108,9 +111,9 @@ export const useAccountStore = defineStore("accountStore", {
         })
         .catch((error) => {
           if (error.status == 400) {
-            feedbackStore.changeBanner(BannerStateEnum.ACCOUNTREGISTERERROR)
+            feedbackStore.addSnackbar(BannerStateEnum.ACCOUNTREGISTERERROR)
           } else if (error.status == 409) {
-            feedbackStore.changeBanner(BannerStateEnum.ACCOUNTREGISTERUSERNAMEINUSE)
+            feedbackStore.addSnackbar(BannerStateEnum.ACCOUNTREGISTERUSERNAMEINUSE)
           }
 
           this.fetchInProgress = false
@@ -129,7 +132,7 @@ export const useAccountStore = defineStore("accountStore", {
       await updateAccount(this.userAccount)
         .then(res => {
           if (res.status == 200) {
-            feedbackStore.changeBanner(BannerStateEnum.ACCOUNTUPDATESUCCESSFUL)
+            feedbackStore.addSnackbar(BannerStateEnum.ACCOUNTUPDATESUCCESSFUL)
           }
         })
     },
@@ -143,7 +146,7 @@ export const useAccountStore = defineStore("accountStore", {
       this.userAccount = new AccountModel()
       this.loggedIn = false
       
-      feedbackStore.changeBanner(BannerStateEnum.ACCOUNTLOGOUTSUCCESSFUL)
+      feedbackStore.addSnackbar(BannerStateEnum.ACCOUNTLOGOUTSUCCESSFUL)
     },
 
     /**
