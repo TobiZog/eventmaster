@@ -11,7 +11,7 @@ const router = useRouter()
 async function startLogin() {
   accountStore.login()
     .then(result => {
-      if (accountStore.userAccount.id != undefined) {
+      if (accountStore.userAccountToken != "") {
         router.push("/account/home")
       }
     })
@@ -30,6 +30,7 @@ async function startLogin() {
           :label="$t('account.userData.username')"
           prepend-icon="mdi-account"
           v-model="accountStore.loginData.username"
+          variant="outlined"
           clearable
         />
       </v-col>
@@ -41,6 +42,7 @@ async function startLogin() {
           :label="$t('account.userData.password')"
           prepend-icon="mdi-key"
           type="password" 
+          variant="outlined"
           v-model="accountStore.loginData.password"
           clearable
         />

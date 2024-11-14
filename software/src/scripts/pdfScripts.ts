@@ -15,15 +15,13 @@ export function generateResultsPdf() {
 
   const exerciseData = []
   
-  exerciseStore.exerciseGroups.forEach(group => {
-    group.exercises.forEach(exercise => {
-      exerciseData.push([
-        group.groupNr + "." + exercise.exerciseNr,
-        group.nameDe,
-        exercise.nameDe,
-        exercise.solved ? 'Ja' : 'Nein'
-      ])
-    })
+  exerciseStore.exercises.forEach(exercise => {
+    exerciseData.push([
+      exercise.exerciseGroup.groupNr + "." + exercise.exerciseNr,
+      exercise.exerciseGroup.nameDe,
+      exercise.nameDe,
+      exercise.solved ? 'Ja' : 'Nein'
+    ])
   })
 
   // Title and image
@@ -37,11 +35,9 @@ export function generateResultsPdf() {
 
   // Progress total
   doc.setFontSize(28)
-  doc.text("Hat " + exerciseStore.exerciseGroups.reduce((counter, group) => {
-    for (let exercise of group.exercises) {
-      if (exercise.solved) {
-        counter++
-      }
+  doc.text("Hat " + exerciseStore.exercises.reduce((counter, exercise) => {
+    if (exercise.solved) {
+      counter++
     }
 
     return counter
@@ -57,10 +53,19 @@ export function generateResultsPdf() {
   })
 
 
-
+  // Footer
   doc.setFontSize(12)
-  doc.text(["Grundlagen der IT-Sicherheit", "Fachgebiet Usable Security and Privacy", "Institut für IT-Sicherheit", "Leibniz Universität Hannover"], midPage, pageHeight - 30, { align: "center" })
+  doc.text(
+    [
+      "Grundlagen der IT-Sicherheit", 
+      "Fachgebiet Usable Security and Privacy", 
+      "Institut für IT-Sicherheit", "Leibniz Universität Hannover"
+    ], 
+    midPage, pageHeight - 30, { align: "center" }
+  )
   doc.text(moment().format("DD.MM.YYYY, HH:mm:ss"), midPage, pageHeight - 8, { align: "center" })
 
+
+  // Save
   doc.save("eventmaster-exercise-result.pdf")
 }

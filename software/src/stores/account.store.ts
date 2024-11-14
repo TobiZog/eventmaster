@@ -1,7 +1,7 @@
 import { useLocalStorage } from "@vueuse/core";
 import { AccountModel } from "../data/models/user/accountModel";
 import { useFeedbackStore } from "./feedback.store";
-import { deleteAccount, fetchAllAccounts, loginAccount, registerAccount, updateAccount } from "../data/api/accountApi";
+import { deleteAccount, fetchAllAccounts, getAccount, login, registerAccount, updateAccount } from "../data/api/accountApi";
 import { fetchUserOrders } from "../data/api/orderApi";
 import { BannerStateEnum } from "../data/enums/bannerStateEnum";
 import { AddressModel } from "../data/models/user/addressModel";
@@ -17,10 +17,11 @@ export const useAccountStore = defineStore("accountStore", {
     accounts: ref<Array<AccountApiModel>>([]),
 
     /** Useraccount which is currently logged in */
+    userAccountToken: useLocalStorage("hackmycart/accountStore/userAccountToken", ""),
+
     userAccount: useLocalStorage("hackmycart/accountStore/userAccount", new AccountApiModel()),
 
     /** User input on login screen */
-    // todo: Remove JSON!
     loginData: ref<{ username: String, password: String}>(
       { username: "", password: "" }
     ),
@@ -62,15 +63,36 @@ export const useAccountStore = defineStore("accountStore", {
       }
       else
       {
-        await loginAccount(this.loginData.username, this.loginData.password)
+        await login(this.loginData.username, this.loginData.password)
           .then(async result => {
-            this.userAccount = result.data
+            this.userAccountToken = result.data.token
 
-            feedbackStore.addSnackbar(BannerStateEnum.ACCOUNTLOGINSUCCESSFUL)
+            getAccount(this.userAccountToken)
+              .then(account => {
+                this.userAccount = account.data
 
-            this.fetchInProgress = false
-            return true
+                feedbackStore.addSnackbar(BannerStateEnum.ACCOUNTLOGINSUCCESSFUL)
+                this.fetchInProgress = false
+              })
           })
+
+
+        // await loginAccount(this.loginData.username, this.loginData.password)
+        //   .then(async result => {
+        //     this.userAccountId = result.data.id
+        //     this.userLoggedIn = true
+
+        //     fetchAddresses(result.data.id)
+        //       .then(addresses => {
+
+        //       })
+
+
+        //     feedbackStore.addSnackbar(BannerStateEnum.ACCOUNTLOGINSUCCESSFUL)
+
+        //     this.fetchInProgress = false
+        //     return true
+        //   })
           .catch(error => {
             if (error.status == 400) {
               feedbackStore.addSnackbar(BannerStateEnum.ACCOUNTLOGINERROR)
@@ -129,10 +151,12 @@ export const useAccountStore = defineStore("accountStore", {
     async updateAccount() {
       const feedbackStore = useFeedbackStore()
 
-      await updateAccount(this.userAccount)
+      await updateAccount(this.userAccount, this.userAccountToken)
         .then(res => {
           if (res.status == 200) {
             feedbackStore.addSnackbar(BannerStateEnum.ACCOUNTUPDATESUCCESSFUL)
+
+            this.userAccount = res.data
           }
         })
     },
@@ -144,6 +168,7 @@ export const useAccountStore = defineStore("accountStore", {
       const feedbackStore = useFeedbackStore()
 
       this.userAccount = new AccountModel()
+      this.userAccountId = -1
       this.loggedIn = false
       
       feedbackStore.addSnackbar(BannerStateEnum.ACCOUNTLOGOUTSUCCESSFUL)
@@ -160,6 +185,10 @@ export const useAccountStore = defineStore("accountStore", {
           this.orders = result.data
           this.fetchInProgress = false
         })
+    },
+
+    async getAdresses() {
+
     },
 
     /**

@@ -13,7 +13,13 @@ exerciseStore.getAllExercises()
 <template>
   <v-btn variant="plain" icon="mdi-magnify" to="/search" />
 
-  <v-btn v-if="accountStore.userAccount.id == undefined" variant="plain" icon="mdi-account" to="/account/login" />
+  <v-btn
+    v-if="accountStore.userAccountToken == ''"
+    variant="plain"
+    icon="mdi-account"
+    to="/account/login"
+  />
+  
   <v-btn v-else variant="plain" icon="mdi-account-check" to="/account/home" />
 
   <div>
@@ -27,7 +33,7 @@ exerciseStore.getAllExercises()
   </div>
 
   <v-btn
-    v-if="accountStore.userAccount.accountRole != null && 
+    v-if="accountStore.userAccountToken != '' && 
       accountStore.userAccount.accountRole.privilegeAdminPanel"
     variant="plain"
     icon="mdi-table-cog"

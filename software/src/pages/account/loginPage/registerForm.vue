@@ -31,6 +31,8 @@ async function registerAccount() {
           prepend-icon="mdi-account"
           v-model="accountStore.registerData.username"
           clearable
+          hide-details
+          variant="outlined"
           :rules="getStringRules()"
         />
       </v-col>
@@ -44,6 +46,8 @@ async function registerAccount() {
           type="password"
           v-model="accountStore.registerData.password"
           clearable
+          hide-details
+          variant="outlined"
           :rules="getPasswordRules()"
         />
       </v-col>
@@ -56,6 +60,8 @@ async function registerAccount() {
           prepend-icon="mdi-mail"
           v-model="accountStore.registerData.email"
           :rules="getEmailRules()"
+          variant="outlined"
+          hide-details
           clearable
         />
       </v-col>

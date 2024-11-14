@@ -7,10 +7,15 @@ export async function fetchAllAccounts() {
   return await axios.get(BASE_URL)
 }
 
-export async function loginAccount(username: string, password: string) {
-  return await axios.post(BASE_URL + "/login", { 
-      username: username,
-      password: password
+export async function login(username: string, password: string) {
+  return await axios.get(BASE_URL + "/login?username=" + username + "&password=" + password)
+}
+
+export async function getAccount(token: string) {
+  return await axios.get(BASE_URL + "/account", {
+    headers: {
+      "Authorization": token
+    }
   })
 }
 
@@ -18,8 +23,12 @@ export async function registerAccount(account: AccountModel) {
   return await axios.post(BASE_URL, account)
 }
 
-export async function updateAccount(account: AccountModel) {
-  return await axios.patch(BASE_URL, account)
+export async function updateAccount(account: AccountModel, token: string) {
+  return await axios.patch(BASE_URL, account, {
+    headers: {
+      "Authorization": token
+    }
+  })
 }
 
 export async function deleteAccount(account: AccountModel) {

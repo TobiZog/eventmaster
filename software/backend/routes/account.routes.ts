@@ -6,6 +6,8 @@ import { Payment } from "../models/user/payment.model";
 import { AccountRole } from "../models/user/accountRole.model";
 import { Exercise } from "../models/exercises/exercise.model";
 import { sequelize } from "../database";
+import jwt from "jsonwebtoken"
+import { verifyToken } from "../middlewares/auth.middleware";
 
 export const account = Router()
 
@@ -19,30 +21,36 @@ account.get("/", (req: Request, res: Response) => {
 })
 
 // Login user
-account.post("/login", async (req: Request, res: Response) => {
+account.get("/login", async (req: Request, res: Response) => {
   // Using raw SQL code for SQL injections!
   const [results, metadata] = 
     await sequelize.query(
       "SELECT * FROM Accounts " +
-      "WHERE (username='" + req.body.username + 
-      "' AND password='" + req.body.password + "')")
+      "WHERE (username='" + req.query.username + 
+      "' AND password='" + req.query.password + "')"
+    )
 
   // Mechanism to check exercise solved
   if (results.length > 1) {
     Exercise.update(
-        { solved: true },
-        {
-          where: {
-            nameEn: "Register"
-          }
+      { solved: true },
+      {
+        where: {
+          nameEn: "Register"
         }
-      )
+      }
+    )
   }
 
   if (results.length != 0) {
-    
+    // Creating session token
+    const token = jwt.sign({ userId: results[0]["id"] }, 'sjcucjdkdf')
+
     // Status: 200 OK
-    res.status(200).json(results[0])
+    res.status(200).json({
+      "success": true,
+      "token": token
+    })
   } else {
     // Status: 401 Unauthorized
     res.status(401).json({
@@ -51,6 +59,20 @@ account.post("/login", async (req: Request, res: Response) => {
     })
   }
 })
+
+
+account.get("/account", verifyToken, async(req: Request, res: Response) => {
+  Account.findOne({
+    where: {
+      id: req["id"]
+    },
+    include: [ Address, AccountRole, Payment ]
+  })
+    .then(account => {
+      res.status(200).json(account)
+    })
+})
+
 
 // Creating a new user
 account.post("/", async (req: Request, res: Response) => {
@@ -97,26 +119,38 @@ account.post("/", async (req: Request, res: Response) => {
     })
 })
 
-account.patch("/", (req: Request, res: Response) => {
+account.patch("/", verifyToken, (req: Request, res: Response) => {
   Account.update(req.body,
   {
     where: { id: req.body.id }
   })
     .then(async account => {
       for (let payment of req.body.payments) {
-        await Payment.update(payment,
-          {
-            where: { id: payment.id }
-          }
-        )
+        if (payment.id == undefined) {
+          payment["accountId"] = req.body.id
+
+          await Payment.create(payment)
+        } else {
+          await Payment.update(payment,
+            {
+              where: { id: payment.id }
+            }
+          )
+        }
       }
 
       for (let address of req.body.addresses) {
-        await Address.update(address,
-          {
-            where: { id: address.id }
-          }
-        )
+        if (address.id == undefined) {
+          address["accountId"] = req.body.id
+
+          await Address.create(address)
+        } else {
+          await Address.update(address,
+            {
+              where: { id: address.id }
+            }
+          )
+        }
       }
 
       // Status: 200 OK
