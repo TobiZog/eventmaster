@@ -64,6 +64,7 @@ export async function prepopulateExerciseDatabase() {
       .then(async dataset => {
         for (let exercise of exerciseGroup.exercises) {
           exercise["exerciseGroupId"] = dataset.id
+          exercise["solved"] = false
 
           await Exercise.create(exercise)
         }

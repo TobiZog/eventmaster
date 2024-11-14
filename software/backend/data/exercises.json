@@ -10,16 +10,14 @@
           "nameEn": "Register",
           "exerciseNr": 1,
           "descriptionDe": "Erstelle einen neuen Account im Online Shop",
-          "descriptionEn": "Create a new account in the online shop",
-          "solved": false
+          "descriptionEn": "Create a new account in the online shop"
         },
         {
           "nameDe": "Ein Ticket kaufen",
           "nameEn": "Buy a ticket",
           "exerciseNr": 2,
           "descriptionDe": "Suche dir ein Event deiner Wahl und kaufe dafür ein Ticket",
-          "descriptionEn": "Search for an event of choice and buy a ticket for",
-          "solved": false
+          "descriptionEn": "Search for an event of choice and buy a ticket for"
         }
       ]
     },
@@ -33,16 +31,14 @@
           "nameEn": "Access Help Page",
           "exerciseNr": 1,
           "descriptionDe": "Manipuliere die URL so, dass du die Hilfe-Seite erreichen kannst",
-          "descriptionEn": "Manipulate the URL and access the help page",
-          "solved": false
+          "descriptionEn": "Manipulate the URL and access the help page"
         },
         {
           "nameDe": "Das ausgebuchte Konzert buchen",
           "nameEn": "Book the unavailable concert",
           "exerciseNr": 2,
           "descriptionDe": "Manipuliere die URL so, dass du das ausgebuchte Konzert aufrufen kannst und buche ein Ticket dafür",
-          "descriptionEn": "Manipulate the URL and access the sold out concert and buy a ticket",
-          "solved": false
+          "descriptionEn": "Manipulate the URL and access the sold out concert and buy a ticket"
         }
       ]
     },
@@ -56,24 +52,21 @@
           "nameEn": "Readout account names",
           "exerciseNr": 1,
           "descriptionDe": "Lasse dir alle Accountnamen über das Suchfeld ausgeben",
-          "descriptionEn": "Readout all account names via the search field",
-          "solved": false
+          "descriptionEn": "Readout all account names via the search field"
         },
         {
           "nameDe": "Passwort auslesen",
           "nameEn": "Readout password",
           "exerciseNr": 2,
           "descriptionDe": "Versuche ein Passwort aus der Datenbank eines Accounts auszulesen",
-          "descriptionEn": "Get the password of an account from the database",
-          "solved": false
+          "descriptionEn": "Get the password of an account from the database"
         },
         {
           "nameDe": "Verändere deine Account Berechtigungen",
           "nameEn": "Change your account role",
           "exerciseNr": 3,
           "descriptionDe": "Ändere die Berechtigungen deines Accounts",
-          "descriptionEn": "Change the privileges of your account",
-          "solved": false
+          "descriptionEn": "Change the privileges of your account"
         }
       ]
     },
@@ -87,24 +80,21 @@
           "nameEn": "Hello World!",
           "exerciseNr": 1,
           "descriptionDe": "Nimm dir eine URL des Shops und erweitere sie mit JavaScript Code so, dass beim Öffnen des Links eine 'Hallo Welt' Nachricht erscheint",
-          "descriptionEn": "Take an URL of the shop and extend it with JavaScript code so that a 'Hello World' message appears whent the link is opened",
-          "solved": false
+          "descriptionEn": "Take an URL of the shop and extend it with JavaScript code so that a 'Hello World' message appears whent the link is opened"
         },
         {
           "nameDe": "Ein externes Script aufrufen",
           "nameEn": "Run an external script",
           "exerciseNr": 2,
           "descriptionDe": "Bearbeite die URL des Shops so, dass du das Script ausführen kannst",
-          "descriptionEn": "Create an URL of the shop, which calls the script",
-          "solved": false
+          "descriptionEn": "Create an URL of the shop, which calls the script"
         },
         {
           "nameDe": "Hacken mit eigenem Script",
           "nameEn": "Hack with your script",
           "exerciseNr": 3,
           "descriptionDe": "Schreibe eine JavaScript Datei, lade sie über das Admin Panel hoch und kreiere eine URL, welche es ausführt",
-          "descriptionEn": "Write our own JavaScript file, upload it via Admin Panel and create an URL to execute it",
-          "solved": false
+          "descriptionEn": "Write our own JavaScript file, upload it via Admin Panel and create an URL to execute it"
         }
       ]
     }

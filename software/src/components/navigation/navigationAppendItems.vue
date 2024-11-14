@@ -1,9 +1,13 @@
 <script setup lang="ts">
 import { useAccountStore } from '@/stores/account.store';
 import { useBasketStore } from '@/stores/basket.store';
+import { useExerciseStore } from '@/stores/exercise.store';
 
 const accountStore = useAccountStore()
 const basketStore = useBasketStore()
+const exerciseStore = useExerciseStore()
+
+exerciseStore.getAllExercises()
 </script>
 
 <template>
@@ -30,6 +34,12 @@ const basketStore = useBasketStore()
     to="/admin"
   />
 
-  <v-btn variant="plain" icon="mdi-help" to="/help" />
+  <v-btn
+    v-if="exerciseStore.helpPageVisible"
+    variant="plain"
+    icon="mdi-help"
+    to="/help"
+  />
+  
   <v-btn variant="plain" icon="mdi-cog" to="/preferences"/>
 </template>

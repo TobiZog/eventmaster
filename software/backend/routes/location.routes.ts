@@ -131,7 +131,6 @@ location.get("/search", (req: Request, res: Response) => {
     include: [ City, Concert ]
   })
     .then(locations => {
-      console.log(locations)
       res.status(200).json(locations)
     })
 })

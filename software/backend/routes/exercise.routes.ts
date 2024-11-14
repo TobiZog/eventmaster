@@ -1,3 +1,4 @@
+import { Op } from "sequelize";
 import { Exercise } from "../models/exercises/exercise.model";
 import { ExerciseGroup } from "../models/exercises/exerciseGroup.model";
 import { Request, Response, Router } from "express";
@@ -27,19 +28,47 @@ exercises.get("/", (req: Request, res: Response) => {
  * @param state New state boolean
  */
 exercises.post("/:groupNr/:exerciseNr/:state", (req: Request, res: Response) => {
-  ExerciseGroup.findOne({
-    where: { groupNr: req.params.groupNr }
-  })
-    .then(group => {
-      Exercise.findOne({
-        where: {
-          exerciseNr: req.params.exerciseNr,
-          exerciseGroupId: group.id
+  Exercise.findOne({
+    where: {
+      [Op.and] : [
+        {
+          exerciseNr: req.params.exerciseNr
+        },
+        {
+          "$exerciseGroup.groupNr$": req.params.groupNr
         }
-      })
-        .then(exercise => {
-          exercise.update({ solved: req.params.state == "1"})
-          res.status(200).send()
+      ]
+    },
+    include: [ ExerciseGroup ]
+  })
+    .then(async exercise => {
+      let changed = false
+
+      if (exercise.dataValues.solved != (req.params.state == "1")) {
+        await exercise.update({ solved: req.params.state  == "1" })
+        changed = true
+      }
+      
+      res.status(200).json({
+          exercise: exercise,
+          changed: changed
         })
     })
+
+
+  // ExerciseGroup.findOne({
+  //   where: { groupNr: req.params.groupNr }
+  // })
+  //   .then(group => {
+  //     Exercise.findOne({
+  //       where: {
+  //         exerciseNr: req.params.exerciseNr,
+  //         exerciseGroupId: group.id
+  //       }
+  //     })
+  //       .then(exercise => {
+  //         exercise.update({ solved: req.params.state == "1"})
+  //         res.status(200).send()
+  //       })
+  //   })
 })

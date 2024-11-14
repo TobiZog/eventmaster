@@ -21,11 +21,9 @@ account.get("/", (req: Request, res: Response) => {
 // Login user
 account.post("/login", async (req: Request, res: Response) => {
   // Using raw SQL code for SQL injections!
-  // todo: Inner join
   const [results, metadata] = 
     await sequelize.query(
       "SELECT * FROM Accounts " +
-      "INNER JOIN Addresses ON Accounts.id=Addresses.accountId " +
       "WHERE (username='" + req.body.username + 
       "' AND password='" + req.body.password + "')")
 
@@ -42,6 +40,7 @@ account.post("/login", async (req: Request, res: Response) => {
   }
 
   if (results.length != 0) {
+    
     // Status: 200 OK
     res.status(200).json(results[0])
   } else {

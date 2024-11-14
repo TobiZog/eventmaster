@@ -9,7 +9,7 @@ import { LanguageEnum } from '@/data/enums/languageEnum';
 const exerciseStore = useExerciseStore()
 const preferencesStore = usePreferencesStore()
 
-exerciseStore.getAllExercises()
+exerciseStore.solveExercise(1, 1)
 
 function getDotColor(exerciseGroupNr: number) {
   switch(exerciseGroupNr) {
