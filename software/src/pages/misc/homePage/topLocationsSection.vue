@@ -17,11 +17,21 @@ const locationStore = useLocationStore()
   </v-row>
 
   <v-row>
-    <v-col v-if="locationStore.fetchInProgress" v-for="n in 8" cols="3">
+    <v-col
+      v-if="locationStore.fetchInProgress"
+      v-for="n in 8"
+      cols="6"
+      md="3"
+    >
       <card-view-top-image :loading="true" />
     </v-col>
 
-    <v-col v-else v-for="location in locationStore.topLocations" cols="3">
+    <v-col
+      v-else
+      v-for="location in locationStore.topLocations"
+      cols="6"
+      md="3"
+    >
       <card-view-top-image
         :image="location.imageOutdoor"
         :title="location.name"

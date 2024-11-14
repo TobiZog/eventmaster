@@ -1,14 +1,14 @@
 import { fetchAllExerciseGroups, updateExercise } from "@/data/api/exerciseApi";
-import { ExerciseGroupApiModel } from "@/data/models/exercises/exerciseGroupApiModel";
 import { defineStore } from "pinia";
 import { ref } from "vue";
 import { useFeedbackStore } from "./feedback.store";
 import { BannerStateEnum } from "@/data/enums/bannerStateEnum";
+import { ExerciseModel } from "@/data/models/exercises/exerciseModel";
 
 export const useExerciseStore = defineStore("exerciseStore", {
   state: () => ({
     /** All exercise groups with sub-exercises */
-    exerciseGroups: ref<Array<ExerciseGroupApiModel>>([]),
+    exercises: ref<Array<ExerciseModel>>([]),
 
     /** Request to server sent, waiting for data response */
     fetchInProgress: ref(false)
@@ -23,7 +23,7 @@ export const useExerciseStore = defineStore("exerciseStore", {
 
       await fetchAllExerciseGroups()
         .then(result => {
-          this.exerciseGroups = result.data
+          this.exercises = result.data
           this.fetchInProgress = false
         })
     },

@@ -24,7 +24,7 @@ locationStore.getLocations()
           </v-row>
 
           <v-row>
-            <v-col class="text-center" v-for="i in 4" cols="3">
+            <v-col class="text-center" v-for="i in 4" cols="6" md="3">
               <card-with-top-image :loading="true" />
             </v-col>
           </v-row>
@@ -48,7 +48,8 @@ locationStore.getLocations()
               <v-row>
                 <v-col
                   v-for="location in locationStore.getLocationsByCity(city.name)"
-                  cols="3"
+                  cols="6"
+                  md="3"
                 >
                   <location-list-item
                     :location="location"

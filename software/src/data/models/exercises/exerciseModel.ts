@@ -1,3 +1,5 @@
+import { ExerciseGroupModel } from "./exerciseGroupModel"
+
 export class ExerciseModel {
   id = -1
   nameDe: string = ""
@@ -6,4 +8,5 @@ export class ExerciseModel {
   descriptionDe: string = ""
   descriptionEn: string = ""
   solved: boolean = false
+  exerciseGroup: ExerciseGroupModel
 }

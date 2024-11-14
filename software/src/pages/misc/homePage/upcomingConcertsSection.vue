@@ -18,17 +18,23 @@ const router = useRouter()
   </v-row>
 
   <v-row>
-    <v-col v-if="concertStore.fetchInProgress" v-for="n in 4" cols="3">
+    <v-col v-if="concertStore.fetchInProgress" v-for="n in 4" cols="6" md="3">
       <card-view-top-image :loading="true" />
     </v-col>
 
-    <v-col v-else v-for="concert in concertStore.upcomingConcerts" cols="3">
+    <v-col
+      v-else
+      v-for="concert in concertStore.upcomingConcerts"
+      cols="6"
+      md="3"
+    >
       <card-view-top-image
         :image="concert.image"
         :title="moment(concert.date).format('DD.MM.YYYY')"
         smaller-title
         @click="router.push('/bands/details/' + concert.band.name.replaceAll(' ', '-').toLowerCase())"
         :loading="concertStore.fetchInProgress"
+        class="h-100"
       >
         <div>
           {{ concert.name }}

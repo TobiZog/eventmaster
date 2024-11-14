@@ -8,19 +8,13 @@ export const exercises = Router()
  * Get all Exercises grouped in ExerciseGroups
  */
 exercises.get("/", (req: Request, res: Response) => {
-  ExerciseGroup.findAll(
-    {
-      include: [
-        {
-          model: Exercise,
-          separate: true,
-          order: [
-            [ 'id', 'ASC' ]
-          ]
-        }
-      ]
-    }
-  ).then(result => {
+  Exercise.findAll({
+    include: [ ExerciseGroup ]
+  }).then(result => {
+    result.sort((a, b) => {
+      return (a.dataValues.exerciseGroup.dataValues.groupNr * 10 + a.dataValues.exerciseNr) > (b.dataValues.exerciseGroup.dataValues.groupNr * 10 + b.dataValues.exerciseNr) ? 1 : -1
+    })
+
     res.status(200).json(result)
   })
 })

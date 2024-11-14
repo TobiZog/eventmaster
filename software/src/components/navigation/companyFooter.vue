@@ -24,17 +24,17 @@ watch(() => route.path, () => {
     inset
     app
   >
-    <v-container class="pa-0 ma-0">
-      <v-row class="mb-0 pa-0">
-        <v-spacer />
-
-        <v-col>
-          <!-- todo: Make more beautiful -->
-          <v-breadcrumbs :items="routeItems">
+    <v-container>
+      <!-- Current location -->
+      <v-row class="w-100">
+        <v-col class="d-flex justify-center">
+          <v-breadcrumbs
+            :items="routeItems"
+            v-if="routeItems.length != 0 && routeItems[0] != ''"
+          >
             <template v-slot:title="{ item }">
               <v-card variant="outlined" class="pa-2" rounded="0">
-              {{ item.title.charAt(0).toUpperCase() + item.title.slice(1) }}
-
+                {{ item.title.charAt(0).toUpperCase() + item.title.slice(1) }}
               </v-card>
             </template>
 
@@ -43,9 +43,11 @@ watch(() => route.path, () => {
             </template>
           </v-breadcrumbs>
         </v-col>
+      </v-row>
 
-        <v-col>
-          Filter:
+      <!-- Attributes -->
+      <v-row>
+        <v-col class="d-flex justify-center">
           <div v-for="query in route.query" v-html="query" />
 
           <!-- Logic to check, if exercise 3.1 is solved -->
@@ -54,14 +56,6 @@ watch(() => route.path, () => {
               {{ exerciseStore.solveExercise(3, 1) }}
             </span>
           </div>
-        </v-col>
-
-        <v-spacer />      
-      </v-row>
-
-      <v-row class="pa-0 ma-0">
-        <v-col class="text-center">
-          {{ new Date().getFullYear() }} — <strong>Tobias Zoghaib</strong>
         </v-col>
       </v-row>
     </v-container>

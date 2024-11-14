@@ -22,7 +22,7 @@ const bandStore = useBandStore()
           show-arrows
           hide-delimiter-background
           hide-delimiters
-          height="900"
+          max-height="900"
         >
           <template #prev="{ props }">
             <v-btn

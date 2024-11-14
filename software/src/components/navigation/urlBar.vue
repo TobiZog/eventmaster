@@ -19,9 +19,12 @@ watch(() => router.currentRoute.value.fullPath, () => {
     elevation="0"
     height="50"
   >
-    <v-row>
-      <v-col></v-col>
-      <v-col cols="auto" class="d-flex justify-start align-center">
+    <v-row no-gutters>
+      <v-spacer />
+      <v-col
+        cols="2"
+        class="d-flex justify-end align-center pr-1"
+      >
         <v-btn
           density="comfortable"
           icon="mdi-arrow-left"
@@ -32,11 +35,7 @@ watch(() => router.currentRoute.value.fullPath, () => {
           icon="mdi-arrow-right"
           @click="router.go(1)"
         />
-        <v-btn
-          density="comfortable"
-          icon="mdi-refresh"
-          @click="router.replace({ path: router.currentRoute.value.fullPath })"
-        />
+        
       </v-col>
 
       <v-col cols="8">
@@ -49,11 +48,19 @@ watch(() => router.currentRoute.value.fullPath, () => {
         />
       </v-col>
 
-      <v-col cols="2" class="d-flex justify-start align-center">
+      <v-col
+        cols="2"
+        class="d-flex justify-start align-center pl-1"
+      >
         <v-btn
           density="comfortable"
           icon="mdi-arrow-right"
           @click="navigate"
+        />
+        <v-btn
+          density="comfortable"
+          icon="mdi-refresh"
+          @click="router.replace({ path: router.currentRoute.value.fullPath })"
         />
       </v-col>
 

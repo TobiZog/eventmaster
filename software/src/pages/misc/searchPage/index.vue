@@ -122,7 +122,8 @@ const searchStore = useSearchStore()
             v-else-if="searchStore.locations.length > 0"
           >
             <v-col
-              cols="3"
+              cols="6"
+              md="3"
               v-for="location in searchStore.locations"
             >
               <location-list-item

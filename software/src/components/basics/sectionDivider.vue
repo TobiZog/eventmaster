@@ -7,7 +7,7 @@ defineProps({
 </script>
 
 <template>
-  <v-row class="pt-3">
+  <v-row class="pt-3 d-none d-md-flex">
     <v-col class="d-flex justify-center align-center">
       <v-sheet height="12" width="100%" color="primary" class="rounded-s-lg" />
     </v-col>
@@ -24,6 +24,24 @@ defineProps({
 
     <v-col class="d-flex justify-center align-center">
       <v-sheet height="12" width="100%" color="primary" class="rounded-e-lg" />
+    </v-col>
+  </v-row>
+
+  <v-row class="d-md-none">
+    <v-col>
+      <v-skeleton-loader
+        type="heading"
+        :loading="loading"
+        class="d-flex justify-center align-center"
+      >
+        <span class="text-h4 text-center">{{ title }}</span>
+      </v-skeleton-loader>
+    </v-col>
+  </v-row>
+
+  <v-row class="d-md-none">
+    <v-col class="d-flex justify-center align-center">
+      <v-sheet height="12" width="80%" color="primary" class="rounded-pill" />
     </v-col>
   </v-row>
 </template>

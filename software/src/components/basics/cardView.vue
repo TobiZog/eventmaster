@@ -12,6 +12,10 @@ defineProps({
   tonal: {
     type: Boolean,
     default: true
+  },
+  color: {
+    type: String,
+    default: "primary"
   }
 })
 </script>
@@ -20,15 +24,18 @@ defineProps({
   <v-card
     :variant="tonal ? 'tonal' : 'elevated'"
   >
-    <v-card-title v-if="title || loading" color="primary" class="pa-0">
-      <v-sheet color="primary">
+    <v-card-title
+      v-if="title || loading"
+      class="pa-0"
+    >
+      <v-sheet :color="color">
         <v-skeleton-loader
           type="heading"
           :loading="loading"
           style="background-color: transparent"
         >
           <div>
-            <div class="pl-2 py-1 d-flex justify-center">
+            <div class="px-2 py-1 d-flex justify-center">
               <v-icon :icon="icon" v-if="icon" />&nbsp;{{ title }}
             </div>
             <div>

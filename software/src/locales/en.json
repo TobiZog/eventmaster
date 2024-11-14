@@ -162,7 +162,7 @@
   "help": {
     "scoreBoard": {
       "exerciseGroupNr": "Exercise Group {0}: ",
-      "exerciseNr": "Exercise {0}"
+      "exerciseNr": "Exercise {0}.{1}: "
     }
   },
   "bannerMessages": {

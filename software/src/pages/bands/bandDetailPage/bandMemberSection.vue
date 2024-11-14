@@ -14,7 +14,7 @@ const bandStore = useBandStore()
   </v-row>
 
   <v-row v-if="bandStore.fetchInProgress" >
-    <v-col cols="3" v-for="i in 4">
+    <v-col cols="6" md="3" v-for="i in 4">
       <card-with-top-image :loading="true" />
     </v-col>
   </v-row>
@@ -22,7 +22,7 @@ const bandStore = useBandStore()
   <v-row>
     <v-spacer />
 
-    <v-col v-for="member of bandStore.band.members" cols="3">
+    <v-col v-for="member of bandStore.band.members" cols="6" md="3">
       <card-with-top-image
         :title="member.name"
         :image=" member.image"

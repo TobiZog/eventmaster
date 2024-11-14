@@ -1,14 +1,24 @@
 <script setup lang="ts">
-import scoreCard from './scoreCard.vue';
 import { useExerciseStore } from '@/stores/exercise.store';
 import outlinedButton from '@/components/basics/outlinedButton.vue';
 import { generateResultsPdf } from '@/scripts/pdfScripts';
 import { usePreferencesStore } from '@/stores/preferences.store';
+import cardView from '@/components/basics/cardView.vue';
+import { LanguageEnum } from '@/data/enums/languageEnum';
 
 const exerciseStore = useExerciseStore()
 const preferencesStore = usePreferencesStore()
 
 exerciseStore.getAllExercises()
+
+function getDotColor(exerciseGroupNr: number) {
+  switch(exerciseGroupNr) {
+    case 0: return "purple"
+    case 1: return "orange"
+    case 2: return "blue"
+    case 3: return "pink"
+  }
+}
 </script>
 
 <template>
@@ -26,18 +36,50 @@ exerciseStore.getAllExercises()
         </outlined-button>
       </v-col>
     </v-row>
-    <v-row v-if="exerciseStore.fetchInProgress" v-for="i in 3">
-      <v-col>
-        <score-card :loading="true"
-      />
-      </v-col>
-    </v-row>
 
-    <v-row v-for="exerciseGroup in exerciseStore.exerciseGroups">
+    <v-row>
       <v-col>
-        <score-card
-          :exercise-group="exerciseGroup"
-        />
+        <card-view
+          :title="$t('misc.firstStartup.exercises')"
+          icon="mdi-checkbox-marked-circle-auto-outline"
+        >
+          <template #borderless>
+            <v-timeline
+              side="end"
+              class="px-5"
+              align="start"
+            >
+              <v-timeline-item
+                v-for="exercise of exerciseStore.exercises"
+                :dot-color="getDotColor(exercise.exerciseGroup.groupNr)"
+                :icon="exercise.solved ? 'mdi-check' : 'mdi-pencil'"
+              >
+                <!-- Left side -->
+                <template #opposite>
+                  <div
+                    v-if="exercise.exerciseNr == 1"
+                    :class="`pt-1 font-weight-bold text-${getDotColor(exercise.exerciseGroup.groupNr)}`"
+                  >
+                    {{
+                      (preferencesStore.language == LanguageEnum.GERMAN 
+                      ? exercise.exerciseGroup.nameDe 
+                      : exercise.exerciseGroup.nameEn) 
+                    }}
+                  </div>
+                </template>
+
+                <!-- Right side -->
+                <card-view
+                  :title="$t('help.scoreBoard.exerciseNr', [exercise.exerciseGroup.groupNr, exercise.exerciseNr]) + 
+                    (preferencesStore.language == LanguageEnum.GERMAN ? exercise.nameDe : exercise.nameEn)"
+                  :color="exercise.solved ? 'green' : 'primary'"
+                >
+                  {{ preferencesStore.language == LanguageEnum.GERMAN ? exercise.descriptionDe : exercise.descriptionEn }}
+                </card-view>
+              </v-timeline-item>
+            </v-timeline>
+          </template>
+        </card-view>
       </v-col>
     </v-row>
   </v-container>

@@ -30,7 +30,7 @@ defineProps({
     <div class="position-absolute bottom-0 pa-5" style="width: 100%;">
       <v-row>
         <!-- Logo -->
-        <v-col cols="2">
+        <v-col cols="2 d-none d-md-block">
           <v-skeleton-loader
             type="image"
             :loading="loading"

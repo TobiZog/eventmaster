@@ -9,6 +9,7 @@ import { useFeedbackStore } from './stores/feedback.store';
 import companyFooter from './components/navigation/companyFooter.vue';
 import urlBar from './components/navigation/urlBar.vue';
 import { useRouter } from 'vue-router';
+import NavigationBar from './components/navigation/navigationBar.vue';
 
 const preferencesStore = usePreferencesStore()
 const feedbackStore = useFeedbackStore()
@@ -43,20 +44,7 @@ watch(() => feedbackStore.notFound, () => {
     <url-bar />
     
     <!-- Navigaion bar of page -->
-    <v-app-bar
-      height="80"
-      color="primary" 
-      class="px-5"
-      elevation="0"
-    >
-      <template #prepend>
-        <navigation-prepend-items />
-      </template>
-
-      <template #append>
-        <navigation-append-items />
-      </template>
-    </v-app-bar>
+    <navigation-bar />
 
 
     <v-main>
