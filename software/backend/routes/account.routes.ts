@@ -154,7 +154,8 @@ account.patch("/", verifyToken, (req: Request, res: Response) => {
       }
 
       // Status: 200 OK
-      res.status(200).json(account)
+      let accountData = await Account.findByPk(req.body.id, { include: [ Payment, AccountRole, Address ]})
+      res.status(200).json(accountData)
     })
     .catch(error => {
       // Status: 400 Bad request

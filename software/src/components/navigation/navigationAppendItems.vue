@@ -33,8 +33,7 @@ exerciseStore.getAllExercises()
   </div>
 
   <v-btn
-    v-if="accountStore.userAccountToken != '' && 
-      accountStore.userAccount.accountRole.privilegeAdminPanel"
+    v-if="accountStore.adminPanelVisible"
     variant="plain"
     icon="mdi-table-cog"
     to="/admin"

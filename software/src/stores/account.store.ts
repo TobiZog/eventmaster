@@ -30,7 +30,11 @@ export const useAccountStore = defineStore("accountStore", {
     registerData: ref<AccountModel>(new AccountModel()),
 
     /** Request to server sent, waiting for data response */
-    fetchInProgress: ref(false)
+    fetchInProgress: ref(false),
+
+    adminPanelVisible: ref(false),
+
+    privilegeBuy: ref(false)
   }),
 
   actions: {
@@ -73,26 +77,11 @@ export const useAccountStore = defineStore("accountStore", {
 
                 feedbackStore.addSnackbar(BannerStateEnum.ACCOUNTLOGINSUCCESSFUL)
                 this.fetchInProgress = false
+
+                this.privilegeBuy = true
+                this.adminPanelVisible = account.data.accountRole.privilegeAdminPanel
               })
           })
-
-
-        // await loginAccount(this.loginData.username, this.loginData.password)
-        //   .then(async result => {
-        //     this.userAccountId = result.data.id
-        //     this.userLoggedIn = true
-
-        //     fetchAddresses(result.data.id)
-        //       .then(addresses => {
-
-        //       })
-
-
-        //     feedbackStore.addSnackbar(BannerStateEnum.ACCOUNTLOGINSUCCESSFUL)
-
-        //     this.fetchInProgress = false
-        //     return true
-        //   })
           .catch(error => {
             if (error.status == 400) {
               feedbackStore.addSnackbar(BannerStateEnum.ACCOUNTLOGINERROR)
@@ -170,6 +159,8 @@ export const useAccountStore = defineStore("accountStore", {
       this.userAccount = new AccountModel()
       this.userAccountId = -1
       this.loggedIn = false
+      this.privilegeBuy = false
+      this.adminPanelVisible = false
       
       feedbackStore.addSnackbar(BannerStateEnum.ACCOUNTLOGOUTSUCCESSFUL)
     },

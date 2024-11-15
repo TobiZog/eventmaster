@@ -6,5 +6,5 @@ import { PaymentModel } from "./paymentModel"
 export class AccountApiModel extends AccountModel {
   addresses: Array<AddressModel>
   payments: Array<PaymentModel>
-  accountRole: AccountRole
+  accountRole: AccountRole = new AccountRole()
 }

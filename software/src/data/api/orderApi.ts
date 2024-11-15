@@ -25,6 +25,13 @@ export async function createOrder(
     }
   }
 
+  console.log({
+    accountId: accountId,
+    tickets: tickets,
+    paymentId: paymentId,
+    addressId: addressId
+  })
+
   return axios.post(BASE_URL, {
     accountId: accountId,
     tickets: tickets,

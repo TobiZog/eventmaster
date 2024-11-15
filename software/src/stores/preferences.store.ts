@@ -9,6 +9,8 @@ import { BannerStateEnum } from "@/data/enums/bannerStateEnum";
 import { useFeedbackStore } from "./feedback.store";
 import { useBasketStore } from "./basket.store";
 import { useExerciseStore } from "./exercise.store";
+import { useAccountStore } from "./account.store";
+import { AccountApiModel } from "@/data/models/user/accountApiModel";
 
 export const usePreferencesStore = defineStore('preferencesStore', {
   state: () => ({
@@ -115,6 +117,7 @@ export const usePreferencesStore = defineStore('preferencesStore', {
      */
     resetToFactorySettings() {
       const basketStore = useBasketStore()
+      const accountStore = useAccountStore()
 
       this.firstStartup = true
       this.studentName = ""
@@ -122,6 +125,10 @@ export const usePreferencesStore = defineStore('preferencesStore', {
       this.theme = "dark"
       this.language = LanguageEnum.GERMAN
       basketStore.itemsInBasket = []
+      accountStore.userAccountToken = ""
+      accountStore.userAccount = new AccountApiModel()
+
+
       
       this.showFactoryResetDialog = false
     }
