@@ -296,13 +296,14 @@ export async function prepopulateDatabase() {
               }
             })
               .then(async location => {
+                console.log(concert.offered)
                 concerts.push({
                   date: concert.date,
                   name: concertGroup.name,
                   price: concert.price,
                   image: "http://localhost:3000/static/" + concertGroup.image,
                   inStock: concert.inStock,
-                  offered: true,
+                  offered: concert.offered != undefined ? concert.offered : true,
                   bandId: dataset.dataValues.id,
                   locationId: location.dataValues.id
                 })

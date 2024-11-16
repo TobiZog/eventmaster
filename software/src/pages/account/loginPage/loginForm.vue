@@ -32,6 +32,7 @@ async function startLogin() {
           v-model="accountStore.loginData.username"
           variant="outlined"
           clearable
+          @keyup.enter="startLogin"
         />
       </v-col>
     </v-row>
@@ -45,6 +46,7 @@ async function startLogin() {
           variant="outlined"
           v-model="accountStore.loginData.password"
           clearable
+          @keyup.enter="startLogin"
         />
       </v-col>
     </v-row>

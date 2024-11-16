@@ -11,6 +11,7 @@ import { Seat } from "../models/locations/seat.model";
 import { SeatRow } from "../models/locations/seatRow.model";
 import { SeatGroup } from "../models/locations/seatGroup.model";
 import { Account } from "../models/user/account.model";
+import { Exercise } from "backend/models/exercises/exercise.model";
 
 export const order = Router()
 

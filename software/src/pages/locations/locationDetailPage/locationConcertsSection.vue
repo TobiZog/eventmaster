@@ -23,23 +23,27 @@ const locationStore = useLocationStore()
   </v-row>
 
   <!-- Show concerts after fetching -->
-  <v-row
+  <div
     v-else-if="locationStore.location.concerts.length > 0"
     v-for="concert of locationStore.location.concerts"
   >
-    <v-col>
-      <concert-list-item
-        :concert="concert"
-        :band="concert.band"
-        :location="locationStore.location"
-        :title="concert.name"
-      >
-        <template #description>
-          {{ concert.band.name }}
-        </template>
-      </concert-list-item>
-    </v-col>
-  </v-row>
+    <v-row
+      v-if="concert.offered"
+    >
+      <v-col>
+        <concert-list-item
+          :concert="concert"
+          :band="concert.band"
+          :location="locationStore.location"
+          :title="concert.name"
+        >
+          <template #description>
+            {{ concert.band.name }}
+          </template>
+        </concert-list-item>
+      </v-col>
+    </v-row>
+  </div>
 
   <!-- Show empty state if no items there -->
   <v-row v-else>

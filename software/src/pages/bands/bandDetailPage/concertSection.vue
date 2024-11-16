@@ -20,15 +20,17 @@ const bandStore = useBandStore()
     </v-col>
   </v-row>
 
-  <v-row v-for="concert of bandStore.band.concerts">
-    <v-col>
-      <concert-list-item
-        :concert="concert"
-        :band="bandStore.band"
-        :location="concert.location"
-        :title="concert.location.city.name"
-        :link="concert.inStock > 0"
-      />
-    </v-col>
-  </v-row>
+  <div v-for="concert of bandStore.band.concerts">
+    <v-row v-if="concert.offered">
+      <v-col>
+        <concert-list-item
+          :concert="concert"
+          :band="bandStore.band"
+          :location="concert.location"
+          :title="concert.location.city.name"
+          :link="concert.inStock > 0"
+        />
+      </v-col>
+    </v-row>
+  </div>
 </template>

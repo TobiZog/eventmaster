@@ -60,9 +60,13 @@ export const useConcertStore = defineStore("concertStore", {
      * 
      * @param id ID of the concert in the database
      */
-    async getConcert(id: number) {
+    async getConcert(location: string, date: string) {
       const feedbackStore = useFeedbackStore()
       this.fetchInProgress = true
+
+      let id = this.concerts.find((concert: ConcertApiModel) => {
+        return (concert.location.urlName == location && concert.date == date)
+      }).id
 
       fetchConcertById(id)
         .then(result => {

@@ -3,7 +3,6 @@ import { useConcertStore } from '@/stores/concert.store';
 import { useBandStore } from '@/stores/band.store';
 import { useAccountStore } from '@/stores/account.store';
 import { useLocationStore } from '@/stores/location.store';
-import { useExerciseStore } from '@/stores/exercise.store';
 import { useGenreStore } from '@/stores/genre.store';
 import { usePreferencesStore } from '@/stores/preferences.store';
 import dashboardCard from './dashboardCard.vue';
@@ -15,12 +14,9 @@ const bandStore = useBandStore()
 const accountStore = useAccountStore()
 const genreStore = useGenreStore()
 const locationStore = useLocationStore()
-const exerciseStore = useExerciseStore()
 const preferencesStore = usePreferencesStore()
 const orderStore = useOrderStore()
 const filesStore = useFilesStore()
-
-exerciseStore.solveExercise(2, 1)
 
 filesStore.getStaticFolders()
 bandStore.getBands()

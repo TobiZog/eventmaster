@@ -34,8 +34,8 @@
           "descriptionEn": "Manipulate the URL and access the help page"
         },
         {
-          "nameDe": "Das ausgebuchte Konzert buchen",
-          "nameEn": "Book the unavailable concert",
+          "nameDe": "Das versteckte Konzert buchen",
+          "nameEn": "Book the hidden concert",
           "exerciseNr": 2,
           "descriptionDe": "Manipuliere die URL so, dass du das ausgebuchte Konzert aufrufen kannst und buche ein Ticket dafür",
           "descriptionEn": "Manipulate the URL and access the sold out concert and buy a ticket"

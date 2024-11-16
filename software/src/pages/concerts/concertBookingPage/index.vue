@@ -15,11 +15,17 @@ const basketStore = useBasketStore()
 const concertStore = useConcertStore()
 
 onMounted(async () => {
-  concertStore.getConcert(Number(router.currentRoute.value.params.id))
+  concertStore.getConcert(
+    String(router.currentRoute.value.params.locationUrl), 
+    String(router.currentRoute.value.params.date)
+  )
 })
 
 watch(() => router.currentRoute.value.params.id, () => {
-  concertStore.getConcert(Number(router.currentRoute.value.params.id))
+  concertStore.getConcert(
+    String(router.currentRoute.value.params.locationUrl), 
+    String(router.currentRoute.value.params.date)
+  )
 })
 </script>
 

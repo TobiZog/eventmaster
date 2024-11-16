@@ -6,4 +6,5 @@ export class LocationModel {
   imageOutdoor: string = ""
   capacity: number = 0
   layout: number = 1
+  urlName: string = ""
 }

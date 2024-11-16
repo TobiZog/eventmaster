@@ -24,26 +24,28 @@ const concertStore = useConcertStore()
     v-else-if="concertStore.concerts.length > 0"
     v-for="(concert, index) of concertStore.concerts"
   >
-    <v-row 
-      v-if="index == 0 || 
-      new Date(concertStore.concerts[index - 1].date).getMonth() != 
-      new Date(concertStore.concerts[index].date).getMonth()"
-    >
-      <v-col>
-        <section-divider
-          :title="new Date(concert.date).toLocaleString('default', { month: 'long' }) + ' ' + new Date(concert.date).getFullYear()"
-        />
-      </v-col>
-    </v-row>
+    <div v-if="concert.offered">
+      <v-row 
+        v-if="index == 0 || 
+        new Date(concertStore.concerts[index - 1].date).getMonth() != 
+        new Date(concertStore.concerts[index].date).getMonth()"
+      >
+        <v-col>
+          <section-divider
+            :title="new Date(concert.date).toLocaleString('default', { month: 'long' }) + ' ' + new Date(concert.date).getFullYear()"
+          />
+        </v-col>
+      </v-row>
 
-    <v-row>
-      <v-col>
-        <concert-list-item
-          :concert="concert"
-          :band="concert.band"
-          :location="concert.location"
-        />
-      </v-col>
-    </v-row>
+      <v-row>
+        <v-col>
+          <concert-list-item
+            :concert="concert"
+            :band="concert.band"
+            :location="concert.location"
+          />
+        </v-col>
+      </v-row>
+    </div>
   </div>
 </template>

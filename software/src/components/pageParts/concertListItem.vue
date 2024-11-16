@@ -40,7 +40,7 @@ defineProps({
     :title="concert.name"
     v-if="!loading"
     :link="showButton && concert.inStock > 0"
-    @click="showButton && concert.inStock > 0 ? router.push('/concerts/booking/' + concert.id) : () => {}"
+    @click="showButton && concert.inStock > 0 ? router.push('/concerts/booking/' + location.urlName + '/' + concert.date) : () => {}"
   >
     <template #prepend>
       <div>

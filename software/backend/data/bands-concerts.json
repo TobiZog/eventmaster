@@ -251,7 +251,8 @@
               "date": "2024-10-30",
               "price": 79.90,
               "inStock": 1073,
-              "location": "LANXESS arena"
+              "location": "LANXESS arena",
+              "offered": false
             },
             {
               "date": "2024-10-23",
