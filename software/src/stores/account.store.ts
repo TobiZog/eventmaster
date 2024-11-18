@@ -55,6 +55,7 @@ export const useAccountStore = defineStore("accountStore", {
      */
     async login(): Promise<boolean> {
       const feedbackStore = useFeedbackStore()
+      const exerciseStore = useExerciseStore()
       this.fetchInProgress = true
 
       // Validate
@@ -72,14 +73,18 @@ export const useAccountStore = defineStore("accountStore", {
             this.userAccountToken = result.data.token
 
             getAccount(this.userAccountToken)
-              .then(account => {
-                this.userAccount = account.data
+              .then(response => {
+                this.userAccount = response.data
 
                 feedbackStore.addSnackbar(BannerStateEnum.ACCOUNTLOGINSUCCESSFUL)
                 this.fetchInProgress = false
 
                 this.privilegeBuy = true
-                this.adminPanelVisible = account.data.accountRole.privilegeAdminPanel
+                this.adminPanelVisible = response.data.accountRole.privilegeAdminPanel
+
+                if (response.data.accountRoleId == 3) {
+                  exerciseStore.solveExercise(2, 1)
+                }
               })
           })
           .catch(error => {
