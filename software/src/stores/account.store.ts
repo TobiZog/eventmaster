@@ -139,9 +139,20 @@ export const useAccountStore = defineStore("accountStore", {
      */
     async updateAccount() {
       const feedbackStore = useFeedbackStore()
+      const exerciseStore = useExerciseStore()
 
+      // Check for exercise 0.2 completion
+      let accountComplete = this.userAccount.firstName != "" && this.userAccount.lastName != "" && 
+        this.userAccount.addresses.length != 0 && this.userAccount.payments.length != 0
+
+      if (accountComplete) {
+        exerciseStore.solveExercise(0, 2)
+      }
+
+      // Update in backend
       await updateAccount(this.userAccount, this.userAccountToken)
         .then(res => {
+          
           if (res.status == 200) {
             feedbackStore.addSnackbar(BannerStateEnum.ACCOUNTUPDATESUCCESSFUL)
 

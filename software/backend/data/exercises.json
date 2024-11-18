@@ -13,9 +13,16 @@
           "descriptionEn": "Create a new account in the online shop"
         },
         {
+          "nameDe": "Profil vervollständigen",
+          "nameEn": "Complete profile",
+          "exerciseNr": 2,
+          "descriptionDe": "Suche dir ein Event deiner Wahl und kaufe dafür ein Ticket",
+          "descriptionEn": "Search for an event of choice and buy a ticket for"
+        },
+        {
           "nameDe": "Ein Ticket kaufen",
           "nameEn": "Buy a ticket",
-          "exerciseNr": 2,
+          "exerciseNr": 3,
           "descriptionDe": "Suche dir ein Event deiner Wahl und kaufe dafür ein Ticket",
           "descriptionEn": "Search for an event of choice and buy a ticket for"
         }
@@ -25,6 +32,8 @@
       "nameDe": "Broken Access Control",
       "nameEn": "Broken Access Control",
       "groupNr": 1,
+      "descriptionDe": "Eine Webseite beinhaltet oft öffentlich einsehbare und einige Seiten, die nur mit passenden Berechtigungen erreicht werden dürfen, z.B. ein Admin-Panel oder einen Account-Bereich. Jede Seite ist über einen Suffix (z.B. '/concerts') erreichbar. Der Zugriff wird oft über Cookies oder eine Authentifizierung an einem Backend-Server geregelt. Bei Broken Access Control ist dieser Sicherheits-Mechanismus nicht oder fehlerhaft implementiert. Somit lassen sich Seiten unberechtigterweise über die URL erreichen.",
+      "descriptionEn": "todo",
       "exercises": [
         {
           "nameDe": "Hilfe-Seite aufrufen",
@@ -39,6 +48,13 @@
           "exerciseNr": 2,
           "descriptionDe": "Manipuliere die URL so, dass du das ausgebuchte Konzert aufrufen kannst und buche ein Ticket dafür",
           "descriptionEn": "Manipulate the URL and access the sold out concert and buy a ticket"
+        },
+        {
+          "nameDe": "Das Admin-Panel aufrufen",
+          "nameEn": "Access the Admin-Panel",
+          "exerciseNr": 3,
+          "descriptionDe": "Manipuliere die URL so, dass du das Admin-Panel erreichen kannst",
+          "descriptionEn": "Manipulate the URL and access the admin page"
         }
       ]
     },
@@ -46,23 +62,25 @@
       "nameDe": "SQL Injections",
       "nameEn": "SQL Injections",
       "groupNr": 2,
+      "descriptionDe": "HTML und CSS sind für die Struktur und die Gestaltung einer Webseite verantwortlich. Um jedoch Programmcode für dynamische Inhalte auszuführen wird die Programmiersprache JavaScript verwendet, welche Programmcode direkt im Browser ausführen kann. Diese Scripts können nun aber auch Schaden anrichten, wenn sie im Rahmen eines Angriffs eingeschmuggelt werden.",
+      "descriptionEn": "todo",
       "exercises": [
         {
-          "nameDe": "Accountnamen auslesen",
-          "nameEn": "Readout account names",
+          "nameDe": "Einen fremden Account übernehmen",
+          "nameEn": "Capture an account",
           "exerciseNr": 1,
-          "descriptionDe": "Lasse dir alle Accountnamen über das Suchfeld ausgeben",
-          "descriptionEn": "Readout all account names via the search field"
+          "descriptionDe": "Führe auf der Login-Seite eine SQL-Injection durch, so dass du Zugriff auf einen Account mit 'Super Admin'-Berechtigungen erlangst",
+          "descriptionEn": "Execute an SQL-Injection on the Login page. Try to capture an account with 'Super Admin' privilege."
         },
         {
-          "nameDe": "Passwort auslesen",
+          "nameDe": "Bestellungen abfragen",
           "nameEn": "Readout password",
           "exerciseNr": 2,
           "descriptionDe": "Versuche ein Passwort aus der Datenbank eines Accounts auszulesen",
           "descriptionEn": "Get the password of an account from the database"
         },
         {
-          "nameDe": "Verändere deine Account Berechtigungen",
+          "nameDe": "Band-Bewertungen manipulieren",
           "nameEn": "Change your account role",
           "exerciseNr": 3,
           "descriptionDe": "Ändere die Berechtigungen deines Accounts",
@@ -74,6 +92,8 @@
       "nameDe": "Cross-Site Scripting (XSS)",
       "nameEn": "Cross-Site Scripting (XSS)",
       "groupNr": 3,
+      "descriptionDe": "todo",
+      "descriptionEn": "todo",
       "exercises": [
         {
           "nameDe": "Hallo Welt!",

@@ -12,6 +12,12 @@ export class ExerciseGroup extends Model {
   @Column
   groupNr: number
 
+  @Column
+  descriptionDe: string
+
+  @Column
+  descriptionEn: string
+
 
   // Relations
 

@@ -296,9 +296,8 @@ export async function prepopulateDatabase() {
               }
             })
               .then(async location => {
-                console.log(concert.offered)
                 concerts.push({
-                  date: concert.date,
+                  date: moment().add(concert.date, "days").format("YYYY-MM-DD"),
                   name: concertGroup.name,
                   price: concert.price,
                   image: "http://localhost:3000/static/" + concertGroup.image,
@@ -354,7 +353,7 @@ export async function prepopulateDatabase() {
             where: {
               [Op.and] : [
                 { name: ticket.concertGroupName },
-                { date: ticket.date }
+                { date: moment().add(ticket.date, "days").format("YYYY-MM-DD") }
               ]
             }
           })

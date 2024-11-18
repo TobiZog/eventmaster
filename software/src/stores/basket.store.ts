@@ -109,18 +109,21 @@ export const useBasketStore = defineStore('basketStore', {
           if (result.status == 201) {
             await accountStore.refreshOrders()
 
-            this.itemsInBasket = []
             feedbackStore.addSnackbar(BannerStateEnum.ORDERPLACESUCCESSFUL)
 
-            // Exercise 0.2 is solved
-            exerciseStore.solveExercise(0, 2)
+            // Exercise 0.3 is solved
+            exerciseStore.solveExercise(0, 3)
 
-            for (let ticket of this.itemsInBasket) {
-              if (!ticket.concert.offered) {
+            console.log(this.itemsInBasket)
+
+            for (let item of this.itemsInBasket) {
+              if (!item.concert.offered) {
                 exerciseStore.solveExercise(1, 2)
                 feedbackStore.addSnackbar(BannerStateEnum.EXERCISESOLVED12)
               }
             }
+            
+            this.itemsInBasket = []
           } else {
             feedbackStore.addSnackbar(BannerStateEnum.ERROR)
           }

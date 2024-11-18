@@ -30,26 +30,14 @@ account.get("/login", async (req: Request, res: Response) => {
       "' AND password='" + req.query.password + "')"
     )
 
-  // Mechanism to check exercise solved
-  if (results.length > 1) {
-    Exercise.update(
-      { solved: true },
-      {
-        where: {
-          nameEn: "Register"
-        }
-      }
-    )
-  }
-
   if (results.length != 0) {
     // Creating session token
     const token = jwt.sign({ userId: results[0]["id"] }, 'sjcucjdkdf')
 
     // Status: 200 OK
     res.status(200).json({
-      "success": true,
-      "token": token
+      success: true,
+      token: token
     })
   } else {
     // Status: 401 Unauthorized
@@ -124,7 +112,7 @@ account.patch("/", verifyToken, (req: Request, res: Response) => {
   {
     where: { id: req.body.id }
   })
-    .then(async account => {
+    .then(async result => {
       for (let payment of req.body.payments) {
         if (payment.id == undefined) {
           payment["accountId"] = req.body.id

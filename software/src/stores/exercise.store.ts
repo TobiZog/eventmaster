@@ -71,6 +71,7 @@ export const useExerciseStore = defineStore("exerciseStore", {
                 switch(exerciseNr) {
                   case 1: bannerState = BannerStateEnum.EXERCISESOLVED01; break;
                   case 2: bannerState = BannerStateEnum.EXERCISESOLVED02; break;
+                  case 3: bannerState = BannerStateEnum.EXERCISESOLVED03; break;
                 }
 
                 break;

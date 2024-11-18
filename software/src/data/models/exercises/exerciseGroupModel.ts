@@ -3,4 +3,6 @@ export class ExerciseGroupModel {
   nameDe: string = ""
   nameEn: string = ""
   groupNr: number = 0
+  descriptionDe: string = ""
+  descriptionEn: string = ""
 }

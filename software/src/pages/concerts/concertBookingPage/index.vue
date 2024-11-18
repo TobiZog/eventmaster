@@ -21,7 +21,14 @@ onMounted(async () => {
   )
 })
 
-watch(() => router.currentRoute.value.params.id, () => {
+watch(() => router.currentRoute.value.params.locationUrl, () => {
+  concertStore.getConcert(
+    String(router.currentRoute.value.params.locationUrl), 
+    String(router.currentRoute.value.params.date)
+  )
+})
+
+watch(() => router.currentRoute.value.params.date, () => {
   concertStore.getConcert(
     String(router.currentRoute.value.params.locationUrl), 
     String(router.currentRoute.value.params.date)

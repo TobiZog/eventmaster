@@ -6,6 +6,7 @@ import { Composer } from 'vue-i18n';
 /**
  * Logic of the bubble notifications
  * Includes an i18n object for translation
+ * Includes a variable for redirecting to 404 page
  */
 export const useFeedbackStore = defineStore("feedbackStore", {
   state: () => ({
@@ -13,15 +14,6 @@ export const useFeedbackStore = defineStore("feedbackStore", {
 
     /** Show notification banner in top right corner */
     showSnackbar: ref(false),
-
-    /** Text in the notification banner */
-    title: ref(""),
-
-    /** Color of the notification banner */
-    color: ref(""),
-
-    /** Prepend icon of the notification banner */
-    icon: ref(""),
 
     /** Programmatically access to language translation module */
     $i18n: {},
@@ -69,6 +61,9 @@ export const useFeedbackStore = defineStore("feedbackStore", {
 
         case BannerStateEnum.EXERCISESOLVED02: 
           return this.i18n.t("bannerMessages.exerciseSolvedNr", [0, 2])
+
+        case BannerStateEnum.EXERCISESOLVED03:
+          return this.i18n.t("bannerMessages.exerciseSolvedNr", [0, 3])
         
 
         case BannerStateEnum.EXERCISESOLVED11: 
@@ -129,6 +124,9 @@ export const useFeedbackStore = defineStore("feedbackStore", {
           return this.i18n.t('bannerMessages.error')
 
         case BannerStateEnum.ACCOUNTREGISTERSUCCESSFUL: 
+          return this.i18n.t("bannerMessages.registerSuccessful")
+
+        case BannerStateEnum.ACCOUNTREGISTERERROR:
           return this.i18n.t("bannerMessages.registerSuccessful")
 
         case BannerStateEnum.ACCOUNTREGISTERUSERNAMEINUSE: 
@@ -207,6 +205,7 @@ export const useFeedbackStore = defineStore("feedbackStore", {
 
         case BannerStateEnum.EXERCISESOLVED01:
         case BannerStateEnum.EXERCISESOLVED02:
+        case BannerStateEnum.EXERCISESOLVED03:
         case BannerStateEnum.EXERCISESOLVED11:
         case BannerStateEnum.EXERCISESOLVED12:
         case BannerStateEnum.EXERCISESOLVED13:
@@ -237,6 +236,7 @@ export const useFeedbackStore = defineStore("feedbackStore", {
 
         case BannerStateEnum.EXERCISESOLVED01:
         case BannerStateEnum.EXERCISESOLVED02:
+        case BannerStateEnum.EXERCISESOLVED03:
         case BannerStateEnum.EXERCISESOLVED11:
         case BannerStateEnum.EXERCISESOLVED12:
         case BannerStateEnum.EXERCISESOLVED13:

@@ -172,6 +172,7 @@
     "databaseResetSuccessful": "Database successfully resetted!",
     "exerciseProgressResetSuccessful": "Exercise progress successfully resetted!",
     "registerSuccessful": "Account successfully created!",
+    "registerError": "Error on register account",
     "usernameInUse": "The username is already in use!",
     "accountUpdated": "Account successfully updated",
     "logoutSuccessful": "Logout successfull",

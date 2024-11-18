@@ -172,6 +172,7 @@
     "databaseResetSuccessful": "Datenbank erfolgreich zurück gesetzt!",
     "exerciseProgressResetSuccessful": "Aufgabenfortschritt erfolgreich zurück gesetzt!",
     "registerSuccessful": "Account erfolgreich erstellt!",
+    "registerError": "Fehler beim Erstellen des Accounts",
     "usernameInUse": "Der Accountname ist bereits vergeben!",
     "accountUpdated": "Account erfolgreich aktualisiert",
     "logoutSuccessful": "Logout erfolgreich",
