@@ -243,7 +243,8 @@
     "yourFullName": "Vollständiger Name",
     "chooseFile": "Datei auswählen",
     "chooseDestinationFolder": "Zielordner auswählen",
-    "upload": "Hochladen"
+    "upload": "Hochladen",
+    "fulfillYourPersonalDataFirst": "Gehe zu den Einstellungen und fülle deinen Namen und deine Matrikelnummer aus"
   },
   "genre": {
     "withoutBand": "ohne Band"

@@ -26,7 +26,20 @@ function getDotColor(exerciseGroupNr: number) {
     <v-row>
       <v-spacer />
 
+      <v-col
+        v-if="preferencesStore.studentName.length < 3 || preferencesStore.registrationNumber.length < 7"
+        cols="auto"
+      >
+        <card-view variant="outlined" >
+          {{ $t('misc.fulfillYourPersonalDataFirst') }}
+        </card-view>
+      </v-col>
+
       <v-col cols="auto">
+        <v-tooltip :text="$t('misc.fulfillYourPersonalDataFirst')">
+          <template #activator="{ props }"></template>
+
+        </v-tooltip>
         <outlined-button
           prepend-icon="mdi-file-pdf-box"
           @click="generateResultsPdf()"
@@ -49,16 +62,13 @@ function getDotColor(exerciseGroupNr: number) {
               class="px-5"
               align="start"
             >
-              <v-timeline-item
-                v-for="exercise of exerciseStore.exercises"
-                :dot-color="getDotColor(exercise.exerciseGroup.groupNr)"
-                :icon="exercise.solved ? 'mdi-check' : 'mdi-pencil'"
-              >
-                <!-- Left side -->
-                <template #opposite>
+              <template v-for="exercise of exerciseStore.exercises">
+                <v-timeline-item v-if="exercise.exerciseNr == 1"
+                  dot-color="grey"
+                  fill-dot
+                >
                   <div
-                    v-if="exercise.exerciseNr == 1"
-                    :class="`pt-1 font-weight-bold text-${getDotColor(exercise.exerciseGroup.groupNr)}`"
+                    :class="`pt-1 text-h5 font-weight-bold text-${getDotColor(exercise.exerciseGroup.groupNr)}`"
                   >
                     {{
                       (preferencesStore.language == LanguageEnum.GERMAN 
@@ -66,17 +76,30 @@ function getDotColor(exerciseGroupNr: number) {
                       : exercise.exerciseGroup.nameEn) 
                     }}
                   </div>
-                </template>
 
-                <!-- Right side -->
-                <card-view
-                  :title="$t('help.scoreBoard.exerciseNr', [exercise.exerciseGroup.groupNr, exercise.exerciseNr]) + 
-                    (preferencesStore.language == LanguageEnum.GERMAN ? exercise.nameDe : exercise.nameEn)"
-                  :color="exercise.solved ? 'green' : 'primary'"
+                  <div>
+                    {{
+                      (preferencesStore.language == LanguageEnum.GERMAN 
+                      ? exercise.exerciseGroup.descriptionDe 
+                      : exercise.exerciseGroup.descriptionEn) 
+                    }}
+                  </div>
+                </v-timeline-item>
+
+                <v-timeline-item
+                  :dot-color="getDotColor(exercise.exerciseGroup.groupNr)"
+                  :icon="exercise.solved ? 'mdi-check' : 'mdi-pencil'"
                 >
-                  {{ preferencesStore.language == LanguageEnum.GERMAN ? exercise.descriptionDe : exercise.descriptionEn }}
-                </card-view>
-              </v-timeline-item>
+                   <!-- Right side -->
+                  <card-view
+                    :title="$t('help.scoreBoard.exerciseNr', [exercise.exerciseGroup.groupNr, exercise.exerciseNr]) + 
+                      (preferencesStore.language == LanguageEnum.GERMAN ? exercise.nameDe : exercise.nameEn)"
+                    :color="exercise.solved ? 'green' : 'primary'"
+                  >
+                    {{ preferencesStore.language == LanguageEnum.GERMAN ? exercise.descriptionDe : exercise.descriptionEn }}
+                  </card-view>
+                </v-timeline-item>
+              </template>
             </v-timeline>
           </template>
         </card-view>

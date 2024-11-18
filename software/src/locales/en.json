@@ -243,7 +243,8 @@
     "yourFullName": "Full name",
     "chooseFile": "Choose file",
     "chooseDestinationFolder": "Choose destination folder",
-    "upload": "Upload"
+    "upload": "Upload",
+    "fulfillYourPersonalDataFirst": "Go to settings and enter your name and the right register number"
   },
   "genre": {
     "withoutBand": "without Band"
