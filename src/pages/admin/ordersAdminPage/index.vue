@@ -51,18 +51,18 @@ orderStore.getAllOrders()
       </template>
 
       <template #item.edit="{ item }">
-        <v-btn
+        <!-- todo <v-btn
           icon="mdi-eye"
           variant="plain"
           @click="orderStore.openDetails(item)"
-        />
+        /> -->
 
-        <v-btn
+        <!-- todo <v-btn
           icon="mdi-delete"
           variant="plain"
           color="red"
           @click="orderStore.deleteOrder(item)"
-        />
+        /> -->
       </template>
 
     </v-data-table>

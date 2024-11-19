@@ -51,19 +51,19 @@ locationStore.getLocations()
       </template>
 
       <template #item.edit="{ item }">
-        <v-btn
+        <!-- todo <v-btn
           icon="mdi-pencil"
           variant="plain"
           color="orange"
           @click="locationStore.editLocation(item)"
-        />
+        /> -->
 
-        <v-btn
+        <!-- todo <v-btn
           icon="mdi-delete"
           variant="plain"
           color="red"
           @click="locationStore.deleteLocation(item)"
-        />
+        /> -->
       </template>
     </v-data-table>
   </admin-data-layout>

@@ -1,4 +1,4 @@
-const { app, BrowserWindow } = require("electron");
+const { app, BrowserWindow, globalShortcut } = require("electron");
 const path = require("path");
 const backend = require('./../backend/server')
 
@@ -18,6 +18,10 @@ function createWindow() {
 
   // Load HTML entry point
   win.loadFile("build/src/vite/index.html");
+
+  globalShortcut.register('Ctrl+D', () => {
+    win.webContents.openDevTools();
+  })
 
   // Maximize window
   win.maximize()

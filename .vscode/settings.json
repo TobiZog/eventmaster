@@ -1,5 +1,5 @@
 {
-  "i18n-ally.localesPaths": "software/src/locales",
+  "i18n-ally.localesPaths": "src/locales",
   "i18n-ally.regex.key": ".*?",
   "i18n-ally.sourceLanguage": "en",
   "i18n-ally.keysInUse": [

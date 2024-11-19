@@ -58,19 +58,19 @@ concertStore.getConcerts()
       </template>
 
       <template #item.edit="{ item }">
-        <v-btn
+        <!-- todo <v-btn
           icon="mdi-pencil"
           variant="plain"
           color="orange"
           @click="concertStore.editConcert(item)"
-        />
+        /> -->
 
-        <v-btn
+        <!-- todo <v-btn
           icon="mdi-delete"
           variant="plain"
           color="red"
           @click="concertStore.deleteConcert(item)"
-        />
+        /> -->
       </template>
     </v-data-table>
   </admin-data-layout>

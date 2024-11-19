@@ -33,19 +33,19 @@ genreStore.getGenres()
       </template>
 
       <template #item.edit="{ item }">
-        <v-btn
+        <!-- todo <v-btn
           icon="mdi-pencil"
           variant="plain"
           color="orange"
           @click="genreStore.editGenre(item)"
-        />
+        /> -->
 
-        <v-btn
+        <!-- todo <v-btn
           icon="mdi-delete"
           variant="plain"
           color="red"
           @click="genreStore.deleteGenre(item)"
-        />
+        /> -->
       </template>
     </v-data-table>
   </admin-data-layout>
