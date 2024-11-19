@@ -48,13 +48,6 @@
           "exerciseNr": 2,
           "descriptionDe": "Manipuliere die URL so, dass du das ausgebuchte Konzert aufrufen kannst und buche ein Ticket dafür",
           "descriptionEn": "Manipulate the URL and access the sold out concert and buy a ticket"
-        },
-        {
-          "nameDe": "Das Admin-Panel aufrufen",
-          "nameEn": "Access the Admin-Panel",
-          "exerciseNr": 3,
-          "descriptionDe": "Manipuliere die URL so, dass du das Admin-Panel erreichen kannst",
-          "descriptionEn": "Manipulate the URL and access the admin page"
         }
       ]
     },
@@ -62,29 +55,36 @@
       "nameDe": "SQL Injections",
       "nameEn": "SQL Injections",
       "groupNr": 2,
-      "descriptionDe": "HTML und CSS sind für die Struktur und die Gestaltung einer Webseite verantwortlich. Um jedoch Programmcode für dynamische Inhalte auszuführen wird die Programmiersprache JavaScript verwendet, welche Programmcode direkt im Browser ausführen kann. Diese Scripts können nun aber auch Schaden anrichten, wenn sie im Rahmen eines Angriffs eingeschmuggelt werden.",
+      "descriptionDe": "Eine Datenbank arbeitet mit SQL Befehlen um Datensätze anzulegen, abzurufen, zu verändern und löschen. Ein Server wird über API-Schnittstellen angesprochen, führt die Befehle in der Datenbank aus und liefert das Ergebnis. Der Client darf keinen direkten Zugriff auf die Datenbank haben. Bei SQL Injections wird versucht über die API-Schnittstellen direkte SQL Befehle auszuführen.",
       "descriptionEn": "todo",
       "exercises": [
         {
-          "nameDe": "Einen fremden Account übernehmen",
-          "nameEn": "Capture an account",
+          "nameDe": "Alle Accounts ausspähen",
+          "nameEn": "Get all accounts",
           "exerciseNr": 1,
-          "descriptionDe": "Führe auf der Login-Seite eine SQL-Injection durch, so dass du Zugriff auf einen Account mit 'Super Admin'-Berechtigungen erlangst",
-          "descriptionEn": "Execute an SQL-Injection on the Login page. Try to capture an account with 'Super Admin' privilege."
+          "descriptionDe": "Ließ alle Konten aus der Tabelle >>Accounts<< aus. Nutze hierfür das Suchfeld.",
+          "descriptionEn": "Execute an SQL-Injection on the Search page to get all datasets from >>Accounts<< table."
         },
         {
-          "nameDe": "Bestellungen abfragen",
-          "nameEn": "Readout password",
+          "nameDe": "Alle Berechtigungsgruppen ausspähen",
+          "nameEn": "Get alls account roles",
           "exerciseNr": 2,
-          "descriptionDe": "Versuche ein Passwort aus der Datenbank eines Accounts auszulesen",
-          "descriptionEn": "Get the password of an account from the database"
+          "descriptionDe": "Ließ alle Berechtigungsgruppen aus der Tabelle >>AccountRoles<< aus.",
+          "descriptionEn": "Execute an SQL-Injection on the Search page to get all datasets from >>AccountRoles<< table."
         },
         {
-          "nameDe": "Band-Bewertungen manipulieren",
-          "nameEn": "Change your account role",
+          "nameDe": "Eigene Berechtigungen erhöhen",
+          "nameEn": "Upgrade your privileges",
           "exerciseNr": 3,
-          "descriptionDe": "Ändere die Berechtigungen deines Accounts",
+          "descriptionDe": "Erhöhe deine eigene Berechtigung zu >>Admin<<.",
           "descriptionEn": "Change the privileges of your account"
+        },
+        {
+          "nameDe": "Einen fremden Account übernehmen",
+          "nameEn": "Capture another account",
+          "exerciseNr": 4,
+          "descriptionDe": "Wir infiltrieren nun einen Account. Suche dir dafür aus der Liste der in Aufgabe 2.1 erhaltenen einen Account heraus, welcher die Rolle >>Super-Admin<< inne hat. Nur damit lässt sich die Dateiverwaltung welche wir später brauchen öffnen. Hast du den Account-Namen gefunden, gehe ins Login-Menü (logge dich aus, falls du noch angemeldet bist). Führe nun einen SQL-Injektion durch um diesen Account zu übernehmen.",
+          "descriptionEn": "todo"
         }
       ]
     },
@@ -92,7 +92,7 @@
       "nameDe": "Cross-Site Scripting (XSS)",
       "nameEn": "Cross-Site Scripting (XSS)",
       "groupNr": 3,
-      "descriptionDe": "todo",
+      "descriptionDe": "HTML und CSS sind für die Struktur und die Gestaltung einer Webseite verantwortlich. Um jedoch Programmcode für dynamische Inhalte auszuführen wird die Programmiersprache JavaScript verwendet, welche Programmcode direkt im Browser ausführen kann. Diese Scripts können nun aber auch Schaden anrichten, wenn sie im Rahmen eines Angriffs eingeschmuggelt werden.",
       "descriptionEn": "todo",
       "exercises": [
         {

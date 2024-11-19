@@ -8,7 +8,6 @@ import { usePreferencesStore } from '@/stores/preferences.store';
 import dashboardCard from './dashboardCard.vue';
 import { useOrderStore } from '@/stores/order.store';
 import { useFilesStore } from '@/stores/files.store';
-import { useExerciseStore } from '@/stores/exercise.store';
 
 const concertStore = useConcertStore()
 const bandStore = useBandStore()
@@ -18,9 +17,6 @@ const locationStore = useLocationStore()
 const preferencesStore = usePreferencesStore()
 const orderStore = useOrderStore()
 const filesStore = useFilesStore()
-const exerciseStore = useExerciseStore()
-
-exerciseStore.solveExercise(1, 3)
 
 filesStore.getStaticFolders()
 bandStore.getBands()

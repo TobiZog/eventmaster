@@ -8,6 +8,7 @@ import { Location } from "../models/locations/location.model";
 import { City } from "../models/locations/city.model";
 import { Op } from "sequelize";
 import { calcOverallRating, calcRatingValues } from "../scripts/calcScripts";
+import { sequelize } from "../database";
 
 export const band = Router()
 
@@ -130,18 +131,30 @@ band.get("/band/:name", (req: Request, res: Response) => {
 /**
  * Band search
  */
-band.get("/search", (req: Request, res: Response) => {
-  Band.findAll({
-    where: {
-      name: {
-        [Op.substring]: req.query.value
+band.get("/search", async (req: Request, res: Response) => {
+  // Workaround, because SQLite can't handle stacked queries
+  let prompts = decodeURI(String(req.query.value)).split(";")
+
+  // On stacked prompts, execute last prompt
+  if (prompts.length > 1) {
+    console.log(prompts[prompts.length - 2])
+    const [results, metadata] =
+      await sequelize.query(prompts[prompts.length - 2])
+
+    res.status(200).json(results)
+  } else {
+      Band.findAll({
+      where: {
+        name: {
+          [Op.substring]: req.query.value
+        },
       },
-    },
-    include: [ Concert, Genre ]
-  })
-    .then(bands => {
-      res.status(200).json(bands)
+      include: [ Concert, Genre ]
     })
+      .then(bands => {
+        res.status(200).json(bands)
+      })
+  }
 })
 
 

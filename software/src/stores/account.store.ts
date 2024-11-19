@@ -83,7 +83,7 @@ export const useAccountStore = defineStore("accountStore", {
                 this.adminPanelVisible = response.data.accountRole.privilegeAdminPanel
 
                 if (response.data.accountRoleId == 3) {
-                  exerciseStore.solveExercise(2, 1)
+                  exerciseStore.solveExercise(2, 4)
                 }
               })
           })

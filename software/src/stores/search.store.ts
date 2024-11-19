@@ -4,6 +4,7 @@ import { fetchBandsBySearchTerm } from "../data/api/bandApi";
 import { fetchLocationsBySearchTerm } from "../data/api/locationApi";
 import { fetchConcertsBySearchTerm } from "../data/api/concertApi";
 import { ConcertApiModel } from "@/data/models/acts/concertApiModel";
+import { useExerciseStore } from "./exercise.store";
 
 export const useSearchStore = defineStore("searchStore", {
   state: () => ({
@@ -31,8 +32,19 @@ export const useSearchStore = defineStore("searchStore", {
      * Search for the term in all bands, locations, events 
      */
     async startSearch() {
+      const exerciseStore = useExerciseStore()
+
       this.alreadySearched = true
       this.fetchInProgress = true
+
+      // Exercise solutions
+      if (this.searchTerm.endsWith("'); SELECT * FROM Accounts; --")) {
+        exerciseStore.solveExercise(2, 1)
+      } else if (this.searchTerm.endsWith("'); SELECT * FROM AccountRoles; --")) {
+        exerciseStore.solveExercise(2, 2)
+      } else if (this.searchTerm.includes("'); UPDATE Accounts SET accountRoleId = 2 WHERE username = ")) {
+        exerciseStore.solveExercise(2, 3)
+      }
 
       await fetchBandsBySearchTerm(this.searchTerm)
         .then(result => {
