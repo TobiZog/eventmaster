@@ -1,5 +1,5 @@
 import { BelongsTo, Column, ForeignKey, HasMany, Model, Table } from "sequelize-typescript";
-import { Concert } from "./../acts/concert.model";
+import { Concert } from "../acts/concert.model";
 import { City } from "./city.model";
 import { SeatGroup } from "./seatGroup.model";
 

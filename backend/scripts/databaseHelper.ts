@@ -18,12 +18,12 @@ import { SeatRow } from '../models/locations/seatRow.model'
 import { Exercise } from '../models/exercises/exercise.model'
 import { ExerciseGroup } from '../models/exercises/exerciseGroup.model'
 
-import accounts from "./../data/accounts.json"
-import orders from "./../data/orders.json"
-import accountRoles from "./../data/accountRoles.json"
-import citiesLocations from "./../data/cities-locations.json"
-import exercises from "./../data/exercises.json"
-import bandsConcerts from "./../data/bands-concerts.json"
+import accounts from "../data/accounts.json"
+import orders from "../data/orders.json"
+import accountRoles from "../data/accountRoles.json"
+import citiesLocations from "../data/cities-locations.json"
+import exercises from "../data/exercises.json"
+import bandsConcerts from "../data/bands-concerts.json"
 import { Op } from 'sequelize'
 import moment from 'moment'
 

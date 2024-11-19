@@ -18,7 +18,7 @@ sudo n stable
 
 2. Download + extract the project
 3. Open the root folder with VS Code (recommended)
-4. Open the bash inside VS Code, navigate to the `software/` folder and install all necessary packages:
+4. Open the bash inside VS Code and install all necessary packages:
 
 ```bash
 npm i
@@ -28,29 +28,20 @@ npm i
 
 There are multiple commands to test parts or the whole project:
 
-- `npm run dev`: Starts the Vue frontend only
-- `npm run server`: Starts the ExpressJs backend only
-- `npm run serve`: Starts front- and backend
+- `npm run vite:dev`: Start Vue frontend only
+- `npm run server:dev`: Start ExpressJs backend only
+- `npm run fullstack:dev`: Start front- and backend
 
 The frontend runs on `http://localhost:5173/` and the backend on `http://localhost:3000/`
 
-### Compile for production
+### Build
 
-TODO
-
-
-## Exercises
-
-### Group 0
-#### Exercise 1
-
-Solution: Create an account by click on the Account symbol (top right) -> Button "Create a new Account" -> "Create Account"
-
-### Group 3
-#### Exercise 1
-
-Solution: `http://localhost:5173/events?city=Hannover&genre=<iframe src="javascript:alert(`xss`)">` or `http://localhost:5173/events?city=<iframe src="javascript:alert(`xss`)">`
-
+- `npm run vite:build`: Build Vue frontend only
+- `npm run server:build`: Build ExpressJs backend only
+- `npm run fullstack:build`: Build front- and backend
+- `npm run electron:build`: Build front- and backend to an Electron desktop application
+- `npm run builder:build`: Build an installer file of the Electron application for current operating system. Electron-build has to run first!
+- `npm run builder:win`: Build an installer file of the Electron application for Windows operating systems. Electron-build has to run first!
 
 ## Structure
 
