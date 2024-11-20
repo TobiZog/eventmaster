@@ -195,10 +195,6 @@ export const useAccountStore = defineStore("accountStore", {
         })
     },
 
-    async getAdresses() {
-
-    },
-
     /**
      * Remove an address from the user model
      * 
@@ -219,10 +215,6 @@ export const useAccountStore = defineStore("accountStore", {
       this.userAccount.payments = this.userAccount.payments.filter((paym: PaymentModel) =>
         paym != payment
       )
-    },
-
-    editAccount(item: AccountModel) {
-      // todo
     },
 
     async deleteAccount(account: AccountModel) {

@@ -144,16 +144,16 @@ band.get("/search", async (req: Request, res: Response) => {
     res.status(200).json(results)
   } else {
       Band.findAll({
-      where: {
-        name: {
-          [Op.substring]: req.query.value
+        where: {
+          name: {
+            [Op.substring]: req.query.value
+          },
         },
-      },
-      include: [ Concert, Genre ]
-    })
-      .then(bands => {
-        res.status(200).json(bands)
+        include: [ Concert, Genre ]
       })
+        .then(bands => {
+          res.status(200).json(bands)
+        })
   }
 })
 

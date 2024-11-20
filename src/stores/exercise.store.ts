@@ -81,7 +81,6 @@ export const useExerciseStore = defineStore("exerciseStore", {
                 switch(exerciseNr) {
                   case 1: bannerState = BannerStateEnum.EXERCISESOLVED11; break;
                   case 2: bannerState = BannerStateEnum.EXERCISESOLVED12; break;
-                  case 3: bannerState = BannerStateEnum.EXERCISESOLVED13; break;
                 }
 
                 break;
@@ -92,6 +91,8 @@ export const useExerciseStore = defineStore("exerciseStore", {
                   case 1: bannerState = BannerStateEnum.EXERCISESOLVED21; break;
                   case 2: bannerState = BannerStateEnum.EXERCISESOLVED22; break;
                   case 3: bannerState = BannerStateEnum.EXERCISESOLVED23; break;
+                  case 4: bannerState = BannerStateEnum.EXERCISESOLVED24; break;
+                  case 5: bannerState = BannerStateEnum.EXERCISESOLVED25; break;
                 }
 
                 break;
@@ -101,7 +102,6 @@ export const useExerciseStore = defineStore("exerciseStore", {
                 switch(exerciseNr) {
                   case 1: bannerState = BannerStateEnum.EXERCISESOLVED31; break;
                   case 2: bannerState = BannerStateEnum.EXERCISESOLVED32; break;
-                  case 3: bannerState = BannerStateEnum.EXERCISESOLVED33; break;
                 }
 
                 break;

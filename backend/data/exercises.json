@@ -85,6 +85,13 @@
           "exerciseNr": 4,
           "descriptionDe": "Wir infiltrieren nun einen Account. Suche dir dafür aus der Liste der in Aufgabe 2.1 erhaltenen einen Account heraus, welcher die Rolle >>Super-Admin<< inne hat. Nur damit lässt sich die Dateiverwaltung welche wir später brauchen öffnen. Hast du den Account-Namen gefunden, gehe ins Login-Menü (logge dich aus, falls du noch angemeldet bist). Führe nun einen SQL-Injektion durch um diesen Account zu übernehmen.",
           "descriptionEn": "todo"
+        },
+        {
+          "nameDe": "Bewertungen löschen",
+          "nameEn": "Delete ratings",
+          "exerciseNr": 5,
+          "descriptionDe": "Jede Band hat Bewertungen auf einer Skala von eins bis fünf Sternen erhalten. Wir wollen alle Fünf-Sterne Bewertungen aus der Datenbank löschen. Schreibe eine SQL Injection, welche in der Tabelle >>Ratings<< alle Einträge mit der Bedingung >>rating = 5<< entfernt. Führe die Injection über die globale Suche aus.",
+          "descriptionEn": "todo"
         }
       ]
     },
@@ -108,13 +115,6 @@
           "exerciseNr": 2,
           "descriptionDe": "Bearbeite die URL des Shops so, dass du das Script ausführen kannst",
           "descriptionEn": "Create an URL of the shop, which calls the script"
-        },
-        {
-          "nameDe": "Hacken mit eigenem Script",
-          "nameEn": "Hack with your script",
-          "exerciseNr": 3,
-          "descriptionDe": "Schreibe eine JavaScript Datei, lade sie über das Admin Panel hoch und kreiere eine URL, welche es ausführt",
-          "descriptionEn": "Write our own JavaScript file, upload it via Admin Panel and create an URL to execute it"
         }
       ]
     }

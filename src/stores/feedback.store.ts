@@ -74,10 +74,6 @@ export const useFeedbackStore = defineStore("feedbackStore", {
           return this.i18n.t("bannerMessages.exerciseSolvedNr", [1, 2])
         
 
-        case BannerStateEnum.EXERCISESOLVED13: 
-          return this.i18n.t("bannerMessages.exerciseSolvedNr", [1, 3])
-        
-
         case BannerStateEnum.EXERCISESOLVED21: 
           return this.i18n.t("bannerMessages.exerciseSolvedNr", [2, 1])
         
@@ -88,6 +84,12 @@ export const useFeedbackStore = defineStore("feedbackStore", {
 
         case BannerStateEnum.EXERCISESOLVED23: 
           return this.i18n.t("bannerMessages.exerciseSolvedNr", [2, 3])
+
+        case BannerStateEnum.EXERCISESOLVED24: 
+          return this.i18n.t("bannerMessages.exerciseSolvedNr", [2, 4])
+
+        case BannerStateEnum.EXERCISESOLVED25: 
+          return this.i18n.t("bannerMessages.exerciseSolvedNr", [2, 5])
         
 
         case BannerStateEnum.EXERCISESOLVED31: 
@@ -96,10 +98,6 @@ export const useFeedbackStore = defineStore("feedbackStore", {
 
         case BannerStateEnum.EXERCISESOLVED32: 
           return this.i18n.t("bannerMessages.exerciseSolvedNr", [3, 2])
-        
-
-        case BannerStateEnum.EXERCISESOLVED33: 
-          return this.i18n.t("bannerMessages.exerciseSolvedNr", [3, 3])
         
 
 
@@ -208,13 +206,13 @@ export const useFeedbackStore = defineStore("feedbackStore", {
         case BannerStateEnum.EXERCISESOLVED03:
         case BannerStateEnum.EXERCISESOLVED11:
         case BannerStateEnum.EXERCISESOLVED12:
-        case BannerStateEnum.EXERCISESOLVED13:
         case BannerStateEnum.EXERCISESOLVED21:
         case BannerStateEnum.EXERCISESOLVED22:
         case BannerStateEnum.EXERCISESOLVED23:
+        case BannerStateEnum.EXERCISESOLVED24:
+        case BannerStateEnum.EXERCISESOLVED25:
         case BannerStateEnum.EXERCISESOLVED31:
         case BannerStateEnum.EXERCISESOLVED32:
-        case BannerStateEnum.EXERCISESOLVED33:
           return "purple"
 
         case BannerStateEnum.BASKETPRODUCTREMOVED:
@@ -239,13 +237,13 @@ export const useFeedbackStore = defineStore("feedbackStore", {
         case BannerStateEnum.EXERCISESOLVED03:
         case BannerStateEnum.EXERCISESOLVED11:
         case BannerStateEnum.EXERCISESOLVED12:
-        case BannerStateEnum.EXERCISESOLVED13:
         case BannerStateEnum.EXERCISESOLVED21:
         case BannerStateEnum.EXERCISESOLVED22:
         case BannerStateEnum.EXERCISESOLVED23:
+        case BannerStateEnum.EXERCISESOLVED24:
+        case BannerStateEnum.EXERCISESOLVED25:
         case BannerStateEnum.EXERCISESOLVED31:
         case BannerStateEnum.EXERCISESOLVED32:
-        case BannerStateEnum.EXERCISESOLVED33:
           return "mdi-check-circle-outline"
       
         case BannerStateEnum.DATABASERESETSUCCESSFUL:

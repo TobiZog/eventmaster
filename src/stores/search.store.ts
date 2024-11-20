@@ -38,12 +38,15 @@ export const useSearchStore = defineStore("searchStore", {
       this.fetchInProgress = true
 
       // Exercise solutions
+      // todo: Rewrite to avoid easy exercise solution
       if (this.searchTerm.endsWith("'); SELECT * FROM Accounts; --")) {
         exerciseStore.solveExercise(2, 1)
       } else if (this.searchTerm.endsWith("'); SELECT * FROM AccountRoles; --")) {
         exerciseStore.solveExercise(2, 2)
       } else if (this.searchTerm.includes("'); UPDATE Accounts SET accountRoleId = 2 WHERE username = ")) {
         exerciseStore.solveExercise(2, 3)
+      } else if (this.searchTerm.includes("'); DELETE FROM Ratings WHERE rating = 5;")) {
+        exerciseStore.solveExercise(2, 5)
       }
 
       await fetchBandsBySearchTerm(this.searchTerm)
