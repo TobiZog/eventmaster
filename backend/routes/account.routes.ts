@@ -8,6 +8,7 @@ import { Exercise } from "../models/exercises/exercise.model";
 import { sequelize } from "../database";
 import jwt from "jsonwebtoken"
 import { verifyToken } from "../middlewares/auth.middleware";
+import { encryptString } from "../scripts/encryptScripts";
 
 export const account = Router()
 
@@ -22,12 +23,14 @@ account.get("/", (req: Request, res: Response) => {
 
 // Login user
 account.get("/login", async (req: Request, res: Response) => {
+  const encryptedPassword = encryptString(String(req.query.password))
+
   // Using raw SQL code for SQL injections!
   const [results, metadata] = 
     await sequelize.query(
       "SELECT * FROM Accounts " +
       "WHERE (username='" + req.query.username + 
-      "' AND password='" + req.query.password + "')"
+      "' AND password='" + encryptedPassword + "')"
     )
 
   if (results.length != 0) {

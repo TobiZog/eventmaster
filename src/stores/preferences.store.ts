@@ -73,8 +73,13 @@ export const usePreferencesStore = defineStore('preferencesStore', {
      */
     async resetDb() {
       const feedbackStore = useFeedbackStore()
+      const accountStore = useAccountStore()
+
       this.serverState = ServerStateEnum.PENDING
       this.fetchInProgress = true
+
+      // Logout user
+      accountStore.logout()
 
       await resetDatabase()
         .then(result => {

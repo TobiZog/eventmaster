@@ -12,7 +12,7 @@ const accountStore = useAccountStore()
 <template>
   <card-view 
     icon="mdi-currency-usd"
-    :title="$t('account.userData.payment')"
+    :title="$t('account.userData.payment', 2)"
   >
     <v-row>
       <v-col>
@@ -41,6 +41,8 @@ const accountStore = useAccountStore()
                     :label="$t('account.userData.bankName')"
                     v-model="payment.bankName"
                     :rules="getStringRules()"
+                    variant="outlined"
+                    hide-details
                   />
                 </v-col>
                 <v-col>
@@ -48,6 +50,8 @@ const accountStore = useAccountStore()
                     :label="$t('account.userData.iban')"
                     v-model="payment.iban"
                     :rules="getIbanRules()"
+                    variant="outlined"
+                    hide-details
                   />
                 </v-col>
               </v-row>

@@ -11,7 +11,7 @@ const accountStore = useAccountStore()
 <template>
   <card-view 
     icon="mdi-home"
-    :title="$t('account.userData.address')"
+    :title="$t('account.userData.address', 2)"
   >
     <v-expansion-panels v-if="accountStore.userAccount.addresses.length > 0">
       <v-expansion-panel
@@ -19,7 +19,15 @@ const accountStore = useAccountStore()
         color="primary"
       >
         <template #title>
-          {{ address.street + ' ' + address.houseNumber }}
+          <div v-if="address.street != undefined">
+            {{ address.street }}
+          </div>
+          
+          &nbsp;
+          
+          <div v-if="address.houseNumber != undefined">
+            {{ address.houseNumber }}
+          </div>
         </template>
 
         <template #text>
@@ -29,7 +37,9 @@ const accountStore = useAccountStore()
                 :label="$t('account.userData.street')"
                 v-model="address.street"
                 :rules="getStringRules()"
+                variant="outlined"
                 clearable
+                hide-details
               />
             </v-col>
             <v-col>
@@ -37,7 +47,9 @@ const accountStore = useAccountStore()
                 :label="$t('account.userData.houseNumber')"
                 v-model="address.houseNumber"
                 :rules="getNumberStartRules()"
+                variant="outlined"
                 clearable
+                hide-details
               />
             </v-col>
           </v-row>
@@ -48,7 +60,9 @@ const accountStore = useAccountStore()
                 :label="$t('account.userData.postalCode')"
                 v-model="address.postalCode"
                 :rules="getPostalRules()"
+                variant="outlined"
                 clearable
+                hide-details
               />
             </v-col>
             <v-col>
@@ -56,7 +70,9 @@ const accountStore = useAccountStore()
                 :label="$t('account.userData.placeOfResidence')"
                 v-model="address.city"
                 :rules="getStringRules()"
+                variant="outlined"
                 clearable
+                hide-details
               />
             </v-col>
           </v-row>

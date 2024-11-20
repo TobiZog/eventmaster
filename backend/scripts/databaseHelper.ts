@@ -204,7 +204,19 @@ export async function prepopulateDatabase() {
 
   AccountRole.bulkCreate(accountRoles.data)
 
+  let chars = "0123456789abcdefghijklmnopqrstuvwxyz!@#$%^&*()ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+
   for (let account of accounts.data) {
+    // Create a random 12 char password
+    let password = ""
+
+    for (var i = 0; i <= 12; i++) {
+      var randomNumber = Math.floor(Math.random() * chars.length);
+      password += chars.substring(randomNumber, randomNumber +1);
+    }
+
+    account["password"] = password
+
     await Account.create(account)
       .then(async dataset => {
         for (let address of account.addresses) {

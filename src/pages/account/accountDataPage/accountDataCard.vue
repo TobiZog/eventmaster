@@ -58,24 +58,18 @@ const stringRules = [
         <v-text-field
           :label="$t('account.userData.email')"
           v-model="accountStore.userAccount.email"
+          variant="outlined"
+          hide-details
           disabled
         />
       </v-col>
-    </v-row>
-    <v-row>
       <v-col>
         <v-text-field
           :label="$t('account.userData.username')"
           v-model="accountStore.userAccount.username"
+          variant="outlined"
+          hide-details
           disabled
-        />
-      </v-col>
-      <v-col>
-        <v-text-field
-          :label="$t('account.userData.password')"
-          v-model="accountStore.userAccount.password"
-          type="password"
-          :rules="passwordRules"
         />
       </v-col>
     </v-row>
@@ -85,14 +79,18 @@ const stringRules = [
         <v-text-field
           :label="$t('account.userData.firstName')"
           v-model="accountStore.userAccount.firstName"
+          variant="outlined"
           :rules="stringRules"
+          hide-details
         />
       </v-col>
       <v-col>
         <v-text-field
           :label="$t('account.userData.lastName')"
           v-model="accountStore.userAccount.lastName"
+          variant="outlined"
           :rules="stringRules"
+          hide-details
         />
       </v-col>
     </v-row>

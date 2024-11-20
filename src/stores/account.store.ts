@@ -177,6 +177,7 @@ export const useAccountStore = defineStore("accountStore", {
       this.loggedIn = false
       this.privilegeBuy = false
       this.adminPanelVisible = false
+      this.userAccountToken = ""
       
       feedbackStore.addSnackbar(BannerStateEnum.ACCOUNTLOGOUTSUCCESSFUL)
     },
