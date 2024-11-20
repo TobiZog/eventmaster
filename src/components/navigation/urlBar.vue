@@ -6,7 +6,8 @@ const router = useRouter()
 const path = ref("https://www.eventmaster.com" + router.currentRoute.value.fullPath)
 
 function navigate() {
-  router.replace({ path: path.value.substring(path.value.indexOf('.com') + 4) })
+  let newPath = path.value.substring(path.value.indexOf('.com') + 4)
+  router.push(newPath)
 }
 
 watch(() => router.currentRoute.value.fullPath, () => {

@@ -10,11 +10,8 @@ export const useGenreStore = defineStore("genreStore", {
     /** All available genres from server */
     genres: ref<Array<GenreApiModel>>([]),
 
-    /** Currently edited genre */
-    genre: ref<GenreApiModel>(new GenreApiModel()),
-
-    /** Genres to filter bands for */
-    filteredGenres: ref<Array<GenreApiModel>>([]),
+    /** Currently selected genre */
+    genre: ref<GenreApiModel>(null),
 
     /** Show or hide edit dialog for Genre object */
     showEditDialog: ref(false),
@@ -107,6 +104,19 @@ export const useGenreStore = defineStore("genreStore", {
             feedbackStore.addSnackbar(BannerStateEnum.GENREDELETEERROR)
           }
         })
+    },
+
+    setGenreByName(name: string) {
+      this.genre = null
+      name = name.replace("+", " ")
+
+      let newGenre = this.genres.find(genre => {
+        return genre.name == name
+      })
+
+      if (newGenre != undefined) {
+        this.genre = newGenre
+      }
     }
   }
 })

@@ -3,10 +3,18 @@ import { useBandStore } from '@/stores/band.store';
 import cardViewHorizontal from '@/components/basics/cardViewHorizontal.vue';
 import bandListItem from '@/components/pageParts/bandListItem.vue';
 import bandFilterbar from './bandFilterbar.vue';
+import { watch } from 'vue';
+import { useRouter } from 'vue-router';
 
 const bandStore = useBandStore()
+const router = useRouter()
 
 bandStore.getBands()
+
+// Refetch bands if query parameter changes
+watch(() => router.currentRoute.value.query, () => {
+  bandStore.getBands()
+})
 </script>
 
 <template>

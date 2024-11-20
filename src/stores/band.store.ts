@@ -33,16 +33,14 @@ export const useBandStore = defineStore("bandStore", {
       await fetchAllBands()
         .then(result => {
           this.bands = result.data.filter((band: BandApiModel) => {
-            if (genreStore.filteredGenres.length == 0) {
+            if (genreStore.genre == null) {
               return true
             }
 
             for (let bandGenre of band.genres) {
-              for (let filteredGenres of genreStore.filteredGenres) {
-                if (bandGenre.name == filteredGenres.name) {
+                if (bandGenre.name == genreStore.genre.name) {
                   return true
                 }
-              }
             }
 
             return false

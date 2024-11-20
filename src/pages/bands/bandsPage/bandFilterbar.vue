@@ -1,12 +1,12 @@
 <script setup lang="ts">
 import cardView from '@/components/basics/cardView.vue';
-import { useBandStore } from '@/stores/band.store';
 import outlinedButton from '@/components/basics/outlinedButton.vue';
 import { GenreModel } from '@/data/models/acts/genreModel';
 import { useGenreStore } from '@/stores/genre.store';
+import { useRouter } from 'vue-router';
 
-const bandStore = useBandStore()
 const genreStore = useGenreStore()
+const router = useRouter()
 
 genreStore.getGenres()
 
@@ -15,6 +15,9 @@ function itemProps(item: GenreModel) {
     title: item.name
   }
 }
+
+// Select genre from query parameter
+genreStore.setGenreByName(String(router.currentRoute.value.query["genreName"]))
 </script>
 
 <template>
@@ -25,21 +28,19 @@ function itemProps(item: GenreModel) {
     <v-row>
       <v-col>
         <v-select
-          v-model="genreStore.filteredGenres"
+          v-model="genreStore.genre"
           :items="genreStore.genres"
           variant="outlined"
           :label="$t('band.genre', 2)"
           :item-props="itemProps"
-          chips
           clearable
           hide-details
-          multiple
         />
       </v-col>
 
       <v-col cols="auto">
         <outlined-button
-          @click="bandStore.getBands"
+          @click="router.push({ path: '/bands', query: { genreName: genreStore.genre.name }})"
           height="100%"
         >
           {{ $t('misc.actions.filtering') }}
