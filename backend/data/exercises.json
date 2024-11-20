@@ -4,26 +4,28 @@
       "nameDe": "Den Shop kennenlernen",
       "nameEn": "Getting to know the shop",
       "groupNr": 0,
+      "descriptionDe": "Vor einem Angriff ist es wichtig zu verstehen, wie die Webseite aufgebaut ist. Wie sind die URLs strukturiert? Wo befinden sich Eingabefelder welche im Backend eine SQL Abfrage stellen?",
+      "descriptionEn": "todo",
       "exercises": [
         {
           "nameDe": "Registrieren",
           "nameEn": "Register",
           "exerciseNr": 1,
-          "descriptionDe": "Erstelle einen neuen Account im Online Shop",
+          "descriptionDe": "Wir richten uns einen gewöhnlichen Account auf der Plattform ein. Navigiere hierzu auf die Account-Seite und registriere dich.",
           "descriptionEn": "Create a new account in the online shop"
         },
         {
           "nameDe": "Profil vervollständigen",
           "nameEn": "Complete profile",
           "exerciseNr": 2,
-          "descriptionDe": "Suche dir ein Event deiner Wahl und kaufe dafür ein Ticket",
+          "descriptionDe": "Bestellungen sind erst möglich, wenn das Account-Profil vervollständigt ist. Logge dich ein, navigiere zu den Account-Einstellungen, fülle den Namen aus und füge je eine Adresse und Bezahlart hinzu. Speichere alles zum Schluss ab.",
           "descriptionEn": "Search for an event of choice and buy a ticket for"
         },
         {
           "nameDe": "Ein Ticket kaufen",
           "nameEn": "Buy a ticket",
           "exerciseNr": 3,
-          "descriptionDe": "Suche dir ein Event deiner Wahl und kaufe dafür ein Ticket",
+          "descriptionDe": "Wir führen nun einen Bestellvorgang durch. Wähle hierzu ein Konzert deiner Wahl und lege Tickets in den Warenkorb. Öffne diesen und schließe die Bestellung ab. Beachte die Struktur der URL wenn du ein Konzert buchen willst. Sieh dir ruhig 2-3 Buchungsseiten an, wie sich die URL jeweils verändert.",
           "descriptionEn": "Search for an event of choice and buy a ticket for"
         }
       ]
@@ -32,21 +34,21 @@
       "nameDe": "Broken Access Control",
       "nameEn": "Broken Access Control",
       "groupNr": 1,
-      "descriptionDe": "Eine Webseite beinhaltet oft öffentlich einsehbare und einige Seiten, die nur mit passenden Berechtigungen erreicht werden dürfen, z.B. ein Admin-Panel oder einen Account-Bereich. Jede Seite ist über einen Suffix (z.B. '/concerts') erreichbar. Der Zugriff wird oft über Cookies oder eine Authentifizierung an einem Backend-Server geregelt. Bei Broken Access Control ist dieser Sicherheits-Mechanismus nicht oder fehlerhaft implementiert. Somit lassen sich Seiten unberechtigterweise über die URL erreichen.",
+      "descriptionDe": "Eine Webseite beinhaltet öffentlich einsehbare und einige geschützte Seiten. Letztere sind nur mit passenden Berechtigungen erreichbar. Beispiele hierfür sind ein Admin-Panel oder der persönliche Warenkorb. Der Zugriff wird oft über Cookies oder eine Authentifizierung an einem Backend-Server geregelt. Bei Broken Access Control ist dieser Sicherheits-Mechanismus nicht oder fehlerhaft implementiert. Somit lassen sich Seiten unberechtigterweise über die URL erreichen.",
       "descriptionEn": "todo",
       "exercises": [
         {
           "nameDe": "Hilfe-Seite aufrufen",
           "nameEn": "Access Help Page",
           "exerciseNr": 1,
-          "descriptionDe": "Manipuliere die URL so, dass du die Hilfe-Seite erreichen kannst",
+          "descriptionDe": "Die Hilfe-Seite erlaubt dir einen Einblick auf den Bearbeitungszustand der Aufgaben. Sie ist dementsprechend nicht abgesichert, aber auch (noch) nicht in der Titel-Leiste als Button erreichbar. Erweitere die URL in der Adresszeile so, dass du auf die Hilfeseite gelangst.",
           "descriptionEn": "Manipulate the URL and access the help page"
         },
         {
           "nameDe": "Das versteckte Konzert buchen",
           "nameEn": "Book the hidden concert",
           "exerciseNr": 2,
-          "descriptionDe": "Manipuliere die URL so, dass du das ausgebuchte Konzert aufrufen kannst und buche ein Ticket dafür",
+          "descriptionDe": "Die Band >>Arctic Monkeys<< will auf ihrer >>European Tour<< drei Konzerte spielen. Im Shop finden sich allerdings nur zwei Einträge. Zwischen den beiden Tourdaten soll eine Show in der Lanxess Arena in Köln stattfinden, der Datensatz hierfür ist bereits angelegt, jedoch nicht freigeschaltet. Besuche die Seite der Band. Sieh dir den Zeitraum zwischen beiden Konzerten an, in denen das versteckte Event liegen könnte. Öffne eine Buchungsseite eines anderen Konzertes und ändere die URL so ab, dass du das versteckte Konzert buchen kannst. Reserviere dir mindestens ein Ticket und schließe den Bestellprozess ab.",
           "descriptionEn": "Manipulate the URL and access the sold out concert and buy a ticket"
         }
       ]
@@ -55,35 +57,35 @@
       "nameDe": "SQL Injections",
       "nameEn": "SQL Injections",
       "groupNr": 2,
-      "descriptionDe": "Eine Datenbank arbeitet mit SQL Befehlen um Datensätze anzulegen, abzurufen, zu verändern und löschen. Ein Server wird über API-Schnittstellen angesprochen, führt die Befehle in der Datenbank aus und liefert das Ergebnis. Der Client darf keinen direkten Zugriff auf die Datenbank haben. Bei SQL Injections wird versucht über die API-Schnittstellen direkte SQL Befehle auszuführen.",
+      "descriptionDe": "Eine Datenbank arbeitet mit SQL Befehlen um Datensätze anzulegen, abzurufen, zu verändern und löschen. Ein Server wird über API-Schnittstellen angesprochen, führt die Befehle in der Datenbank aus und liefert das Ergebnis zurück. Der Client darf keinen direkten Zugriff auf die Datenbank haben. Bei SQL Injections wird versucht, diesen Sicherheitsmechanismus zu umgehen und über die API-Schnittstellen direkte SQL Befehle auszuführen.",
       "descriptionEn": "todo",
       "exercises": [
         {
           "nameDe": "Alle Accounts ausspähen",
           "nameEn": "Get all accounts",
           "exerciseNr": 1,
-          "descriptionDe": "Ließ alle Konten aus der Tabelle >>Accounts<< aus. Nutze hierfür das Suchfeld.",
+          "descriptionDe": "Wir versuchen nun die Datenbank im Hintergrund anzugreifen. Gehe zur globalen Suchseite. Öffne mit der Tastenkombination >>Strg + D<< die >>Developer Tools<<. Klicke auf den Reiter >>Network<<. Hier siehst du, wie das Frontend mit dem Server kommuniziert. Schreibe nun eine SQL-Injection, welche den Suchbegriff ignoriert und dir stattdessen alle Datensätze der Tabelle >>Accounts<< zurück liefert. Führe den Angriff über das Suchfeld aus. Sieh dir die Rückmeldung des Servers an, indem du im >>Network<<-Tab auf die zurück gegebenen Objekte klickst (z.B. >>locations<<).",
           "descriptionEn": "Execute an SQL-Injection on the Search page to get all datasets from >>Accounts<< table."
         },
         {
           "nameDe": "Alle Berechtigungsgruppen ausspähen",
-          "nameEn": "Get alls account roles",
+          "nameEn": "Get all account roles",
           "exerciseNr": 2,
-          "descriptionDe": "Ließ alle Berechtigungsgruppen aus der Tabelle >>AccountRoles<< aus.",
+          "descriptionDe": "Wir sehen nun alle Accounts. Jeder hat eine Berechtigungs-ID (accountRoleId) mit der Berechtigungen wie der Zugriff aufs Admin-Panel geregelt werden. Wir wissen aber nicht, was die ID's bedeuten. Schreibe darum eine SQL-Injection, welche den Suchbegriff ignoriert und dir stattdessen alle Datensätze der Tabelle >>AccountRoles<< zurück liefert. Führe den Angriff über das Suchfeld aus. Beobachte die Rückmeldung des Servers über den >>Network<<-Tab.",
           "descriptionEn": "Execute an SQL-Injection on the Search page to get all datasets from >>AccountRoles<< table."
         },
         {
           "nameDe": "Eigene Berechtigungen erhöhen",
           "nameEn": "Upgrade your privileges",
           "exerciseNr": 3,
-          "descriptionDe": "Erhöhe deine eigene Berechtigung zu >>Admin<<.",
+          "descriptionDe": "Jetzt bearbeiten wir unseren eigenen Account. Schreibe hierfür einen >>UPDATE<<-SQL-Befehl, welcher die >>accountRoleId<< auf das Niveau eines >>Admin<< erhöht für deinen Account-Namen.",
           "descriptionEn": "Change the privileges of your account"
         },
         {
           "nameDe": "Einen fremden Account übernehmen",
           "nameEn": "Capture another account",
           "exerciseNr": 4,
-          "descriptionDe": "Wir infiltrieren nun einen Account. Suche dir dafür aus der Liste der in Aufgabe 2.1 erhaltenen einen Account heraus, welcher die Rolle >>Super-Admin<< inne hat. Nur damit lässt sich die Dateiverwaltung welche wir später brauchen öffnen. Hast du den Account-Namen gefunden, gehe ins Login-Menü (logge dich aus, falls du noch angemeldet bist). Führe nun einen SQL-Injektion durch um diesen Account zu übernehmen.",
+          "descriptionDe": "Statt unsere eigenen Berechtigungen zu erhöhen, können wir auch einen Account übernehmen, welcher bereits ein >>Super-Admin<< ist. Suche dir dafür aus der Liste der in Aufgabe 2.1 erhaltenen Accounts einen aus, welcher die Rolle >>Super-Admin<< inne hat. Nur damit lässt sich die Dateiverwaltung öffnen, welche wir später brauchen. Hast du den Account-Namen gefunden, gehe ins Login-Menü (logge dich aus, falls du noch angemeldet bist). Führe nun einen SQL-Injektion durch um diesen Account zu übernehmen.",
           "descriptionEn": "todo"
         },
         {
@@ -99,7 +101,7 @@
       "nameDe": "Cross-Site Scripting (XSS)",
       "nameEn": "Cross-Site Scripting (XSS)",
       "groupNr": 3,
-      "descriptionDe": "HTML und CSS sind für die Struktur und die Gestaltung einer Webseite verantwortlich. Um jedoch Programmcode für dynamische Inhalte auszuführen wird die Programmiersprache JavaScript verwendet, welche Programmcode direkt im Browser ausführen kann. Diese Scripts können nun aber auch Schaden anrichten, wenn sie im Rahmen eines Angriffs eingeschmuggelt werden.",
+      "descriptionDe": "Als nächstes wollen wir Schadcode in die Web-Applikation einschleusen. Zunächst testen wir, ob die Webseite hierfür anfällig ist. Manipuliere die URL der Band-Seite so, dass du eine >>Hallo Welt!<<-Nachricht als >>alert<< siehst. Hinweis: Nutze einen image tag! Setze als >>src<< die Zahl >>1<<. Den Befehl kannst du im Tag >>onerror<< ausführen.",
       "descriptionEn": "todo",
       "exercises": [
         {
@@ -113,7 +115,7 @@
           "nameDe": "Ein externes Script aufrufen",
           "nameEn": "Run an external script",
           "exerciseNr": 2,
-          "descriptionDe": "Bearbeite die URL des Shops so, dass du das Script ausführen kannst",
+          "descriptionDe": "Wir haben festgestellt, dass die Seite für Cross-Site-Scripting angreifbar ist! Im zweiten Schritt binden wir nun das Script ein. Es wurde bereits auf den Server hochgeladen. Suche über die Dateiverwaltung im Admin-Panel nach dem Skript. Kopiere dir die URL der Ressource heraus. Gehe zum Login und log dich aus. Füge einen beliebig benannten Query Parameter zur URL hinzu um das Skript zu laden. Nutze ein >>import<<-Statement um das Skript einzubinden. Logge dich nun ganz normal ein und sieh dir über die Konsole (Strg + D) an, wie deine Login-Daten abgegriffen werden. Hinweis: Wenn das Skript richtig eingebunden wurde, erscheint in der Konsole eine >>Active<<-Benachrichtigung. Da das >>import<<-Statement nur beim erstmaligen Laden der Seite genutzt wird, musst nach Eingabe der URL eventuell den Neu-Laden-Button neben der URL-Leiste betätigen.",
           "descriptionEn": "Create an URL of the shop, which calls the script"
         }
       ]

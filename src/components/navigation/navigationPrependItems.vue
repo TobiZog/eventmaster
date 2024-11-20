@@ -9,7 +9,7 @@
     class="mr-5"
     to="/"
   >
-    <v-img src="logo.png" width="80" />
+    <v-img src="http://localhost:3000/static/brand/logo.png" width="80" />
   </v-card>
   
   <div class="d-md-none">

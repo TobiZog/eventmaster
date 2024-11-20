@@ -1,6 +1,6 @@
 {
   "asar": true,
-  "appId": "de.luh.app",
+  "appId": "de.luh.eventmaster",
   "directories": {
     "output": "out"
   },
@@ -9,17 +9,20 @@
     "oneClick": false,
     "perMachine": false,
     "allowToChangeInstallationDirectory": true,
-    "shortcutName": "Electron App"
+    "shortcutName": "EventMaster"
   },
   "mac": {
     "target": "dmg"
   },
   "win": {
-    "target": "nsis"
+    "target": "nsis",
+    "icon": "public/logo-small.png"
   },
   "linux":  {
     "target": ["deb"],
-    "maintainer": "Tobias Zoghaib"
+    "maintainer": "Tobias Zoghaib",
+    "icon": "public/logo-small.png",
+    "category": "Education"
   },
   "files": [
     {

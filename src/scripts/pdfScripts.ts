@@ -27,11 +27,11 @@ export function generateResultsPdf() {
   // Title and image
   doc.setFontSize(48)
   doc.text("EventMaster", midPage, 25, { align: "center" })
-  doc.addImage("../../public/logo.png", "PNG", 65, 36, 80, 80)
+  doc.addImage("http://localhost:3000/static/brand/logo.png", "PNG", 82, 36, 48, 48)
 
   // Data about student
   doc.setFontSize(24)
-  doc.text([preferencesStore.studentName, preferencesStore.registrationNumber], midPage, 130, { align: "center" })
+  doc.text([preferencesStore.studentName, preferencesStore.registrationNumber], midPage, 100, { align: "center" })
 
   // Progress total
   doc.setFontSize(28)
@@ -41,13 +41,13 @@ export function generateResultsPdf() {
     }
 
     return counter
-  }, 0) + " von 10 Aufgaben gelöst.", midPage, 160, { align: "center" })
+  }, 0) + " von " + exerciseStore.exercises.length + " Aufgaben gelöst", midPage, 130, { align: "center" })
 
 
   // Progress table
   doc.setFontSize(22)
   autoTable(doc, {
-    startY: 170,
+    startY: 140,
     head: [[ "Aufgaben-Nr.", "Aufgabengruppe", "Aufgabe", "Abgeschlossen?"]],
     body: exerciseData
   })

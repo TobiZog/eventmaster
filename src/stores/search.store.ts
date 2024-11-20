@@ -45,7 +45,7 @@ export const useSearchStore = defineStore("searchStore", {
         exerciseStore.solveExercise(2, 2)
       } else if (this.searchTerm.includes("'); UPDATE Accounts SET accountRoleId = 2 WHERE username = ")) {
         exerciseStore.solveExercise(2, 3)
-      } else if (this.searchTerm.includes("'); DELETE FROM Ratings WHERE rating = 5;")) {
+      } else if (this.searchTerm.includes("'); DELETE FROM Ratings WHERE rating = 5; --")) {
         exerciseStore.solveExercise(2, 5)
       }
 

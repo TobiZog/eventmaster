@@ -28,6 +28,7 @@ startDatabase()
 // Static files
 const path = require('path')
 app.use('/static', express.static(path.join(__dirname, 'images')))
+app.use("/exercises", exercises)
 
 // Add delay for more realistic response times
 app.use((req, res, next) => {
@@ -43,7 +44,6 @@ app.use("/orders", order)
 app.use("/accounts", account)
 app.use("/cities", city)
 app.use("/concerts", concert)
-app.use("/exercises", exercises)
 app.use("/files", files)
 
 // Start server

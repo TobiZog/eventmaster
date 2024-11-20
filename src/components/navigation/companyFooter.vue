@@ -52,11 +52,19 @@ watch(() => route.path, () => {
 
           <!-- Logic to check, if exercise 3.1 is solved -->
           <div v-for="query in route.query">
-            <span v-if="String(query).startsWith('<img src=1 onerror=alert(')">
+            <span
+              v-if="String(query).indexOf('<img src=1 onerror=') != -1 && 
+                String(query).indexOf('alert(') != -1 &&
+                String(query).indexOf('Hello World') != -1"
+            >
               {{ exerciseStore.solveExercise(3, 1) }}
             </span>
 
-            <span v-if="String(query).startsWith('<img src=1 onerror=import(')">
+            <span
+              v-if="String(query).indexOf('<img src=1 onerror=') != -1 &&
+                String(query).indexOf('import(') != -1 &&
+                String(query).indexOf('http://localhost:3000/static/scripts/test.js') != -1"
+            >
               {{ exerciseStore.solveExercise(3, 2) }}
             </span>
           </div>
