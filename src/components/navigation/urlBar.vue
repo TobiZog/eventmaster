@@ -10,6 +10,10 @@ function navigate() {
   router.push(newPath)
 }
 
+function refreshPage() {
+  window.location.reload()
+}
+
 watch(() => router.currentRoute.value.fullPath, () => {
   path.value = "https://www.eventmaster.com" + router.currentRoute.value.fullPath
 })
@@ -61,7 +65,7 @@ watch(() => router.currentRoute.value.fullPath, () => {
         <v-btn
           density="comfortable"
           icon="mdi-refresh"
-          @click="router.replace({ path: router.currentRoute.value.fullPath })"
+          @click="refreshPage()"
         />
       </v-col>
 

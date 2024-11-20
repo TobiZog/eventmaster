@@ -30,10 +30,14 @@ files.get("/:folder", async (req: Request, res: Response) => {
   let result = []
   let fileNames = fs.readdirSync("./backend/images/" + req.params.folder + "/")
 
+
   fileNames.forEach(file => {
+    let resData = fs.readFileSync("./backend/images/" + req.params.folder + "/" + file, "utf8")
+
     result.push({
       name: file,
       size: fs.statSync("./backend/images/" + req.params.folder + "/" + file).size,
+      content: resData,
       url: "http://localhost:3000/static/" + req.params.folder + "/" + file
     })
   })

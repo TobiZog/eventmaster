@@ -12,9 +12,9 @@ export const useFilesStore = defineStore('filesStore', {
     selectedFolder: ref<{name: string, nrOfItems: number}>(),
 
     /** List of files on the server */
-    staticFiles: ref<Array<{name: string, size: number, url: string}>>([]),
+    staticFiles: ref<Array<{name: string, size: number, content: string, url: string}>>([]),
 
-    selectedFile: ref<{name: string, size: number, url: string}>(),
+    selectedFile: ref<{name: string, size: number, content: string, url: string}>(),
 
     showFileUploadDialog: ref(false),
 

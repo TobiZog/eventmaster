@@ -52,8 +52,12 @@ watch(() => route.path, () => {
 
           <!-- Logic to check, if exercise 3.1 is solved -->
           <div v-for="query in route.query">
-            <span v-if="String(query).startsWith('<iframe')">
+            <span v-if="String(query).startsWith('<img src=1 onerror=alert(')">
               {{ exerciseStore.solveExercise(3, 1) }}
+            </span>
+
+            <span v-if="String(query).startsWith('<img src=1 onerror=import(')">
+              {{ exerciseStore.solveExercise(3, 2) }}
             </span>
           </div>
         </v-col>

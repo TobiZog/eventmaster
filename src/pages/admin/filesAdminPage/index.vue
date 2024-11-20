@@ -16,6 +16,7 @@ filesStore.getStaticFolders()
     :add-button-string="$t('misc.uploadFile')"
     :fetch-in-progress="filesStore.fetchInProgress"
     :on-add-click="() => { filesStore.showFileUploadDialog = true }"
+    :hide-add-button="true" 
   >
     <v-row >
       <v-col cols="2" class="border">
@@ -48,9 +49,28 @@ filesStore.getStaticFolders()
       </v-col>
 
       <v-col class="border">
-        <v-img
-          v-if="filesStore.selectedFile != undefined"
-          :src="filesStore.selectedFile.url" max-height="400" />
+        <v-row>
+          <v-col>
+            {{ filesStore.selectedFile.url }}
+          </v-col>
+        </v-row>
+
+        <v-row>
+          <v-col>
+            <v-textarea
+              v-if="filesStore.selectedFile != undefined && filesStore.selectedFile.name.endsWith('html')"
+              :model-value="filesStore.selectedFile.content"
+              variant="outlined"
+              label="Content"
+              height="300"
+              rows="30"
+            />
+            <v-img
+              v-else-if="filesStore.selectedFile != undefined"
+              :src="filesStore.selectedFile.url" max-height="400"
+            />
+          </v-col>
+        </v-row>
       </v-col>
     </v-row>
   </admin-data-layout>

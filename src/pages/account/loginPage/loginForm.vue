@@ -2,6 +2,7 @@
 import cardView from '@/components/basics/cardView.vue';
 import outlinedButton from '@/components/basics/outlinedButton.vue';
 import { useAccountStore } from '@/stores/account.store';
+import { watch } from 'vue';
 import { useRouter } from 'vue-router';
 
 const accountStore = useAccountStore()
@@ -33,6 +34,7 @@ async function startLogin() {
           variant="outlined"
           clearable
           @keyup.enter="startLogin"
+          id="txt-username"
         />
       </v-col>
     </v-row>
@@ -47,6 +49,7 @@ async function startLogin() {
           v-model="accountStore.loginData.password"
           clearable
           @keyup.enter="startLogin"
+          id="txt-password"
         />
       </v-col>
     </v-row>
@@ -65,6 +68,7 @@ async function startLogin() {
         @click="startLogin"
         :loading="accountStore.fetchInProgress"
         color="green"
+        id="btn-login"
       >
         {{ $t('account.login.login') }}
       </outlined-button>
