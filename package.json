@@ -38,6 +38,8 @@
     "axios": "^1.7.7",
     "body-parser": "^1.20.2",
     "cors": "^2.8.5",
+    "exif-js": "^2.3.0",
+    "exifreader": "^4.25.0",
     "express": "^4.21.1",
     "jsonwebtoken": "^9.0.2",
     "jspdf": "^2.5.2",

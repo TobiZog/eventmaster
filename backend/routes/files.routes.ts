@@ -24,7 +24,9 @@ files.get("/folders", async (req: Request, res: Response) => {
 
 
 /**
- * Get all uploaded file names by file name
+ * Get all uploaded file names by folder name
+ * 
+ * @param folder Name of folder on server
  */
 files.get("/:folder", async (req: Request, res: Response) => {
   let result = []
@@ -34,11 +36,13 @@ files.get("/:folder", async (req: Request, res: Response) => {
   fileNames.forEach(file => {
     let resData = fs.readFileSync("./backend/images/" + req.params.folder + "/" + file, "utf8")
 
+    // todo License, Author, URL
     result.push({
       name: file,
       size: fs.statSync("./backend/images/" + req.params.folder + "/" + file).size,
       content: resData,
-      url: "http://localhost:3000/static/" + req.params.folder + "/" + file
+      url: "http://localhost:3000/static/" + req.params.folder + "/" + file,
+      
     })
   })
 

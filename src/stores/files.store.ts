@@ -35,7 +35,7 @@ export const useFilesStore = defineStore('filesStore', {
     },
 
     /**
-     * Request all available static files on server
+     * Request static files on server by selected folder
      */
     async getStaticFiles() {
       this.fetchInProgress = true

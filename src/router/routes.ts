@@ -15,6 +15,7 @@ import LoginPage from "@/pages/account/loginPage/index.vue"
 import PreferencesPage from "@/pages/misc/preferencesPage/index.vue";
 import HelpPage from "@/pages/misc/helpPage/index.vue"
 import ErrorPage from "@/pages/misc/errorPage/index.vue"
+import ImageLicensePage from "@/pages/misc/imageLicensePage/index.vue"
 
 const routes = [
   // Main page
@@ -52,6 +53,7 @@ const routes = [
   { path: '/basket', component: BasketPage },
   { path: '/preferences', component: PreferencesPage },
   { path: '/help', component: HelpPage },
+  { path: '/license', component: ImageLicensePage },
 
   // Error Page
   { path: "/404", component: ErrorPage }

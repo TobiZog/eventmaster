@@ -50,7 +50,7 @@ filesStore.getStaticFolders()
 
       <v-col class="border">
         <v-row>
-          <v-col>
+          <v-col v-if="filesStore.selectedFile != undefined">
             {{ filesStore.selectedFile.url }}
           </v-col>
         </v-row>

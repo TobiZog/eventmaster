@@ -6,6 +6,7 @@ import { CityModel } from "../data/models/locations/cityModel";
 import { fetchAllCities } from "../data/api/cityApi";
 import { LocationDetailsApiModel } from "@/data/models/locations/locationDetailsApiModel";
 import { useFeedbackStore } from "./feedback.store";
+import { getData, getTag } from "exif-js";
 
 export const useLocationStore = defineStore("locationStore", {
   state: () => ({
