@@ -1,7 +1,8 @@
 import { Request, Response, NextFunction, Router } from 'express'
-import fs from "fs"
+import fs, { createReadStream } from "fs"
 import multer from "multer"
 const upload = multer({ dest: './backend/images/' })
+import licenses from "../data/licenses.json"
 
 export const files = Router()
 
@@ -32,17 +33,20 @@ files.get("/:folder", async (req: Request, res: Response) => {
   let result = []
   let fileNames = fs.readdirSync("./backend/images/" + req.params.folder + "/")
 
-
   fileNames.forEach(file => {
-    let resData = fs.readFileSync("./backend/images/" + req.params.folder + "/" + file, "utf8")
+    let resData = ""
+    let url = "http://localhost:3000/static/" + req.params.folder + "/" + file
 
-    // todo License, Author, URL
+    if (file.endsWith("html") || file.endsWith("js")) {
+      resData = fs.readFileSync("./backend/images/" + req.params.folder + "/" + file, "utf8")
+    }
+
     result.push({
       name: file,
       size: fs.statSync("./backend/images/" + req.params.folder + "/" + file).size,
       content: resData,
-      url: "http://localhost:3000/static/" + req.params.folder + "/" + file,
-      
+      url: url,
+      copyright: licenses.find(data => data.image == file)
     })
   })
 

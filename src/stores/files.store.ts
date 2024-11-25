@@ -1,4 +1,5 @@
 import { fetchFileNames, fetchFolderNames, postFile } from "@/data/api/files.api";
+import { FilesApiModel } from "@/data/models/files/filesApiModel";
 import { defineStore } from "pinia";
 import { ref } from "vue";
 
@@ -7,14 +8,17 @@ export const useFilesStore = defineStore('filesStore', {
     /** Request to server sent, waiting for data response */
     fetchInProgress: ref(false),
 
+    /** List of all folders on the server */
     staticFolders: ref<Array<{name: string, nrOfItems: number}>>([]),
 
+    /** Current selected folder in file browsre */
     selectedFolder: ref<{name: string, nrOfItems: number}>(),
 
     /** List of files on the server */
-    staticFiles: ref<Array<{name: string, size: number, content: string, url: string}>>([]),
+    staticFiles: ref<Array<FilesApiModel>>([]),
 
-    selectedFile: ref<{name: string, size: number, content: string, url: string}>(),
+    /** Current selected file in file browser */
+    selectedFile: ref<FilesApiModel>(),
 
     showFileUploadDialog: ref(false),
 
@@ -24,6 +28,9 @@ export const useFilesStore = defineStore('filesStore', {
   }),
 
   actions: {
+    /**
+     * Fetch all static folders on the server
+     */
     async getStaticFolders() {
       this.fetchInProgress = true
 
@@ -46,6 +53,7 @@ export const useFilesStore = defineStore('filesStore', {
           this.fetchInProgress = false
         })
     },
+
 
     async uploadFile() {
       this.fetchInProgress = true
