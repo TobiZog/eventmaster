@@ -93,7 +93,7 @@ function itemProps(item: GenreModel) {
     
     <template #actions>
       <outlined-button
-        color="green"
+        color="success"
         @click="bandStore.saveBand"
         :loading="bandStore.fetchInProgress"
       >

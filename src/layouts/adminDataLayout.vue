@@ -34,7 +34,7 @@ defineProps({
         <outlined-button
           v-if="!hideAddButton"
           prepend-icon="mdi-plus"
-          color="green"
+          color="success"
           :disabled="fetchInProgress"
           @click="onAddClick()"
         >

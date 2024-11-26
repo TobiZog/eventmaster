@@ -53,7 +53,7 @@ const test = ref()
       <outlined-button
         @click="filesStore.uploadFile"
         prepend-icon="mdi-file-upload"
-        color="green"
+        color="success"
         :disabled="filesStore.fileUploadDir.length == 0 || filesStore.fileUpload == undefined"
         :loading="filesStore.fetchInProgress"
       >

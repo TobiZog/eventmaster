@@ -35,7 +35,7 @@ const genreStore = useGenreStore()
 
     <template #actions>
       <outlined-button
-        color="green"
+        color="success"
         @click="genreStore.saveGenre"
         :disabled="!valid"
         :loading="genreStore.fetchInProgress"

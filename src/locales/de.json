@@ -154,7 +154,7 @@
     "factoryReset": {
       "factoryReset": "Zurücksetzen auf Werkseinstellungen",
       "dialog": {
-        "title": "Aus Werkseinstellungen zurücksetzen?",
+        "title": "Auf Werkseinstellungen zurücksetzen?",
         "description": "Sollen alle Einstellungen und Daten auf Werkseinstellungen zurückgesetzt werden? Alle Änderungen und Fortschritte gehen verloren!"
       }
     }
@@ -239,7 +239,8 @@
       "connectToServer": "Server",
       "database": "Datenbank",
       "exercises": "Aufgaben",
-      "userData": "Persönliche Daten"
+      "userData": "Persönliche Daten",
+      "enterYourPersonalData": "Bitte gebe nun deinen Namen und deine Matrikelnummer von der Universität ein. Überprüfe die Angaben vor dem Absenden genau! Die Angaben können später nicht ohne Verlust des Bearbeitungsfortschrittes geändert werden!"
     },
     "user": "Angaben zur Person",
     "registrationNumber": "Matrikelnummer",

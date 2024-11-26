@@ -2,7 +2,6 @@
 import pageSetup from './pageSetupSection.vue';
 import systemSetup from './systemSetupSection.vue';
 import aboutSection from './aboutSection.vue';
-import userSection from './userSection.vue';
 </script>
 
 <template>
@@ -10,12 +9,6 @@ import userSection from './userSection.vue';
     <v-row>
       <v-col>
         <page-setup />
-      </v-col>
-    </v-row>
-
-    <v-row>
-      <v-col>
-        <user-section />
       </v-col>
     </v-row>
 

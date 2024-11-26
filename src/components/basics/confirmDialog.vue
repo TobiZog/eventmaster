@@ -36,7 +36,7 @@ function confirmPressed() {
       <outlined-button
         @click="showDialog = false" 
         prepend-icon="mdi-close"
-        color="orange"
+        color="warning"
         :loading="loading"
       >
         {{ $t("misc.actions.cancel") }}
@@ -45,7 +45,7 @@ function confirmPressed() {
       <outlined-button
         @click="confirmPressed"
         prepend-icon="mdi-check"
-        color="red"
+        color="error"
         :loading="loading"
       >
         {{ $t("misc.actions.confirm") }}

@@ -69,7 +69,7 @@ async function startLogin() {
         append-icon="mdi-arrow-right"
         @click="startLogin"
         :loading="accountStore.fetchInProgress"
-        color="green"
+        color="success"
         id="btn-login"
       >
         {{ $t('account.login.login') }}

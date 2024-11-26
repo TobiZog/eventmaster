@@ -17,7 +17,7 @@ const accountStore = useAccountStore()
     <v-row>
       <v-col>
         <card-view-one-line
-          color="amber"
+          color="warning"
           prepend-icon="mdi-alert"
           :title="$t('account.noRealPaymentsNeeded')"
         />
@@ -60,7 +60,7 @@ const accountStore = useAccountStore()
                 <v-col class="d-flex justify-center align-center">
                   <outlined-button
                     @click="accountStore.removePayment(payment)"
-                    color="red"
+                    color="error"
                     prepend-icon="mdi-delete"
                   >
                     {{ $t('misc.actions.remove') }}
@@ -88,7 +88,7 @@ const accountStore = useAccountStore()
       <outlined-button
         @click="accountStore.userAccount.payments.push(new PaymentModel())"
         prepend-icon="mdi-plus"
-        color="green"
+        color="success"
       >
         {{ $t('misc.actions.add') }}
       </outlined-button>

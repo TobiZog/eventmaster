@@ -56,7 +56,7 @@ function removeFromBasket(basketItem: BasketItemModel) {
           <v-btn
             icon="mdi-delete"
             @click="removeFromBasket(basketItem)"
-            color="red"
+            color="error"
             variant="text"
             flat
           />

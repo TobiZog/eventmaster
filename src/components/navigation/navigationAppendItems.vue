@@ -27,7 +27,7 @@ exerciseStore.getAllExercises()
       :content="basketStore.itemsInBasket.reduce((tot, item) => {
         return tot + item.seats.length
       }, 0)"
-      color="red" offset-x="8" offset-y="8">
+      color="error" offset-x="8" offset-y="8">
       <v-btn variant="plain" icon="mdi-cart" to="/basket" />
     </v-badge>
   </div>

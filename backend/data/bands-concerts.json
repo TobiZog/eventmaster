@@ -78,25 +78,25 @@
               "location": "Swiss Life Hall"
             },
             {
-              "date": "4",
+              "date": "8",
               "price": 92,
               "inStock": 170,
               "location": "Swiss Life Hall"
             },
             {
-              "date": "8",
+              "date": "12",
               "price": 119.90,
               "inStock": 8736,
               "location": "Olympiahalle München"
             },
             {
-              "date": "12",
+              "date": "19",
               "price": 114.90,
               "inStock": 2793,
               "location": "Barclays Arena"
             },
             {
-              "date": "13",
+              "date": "31",
               "price": 124.90,
               "inStock": 3079,
               "location": "Uber Arena Berlin"
@@ -468,7 +468,7 @@
               "location": "ZAG Arena"
             },
             {
-              "date": "6",
+              "date": "15",
               "price": 84.90,
               "inStock": 192,
               "location": "Muffatwerk"

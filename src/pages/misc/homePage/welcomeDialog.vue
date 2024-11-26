@@ -63,7 +63,7 @@ watch(() => currentStep.value, () => {
               :title="step"
               :value="n + 1"
               complete-icon="mdi-check"
-              color="green"
+              color="success"
             />
 
             <v-divider v-if="n < steps.length - 1" />
@@ -73,6 +73,7 @@ watch(() => currentStep.value, () => {
 
         <!-- Content -->
         <v-stepper-window>
+          <!-- Step 1: Check connection to backend server -->
           <v-stepper-window-item
             :value="1"
             class="text-h4 text-center"
@@ -84,6 +85,7 @@ watch(() => currentStep.value, () => {
             <server-state-text />
           </v-stepper-window-item>
 
+          <!-- Step 2: Reset the database -->
           <v-stepper-window-item
             :value="2"
           >
@@ -100,7 +102,7 @@ watch(() => currentStep.value, () => {
             </div>
           </v-stepper-window-item>
 
-
+          <!-- Step 3: Create exercises -->
           <v-stepper-window-item
             :value="3"
           >
@@ -117,11 +119,18 @@ watch(() => currentStep.value, () => {
             </div>
           </v-stepper-window-item>
 
-
+          <!-- Step 4: Personal data -->
           <v-stepper-window-item
             :value="4"
           >
             <v-container class="px-0 py-2">
+              <v-row>
+                <v-col>
+                  <v-alert color="warning" icon="mdi-alert">
+                    {{ $t('misc.firstStartup.enterYourPersonalData') }}
+                  </v-alert>
+                </v-col>
+              </v-row>
               <v-row>
                 <v-col>
                   <v-text-field
@@ -171,7 +180,7 @@ watch(() => currentStep.value, () => {
               :disabled="preferencesStore.studentName.length == 0 || 
                 preferencesStore.registrationNumber.length == 0"
               prepend-icon="mdi-check"
-              color="green"
+              color="success"
             >
               {{ $t('misc.firstStartup.complete') }}
             </outlined-button>

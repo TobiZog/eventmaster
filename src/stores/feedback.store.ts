@@ -197,7 +197,7 @@ export const useFeedbackStore = defineStore("feedbackStore", {
         case BannerStateEnum.BANDSAVEDERROR:
         case BannerStateEnum.GENREDELETEERROR:
         case BannerStateEnum.GENRESAVEDERROR:
-          return "red"
+          return "warning"
         
         case BannerStateEnum.BASKETTICKETADDED:
         case BannerStateEnum.DATABASERESETSUCCESSFUL:
@@ -211,7 +211,8 @@ export const useFeedbackStore = defineStore("feedbackStore", {
         case BannerStateEnum.EXERCISEPROGRESSRESETSUCCESSFUL:
         case BannerStateEnum.GENREDELETESUCCESSFUL:
         case BannerStateEnum.GENRESAVEDSUCCESSFUL:
-          return "green"
+        case BannerStateEnum.BASKETTICKETREMOVED:
+          return "success"
 
         case BannerStateEnum.EXERCISESOLVED01:
         case BannerStateEnum.EXERCISESOLVED02:
@@ -225,10 +226,7 @@ export const useFeedbackStore = defineStore("feedbackStore", {
         case BannerStateEnum.EXERCISESOLVED25:
         case BannerStateEnum.EXERCISESOLVED31:
         case BannerStateEnum.EXERCISESOLVED32:
-          return "purple"
-
-        case BannerStateEnum.BASKETTICKETREMOVED:
-          return "blue"
+          return "exerciseSolved"
       }
     },
 

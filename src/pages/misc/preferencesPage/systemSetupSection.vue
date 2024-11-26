@@ -28,7 +28,7 @@ preferenceStore.getServerState()
           <outlined-button
             @click="preferenceStore.showDeleteDbDialog = true"
             prepend-icon="mdi-database-refresh"
-            color="red"
+            color="warning"
             :disabled="preferenceStore.serverState != ServerStateEnum.ONLINE || preferenceStore.fetchInProgress"
           >
             {{ $t('preferences.resetDatabase.resetDatabase') }}
@@ -39,7 +39,7 @@ preferenceStore.getServerState()
           <outlined-button
             @click="preferenceStore.showDeleteExerciseDialog = true"
             prepend-icon="mdi-progress-close"
-            color="red"
+            color="warning"
             :disabled="preferenceStore.serverState != ServerStateEnum.ONLINE || preferenceStore.fetchInProgress"
           >
             {{ $t('preferences.resetExerciseProgress.resetExerciseProgress') }}
@@ -50,7 +50,7 @@ preferenceStore.getServerState()
           <outlined-button
             @click="preferenceStore.showFactoryResetDialog = true"
             prepend-icon="mdi-factory"
-            color="red"
+            color="warning"
             :disabled="preferenceStore.serverState != ServerStateEnum.ONLINE || preferenceStore.fetchInProgress"
           >
             {{ $t('preferences.factoryReset.factoryReset') }}

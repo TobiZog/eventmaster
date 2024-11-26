@@ -239,7 +239,8 @@
       "connectToServer": "Server",
       "database": "Database",
       "exercises": "Exercises",
-      "userData": "User data"
+      "userData": "User data",
+      "enterYourPersonalData": "Please enter your name and your Matrikel number from your university. Check it twice! You can't change it later without loosing your exercise progress!"
     },
     "user": "About person",
     "registrationNumber": "Matrikel number",

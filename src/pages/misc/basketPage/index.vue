@@ -53,7 +53,7 @@ const showOrderingDialog = ref()
               prepend-icon="mdi-basket-check"
               :disabled="basketStore.itemsInBasket.length == 0 || accountStore.userAccount.id == null"
               variant="outlined"
-              color="green"
+              color="success"
               @click="showOrderingDialog = true"
             >
               {{ $t('order.takeOrder') }}

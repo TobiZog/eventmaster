@@ -75,6 +75,7 @@ async function registerAccount() {
         prepend-icon="mdi-account-plus"
         @click="registerAccount"
         :loading="accountStore.fetchInProgress"
+        color="success"
       >
         {{ $t('account.register') }}
       </outlined-button>

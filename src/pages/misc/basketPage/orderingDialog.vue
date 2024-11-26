@@ -100,7 +100,7 @@ function paymentItemProps(item: PaymentModel) {
         @click="doOrder"
         :loading="orderingInProgress"
         prepend-icon="mdi-send"
-        color="green"
+        color="success"
       >
         {{ $t('order.takeOrder') }}
       </outlined-button>

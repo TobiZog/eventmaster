@@ -16,9 +16,10 @@ export const useAccountStore = defineStore("accountStore", {
     /** All accounts */
     accounts: ref<Array<AccountApiModel>>([]),
 
-    /** Useraccount which is currently logged in */
+    /** Server token of currently logged in account */
     userAccountToken: useLocalStorage("hackmycart/accountStore/userAccountToken", ""),
 
+    /** Useraccount which is currently logged in */
     userAccount: useLocalStorage("hackmycart/accountStore/userAccount", new AccountApiModel()),
 
     /** User input on login screen */
@@ -47,6 +48,9 @@ export const useAccountStore = defineStore("accountStore", {
       fetchAllAccounts(this.userAccountToken)
         .then(response => {
           this.accounts = response.data
+          this.fetchInProgress = false
+        })
+        .catch(onrejected => {
           this.fetchInProgress = false
         })
     },

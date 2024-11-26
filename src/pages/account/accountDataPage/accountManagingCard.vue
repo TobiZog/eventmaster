@@ -18,7 +18,7 @@ const accountStore = useAccountStore()
       <v-col class="d-flex justify-center align-center">
         <outlined-button
           prepend-icon="mdi-delete"
-          color="red"
+          color="error"
           :loading="accountStore.fetchInProgress"
           @click="showConfirmDialog = true"
         >
@@ -29,7 +29,7 @@ const accountStore = useAccountStore()
       <v-col class="d-flex justify-center align-center">
         <outlined-button
           prepend-icon="mdi-content-save"
-          color="green"
+          color="success"
           :loading="accountStore.fetchInProgress"
           @click="accountStore.updateAccount()"
         >

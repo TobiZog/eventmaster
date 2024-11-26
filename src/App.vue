@@ -26,7 +26,6 @@ watch(() => preferencesStore.language, () => {
 // Watch for theme change
 watch(() => preferencesStore.theme, () => {
   theme.global.name.value = preferencesStore.theme
-  feedbackStore.addSnackbar(BannerStateEnum.ERROR)
 })
 
 // Watch for 404 page directions
@@ -98,8 +97,9 @@ function calcMargin(i) {
     </v-main>
   </v-app>
 
+  <!-- Test Environment sticker in bottom right corner -->
   <v-sheet
-    color="red-darken-4"
+    color="error"
     position="fixed" 
     location="bottom right" 
     class="pa-3 mb-12 mr-n16 text-center text-h5"
