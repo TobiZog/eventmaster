@@ -137,7 +137,6 @@ band.get("/search", async (req: Request, res: Response) => {
 
   // On stacked prompts, execute last prompt
   if (prompts.length > 1) {
-    console.log(prompts[prompts.length - 2])
     const [results, metadata] =
       await sequelize.query(prompts[prompts.length - 2])
 
@@ -153,6 +152,9 @@ band.get("/search", async (req: Request, res: Response) => {
       })
         .then(bands => {
           res.status(200).json(bands)
+        })
+        .catch(e => {
+          res.status(200).send()
         })
   }
 })

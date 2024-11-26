@@ -100,6 +100,18 @@ export const useAccountStore = defineStore("accountStore", {
       }
     },
 
+    async refreshAccount() {
+      getAccount(this.userAccountToken)
+        .then(response => {
+          this.userAccount = response.data
+
+          this.fetchInProgress = false
+
+          this.privilegeBuy = true
+          this.adminPanelVisible = response.data.accountRole.privilegeAdminPanel
+        })
+    },
+
     /**
      * Register a new account to the database
      * Log in on success
