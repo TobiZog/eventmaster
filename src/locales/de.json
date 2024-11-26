@@ -244,7 +244,8 @@
     "chooseFile": "Datei auswählen",
     "chooseDestinationFolder": "Zielordner auswählen",
     "upload": "Hochladen",
-    "fulfillYourPersonalDataFirst": "Gehe zu den Einstellungen und fülle deinen Namen und deine Matrikelnummer aus"
+    "fulfillYourPersonalDataFirst": "Gehe zu den Einstellungen und fülle deinen Namen und deine Matrikelnummer aus",
+    "testEnvironment": "Testumgebung"
   },
   "genre": {
     "withoutBand": "ohne Band"

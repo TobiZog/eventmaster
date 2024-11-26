@@ -80,9 +80,32 @@ function calcMargin(i) {
         <v-sheet color="sheet" height="100%">
           <router-view></router-view>
         </v-sheet>
+
       </v-container>
+
+      <v-btn
+        fab
+        dark
+        fixed
+        bottom
+        right
+        color="primary"
+      >
+        <v-icon>keyboard_arrow_up</v-icon>
+      </v-btn>
 
       <company-footer />
     </v-main>
   </v-app>
+
+  <v-sheet
+    color="red-darken-4"
+    position="fixed" 
+    location="bottom right" 
+    class="pa-3 mb-12 mr-n16 text-center text-h5"
+    width="300"
+    style="rotate: 315deg; z-index: 1008;"
+  >
+    {{ $t('misc.testEnvironment') }}
+  </v-sheet>
 </template>

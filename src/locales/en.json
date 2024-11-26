@@ -244,7 +244,8 @@
     "chooseFile": "Choose file",
     "chooseDestinationFolder": "Choose destination folder",
     "upload": "Upload",
-    "fulfillYourPersonalDataFirst": "Go to settings and enter your name and the right register number"
+    "fulfillYourPersonalDataFirst": "Go to settings and enter your name and the right register number",
+    "testEnvironment": "Test Environment"
   },
   "genre": {
     "withoutBand": "without Band"
