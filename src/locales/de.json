@@ -173,7 +173,6 @@
     "exerciseProgressResetSuccessful": "Aufgabenfortschritt erfolgreich zurück gesetzt!",
     "registerSuccessful": "Account erfolgreich erstellt!",
     "registerError": "Fehler beim Erstellen des Accounts",
-    "usernameInUse": "Der Accountname ist bereits vergeben!",
     "accountUpdated": "Account erfolgreich aktualisiert",
     "logoutSuccessful": "Logout erfolgreich",
     "orderPlaceSuccessfull": "Bestellung erfolgreich aufgegeben",
@@ -187,7 +186,11 @@
     "genreDeleteError": "Fehler beim Löschen des Genres",
     "genreDeleteSuccessful": "Genre erfolgreich gelöscht",
     "genreSavedError": "Fehler beim Speichern des Genres",
-    "genreSavedSuccessful": "Genre erfolgreich gespeichert"
+    "genreSavedSuccessful": "Genre erfolgreich gespeichert",
+    "accountPasswordTooShort": "Passwort ist zu kurz",
+    "accountUsernameTooShort": "Username ist zu kurz",
+    "accountMailAddressUnvalid": "Mail-Adresse ungültig",
+    "usernameOrMailInUse": "Der Accountname und/oder die Mail-Adresse sind bereits vergeben!"
   },
   "misc": {
     "404": {
@@ -218,7 +221,7 @@
     "validation": {
       "required": "Darf nicht leer bleiben",
       "noDigitsAllowed": "Zahlen sind nicht erlaubt",
-      "notEnoughChars": "Nicht wenige Zeichen",
+      "notEnoughChars": "Nicht genug Zeichen",
       "tooMuchChars": "Zu viele Zeichen",
       "onlyDigitsAllowed": "Nur Zahlen erlaubt",
       "digitsAtStartNeeded": "Muss mit einer Zahl beginnen"

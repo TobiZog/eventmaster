@@ -46,10 +46,10 @@ export const useFeedbackStore = defineStore("feedbackStore", {
         case BannerStateEnum.ERROR:
           return this.i18n.t('bannerMessages.error')
 
-        case BannerStateEnum.BASKETPRODUCTADDED:
+        case BannerStateEnum.BASKETTICKETADDED:
           return this.i18n.t('bannerMessages.basketTicketAdded')
 
-        case BannerStateEnum.BASKETPRODUCTREMOVED:
+        case BannerStateEnum.BASKETTICKETREMOVED:
           return this.i18n.t("bannerMessages.basketTicketRemoved")
 
 
@@ -127,14 +127,23 @@ export const useFeedbackStore = defineStore("feedbackStore", {
         case BannerStateEnum.ACCOUNTREGISTERERROR:
           return this.i18n.t("bannerMessages.registerSuccessful")
 
-        case BannerStateEnum.ACCOUNTREGISTERUSERNAMEINUSE: 
-          return this.i18n.t("bannerMessages.usernameInUse")
+        case BannerStateEnum.ACCOUNTREGISTERUSERNAMEORMAILINUSE: 
+          return this.i18n.t("bannerMessages.usernameOrMailInUse")
 
         case BannerStateEnum.ACCOUNTUPDATESUCCESSFUL: 
           return this.i18n.t("bannerMessages.accountUpdated")
 
         case BannerStateEnum.ACCOUNTLOGOUTSUCCESSFUL: 
           return this.i18n.t('bannerMessages.logoutSuccessful')
+        
+        case BannerStateEnum.ACCOUNTPASSWORDTOOSHORT:
+          return this.i18n.t('bannerMessages.accountPasswordTooShort')
+
+        case BannerStateEnum.ACCOUNTUSERNAMETOOSHORT:
+          return this.i18n.t('bannerMessages.accountUsernameTooShort')
+
+        case BannerStateEnum.ACCOUNTMAILADDRESSUNVALID:
+          return this.i18n.t('bannerMessages.accountMailAddressUnvalid')
         
 
         ////////// API Endpoint /orders //////////
@@ -180,14 +189,17 @@ export const useFeedbackStore = defineStore("feedbackStore", {
         case BannerStateEnum.ACCOUNTLOGINERROR:
         case BannerStateEnum.ACCOUNTLOGINWRONGLOGIN:
         case BannerStateEnum.ACCOUNTREGISTERERROR:
-        case BannerStateEnum.ACCOUNTREGISTERUSERNAMEINUSE:
+        case BannerStateEnum.ACCOUNTREGISTERUSERNAMEORMAILINUSE:
+        case BannerStateEnum.ACCOUNTPASSWORDTOOSHORT:
+        case BannerStateEnum.ACCOUNTUSERNAMETOOSHORT:
+        case BannerStateEnum.ACCOUNTMAILADDRESSUNVALID:
         case BannerStateEnum.BANDDELETEERROR:
         case BannerStateEnum.BANDSAVEDERROR:
         case BannerStateEnum.GENREDELETEERROR:
         case BannerStateEnum.GENRESAVEDERROR:
           return "red"
         
-        case BannerStateEnum.BASKETPRODUCTADDED:
+        case BannerStateEnum.BASKETTICKETADDED:
         case BannerStateEnum.DATABASERESETSUCCESSFUL:
         case BannerStateEnum.ACCOUNTLOGINSUCCESSFUL:
         case BannerStateEnum.ACCOUNTREGISTERSUCCESSFUL:
@@ -215,7 +227,7 @@ export const useFeedbackStore = defineStore("feedbackStore", {
         case BannerStateEnum.EXERCISESOLVED32:
           return "purple"
 
-        case BannerStateEnum.BASKETPRODUCTREMOVED:
+        case BannerStateEnum.BASKETTICKETREMOVED:
           return "blue"
       }
     },
@@ -229,7 +241,10 @@ export const useFeedbackStore = defineStore("feedbackStore", {
         case BannerStateEnum.ACCOUNTLOGINERROR:
         case BannerStateEnum.ACCOUNTLOGINWRONGLOGIN:
         case BannerStateEnum.ACCOUNTREGISTERERROR:
-        case BannerStateEnum.ACCOUNTREGISTERUSERNAMEINUSE:
+        case BannerStateEnum.ACCOUNTPASSWORDTOOSHORT:
+        case BannerStateEnum.ACCOUNTUSERNAMETOOSHORT:
+        case BannerStateEnum.ACCOUNTMAILADDRESSUNVALID:
+        case BannerStateEnum.ACCOUNTREGISTERUSERNAMEORMAILINUSE:
           return "mdi-account"
 
         case BannerStateEnum.EXERCISESOLVED01:
@@ -250,8 +265,8 @@ export const useFeedbackStore = defineStore("feedbackStore", {
         case BannerStateEnum.EXERCISEPROGRESSRESETSUCCESSFUL:
           return "mdi-database-refresh"
         
-        case BannerStateEnum.BASKETPRODUCTADDED:
-        case BannerStateEnum.BASKETPRODUCTREMOVED:
+        case BannerStateEnum.BASKETTICKETADDED:
+        case BannerStateEnum.BASKETTICKETREMOVED:
           return "mdi-basket"
 
         case BannerStateEnum.ORDERPLACESUCCESSFUL:

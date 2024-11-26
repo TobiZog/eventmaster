@@ -53,7 +53,7 @@ export const useBasketStore = defineStore('basketStore', {
      */
     removeItemFromBasket(item: BasketItemModel) {
       const feedbackStore = useFeedbackStore()
-      feedbackStore.addSnackbar(BannerStateEnum.BASKETPRODUCTREMOVED)
+      feedbackStore.addSnackbar(BannerStateEnum.BASKETTICKETREMOVED)
 
       this.itemsInBasket = this.itemsInBasket.filter((basketItemModel: BasketItemModel) => 
         basketItemModel.concert.id != item.concert.id

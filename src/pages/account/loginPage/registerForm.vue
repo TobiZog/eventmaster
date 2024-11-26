@@ -3,11 +3,9 @@ import cardView from '@/components/basics/cardView.vue';
 import outlinedButton from '@/components/basics/outlinedButton.vue';
 import { useAccountStore } from '@/stores/account.store';
 import { getEmailRules, getPasswordRules, getStringRules } from '@/scripts/validationRules';
-import { useRouter } from 'vue-router';
 
 const showRegisterCard = defineModel("showRegisterCard", { type: Boolean, default: false })
 const accountStore = useAccountStore()
-const router = useRouter()
 
 async function registerAccount() {
   accountStore.registerAccount()
@@ -31,7 +29,6 @@ async function registerAccount() {
           prepend-icon="mdi-account"
           v-model="accountStore.registerData.username"
           clearable
-          hide-details
           variant="outlined"
           :rules="getStringRules()"
         />
@@ -46,7 +43,6 @@ async function registerAccount() {
           type="password"
           v-model="accountStore.registerData.password"
           clearable
-          hide-details
           variant="outlined"
           :rules="getPasswordRules()"
         />
@@ -61,7 +57,6 @@ async function registerAccount() {
           v-model="accountStore.registerData.email"
           :rules="getEmailRules()"
           variant="outlined"
-          hide-details
           clearable
         />
       </v-col>

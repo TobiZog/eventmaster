@@ -4,7 +4,6 @@ import { validateString } from "../scripts/validateHelper";
 import { Address } from "../models/user/address.model";
 import { Payment } from "../models/user/payment.model";
 import { AccountRole } from "../models/user/accountRole.model";
-import { Exercise } from "../models/exercises/exercise.model";
 import { sequelize } from "../database";
 import jwt from "jsonwebtoken"
 import { verifyToken } from "../middlewares/auth.middleware";
@@ -12,7 +11,7 @@ import { encryptString } from "../scripts/encryptScripts";
 
 export const account = Router()
 
-account.get("/", (req: Request, res: Response) => {
+account.get("/", verifyToken, (req: Request, res: Response) => {
   Account.findAll({
     include: [ AccountRole ]
   })
@@ -22,7 +21,7 @@ account.get("/", (req: Request, res: Response) => {
 })
 
 // Login user
-account.get("/login", async (req: Request, res: Response) => {
+account.get("/account/login", async (req: Request, res: Response) => {
   const encryptedPassword = encryptString(String(req.query.password))
 
   // Using raw SQL code for SQL injections!
@@ -52,7 +51,7 @@ account.get("/login", async (req: Request, res: Response) => {
 })
 
 
-account.get("/account", verifyToken, async(req: Request, res: Response) => {
+account.get("/account/data", verifyToken, async(req: Request, res: Response) => {
   Account.findOne({
     where: {
       id: req["id"]
@@ -66,7 +65,7 @@ account.get("/account", verifyToken, async(req: Request, res: Response) => {
 
 
 // Creating a new user
-account.post("/", async (req: Request, res: Response) => {
+account.post("/account", async (req: Request, res: Response) => {
   // Check if username is valid
   if (!validateString(req.body.username, 4))
   {
@@ -85,9 +84,10 @@ account.post("/", async (req: Request, res: Response) => {
       code: 400, 
       message: "Password too short!"
     })
+    return
   }
 
-  // Create account
+  // User on creation gets User role
   await AccountRole.findOne({
     where: {
       name: "User"
@@ -97,6 +97,7 @@ account.post("/", async (req: Request, res: Response) => {
       req.body["accountRoleId"] = role.id
     })
 
+  // Create account
   Account.create(req.body)
     .then(account => {
       // Status: 201 Created
@@ -110,7 +111,7 @@ account.post("/", async (req: Request, res: Response) => {
     })
 })
 
-account.patch("/", verifyToken, (req: Request, res: Response) => {
+account.patch("/account", verifyToken, (req: Request, res: Response) => {
   Account.update(req.body,
   {
     where: { id: req.body.id }
@@ -157,7 +158,7 @@ account.patch("/", verifyToken, (req: Request, res: Response) => {
   })
 })
 
-account.delete("/:id", (req: Request, res: Response) => {
+account.delete("/account/:id", (req: Request, res: Response) => {
   Account.destroy({
     where: {
       id: req.params.id

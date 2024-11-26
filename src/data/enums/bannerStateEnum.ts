@@ -1,12 +1,14 @@
 export enum BannerStateEnum {
   ////////// System feedback //////////
   
-  // Some error
+  // Unknown error
   ERROR,
 
-  BASKETPRODUCTADDED,
+  // Ticket added to basket
+  BASKETTICKETADDED,
 
-  BASKETPRODUCTREMOVED,
+  // Ticket removed from basket
+  BASKETTICKETREMOVED,
 
 
   ////////// Exercise feedback //////////
@@ -63,10 +65,19 @@ export enum BannerStateEnum {
   ACCOUNTREGISTERERROR,
 
   // Status: 409 Conflict
-  ACCOUNTREGISTERUSERNAMEINUSE,
+  ACCOUNTREGISTERUSERNAMEORMAILINUSE,
 
   // Status: 200 OK
   ACCOUNTUPDATESUCCESSFUL,
+
+  // Local check on unvalid username
+  ACCOUNTUSERNAMETOOSHORT,
+
+  // Local check on unvalid password
+  ACCOUNTPASSWORDTOOSHORT,
+
+  // Local check on unvalid mail address
+  ACCOUNTMAILADDRESSUNVALID,
 
   // No status code, runs in local cache
   ACCOUNTLOGOUTSUCCESSFUL,

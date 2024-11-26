@@ -173,7 +173,6 @@
     "exerciseProgressResetSuccessful": "Exercise progress successfully resetted!",
     "registerSuccessful": "Account successfully created!",
     "registerError": "Error on register account",
-    "usernameInUse": "The username is already in use!",
     "accountUpdated": "Account successfully updated",
     "logoutSuccessful": "Logout successfull",
     "orderPlaceSuccessfull": "Order successfully placed",
@@ -187,7 +186,11 @@
     "genreDeleteError": "Error on deleting Genre",
     "genreDeleteSuccessful": "Genre successfully deleted",
     "genreSavedError": "Error on saving genre",
-    "genreSavedSuccessful": "Genre successfully saved"
+    "genreSavedSuccessful": "Genre successfully saved",
+    "accountPasswordTooShort": "Password too short",
+    "accountUsernameTooShort": "Username too short",
+    "accountMailAddressUnvalid": "Mail-Address unvalid",
+    "usernameOrMailInUse": "The username and/or the mail address are already in use!"
   },
   "misc": {
     "404": {

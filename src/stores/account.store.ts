@@ -1,7 +1,7 @@
 import { useLocalStorage } from "@vueuse/core";
 import { AccountModel } from "../data/models/user/accountModel";
 import { useFeedbackStore } from "./feedback.store";
-import { deleteAccount, fetchAllAccounts, getAccount, login, registerAccount, updateAccount } from "../data/api/accountApi";
+import { deleteAccount, fetchAllAccounts, getAccount, getLogin, registerAccount, updateAccount } from "../data/api/accountApi";
 import { fetchUserOrders } from "../data/api/orderApi";
 import { BannerStateEnum } from "../data/enums/bannerStateEnum";
 import { AddressModel } from "../data/models/user/addressModel";
@@ -38,10 +38,13 @@ export const useAccountStore = defineStore("accountStore", {
   }),
 
   actions: {
+    /**
+     * Fetch all accounts on the database
+     */
     async getAllAccounts() {
       this.fetchInProgress = true
 
-      fetchAllAccounts()
+      fetchAllAccounts(this.userAccountToken)
         .then(response => {
           this.accounts = response.data
           this.fetchInProgress = false
@@ -68,7 +71,7 @@ export const useAccountStore = defineStore("accountStore", {
       }
       else
       {
-        await login(this.loginData.username, this.loginData.password)
+        await getLogin(this.loginData.username, this.loginData.password)
           .then(async result => {
             this.userAccountToken = result.data.token
 
@@ -100,6 +103,9 @@ export const useAccountStore = defineStore("accountStore", {
       }
     },
 
+    /**
+     * Reload account information about current logged in user
+     */
     async refreshAccount() {
       getAccount(this.userAccountToken)
         .then(response => {
@@ -123,32 +129,42 @@ export const useAccountStore = defineStore("accountStore", {
       const exerciseStore = useExerciseStore()
       this.fetchInProgress = true
 
-      await registerAccount(this.registerData)
-        .then(async res => {
-          if (res.status == 201) {
-            feedbackStore.addSnackbar(BannerStateEnum.ACCOUNTREGISTERSUCCESSFUL)
-            exerciseStore.solveExercise(0, 1)
-          }
+      if (this.registerData.username == null || this.registerData.username.length < 4) {
+        feedbackStore.addSnackbar(BannerStateEnum.ACCOUNTUSERNAMETOOSHORT)
+      } else if (this.registerData.password == null || this.registerData.password.length < 8) {
+        feedbackStore.addSnackbar(BannerStateEnum.ACCOUNTPASSWORDTOOSHORT)
+      } else if (!this.registerData.email.match(/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/)) {
+        feedbackStore.addSnackbar(BannerStateEnum.ACCOUNTMAILADDRESSUNVALID)
+      }
+      else {
+        await registerAccount(this.registerData)
+          .then(async res => {
+            if (res.status == 201) {
+              feedbackStore.addSnackbar(BannerStateEnum.ACCOUNTREGISTERSUCCESSFUL)
+              exerciseStore.solveExercise(0, 1)
+            }
 
-          this.loginData = {
-            username: this.registerData.username,
-            password: this.registerData.password
-          }
+            this.loginData = {
+              username: this.registerData.username,
+              password: this.registerData.password
+            }
 
-          this.fetchInProgress = false
-        })
-        .catch((error) => {
-          if (error.status == 400) {
-            feedbackStore.addSnackbar(BannerStateEnum.ACCOUNTREGISTERERROR)
-          } else if (error.status == 409) {
-            feedbackStore.addSnackbar(BannerStateEnum.ACCOUNTREGISTERUSERNAMEINUSE)
-          }
+            this.fetchInProgress = false
+          })
+          .catch((error) => {
+            if (error.status == 400) {
+              feedbackStore.addSnackbar(BannerStateEnum.ACCOUNTREGISTERERROR)
+            } else if (error.status == 409) {
+              feedbackStore.addSnackbar(BannerStateEnum.ACCOUNTREGISTERUSERNAMEORMAILINUSE)
+            }
 
-          this.fetchInProgress = false
-          return false
-        })
+            this.fetchInProgress = false
+            return false
+          })
+      }
 
-        return false
+      this.fetchInProgress = false
+      return false
     },
 
     /**
@@ -229,6 +245,11 @@ export const useAccountStore = defineStore("accountStore", {
       )
     },
 
+    /**
+     * Delete user account
+     * 
+     * @param account Account which should be deleted
+     */
     async deleteAccount(account: AccountModel) {
       this.fetchInProgress = true
 
