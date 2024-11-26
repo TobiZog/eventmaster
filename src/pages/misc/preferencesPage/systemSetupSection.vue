@@ -67,6 +67,7 @@ preferenceStore.getServerState()
     v-model="preferenceStore.showDeleteDbDialog"
     :onConfirm="preferenceStore.resetDb"
     :loading="preferenceStore.fetchInProgress"
+    icon="mdi-database-refresh"
   />
 
   <!-- Confirm delete exercise progress -->
@@ -76,12 +77,14 @@ preferenceStore.getServerState()
     v-model="preferenceStore.showDeleteExerciseDialog"
     :onConfirm="preferenceStore.resetExerciseProg"
     :loading="preferenceStore.fetchInProgress"
+    icon="mdi-progress-close"
   />
 
   <confirm-dialog
     :title="$t('preferences.factoryReset.dialog.title')"
     :description="$t('preferences.factoryReset.dialog.description')"
     v-model="preferenceStore.showFactoryResetDialog"
+    icon="mdi-factory"
     :onConfirm="() => {
       preferenceStore.resetToFactorySettings()
       router.push('/')

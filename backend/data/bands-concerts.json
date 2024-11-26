@@ -613,25 +613,25 @@
           "image": "concerts/will-of-the-people-tour.jpg",
           "concerts": [
             {
-              "date": "32",
+              "date": "2",
               "price": 67.90,
               "inStock": 847,
               "location": "ZAG Arena"
             },
             {
-              "date": "39",
+              "date": "17",
               "price": 67.90,
               "inStock": 847,
               "location": "ZAG Arena"
             },
             {
-              "date": "41",
+              "date": "31",
               "price": 64.90,
               "inStock": 245,
               "location": "Olympiastadion Berlin"
             },
             {
-              "date": "45",
+              "date": "43",
               "price": 64.90,
               "inStock": 245,
               "location": "Astra Kulturhaus"

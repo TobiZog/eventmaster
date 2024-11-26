@@ -18,7 +18,6 @@ const showOrderingDialog = ref()
       <v-col>
         <v-alert
           color="info"
-          closable
         >
           {{ $t('account.login.pleaseLoginToOrder') }}
         </v-alert>

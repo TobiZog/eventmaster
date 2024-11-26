@@ -249,7 +249,13 @@
     "chooseDestinationFolder": "Zielordner auswählen",
     "upload": "Hochladen",
     "fulfillYourPersonalDataFirst": "Gehe zu den Einstellungen und fülle deinen Namen und deine Matrikelnummer aus",
-    "testEnvironment": "Testumgebung"
+    "testEnvironment": "Testumgebung",
+    "search": {
+      "empty": {
+        "headline": "So leer hier..."
+      },
+      "searchterm": "Suchbegriff"
+    }
   },
   "genre": {
     "withoutBand": "ohne Band"

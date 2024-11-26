@@ -30,7 +30,7 @@ const vuetify = createVuetify({
         colors: {
           primary: colors.blue.darken4,
           secondary: colors.yellow.darken3,
-          sheet: colors.grey.lighten3,
+          sheet: colors.grey.lighten4,
           warning: colors.amber.darken4,
           success: colors.green.darken2,
           error: colors.red.darken4,

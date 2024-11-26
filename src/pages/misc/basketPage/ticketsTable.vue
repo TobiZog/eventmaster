@@ -2,6 +2,7 @@
 import { useBasketStore } from '@/stores/basket.store';
 import { BasketItemModel } from '@/data/models/ordering/basketItemModel';
 import { calcPrice } from '@/scripts/concertScripts';
+import moment from 'moment';
 
 const basketStore = useBasketStore()
 
@@ -11,9 +12,10 @@ function removeFromBasket(basketItem: BasketItemModel) {
 </script>
 
 <template>
-  <v-table>
+  <v-table style="background-color: transparent;">
     <thead>
       <tr>
+        <th>{{ $t('concert.date') }}</th>
         <th>{{ $t('band.band') }}</th>
         <th>{{ $t('concert.concert') }}</th>
         <th class="text-center">{{ $t('misc.quantity') }}</th>
@@ -25,6 +27,11 @@ function removeFromBasket(basketItem: BasketItemModel) {
 
     <tbody>
       <tr v-for="basketItem in basketStore.itemsInBasket">
+        <!-- Concert date -->
+        <td>
+          {{ moment(basketItem.concert.date).format("DD.MM.YYYY") }}
+        </td>
+
         <!-- Band name -->
         <td>
           {{ basketItem.band.name }}
@@ -43,7 +50,7 @@ function removeFromBasket(basketItem: BasketItemModel) {
         <!-- Price per event -->
         <td class="text-right">
           <div v-if="basketItem.seats">
-            {{ basketItem.price }} €
+            {{ basketItem.price.toFixed(2) }} €
           </div>
         </td>
 

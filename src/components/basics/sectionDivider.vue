@@ -8,20 +8,28 @@ defineProps({
 
 <template>
   <v-row class="pt-3 d-none d-md-flex">
+    <!-- Left line -->
     <v-col class="d-flex justify-center align-center">
       <v-sheet height="12" width="100%" color="primary" class="rounded-s-lg" />
     </v-col>
     
+    <!-- Title -->
     <v-col class="v-col-auto">
       <v-skeleton-loader
         type="heading"
         :loading="loading"
         width="300"
       >
-        <span class="text-h4">{{ title }}</span>
+        <v-sheet
+          class="text-h4"
+          color="sheet"
+        >
+          {{ title }}
+        </v-sheet>
       </v-skeleton-loader>
     </v-col>
 
+    <!-- Right line -->
     <v-col class="d-flex justify-center align-center">
       <v-sheet height="12" width="100%" color="primary" class="rounded-e-lg" />
     </v-col>

@@ -23,7 +23,17 @@ const searchStore = useSearchStore()
           </v-col>
         </v-row>
 
-        <div v-if="searchStore.alreadySearched">
+        <v-row v-if="!searchStore.alreadySearched">
+          <v-col>
+            <v-empty-state
+              icon="mdi-magnify"
+              :headline="$t('misc.search.empty.headline')"
+              :title="$t('misc.enterSomeKeywords')"
+            />
+          </v-col>
+        </v-row>
+
+        <div v-else>
           <v-row>
             <v-col>
               <section-divider :title="$t('band.band', 2)" />
@@ -41,7 +51,8 @@ const searchStore = useSearchStore()
 
           <v-row 
             v-else-if="searchStore.bands.length > 0"
-            v-for="band in searchStore.bands">
+            v-for="band in searchStore.bands"
+          >
             <v-col>
               <band-list-item
                 :band="band"

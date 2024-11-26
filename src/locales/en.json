@@ -249,7 +249,13 @@
     "chooseDestinationFolder": "Choose destination folder",
     "upload": "Upload",
     "fulfillYourPersonalDataFirst": "Go to settings and enter your name and the right register number",
-    "testEnvironment": "Test Environment"
+    "testEnvironment": "Test Environment",
+    "search": {
+      "empty": {
+        "headline": "So empty here..."
+      },
+      "searchterm": "Search term"
+    }
   },
   "genre": {
     "withoutBand": "without Band"

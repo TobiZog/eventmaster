@@ -56,6 +56,7 @@ defineProps({
             type="heading"
             :loading="loading"
             width="500"
+            class="text-white"
           >
             <span class="text-h3 font-weight-bold">
               {{ title }}
@@ -77,11 +78,18 @@ defineProps({
 
 
             <!-- Description -->
-            <p class="text-h6 text-medium-emphasis" v-if="!$slots.description">
+            <p
+              class="text-h6 text-white"
+              style="opacity: 0.7;"
+              v-if="!$slots.description"
+            >
               {{ description }}
             </p>
             
-            <p class="text-h6 text-medium-emphasis">
+            <p
+              class="text-h6 text-white"
+              style="opacity: 0.7;"
+            >
               <slot name="description"></slot>
             </p>
           </v-skeleton-loader>

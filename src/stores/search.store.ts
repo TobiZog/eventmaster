@@ -5,11 +5,10 @@ import { fetchLocationsBySearchTerm } from "../data/api/locationApi";
 import { fetchConcertsBySearchTerm } from "../data/api/concertApi";
 import { ConcertApiModel } from "@/data/models/acts/concertApiModel";
 import { useExerciseStore } from "./exercise.store";
-import { AccountApiModel } from "@/data/models/user/accountApiModel";
-import { LocationApiModel } from "@/data/models/locations/locationApiModel";
 import { BandApiModel } from "@/data/models/acts/bandApiModel";
 import { useBandStore } from "./band.store";
 import { useAccountStore } from "./account.store";
+import { LocationDetailsApiModel } from "@/data/models/locations/locationDetailsApiModel";
 
 export const useSearchStore = defineStore("searchStore", {
   state: () => ({
@@ -20,7 +19,7 @@ export const useSearchStore = defineStore("searchStore", {
     bands: ref<Array<BandApiModel>>([]),
 
     /** Location results */
-    locations: ref<Array<LocationApiModel>>([]),
+    locations: ref<Array<LocationDetailsApiModel>>([]),
 
     /** Concert results */
     concerts: ref<Array<ConcertApiModel>>([]),

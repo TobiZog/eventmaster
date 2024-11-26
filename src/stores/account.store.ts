@@ -33,8 +33,10 @@ export const useAccountStore = defineStore("accountStore", {
     /** Request to server sent, waiting for data response */
     fetchInProgress: ref(false),
 
+    /** Flag to show or hide admin icon in navigation bar */
     adminPanelVisible: ref(false),
 
+    /** Flag to activate buy option on basket page */
     privilegeBuy: ref(false)
   }),
 

@@ -46,8 +46,10 @@ defineProps({
     </v-col>
 
     <v-col>
-      <v-list>
-        <v-list-item v-for="ratingValue in ratings">
+      <v-list style="background-color: transparent;">
+        <v-list-item
+          v-for="ratingValue in ratings"
+        >
           <template v-slot:prepend>
             <span>{{ ratingValue.value }}</span>
             <v-icon class="ml-3 mr-n3" icon="mdi-star" />

@@ -19,10 +19,10 @@ export const useBasketStore = defineStore('basketStore', {
     itemsInBasket: useLocalStorage<Array<BasketItemModel>>("hackmycart/basketStore/itemsInBasket", []),
 
     /** Address used in the order dialog */
-    usedAddress: ref(new AddressModel()),
+    usedAddress: ref<AddressModel>(null),
 
     /** Payment method used in the order dialog */
-    usedPayment: ref(new PaymentModel()),
+    usedPayment: ref<PaymentModel>(null),
 
     /** Selected seats in the booking page */
     selectedSeats: ref<Array<SelectedSeatModel>>([])

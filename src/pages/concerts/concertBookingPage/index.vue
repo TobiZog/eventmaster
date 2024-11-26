@@ -94,7 +94,7 @@ watch(() => router.currentRoute.value.params.date, () => {
 
         <v-row>
           <v-col>
-            <v-list >
+            <v-list style="background-color: transparent;">
               <v-list-item v-for="seat in basketStore.selectedSeats" >
                 <ticket-list-item
                   :concert="concertStore.concert"

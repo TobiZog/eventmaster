@@ -20,7 +20,7 @@ function confirmPressed() {
 <template>
   <action-dialog 
     :title="title"
-    max-width="400"
+    max-width="500"
     v-model="showDialog"
     persistent
   >

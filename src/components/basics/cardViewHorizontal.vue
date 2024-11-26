@@ -40,12 +40,16 @@ defineProps({
           type="image"
           :loading="loading"
         >
-          <v-img 
-            :src="image" 
-            :height="height"
-            :width="height"
-            cover
-          />
+          <v-sheet
+            color="sheet"
+          >
+            <v-img 
+              :src="image" 
+              :height="height"
+              :width="height"
+              cover
+            />
+          </v-sheet>
         </v-skeleton-loader>
 
         <v-skeleton-loader
@@ -55,6 +59,7 @@ defineProps({
         >
           <v-sheet
             :height="height"
+            color="sheet"
             width="100%"
             class="text-center d-flex justify-center align-center"
           >
@@ -75,6 +80,8 @@ defineProps({
         >
           <v-sheet
             :height="height"
+            color="sheet"
+            class="w-100"
           >
             <div>
               <div class="text-h4 font-weight-black pt-2 h-100">
