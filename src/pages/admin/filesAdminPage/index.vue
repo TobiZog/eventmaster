@@ -50,7 +50,7 @@ filesStore.getStaticFolders()
               <template #prepend>
                 <v-icon
                   :icon="file.name.endsWith('js') ? 'mdi-file' : 'mdi-image'"
-                  :color="file.copyright != undefined ? 'green' : 'red'"
+                  :color="file.copyright != undefined ? 'grey' : 'red'"
                 />
               </template>
             </v-list-item>
@@ -100,8 +100,11 @@ filesStore.getStaticFolders()
                   {{ filesStore.selectedFile.copyright.creator }}
                 </v-list-item>
 
-                <v-list-item prepend-icon="mdi-web">
-                  <a :href="filesStore.selectedFile.copyright.url" >Quelle</a>
+                <v-list-item
+                  prepend-icon="mdi-web"
+                  v-if="filesStore.selectedFile.copyright.url.length > 0"
+                >
+                  <a :href="filesStore.selectedFile.copyright.url" target="_blank" >Quelle</a>
                 </v-list-item>
               </template>
             </v-list>

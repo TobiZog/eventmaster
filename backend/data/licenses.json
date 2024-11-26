@@ -156,10 +156,10 @@
     "url": "https://upload.wikimedia.org/wikipedia/commons/0/04/Arctic_Monkeys_-_Orange_Stage_-_Roskilde_Festival_2014.jpg"
   },
   {
-    "image": ".jpg",
-    "license": "CC BY-SA 2.0",
-    "creator": "",
-    "url": ""
+    "image": "arctic-monkeys-2.jpg",
+    "license": "CC BY-SA 3.0",
+    "creator": "Kennysun",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/6/65/Arctic_Monkeys_Playing_at_MSG.jpg"
   },
   {
     "image": "arctic-monkeys-3.jpg",
@@ -174,9 +174,27 @@
     "url": "https://upload.wikimedia.org/wikipedia/commons/e/e7/%22AM%22_%28Arctic_Monkeys%29.jpg"
   },
   {
-    "image": ".jpg",
+    "image": "billy-talent-1.jpg",
+    "license": "CC BY-SA 4.0",
+    "creator": "Biha",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/2/2b/Billy_Talent_-_Frequency_Festival_-_2017-08-15-21-51-04.jpg"
+  },
+  {
+    "image": "billy-talent-2.jpg",
+    "license": "CC BY-SA 4.0",
+    "creator": "Markus Maier",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/3/3f/Southside_Festival_-_Billy_Talent_-_DSC05306.jpg"
+  },
+  {
+    "image": "billy-talent-3.jpg",
     "license": "CC BY-SA 2.0",
-    "creator": "",
-    "url": ""
+    "creator": "sebi ryffel",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/e/ec/Billy_Talent_at_Rock_Am_See_2007.jpg"
+  },
+  {
+    "image": "coldplay-members.jpg",
+    "license": "CC BY 2.0",
+    "creator": "Raph_PH",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/2/2e/ColdplayBBC071221_%28cropped%29.jpg"
   }
 ]
