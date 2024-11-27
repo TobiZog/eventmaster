@@ -19,6 +19,25 @@ function getDotColor(exerciseGroupNr: number) {
     case 3: return "pink"
   }
 }
+
+function checksum(num: number) {
+  let cs = 0
+
+  for (; num > 0; num = Math.trunc(num / 10)) {
+      cs += num % 10;
+  }
+
+  return cs
+}
+
+function generateExerciseKey(exerciseGroup: number, exerciseNr: number) {
+  try {
+    let matrikelNr = Number(preferencesStore.registrationNumber)
+    let a = matrikelNr + exerciseGroup * 100 + exerciseNr * 12345678 + 
+      checksum(Number(preferencesStore.registrationNumber)) * 123
+    return a.toString(16).toUpperCase()
+  } catch(e) {}
+}
 </script>
 
 <template>
@@ -97,6 +116,9 @@ function getDotColor(exerciseGroupNr: number) {
                     :color="exercise.solved ? 'green' : 'primary'"
                   >
                     {{ preferencesStore.language == LanguageEnum.GERMAN ? exercise.descriptionDe : exercise.descriptionEn }}
+                    <div class="pt-2 text-h6">
+                      Solution Code: 0x{{ generateExerciseKey(exercise.exerciseGroup.groupNr, exercise.exerciseNr) }}
+                    </div>
                   </card-view>
                 </v-timeline-item>
               </template>
