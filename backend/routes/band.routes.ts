@@ -137,10 +137,13 @@ band.get("/search", async (req: Request, res: Response) => {
 
   // On stacked prompts, execute last prompt
   if (prompts.length > 1) {
-    const [results, metadata] =
-      await sequelize.query(prompts[prompts.length - 2])
-
-    res.status(200).json(results)
+    try {
+      const [results, metadata] =
+        await sequelize.query(prompts[prompts.length - 2])
+        res.status(200).json(results)
+    } catch (e) {
+      res.status(400).send()
+    }
   } else {
       Band.findAll({
         where: {

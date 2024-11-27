@@ -119,7 +119,6 @@ export const useBasketStore = defineStore('basketStore', {
             for (let item of this.itemsInBasket) {
               if (!item.concert.offered) {
                 exerciseStore.solveExercise(1, 2)
-                feedbackStore.addSnackbar(BannerStateEnum.EXERCISESOLVED12)
               }
             }
             

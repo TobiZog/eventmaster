@@ -4,29 +4,19 @@
       "id": 0,
       "name": "Unregistered",
       "privilegeBuy": false,
-      "privilegeAdminPanel": false,
-      "privilegeFileAccess": false
+      "privilegeAdminPanel": false
     },
     {
       "id": 1,
       "name": "User",
       "privilegeBuy": true,
-      "privilegeAdminPanel": false,
-      "privilegeFileAccess": false
+      "privilegeAdminPanel": false
     },
     {
       "id": 2,
       "name": "Admin",
       "privilegeBuy": true,
-      "privilegeAdminPanel": true,
-      "privilegeFileAccess": false
-    },
-    {
-      "id": 3,
-      "name": "Super-Admin",
-      "privilegeBuy": true,
-      "privilegeAdminPanel": true,
-      "privilegeFileAccess": true
+      "privilegeAdminPanel": true
     }
   ]
 }

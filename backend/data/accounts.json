@@ -19,7 +19,7 @@
           "iban": "DE92500105175721645777"
         }
       ],
-      "accountRoleId": 2
+      "accountRoleId": 1
     },
     {
       "username": "katjaStoiber",
@@ -94,7 +94,7 @@
           "iban": "DE41500105172184936679"
         }
       ],
-      "accountRoleId": 3
+      "accountRoleId": 2
     },
     {
       "username": "guitarhero",
