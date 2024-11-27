@@ -61,38 +61,45 @@
       "descriptionEn": "todo",
       "exercises": [
         {
+          "nameDe": "Wie sieht die Datenbank aus?",
+          "nameEn": "How does the database look like?",
+          "exerciseNr": 1,
+          "descriptionDe": "Wir versuchen nun die Datenbank im Hintergrund anzugreifen. Aktuell wissen wir aber noch nicht wie die Datenbank aussieht, also welche Tabellen sie beinhaltet. Wir können uns aber mit einem SQL-Befehl ausgeben. Gehe zur globalen Suchseite. Öffne mit der Tastenkombination >>Strg<< + >>D<< die >>Developer Tools<<. Klicke auf den Reiter >>Network<<. Hier siehst du, wie das Frontend mit dem Server kommuniziert. Schreibe nun eine SQL-Injection, welche den Suchbegriff ignoriert und dir stattdessen alle Datensätze der Tabelle >>sqlite_master<< zurück gibt, sofern die Bedingung >>type='table'<< erfüllt ist. Kopiere dir bei erfolgreicher Rückmeldung des Backends die Namen der Tabellen in eine Text-Datei, damit wir für die kommenden Aufgaben die richtigen Namen der Tabellen angeben können.",
+          "descriptionEn": "todo"
+        },
+        {
           "nameDe": "Alle Accounts ausspähen",
           "nameEn": "Get all accounts",
-          "exerciseNr": 1,
-          "descriptionDe": "Wir versuchen nun die Datenbank im Hintergrund anzugreifen. Gehe zur globalen Suchseite. Öffne mit der Tastenkombination >>Strg + D<< die >>Developer Tools<<. Klicke auf den Reiter >>Network<<. Hier siehst du, wie das Frontend mit dem Server kommuniziert. Schreibe nun eine SQL-Injection, welche den Suchbegriff ignoriert und dir stattdessen alle Datensätze der Tabelle >>Accounts<< zurück liefert. Führe den Angriff über das Suchfeld aus. Sieh dir die Rückmeldung des Servers an, indem du im >>Network<<-Tab auf die zurück gegebenen Objekte klickst (z.B. >>locations<<).",
+          "exerciseNr": 2,
+          "descriptionDe": "Schreibe nun eine SQL-Injection, welche den Suchbegriff ignoriert und dir stattdessen alle Datensätze der Account-Tabelle zurück liefert. Führe den Angriff über das Suchfeld aus. Sieh dir die Rückmeldung des Servers an.",
           "descriptionEn": "Execute an SQL-Injection on the Search page to get all datasets from >>Accounts<< table."
         },
         {
           "nameDe": "Alle Berechtigungsgruppen ausspähen",
           "nameEn": "Get all account roles",
-          "exerciseNr": 2,
+          "exerciseNr": 3,
           "descriptionDe": "Wir sehen nun alle Accounts. Jeder hat eine Berechtigungs-ID (accountRoleId) mit der Berechtigungen wie der Zugriff aufs Admin-Panel geregelt werden. Wir wissen aber nicht, was die ID's bedeuten. Schreibe darum eine SQL-Injection, welche den Suchbegriff ignoriert und dir stattdessen alle Datensätze der Tabelle >>AccountRoles<< zurück liefert. Führe den Angriff über das Suchfeld aus. Beobachte die Rückmeldung des Servers über den >>Network<<-Tab.",
           "descriptionEn": "Execute an SQL-Injection on the Search page to get all datasets from >>AccountRoles<< table."
         },
         {
           "nameDe": "Eigene Berechtigungen erhöhen",
           "nameEn": "Upgrade your privileges",
-          "exerciseNr": 3,
+          "exerciseNr": 4,
           "descriptionDe": "Jetzt bearbeiten wir unseren eigenen Account. Schreibe hierfür einen >>UPDATE<<-SQL-Befehl, welcher die >>accountRoleId<< auf das Niveau eines >>Admin<< erhöht für deinen Account-Namen.",
           "descriptionEn": "Change the privileges of your account"
         },
         {
           "nameDe": "Einen fremden Account übernehmen",
           "nameEn": "Capture another account",
-          "exerciseNr": 4,
+          "exerciseNr": 5,
           "descriptionDe": "Statt unsere eigenen Berechtigungen zu erhöhen, können wir auch einen Account übernehmen, welcher bereits ein >>Super-Admin<< ist. Suche dir dafür aus der Liste der in Aufgabe 2.1 erhaltenen Accounts einen aus, welcher die Rolle >>Super-Admin<< inne hat. Nur damit lässt sich die Dateiverwaltung öffnen, welche wir später brauchen. Hast du den Account-Namen gefunden, gehe ins Login-Menü (logge dich aus, falls du noch angemeldet bist). Führe nun einen SQL-Injektion durch um diesen Account zu übernehmen.",
           "descriptionEn": "todo"
         },
         {
           "nameDe": "Bewertungen löschen",
           "nameEn": "Delete ratings",
-          "exerciseNr": 5,
-          "descriptionDe": "Jede Band hat Bewertungen auf einer Skala von eins bis fünf Sternen erhalten. Wir wollen alle Fünf-Sterne Bewertungen aus der Datenbank löschen. Schreibe eine SQL Injection, welche in der Tabelle >>Ratings<< alle Einträge mit der Bedingung >>rating = 5<< entfernt. Führe die Injection über die globale Suche aus.",
+          "exerciseNr": 6,
+          "descriptionDe": "Jede Band hat Bewertungen auf einer Skala von eins bis fünf Sternen erhalten. Wir wollen alle Fünf-Sterne Bewertungen aus der Datenbank löschen. Schreibe eine SQL Injection, welche in der Bewertungs-Tabelle alle Einträge mit der Bedingung >>rating = 5<< entfernt. Führe die Injection über die globale Suche aus.",
           "descriptionEn": "todo"
         }
       ]
@@ -108,14 +115,14 @@
           "nameDe": "Hallo Welt!",
           "nameEn": "Hello World!",
           "exerciseNr": 1,
-          "descriptionDe": "Nimm dir eine URL des Shops und erweitere sie mit JavaScript Code so, dass beim Öffnen des Links eine 'Hallo Welt' Nachricht erscheint",
+          "descriptionDe": "Als nächstes wollen wir Schadcode in die Web-Applikation einschleusen. Zunächst testen wir, ob die Webseite hierfür anfällig ist. Gehe hierzu auf die Seite >>Alle Bands<< und filtere die Einträge nach einem beliebigen Genre deiner Wahl. In der URL-Leiste siehst du nun, dass hinter der URL und dem Ressourcen-Ziel ein Parameter angegeben ist (der Part hinter dem Fragezeichen). Wir tauschen diesen Parameter gegen einen HTML Tag aus. Der Trick hierbei: Als Quelle geben wir den Zahlenwert >>1<< an, wodurch automatisch das ausgeführt wird, was im >>onerror<<-Tag drinnen steht. Genau hier soll eine Alert-Meldung mit >>Hello World!<< als JavaScript Code eingefügt werden. Verändere die URL so, dass sie die Meldung ausgibt. Falls du nicht mit JavaScript vertraut bist, sieh dir die letzte Seite mit nützlichen Befehlen an.",
           "descriptionEn": "Take an URL of the shop and extend it with JavaScript code so that a 'Hello World' message appears whent the link is opened"
         },
         {
           "nameDe": "Ein externes Script aufrufen",
           "nameEn": "Run an external script",
           "exerciseNr": 2,
-          "descriptionDe": "Wir haben festgestellt, dass die Seite für Cross-Site-Scripting angreifbar ist! Im zweiten Schritt binden wir nun das Script ein. Es wurde bereits auf den Server hochgeladen. Suche über die Dateiverwaltung im Admin-Panel nach dem Skript. Kopiere dir die URL der Ressource heraus. Gehe zum Login und log dich aus. Füge einen beliebig benannten Query Parameter zur URL hinzu um das Skript zu laden. Nutze ein >>import<<-Statement um das Skript einzubinden. Logge dich nun ganz normal ein und sieh dir über die Konsole (Strg + D) an, wie deine Login-Daten abgegriffen werden. Hinweis: Wenn das Skript richtig eingebunden wurde, erscheint in der Konsole eine >>Active<<-Benachrichtigung. Da das >>import<<-Statement nur beim erstmaligen Laden der Seite genutzt wird, musst nach Eingabe der URL eventuell den Neu-Laden-Button neben der URL-Leiste betätigen.",
+          "descriptionDe": "Wir haben festgestellt, dass die Seite für Cross-Site-Scripting durch Reflected XSS angreifbar ist! Im zweiten Schritt binden wir nun das Script ein. Es wurde bereits auf den Server hochgeladen. Logge dich wahlweise mit einem Admin-Account (Aufgabe 2.5) oder deinem eigenen nun berechtigten Account (Aufgabe 2.4) ein. Öffne nun das Admin-Panel über den Button rechts oben. Suche über die Dateiverwaltung im Admin-Panel nach dem Skript und notiere dir die darunter angezeigte Adresse auf dem Backend-Server. Logge dich aus. Wir wollen das Skript auf der nun sichtbaren Login-Seite über eine veränderte URL einbinden. Nutze hierfür das gleiche Prinzip wie in Aufgabe 3.1. Statt >>genreName<< kannst du einen beliebigen anderen Parameter-Namen verwenden. Nutze die Konsole mit der Tastenkombination Strg + D vor dem Abschicken der URL.Logge dich nach erfolgreicher Aufgabenlösung ein und sieh in der Konsole, wie deine Login-Daten abgegriffen werden.",
           "descriptionEn": "Create an URL of the shop, which calls the script"
         }
       ]

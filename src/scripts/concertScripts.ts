@@ -53,9 +53,12 @@ export function createDateRangeString(concerts: Array<ConcertModel>) {
 export function lowestTicketPrice(concerts: Array<ConcertModel>): string {
   const priceArray : Array<number> = []
 
-  for (let concert of concerts) {
-    priceArray.push(concert.price)
-  }
+  try {
+    for (let concert of concerts) {
+      priceArray.push(concert.price)
+    }
+  } catch (e) {}
+
 
   priceArray.sort()
 

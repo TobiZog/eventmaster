@@ -46,42 +46,53 @@ export const useSearchStore = defineStore("searchStore", {
        */
       await fetchBandsBySearchTerm(this.searchTerm)
         .then(async result => {
-          this.bands = result.data
+          
 
           // Check for exercise solution
           if (result.data.length != 0) {
             // Exercise 2.1
-            if (this.bands[0].username != undefined) {
+            if (result.data[0].type != undefined && result.data[0].type == "table") {
               exerciseStore.solveExercise(2, 1)
               console.log("Exercise 2.1 solved")
             }
             // Exercise 2.2
-            else if (this.bands[0].privilegeAdminPanel != undefined) {
+            else if (result.data[0].username != undefined) {
               exerciseStore.solveExercise(2, 2)
               console.log("Exercise 2.2 solved")
             }
-          }
-
-          // Exercise 2.3
-          else if (this.searchTerm.includes("UPDATE")) {
-            const accountStore = useAccountStore()
-            await accountStore.refreshAccount()
-
-            if (accountStore.userAccount.accountRole.privilegeAdminPanel == true) {
+            // Exercise 2.3
+            else if (result.data[0].privilegeAdminPanel != undefined) {
               exerciseStore.solveExercise(2, 3)
               console.log("Exercise 2.3 solved")
             }
           }
 
-          // Exercise 2.5
+          // Exercise 2.4
+          else if (this.searchTerm.includes("UPDATE")) {
+            const accountStore = useAccountStore()
+            await accountStore.refreshAccount()
+
+            if (accountStore.userAccount.accountRole.privilegeAdminPanel == true) {
+              exerciseStore.solveExercise(2, 4)
+              console.log("Exercise 2.4 solved")
+            }
+          }
+
+          // Exercise 2.6
           else if (this.searchTerm.includes("DELETE")) {
             const bandStore = useBandStore()
             await bandStore.getBand("muse")
 
-            if (bandStore.band.ratingValues.find(rating => rating.value == 5).count == 0) {
-              exerciseStore.solveExercise(2, 5)
-              console.log("Exercise 2.5 solved")
+            if (bandStore.band.ratingValues.find(
+              rating => rating.value == 5).count == 0
+            ) {
+              exerciseStore.solveExercise(2, 6)
+              console.log("Exercise 2.6 solved")
             }
+          }
+
+          else {
+            this.bands = result.data
           }
         })
 

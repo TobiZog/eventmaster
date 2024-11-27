@@ -90,6 +90,9 @@ export const useFeedbackStore = defineStore("feedbackStore", {
 
         case BannerStateEnum.EXERCISESOLVED25: 
           return this.i18n.t("bannerMessages.exerciseSolvedNr", [2, 5])
+
+        case BannerStateEnum.EXERCISESOLVED26:
+          return this.i18n.t('bannerMessages.exerciseSolvedNr', [2, 6])
         
 
         case BannerStateEnum.EXERCISESOLVED31: 
@@ -224,6 +227,7 @@ export const useFeedbackStore = defineStore("feedbackStore", {
         case BannerStateEnum.EXERCISESOLVED23:
         case BannerStateEnum.EXERCISESOLVED24:
         case BannerStateEnum.EXERCISESOLVED25:
+        case BannerStateEnum.EXERCISESOLVED26:
         case BannerStateEnum.EXERCISESOLVED31:
         case BannerStateEnum.EXERCISESOLVED32:
           return "exerciseSolved"
@@ -255,6 +259,7 @@ export const useFeedbackStore = defineStore("feedbackStore", {
         case BannerStateEnum.EXERCISESOLVED23:
         case BannerStateEnum.EXERCISESOLVED24:
         case BannerStateEnum.EXERCISESOLVED25:
+        case BannerStateEnum.EXERCISESOLVED26:
         case BannerStateEnum.EXERCISESOLVED31:
         case BannerStateEnum.EXERCISESOLVED32:
           return "mdi-check-circle-outline"
