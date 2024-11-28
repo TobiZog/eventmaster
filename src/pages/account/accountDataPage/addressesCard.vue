@@ -13,7 +13,7 @@ const accountStore = useAccountStore()
     icon="mdi-home"
     :title="$t('account.userData.address', 2)"
   >
-    <v-expansion-panels v-if="accountStore.userAccount.addresses.length > 0">
+    <v-expansion-panels v-if="accountStore.userAccount.addresses != undefined && accountStore.userAccount.addresses.length > 0">
       <v-expansion-panel
         v-for="address in accountStore.userAccount.addresses"
         color="primary"

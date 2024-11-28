@@ -20,22 +20,19 @@ function getDotColor(exerciseGroupNr: number) {
   }
 }
 
-function checksum(num: number) {
-  let cs = 0
-
-  for (; num > 0; num = Math.trunc(num / 10)) {
-      cs += num % 10;
-  }
-
-  return cs
-}
-
-function generateExerciseKey(exerciseGroup: number, exerciseNr: number) {
+function generateExerciseKey() {
   try {
-    let matrikelNr = Number(preferencesStore.registrationNumber)
-    let a = matrikelNr + exerciseGroup * 100 + exerciseNr * 12345678 + 
-      checksum(Number(preferencesStore.registrationNumber)) * 123
-    return a.toString(16).toUpperCase()
+    let code = ""
+
+    for (let i = 0; i < 13; i++) {
+      if (exerciseStore.exercises[i].solved) {
+        code += "3"
+      } else {
+        code += "0"
+      }
+    }
+
+    return (Number(code) + Number(preferencesStore.registrationNumber)) * 237
   } catch(e) {}
 }
 </script>
@@ -45,20 +42,7 @@ function generateExerciseKey(exerciseGroup: number, exerciseNr: number) {
     <v-row>
       <v-spacer />
 
-      <v-col
-        v-if="preferencesStore.studentName.length < 3 || preferencesStore.registrationNumber.length < 7"
-        cols="auto"
-      >
-        <card-view variant="outlined" >
-          {{ $t('misc.fulfillYourPersonalDataFirst') }}
-        </card-view>
-      </v-col>
-
       <v-col cols="auto">
-        <v-tooltip :text="$t('misc.fulfillYourPersonalDataFirst')">
-          <template #activator="{ props }"></template>
-
-        </v-tooltip>
         <outlined-button
           prepend-icon="mdi-file-pdf-box"
           @click="generateResultsPdf()"
@@ -66,6 +50,17 @@ function generateExerciseKey(exerciseGroup: number, exerciseNr: number) {
         >
           PDF generieren
         </outlined-button>
+      </v-col>
+    </v-row>
+
+    <v-row>
+      <v-col class="text-h5 text-center">
+        <div>
+          Persönlicher Lösungsschlüssel:
+        </div>
+        <div>
+          {{ generateExerciseKey() }}
+        </div>
       </v-col>
     </v-row>
 
@@ -116,9 +111,6 @@ function generateExerciseKey(exerciseGroup: number, exerciseNr: number) {
                     :color="exercise.solved ? 'green' : 'primary'"
                   >
                     {{ preferencesStore.language == LanguageEnum.GERMAN ? exercise.descriptionDe : exercise.descriptionEn }}
-                    <div class="pt-2 text-h6">
-                      Solution Code: 0x{{ generateExerciseKey(exercise.exerciseGroup.groupNr, exercise.exerciseNr) }}
-                    </div>
                   </card-view>
                 </v-timeline-item>
               </template>
