@@ -98,7 +98,7 @@ location.get("/location/:urlName", (req: Request, res: Response) => {
 
       res.status(200).json(location)
     })
-    .catch(e => {
+    .catch(error => {
       res.status(404).send()
     })
 })
@@ -132,5 +132,8 @@ location.get("/search", (req: Request, res: Response) => {
   })
     .then(locations => {
       res.status(200).json(locations)
+    })
+    .catch(error => {
+      res.status(500).send()
     })
 })

@@ -58,7 +58,5 @@ files.get("/:folder", async (req: Request, res: Response) => {
  * Upload a file
  */
 files.post("/", upload.single("file"), function (req: Request, res: Response, next: NextFunction) {
-  console.log(req.file)
-
   res.status(200).send()
 })

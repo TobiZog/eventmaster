@@ -11,13 +11,17 @@ export const exercises = Router()
 exercises.get("/", (req: Request, res: Response) => {
   Exercise.findAll({
     include: [ ExerciseGroup ]
-  }).then(result => {
-    result.sort((a, b) => {
-      return (a.dataValues.exerciseGroup.dataValues.groupNr * 10 + a.dataValues.exerciseNr) > (b.dataValues.exerciseGroup.dataValues.groupNr * 10 + b.dataValues.exerciseNr) ? 1 : -1
-    })
-
-    res.status(200).json(result)
   })
+    .then(result => {
+      result.sort((a, b) => {
+        return (a.dataValues.exerciseGroup.dataValues.groupNr * 10 + a.dataValues.exerciseNr) > (b.dataValues.exerciseGroup.dataValues.groupNr * 10 + b.dataValues.exerciseNr) ? 1 : -1
+      })
+
+      res.status(200).json(result)
+    })
+    .catch(error => {
+      res.status(500).send()
+    })
 })
 
 /**
@@ -54,21 +58,7 @@ exercises.post("/:groupNr/:exerciseNr/:state", (req: Request, res: Response) => 
           changed: changed
         })
     })
-
-
-  // ExerciseGroup.findOne({
-  //   where: { groupNr: req.params.groupNr }
-  // })
-  //   .then(group => {
-  //     Exercise.findOne({
-  //       where: {
-  //         exerciseNr: req.params.exerciseNr,
-  //         exerciseGroupId: group.id
-  //       }
-  //     })
-  //       .then(exercise => {
-  //         exercise.update({ solved: req.params.state == "1"})
-  //         res.status(200).send()
-  //       })
-  //   })
+    .catch(error => {
+      res.status(500).send()
+    })
 })

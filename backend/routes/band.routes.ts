@@ -65,6 +65,9 @@ band.get("/", (req: Request, res: Response) => {
 
       res.status(200).json(bands)
     })
+    .catch(error => {
+      res.status(500).send()
+    })
 })
 
 /**
@@ -122,7 +125,7 @@ band.get("/band/:name", (req: Request, res: Response) => {
 
       res.status(200).json(band)
     })
-    .catch(e => {
+    .catch(error => {
       res.status(404).send()
     })
 })
@@ -156,7 +159,7 @@ band.get("/search", async (req: Request, res: Response) => {
         .then(bands => {
           res.status(200).json(bands)
         })
-        .catch(e => {
+        .catch(error => {
           res.status(200).send()
         })
   }
@@ -175,6 +178,9 @@ band.patch("/", (req: Request, res: Response) => {
     .then(result => {
       res.status(200).json(result)
     })
+    .catch(error => {
+      res.status(500).send()
+    })
 })
 
 
@@ -185,6 +191,9 @@ band.post("/", (req: Request, res: Response) => {
   Band.create(req.body)
     .then(result => {
       res.status(200).json(result)
+    })
+    .catch(error => {
+      res.status(500).send()
     })
 })
 

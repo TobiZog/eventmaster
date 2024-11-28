@@ -8,4 +8,7 @@ city.get("/", (req: Request, res: Response) => {
     .then(cities => {
       res.status(200).json(cities)
     })
+    .catch(error => {
+      res.status(500).send()
+    })
 })

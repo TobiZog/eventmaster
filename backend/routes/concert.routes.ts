@@ -35,6 +35,9 @@ concert.get("/", (req: Request, res: Response) => {
 
       res.status(200).json(concerts)
     })
+    .catch(error => {
+      res.status(500).send()
+    })
 })
 
 
@@ -153,5 +156,8 @@ concert.get("/search", (req: Request, res: Response) => {
   })
     .then(concerts => {
       res.status(200).json(concerts)
+    })
+    .catch(error => {
+      res.status(500).send()
     })
 })

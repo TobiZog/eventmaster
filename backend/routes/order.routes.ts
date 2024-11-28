@@ -43,6 +43,9 @@ order.get("/", (req: Request, res: Response) => {
     .then(orders => {
       res.status(200).json(orders)
     })
+    .catch(error => {
+      res.status(500).send()
+    })
 })
 
 
@@ -90,6 +93,9 @@ order.get("/:id", (req: Request, res: Response) => {
     .then(orders => {
       res.status(200).json(orders)
     })
+    .catch(error => {
+      res.status(500).send()
+    })
 })
 
 // Place a new order
@@ -115,5 +121,8 @@ order.post("/", (req: Request, res: Response) => {
 
       // Created
       res.status(201).json(order)
+    })
+    .catch(error => {
+      res.status(500).send()
     })
 })

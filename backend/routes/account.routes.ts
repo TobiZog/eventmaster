@@ -18,6 +18,9 @@ account.get("/", verifyToken, (req: Request, res: Response) => {
     .then(accounts => {
       res.status(200).json(accounts)
     })
+    .catch(error => {
+      res.status(500).send()
+    })
 })
 
 // Login user
@@ -61,6 +64,9 @@ account.get("/account/data", verifyToken, async(req: Request, res: Response) => 
     .then(account => {
       res.status(200).json(account)
     })
+    .catch(error => {
+      res.status(500).send()
+    })
 })
 
 
@@ -102,7 +108,7 @@ account.post("/account", async (req: Request, res: Response) => {
     .then(account => {
       // Status: 201 Created
       res.status(201).json(account)
-    }).catch(reason => {
+    }).catch(error => {
       // Status: 409 Conflict
       res.status(409).json({
         code: 409,
@@ -166,5 +172,8 @@ account.delete("/account/:id", (req: Request, res: Response) => {
   })
     .then(account => {
       res.status(200).send()
+    })
+    .catch(error => {
+      res.status(500).send()
     })
 })
