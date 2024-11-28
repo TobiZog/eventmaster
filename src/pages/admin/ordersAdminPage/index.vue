@@ -13,7 +13,7 @@ const headers = [
   { title: "Adresse", value: "street" },
   { title: "Stadt", value: "city" },
   { title: "Versendet", value: "shipped" },
-  { title: "", value: "edit", width: 130 }
+  { title: "Aktionen", value: "edit", width: 130 }
 ]
 
 orderStore.getAllOrders()
@@ -26,6 +26,8 @@ orderStore.getAllOrders()
     <v-data-table
       :headers="headers"
       :items="orderStore.orders"
+      :loading="orderStore.fetchInProgress"
+      :items-per-page="100"
     >
       <template #item.account="{ item }">
         {{ item.account.firstName }} {{ item.account.lastName }}
@@ -46,23 +48,23 @@ orderStore.getAllOrders()
       <template #item.shipped="{ item }">
         <v-icon
           :icon="item.shipped ? 'mdi-check' : 'mdi-close'"
-          :color="item.shipped ? 'green' : 'red'"
+          :color="item.shipped ? 'success' : 'error'"
         />
       </template>
 
       <template #item.edit="{ item }">
-        <!-- todo <v-btn
+        <v-btn
           icon="mdi-eye"
           variant="plain"
           @click="orderStore.openDetails(item)"
-        /> -->
+        />
 
-        <!-- todo <v-btn
-          icon="mdi-delete"
+        <v-btn
+          :icon="item.shipped ? 'mdi-close-circle-outline' : 'mdi-check-circle-outline'"
           variant="plain"
-          color="red"
-          @click="orderStore.deleteOrder(item)"
-        /> -->
+          :color="item.shipped ? 'error' : 'success'"
+          @click="orderStore.changeOrderShippedState(item, !item.shipped)"
+        />
       </template>
 
     </v-data-table>

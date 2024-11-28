@@ -10,17 +10,15 @@ import { City } from "../models/locations/city.model";
 import { Seat } from "../models/locations/seat.model";
 import { SeatRow } from "../models/locations/seatRow.model";
 import { SeatGroup } from "../models/locations/seatGroup.model";
+import { verifyToken } from "../middlewares/auth.middleware";
 import { Account } from "../models/user/account.model";
-import { Exercise } from "backend/models/exercises/exercise.model";
 
 export const order = Router()
 
 // Get all orders
-order.get("/", (req: Request, res: Response) => {
+order.get("/", verifyToken, (req: Request, res: Response) => {
   Order.findAll({
     include: [
-      Account,
-      Address,
       {
         model: Ticket,
         include: [
@@ -35,9 +33,21 @@ order.get("/", (req: Request, res: Response) => {
                 include: [ City ]
               }
             ]
+          },
+          {
+            model: Seat,
+            include: [
+              {
+                model: SeatRow,
+                include: [ SeatGroup ]
+              }
+            ]
           }
         ]
-      }
+      },
+      Address,
+      Payment,
+      Account
     ]
   })
     .then(orders => {
@@ -121,6 +131,20 @@ order.post("/", (req: Request, res: Response) => {
 
       // Created
       res.status(201).json(order)
+    })
+    .catch(error => {
+      res.status(500).send()
+    })
+})
+
+order.patch("/", (req: Request, res: Response) => {
+  Order.update(req.body, {
+    where: {
+      id: req.body.id
+    }
+  })
+    .then(affectedCount => {
+      res.status(200).send()
     })
     .catch(error => {
       res.status(500).send()

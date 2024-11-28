@@ -1,5 +1,6 @@
 import axios from "axios"
 import { BasketItemModel } from "../models/ordering/basketItemModel"
+import { OrderApiModel } from "../models/apiEndpoints/orderApiModel"
 
 const BASE_URL = "http://localhost:3000/orders"
 
@@ -25,13 +26,6 @@ export async function createOrder(
     }
   }
 
-  console.log({
-    accountId: accountId,
-    tickets: tickets,
-    paymentId: paymentId,
-    addressId: addressId
-  })
-
   return axios.post(BASE_URL, {
     accountId: accountId,
     tickets: tickets,
@@ -40,6 +34,14 @@ export async function createOrder(
   })
 }
 
-export async function fetchAllOrders() {
-  return axios.get(BASE_URL)
+export async function fetchAllOrders(token: string) {
+  return axios.get(BASE_URL, {
+    headers: {
+      "Authorization": token
+    }
+  })
+}
+
+export async function patchOrder(order: OrderApiModel) {
+  return axios.patch(BASE_URL, order)
 }
