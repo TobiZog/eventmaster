@@ -169,3 +169,31 @@ export function getIbanRules() {
     }
   ]
 }
+
+export function getRegisterNumberRules() {
+  const feedbackStore = useFeedbackStore()
+
+  return [
+    value => {
+      if (value) {
+        return true
+      } else {
+        return feedbackStore.i18n.t('misc.validation.required')
+      }
+    },
+    value => {
+      if (value?.length >= 8) {
+        return true
+      } else {
+        return feedbackStore.i18n.t('misc.validation.notEnoughChars')
+      }
+    },
+    value => {
+      if(!isNaN(value) && !isNaN(parseFloat(value))) {
+        return true
+      } else {
+        return feedbackStore.i18n.t('misc.validation.onlyDigitsAllowed')
+      }
+    }
+  ]
+}

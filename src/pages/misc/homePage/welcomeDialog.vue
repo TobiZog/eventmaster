@@ -2,6 +2,7 @@
 import actionDialog from '@/components/basics/actionDialog.vue';
 import outlinedButton from '@/components/basics/outlinedButton.vue';
 import ServerStateText from '@/components/pageParts/serverStateText.vue';
+import { getRegisterNumberRules, getStringRules } from '@/scripts/validationRules';
 import { useFeedbackStore } from '@/stores/feedback.store';
 import { usePreferencesStore } from '@/stores/preferences.store';
 import { ref, watch } from 'vue';
@@ -135,9 +136,9 @@ watch(() => currentStep.value, () => {
                 <v-col>
                   <v-text-field
                     variant="outlined"
-                    hide-details
                     :label="$t('misc.yourFullName')"
                     v-model="preferencesStore.studentName"
+                    :rules="getStringRules(4)"
                   />
                 </v-col>
               </v-row>
@@ -146,9 +147,9 @@ watch(() => currentStep.value, () => {
                 <v-col>
                   <v-text-field
                     variant="outlined"
-                    hide-details
                     :label="$t('misc.registrationNumber')"
                     v-model="preferencesStore.registrationNumber"
+                    :rules="getRegisterNumberRules()"
                   />
                 </v-col>
               </v-row>
@@ -177,8 +178,8 @@ watch(() => currentStep.value, () => {
             <outlined-button
               v-else
               @click="showDialog = false; preferencesStore.firstStartup = false"
-              :disabled="preferencesStore.studentName.length == 0 || 
-                preferencesStore.registrationNumber.length == 0"
+              :disabled="preferencesStore.studentName.length < 5 || 
+                preferencesStore.registrationNumber.length < 8"
               prepend-icon="mdi-check"
               color="success"
             >
