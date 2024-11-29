@@ -12,7 +12,7 @@ defineProps({
 </script>
 
 <template>
-  <v-card variant="outlined" class="my-1 mx-2 px-2">
+  <v-card variant="outlined" class="my-1 px-2">
     <v-row class="d-flex justify-center align-center">
       <v-col class="text-caption text-left" v-if="descriptionText.length > 0">
         {{ descriptionText }}

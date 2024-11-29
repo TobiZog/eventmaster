@@ -10,6 +10,7 @@ import { AccountApiModel } from "../data/models/user/accountApiModel";
 import { ref } from "vue";
 import { defineStore } from "pinia";
 import { useExerciseStore } from "./exercise.store";
+import moment, { Moment } from "moment";
 
 export const useAccountStore = defineStore("accountStore", {
   state: () => ({
@@ -17,10 +18,10 @@ export const useAccountStore = defineStore("accountStore", {
     accounts: ref<Array<AccountApiModel>>([]),
 
     /** Server token of currently logged in account */
-    userAccountToken: useLocalStorage("hackmycart/accountStore/userAccountToken", ""),
+    userAccountToken: useLocalStorage("eventMaster/accountStore/userAccountToken", ""),
 
     /** Useraccount which is currently logged in */
-    userAccount: useLocalStorage("hackmycart/accountStore/userAccount", new AccountApiModel()),
+    userAccount: useLocalStorage("eventMaster/accountStore/userAccount", new AccountApiModel()),
 
     /** User input on login screen */
     loginData: ref<{ username: String, password: String}>(
@@ -37,7 +38,15 @@ export const useAccountStore = defineStore("accountStore", {
     adminPanelVisible: ref(false),
 
     /** Flag to activate buy option on basket page */
-    privilegeBuy: ref(false)
+    privilegeBuy: ref(false),
+
+    payment: ref(),
+
+    address: ref(),
+
+    showEditDialog: ref(false),
+
+    loggedInTimeStamp: useLocalStorage<string>("eventMaster/accountStore/loggedInTimeStamp", "")
   }),
 
   actions: {
@@ -80,6 +89,7 @@ export const useAccountStore = defineStore("accountStore", {
         await getLogin(this.loginData.username, this.loginData.password)
           .then(async result => {
             this.userAccountToken = result.data.token
+            this.loggedInTimeStamp = moment().format("YYYY-MM-DDTHH:mm:ss.SSS")
 
             getAccount(this.userAccountToken)
               .then(response => {
@@ -113,14 +123,16 @@ export const useAccountStore = defineStore("accountStore", {
      * Reload account information about current logged in user
      */
     async refreshAccount() {
+      this.fetchInProgress = true
+
       getAccount(this.userAccountToken)
         .then(response => {
           this.userAccount = response.data
 
-          this.fetchInProgress = false
-
           this.privilegeBuy = true
           this.adminPanelVisible = response.data.accountRole.privilegeAdminPanel
+
+          this.fetchInProgress = false
         })
     },
 
@@ -133,6 +145,7 @@ export const useAccountStore = defineStore("accountStore", {
     async registerAccount(): Promise<boolean> {
       const feedbackStore = useFeedbackStore()
       const exerciseStore = useExerciseStore()
+      let success = false
       this.fetchInProgress = true
 
       if (this.registerData.username == null || this.registerData.username.length < 4) {
@@ -142,7 +155,8 @@ export const useAccountStore = defineStore("accountStore", {
       } else if (!this.registerData.email.match(/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/)) {
         feedbackStore.addSnackbar(BannerStateEnum.ACCOUNTMAILADDRESSUNVALID)
       }
-      else {
+      else
+      {
         await registerAccount(this.registerData)
           .then(async res => {
             if (res.status == 201) {
@@ -156,6 +170,7 @@ export const useAccountStore = defineStore("accountStore", {
             }
 
             this.fetchInProgress = false
+            success = true
           })
           .catch((error) => {
             if (error.status == 400) {
@@ -165,12 +180,11 @@ export const useAccountStore = defineStore("accountStore", {
             }
 
             this.fetchInProgress = false
-            return false
           })
       }
 
       this.fetchInProgress = false
-      return false
+      return success
     },
 
     /**
@@ -179,6 +193,7 @@ export const useAccountStore = defineStore("accountStore", {
     async updateAccount() {
       const feedbackStore = useFeedbackStore()
       const exerciseStore = useExerciseStore()
+      this.fetchInProgress = true
 
       // Check for exercise 0.2 completion
       let accountComplete = this.userAccount.firstName != "" && this.userAccount.lastName != "" && 
@@ -196,6 +211,7 @@ export const useAccountStore = defineStore("accountStore", {
             feedbackStore.addSnackbar(BannerStateEnum.ACCOUNTUPDATESUCCESSFUL)
 
             this.userAccount = res.data
+            this.fetchInProgress = false
           }
         })
     },
@@ -229,6 +245,33 @@ export const useAccountStore = defineStore("accountStore", {
         })
     },
 
+    newAddress() {
+      this.address = new AddressModel()
+      this.showEditDialog = true
+    },
+
+    editAddress(address: AddressModel) {
+      this.address = address
+      this.showEditDialog = true
+    },
+
+    async saveAddress() {
+      this.fetchInProgress = true
+
+      if (this.address.id == undefined) {
+        this.userAccount.addresses.push(this.address)
+      } else {
+        this.userAccount.addresses = this.userAccount.addresses.filter(address => {
+          return address.id != this.address.id
+        })
+
+        this.userAccount.addresses.push(this.address)
+      }
+
+      await this.updateAccount()
+      this.showEditDialog = false
+    },
+
     /**
      * Remove an address from the user model
      * 
@@ -238,17 +281,59 @@ export const useAccountStore = defineStore("accountStore", {
       this.userAccount.addresses = this.userAccount.addresses.filter((addr: AddressModel) => 
         addr != address
       )
+
+      this.updateAccount()
     },
 
     /**
-     * Remove an payment from the user model
+     * Add a new payment, opens dialog
+     */
+    newPayment() {
+      this.payment = new PaymentModel()
+      this.showEditDialog = true
+    },
+
+    /**
+     * Edit existing payment, opens dialog
+     * 
+     * @param payment Payment dataset to edit
+     */
+    editPayment(payment: PaymentModel) {
+      this.payment = payment
+      this.showEditDialog = true
+    },
+
+    /**
+     * Save current edited payment
+     */
+    async savePayment() {
+      this.fetchInProgress = true
+
+      if (this.payment.id == undefined) {
+        this.userAccount.payments.push(this.payment)
+      } else {
+        this.userAccount.payments = this.userAccount.payments.filter(payment => {
+          return payment.id != this.payment.id
+        })
+
+        this.userAccount.payments.push(this.payment)
+      }
+
+      await this.updateAccount()
+      this.showEditDialog = false
+    },
+
+    /**
+     * Remove a payment from the user model
      * 
      * @param address Payment dataset to remove
      */
-    removePayment(payment: PaymentModel) {
-      this.userAccount.payments = this.userAccount.payments.filter((paym: PaymentModel) =>
+    async removePayment(payment: PaymentModel) {
+      this.userAccount.payments = await this.userAccount.payments.filter((paym: PaymentModel) =>
         paym != payment
       )
+
+      this.updateAccount()
     },
 
     /**

@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { useBandStore } from '@/stores/band.store';
 import bandEditDialog from './bandEditDialog.vue';
-import adminDataLayout from '@/layouts/adminDataLayout.vue';
+import dataLayout from '@/layouts/dataLayout.vue';
 import { useFeedbackStore } from '@/stores/feedback.store';
 
 const bandStore = useBandStore()
@@ -22,7 +22,7 @@ bandStore.getBands()
 </script>
 
 <template>
-  <admin-data-layout
+  <data-layout
     :add-button-string="$t('band.addNewBand')"
     :fetch-in-progress="bandStore.fetchInProgress"
     :on-add-click="() => bandStore.newBand()"
@@ -72,7 +72,7 @@ bandStore.getBands()
         /> -->
       </template>
     </v-data-table>
-  </admin-data-layout>
+  </data-layout>
 
   <band-edit-dialog />
 </template>

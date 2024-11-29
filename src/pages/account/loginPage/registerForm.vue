@@ -10,6 +10,7 @@ const accountStore = useAccountStore()
 async function registerAccount() {
   accountStore.registerAccount()
     .then(result => {
+      console.log(result)
       if (result) {
         showRegisterCard.value = false
       }

@@ -16,6 +16,8 @@ import PreferencesPage from "@/pages/misc/preferencesPage/index.vue";
 import HelpPage from "@/pages/misc/helpPage/index.vue"
 import ErrorPage from "@/pages/misc/errorPage/index.vue"
 import ImageLicensePage from "@/pages/misc/imageLicensePage/index.vue"
+import AccountPaymentsPage from "@/pages/account/accountPaymentsPage/index.vue"
+import AccountAddressesPage from "@/pages/account/accountAddressesPage/index.vue"
 
 const routes = [
   // Main page
@@ -32,6 +34,8 @@ const routes = [
   { path: '/account/orders', component: OrdersPage },
   { path: '/account/data', component: AccountDataPage },
   { path: '/account/login', component: LoginPage },
+  { path: '/account/payments', component: AccountPaymentsPage },
+  { path: '/account/addresses', component: AccountAddressesPage },
 
   // Admin
   ...adminRoutes,

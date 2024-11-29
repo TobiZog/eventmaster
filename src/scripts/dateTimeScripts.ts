@@ -21,3 +21,15 @@ export function dateToHumanReadableString(date: Date) {
 export function dateStringToHumanReadableString(string: string) {
   return dateToHumanReadableString(new Date(string))
 }
+
+/**
+ * Format milliseconds to a readable format
+ * 
+ * @param milliseconds Milliseconds to format
+ * 
+ * @returns h:mm format
+ */
+export function millisecondsToHumanReadableString(milliseconds: number): string {
+  return Math.floor(milliseconds / 1000 / 60 / 60) + ':' + 
+    String(Math.floor(milliseconds / 60000)).padStart(2, "0") + ''
+}

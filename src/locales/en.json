@@ -74,7 +74,7 @@
     "emailIsNotValid": "E-Mail not valid",
     "emailRequired": "E-Mail required",
     "accountManagement": "Manage Account",
-    "accountManagementDescription": "Personal data, addresses, payments",
+    "accountManagementDescription": "Personal data, delete account",
     "login": {
       "pleaseLoginToOrder": "Please login to order",
       "backToLogin": "Back to Login",
@@ -109,7 +109,16 @@
     "addNewAccount": "Add new account",
     "accountRole": "Account Role",
     "noRealPaymentsNeeded": "No real payment data required!",
-    "administrator": "Administrator"
+    "administrator": "Administrator",
+    "managePaymentsDescription": "Add, change, remove payments",
+    "paymentsManagement": "Manage payments",
+    "payments": {
+      "editPayment": "Edit Payment",
+      "editAddress": "Edit address"
+    },
+    "addressManagementDetails": "Add, change, remove addresses",
+    "addressManagement": "Manage addresses",
+    "sessionTime": "Session time"
   },
   "order": {
     "oclock": "o'clock",

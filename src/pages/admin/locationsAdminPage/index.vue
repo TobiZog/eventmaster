@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import adminDataLayout from '@/layouts/adminDataLayout.vue';
+import dataLayout from '@/layouts/dataLayout.vue';
 import { useFeedbackStore } from '@/stores/feedback.store';
 import { useLocationStore } from '@/stores/location.store';
 
@@ -22,7 +22,7 @@ locationStore.getLocations()
 </script>
 
 <template>
-  <admin-data-layout
+  <data-layout
     :fetch-in-progress="locationStore.fetchInProgress"
     :add-button-string="$t('location.addLocation')"
     :on-add-click="() => { locationStore.newLocation() }"
@@ -66,5 +66,5 @@ locationStore.getLocations()
         /> -->
       </template>
     </v-data-table>
-  </admin-data-layout>
+  </data-layout>
 </template>

@@ -5,7 +5,7 @@ import { useAccountStore } from '@/stores/account.store';
 import { useLocationStore } from '@/stores/location.store';
 import { useGenreStore } from '@/stores/genre.store';
 import { usePreferencesStore } from '@/stores/preferences.store';
-import dashboardCard from './dashboardCard.vue';
+import dashboardCard from '../../../components/pageParts/dashboardCard.vue';
 import { useOrderStore } from '@/stores/order.store';
 import { useFilesStore } from '@/stores/files.store';
 

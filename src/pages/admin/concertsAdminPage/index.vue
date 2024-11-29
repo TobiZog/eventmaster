@@ -2,7 +2,7 @@
 import { useBandStore } from '@/stores/band.store';
 import { useConcertStore } from '@/stores/concert.store';
 import { useFeedbackStore } from '@/stores/feedback.store';
-import adminDataLayout from '@/layouts/adminDataLayout.vue';
+import dataLayout from '@/layouts/dataLayout.vue';
 import moment from 'moment';
 
 const concertStore = useConcertStore()
@@ -25,7 +25,7 @@ concertStore.getConcerts()
 </script>
 
 <template>
-  <admin-data-layout
+  <data-layout
     :add-button-string="$t('concert.addNewConcert')"
     :fetch-in-progress="concertStore.fetchInProgress"
     :on-add-click="() => concertStore.newConcert()"
@@ -73,5 +73,5 @@ concertStore.getConcerts()
         /> -->
       </template>
     </v-data-table>
-  </admin-data-layout>
+  </data-layout>
 </template>

@@ -15,10 +15,10 @@ import { AccountApiModel } from "@/data/models/user/accountApiModel";
 export const usePreferencesStore = defineStore('preferencesStore', {
   state: () => ({
     /** Selected theme by user */
-    theme: useLocalStorage<ThemeEnum>("hackmycart/preferencesStore/theme", ThemeEnum.DARK),
+    theme: useLocalStorage<ThemeEnum>("eventMaster/preferencesStore/theme", ThemeEnum.DARK),
 
     /** Selected language by user */
-    language: useLocalStorage<LanguageEnum>("hackmycart/preferencesStore/language", LanguageEnum.GERMAN),
+    language: useLocalStorage<LanguageEnum>("eventMaster/preferencesStore/language", LanguageEnum.GERMAN),
 
     /** Request to server sent, waiting for data response */
     fetchInProgress: ref(false),
@@ -36,13 +36,13 @@ export const usePreferencesStore = defineStore('preferencesStore', {
     showFactoryResetDialog: ref(false),
 
     /** Marks the first run of the app */
-    firstStartup: useLocalStorage<Boolean>("hackmycart/preferencesStore/firstStartup", true),
+    firstStartup: useLocalStorage<Boolean>("eventMaster/preferencesStore/firstStartup", true),
 
     /** Full name of student */
-    studentName: useLocalStorage<string>("hackmycart/preferencesStore/studentName", ""),
+    studentName: useLocalStorage<string>("eventMaster/preferencesStore/studentName", ""),
 
     /** Matrikel number */
-    registrationNumber: useLocalStorage<string>("hackmycart/preferencesStore/registrationNumber", "")
+    registrationNumber: useLocalStorage<string>("eventMaster/preferencesStore/registrationNumber", "")
   }),
 
   actions: {

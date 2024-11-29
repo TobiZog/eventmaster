@@ -22,15 +22,13 @@ band.get("/", (req: Request, res: Response) => {
   Band.findAll({
     include: [
       {
-        model: Rating,
-      },
-      {
         model: Genre,
         attributes: {
           exclude: [ "id" ]
         }
       },
-      Concert
+      Concert,
+      Rating
     ]
   })
     .then(bands => {

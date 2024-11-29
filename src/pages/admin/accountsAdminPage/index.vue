@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { useAccountStore } from '@/stores/account.store';
-import adminDataLayout from '@/layouts/adminDataLayout.vue';
+import dataLayout from '@/layouts/dataLayout.vue';
 import { useFeedbackStore } from '@/stores/feedback.store';
 
 const accountStore = useAccountStore()
@@ -19,7 +19,7 @@ accountStore.getAllAccounts()
 </script>
 
 <template>
-  <admin-data-layout
+  <data-layout
     :add-button-string="$t('account.addNewAccount')"
     :fetch-in-progress="accountStore.fetchInProgress"
   >
@@ -44,5 +44,5 @@ accountStore.getAllAccounts()
         /> -->
       </template>
     </v-data-table>
-  </admin-data-layout>
+  </data-layout>
 </template>

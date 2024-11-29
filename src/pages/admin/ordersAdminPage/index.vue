@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import adminDataLayout from '@/layouts/adminDataLayout.vue';
+import dataLayout from '@/layouts/dataLayout.vue';
 import { useOrderStore } from '@/stores/order.store';
 import moment from 'moment';
 import OrderDetailDialog from './orderDetailDialog.vue';
@@ -20,7 +20,7 @@ orderStore.getAllOrders()
 </script>
 
 <template>
-  <admin-data-layout
+  <data-layout
     :hide-add-button="true"
   >
     <v-data-table
@@ -68,7 +68,7 @@ orderStore.getAllOrders()
       </template>
 
     </v-data-table>
-  </admin-data-layout>
+  </data-layout>
 
   <order-detail-dialog />
 </template>

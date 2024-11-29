@@ -27,29 +27,33 @@ account.get("/", verifyToken, (req: Request, res: Response) => {
 account.get("/account/login", async (req: Request, res: Response) => {
   const encryptedPassword = encryptString(String(req.query.password))
 
-  // Using raw SQL code for SQL injections!
-  const [results, metadata] = 
-    await sequelize.query(
-      "SELECT * FROM Accounts " +
-      "WHERE (username='" + req.query.username + 
-      "' AND password='" + encryptedPassword + "')"
-    )
+  try {
+    // Using raw SQL code for SQL injections!
+    const [results, metadata] = 
+      await sequelize.query(
+        "SELECT * FROM Accounts " +
+        "WHERE (username='" + req.query.username + 
+        "' AND password='" + encryptedPassword + "')"
+      )
 
-  if (results.length != 0) {
-    // Creating session token
-    const token = jwt.sign({ userId: results[0]["id"] }, 'sjcucjdkdf')
+    if (results.length != 0) {
+      // Creating session token
+      const token = jwt.sign({ userId: results[0]["id"] }, 'sjcucjdkdf')
 
-    // Status: 200 OK
-    res.status(200).json({
-      success: true,
-      token: token
-    })
-  } else {
-    // Status: 401 Unauthorized
-    res.status(401).json({
-      code: 401, 
-      message: "Unauthorized"
-    })
+      // Status: 200 OK
+      res.status(200).json({
+        success: true,
+        token: token
+      })
+    } else {
+      // Status: 401 Unauthorized
+      res.status(401).json({
+        code: 401, 
+        message: "Unauthorized"
+      })
+    }
+  } catch (e) {
+    res.status(500).send()
   }
 })
 
@@ -123,32 +127,28 @@ account.patch("/account", verifyToken, (req: Request, res: Response) => {
     where: { id: req.body.id }
   })
     .then(async result => {
-      for (let payment of req.body.payments) {
-        if (payment.id == undefined) {
-          payment["accountId"] = req.body.id
-
-          await Payment.create(payment)
-        } else {
-          await Payment.update(payment,
-            {
-              where: { id: payment.id }
-            }
-          )
+      Payment.destroy({
+        where: {
+          accountId: req.body.id
         }
+      })
+
+      Address.destroy({
+        where: {
+          accountId: req.body.id
+        }
+      })
+
+      for (let payment of req.body.payments) {
+        payment["accountId"] = req.body.id
+
+        await Payment.create(payment)
       }
 
       for (let address of req.body.addresses) {
-        if (address.id == undefined) {
-          address["accountId"] = req.body.id
+        address["accountId"] = req.body.id
 
-          await Address.create(address)
-        } else {
-          await Address.update(address,
-            {
-              where: { id: address.id }
-            }
-          )
-        }
+        await Address.create(address)
       }
 
       // Status: 200 OK

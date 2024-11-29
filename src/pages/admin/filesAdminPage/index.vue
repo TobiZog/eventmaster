@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import adminDataLayout from '@/layouts/adminDataLayout.vue';
+import dataLayout from '@/layouts/dataLayout.vue';
 import { ref } from 'vue';
 import FileUploadDialog from './fileUploadDialog.vue';
 import { useFilesStore } from '@/stores/files.store';
@@ -12,7 +12,7 @@ filesStore.getStaticFolders()
 </script>
 
 <template>
-  <admin-data-layout
+  <data-layout
     :add-button-string="$t('misc.uploadFile')"
     :fetch-in-progress="filesStore.fetchInProgress"
     :on-add-click="() => { filesStore.showFileUploadDialog = true }"
@@ -112,7 +112,7 @@ filesStore.getStaticFolders()
         </v-row>
       </v-col>
     </v-row>
-  </admin-data-layout>
+  </data-layout>
 
   <file-preview-dialog
     v-model:show-dialog="showPreviewDialog"

@@ -1,4 +1,4 @@
-# HackMyCart
+# EventMaster
 
 The most hackable Web Shop!
 

@@ -16,7 +16,7 @@ import { useExerciseStore } from "./exercise.store";
 export const useBasketStore = defineStore('basketStore', {
   state: () => ({
     /** Items in customers basket */
-    itemsInBasket: useLocalStorage<Array<BasketItemModel>>("hackmycart/basketStore/itemsInBasket", []),
+    itemsInBasket: useLocalStorage<Array<BasketItemModel>>("eventMaster/basketStore/itemsInBasket", []),
 
     /** Address used in the order dialog */
     usedAddress: ref<AddressModel>(null),

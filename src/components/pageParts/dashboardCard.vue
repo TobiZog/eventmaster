@@ -37,13 +37,17 @@ defineProps({
         {{ secondLine }}
       </v-skeleton-loader>
 
-      <template #actions>
+      <template #actions v-if="!$slots.actions">
         <outlined-button
           @click="router.push(buttonRoute)"
           :loading="loading"
         >
           {{ $t('misc.actions.more') }}
         </outlined-button>
+      </template>
+
+      <template #actions v-else>
+        <slot name="actions"></slot>
       </template>
     </card-view>
   </v-col>

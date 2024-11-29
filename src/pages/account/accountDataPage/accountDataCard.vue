@@ -81,7 +81,6 @@ const stringRules = [
           v-model="accountStore.userAccount.firstName"
           variant="outlined"
           :rules="stringRules"
-          hide-details
         />
       </v-col>
       <v-col>
@@ -90,7 +89,6 @@ const stringRules = [
           v-model="accountStore.userAccount.lastName"
           variant="outlined"
           :rules="stringRules"
-          hide-details
         />
       </v-col>
     </v-row>

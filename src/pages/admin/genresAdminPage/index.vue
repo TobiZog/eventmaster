@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import adminDataLayout from '@/layouts/adminDataLayout.vue';
+import dataLayout from '@/layouts/dataLayout.vue';
 import genreEditDialog from './genreEditDialog.vue';
 import { useGenreStore } from '@/stores/genre.store';
 
@@ -15,7 +15,7 @@ genreStore.getGenres()
 </script>
 
 <template>
-  <admin-data-layout
+  <data-layout
     :add-button-string="$t('band.addNewGenre')"
     :fetch-in-progress="genreStore.fetchInProgress"
     :on-add-click="() => { genreStore.newGenre() }"
@@ -48,7 +48,7 @@ genreStore.getGenres()
         /> -->
       </template>
     </v-data-table>
-  </admin-data-layout>
+  </data-layout>
 
   <genre-edit-dialog />
 </template>
