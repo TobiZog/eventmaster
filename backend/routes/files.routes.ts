@@ -3,6 +3,7 @@ import fs, { createReadStream } from "fs"
 import multer from "multer"
 const upload = multer({ dest: './backend/images/' })
 import licenses from "../data/licenses.json"
+import path from 'path'
 
 export const files = Router()
 
@@ -10,13 +11,13 @@ export const files = Router()
  * Get all folders
  */
 files.get("/folders", async (req: Request, res: Response) => {
-  let dirNames = fs.readdirSync("./backend/images")
+  let dirNames = fs.readdirSync(path.resolve(__dirname, "../images"))
   let result = []
 
   dirNames.forEach(dir => {
     result.push({
       name: dir,
-      nrOfItems: fs.readdirSync("./backend/images/" + dir).length
+      nrOfItems: fs.readdirSync(path.resolve(__dirname, "../images/" + dir)).length
     })
   })
 
@@ -31,26 +32,30 @@ files.get("/folders", async (req: Request, res: Response) => {
  */
 files.get("/:folder", async (req: Request, res: Response) => {
   let result = []
-  let fileNames = fs.readdirSync("./backend/images/" + req.params.folder + "/")
+  let fileNames = fs.readdirSync(path.resolve(__dirname, "../images/" + req.params.folder))
 
-  fileNames.forEach(file => {
-    let resData = ""
-    let url = "http://localhost:3000/static/" + req.params.folder + "/" + file
+  try {
+    fileNames.forEach(file => {
+      let resData = ""
+      let url = "http://localhost:3000/static/" + req.params.folder + "/" + file
 
-    if (file.endsWith("html") || file.endsWith("js")) {
-      resData = fs.readFileSync("./backend/images/" + req.params.folder + "/" + file, "utf8")
-    }
+      if (file.endsWith("html") || file.endsWith("js")) {
+        resData = fs.readFileSync(path.resolve(__dirname, "../images/" + req.params.folder + "/" + file), "utf8")
+      }
 
-    result.push({
-      name: file,
-      size: fs.statSync("./backend/images/" + req.params.folder + "/" + file).size,
-      content: resData,
-      url: url,
-      copyright: licenses.find(data => data.image == file)
+      result.push({
+        name: file,
+        size: fs.statSync(path.resolve(__dirname, "../images/" + req.params.folder + "/" + file)).size,
+        content: resData,
+        url: url,
+        copyright: licenses.find(data => data.image == file)
+      })
     })
-  })
 
-  res.status(200).json(result)
+    res.status(200).json(result)
+  } catch (error) {
+    res.status(400).json(error)
+  }
 })
 
 
