@@ -8,7 +8,7 @@ import { useOrderStore } from '@/stores/order.store';
 const accountStore = useAccountStore()
 const orderStore = useOrderStore()
 
-orderStore.getOrdersOfAccount(accountStore.userAccount)
+orderStore.getOrdersOfAccount(accountStore.userAccount, accountStore.userAccountToken)
 </script>
 
 <template>

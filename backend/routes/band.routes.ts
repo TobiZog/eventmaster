@@ -1,3 +1,9 @@
+/**
+ * @swagger
+ * tags:
+ *   name: Bands
+ *   description: API to manage the bands
+ */
 import { Member } from "../models/acts/member.model";
 import { Band } from "../models/acts/band.model";
 import { Request, Response, Router } from "express";
@@ -13,7 +19,33 @@ import { sequelize } from "../database";
 export const band = Router()
 
 /**
- * Get all bands
+ * @swagger
+ * /bands:
+ *   get:
+ *     summary: Download all available bands
+ *     tags: [Bands]
+ *     parameters:
+ *        - in: query
+ *          name: sort
+ *          schema:
+ *            type: string
+ *          required: false
+ *          description: Sort bands by number of concerts ascending (asc) or descending (desc)
+ *        - in: query
+ *          name: count
+ *          schema:
+ *            type: number
+ *          required: false
+ *          description: Limit number of results
+ *     responses:
+ *       200:
+ *         description: List of band objects
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/band'
+ *       500:
+ *         description: Internal server error
  */
 band.get("/", (req: Request, res: Response) => {
   let sort = req.query.sort
@@ -71,7 +103,7 @@ band.get("/", (req: Request, res: Response) => {
 /**
  * Get all information about one band
  */
-band.get("/band/:name", (req: Request, res: Response) => {
+band.get("/:name", (req: Request, res: Response) => {
   Band.findOne({
     where: {
       name: { [Op.like]: req.params.name }

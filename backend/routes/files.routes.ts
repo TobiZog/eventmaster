@@ -1,5 +1,11 @@
+/**
+ * @swagger
+ * tags:
+ *   name: Files
+ *   description: API for handling static files
+ */
 import { Request, Response, NextFunction, Router } from 'express'
-import fs, { createReadStream } from "fs"
+import fs from "fs"
 import multer from "multer"
 const upload = multer({ dest: './backend/images/' })
 import licenses from "../data/licenses.json"
@@ -8,7 +14,18 @@ import path from 'path'
 export const files = Router()
 
 /**
- * Get all folders
+ * @swagger
+ * /files/folders:
+ *   get:
+ *     summary: Get all static folders
+ *     tags: [Files]
+ *     responses:
+ *       200:
+ *         description: Login successful
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/folder'
  */
 files.get("/folders", async (req: Request, res: Response) => {
   let dirNames = fs.readdirSync(path.resolve(__dirname, "../images"))
@@ -26,9 +43,25 @@ files.get("/folders", async (req: Request, res: Response) => {
 
 
 /**
- * Get all uploaded file names by folder name
- * 
- * @param folder Name of folder on server
+ * @swagger
+ * /files/{folder}:
+ *   get:
+ *     summary: Get all files in one folder
+ *     tags: [Files]
+ *     parameters:
+ *        - in: path
+ *          name: folder
+ *          schema:
+ *            type: string
+ *          required: true
+ *          description: Name of folder
+ *     responses:
+ *       200:
+ *         description: Login successful
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/file'
  */
 files.get("/:folder", async (req: Request, res: Response) => {
   let result = []

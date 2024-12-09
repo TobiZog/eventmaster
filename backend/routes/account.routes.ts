@@ -1,3 +1,9 @@
+/**
+ * @swagger
+ * tags:
+ *   name: Account
+ *   description: API to manage accounts
+ */
 import { Router, Request, Response } from "express";
 import { Account } from "../models/user/account.model";
 import { validateString } from "../scripts/validateHelper";
@@ -11,20 +17,38 @@ import { encryptString } from "../scripts/encryptScripts";
 
 export const account = Router()
 
-account.get("/", verifyToken, (req: Request, res: Response) => {
-  Account.findAll({
-    include: [ AccountRole ]
-  })
-    .then(accounts => {
-      res.status(200).json(accounts)
-    })
-    .catch(error => {
-      res.status(500).send()
-    })
-})
-
-// Login user
-account.get("/account/login", async (req: Request, res: Response) => {
+/**
+ * @swagger
+ * /accounts/login:
+ *   get:
+ *     summary: Start login process
+ *     tags: [Account]
+ *     parameters:
+ *        - in: query
+ *          name: username
+ *          schema:
+ *            type: string
+ *          required: true
+ *          description: Username
+ *        - in: query
+ *          name: password
+ *          schema:
+ *            type: string
+ *          required: true
+ *          description: User password
+ *     responses:
+ *       200:
+ *         description: Login successful
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/loginResponse'
+ *       401:
+ *         description: Wrong credentials
+ *       500:
+ *         description: Internal server error
+ */
+account.get("/login", async (req: Request, res: Response) => {
   const encryptedPassword = encryptString(String(req.query.password))
 
   try {
@@ -47,10 +71,7 @@ account.get("/account/login", async (req: Request, res: Response) => {
       })
     } else {
       // Status: 401 Unauthorized
-      res.status(401).json({
-        code: 401, 
-        message: "Unauthorized"
-      })
+      res.status(401).send()
     }
   } catch (e) {
     res.status(500).send()
@@ -58,12 +79,35 @@ account.get("/account/login", async (req: Request, res: Response) => {
 })
 
 
-account.get("/account/data", verifyToken, async(req: Request, res: Response) => {
+/**
+ * @swagger
+ * /accounts/account:
+ *   get:
+ *     summary: Get all data about an user account
+ *     tags: [Account]
+ *     security:
+ *       - JWT: []
+ *     responses:
+ *       200:
+ *         description: Success
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/useraccount'
+ *       401:
+ *         description: Unauthorized
+ *       500:
+ *         description: Internal server error
+ */
+account.get("/account", verifyToken, async(req: Request, res: Response) => {
   Account.findOne({
     where: {
       id: req["id"]
     },
-    include: [ Address, AccountRole, Payment ]
+    include: [ Address, AccountRole, Payment ],
+    attributes: {
+      exclude: [ "accountRoleId" ]
+    }
   })
     .then(account => {
       res.status(200).json(account)
@@ -74,7 +118,31 @@ account.get("/account/data", verifyToken, async(req: Request, res: Response) => 
 })
 
 
-// Creating a new user
+/**
+ * @swagger
+ * /accounts/account:
+ *   post:
+ *     summary: Create a new user account
+ *     tags: [Account]
+ *     requestBody:
+ *       description: Minimal user data body
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             $ref: '#/components/schemas/minimalAccount'
+ *     responses:
+ *       201:
+ *         description: Created
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/useraccount'
+ *       400:
+ *         description: Username/password too short
+ *       409:
+ *         description: Username already in use
+ */
 account.post("/account", async (req: Request, res: Response) => {
   // Check if username is valid
   if (!validateString(req.body.username, 4))
@@ -121,6 +189,28 @@ account.post("/account", async (req: Request, res: Response) => {
     })
 })
 
+
+
+/**
+ * @swagger
+ * /accounts/account:
+ *   patch:
+ *     summary: Update an user accounts data
+ *     tags: [Account]
+ *     security:
+ *       - JWT: []
+ *     responses:
+ *       200:
+ *         description: Success
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/useraccount'
+ *       401:
+ *         description: Unauthorized
+ *       500:
+ *         description: Internal server error
+ */
 account.patch("/account", verifyToken, (req: Request, res: Response) => {
   Account.update(req.body,
   {
@@ -164,7 +254,31 @@ account.patch("/account", verifyToken, (req: Request, res: Response) => {
   })
 })
 
-account.delete("/account/:id", (req: Request, res: Response) => {
+
+/**
+ * @swagger
+ * /accounts/account/{id}:
+ *   delete:
+ *     summary: Delete an user account
+ *     tags: [Account]
+ *     security:
+ *       - JWT: []
+ *     parameters:
+ *        - in: path
+ *          name: id
+ *          schema:
+ *            type: number
+ *          required: true
+ *          description: ID of user account
+ *     responses:
+ *       200:
+ *         description: Success
+ *       401:
+ *         description: Unauthorized
+ *       500:
+ *         description: Internal server error
+ */
+account.delete("/account/:id", verifyToken, (req: Request, res: Response) => {
   Account.destroy({
     where: {
       id: req.params.id
@@ -172,6 +286,39 @@ account.delete("/account/:id", (req: Request, res: Response) => {
   })
     .then(account => {
       res.status(200).send()
+    })
+    .catch(error => {
+      res.status(500).send()
+    })
+})
+
+
+/**
+ * @swagger
+ * /accounts/:
+ *   get:
+ *     summary: Request all user accounts
+ *     tags: [Account]
+ *     security:
+ *       - JWT: []
+ *     responses:
+ *       200:
+ *         description: Success
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/useraccount'
+ *       401:
+ *         description: Unauthorized
+ *       500:
+ *         description: Internal server error
+ */
+account.get("/", verifyToken, (req: Request, res: Response) => {
+  Account.findAll({
+    include: [ AccountRole ]
+  })
+    .then(accounts => {
+      res.status(200).json(accounts)
     })
     .catch(error => {
       res.status(500).send()

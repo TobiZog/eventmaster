@@ -11,7 +11,7 @@ const accountStore = useAccountStore()
 const orderStore = useOrderStore()
 const router = useRouter()
 
-orderStore.getOrdersOfAccount(accountStore.userAccount)
+orderStore.getOrdersOfAccount(accountStore.userAccount, accountStore.userAccountToken)
 accountStore.refreshAccount()
 </script>
 

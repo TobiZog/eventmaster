@@ -238,7 +238,7 @@ export const useAccountStore = defineStore("accountStore", {
     async refreshOrders() {
       this.fetchInProgress = true
 
-      await fetchUserOrders(this.userAccount.id)
+      await fetchUserOrders(this.userAccount.id, this.userAccountToken)
         .then(result => {
           this.orders = result.data
           this.fetchInProgress = false
@@ -344,7 +344,7 @@ export const useAccountStore = defineStore("accountStore", {
     async deleteAccount(account: AccountModel) {
       this.fetchInProgress = true
 
-      deleteAccount(account)
+      deleteAccount(account, this.userAccountToken)
         .then(response => {
           this.fetchInProgress = false
         })

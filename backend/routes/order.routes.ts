@@ -1,3 +1,9 @@
+/**
+ * @swagger
+ * tags:
+ *   name: Orders
+ *   description: API to manage orders
+ */
 import { Router, Request, Response } from "express";
 import { Order } from "../models/ordering/order.model";
 import { Concert } from "../models/acts/concert.model";
@@ -15,8 +21,34 @@ import { Account } from "../models/user/account.model";
 
 export const order = Router()
 
-// Get all orders
+/**
+ * @swagger
+ * /orders:
+ *   get:
+ *     summary: Get orders of an account or all available
+ *     tags: [Orders]
+ *     security:
+ *        - JWT: []
+ *     parameters:
+ *        - in: query
+ *          name: id
+ *          schema:
+ *            type: string
+ *          required: false
+ *          description: User account id to filter the orders
+ *     responses:
+ *       200:
+ *         description: OK
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/order'
+ *       500:
+ *         description: Internal server error
+ */
 order.get("/", verifyToken, (req: Request, res: Response) => {
+  const accountId = req.query.id
+
   Order.findAll({
     include: [
       {
@@ -47,69 +79,58 @@ order.get("/", verifyToken, (req: Request, res: Response) => {
       },
       Address,
       Payment,
-      Account
-    ]
+      Account,
+    ],
+    attributes: {
+      exclude: [ "accountId", "addressId", "paymentId" ]
+    }
   })
     .then(orders => {
-      res.status(200).json(orders)
+      if (accountId != undefined) {
+        let filteredOrders = orders.filter(order => {
+          return order.id == accountId
+        })
+
+        res.status(200).json(filteredOrders)
+      } else {
+        res.status(200).json(orders)
+      }
     })
     .catch(error => {
       res.status(500).send()
     })
 })
 
+/**
+ * @swagger
+ * /orders:
+ *   post:
+ *     summary: Place a new order
+ *     tags: [Orders]
+ *     security:
+ *        - JWT: []
+ *     parameters:
+ *        - in: query
+ *          name: id
+ *          schema:
+ *            type: string
+ *          required: false
+ *          description: User account id to filter the orders
+ *     responses:
+ *       200:
+ *         description: OK
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/order'
+ *       500:
+ *         description: Internal server error
+ */
+order.post("/", verifyToken, (req: Request, res: Response) => {
+  req.body["accountId"] = req["id"]
 
-// Get all orders of one account by it's user id
-order.get("/:id", (req: Request, res: Response) => {
-  Order.findAll({
-    where: { accountId: req.params.id },
-    include: [
-      { 
-        model: Ticket, 
-        include: [ 
-          { 
-            model: Concert,
-            include: [
-              {
-                model: Band
-              },
-              {
-                model: Location,
-                include: [ City ]
-              }
-            ],
-            attributes: {
-              exclude: [
-                "categoryId",
-                "brandId"
-              ]
-            }
-          },
-          {
-            model: Seat,
-            include: [
-              {
-                model: SeatRow,
-                include: [ SeatGroup ]
-              }
-            ]
-          }
-        ]
-      },
-      Payment,
-      Address
-    ]
-  })
-    .then(orders => {
-      res.status(200).json(orders)
-    })
-    .catch(error => {
-      res.status(500).send()
-    })
-})
+  console.log(req.body)
 
-// Place a new order
-order.post("/", (req: Request, res: Response) => {
   Order.create(req.body)
     .then(async order => {
       for (let ticket of req.body.tickets) {

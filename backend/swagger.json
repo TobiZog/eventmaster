@@ -1,0 +1,598 @@
+{
+  "swagger": "2.0",
+  "definition": {
+    "openapi": "3.1.0",
+    "info": {
+      "title": "EventMaster API",
+      "version": "0.2.0",
+      "description": "Dokumentation über alle API-Endpunkte des Backends",
+      "license": {
+        "name": "MIT",
+        "url": "https://spdx.org/licenses/MIT.html"
+      }
+    },
+    "servers": [
+      {
+        "url": "http://localhost:3000"
+      }
+    ],
+    "components": {
+      "securitySchemes": {
+        "JWT": {
+          "type": "apiKey",
+          "in": "header",
+          "name": "Json Web Token"
+        }
+      },
+      "schemas": {
+        "city": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "number",
+              "description": "The auto-generated id"
+            },
+            "name": {
+              "type": "string",
+              "description": "Name of the city"
+            },
+            "country": {
+              "type": "string",
+              "description": "Name of country of the city"
+            }
+          },
+          "example": {
+            "id": 2,
+            "name": "Hannover",
+            "country": "Germany"
+          }
+        },
+        "loginResponse": {
+          "type": "object",
+          "properties": {
+            "success": {
+              "type": "boolean",
+              "description": "Login successful state"
+            },
+            "token": {
+              "type": "string",
+              "description": "Individual created access token"
+            }
+          },
+          "example": {
+            "success": true,
+            "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjI2MiwiaWF0IjoxNzMzNzYwOTY3fQ.I3rR71c-k2Y2WB0dkd1QEgHxsIRGl4s69YprBNuhX7w"
+          }
+        },
+        "minimalAccount": {
+          "type": "object",
+          "properties": {
+            "username": {
+              "type": "string",
+              "description": "Account username"
+            },
+            "password": {
+              "type": "string",
+              "description": "Encrypted password"
+            },
+            "email": {
+              "type": "string",
+              "description": "E-Mail address of user"
+            }
+          },
+          "example": {
+            "username": "maxmustermann",
+            "password": "supersecret",
+            "email": "tijjji@didjhli.de"
+          }
+        },
+        "minimalAccountResponse": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "number",
+              "description": "The auto-generated id"
+            },
+            "username": {
+              "type": "string",
+              "description": "Account username"
+            },
+            "password": {
+              "type": "string",
+              "description": "Encrypted password"
+            },
+            "email": {
+              "type": "string",
+              "description": "E-Mail address of user"
+            },
+            "accountRoleId": {
+              "type": "number",
+              "description": "ID of account role"
+            }
+          },
+          "example": {
+            "id": 263,
+            "username": "maxmustermann",
+            "password": "8746fb88adbae61ffa68193ee0bb8050",
+            "email": "tijjji@didjhli.de",
+            "accountRoleId": 1
+          }
+        },
+        "placeOrderBody": {
+          "type": "object",
+          "properties": {
+            "username": {
+              "type": "string",
+              "description": "Account username"
+            },
+            "password": {
+              "type": "string",
+              "description": "Encrypted password"
+            },
+            "email": {
+              "type": "string",
+              "description": "E-Mail address of user"
+            },
+            "accountRoleId": {
+              "type": "number",
+              "description": "ID of account role"
+            }
+          },
+          "example": {
+            "id": 263,
+            "username": "maxmustermann",
+            "password": "8746fb88adbae61ffa68193ee0bb8050",
+            "email": "tijjji@didjhli.de",
+            "accountRoleId": 1
+          }
+        },
+        "order": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "number",
+              "description": "The auto-generated id"
+            },
+            "orderedAt": {
+              "type": "string",
+              "description": "Timestamp of order"
+            },
+            "tickets": {
+              "type": "array",
+              "description": "Array of Ticket objects"
+            },
+            "addresses": {
+              "type": "object",
+              "description": "Address object"
+            },
+            "payment": {
+              "type": "object",
+              "description": "Payment object"
+            },
+            "account": {
+              "type": "object",
+              "description": "Account object"
+            }
+          },
+          "example": {
+            "id": 112,
+            "orderedAt": "2024-11-29T12:38:36.381Z",
+            "shipped": false,
+            "tickets": [
+              {
+                "id": 144,
+                "orderId": 112,
+                "orderPrice": 184,
+                "concertId": 892,
+                "seatId": 106331,
+                "concert": {
+                  "id": 892,
+                  "date": "2024-11-30",
+                  "name": "Unlimited Love",
+                  "price": 92,
+                  "image": "http://localhost:3000/static/concerts/unlimited-love-tour.jpg",
+                  "inStock": 170,
+                  "offered": true,
+                  "bandId": 265,
+                  "locationId": 834,
+                  "band": {
+                    "images": [
+                      "http://localhost:3000/static/bands/red-hot-chili-peppers-1.jpg",
+                      "http://localhost:3000/static/bands/red-hot-chili-peppers-2.jpg",
+                      "http://localhost:3000/static/bands/red-hot-chili-peppers-3.jpg",
+                      "http://localhost:3000/static/bands/red-hot-chili-peppers-4.jpg"
+                    ],
+                    "id": 265,
+                    "name": "Red Hot Chili Peppers",
+                    "foundingYear": 1983,
+                    "descriptionEn": "The Red Hot Chili Peppers are an American rock band formed in Los Angeles in 1983, comprising vocalist Anthony Kiedis, bassist Flea, drummer Chad Smith, and guitarist John Frusciante. Their music incorporates elements of alternative rock, funk, punk rock, hard rock, hip hop, and psychedelic rock. Their eclectic range has influenced genres such as funk metal, rap metal, rap rock, and nu metal. With over 120 million records sold worldwide, the Red Hot Chili Peppers are one of the top-selling bands of all time.",
+                    "descriptionDe": "Red Hot Chili Peppers (Abkürzung: RHCP) ist eine 1983 gegründete US-amerikanische Funk- und Alternative-Rockband. Sie zählt zu den kommerziell erfolgreichsten Vertretern des Crossover. Ihr Album Blood Sugar Sex Magik gilt als eines der bedeutendsten dieses Genres.",
+                    "imageMembers": "http://localhost:3000/static/bands/red-hot-chili-peppers-members.jpg",
+                    "logo": "http://localhost:3000/static/bands/red-hot-chili-peppers-logo.png"
+                  },
+                  "location": {
+                    "id": 834,
+                    "urlName": "swiss-life-hall",
+                    "name": "Swiss Life Hall",
+                    "address": "Ferdinand-Wilhelm-Fricke-Weg 8",
+                    "cityId": 246,
+                    "imageIndoor": "http://localhost:3000/static/locations/swiss-life-hall-indoor.jpg",
+                    "imageOutdoor": "http://localhost:3000/static/locations/swiss-life-hall-outdoor.jpg",
+                    "layout": 2,
+                    "capacity": 180,
+                    "city": {
+                      "id": 246,
+                      "name": "Hannover",
+                      "country": "Germany"
+                    }
+                  }
+                },
+                "seat": {
+                  "id": 106331,
+                  "seatNr": 1,
+                  "seatRowId": 14701,
+                  "seatRow": {
+                    "id": 14701,
+                    "row": 0,
+                    "seatGroupId": 3872,
+                    "seatGroup": {
+                      "id": 3872,
+                      "name": "A",
+                      "surcharge": 30,
+                      "capacity": 40,
+                      "standingArea": true,
+                      "locationId": 834
+                    }
+                  }
+                }
+              }
+            ],
+            "address": {
+              "id": 342,
+              "accountId": 255,
+              "street": "Laportestraße",
+              "houseNumber": 22,
+              "postalCode": 30449,
+              "city": "Hannover"
+            },
+            "payment": {
+              "id": 247,
+              "accountId": 255,
+              "bankName": "Deutsche Bank",
+              "iban": "DE92500105175721645777"
+            },
+            "account": {
+              "id": 255,
+              "username": "hagemeister93",
+              "password": "e1e3981e5b0c009c018c5726a4be5eee",
+              "email": "hagemeister93@gmail.com",
+              "firstName": "Laurin",
+              "lastName": "Hagemeister",
+              "accountRoleId": 1
+            }
+          }
+        },
+        "useraccount": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "number",
+              "description": "The auto-generated id"
+            },
+            "username": {
+              "type": "string",
+              "description": "Account username"
+            },
+            "password": {
+              "type": "string",
+              "description": "Encrypted password"
+            },
+            "email": {
+              "type": "string",
+              "description": "E-Mail address of user"
+            },
+            "firstName": {
+              "type": "string",
+              "description": "First name of user"
+            },
+            "lastName": {
+              "type": "string",
+              "description": "Last name of user"
+            },
+            "addresses": {
+              "type": "array",
+              "description": "Array of Address objects"
+            },
+            "accountRole": {
+              "type": "object",
+              "description": "Account role object"
+            },
+            "payments": {
+              "type": "array",
+              "description": "Array of Payments objects"
+            }
+          },
+          "example": {
+            "id": 262,
+            "username": "max",
+            "password": "06f7a5f329fed099ad36026f9623e6ce",
+            "email": "titi@didi.de",
+            "firstName": "Max",
+            "lastName": "Mustermann",
+            "accountRoleId": 1,
+            "addresses": [
+              {
+                "id": 352,
+                "accountId": 262,
+                "street": "Musterstraße",
+                "houseNumber": 21,
+                "postalCode": 30167,
+                "city": "Hannover"
+              }
+            ],
+            "accountRole": {
+              "id": 1,
+              "name": "User",
+              "privilegeBuy": true,
+              "privilegeAdminPanel": false,
+              "privilegeFileAccess": null
+            },
+            "payments": [
+              {
+                "id": 254,
+                "accountId": 262,
+                "bankName": "Deutsche Bank",
+                "iban": "DE293948484738383829"
+              }
+            ]
+          }
+        },
+        "exercise": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "number",
+              "description": "The auto-generated id"
+            },
+            "nameDe": {
+              "type": "string",
+              "description": "German exercise name"
+            },
+            "nameEn": {
+              "type": "string",
+              "description": "English exercise name"
+            },
+            "exerciseNr": {
+              "type": "number",
+              "description": "Number of exercise in group"
+            },
+            "descriptionDe": {
+              "type": "string",
+              "description": "German description text"
+            },
+            "descriptionEn": {
+              "type": "string",
+              "description": "English description text"
+            },
+            "solved": {
+              "type": "boolean",
+              "description": "State of solved"
+            },
+            "exerciseGroup": {
+              "type": "object",
+              "description": "Exercise group object"
+            }
+          },
+          "example": {
+            "id": 350,
+            "nameDe": "Registrieren",
+            "nameEn": "Register",
+            "exerciseNr": 1,
+            "descriptionDe": "Wir richten uns einen gewöhnlichen Account auf der Plattform ein. Navigiere hierzu auf die Account-Seite und registriere dich.",
+            "descriptionEn": "Create a new account in the online shop",
+            "solved": true,
+            "exerciseGroup": {
+              "id": 113,
+              "nameDe": "Den Shop kennenlernen",
+              "nameEn": "Getting to know the shop",
+              "groupNr": 0,
+              "descriptionDe": "Vor einem Angriff ist es wichtig zu verstehen, wie die Webseite aufgebaut ist. Wie sind die URLs strukturiert? Wo befinden sich Eingabefelder welche im Backend eine SQL Abfrage stellen?",
+              "descriptionEn": "todo"
+            }
+          }
+        },
+        "folder": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string",
+              "description": "Name of folder"
+            },
+            "nrOrItems": {
+              "type": "number",
+              "description": "Number of files in folder"
+            }
+          },
+          "example": {
+            "username": "artists",
+            "password": 41
+          }
+        },
+        "file": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string",
+              "description": "Name of file"
+            },
+            "size": {
+              "type": "number",
+              "description": "File size in Bytes"
+            },
+            "content": {
+              "type": "string",
+              "description": "Text content, only for Text/Code files"
+            },
+            "url": {
+              "type": "string",
+              "description": "Resource URL"
+            },
+            "copyright": {
+              "type": "object",
+              "description": "Copyright object"
+            }
+          },
+          "example": {
+            "name": "alex-turner.jpg",
+            "size": 551625,
+            "content": "",
+            "url": "http://localhost:3000/static/artists/alex-turner.jpg",
+            "copyright": {
+              "image": "alex-turner.jpg",
+              "license": "CC BY 2.0",
+              "creator": "Raph_PH",
+              "url": "https://upload.wikimedia.org/wikipedia/commons/9/95/Alex_Turner%2C_Way_Out_West_2018.jpg"
+            }
+          }
+        },
+        "band": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "integer",
+              "description": "The auto-generated id"
+            },
+            "name": {
+              "type": "string",
+              "description": "Name of the band"
+            },
+            "foundingYear": {
+              "type": "string",
+              "description": "Founding year of the band"
+            },
+            "descriptionEn": {
+              "type": "string",
+              "description": "English description text"
+            },
+            "descriptionDe": {
+              "type": "string",
+              "description": "German description text"
+            },
+            "imageMembers": {
+              "type": "string",
+              "description": "URL to image of band members"
+            },
+            "logo": {
+              "type": "string",
+              "description": "URL to image of band logo"
+            },
+            "genres": {
+              "type": "array",
+              "description": "Array of Genre objects which fits the bands music"
+            },
+            "concerts": {
+              "type": "array",
+              "description": "Array of Concert objects"
+            },
+            "nrOfConcerts": {
+              "type": "number",
+              "description": "Number of concerts"
+            },
+            "rating": {
+              "type": "number",
+              "description": "Average rating of the band"
+            }
+          },
+          "example": {
+            "images": [
+              "http://localhost:3000/static/bands/red-hot-chili-peppers-1.jpg",
+              "http://localhost:3000/static/bands/red-hot-chili-peppers-2.jpg",
+              "http://localhost:3000/static/bands/red-hot-chili-peppers-3.jpg",
+              "http://localhost:3000/static/bands/red-hot-chili-peppers-4.jpg"
+            ],
+            "id": 265,
+            "name": "Red Hot Chili Peppers",
+            "foundingYear": 1983,
+            "descriptionEn": "The Red Hot Chili Peppers are an American rock band formed in Los Angeles in 1983, comprising vocalist Anthony Kiedis, bassist Flea, drummer Chad Smith, and guitarist John Frusciante. Their music incorporates elements of alternative rock, funk, punk rock, hard rock, hip hop, and psychedelic rock. Their eclectic range has influenced genres such as funk metal, rap metal, rap rock, and nu metal. With over 120 million records sold worldwide, the Red Hot Chili Peppers are one of the top-selling bands of all time.",
+            "descriptionDe": "Red Hot Chili Peppers (Abkürzung: RHCP) ist eine 1983 gegründete US-amerikanische Funk- und Alternative-Rockband. Sie zählt zu den kommerziell erfolgreichsten Vertretern des Crossover. Ihr Album Blood Sugar Sex Magik gilt als eines der bedeutendsten dieses Genres.",
+            "imageMembers": "http://localhost:3000/static/bands/red-hot-chili-peppers-members.jpg",
+            "logo": "http://localhost:3000/static/bands/red-hot-chili-peppers-logo.png",
+            "genres": [
+              {
+                "name": "Funk Rock"
+              },
+              {
+                "name": "Alternative Rock"
+              },
+              {
+                "name": "Crossover"
+              }
+            ],
+            "concerts": [
+              {
+                "id": 892,
+                "date": "2024-11-30",
+                "name": "Unlimited Love",
+                "price": 92,
+                "image": "http://localhost:3000/static/concerts/unlimited-love-tour.jpg",
+                "inStock": 170,
+                "offered": true,
+                "bandId": 265,
+                "locationId": 834
+              },
+              {
+                "id": 893,
+                "date": "2024-12-07",
+                "name": "Unlimited Love",
+                "price": 92,
+                "image": "http://localhost:3000/static/concerts/unlimited-love-tour.jpg",
+                "inStock": 170,
+                "offered": true,
+                "bandId": 265,
+                "locationId": 834
+              },
+              {
+                "id": 894,
+                "date": "2024-12-11",
+                "name": "Unlimited Love",
+                "price": 119.9,
+                "image": "http://localhost:3000/static/concerts/unlimited-love-tour.jpg",
+                "inStock": 8736,
+                "offered": true,
+                "bandId": 265,
+                "locationId": 838
+              },
+              {
+                "id": 895,
+                "date": "2024-12-18",
+                "name": "Unlimited Love",
+                "price": 114.9,
+                "image": "http://localhost:3000/static/concerts/unlimited-love-tour.jpg",
+                "inStock": 2793,
+                "offered": true,
+                "bandId": 265,
+                "locationId": 842
+              },
+              {
+                "id": 896,
+                "date": "2024-12-30",
+                "name": "Unlimited Love",
+                "price": 124.9,
+                "image": "http://localhost:3000/static/concerts/unlimited-love-tour.jpg",
+                "inStock": 3079,
+                "offered": true,
+                "bandId": 265,
+                "locationId": 845
+              }
+            ],
+            "nrOfConcerts": 5,
+            "rating": 4.428571428571429
+          }
+        }
+      }
+    }
+  },
+  "apis": [
+    "./backend/routes/*.ts"
+  ]
+}

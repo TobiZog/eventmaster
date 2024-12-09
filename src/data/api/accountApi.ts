@@ -27,7 +27,7 @@ export async function fetchAllAccounts(token: string) {
  * @returns Response from server with token body
  */
 export async function getLogin(username: string, password: string) {
-  return await axios.get(BASE_URL + "/account/login?username=" + username + "&password=" + password)
+  return await axios.get(BASE_URL + "/login?username=" + username + "&password=" + password)
 }
 
 
@@ -39,7 +39,7 @@ export async function getLogin(username: string, password: string) {
  * @returns Response from server with account body
  */
 export async function getAccount(token: string) {
-  return await axios.get(BASE_URL + "/account/data", {
+  return await axios.get(BASE_URL + "/account", {
     headers: {
       "Authorization": token
     }
@@ -77,9 +77,17 @@ export async function updateAccount(account: AccountModel, token: string) {
  * Delete an account in servers database
  * 
  * @param account Account to delete
+ * @param token Validation token
  * 
  * @returns Response from server
  */
-export async function deleteAccount(account: AccountModel) {
-  return await axios.delete(BASE_URL + "/account/" + account.id)
+export async function deleteAccount(account: AccountModel, token: string) {
+  return await axios.delete(BASE_URL + "/account", {
+    headers: {
+      "Authorization": token
+    },
+    data: {
+      account: account
+    }
+  })
 }

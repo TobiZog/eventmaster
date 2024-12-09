@@ -1,6 +1,8 @@
 import express from 'express'
 import cors from 'cors'
 import bodyParser from 'body-parser'
+import swaggerJsdoc from "swagger-jsdoc"
+import swaggerUi from "swagger-ui-express"
 import { api } from './routes/api.routes'
 import { startDatabase } from './database'
 import { order } from './routes/order.routes'
@@ -12,6 +14,7 @@ import { location } from './routes/location.routes'
 import { city } from './routes/city.routes'
 import { exercises } from './routes/exercise.routes'
 import { files } from './routes/files.routes'
+import swaggerFile from './swagger.json'
 
 const app = express()
 const port = 3000
@@ -45,6 +48,17 @@ app.use("/orders", order)
 app.use("/accounts", account)
 app.use("/cities", city)
 app.use("/concerts", concert)
+
+
+// Swagger API documentation
+const specs = swaggerJsdoc(swaggerFile);
+
+app.use(
+  "/api-docs",
+  swaggerUi.serve, 
+  swaggerUi.setup(specs, { explorer: true })
+)
+
 
 // Start server
 const server = app.listen(port, () => {

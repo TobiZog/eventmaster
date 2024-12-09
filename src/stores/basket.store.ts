@@ -100,10 +100,10 @@ export const useBasketStore = defineStore('basketStore', {
       const exerciseStore = useExerciseStore()
 
       await createOrder(
-        accountStore.userAccount.id,
         this.itemsInBasket,
         this.usedPayment.id,
-        this.usedAddress.id
+        this.usedAddress.id,
+        accountStore.userAccountToken
       )
         .then(async result => {
           if (result.status == 201) {

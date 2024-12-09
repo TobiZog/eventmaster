@@ -40,10 +40,10 @@ export const useOrderStore = defineStore("orderStore", {
      * 
      * @param user User to request orders from
      */
-    async getOrdersOfAccount(user: AccountModel) {
+    async getOrdersOfAccount(user: AccountModel, token: string) {
       this.fetchInProgress = true
 
-      fetchUserOrders(user.id)
+      fetchUserOrders(user.id, token)
         .then(res => {
           this.orders = res.data
           this.fetchInProgress = false

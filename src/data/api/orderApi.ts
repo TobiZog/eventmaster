@@ -4,15 +4,19 @@ import { OrderApiModel } from "../models/apiEndpoints/orderApiModel"
 
 const BASE_URL = "http://localhost:3000/orders"
 
-export async function fetchUserOrders(userId: number) {
-  return axios.get(BASE_URL + "/" + userId)
+export async function fetchUserOrders(userId: number, token: string) {
+  return axios.get(BASE_URL + "?id=" + userId, {
+    headers: {
+      "Authorization": token
+    }
+  })
 }
 
 export async function createOrder(
-  accountId: number, 
   basketItem: Array<BasketItemModel>,
   paymentId: number,
-  addressId: number
+  addressId: number,
+  token: string
 ) {
   let tickets = []
 
@@ -27,10 +31,13 @@ export async function createOrder(
   }
 
   return axios.post(BASE_URL, {
-    accountId: accountId,
     tickets: tickets,
     paymentId: paymentId,
-    addressId: addressId
+    addressId: addressId,
+  }, {
+    headers: {
+      "Authorization": token
+    }
   })
 }
 
