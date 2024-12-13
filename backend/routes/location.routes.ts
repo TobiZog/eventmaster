@@ -1,3 +1,9 @@
+/**
+ * @swagger
+ * tags:
+ *   name: Locations
+ *   description: API to manage the event locations
+ */
 import { Concert } from "../models/acts/concert.model";
 import { City } from "../models/locations/city.model";
 import { Location } from "../models/locations/location.model";
@@ -10,24 +16,57 @@ import { Op } from "sequelize";
 
 export const location = Router()
 
+// Response include rules
+const locationStructure = [
+  City,
+  {
+    model: Concert,
+    include: [ Band ]
+  },
+  {
+    model: SeatGroup,
+    include: [
+      {
+        model: SeatRow,
+        include: [ Seat ]
+      }
+    ]
+  }
+]
+
 /**
- * Get all available Locations
- * 
- * @query sort    Sort results ascending (asc) or descending (desc)
- * @query count   Limit number of results
+ * @swagger
+ * /locations:
+ *   get:
+ *     summary: Get all available locations
+ *     tags: [Locations]
+ *     parameters:
+ *        - in: query
+ *          name: sort
+ *          schema:
+ *            type: string
+ *          required: false
+ *          description: Sort locations by number of concerts ascending (asc) or descending (desc)
+ *        - in: query
+ *          name: count
+ *          schema:
+ *            type: number
+ *          required: false
+ *          description: Limit number of results
+ *     responses:
+ *       200:
+ *         description: OK
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/location'
  */
 location.get("/", (req: Request, res: Response) => {
   let sort = req.query.sort
   let count = req.query.count
 
   Location.findAll({
-    include: [
-      City, 
-      {
-        model: Concert,
-        include: [ Band ],
-      }
-    ],
+    include: locationStructure,
     attributes: {
       exclude: [ "cityId" ]
     }
@@ -60,29 +99,32 @@ location.get("/", (req: Request, res: Response) => {
 
 
 /**
- * Get all data about a specific location
- * 
- * @param urlName   UrlName of the band (e.g. Red Hot Chili Peppers => red-hot-chili-peppers)
+ * @swagger
+ * /locations/{urlName}:
+ *   get:
+ *     summary: Download all available informations about a specific locations
+ *     tags: [Locations]
+ *     parameters:
+ *        - in: path
+ *          name: urlName
+ *          schema:
+ *            type: string
+ *          required: true
+ *          description: Url name of the location to request for
+ *     responses:
+ *       200:
+ *         description: List of band objects
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/location'
+ *       500:
+ *         description: Internal server error
  */
 location.get("/location/:urlName", (req: Request, res: Response) => {
   Location.findOne({
     where: { urlName: req.params.urlName },
-    include: [
-      City, 
-      {
-        model: Concert,
-        include: [ Band ],
-      },
-      {
-        model: SeatGroup,
-        include: [
-          {
-            model: SeatRow,
-            include: [ Seat ]
-          }
-        ]
-      }
-    ],
+    include: locationStructure,
     attributes: {
       exclude: [ "cityId" ]
     }
@@ -105,9 +147,27 @@ location.get("/location/:urlName", (req: Request, res: Response) => {
 
 
 /**
- * Search for Locations
- * 
- * @query value     Search term to look for
+ * @swagger
+ * /locations/search:
+ *   get:
+ *     summary: Search for locations
+ *     tags: [Locations]
+ *     parameters:
+ *        - in: query
+ *          name: value
+ *          schema:
+ *            type: string
+ *          required: true
+ *          description: Search term
+ *     responses:
+ *       200:
+ *         description: List of band objects
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/location'
+ *       500:
+ *         description: Internal server error
  */
 location.get("/search", (req: Request, res: Response) => {
   Location.findAll({
@@ -128,7 +188,7 @@ location.get("/search", (req: Request, res: Response) => {
         }
       ]
     },
-    include: [ City, Concert ]
+    include: locationStructure
   })
     .then(locations => {
       res.status(200).json(locations)

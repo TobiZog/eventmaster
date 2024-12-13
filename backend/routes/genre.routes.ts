@@ -1,3 +1,9 @@
+/**
+ * @swagger
+ * tags:
+ *   name: Genres
+ *   description: API to manage the music genres
+ */
 import { Band } from "../models/acts/band.model";
 import { Genre } from "../models/acts/genre.model";
 import { Request, Response, Router } from "express";
@@ -5,7 +11,20 @@ import { Request, Response, Router } from "express";
 export const genre = Router()
 
 /**
- * Get all available Genres
+ * @swagger
+ * /genres:
+ *   get:
+ *     summary: Get all available genres
+ *     tags: [Genres]
+ *     responses:
+ *       200:
+ *         description: OK
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/genre'
+ *       500:
+ *         description: Internal Server Error
  */
 genre.get("/", (req: Request, res: Response) => {
   Genre.findAll({
@@ -19,8 +38,22 @@ genre.get("/", (req: Request, res: Response) => {
     })
 })
 
+
 /**
- * Update a Genre entry
+ * @swagger
+ * /genres:
+ *   patch:
+ *     summary: Update the dataset of a genre
+ *     tags: [Genres]
+ *     responses:
+ *       200:
+ *         description: OK
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/genre'
+ *       500:
+ *         description: Internal Server Error
  */
 genre.patch("/", (req: Request, res: Response) => {
   Genre.update(req.body, {
@@ -36,8 +69,22 @@ genre.patch("/", (req: Request, res: Response) => {
     })
 })
 
+
 /**
- * Create a new Genre entry
+ * @swagger
+ * /genres:
+ *   post:
+ *     summary: Add a new dataset of a genre
+ *     tags: [Genres]
+ *     responses:
+ *       200:
+ *         description: OK
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/genre'
+ *       500:
+ *         description: Internal Server Error
  */
 genre.post("/", (req: Request, res: Response) => {
   Genre.create(req.body)
@@ -49,8 +96,22 @@ genre.post("/", (req: Request, res: Response) => {
     })
 })
 
+
 /**
- * Delete a Genre entry
+ * @swagger
+ * /genres:
+ *   delete:
+ *     summary: Delete the dataset of a genre
+ *     tags: [Genres]
+ *     responses:
+ *       200:
+ *         description: OK
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/genre'
+ *       500:
+ *         description: Internal Server Error
  */
 genre.delete("/", (req: Request, res: Response) => {
   Genre.destroy({

@@ -68,7 +68,7 @@ export const useSearchStore = defineStore("searchStore", {
           }
 
           // Exercise 2.4
-          else if (this.searchTerm.includes("UPDATE")) {
+          else if (this.searchTerm.toUpperCase().includes("UPDATE")) {
             const accountStore = useAccountStore()
             await accountStore.refreshAccount()
 
@@ -79,7 +79,7 @@ export const useSearchStore = defineStore("searchStore", {
           }
 
           // Exercise 2.6
-          else if (this.searchTerm.includes("DELETE")) {
+          else if (this.searchTerm.toUpperCase().includes("DELETE")) {
             const bandStore = useBandStore()
             await bandStore.getBand("muse")
 
