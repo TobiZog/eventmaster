@@ -679,8 +679,7 @@
               "id": 1,
               "name": "User",
               "privilegeBuy": true,
-              "privilegeAdminPanel": false,
-              "privilegeFileAccess": null
+              "privilegeAdminPanel": false
             },
             "payments": [
               {
@@ -759,8 +758,8 @@
             }
           },
           "example": {
-            "username": "artists",
-            "password": 41
+            "name": "artists",
+            "description": 41
           }
         },
         "file": {

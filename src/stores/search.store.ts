@@ -49,7 +49,7 @@ export const useSearchStore = defineStore("searchStore", {
           
 
           // Check for exercise solution
-          if (result.data.length != 0) {
+          if (this.searchTerm.toUpperCase().includes("SELECT")) {
             // Exercise 2.1
             if (result.data[0].type != undefined && result.data[0].type == "table") {
               exerciseStore.solveExercise(2, 1)
@@ -92,6 +92,7 @@ export const useSearchStore = defineStore("searchStore", {
           }
 
           else {
+            // Normal behaviour
             this.bands = result.data
           }
         })

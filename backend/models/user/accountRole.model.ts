@@ -12,9 +12,6 @@ export class AccountRole extends Model {
   @Column
   privilegeAdminPanel: boolean
 
-  @Column
-  privilegeFileAccess: boolean
-
 
   // Relations
   @HasMany(() => Account)

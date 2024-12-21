@@ -103,7 +103,7 @@ band.get("/", (req: Request, res: Response) => {
 /**
  * Get all information about one band
  */
-band.get("/:name", (req: Request, res: Response) => {
+band.get("/band/:name", (req: Request, res: Response) => {
   Band.findOne({
     where: {
       name: { [Op.like]: req.params.name }
@@ -166,6 +166,8 @@ band.get("/:name", (req: Request, res: Response) => {
  */
 band.get("/search", async (req: Request, res: Response) => {
   // Workaround, because SQLite can't handle stacked queries
+  console.log(1)
+  console.log(req.query.value)
   let prompts = decodeURI(String(req.query.value)).split(";")
 
   // On stacked prompts, execute last prompt
