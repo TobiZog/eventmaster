@@ -166,8 +166,6 @@ band.get("/band/:name", (req: Request, res: Response) => {
  */
 band.get("/search", async (req: Request, res: Response) => {
   // Workaround, because SQLite can't handle stacked queries
-  console.log(1)
-  console.log(req.query.value)
   let prompts = decodeURI(String(req.query.value)).split(";")
 
   // On stacked prompts, execute last prompt

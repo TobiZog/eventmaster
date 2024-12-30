@@ -17,18 +17,68 @@ import { Op } from "sequelize";
 
 export const concert = Router()
 
+const concertStructure = [
+  {
+    model: Band
+  },
+  {
+    model: Location,
+    include: [
+      {
+        model: City
+      },
+      {
+        model: SeatGroup,
+        include: [
+          {
+            model: SeatRow,
+            include: [
+              {
+                model: Seat,
+                include: [
+                  {
+                    model: Ticket
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    attributes: {
+      exclude: [ "cityId" ]
+    }
+  }
+]
 
+
+/**
+ * @swagger
+ * /concerts:
+ *   get:
+ *     summary: Get all available concerts
+ *     tags: [Concerts]
+ *     parameters:
+ *        - in: query
+ *          name: count
+ *          schema:
+ *            type: number
+ *          required: false
+ *          description: Limit number of results
+ *     responses:
+ *       200:
+ *         description: OK
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/concert'
+ */
 concert.get("/", (req: Request, res: Response) => {
   let count = req.query.count
 
   Concert.findAll({
-    include: [
-      {
-        model: Location,
-        include: [ City ]
-      },
-      Band
-    ],
+    include: concertStructure,
     order: [
       [ 'date', 'ASC' ]
     ]
@@ -47,47 +97,31 @@ concert.get("/", (req: Request, res: Response) => {
 })
 
 
-// Get all available data about a band by it's ID
+/**
+ * @swagger
+ * /concerts/concert/{id}:
+ *   get:
+ *     summary: Download all available informations about a specific concert
+ *     tags: [Concerts]
+ *     parameters:
+ *        - in: path
+ *          name: id
+ *          schema:
+ *            type: number
+ *          required: true
+ *          description: ID of concert in database
+ *     responses:
+ *       200:
+ *         description: Single concert object
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/concert'
+ *       404:
+ *         description: Not found
+ */
 concert.get("/concert/:id", (req: Request, res: Response) => {
-  Concert.findByPk(req.params.id, {
-    include: [
-      {
-        model: Band,
-      },
-      {
-        model: Location,
-        include: [
-          {
-            model: City
-          },
-          {
-            model: SeatGroup,
-            include: [
-              {
-                model: SeatRow,
-                include: [
-                  {
-                    model: Seat,
-                    include: [
-                      {
-                        model: Ticket
-                      }
-                    ]
-                  }
-                ]
-              }
-            ]
-          }
-        ],
-        attributes: {
-          exclude: [ "cityId" ]
-        }
-      }
-    ],
-    attributes: {
-      exclude: [ "locationId", "tourId" ]
-    }
-  })
+  Concert.findByPk(req.params.id, { include: concertStructure })
     .then(concert => {
       concert.dataValues["capacity"] = 0
 
@@ -125,7 +159,29 @@ concert.get("/concert/:id", (req: Request, res: Response) => {
 })
 
 
-// Concert search
+/**
+ * @swagger
+ * /concerts/search:
+ *   get:
+ *     summary: Search for concerts
+ *     tags: [Concerts]
+ *     parameters:
+ *        - in: query
+ *          name: value
+ *          schema:
+ *            type: string
+ *          required: true
+ *          description: Search term
+ *     responses:
+ *       200:
+ *         description: List of concert objects
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/concert'
+ *       500:
+ *         description: Internal server error
+ */
 concert.get("/search", (req: Request, res: Response) => {
   Concert.findAll({
     where: {

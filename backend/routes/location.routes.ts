@@ -113,7 +113,7 @@ location.get("/", (req: Request, res: Response) => {
  *          description: Url name of the location to request for
  *     responses:
  *       200:
- *         description: List of band objects
+ *         description: Single of location objects
  *         content:
  *           application/json:
  *             schema:

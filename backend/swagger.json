@@ -162,291 +162,60 @@
               "description": "Bands with this genre object"
             }
           },
-          "example": {
-            "id": 849,
-            "urlName": "palladium",
-            "name": "Palladium",
-            "address": "Schanzenstraße 40",
-            "imageIndoor": "http://localhost:3000/static/locations/palladium-indoor.jpg",
-            "imageOutdoor": "http://localhost:3000/static/locations/palladium-outdoor.jpg",
-            "layout": 1,
-            "capacity": 50,
-            "city": {
-              "id": 250,
-              "name": "Köln",
-              "country": "Germany"
-            },
-            "seatGroups": [
-              {
-                "id": 3949,
-                "name": "A",
-                "surcharge": 30,
-                "capacity": 50,
-                "standingArea": true,
-                "locationId": 849,
-                "seatRows": [
-                  {
-                    "id": 14999,
-                    "row": 0,
-                    "seatGroupId": 3949,
-                    "seats": [
-                      {
-                        "id": 108411,
-                        "seatNr": 1,
-                        "seatRowId": 14999
-                      },
-                      {
-                        "id": 108412,
-                        "seatNr": 2,
-                        "seatRowId": 14999
-                      },
-                      {
-                        "id": 108413,
-                        "seatNr": 3,
-                        "seatRowId": 14999
-                      },
-                      {
-                        "id": 108414,
-                        "seatNr": 4,
-                        "seatRowId": 14999
-                      },
-                      {
-                        "id": 108415,
-                        "seatNr": 5,
-                        "seatRowId": 14999
-                      },
-                      {
-                        "id": 108416,
-                        "seatNr": 6,
-                        "seatRowId": 14999
-                      },
-                      {
-                        "id": 108417,
-                        "seatNr": 7,
-                        "seatRowId": 14999
-                      },
-                      {
-                        "id": 108418,
-                        "seatNr": 8,
-                        "seatRowId": 14999
-                      },
-                      {
-                        "id": 108419,
-                        "seatNr": 9,
-                        "seatRowId": 14999
-                      },
-                      {
-                        "id": 108420,
-                        "seatNr": 10,
-                        "seatRowId": 14999
-                      },
-                      {
-                        "id": 108421,
-                        "seatNr": 11,
-                        "seatRowId": 14999
-                      },
-                      {
-                        "id": 108422,
-                        "seatNr": 12,
-                        "seatRowId": 14999
-                      },
-                      {
-                        "id": 108423,
-                        "seatNr": 13,
-                        "seatRowId": 14999
-                      },
-                      {
-                        "id": 108424,
-                        "seatNr": 14,
-                        "seatRowId": 14999
-                      },
-                      {
-                        "id": 108425,
-                        "seatNr": 15,
-                        "seatRowId": 14999
-                      },
-                      {
-                        "id": 108426,
-                        "seatNr": 16,
-                        "seatRowId": 14999
-                      },
-                      {
-                        "id": 108427,
-                        "seatNr": 17,
-                        "seatRowId": 14999
-                      },
-                      {
-                        "id": 108428,
-                        "seatNr": 18,
-                        "seatRowId": 14999
-                      },
-                      {
-                        "id": 108429,
-                        "seatNr": 19,
-                        "seatRowId": 14999
-                      },
-                      {
-                        "id": 108430,
-                        "seatNr": 20,
-                        "seatRowId": 14999
-                      },
-                      {
-                        "id": 108431,
-                        "seatNr": 21,
-                        "seatRowId": 14999
-                      },
-                      {
-                        "id": 108432,
-                        "seatNr": 22,
-                        "seatRowId": 14999
-                      },
-                      {
-                        "id": 108433,
-                        "seatNr": 23,
-                        "seatRowId": 14999
-                      },
-                      {
-                        "id": 108434,
-                        "seatNr": 24,
-                        "seatRowId": 14999
-                      },
-                      {
-                        "id": 108435,
-                        "seatNr": 25,
-                        "seatRowId": 14999
-                      },
-                      {
-                        "id": 108436,
-                        "seatNr": 26,
-                        "seatRowId": 14999
-                      },
-                      {
-                        "id": 108437,
-                        "seatNr": 27,
-                        "seatRowId": 14999
-                      },
-                      {
-                        "id": 108438,
-                        "seatNr": 28,
-                        "seatRowId": 14999
-                      },
-                      {
-                        "id": 108439,
-                        "seatNr": 29,
-                        "seatRowId": 14999
-                      },
-                      {
-                        "id": 108440,
-                        "seatNr": 30,
-                        "seatRowId": 14999
-                      },
-                      {
-                        "id": 108441,
-                        "seatNr": 31,
-                        "seatRowId": 14999
-                      },
-                      {
-                        "id": 108442,
-                        "seatNr": 32,
-                        "seatRowId": 14999
-                      },
-                      {
-                        "id": 108443,
-                        "seatNr": 33,
-                        "seatRowId": 14999
-                      },
-                      {
-                        "id": 108444,
-                        "seatNr": 34,
-                        "seatRowId": 14999
-                      },
-                      {
-                        "id": 108445,
-                        "seatNr": 35,
-                        "seatRowId": 14999
-                      },
-                      {
-                        "id": 108446,
-                        "seatNr": 36,
-                        "seatRowId": 14999
-                      },
-                      {
-                        "id": 108447,
-                        "seatNr": 37,
-                        "seatRowId": 14999
-                      },
-                      {
-                        "id": 108448,
-                        "seatNr": 38,
-                        "seatRowId": 14999
-                      },
-                      {
-                        "id": 108449,
-                        "seatNr": 39,
-                        "seatRowId": 14999
-                      },
-                      {
-                        "id": 108450,
-                        "seatNr": 40,
-                        "seatRowId": 14999
-                      },
-                      {
-                        "id": 108451,
-                        "seatNr": 41,
-                        "seatRowId": 14999
-                      },
-                      {
-                        "id": 108452,
-                        "seatNr": 42,
-                        "seatRowId": 14999
-                      },
-                      {
-                        "id": 108453,
-                        "seatNr": 43,
-                        "seatRowId": 14999
-                      },
-                      {
-                        "id": 108454,
-                        "seatNr": 44,
-                        "seatRowId": 14999
-                      },
-                      {
-                        "id": 108455,
-                        "seatNr": 45,
-                        "seatRowId": 14999
-                      },
-                      {
-                        "id": 108456,
-                        "seatNr": 46,
-                        "seatRowId": 14999
-                      },
-                      {
-                        "id": 108457,
-                        "seatNr": 47,
-                        "seatRowId": 14999
-                      },
-                      {
-                        "id": 108458,
-                        "seatNr": 48,
-                        "seatRowId": 14999
-                      },
-                      {
-                        "id": 108459,
-                        "seatNr": 49,
-                        "seatRowId": 14999
-                      },
-                      {
-                        "id": 108460,
-                        "seatNr": 50,
-                        "seatRowId": 14999
-                      }
-                    ]
+          "example": [
+            {
+              "id": 562,
+              "name": "Funk Rock",
+              "bands": [
+                {
+                  "images": [
+                    "http://localhost:3000/static/bands/red-hot-chili-peppers-1.jpg",
+                    "http://localhost:3000/static/bands/red-hot-chili-peppers-2.jpg",
+                    "http://localhost:3000/static/bands/red-hot-chili-peppers-3.jpg",
+                    "http://localhost:3000/static/bands/red-hot-chili-peppers-4.jpg"
+                  ],
+                  "id": 265,
+                  "name": "Red Hot Chili Peppers",
+                  "foundingYear": 1983,
+                  "descriptionEn": "The Red Hot Chili Peppers are an American rock band formed in Los Angeles in 1983, comprising vocalist Anthony Kiedis, bassist Flea, drummer Chad Smith, and guitarist John Frusciante. Their music incorporates elements of alternative rock, funk, punk rock, hard rock, hip hop, and psychedelic rock. Their eclectic range has influenced genres such as funk metal, rap metal, rap rock, and nu metal. With over 120 million records sold worldwide, the Red Hot Chili Peppers are one of the top-selling bands of all time.",
+                  "descriptionDe": "Red Hot Chili Peppers (Abkürzung: RHCP) ist eine 1983 gegründete US-amerikanische Funk- und Alternative-Rockband. Sie zählt zu den kommerziell erfolgreichsten Vertretern des Crossover. Ihr Album Blood Sugar Sex Magik gilt als eines der bedeutendsten dieses Genres.",
+                  "imageMembers": "http://localhost:3000/static/bands/red-hot-chili-peppers-members.jpg",
+                  "logo": "http://localhost:3000/static/bands/red-hot-chili-peppers-logo.png",
+                  "BandGenre": {
+                    "id": 793,
+                    "genreId": 562,
+                    "bandId": 265
                   }
-                ]
-              }
-            ],
-            "nrOfConcerts": 0
-          }
+                }
+              ]
+            },
+            {
+              "id": 563,
+              "name": "Alternative Rock",
+              "bands": [
+                {
+                  "images": [
+                    "http://localhost:3000/static/bands/red-hot-chili-peppers-1.jpg",
+                    "http://localhost:3000/static/bands/red-hot-chili-peppers-2.jpg",
+                    "http://localhost:3000/static/bands/red-hot-chili-peppers-3.jpg",
+                    "http://localhost:3000/static/bands/red-hot-chili-peppers-4.jpg"
+                  ],
+                  "id": 265,
+                  "name": "Red Hot Chili Peppers",
+                  "foundingYear": 1983,
+                  "descriptionEn": "The Red Hot Chili Peppers are an American rock band formed in Los Angeles in 1983, comprising vocalist Anthony Kiedis, bassist Flea, drummer Chad Smith, and guitarist John Frusciante. Their music incorporates elements of alternative rock, funk, punk rock, hard rock, hip hop, and psychedelic rock. Their eclectic range has influenced genres such as funk metal, rap metal, rap rock, and nu metal. With over 120 million records sold worldwide, the Red Hot Chili Peppers are one of the top-selling bands of all time.",
+                  "descriptionDe": "Red Hot Chili Peppers (Abkürzung: RHCP) ist eine 1983 gegründete US-amerikanische Funk- und Alternative-Rockband. Sie zählt zu den kommerziell erfolgreichsten Vertretern des Crossover. Ihr Album Blood Sugar Sex Magik gilt als eines der bedeutendsten dieses Genres.",
+                  "imageMembers": "http://localhost:3000/static/bands/red-hot-chili-peppers-members.jpg",
+                  "logo": "http://localhost:3000/static/bands/red-hot-chili-peppers-logo.png",
+                  "BandGenre": {
+                    "id": 794,
+                    "genreId": 563,
+                    "bandId": 265
+                  }
+                }
+              ]
+            }
+          ]
         },
         "location": {
           "type": "object",
@@ -798,6 +567,91 @@
               "url": "https://upload.wikimedia.org/wikipedia/commons/9/95/Alex_Turner%2C_Way_Out_West_2018.jpg"
             }
           }
+        },
+        "concert": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "number",
+              "description": "The auto-generated id"
+            },
+            "date": {
+              "type": "string",
+              "description": "Date of the concert"
+            },
+            "name": {
+              "type": "string",
+              "description": "Name of concert"
+            },
+            "price": {
+              "type": "string",
+              "description": "Lowest price of concert"
+            },
+            "image": {
+              "type": "number",
+              "description": "Concert image"
+            },
+            "inStock": {
+              "type": "string",
+              "description": "Amount of available tickets"
+            },
+            "offered": {
+              "type": "string",
+              "description": "Display concert in UI"
+            },
+            "band": {
+              "type": "object",
+              "description": "Band object"
+            },
+            "location": {
+              "type": "object",
+              "description": "Location object"
+            }
+          },
+          "example": [
+            {
+              "id": 892,
+              "date": "2024-11-30",
+              "name": "Unlimited Love",
+              "price": 92,
+              "image": "http://localhost:3000/static/concerts/unlimited-love-tour.jpg",
+              "inStock": 169,
+              "offered": true,
+              "bandId": 265,
+              "locationId": 834,
+              "band": {
+                "images": [
+                  "http://localhost:3000/static/bands/red-hot-chili-peppers-1.jpg",
+                  "http://localhost:3000/static/bands/red-hot-chili-peppers-2.jpg",
+                  "http://localhost:3000/static/bands/red-hot-chili-peppers-3.jpg",
+                  "http://localhost:3000/static/bands/red-hot-chili-peppers-4.jpg"
+                ],
+                "id": 265,
+                "name": "Red Hot Chili Peppers",
+                "foundingYear": 1983,
+                "descriptionEn": "The Red Hot Chili Peppers are an American rock band formed in Los Angeles in 1983, comprising vocalist Anthony Kiedis, bassist Flea, drummer Chad Smith, and guitarist John Frusciante. Their music incorporates elements of alternative rock, funk, punk rock, hard rock, hip hop, and psychedelic rock. Their eclectic range has influenced genres such as funk metal, rap metal, rap rock, and nu metal. With over 120 million records sold worldwide, the Red Hot Chili Peppers are one of the top-selling bands of all time.",
+                "descriptionDe": "Red Hot Chili Peppers (Abkürzung: RHCP) ist eine 1983 gegründete US-amerikanische Funk- und Alternative-Rockband. Sie zählt zu den kommerziell erfolgreichsten Vertretern des Crossover. Ihr Album Blood Sugar Sex Magik gilt als eines der bedeutendsten dieses Genres.",
+                "imageMembers": "http://localhost:3000/static/bands/red-hot-chili-peppers-members.jpg",
+                "logo": "http://localhost:3000/static/bands/red-hot-chili-peppers-logo.png"
+              },
+              "location": {
+                "id": 834,
+                "urlName": "swiss-life-hall",
+                "name": "Swiss Life Hall",
+                "address": "Ferdinand-Wilhelm-Fricke-Weg 8",
+                "imageIndoor": "http://localhost:3000/static/locations/swiss-life-hall-indoor.jpg",
+                "imageOutdoor": "http://localhost:3000/static/locations/swiss-life-hall-outdoor.jpg",
+                "layout": 2,
+                "capacity": 180,
+                "city": {
+                  "id": 246,
+                  "name": "Hannover",
+                  "country": "Germany"
+                },
+                "seatGroups": []
+              }
+            }
+          ]
         },
         "band": {
           "type": "object",

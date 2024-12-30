@@ -129,8 +129,6 @@ order.get("/", verifyToken, (req: Request, res: Response) => {
 order.post("/", verifyToken, (req: Request, res: Response) => {
   req.body["accountId"] = req["id"]
 
-  console.log(req.body)
-
   Order.create(req.body)
     .then(async order => {
       for (let ticket of req.body.tickets) {
@@ -158,6 +156,30 @@ order.post("/", verifyToken, (req: Request, res: Response) => {
     })
 })
 
+
+/**
+ * @swagger
+ * /orders:
+ *   patch:
+ *     summary: Update an order
+ *     tags: [Orders]
+ *     parameters:
+ *        - in: body
+ *          name: order
+ *          schema:
+ *            type: object
+ *          required: true
+ *          description: Updated order object
+ *     responses:
+ *       200:
+ *         description: OK
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/order'
+ *       500:
+ *         description: Internal server error
+ */
 order.patch("/", (req: Request, res: Response) => {
   Order.update(req.body, {
     where: {
