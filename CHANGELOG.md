@@ -1,3 +1,30 @@
+# v.0.3.0 (Release Candidate 1)
+## 🚀 Features
+- Swagger Documentation
+
+## 🐛 Bugfixes
+- Bugfix on search page for Band datasets
+
+# v.0.2.0 (Beta)
+## 🚀 Features
+- Adding "Test Environment" banner in the bottom right corner
+- License handling system
+- New SQL-Injection exercise 2.1
+- Solution code based on Matrikelnummer and number of completed exercises
+
+## 🌟 Enhancements
+- Improve exercise solution of 2.1, 2.2, 2.3, 2.4 and 2.6
+- Light mode improvements
+- Global color schema
+- More feedback through notifications
+- More hints on text fields
+- Redesign account pages, split payments and addresses, new dashboard
+
+## 🐛 Bugfixes
+- More server stability
+- Bugfix file manager in Electron application
+
+
 # v.0.1.0 (Alpha)
 ## 🚀 Features
 - Frontend

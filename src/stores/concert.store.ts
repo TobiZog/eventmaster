@@ -95,13 +95,5 @@ export const useConcertStore = defineStore("concertStore", {
       this.concert = new ConcertDetailsApiModel()
       this.showEditDialog = true
     },
-
-    editConcert(concert: ConcertModel) {
-      // todo
-    },
-
-    async deleteConcert(item: ConcertModel) {
-      // todo
-    }
   }
 })
