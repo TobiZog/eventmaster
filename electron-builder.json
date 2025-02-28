@@ -19,7 +19,7 @@
     "icon": "public/logo-small.png"
   },
   "linux":  {
-    "target": ["deb"],
+    "target": ["deb", "rpm"],
     "maintainer": "Tobias Zoghaib",
     "icon": "public/logo-small.png",
     "category": "Education"
@@ -35,6 +35,9 @@
     "!release",
     "!src",
     "!dist",
-    "!out"
+    "!out",
+    "!misc",
+    "!database.sqlite",
+    "!node_modules"
   ]
 }

@@ -1,11 +1,12 @@
-# v.0.3.0 (Release Candidate 1)
+# v.0.3.0 (2025-02-28)
 ## 🚀 Features
 - Swagger Documentation
+- RPM Image
 
 ## 🐛 Bugfixes
 - Bugfix on search page for Band datasets
 
-# v.0.2.0 (Beta)
+# v.0.2.0 (2024-12-05)
 ## 🚀 Features
 - Adding "Test Environment" banner in the bottom right corner
 - License handling system
@@ -24,8 +25,7 @@
 - More server stability
 - Bugfix file manager in Electron application
 
-
-# v.0.1.0 (Alpha)
+# v.0.1.0 (2024-11-21)
 ## 🚀 Features
 - Frontend
   - VueJS frontend framework with Vuetify UI library
