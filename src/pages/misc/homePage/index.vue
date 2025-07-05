@@ -5,7 +5,7 @@ import bandSection from './bandsSection.vue';
 import UpcomingConcertsSection from './upcomingConcertsSection.vue';
 import TopLocationsSection from './topLocationsSection.vue';
 import { usePreferencesStore } from '@/stores/preferences.store';
-import welcomeDialog from './welcomeDialog.vue';
+import welcomeDialog from './welcomeDialog/dialog.vue';
 import { ref } from 'vue';
 
 const concertStore = useConcertStore()
@@ -17,8 +17,8 @@ concertStore.getUpcomingConcerts()
 locationStore.getTopLocations()
 
 // First startup
+showWelcomeDialog.value = true
 if (preferencesStore.firstStartup) {
-  showWelcomeDialog.value = true
 }
 </script>
 

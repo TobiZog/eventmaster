@@ -229,6 +229,7 @@
       "cancel": "Cancel",
       "more": "More",
       "confirm": "Confirm",
+      "back": "Back",
       "next": "Next"
     },
     "validation": {
@@ -245,14 +246,13 @@
     "firstStartup": {
       "title": "First startup",
       "description": "Creating database. Please wait...",
-      "createDatabase": "Create Database...",
+      "createDatabase": "Create Database",
       "complete": "Complete",
-      "createExercises": "Create Exercises...",
-      "finished": "Finished",
       "connectToServer": "Server",
       "database": "Database",
       "exercises": "Exercises",
       "userData": "User data",
+      "lookAndFeel": "Look and feel",
       "enterYourPersonalData": "Please enter your name and your Matrikel number from your university. Check it twice! You can't change it later without loosing your exercise progress!"
     },
     "user": "About person",

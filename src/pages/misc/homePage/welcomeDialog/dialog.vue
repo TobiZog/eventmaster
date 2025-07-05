@@ -1,43 +1,36 @@
 <script setup lang="ts">
 import actionDialog from '@/components/basics/actionDialog.vue';
 import outlinedButton from '@/components/basics/outlinedButton.vue';
-import ServerStateText from '@/components/pageParts/serverStateText.vue';
-import { getRegisterNumberRules, getStringRules } from '@/scripts/validationRules';
 import { useFeedbackStore } from '@/stores/feedback.store';
 import { usePreferencesStore } from '@/stores/preferences.store';
 import { ref, watch } from 'vue';
+import step1 from './step1.vue';
+import step2 from './step2.vue';
+import step3 from './step3.vue';
+import step4 from './step4.vue';
 
 const preferencesStore = usePreferencesStore()
 const feedbackStore = useFeedbackStore()
 const showDialog = defineModel()
-const currentStep = ref(0)
+const currentStep = ref(1)
+const databaseCreated = ref(false)
 
 const steps = [
   feedbackStore.i18n.t('misc.firstStartup.connectToServer'),
+  feedbackStore.i18n.t('misc.firstStartup.lookAndFeel'),
   feedbackStore.i18n.t('misc.firstStartup.database'),
-  feedbackStore.i18n.t('misc.firstStartup.exercises'),
   feedbackStore.i18n.t('misc.firstStartup.userData'),
 ]
 
 preferencesStore.getServerState()
 
 
-watch(() => currentStep.value, () => {
-  switch(currentStep.value) {
-    case 2: {
-      preferencesStore.resetDb();
-      break;
-    }
+watch(() => currentStep.value, async () => {
+  if (currentStep.value == 3 && !databaseCreated.value) {
+    await preferencesStore.resetDb();
+    await preferencesStore.resetExerciseProg();
 
-    case 3: {
-      preferencesStore.resetExerciseProg();
-      break;
-    }
-
-    case 4: {
-      
-      break;
-    }
+    databaseCreated.value = true;
   }
 })
 </script>
@@ -77,83 +70,31 @@ watch(() => currentStep.value, () => {
           <!-- Step 1: Check connection to backend server -->
           <v-stepper-window-item
             :value="1"
-            class="text-h4 text-center"
           >
-            <div>
-              {{ $t('preferences.serverState') + ':' }}
-            </div>
-
-            <server-state-text />
+            <step1 />
           </v-stepper-window-item>
 
-          <!-- Step 2: Reset the database -->
+
+          <!-- Step 2: Select theme and language -->
           <v-stepper-window-item
             :value="2"
+            
           >
-            <div v-if="preferencesStore.fetchInProgress" class="text-center text-h4 pb-4">
-              <div class="pb-4">
-                {{ $t('misc.firstStartup.createDatabase') }}
-              </div>
-
-              <v-progress-linear indeterminate />
-            </div>
-
-            <div v-else class="text-center text-h4 pb-4 text-green">
-              <v-icon icon="mdi-check" /> {{ $t('misc.firstStartup.finished') }}
-            </div>
+            <step2 />
           </v-stepper-window-item>
 
-          <!-- Step 3: Create exercises -->
+          <!-- Step 3: Reset the database -->
           <v-stepper-window-item
             :value="3"
           >
-            <div v-if="preferencesStore.fetchInProgress" class="text-center text-h4 pb-4">
-              <div class="pb-4">
-                {{ $t('misc.firstStartup.createExercises') }}
-              </div>
-              
-              <v-progress-linear indeterminate />
-            </div>
-
-            <div v-else class="text-center text-h4 pb-4 text-green">
-              <v-icon icon="mdi-check" /> {{ $t('misc.firstStartup.finished') }}
-            </div>
+            <step3 />
           </v-stepper-window-item>
 
           <!-- Step 4: Personal data -->
           <v-stepper-window-item
             :value="4"
           >
-            <v-container class="px-0 py-2">
-              <v-row>
-                <v-col>
-                  <v-alert color="warning" icon="mdi-alert">
-                    {{ $t('misc.firstStartup.enterYourPersonalData') }}
-                  </v-alert>
-                </v-col>
-              </v-row>
-              <v-row>
-                <v-col>
-                  <v-text-field
-                    variant="outlined"
-                    :label="$t('misc.yourFullName')"
-                    v-model="preferencesStore.studentName"
-                    :rules="getStringRules(4)"
-                  />
-                </v-col>
-              </v-row>
-
-              <v-row>
-                <v-col>
-                  <v-text-field
-                    variant="outlined"
-                    :label="$t('misc.registrationNumber')"
-                    v-model="preferencesStore.registrationNumber"
-                    :rules="getRegisterNumberRules()"
-                  />
-                </v-col>
-              </v-row>
-            </v-container>
+            <step4 />
           </v-stepper-window-item>
         </v-stepper-window>
 
@@ -161,16 +102,25 @@ watch(() => currentStep.value, () => {
         <!-- Next/Previous buttons -->
         <v-stepper-actions
           @click:next="next"
+          @click:prev="prev"
         >
           <template #prev="{ props }">
-            <v-spacer />
+            <outlined-button
+              @click="props.onClick()"
+              :disabled="currentStep == 1 || preferencesStore.fetchInProgress"
+              color="grey"
+              prepend-icon="mdi-arrow-left"
+            >
+              {{ $t('misc.actions.back') }}
+            </outlined-button>
           </template>
 
           <template #next="{ props }">
             <outlined-button
-              v-if="currentStep < 4"
+              v-if="currentStep < steps.length"
               @click="props.onClick()"
               :disabled="preferencesStore.fetchInProgress"
+              append-icon="mdi-arrow-right"
             >
               {{ $t('misc.actions.next') }}
             </outlined-button>
@@ -180,7 +130,7 @@ watch(() => currentStep.value, () => {
               @click="showDialog = false; preferencesStore.firstStartup = false"
               :disabled="preferencesStore.studentName.length < 5 || 
                 preferencesStore.registrationNumber.length < 8"
-              prepend-icon="mdi-check"
+              append-icon="mdi-check"
               color="success"
             >
               {{ $t('misc.firstStartup.complete') }}
