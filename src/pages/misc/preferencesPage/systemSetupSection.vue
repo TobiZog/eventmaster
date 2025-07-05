@@ -21,7 +21,7 @@ preferenceStore.getServerState()
     <template #borderless>
       <v-list>
         <v-list-item class="text-h6 text-center">
-          {{ $t('preferences.serverState') }}: <server-state-text />
+          {{ $t('preferences.serverState') + ':' }} <server-state-text />
         </v-list-item>
 
         <v-list-item class="text-center">

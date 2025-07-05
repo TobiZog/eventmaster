@@ -43,7 +43,7 @@ const showOrderingDialog = ref()
           </template>
 
           <v-card-text class="text-right text-h5" v-if="basketStore.itemsInBasket.length > 0">
-            {{ $t('misc.totalPrice') }}: {{ (basketStore.getTotalPrice).toFixed(2) }} €
+            {{ $t('misc.totalPrice') }}: {{ (basketStore.getTotalPrice).toFixed(2) + '€' }}
           </v-card-text>
           
 

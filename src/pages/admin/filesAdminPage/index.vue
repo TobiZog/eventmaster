@@ -67,7 +67,7 @@ filesStore.getStaticFolders()
               v-if="filesStore.selectedFile != undefined && filesStore.selectedFile.name.endsWith('js')"
               :model-value="filesStore.selectedFile.content"
               variant="outlined"
-              label="Content"
+              :label="$t('misc.content')"
               height="300"
               rows="30"
             />
@@ -104,7 +104,7 @@ filesStore.getStaticFolders()
                   prepend-icon="mdi-web"
                   v-if="filesStore.selectedFile.copyright.url.length > 0"
                 >
-                  <a :href="filesStore.selectedFile.copyright.url" target="_blank" >Quelle</a>
+                  <a :href="filesStore.selectedFile.copyright.url" target="_blank" >{{ $t('misc.source') }}</a>
                 </v-list-item>
               </template>
             </v-list>

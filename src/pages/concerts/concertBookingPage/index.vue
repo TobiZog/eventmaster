@@ -72,7 +72,7 @@ watch(() => router.currentRoute.value.params.date, () => {
             <circular-progress-indeterminate />
 
             <div class="pt-5 text-h3">
-              {{ $t('misc.loading') }}...
+              {{ $t('misc.loading') }}
             </div>
           </v-col>
 

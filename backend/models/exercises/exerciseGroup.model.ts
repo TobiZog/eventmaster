@@ -10,6 +10,9 @@ export class ExerciseGroup extends Model {
   nameEn: string
 
   @Column
+  icon: string
+
+  @Column
   groupNr: number
 
   @Column

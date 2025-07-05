@@ -12,7 +12,7 @@ const headers = [
   { title: feedbackStore.i18n.t('account.userData.houseNumber'), value: "houseNumber" },
   { title: feedbackStore.i18n.t('account.userData.postalCode'), value: "postalCode" },
   { title: feedbackStore.i18n.t('account.userData.placeOfResidence'), value: "city" },
-  { title: "Aktionen", value: "actions", width: 130 }
+  { title: feedbackStore.i18n.t('account.userData.actions'), value: "actions", width: 130 }
 ]
 
 accountStore.refreshAccount()

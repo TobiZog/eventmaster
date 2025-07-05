@@ -3,17 +3,19 @@ import dataLayout from '@/layouts/dataLayout.vue';
 import { useOrderStore } from '@/stores/order.store';
 import moment from 'moment';
 import OrderDetailDialog from './orderDetailDialog.vue';
+import { useFeedbackStore } from '@/stores/feedback.store';
 
 const orderStore = useOrderStore()
+const feedbackStore = useFeedbackStore()
 
 const headers = [
-  { title: "Account", value: "account.username" },
-  { title: "Name", value: "account" },
-  { title: "Bestellt am", value: "orderedAt" },
-  { title: "Adresse", value: "street" },
-  { title: "Stadt", value: "city" },
-  { title: "Versendet", value: "shipped" },
-  { title: "Aktionen", value: "edit", width: 130 }
+  { title: feedbackStore.i18n.t('account.userData.username'), value: "account.username" },
+  { title: feedbackStore.i18n.t('account.userData.firstName'), value: "account" },
+  { title: feedbackStore.i18n.t('order.orderedAt'), value: "orderedAt" },
+  { title: feedbackStore.i18n.t('account.userData.address'), value: "street" },
+  { title: feedbackStore.i18n.t('account.userData.placeOfResidence'), value: "city" },
+  { title: feedbackStore.i18n.t('order.orderState'), value: "shipped" },
+  { title: "", value: "edit", width: 130 }
 ]
 
 orderStore.getAllOrders()

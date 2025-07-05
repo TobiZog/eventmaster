@@ -97,7 +97,8 @@
       "postalCode": "Postleitzahl",
       "placeOfResidence": "Wohnort",
       "bankName": "Name der Bank",
-      "iban": "IBAN"
+      "iban": "IBAN",
+      "actions": "Aktionen"
     },
     "deleteAccount": {
       "deleteAccount": "Account löschen",
@@ -130,7 +131,8 @@
     "noOrdersText": "Bisher wurden keine Bestellungen von diesem Account getätigt. Gehe zum Warenkorb und bestelle!",
     "ordersDescription": "Übersicht aller getätigten Bestellungen",
     "order": "Bestellung | Bestellungen",
-    "notShipped": "noch nicht versendet"
+    "notShipped": "noch nicht versendet",
+    "orderState": "Bestellstatus"
   },
   "basket": {
     "addToBasket": "Zum Warenkorb hinzufügen",
@@ -171,7 +173,9 @@
   "help": {
     "scoreBoard": {
       "exerciseGroupNr": "Aufgabengruppe {0}: ",
-      "exerciseNr": "Aufgabe {0}.{1}: "
+      "exerciseNr": "Aufgabe {0}.{1}: ",
+      "generatePdf": "PDF generieren",
+      "personalSolutionKey": "Persönlicher Lösungsschlüssel"
     }
   },
   "bannerMessages": {
@@ -264,7 +268,15 @@
         "headline": "So leer hier..."
       },
       "searchterm": "Suchbegriff"
-    }
+    },
+    "submit": "Absenden",
+    "content": "Inhalt",
+    "source": "Quelle",
+    "softwareVersion": "Software Version",
+    "license": "Lizenz",
+    "developer": "Entwickler",
+    "developedFor": "Entwickelt im Auftrag",
+    "copyright": "Copyright"
   },
   "genre": {
     "withoutBand": "ohne Band"

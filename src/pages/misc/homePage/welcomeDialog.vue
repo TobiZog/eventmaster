@@ -80,7 +80,7 @@ watch(() => currentStep.value, () => {
             class="text-h4 text-center"
           >
             <div>
-              {{ $t('preferences.serverState') }}:
+              {{ $t('preferences.serverState') + ':' }}
             </div>
 
             <server-state-text />

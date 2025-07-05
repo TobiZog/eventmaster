@@ -97,7 +97,8 @@
       "postalCode": "Postal code",
       "placeOfResidence": "Place of residence",
       "bankName": "Name of bank",
-      "iban": "IBAN"
+      "iban": "IBAN",
+      "actions": "Actions"
     },
     "deleteAccount": {
       "deleteAccount": "Delete Account",
@@ -127,10 +128,11 @@
     "takeOrder": "Execute order",
     "noOrders": "No orders found",
     "orderedAt": "Ordered at",
-    "noOrdersText": "Bisher wurden keine Bestellungen von diesem Account getätigt. Gehe zum Warenkorb und bestelle!",
+    "noOrdersText": "No orders have been placed with this account yet. Go to your shopping cart and place your order!",
     "ordersDescription": "Overview of all placed orders",
     "order": "Order | Orders",
-    "notShipped": "don't shipped"
+    "notShipped": "don't shipped",
+    "orderState": "Order state"
   },
   "basket": {
     "addToBasket": "Add to basket",
@@ -171,7 +173,9 @@
   "help": {
     "scoreBoard": {
       "exerciseGroupNr": "Exercise Group {0}: ",
-      "exerciseNr": "Exercise {0}.{1}: "
+      "exerciseNr": "Exercise {0}.{1}: ",
+      "generatePdf": "Generate PDF",
+      "personalSolutionKey": "Personal solution key"
     }
   },
   "bannerMessages": {
@@ -264,7 +268,15 @@
         "headline": "So empty here..."
       },
       "searchterm": "Search term"
-    }
+    },
+    "submit": "Submit",
+    "content": "Content",
+    "source": "Source",
+    "softwareVersion": "Software Version",
+    "license": "License",
+    "developer": "Developer",
+    "developedFor": "Developed for",
+    "copyright": "Copyright"
   },
   "genre": {
     "withoutBand": "without Band"

@@ -46,7 +46,7 @@ const test = ref()
         </v-row>
       </v-container>
 
-      <v-btn type="submit">Submit</v-btn>
+      <v-btn type="submit">{{ $t('misc.submit') }}</v-btn>
     </v-form>
 
     <template #actions>

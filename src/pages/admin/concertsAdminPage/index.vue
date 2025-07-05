@@ -40,7 +40,7 @@ concertStore.getConcerts()
       </template>
 
       <template #item.price="{ item }">
-        {{ item.price.toFixed(2) }} €
+        {{ item.price.toFixed(2) + '€' }}
       </template>
 
       <template #item.image="{ item }">

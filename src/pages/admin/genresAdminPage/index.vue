@@ -2,12 +2,14 @@
 import dataLayout from '@/layouts/dataLayout.vue';
 import genreEditDialog from './genreEditDialog.vue';
 import { useGenreStore } from '@/stores/genre.store';
+import { useFeedbackStore } from '@/stores/feedback.store';
 
 const genreStore = useGenreStore()
+const feedbackStore = useFeedbackStore()
 
 const headers = [
-  { title: "Name", value: "name" },
-  { title: "Bands", value: "bands" },
+  { title: feedbackStore.i18n.t('band.genre'), value: "name" },
+  { title: feedbackStore.i18n.t('band.name'), value: "bands" },
   { title: "", value: "edit", width: 130 }
 ]
 

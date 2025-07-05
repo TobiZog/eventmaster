@@ -3,83 +3,86 @@
     {
       "nameDe": "Den Shop kennenlernen",
       "nameEn": "Getting to know the shop",
+      "icon": "mdi-human-greeting",
       "groupNr": 0,
       "descriptionDe": "Vor einem Angriff ist es wichtig zu verstehen, wie die Webseite aufgebaut ist. Wie sind die URLs strukturiert? Wo befinden sich Eingabefelder welche im Backend eine SQL Abfrage stellen?",
-      "descriptionEn": "todo",
+      "descriptionEn": "Before an attack, it's important to understand how the website is structured. How are the URLs structured? Where are input fields located that execute SQL queries in the backend?",
       "exercises": [
         {
           "nameDe": "Registrieren",
           "nameEn": "Register",
           "exerciseNr": 1,
           "descriptionDe": "Wir richten uns einen gewöhnlichen Account auf der Plattform ein. Navigiere hierzu auf die Account-Seite und registriere dich.",
-          "descriptionEn": "Create a new account in the online shop"
+          "descriptionEn": "We'll set up a regular account on the platform. To do this, navigate to the account page and register."
         },
         {
           "nameDe": "Profil vervollständigen",
           "nameEn": "Complete profile",
           "exerciseNr": 2,
           "descriptionDe": "Bestellungen sind erst möglich, wenn das Account-Profil vervollständigt ist. Logge dich ein, navigiere zu den Account-Einstellungen, fülle den Namen aus und füge je eine Adresse und Bezahlart hinzu. Speichere alles zum Schluss ab.",
-          "descriptionEn": "Search for an event of choice and buy a ticket for"
+          "descriptionEn": "Orders are only possible once your account profile is complete. Log in, navigate to your account settings, fill in your name, and add an address and payment method. Finally, save everything."
         },
         {
           "nameDe": "Ein Ticket kaufen",
           "nameEn": "Buy a ticket",
           "exerciseNr": 3,
           "descriptionDe": "Wir führen nun einen Bestellvorgang durch. Wähle hierzu ein Konzert deiner Wahl und lege Tickets in den Warenkorb. Öffne diesen und schließe die Bestellung ab. Beachte die Struktur der URL wenn du ein Konzert buchen willst. Sieh dir ruhig 2-3 Buchungsseiten an, wie sich die URL jeweils verändert.",
-          "descriptionEn": "Search for an event of choice and buy a ticket for"
+          "descriptionEn": "We'll now complete the order process. Select a concert of your choice and add tickets to your shopping cart. Open the shopping cart and complete your order. Pay attention to the URL structure when booking a concert. Feel free to look at two or three booking pages to see how the URL changes each time."
         }
       ]
     },
     {
       "nameDe": "Broken Access Control",
       "nameEn": "Broken Access Control",
+      "icon": "mdi-application-outline",
       "groupNr": 1,
       "descriptionDe": "Eine Webseite beinhaltet öffentlich einsehbare und einige geschützte Seiten. Letztere sind nur mit passenden Berechtigungen erreichbar. Beispiele hierfür sind ein Admin-Panel oder der persönliche Warenkorb. Der Zugriff wird oft über Cookies oder eine Authentifizierung an einem Backend-Server geregelt. Bei Broken Access Control ist dieser Sicherheits-Mechanismus nicht oder fehlerhaft implementiert. Somit lassen sich Seiten unberechtigterweise über die URL erreichen.",
-      "descriptionEn": "todo",
+      "descriptionEn": "A website contains publicly visible pages and some protected pages. The latter can only be accessed with appropriate permissions. Examples include an admin panel or the personal shopping cart. Access is often controlled via cookies or authentication on a backend server. With broken access control, this security mechanism is either not implemented or is incorrectly implemented. This allows pages to be accessed without authorization via the URL.",
       "exercises": [
         {
           "nameDe": "Hilfe-Seite aufrufen",
           "nameEn": "Access Help Page",
           "exerciseNr": 1,
           "descriptionDe": "Die Hilfe-Seite erlaubt dir einen Einblick auf den Bearbeitungszustand der Aufgaben. Sie ist dementsprechend nicht abgesichert, aber auch (noch) nicht in der Titel-Leiste als Button erreichbar. Erweitere die URL in der Adresszeile so, dass du auf die Hilfeseite gelangst.",
-          "descriptionEn": "Manipulate the URL and access the help page"
+          "descriptionEn": "The help page provides insight into the processing status of tasks. It's therefore not secure, but it's also not (yet) accessible as a button in the title bar. Expand the URL in the address bar to access the help page."
         },
         {
           "nameDe": "Das versteckte Konzert buchen",
           "nameEn": "Book the hidden concert",
           "exerciseNr": 2,
           "descriptionDe": "Die Band >>Arctic Monkeys<< will auf ihrer >>European Tour<< drei Konzerte spielen. Im Shop finden sich allerdings nur zwei Einträge. Zwischen den beiden Tourdaten soll eine Show in der Lanxess Arena in Köln stattfinden, der Datensatz hierfür ist bereits angelegt, jedoch nicht freigeschaltet. Besuche die Seite der Band. Sieh dir den Zeitraum zwischen beiden Konzerten an, in denen das versteckte Event liegen könnte. Öffne eine Buchungsseite eines anderen Konzertes und ändere die URL so ab, dass du das versteckte Konzert buchen kannst. Reserviere dir mindestens ein Ticket und schließe den Bestellprozess ab.",
-          "descriptionEn": "Manipulate the URL and access the sold out concert and buy a ticket"
+          "descriptionEn": "The band >>Arctic Monkeys<< plans to play three shows on their >>European Tour<<. However, there are only two entries in the shop. A show at the Lanxess Arena in Cologne is scheduled to take place between the two tour dates. The dataset for this has already been created but is not yet activated. Visit the band's website. Look at the time period between the two concerts, where the hidden event could take place. Open a booking page for another concert and change the URL so that you can book the hidden concert. Reserve at least one ticket and complete the order process."
         }
       ]
     },
     {
       "nameDe": "SQL Injections",
       "nameEn": "SQL Injections",
+      "icon": "mdi-needle",
       "groupNr": 2,
       "descriptionDe": "Eine Datenbank arbeitet mit SQL Befehlen um Datensätze anzulegen, abzurufen, zu verändern und löschen. Ein Server wird über API-Schnittstellen angesprochen, führt die Befehle in der Datenbank aus und liefert das Ergebnis zurück. Der Client darf keinen direkten Zugriff auf die Datenbank haben. Bei SQL Injections wird versucht, diesen Sicherheitsmechanismus zu umgehen und über die API-Schnittstellen direkte SQL Befehle auszuführen.",
-      "descriptionEn": "todo",
+      "descriptionEn": "A database uses SQL commands to create, retrieve, modify, and delete records. A server is accessed via API interfaces, executes the commands in the database, and returns the results. The client must not have direct access to the database. SQL injection attempts to circumvent this security mechanism and execute SQL commands directly via the API interfaces.",
       "exercises": [
         {
           "nameDe": "Wie sieht die Datenbank aus?",
           "nameEn": "How does the database look like?",
           "exerciseNr": 1,
           "descriptionDe": "Wir versuchen nun die Datenbank im Hintergrund anzugreifen. Aktuell wissen wir aber noch nicht wie die Datenbank aussieht, also welche Tabellen sie beinhaltet. Wir können uns aber mit einem SQL-Befehl ausgeben. Gehe zur globalen Suchseite. Öffne mit der Tastenkombination >>Strg<< + >>D<< die >>Developer Tools<<. Klicke auf den Reiter >>Network<<. Hier siehst du, wie das Frontend mit dem Server kommuniziert. Schreibe nun eine SQL-Injection, welche den Suchbegriff ignoriert und dir stattdessen alle Datensätze der Tabelle >>sqlite_master<< zurück gibt, sofern die Bedingung >>type='table'<< erfüllt ist. Kopiere dir bei erfolgreicher Rückmeldung des Backends die Namen der Tabellen in eine Text-Datei, damit wir für die kommenden Aufgaben die richtigen Namen der Tabellen angeben können.",
-          "descriptionEn": "todo"
+          "descriptionEn": "We'll now attempt to attack the database in the background. Currently, we don't yet know what the database looks like, or which tables it contains. However, we can use an SQL command to inject it. Go to the global search page. Open the Developer Tools using the keyboard shortcut Ctrl + D. Click on the Network tab. Here you can see how the frontend communicates with the server. Now write an SQL injection that ignores the search term and instead returns all records in the sqlite_master table, provided the type='table' condition is met. If the backend responds successfully, copy the table names into a text file so that we can specify the correct table names for future tasks."
         },
         {
           "nameDe": "Alle Accounts ausspähen",
           "nameEn": "Get all accounts",
           "exerciseNr": 2,
           "descriptionDe": "Schreibe nun eine SQL-Injection, welche den Suchbegriff ignoriert und dir stattdessen alle Datensätze der Account-Tabelle zurück liefert. Führe den Angriff über das Suchfeld aus. Sieh dir die Rückmeldung des Servers an.",
-          "descriptionEn": "Execute an SQL-Injection on the Search page to get all datasets from >>Accounts<< table."
+          "descriptionEn": "Now write an SQL injection that ignores the search term and instead returns all records in the account table. Execute the attack using the search field. Watch the server's response."
         },
         {
           "nameDe": "Alle Berechtigungsgruppen ausspähen",
           "nameEn": "Get all account roles",
           "exerciseNr": 3,
           "descriptionDe": "Wir sehen nun alle Accounts. Jeder hat eine Berechtigungs-ID (accountRoleId) mit der Berechtigungen wie der Zugriff aufs Admin-Panel geregelt werden. Wir wissen aber nicht, was die ID's bedeuten. Schreibe darum eine SQL-Injection, welche den Suchbegriff ignoriert und dir stattdessen alle Datensätze der Tabelle >>AccountRoles<< zurück liefert. Führe den Angriff über das Suchfeld aus. Beobachte die Rückmeldung des Servers über den >>Network<<-Tab.",
-          "descriptionEn": "Execute an SQL-Injection on the Search page to get all datasets from >>AccountRoles<< table."
+          "descriptionEn": "We now see all the accounts. Each has an authorization ID (accountRoleId) that controls permissions such as access to the admin panel. However, we don't know what the IDs mean. Therefore, write an SQL injection that ignores the search term and instead returns all records in the >>AccountRoles<< table. Execute the attack via the search field. Observe the server's response via the >>Network<< tab."
         },
         {
           "nameDe": "Eigene Berechtigungen erhöhen",
@@ -93,37 +96,38 @@
           "nameEn": "Capture another account",
           "exerciseNr": 5,
           "descriptionDe": "Statt unsere eigenen Berechtigungen zu erhöhen, können wir auch einen Account übernehmen, welcher bereits ein >>Super-Admin<< ist. Suche dir dafür aus der Liste der in Aufgabe 2.1 erhaltenen Accounts einen aus, welcher die Rolle >>Super-Admin<< inne hat. Nur damit lässt sich die Dateiverwaltung öffnen, welche wir später brauchen. Hast du den Account-Namen gefunden, gehe ins Login-Menü (logge dich aus, falls du noch angemeldet bist). Führe nun einen SQL-Injektion durch um diesen Account zu übernehmen.",
-          "descriptionEn": "todo"
+          "descriptionEn": "Instead of increasing our own permissions, we can also take over an account that is already a >>super admin<<. To do this, select one from the list of accounts obtained in Task 2.1 that has the >>super admin<< role. Only then can we open the file manager, which we'll need later. Once you've found the account name, go to the login menu (log out if you're still logged in). Now perform an SQL injection to take over this account."
         },
         {
           "nameDe": "Bewertungen löschen",
           "nameEn": "Delete ratings",
           "exerciseNr": 6,
           "descriptionDe": "Jede Band hat Bewertungen auf einer Skala von eins bis fünf Sternen erhalten. Wir wollen alle Fünf-Sterne Bewertungen aus der Datenbank löschen. Schreibe eine SQL Injection, welche in der Bewertungs-Tabelle alle Einträge mit der Bedingung >>rating = 5<< entfernt. Führe die Injection über die globale Suche aus.",
-          "descriptionEn": "todo"
+          "descriptionEn": "Each band has received ratings on a scale of one to five stars. We want to delete all five-star ratings from the database. Write an SQL injection that removes all entries in the ratings table with the condition >>rating = 5<<. Execute the injection via the global search."
         }
       ]
     },
     {
       "nameDe": "Cross-Site Scripting (XSS)",
       "nameEn": "Cross-Site Scripting (XSS)",
+      "icon": "mdi-code-brackets",
       "groupNr": 3,
       "descriptionDe": "Als nächstes wollen wir Schadcode in die Web-Applikation einschleusen. Zunächst testen wir, ob die Webseite hierfür anfällig ist. Manipuliere die URL der Band-Seite so, dass du eine >>Hallo Welt!<<-Nachricht als >>alert<< siehst. Hinweis: Nutze einen image tag! Setze als >>src<< die Zahl >>1<<. Den Befehl kannst du im Tag >>onerror<< ausführen.",
-      "descriptionEn": "todo",
+      "descriptionEn": "Next, we want to inject malicious code into the web application. First, we'll test whether the website is vulnerable to this. Manipulate the URL of the band's page so that you see a >>Hello World!<< message as an >>alert<<. Note: Use an image tag! Set the number >>1<< as the >>src<<. You can execute the command in the >>onerror<< tag.",
       "exercises": [
         {
           "nameDe": "Hallo Welt!",
           "nameEn": "Hello World!",
           "exerciseNr": 1,
           "descriptionDe": "Als nächstes wollen wir Schadcode in die Web-Applikation einschleusen. Zunächst testen wir, ob die Webseite hierfür anfällig ist. Gehe hierzu auf die Seite >>Alle Bands<< und filtere die Einträge nach einem beliebigen Genre deiner Wahl. In der URL-Leiste siehst du nun, dass hinter der URL und dem Ressourcen-Ziel ein Parameter angegeben ist (der Part hinter dem Fragezeichen). Wir tauschen diesen Parameter gegen einen HTML Tag aus. Der Trick hierbei: Als Quelle geben wir den Zahlenwert >>1<< an, wodurch automatisch das ausgeführt wird, was im >>onerror<<-Tag drinnen steht. Genau hier soll eine Alert-Meldung mit >>Hello World!<< als JavaScript Code eingefügt werden. Verändere die URL so, dass sie die Meldung ausgibt. Falls du nicht mit JavaScript vertraut bist, sieh dir die letzte Seite mit nützlichen Befehlen an.",
-          "descriptionEn": "Take an URL of the shop and extend it with JavaScript code so that a 'Hello World' message appears whent the link is opened"
+          "descriptionEn": "Next, we want to inject malicious code into the web application. First, we'll test whether the website is vulnerable to malicious code. To do this, go to the >>All Bands<< page and filter the entries by any genre of your choice. In the URL bar, you'll now see that a parameter is specified after the URL and the resource target (the part after the question mark). We'll replace this parameter with an HTML tag. The trick here: We specify the numeric value >>1<< as the source, which automatically executes what's contained in the >>onerror<< tag. This is exactly where we want to insert an alert message with >>Hello World!<< as JavaScript code. Change the URL so that it displays the message. If you're not familiar with JavaScript, check out the last page for useful commands."
         },
         {
           "nameDe": "Ein externes Script aufrufen",
           "nameEn": "Run an external script",
           "exerciseNr": 2,
           "descriptionDe": "Wir haben festgestellt, dass die Seite für Cross-Site-Scripting durch Reflected XSS angreifbar ist! Im zweiten Schritt binden wir nun das Script ein. Es wurde bereits auf den Server hochgeladen. Logge dich wahlweise mit einem Admin-Account (Aufgabe 2.5) oder deinem eigenen nun berechtigten Account (Aufgabe 2.4) ein. Öffne nun das Admin-Panel über den Button rechts oben. Suche über die Dateiverwaltung im Admin-Panel nach dem Skript und notiere dir die darunter angezeigte Adresse auf dem Backend-Server. Logge dich aus. Wir wollen das Skript auf der nun sichtbaren Login-Seite über eine veränderte URL einbinden. Nutze hierfür das gleiche Prinzip wie in Aufgabe 3.1. Statt >>genreName<< kannst du einen beliebigen anderen Parameter-Namen verwenden. Nutze die Konsole mit der Tastenkombination Strg + D vor dem Abschicken der URL.Logge dich nach erfolgreicher Aufgabenlösung ein und sieh in der Konsole, wie deine Login-Daten abgegriffen werden.",
-          "descriptionEn": "Create an URL of the shop, which calls the script"
+          "descriptionEn": "We've determined that the page is vulnerable to cross-site scripting through Reflected XSS! In the second step, we'll integrate the script. It's already been uploaded to the server. Log in either with an admin account (Task 2.5) or your own, now authorized account (Task 2.4). Now open the admin panel using the button in the top right. Search for the script using the file manager in the admin panel and note the address displayed below it on the backend server. Log out. We want to integrate the script into the now visible login page using a modified URL. Use the same principle as in Task 3.1. Instead of >>genreName<<, you can use any other parameter name. Use the console by pressing Ctrl + D before submitting the URL. After successfully completing the task, log in and watch in the console how your login data is being retrieved."
         }
       ]
     }

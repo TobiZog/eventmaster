@@ -44,19 +44,19 @@ function removeFromBasket(basketItem: BasketItemModel) {
 
         <!-- Quantity -->
         <td class="text-center">
-          {{ basketItem.seats.length }}x
+          {{ basketItem.seats.length + 'x' }}
         </td>
 
         <!-- Price per event -->
         <td class="text-right">
           <div v-if="basketItem.seats">
-            {{ basketItem.price.toFixed(2) }} €
+            {{ basketItem.price.toFixed(2) + '€' }}
           </div>
         </td>
 
         <!-- Total price -->
         <td class="text-right">
-          {{ (calcPrice(basketItem.concert.price, basketItem.seats.length)).toFixed(2) }} €
+          {{ (calcPrice(basketItem.concert.price, basketItem.seats.length)).toFixed(2) + '€' }}
         </td>
 
         <td class="text-right">

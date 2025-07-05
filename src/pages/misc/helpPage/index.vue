@@ -5,6 +5,7 @@ import { generateResultsPdf } from '@/scripts/pdfScripts';
 import { usePreferencesStore } from '@/stores/preferences.store';
 import cardView from '@/components/basics/cardView.vue';
 import { LanguageEnum } from '@/data/enums/languageEnum';
+import { ExerciseModel } from '@/data/models/exercises/exerciseModel';
 
 const exerciseStore = useExerciseStore()
 const preferencesStore = usePreferencesStore()
@@ -35,6 +36,20 @@ function generateExerciseKey() {
     return (Number(code) + Number(preferencesStore.registrationNumber)) * 237
   } catch(e) {}
 }
+
+function getNameLanguage(exercise: ExerciseModel) {
+  switch(preferencesStore.language) {
+    case LanguageEnum.GERMAN: return exercise.nameDe
+    case LanguageEnum.ENGLISH: return exercise.nameEn
+  }
+}
+
+function getDescriptionLanguage(exercise: ExerciseModel) {
+  switch(preferencesStore.language) {
+    case LanguageEnum.GERMAN: return exercise.descriptionDe
+    case LanguageEnum.ENGLISH: return exercise.descriptionEn
+  }
+}
 </script>
 
 <template>
@@ -48,7 +63,7 @@ function generateExerciseKey() {
           @click="generateResultsPdf()"
           :disabled="preferencesStore.studentName.length < 3 || preferencesStore.registrationNumber.length < 7"
         >
-          PDF generieren
+          {{ $t('help.scoreBoard.generatePdf') }}
         </outlined-button>
       </v-col>
     </v-row>
@@ -56,7 +71,7 @@ function generateExerciseKey() {
     <v-row>
       <v-col class="text-h5 text-center">
         <div>
-          Persönlicher Lösungsschlüssel:
+          {{ $t('help.scoreBoard.personalSolutionKey') + ':' }}
         </div>
         <div>
           {{ generateExerciseKey() }}
@@ -77,8 +92,10 @@ function generateExerciseKey() {
               align="start"
             >
               <template v-for="exercise of exerciseStore.exercises">
+                <!-- Add exercise group description item -->
                 <v-timeline-item v-if="exercise.exerciseNr == 1"
-                  dot-color="grey"
+                  :dot-color="getDotColor(exercise.exerciseGroup.groupNr)"
+                  :icon="exercise.exerciseGroup.icon"
                   fill-dot
                 >
                   <div
@@ -100,17 +117,18 @@ function generateExerciseKey() {
                   </div>
                 </v-timeline-item>
 
+                <!-- Exercise item -->
                 <v-timeline-item
-                  :dot-color="getDotColor(exercise.exerciseGroup.groupNr)"
+                  :dot-color="exercise.solved ? 'green' : 'primary'"
                   :icon="exercise.solved ? 'mdi-check' : 'mdi-pencil'"
                 >
                    <!-- Right side -->
                   <card-view
                     :title="$t('help.scoreBoard.exerciseNr', [exercise.exerciseGroup.groupNr, exercise.exerciseNr]) + 
-                      (preferencesStore.language == LanguageEnum.GERMAN ? exercise.nameDe : exercise.nameEn)"
+                      getNameLanguage(exercise)"
                     :color="exercise.solved ? 'green' : 'primary'"
                   >
-                    {{ preferencesStore.language == LanguageEnum.GERMAN ? exercise.descriptionDe : exercise.descriptionEn }}
+                    {{ getDescriptionLanguage(exercise) }}
                   </card-view>
                 </v-timeline-item>
               </template>

@@ -10,7 +10,7 @@ const feedbackStore = useFeedbackStore()
 const headers = [
   { title: feedbackStore.i18n.t('account.userData.bankName'), value: "bankName" },
   { title: feedbackStore.i18n.t('account.userData.iban'), value: "iban" },
-  { title: "Aktionen", value: "actions", width: 130 }
+  { title: feedbackStore.i18n.t('account.userData.actions'), value: "actions", width: 130 }
 ]
 
 accountStore.refreshAccount()

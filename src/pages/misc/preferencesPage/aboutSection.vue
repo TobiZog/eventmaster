@@ -12,27 +12,27 @@ import packageJson from './../../../../package.json'
     <template #borderless>
       <v-list>
         <v-list-item
-          title="Software Version"
+          :title="$t('misc.softwareVersion')"
           :subtitle="packageJson.version"
           prepend-icon="mdi-counter"
         />
         <v-list-item 
-          title="Lizenz"
+          :title="$t('misc.license')"
           subtitle="MIT"
           prepend-icon="mdi-license"
         />
         <v-list-item
-          title="Entwickler"
+          :title="$t('misc.developer')"
           subtitle="Tobias Zoghaib"
           prepend-icon="mdi-account"
         />
         <v-list-item 
-          title="Entwickelt im Auftrag"
+          :title="$t('misc.developedFor')"
           subtitle="Uni Hannover, Institut für IT-Sicherheit, Fachgebiet Usable Security and Privacy"
           prepend-icon="mdi-school"
         />
         <v-list-item 
-          title="Copyright"
+          :title="$t('misc.copyright')"
           subtitle="2024"
           prepend-icon="mdi-copyright"
         />
