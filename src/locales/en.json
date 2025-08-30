@@ -181,7 +181,8 @@
       "selectConfigFile": "Select config file",
       "upload": "Upload file",
       "download": "Export config"
-    }
+    },
+    "preferences": "Preferences"
   },
   "help": {
     "scoreBoard": {
@@ -280,7 +281,8 @@
       "empty": {
         "headline": "So empty here..."
       },
-      "searchterm": "Search term"
+      "searchterm": "Search term",
+      "globalsearch": "Global Search"
     },
     "submit": "Submit",
     "content": "Content",
@@ -295,5 +297,8 @@
   },
   "genre": {
     "withoutBand": "without Band"
+  },
+  "admin": {
+    "adminpanel": "Admin Panel"
   }
 }

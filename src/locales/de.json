@@ -179,7 +179,8 @@
       "selectConfigFile": "Konfigurations-Datei auswählen",
       "download": "Konfiguration exportieren",
       "upload": "Datei hochladen"
-    }
+    },
+    "preferences": "Einstellungen"
   },
   "help": {
     "scoreBoard": {
@@ -280,7 +281,8 @@
       "empty": {
         "headline": "So leer hier..."
       },
-      "searchterm": "Suchbegriff"
+      "searchterm": "Suchbegriff",
+      "globalsearch": "Globale Suche"
     },
     "submit": "Absenden",
     "content": "Inhalt",
@@ -295,5 +297,8 @@
   },
   "genre": {
     "withoutBand": "ohne Band"
+  },
+  "admin": {
+    "adminpanel": "Admin Panel"
   }
 }

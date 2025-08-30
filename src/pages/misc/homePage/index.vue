@@ -1,24 +1,24 @@
 <script setup lang="ts">
-import { useConcertStore } from '@/stores/concert.store';
-import { useLocationStore } from '@/stores/location.store';
-import bandSection from './bandsSection.vue';
-import UpcomingConcertsSection from './upcomingConcertsSection.vue';
-import TopLocationsSection from './topLocationsSection.vue';
-import { usePreferencesStore } from '@/stores/preferences.store';
-import welcomeDialog from './welcomeDialog/dialog.vue';
-import { ref } from 'vue';
+import { useConcertStore } from "@/stores/concert.store";
+import { useLocationStore } from "@/stores/location.store";
+import bandSection from "./bandsSection.vue";
+import UpcomingConcertsSection from "./upcomingConcertsSection.vue";
+import TopLocationsSection from "./topLocationsSection.vue";
+import { usePreferencesStore } from "@/stores/preferences.store";
+import welcomeDialog from "./welcomeDialog/dialog.vue";
+import { ref } from "vue";
 
-const concertStore = useConcertStore()
-const locationStore = useLocationStore()
-const preferencesStore = usePreferencesStore()
-const showWelcomeDialog = ref(false)
+const concertStore = useConcertStore();
+const locationStore = useLocationStore();
+const preferencesStore = usePreferencesStore();
+const showWelcomeDialog = ref(false);
 
-concertStore.getUpcomingConcerts()
-locationStore.getTopLocations()
+concertStore.getUpcomingConcerts();
+locationStore.getTopLocations();
 
 // First startup
-showWelcomeDialog.value = true
 if (preferencesStore.firstStartup) {
+  showWelcomeDialog.value = true;
 }
 </script>
 
@@ -33,7 +33,7 @@ if (preferencesStore.firstStartup) {
 
       <v-col cols="10">
         <upcoming-concerts-section />
-        
+
         <top-locations-section />
       </v-col>
 

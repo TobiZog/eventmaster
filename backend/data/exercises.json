@@ -98,7 +98,7 @@
           "nameEn": "Upgrade your privileges",
           "exerciseNr": 4,
           "descriptionDe": "Jetzt bearbeiten wir unseren eigenen Account. Schreibe hierfür einen >>UPDATE<<-SQL-Befehl, welcher die >>accountRoleId<< auf das Niveau eines >>Admin<< erhöht für deinen Account-Namen.",
-          "descriptionEn": "Change the privileges of your account"
+          "descriptionEn": "Now we'll edit our own account. To do this, write an >>UPDATE<< SQL command that elevates the >>accountRoleId<< to the level of >>Admin<< for your account name."
         },
         {
           "uuid": "sql-injection-capture-account",
