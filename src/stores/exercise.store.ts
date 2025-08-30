@@ -50,7 +50,7 @@ export const useExerciseStore = defineStore("exerciseStore", {
           }
         });
 
-        this.helpPageVisible = this.getExercise(1, 1).solved;
+        this.exercisePageVisible = this.getExercise(1, 1).solved;
         this.fetchInProgress = false;
       });
     },

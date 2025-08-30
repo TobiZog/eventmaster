@@ -289,7 +289,9 @@
     "license": "Lizenz",
     "developer": "Entwickler",
     "developedFor": "Entwickelt im Auftrag",
-    "copyright": "Copyright"
+    "copyright": "Copyright",
+    "githubRepository": "GitHub Repository",
+    "projectPage": "Projektseite"
   },
   "genre": {
     "withoutBand": "ohne Band"
