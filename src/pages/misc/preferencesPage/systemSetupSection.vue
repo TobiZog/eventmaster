@@ -1,27 +1,24 @@
 <script setup lang="ts">
-import cardView from '@/components/basics/cardView.vue';
-import outlinedButton from '@/components/basics/outlinedButton.vue';
-import confirmDialog from '@/components/basics/confirmDialog.vue';
-import { ServerStateEnum } from '@/data/enums/serverStateEnum';
-import { usePreferencesStore } from '@/stores/preferences.store';
-import ServerStateText from '@/components/pageParts/serverStateText.vue';
-import { useRouter } from 'vue-router';
+import cardView from "@/components/basics/cardView.vue";
+import outlinedButton from "@/components/basics/outlinedButton.vue";
+import confirmDialog from "@/components/basics/confirmDialog.vue";
+import { ServerStateEnum } from "@/data/enums/serverStateEnum";
+import { usePreferencesStore } from "@/stores/preferences.store";
+import ServerStateText from "@/components/pageParts/serverStateText.vue";
+import { useRouter } from "vue-router";
 
-const preferenceStore = usePreferencesStore()
-const router = useRouter()
+const preferenceStore = usePreferencesStore();
+const router = useRouter();
 
-preferenceStore.getServerState()
+preferenceStore.getServerState();
 </script>
 
 <template>
-  <card-view
-    :title="$t('preferences.systemSetup')"
-    icon="mdi-engine"
-  >
+  <card-view :title="$t('preferences.systemSetup')" icon="mdi-engine">
     <template #borderless>
       <v-list>
         <v-list-item class="text-h6 text-center">
-          {{ $t('preferences.serverState') + ':' }} <server-state-text />
+          {{ $t("preferences.serverState") + ":" }} <server-state-text />
         </v-list-item>
 
         <v-list-item class="text-center">
@@ -29,9 +26,12 @@ preferenceStore.getServerState()
             @click="preferenceStore.showDeleteDbDialog = true"
             prepend-icon="mdi-database-refresh"
             color="warning"
-            :disabled="preferenceStore.serverState != ServerStateEnum.ONLINE || preferenceStore.fetchInProgress"
+            :disabled="
+              preferenceStore.serverState != ServerStateEnum.ONLINE ||
+              preferenceStore.fetchInProgress
+            "
           >
-            {{ $t('preferences.resetDatabase.resetDatabase') }}
+            {{ $t("preferences.resetDatabase.resetDatabase") }}
           </outlined-button>
         </v-list-item>
 
@@ -40,9 +40,12 @@ preferenceStore.getServerState()
             @click="preferenceStore.showDeleteExerciseDialog = true"
             prepend-icon="mdi-progress-close"
             color="warning"
-            :disabled="preferenceStore.serverState != ServerStateEnum.ONLINE || preferenceStore.fetchInProgress"
+            :disabled="
+              preferenceStore.serverState != ServerStateEnum.ONLINE ||
+              preferenceStore.fetchInProgress
+            "
           >
-            {{ $t('preferences.resetExerciseProgress.resetExerciseProgress') }}
+            {{ $t("preferences.resetExerciseProgress.resetExerciseProgress") }}
           </outlined-button>
         </v-list-item>
 
@@ -51,9 +54,12 @@ preferenceStore.getServerState()
             @click="preferenceStore.showFactoryResetDialog = true"
             prepend-icon="mdi-factory"
             color="warning"
-            :disabled="preferenceStore.serverState != ServerStateEnum.ONLINE || preferenceStore.fetchInProgress"
+            :disabled="
+              preferenceStore.serverState != ServerStateEnum.ONLINE ||
+              preferenceStore.fetchInProgress
+            "
           >
-            {{ $t('preferences.factoryReset.factoryReset') }}
+            {{ $t("preferences.factoryReset.factoryReset") }}
           </outlined-button>
         </v-list-item>
       </v-list>
@@ -85,10 +91,12 @@ preferenceStore.getServerState()
     :description="$t('preferences.factoryReset.dialog.description')"
     v-model="preferenceStore.showFactoryResetDialog"
     icon="mdi-factory"
-    :onConfirm="() => {
-      preferenceStore.resetToFactorySettings()
-      router.push('/')
-    }"
+    :onConfirm="
+      () => {
+        preferenceStore.resetToFactorySettings();
+        router.push('/');
+      }
+    "
     :loading="preferenceStore.fetchInProgress"
   />
 </template>

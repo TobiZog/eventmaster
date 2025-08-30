@@ -20,3 +20,19 @@ export function getSeatColor(surcharge: number, state: number): string {
     case 2: return "orange"
   }
 }
+
+/**
+ * Get color of exercise group
+ * 
+ * @param exerciseGroupNr Number of exercise group
+ * 
+ * @returns Color as string
+ */
+export function getExerciseDotColor(exerciseGroupNr: number) {
+  switch(exerciseGroupNr) {
+    case 0: return "purple"
+    case 1: return "orange"
+    case 2: return "blue"
+    case 3: return "pink"
+  }
+}

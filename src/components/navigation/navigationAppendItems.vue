@@ -40,9 +40,9 @@ exerciseStore.getAllExercises()
   />
 
   <v-btn
-    v-if="exerciseStore.helpPageVisible"
+    v-if="exerciseStore.exercisePageVisible"
     variant="plain"
-    icon="mdi-help"
+    icon="mdi-book-open-blank-variant"
     to="/help"
   />
   

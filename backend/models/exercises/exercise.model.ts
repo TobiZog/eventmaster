@@ -4,6 +4,9 @@ import { ExerciseGroup } from "./exerciseGroup.model";
 @Table({ timestamps: false })
 export class Exercise extends Model {
   @Column
+  uuid: string
+
+  @Column
   nameDe: string
 
   @Column

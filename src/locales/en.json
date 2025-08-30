@@ -168,6 +168,19 @@
         "title": "Factory reset?",
         "description": "Do you really want to reset everything? Every change will be lost!"
       }
+    },
+    "exercises": {
+      "settings": "Exercise Configuration",
+      "available": "{0} of {1} exercises are available",
+      "uploadExerciseConfig": "Upload exercise config",
+      "edit": "Edit available exercises",
+      "upload": "Upload exercises config"
+    },
+    "importExport": {
+      "title": "Import/Export config",
+      "selectConfigFile": "Select config file",
+      "upload": "Upload file",
+      "download": "Export config"
     }
   },
   "help": {

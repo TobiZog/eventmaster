@@ -168,6 +168,17 @@
         "title": "Auf Werkseinstellungen zurücksetzen?",
         "description": "Sollen alle Einstellungen und Daten auf Werkseinstellungen zurückgesetzt werden? Alle Änderungen und Fortschritte gehen verloren!"
       }
+    },
+    "exercises": {
+      "available": "{0} von {1} Aufgaben verfügbar",
+      "edit": "Verfügbare Aufgaben bearbeiten",
+      "settings": "Aufgaben-Konfiguration"
+    },
+    "importExport": {
+      "title": "Import/Export Konfiguration",
+      "selectConfigFile": "Konfigurations-Datei auswählen",
+      "download": "Konfiguration exportieren",
+      "upload": "Datei hochladen"
     }
   },
   "help": {

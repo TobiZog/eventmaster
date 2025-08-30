@@ -9,6 +9,7 @@
       "descriptionEn": "Before an attack, it's important to understand how the website is structured. How are the URLs structured? Where are input fields located that execute SQL queries in the backend?",
       "exercises": [
         {
+          "uuid": "getting-known-register",
           "nameDe": "Registrieren",
           "nameEn": "Register",
           "exerciseNr": 1,
@@ -16,6 +17,7 @@
           "descriptionEn": "We'll set up a regular account on the platform. To do this, navigate to the account page and register."
         },
         {
+          "uuid": "getting-known-profile",
           "nameDe": "Profil vervollständigen",
           "nameEn": "Complete profile",
           "exerciseNr": 2,
@@ -23,6 +25,7 @@
           "descriptionEn": "Orders are only possible once your account profile is complete. Log in, navigate to your account settings, fill in your name, and add an address and payment method. Finally, save everything."
         },
         {
+          "uuid": "getting-known-buy-ticket",
           "nameDe": "Ein Ticket kaufen",
           "nameEn": "Buy a ticket",
           "exerciseNr": 3,
@@ -40,6 +43,7 @@
       "descriptionEn": "A website contains publicly visible pages and some protected pages. The latter can only be accessed with appropriate permissions. Examples include an admin panel or the personal shopping cart. Access is often controlled via cookies or authentication on a backend server. With broken access control, this security mechanism is either not implemented or is incorrectly implemented. This allows pages to be accessed without authorization via the URL.",
       "exercises": [
         {
+          "uuid": "broken-access-control-exercise-page",
           "nameDe": "Hilfe-Seite aufrufen",
           "nameEn": "Access Help Page",
           "exerciseNr": 1,
@@ -47,6 +51,7 @@
           "descriptionEn": "The help page provides insight into the processing status of tasks. It's therefore not secure, but it's also not (yet) accessible as a button in the title bar. Expand the URL in the address bar to access the help page."
         },
         {
+          "uuid": "broken-access-control-hidden-concert",
           "nameDe": "Das versteckte Konzert buchen",
           "nameEn": "Book the hidden concert",
           "exerciseNr": 2,
@@ -64,6 +69,7 @@
       "descriptionEn": "A database uses SQL commands to create, retrieve, modify, and delete records. A server is accessed via API interfaces, executes the commands in the database, and returns the results. The client must not have direct access to the database. SQL injection attempts to circumvent this security mechanism and execute SQL commands directly via the API interfaces.",
       "exercises": [
         {
+          "uuid": "sql-injection-database-scheme",
           "nameDe": "Wie sieht die Datenbank aus?",
           "nameEn": "How does the database look like?",
           "exerciseNr": 1,
@@ -71,6 +77,7 @@
           "descriptionEn": "We'll now attempt to attack the database in the background. Currently, we don't yet know what the database looks like, or which tables it contains. However, we can use an SQL command to inject it. Go to the global search page. Open the Developer Tools using the keyboard shortcut Ctrl + D. Click on the Network tab. Here you can see how the frontend communicates with the server. Now write an SQL injection that ignores the search term and instead returns all records in the sqlite_master table, provided the type='table' condition is met. If the backend responds successfully, copy the table names into a text file so that we can specify the correct table names for future tasks."
         },
         {
+          "uuid": "sql-injection-all-accounts",
           "nameDe": "Alle Accounts ausspähen",
           "nameEn": "Get all accounts",
           "exerciseNr": 2,
@@ -78,6 +85,7 @@
           "descriptionEn": "Now write an SQL injection that ignores the search term and instead returns all records in the account table. Execute the attack using the search field. Watch the server's response."
         },
         {
+          "uuid": "sql-injection-account-roles",
           "nameDe": "Alle Berechtigungsgruppen ausspähen",
           "nameEn": "Get all account roles",
           "exerciseNr": 3,
@@ -85,6 +93,7 @@
           "descriptionEn": "We now see all the accounts. Each has an authorization ID (accountRoleId) that controls permissions such as access to the admin panel. However, we don't know what the IDs mean. Therefore, write an SQL injection that ignores the search term and instead returns all records in the >>AccountRoles<< table. Execute the attack via the search field. Observe the server's response via the >>Network<< tab."
         },
         {
+          "uuid": "sql-injection-upgrade-privileges",
           "nameDe": "Eigene Berechtigungen erhöhen",
           "nameEn": "Upgrade your privileges",
           "exerciseNr": 4,
@@ -92,6 +101,7 @@
           "descriptionEn": "Change the privileges of your account"
         },
         {
+          "uuid": "sql-injection-capture-account",
           "nameDe": "Einen fremden Account übernehmen",
           "nameEn": "Capture another account",
           "exerciseNr": 5,
@@ -99,6 +109,7 @@
           "descriptionEn": "Instead of increasing our own permissions, we can also take over an account that is already a >>super admin<<. To do this, select one from the list of accounts obtained in Task 2.1 that has the >>super admin<< role. Only then can we open the file manager, which we'll need later. Once you've found the account name, go to the login menu (log out if you're still logged in). Now perform an SQL injection to take over this account."
         },
         {
+          "uuid": "sql-injection-delete-rating",
           "nameDe": "Bewertungen löschen",
           "nameEn": "Delete ratings",
           "exerciseNr": 6,
@@ -116,6 +127,7 @@
       "descriptionEn": "Next, we want to inject malicious code into the web application. First, we'll test whether the website is vulnerable to this. Manipulate the URL of the band's page so that you see a >>Hello World!<< message as an >>alert<<. Note: Use an image tag! Set the number >>1<< as the >>src<<. You can execute the command in the >>onerror<< tag.",
       "exercises": [
         {
+          "uuid": "cross-site-scripting-hello-world",
           "nameDe": "Hallo Welt!",
           "nameEn": "Hello World!",
           "exerciseNr": 1,
@@ -123,6 +135,7 @@
           "descriptionEn": "Next, we want to inject malicious code into the web application. First, we'll test whether the website is vulnerable to malicious code. To do this, go to the >>All Bands<< page and filter the entries by any genre of your choice. In the URL bar, you'll now see that a parameter is specified after the URL and the resource target (the part after the question mark). We'll replace this parameter with an HTML tag. The trick here: We specify the numeric value >>1<< as the source, which automatically executes what's contained in the >>onerror<< tag. This is exactly where we want to insert an alert message with >>Hello World!<< as JavaScript code. Change the URL so that it displays the message. If you're not familiar with JavaScript, check out the last page for useful commands."
         },
         {
+          "uuid": "cross-site-scripting-external-script",
           "nameDe": "Ein externes Script aufrufen",
           "nameEn": "Run an external script",
           "exerciseNr": 2,

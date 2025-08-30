@@ -3,7 +3,11 @@ import { useLocalStorage } from "@vueuse/core";
 import { ThemeEnum } from "../data/enums/themeEnums";
 import { LanguageEnum } from "../data/enums/languageEnum";
 import { ref } from "vue";
-import { fetchServerState,resetDatabase, resetExerciseProgress } from "@/data/api/mainApi";
+import {
+  fetchServerState,
+  resetDatabase,
+  resetExerciseProgress,
+} from "@/data/api/mainApi";
 import { ServerStateEnum } from "@/data/enums/serverStateEnum";
 import { BannerStateEnum } from "@/data/enums/bannerStateEnum";
 import { useFeedbackStore } from "./feedback.store";
@@ -12,13 +16,19 @@ import { useExerciseStore } from "./exercise.store";
 import { useAccountStore } from "./account.store";
 import { AccountApiModel } from "@/data/models/user/accountApiModel";
 
-export const usePreferencesStore = defineStore('preferencesStore', {
+export const usePreferencesStore = defineStore("preferencesStore", {
   state: () => ({
     /** Selected theme by user */
-    theme: useLocalStorage<ThemeEnum>("eventMaster/preferencesStore/theme", ThemeEnum.DARK),
+    theme: useLocalStorage<ThemeEnum>(
+      "eventMaster/preferencesStore/theme",
+      ThemeEnum.DARK
+    ),
 
     /** Selected language by user */
-    language: useLocalStorage<LanguageEnum>("eventMaster/preferencesStore/language", LanguageEnum.GERMAN),
+    language: useLocalStorage<LanguageEnum>(
+      "eventMaster/preferencesStore/language",
+      LanguageEnum.GERMAN
+    ),
 
     /** Request to server sent, waiting for data response */
     fetchInProgress: ref(false),
@@ -36,13 +46,27 @@ export const usePreferencesStore = defineStore('preferencesStore', {
     showFactoryResetDialog: ref(false),
 
     /** Marks the first run of the app */
-    firstStartup: useLocalStorage<Boolean>("eventMaster/preferencesStore/firstStartup", true),
+    firstStartup: useLocalStorage<Boolean>(
+      "eventMaster/preferencesStore/firstStartup",
+      true
+    ),
 
     /** Full name of student */
-    studentName: useLocalStorage<string>("eventMaster/preferencesStore/studentName", ""),
+    studentName: useLocalStorage<string>(
+      "eventMaster/preferencesStore/studentName",
+      ""
+    ),
 
     /** Matrikel number */
-    registrationNumber: useLocalStorage<string>("eventMaster/preferencesStore/registrationNumber", "")
+    registrationNumber: useLocalStorage<string>(
+      "eventMaster/preferencesStore/registrationNumber",
+      ""
+    ),
+
+    notAvailableExercises: useLocalStorage<Array<string>>(
+      "eventMaster/preferencesStore/notAvailableExercises",
+      []
+    ),
   }),
 
   actions: {
@@ -50,92 +74,90 @@ export const usePreferencesStore = defineStore('preferencesStore', {
      * Request the state of the backend server
      */
     async getServerState() {
-      this.fetchInProgress = true
+      this.fetchInProgress = true;
 
       fetchServerState()
-        .then(result => {
+        .then((result) => {
           if (result.status == 200) {
-            this.serverState = ServerStateEnum.ONLINE
+            this.serverState = ServerStateEnum.ONLINE;
           } else {
-            this.serverState = ServerStateEnum.OFFLINE
+            this.serverState = ServerStateEnum.OFFLINE;
           }
 
-          this.fetchInProgress = false
+          this.fetchInProgress = false;
         })
-        .catch(error => {
-          this.serverState = ServerStateEnum.OFFLINE
-          this.fetchInProgress = false
-        })
+        .catch((error) => {
+          this.serverState = ServerStateEnum.OFFLINE;
+          this.fetchInProgress = false;
+        });
     },
 
     /**
      * Resets the database (without exercise tables)
      */
     async resetDb() {
-      const feedbackStore = useFeedbackStore()
-      const accountStore = useAccountStore()
+      const feedbackStore = useFeedbackStore();
+      const accountStore = useAccountStore();
 
-      this.serverState = ServerStateEnum.PENDING
-      this.fetchInProgress = true
+      this.serverState = ServerStateEnum.PENDING;
+      this.fetchInProgress = true;
 
       // Logout user
-      accountStore.logout()
+      accountStore.logout();
 
-      await resetDatabase()
-        .then(result => {
-          if (result.status == 200) {
-            feedbackStore.addSnackbar(BannerStateEnum.DATABASERESETSUCCESSFUL)
-            this.serverState = ServerStateEnum.ONLINE
-          }
+      await resetDatabase().then((result) => {
+        if (result.status == 200) {
+          feedbackStore.addSnackbar(BannerStateEnum.DATABASERESETSUCCESSFUL);
+          this.serverState = ServerStateEnum.ONLINE;
+        }
 
-          this.fetchInProgress = false
-          this.showDeleteDbDialog = false
-        })
+        this.fetchInProgress = false;
+        this.showDeleteDbDialog = false;
+      });
     },
 
     /**
      * Resets the exercise progress
      */
     async resetExerciseProg() {
-      const feedbackStore = useFeedbackStore()
-      const exerciseStore = useExerciseStore()
+      const feedbackStore = useFeedbackStore();
+      const exerciseStore = useExerciseStore();
 
-      this.serverState = ServerStateEnum.PENDING
-      this.fetchInProgress = true
+      this.serverState = ServerStateEnum.PENDING;
+      this.fetchInProgress = true;
 
-      await resetExerciseProgress()
-        .then(result => {
-          if (result.status == 200) {
-            feedbackStore.addSnackbar(BannerStateEnum.EXERCISEPROGRESSRESETSUCCESSFUL)
-            this.serverState = ServerStateEnum.ONLINE
+      await resetExerciseProgress().then((result) => {
+        if (result.status == 200) {
+          feedbackStore.addSnackbar(
+            BannerStateEnum.EXERCISEPROGRESSRESETSUCCESSFUL
+          );
+          this.serverState = ServerStateEnum.ONLINE;
 
-            exerciseStore.getAllExercises()
-          }
+          exerciseStore.getAllExercises(true);
+        }
 
-          this.fetchInProgress = false
-          this.showDeleteExerciseDialog = false
-        })
+        this.fetchInProgress = false;
+        this.showDeleteExerciseDialog = false;
+      });
     },
 
     /**
      * Reset all store values to factory state
      */
     resetToFactorySettings() {
-      const basketStore = useBasketStore()
-      const accountStore = useAccountStore()
+      const basketStore = useBasketStore();
+      const accountStore = useAccountStore();
 
-      this.firstStartup = true
-      this.studentName = ""
-      this.registrationNumber = ""
-      this.theme = "dark"
-      this.language = LanguageEnum.GERMAN
-      basketStore.itemsInBasket = []
-      accountStore.userAccountToken = ""
-      accountStore.userAccount = new AccountApiModel()
+      this.firstStartup = true;
+      this.studentName = "";
+      this.registrationNumber = "";
+      this.theme = "dark";
+      this.language = LanguageEnum.GERMAN;
+      basketStore.itemsInBasket = [];
+      accountStore.userAccountToken = "";
+      accountStore.userAccount = new AccountApiModel();
 
-
-      
-      this.showFactoryResetDialog = false
-    }
-  }
-})
+      this.showFactoryResetDialog = false;
+    },
+  },
+});
