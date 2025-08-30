@@ -8,11 +8,11 @@ import importExportSection from './importExportSection.vue';
 
 <template>
   <v-container max-width="800">
-    <v-row>
+    <!-- <v-row>
       <v-col>
         <import-export-section />
       </v-col>
-    </v-row>
+    </v-row> -->
     <v-row>
       <v-col>
         <page-setup />

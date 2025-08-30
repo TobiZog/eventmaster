@@ -1,0 +1,19 @@
+{
+  "theme": "dark",
+  "language": "en",
+  "notAvailableExercises": [
+    "getting-known-register",
+    "getting-known-profile",
+    "getting-known-buy-ticket",
+    "broken-access-control-exercise-page",
+    "broken-access-control-hidden-concert",
+    "sql-injection-database-schema",
+    "sql-injection-all-accounts",
+    "sql-injection-account-roles",
+    "sql-injection-upgrade-privileges",
+    "sql-injection-capture-account",
+    "sql-injection-delete-rating",
+    "cross-site-scripting-hello-world",
+    "cross-site-scripting-external-script"
+  ]
+}

@@ -1,10 +1,10 @@
 {
   "name": "eventmaster",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "author": "Tobias Zoghaib",
   "description": "Hackable ticket store for educational purposes",
   "license": "MIT",
-  "homepage": "www.uni-hannover.de",
+  "homepage": "https://www.itsec.uni-hannover.de/de/usec/forschung/eventmaster-learning-web-attacks",
   "main": "build/src/electron/index.js",
   "private": true,
   "scripts": {

@@ -1,3 +1,19 @@
+# v.0.4.0 (2025-08-30)
+
+## 🚀 Features
+
+- Exercise selection system
+
+## 🌟 Enhancements
+
+- Tooltips on append icons in toolbar
+- Exercise page icon adds open exercises badge
+- Finished english translation
+- Icons on exercise groups on help page
+- Welcome dialog: New page for look and feel, merge database and exercise creation in one step
+- Add links to GitHub and project page on settings
+
+
 # v.0.3.0 (2025-02-28)
 ## 🚀 Features
 - Swagger Documentation
