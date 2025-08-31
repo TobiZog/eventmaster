@@ -12,6 +12,9 @@ export const useBandStore = defineStore("bandStore", {
     /** All available bands */
     bands: ref<Array<BandApiModel>>([]),
 
+    /** Available bands filtered by parameters */
+    filteredBands: ref<Array<BandApiModel>>([]),
+
     /** All information about a single band */
     band: ref<BandDetailsApiModel>(new BandDetailsApiModel()),
 
@@ -32,7 +35,9 @@ export const useBandStore = defineStore("bandStore", {
 
       await fetchAllBands()
         .then(result => {
-          this.bands = result.data.filter((band: BandApiModel) => {
+          this.bands = result.data
+
+          this.filteredBands = result.data.filter((band: BandApiModel) => {
             if (genreStore.genre == null) {
               return true
             }

@@ -39,8 +39,8 @@ watch(() => router.currentRoute.value.query, () => {
         </v-row>
 
         <v-row
-          v-else-if="bandStore.bands.length > 0"
-          v-for="band in bandStore.bands"
+          v-else-if="bandStore.filteredBands.length > 0"
+          v-for="band in bandStore.filteredBands"
         >
           <v-col>
             <band-list-item
