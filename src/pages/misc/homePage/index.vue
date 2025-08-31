@@ -7,6 +7,7 @@ import TopLocationsSection from "./topLocationsSection.vue";
 import { usePreferencesStore } from "@/stores/preferences.store";
 import welcomeDialog from "./welcomeDialog/dialog.vue";
 import { ref } from "vue";
+import genresSection from "./genresSection.vue";
 
 const concertStore = useConcertStore();
 const locationStore = useLocationStore();
@@ -33,6 +34,8 @@ if (preferencesStore.firstStartup) {
 
       <v-col cols="10">
         <upcoming-concerts-section />
+
+        <genres-section />
 
         <top-locations-section />
       </v-col>

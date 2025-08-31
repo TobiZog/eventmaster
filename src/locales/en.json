@@ -296,7 +296,8 @@
     "projectPage": "Project page"
   },
   "genre": {
-    "withoutBand": "without Band"
+    "withoutBand": "without Band",
+    "popular": "Popular Genres"
   },
   "admin": {
     "adminpanel": "Admin Panel"
