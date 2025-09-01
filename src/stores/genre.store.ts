@@ -37,7 +37,7 @@ export const useGenreStore = defineStore("genreStore", {
       fetchAllGenres().then((response) => {
         this.genres = response.data;
 
-        let genresByNumberOfBands = this.genres;
+        let genresByNumberOfBands = this.genres.slice();
 
         genresByNumberOfBands.sort((a, b) => {
           return b.bands.length - a.bands.length;
