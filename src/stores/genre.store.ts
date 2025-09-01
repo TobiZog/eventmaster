@@ -1,4 +1,9 @@
-import { deleteGenre, fetchAllGenres, patchGenre, postGenre } from "@/data/api/genreApi";
+import {
+  deleteGenre,
+  fetchAllGenres,
+  patchGenre,
+  postGenre,
+} from "@/data/api/genreApi";
 import { GenreApiModel } from "@/data/models/acts/genreApiModel";
 import { defineStore } from "pinia";
 import { ref } from "vue";
@@ -10,6 +15,8 @@ export const useGenreStore = defineStore("genreStore", {
     /** All available genres from server */
     genres: ref<Array<GenreApiModel>>([]),
 
+    topGenres: ref<Array<GenreApiModel>>([]),
+
     /** Currently selected genre */
     genre: ref<GenreApiModel>(null),
 
@@ -17,7 +24,7 @@ export const useGenreStore = defineStore("genreStore", {
     showEditDialog: ref(false),
 
     /** Request to server sent, waiting for data response */
-    fetchInProgress: ref(false)
+    fetchInProgress: ref(false),
   }),
 
   actions: {
@@ -25,98 +32,103 @@ export const useGenreStore = defineStore("genreStore", {
      * Get all genres from the database
      */
     getGenres() {
-      this.fetchInProgress = true
+      this.fetchInProgress = true;
 
-      fetchAllGenres()
-        .then(response => {
-          this.genres = response.data
-          this.fetchInProgress = false
-        })
+      fetchAllGenres().then((response) => {
+        this.genres = response.data;
+
+        let genresByNumberOfBands = this.genres;
+
+        genresByNumberOfBands.sort((a, b) => {
+          return b.bands.length - a.bands.length;
+        });
+
+        this.topGenres = genresByNumberOfBands.splice(0, 8)
+
+        this.fetchInProgress = false;
+      });
     },
 
     /**
      * Prepare edit dialog for new genre, opens it
      */
     newGenre() {
-      this.genre = new GenreApiModel()
-      this.showEditDialog = true
+      this.genre = new GenreApiModel();
+      this.showEditDialog = true;
     },
 
     /**
      * Edit a Genre object, move parameter to this.genre, opens dialog
-     * 
+     *
      * @param genre Selected Genre object
      */
     editGenre(genre: GenreApiModel) {
-      this.genre = genre
-      this.showEditDialog = true
+      this.genre = genre;
+      this.showEditDialog = true;
     },
 
     /**
      * Save edited genre to the backend server
      */
     saveGenre() {
-      const feedbackStore = useFeedbackStore()
-      this.fetchInProgress = true
+      const feedbackStore = useFeedbackStore();
+      this.fetchInProgress = true;
 
       if (this.genre.id == undefined) {
         // Creating new Genre
-        postGenre(this.genre)
-          .then(response => {
-            if (response.status == 200) {
-              feedbackStore.addSnackbar(BannerStateEnum.GENRESAVEDSUCCESSFUL)
-              this.getGenres()
-              this.showEditDialog = false
-            } else {
-              feedbackStore.addSnackbar(BannerStateEnum.GENRESAVEDERROR)
-            }
-          })
+        postGenre(this.genre).then((response) => {
+          if (response.status == 200) {
+            feedbackStore.addSnackbar(BannerStateEnum.GENRESAVEDSUCCESSFUL);
+            this.getGenres();
+            this.showEditDialog = false;
+          } else {
+            feedbackStore.addSnackbar(BannerStateEnum.GENRESAVEDERROR);
+          }
+        });
       } else {
         // Update existing Genre
-        patchGenre(this.genre)
-          .then(response => {
-            if (response.status == 200) {
-              feedbackStore.addSnackbar(BannerStateEnum.GENRESAVEDSUCCESSFUL)
-              this.getGenres()
-              this.showEditDialog = false
-            } else {
-              feedbackStore.addSnackbar(BannerStateEnum.GENRESAVEDERROR)
-            }
-          })
+        patchGenre(this.genre).then((response) => {
+          if (response.status == 200) {
+            feedbackStore.addSnackbar(BannerStateEnum.GENRESAVEDSUCCESSFUL);
+            this.getGenres();
+            this.showEditDialog = false;
+          } else {
+            feedbackStore.addSnackbar(BannerStateEnum.GENRESAVEDERROR);
+          }
+        });
       }
     },
 
     /**
      * Delete a Genre object
-     * 
+     *
      * @param genre Genre to delete
      */
     deleteGenre(genre: GenreApiModel) {
-      const feedbackStore = useFeedbackStore()
-      this.fetchInProgress = true
+      const feedbackStore = useFeedbackStore();
+      this.fetchInProgress = true;
 
-      deleteGenre(genre)
-        .then(response => {
-          if (response.status == 200) {
-            feedbackStore.addSnackbar(BannerStateEnum.GENREDELETESUCCESSFUL)
-            this.getGenres()
-          } else {
-            feedbackStore.addSnackbar(BannerStateEnum.GENREDELETEERROR)
-          }
-        })
+      deleteGenre(genre).then((response) => {
+        if (response.status == 200) {
+          feedbackStore.addSnackbar(BannerStateEnum.GENREDELETESUCCESSFUL);
+          this.getGenres();
+        } else {
+          feedbackStore.addSnackbar(BannerStateEnum.GENREDELETEERROR);
+        }
+      });
     },
 
     setGenreByName(name: string) {
-      this.genre = null
-      name = name.replace("+", " ")
+      this.genre = null;
+      name = name.replace("+", " ");
 
-      let newGenre = this.genres.find(genre => {
-        return genre.name == name
-      })
+      let newGenre = this.genres.find((genre) => {
+        return genre.name == name;
+      });
 
       if (newGenre != undefined) {
-        this.genre = newGenre
+        this.genre = newGenre;
       }
-    }
-  }
-})
+    },
+  },
+});

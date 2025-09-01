@@ -6,6 +6,7 @@ import { GenreApiModel } from "@/data/models/acts/genreApiModel";
 import { useGenreStore } from "@/stores/genre.store";
 import { ref, watch } from "vue";
 import { useRouter } from "vue-router";
+import outlinedButton from "@/components/basics/outlinedButton.vue";
 
 const genreStore = useGenreStore();
 const genresByNumberOfBands = ref<Array<GenreApiModel>>([]);
@@ -37,7 +38,7 @@ watch(
       <v-skeleton-loader :loading="true" type="card" />
     </v-col>
 
-    <v-col v-else v-for="genre in genresByNumberOfBands" cols="6" md="3">
+    <v-col v-else v-for="genre in genreStore.topGenres" cols="6" md="3">
       <card-view
         @click="router.push({ path: '/bands', query: { genreName: genre.name }})"
         :title="genre.name"
@@ -45,4 +46,17 @@ watch(
       />
     </v-col>
   </v-row>
+
+  <!-- todo?
+  <v-row>
+    <v-col>
+      <outlined-button
+        append-icon="mdi-chevron-right"
+        @click="router.push('/')"
+        block
+      >
+        {{ $t('genre.allGenres') }}
+      </outlined-button>
+    </v-col>
+  </v-row> -->
 </template>

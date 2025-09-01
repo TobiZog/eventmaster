@@ -297,7 +297,8 @@
   },
   "genre": {
     "withoutBand": "without Band",
-    "popular": "Popular Genres"
+    "popular": "Popular Genres",
+    "allGenres": "All Genres"
   },
   "admin": {
     "adminpanel": "Admin Panel"

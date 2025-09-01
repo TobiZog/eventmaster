@@ -12,7 +12,13 @@
 - Icons on exercise groups on help page
 - Welcome dialog: New page for look and feel, merge database and exercise creation in one step
 - Add links to GitHub and project page on settings
+- New section on homepage for popular genres
 
+## 🐛 Bugfixes
+
+- Filter on band page changes visible bands on homepage
+- No startup after packaging
+- Infinity loading on concert booking page is user comes from band page
 
 # v.0.3.0 (2025-02-28)
 ## 🚀 Features
