@@ -64,6 +64,9 @@ export const useConcertStore = defineStore("concertStore", {
       const feedbackStore = useFeedbackStore()
       this.fetchInProgress = true
 
+      console.log("LOcation & Date:")
+      console.log(this.concerts)
+
       let id = this.concerts.find((concert: ConcertApiModel) => {
         return (concert.location.urlName == location && concert.date == date)
       }).id
@@ -75,6 +78,7 @@ export const useConcertStore = defineStore("concertStore", {
         })
         .catch(res => {
           feedbackStore.notFound = true
+          this.fetchInProgress = false
         })
     },
 

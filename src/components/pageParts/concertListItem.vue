@@ -1,27 +1,27 @@
 <script setup lang="ts">
-import cardViewHorizontal from '@/components/basics/cardViewHorizontal.vue';
-import { BandModel } from '@/data/models/acts/bandModel';
-import { ConcertModel } from '@/data/models/acts/concertModel';
-import { LocationModel } from '@/data/models/locations/locationModel';
-import { useRouter } from 'vue-router';
+import cardViewHorizontal from "@/components/basics/cardViewHorizontal.vue";
+import { BandModel } from "@/data/models/acts/bandModel";
+import { ConcertModel } from "@/data/models/acts/concertModel";
+import { LocationModel } from "@/data/models/locations/locationModel";
+import { useRouter } from "vue-router";
 
-const router = useRouter()
+const router = useRouter();
 
 defineProps({
   /** Concert to display */
   concert: {
     type: ConcertModel,
-    required: true
+    required: true,
   },
 
   band: {
     type: BandModel,
-    required: true
+    required: true,
   },
 
   location: {
     type: LocationModel,
-    required: true
+    required: true,
   },
 
   /** Display text parts as skeleton */
@@ -30,9 +30,9 @@ defineProps({
   /** Show or hide the button on the right side */
   showButton: {
     type: Boolean,
-    default: true
-  }
-})
+    default: true,
+  },
+});
 </script>
 
 <template>
@@ -40,7 +40,13 @@ defineProps({
     :title="concert.name"
     v-if="!loading"
     :link="showButton && concert.inStock > 0"
-    @click="showButton && concert.inStock > 0 ? router.push('/concerts/booking/' + location.urlName + '/' + concert.date) : () => {}"
+    @click="console.log(concert.date);
+      showButton && concert.inStock > 0
+        ? router.push(
+            '/concerts/booking/' + location.urlName + '/' + concert.date
+          )
+        : () => {}
+    "
   >
     <template #prepend>
       <div>
@@ -49,7 +55,9 @@ defineProps({
         </div>
 
         <div class="text-h6">
-          {{ new Date(concert.date).toLocaleString('default', { month: 'long' }) }}
+          {{
+            new Date(concert.date).toLocaleString("default", { month: "long" })
+          }}
         </div>
 
         <div class="text-h6">
@@ -71,28 +79,23 @@ defineProps({
     <template #append>
       <div>
         <div class="text-secondary font-weight-medium text-h6 pb-1">
-          {{ $t('misc.from') + ' ' + concert.price.toFixed(2) + ' €' }}
+          {{ $t("misc.from") + " " + concert.price.toFixed(2) + " €" }}
         </div>
 
         <div v-if="concert.inStock == 0 && showButton" class="text-h6">
-          {{ $t('concert.concertSoldOut') }}
+          {{ $t("concert.concertSoldOut") }}
         </div>
 
         <div v-else-if="showButton">
           <v-btn variant="flat" color="secondary">
-            {{ $t('concert.goToTheConcert') }}
+            {{ $t("concert.goToTheConcert") }}
           </v-btn>
         </div>
-
       </div>
     </template>
   </card-view-horizontal>
 
-  <card-view-horizontal 
-    v-else
-    :loading="loading"
-  >
-    <v-skeleton-loader
-      type="text" />
+  <card-view-horizontal v-else :loading="loading">
+    <v-skeleton-loader type="text" />
   </card-view-horizontal>
 </template>

@@ -7,9 +7,13 @@ import concertSection from './concertSection.vue';
 import heroImage from '@/components/pageParts/heroImage.vue';
 import { useBandStore } from '@/stores/band.store';
 import { onMounted, watch } from 'vue';
+import { useConcertStore } from '@/stores/concert.store';
 
 const router = useRouter()
 const bandStore = useBandStore()
+const concertStore = useConcertStore()
+
+concertStore.getConcerts()
 
 onMounted(async () => {
   bandStore.getBand(String(router.currentRoute.value.params.name).replaceAll('-', ' '))

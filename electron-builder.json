@@ -37,7 +37,6 @@
     "!dist",
     "!out",
     "!misc",
-    "!database.sqlite",
-    "!node_modules"
+    "!database.sqlite"
   ]
 }

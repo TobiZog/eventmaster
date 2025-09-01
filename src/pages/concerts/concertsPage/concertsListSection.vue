@@ -1,17 +1,15 @@
 <script setup lang="ts">
-import { useConcertStore } from '@/stores/concert.store';
-import concertListItem from '@/components/pageParts/concertListItem.vue';
-import cardViewHorizontal from '@/components/basics/cardViewHorizontal.vue';
-import sectionDivider from '@/components/basics/sectionDivider.vue';
-import concertFilterbar from './concertFilterbar.vue';
+import { useConcertStore } from "@/stores/concert.store";
+import concertListItem from "@/components/pageParts/concertListItem.vue";
+import cardViewHorizontal from "@/components/basics/cardViewHorizontal.vue";
+import sectionDivider from "@/components/basics/sectionDivider.vue";
+import concertFilterbar from "./concertFilterbar.vue";
 
-const concertStore = useConcertStore()
+const concertStore = useConcertStore();
 </script>
 
 <template>
-  <div
-    v-if="concertStore.fetchInProgress"
-  >
+  <div v-if="concertStore.fetchInProgress">
     <section-divider :loading="true" />
     <v-row v-for="i in 3">
       <v-col>
@@ -25,14 +23,22 @@ const concertStore = useConcertStore()
     v-for="(concert, index) of concertStore.concerts"
   >
     <div v-if="concert.offered">
-      <v-row 
-        v-if="index == 0 || 
-        new Date(concertStore.concerts[index - 1].date).getMonth() != 
-        new Date(concertStore.concerts[index].date).getMonth()"
+      <v-row
+        v-if="
+          index == 0 ||
+          new Date(concertStore.concerts[index - 1].date).getMonth() !=
+            new Date(concertStore.concerts[index].date).getMonth()
+        "
       >
         <v-col>
           <section-divider
-            :title="new Date(concert.date).toLocaleString('default', { month: 'long' }) + ' ' + new Date(concert.date).getFullYear()"
+            :title="
+              new Date(concert.date).toLocaleString('default', {
+                month: 'long',
+              }) +
+              ' ' +
+              new Date(concert.date).getFullYear()
+            "
           />
         </v-col>
       </v-row>
