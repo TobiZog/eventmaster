@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import { useRouter } from 'vue-router';
-import ratingSection from './ratingSection.vue';
-import bandMemberSection from './bandMemberSection.vue';
-import gallerySection from './gallerySection.vue';
-import concertSection from './concertSection.vue';
+import ratingSection from './components/ratingSection.vue';
+import bandMemberSection from './components/bandMemberSection.vue';
+import gallerySection from './components/gallerySection.vue';
+import concertSection from './components/concertSection.vue';
 import heroImage from '@/components/pageParts/heroImage.vue';
 import { useBandStore } from '@/stores/band.store';
 import { onMounted, watch } from 'vue';
@@ -38,7 +38,7 @@ watch(() => router.currentRoute.value.params.name, () => {
     <v-row>
       <v-spacer />
 
-      <v-col cols="10">
+      <v-col cols="12" md="10">
         <concert-section />
 
         <band-member-section />

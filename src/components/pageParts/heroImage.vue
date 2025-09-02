@@ -50,7 +50,7 @@ defineProps({
         </v-col>
 
 
-        <v-col cols="8">
+        <v-col cols="12" md="10">
           <!-- Title -->
           <v-skeleton-loader
             type="heading"

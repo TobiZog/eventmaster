@@ -104,7 +104,7 @@ function generateExerciseKey() {
                 <!-- Exercise item -->
                 <v-timeline-item
                   v-if="exercise.available"
-                  :dot-color="exercise.solved ? 'green' : 'primary'"
+                  :dot-color="exercise.solved ? 'green-darken-4' : 'primary'"
                   :icon="exercise.solved ? 'mdi-check' : 'mdi-pencil'"
                 >
                   <!-- Right side -->
@@ -115,7 +115,7 @@ function generateExerciseKey() {
                         exercise.exerciseNr,
                       ]) + getExerciseNameLanguage(exercise)
                     "
-                    :color="exercise.solved ? 'green' : 'primary'"
+                    :color="exercise.solved ? 'green-darken-4' : 'primary'"
                   >
                     {{ getExerciseDescriptionLanguage(exercise) }}
                   </card-view>

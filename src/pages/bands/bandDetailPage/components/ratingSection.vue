@@ -26,7 +26,7 @@ defineProps({
   </v-row>
 
   <v-row>
-    <v-col>
+    <v-col cols="12" md="6">
       <div class="d-flex align-center justify-center flex-column" style="height: 100%;">
         <div class="text-h2 mt-5">
           {{ rating.toFixed(1) }}
@@ -45,7 +45,7 @@ defineProps({
       </div>
     </v-col>
 
-    <v-col>
+    <v-col cols="12" md="6">
       <v-list style="background-color: transparent;">
         <v-list-item
           v-for="ratingValue in ratings"
