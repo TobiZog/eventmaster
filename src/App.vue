@@ -4,10 +4,10 @@ import { i18n } from "./plugins/i18n";
 import { ref, watch } from "vue";
 import { usePreferencesStore } from "./stores/preferences.store";
 import { useFeedbackStore } from "./stores/feedback.store";
-import companyFooter from "./components/navigation/companyFooter.vue";
-import urlBar from "./components/navigation/urlBar.vue";
+import companyFooter from "./components/organisms/companyFooter.vue";
+import urlBar from "./components/organisms/urlBar.vue";
 import { useRouter } from "vue-router";
-import NavigationBar from "./components/navigation/navigationBar.vue";
+import navigationBar from "./components/organisms/navigationBar.vue";
 import { BannerStateEnum } from "./data/enums/bannerStateEnum";
 
 const preferencesStore = usePreferencesStore();

@@ -1,11 +1,11 @@
-import DashboardPage from "@/pages/admin/dashboardPage/index.vue"
-import ConcertsAdminPage from "@/pages/admin/concertsAdminPage/index.vue"
-import BandsAdminPage from "@/pages/admin/bandsAdminPage/index.vue"
-import AccountsAdminPage from "@/pages/admin/accountsAdminPage/index.vue"
-import GenresAdminPage from "@/pages/admin/genresAdminPage/index.vue"
-import LocationsAdminPage from "@/pages/admin/locationsAdminPage/index.vue"
-import FilesAdminPage from "@/pages/admin/filesAdminPage/index.vue"
-import OrdersAdminPage from "@/pages/admin/ordersAdminPage/index.vue"
+import DashboardPage from "@/pages/AdminDashboardPage.vue"
+import ConcertsAdminPage from "@/pages/AdminConcertsPage.vue"
+import BandsAdminPage from "@/pages/AdminBandsPage.vue"
+import AccountsAdminPage from "@/pages/AdminAccountsPage.vue"
+import GenresAdminPage from "@/pages/AdminGenresPage.vue"
+import LocationsAdminPage from "@/pages/AdminLocationsPage.vue"
+import FilesAdminPage from "@/pages/AdminFilesPage.vue"
+import OrdersAdminPage from "@/pages/AdminOrdersPage.vue"
 
 export const adminRoutes = [
   {

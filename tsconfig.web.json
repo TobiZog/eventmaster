@@ -5,6 +5,8 @@
     "package.json"
   ],
   "compilerOptions": {
+    "strict": true,
+    "jsx": "preserve",
     "composite": true,
     "target": "esnext",
     "module": "commonjs",

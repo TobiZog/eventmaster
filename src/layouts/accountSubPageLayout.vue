@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { useRouter } from 'vue-router';
-import outlinedButton from '@/components/basics/outlinedButton.vue';
+import outlinedButton from '@/components/atoms/outlinedButton.vue';
 
 const router = useRouter()
 </script>

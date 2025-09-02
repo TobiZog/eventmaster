@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import outlinedButton from '@/components/basics/outlinedButton.vue';
+import outlinedButton from '@/components/atoms/outlinedButton.vue';
 import { useRouter } from 'vue-router';
 
 const fetchInProgress = defineModel("fetchInProgress", { default: false })
